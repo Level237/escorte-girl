@@ -42,7 +42,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="{{ asset('assets/img/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 
 

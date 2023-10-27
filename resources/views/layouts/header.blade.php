@@ -134,7 +134,7 @@
 
 
 
-                        <a href="add-listing/index.htm" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
+                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Inscription</a>
 
 
 
