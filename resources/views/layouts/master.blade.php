@@ -35,7 +35,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <main id="page-content-wrapper" class="with-mobilemenu">
 @include('layouts.header')
   @yield('content')
- 
+
 @include('layouts.footer')
 
 </main>
