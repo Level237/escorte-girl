@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateUserController;
+use App\Http\Controllers\LoginViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/register', [CreateUserController::class, 'create']);
+Route::get('/login',[LoginViewController::class,'getViewLogin']);
