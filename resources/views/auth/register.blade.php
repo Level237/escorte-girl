@@ -201,7 +201,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-add-listing-save-success" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert"> 
-            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre compte a été créée, amusez vous 
+            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre compte a été créée, amusez vous. 
         </div>
     </div>
 </div>
@@ -1018,7 +1018,11 @@ function processSubmitForm(){
 					
 					jQuery('#ppt-add-listing-save').hide();
 					jQuery('#ppt-add-listing-save-success').show();
-					jQuery('#ppt-add-listing-form').show();
+					jQuery('#ppt-add-listing-form').hide();
+					setTimeout(()=>{
+						window.location.replace("http://127.0.0.1:8000");
+					}, 3000)
+					
 					
 					
 					// if(response.type == "email" || response.type == "username" ){
