@@ -146,15 +146,15 @@ function login_process(){
 </script>
 
 
-<form id="form_user_login" name="form_login" class="ppt-forms ajax_modal" action="#" onsubmit="login_process(); return false; " method="post">
+<form id="form_user_login" name="form_login" class="ppt-forms ajax_modal" action="{{ route('login') }}"  " method="post">
 
 @csrf
   <div class="form-group position-relative">
-    <input type="text" class="form-control" placeholder="numero de téléphone" name="log" id="user_login" value="" autocomplete="current-password">
+    <input type="text" class="form-control" placeholder="numero de téléphone" name="phone_number" id="user_login" value="" autocomplete="current-password">
     <i class="fal fa-phone"></i>
   </div>
   <div class="form-group position-relative">
-    <input type="password" placeholder="mot de passe" class="form-control" name="pwd" id="user_pass" value="" autocomplete="current-password">
+    <input type="password" placeholder="mot de passe" class="form-control" name="password" id="user_pass" value="" autocomplete="current-password">
 
     <i class="fal fa-lock"></i>
 
