@@ -245,8 +245,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="bg-white shadow text-dark mb-4 p-3 rounded-lg">
         
                 
-		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Quick Tip</div> 
-		<p>Already a member? <a href='#' onclick='processLogin(0);'>Sign in</a></p>
+		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Astuce</div> 
+		<p>Déjà membre? <a href='#' onclick='processLogin(0);'>Se connecter</a></p>
         </div>  
         
                
@@ -268,7 +268,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
                
         
-       <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">Save</button>
+ 
         
         </div>
     
@@ -283,7 +283,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
     <div class="card card-add-block mb-0"><div class="card-body"> 
     
-    <div class="_title"><span class="title-number bg-secondary">01</span> Création d'un compte</div> 
+    <div class="_title"><span class="title-number bg-secondary"><i class="fa fa-user"></i></span> Création d'un compte</div> 
     
      
 
