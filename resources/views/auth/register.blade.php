@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> &raquo; Add Listing</title>
+	<link rel="stylesheet" href="{{ asset('assets/intl-tel-input-master/build/css/intlTelInput.css') }}">
     
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -21,6 +22,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
+
 <script src="{{ asset('assets/js/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
 <script src="{{ asset('assets/js/js.plugins-upload.js?ver=1') }}" id="ppt-upload-js"></script>
 <script src="{{ asset('assets/js/js.plugins-selectpicker.js?ver=1') }}" id="ppt-selectpicker-js"></script>
@@ -199,7 +201,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-add-listing-save-success" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert"> 
-            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre compte a été créée, amusez vous 
+            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre compte a été créée, amusez vous. 
         </div>
     </div>
 </div>
@@ -207,7 +209,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-invalid-fields" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert"> 
-            <strong><i class="fa fa-check mr-3"></i>  SVP</strong> - Remplissez bien tous les champs 
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
         </div>
     </div>
 </div>
@@ -243,8 +245,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="bg-white shadow text-dark mb-4 p-3 rounded-lg">
         
                 
-		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Quick Tip</div> 
-		<p>Already a member? <a href='#' onclick='processLogin(0);'>Sign in</a></p>
+		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Astuce</div> 
+		<p>Déjà membre? <a href='#' onclick='processLogin(0);'>Se connecter</a></p>
         </div>  
         
                
@@ -266,7 +268,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
                
         
-       <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">Save</button>
+ 
         
         </div>
     
@@ -281,7 +283,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
     <div class="card card-add-block mb-0"><div class="card-body"> 
     
-    <div class="_title"><span class="title-number bg-secondary">01</span> Création d'un compte</div> 
+    <div class="_title"><span class="title-number bg-secondary"><i class="fa fa-user"></i></span> Création d'un compte</div> 
     
      
 
@@ -305,6 +307,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
 
 </div>
+<label>Numéro de téléphone <span class="text-danger">*</span></label>
+
+
+	<div class="field_wrapper">  
+	<div class="form-group ">
+		<input name="custom[whatsapp]" type="tel" class="form-control required" data-key="phone" id="phone" value="" required> 
+		<span id="valid-msg" style="display:none">✓ Valid</span>
+		<span id="error-msg" class="hide"></span>
+</div>
+</div>
 
 <div class="form-group mt-4">
 
@@ -316,12 +328,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
 </div>
 
-<label>Numéro de téléphone <span class="text-danger">*</span></label>
-					
-	<div class="field_wrapper">  <div class="form-group ">
-		<input name="custom[whatsapp]" type="text" class="form-control required" data-key="whatsapp-input" id="whatsapp-input" value="">
-</div>
-</div>
+
 
 <div class="row">
 
@@ -450,7 +457,7 @@ function LoadStoreList(){
 			<i class="fa fa-arrow-left mr-2"></i> Back</button></div>
     
     <div>
-    <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600" type="button" 
+    <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600" type="button" id="register-btn" 
 	onclick="processSubmitForm()">S'inscrire</button>
     
     
@@ -817,7 +824,7 @@ function processEditData(btype){
 					   
 						var input = document.querySelector("#mobilenum-input");
 						var iti = window.intlTelInput(input, { 
-						  onlyCountries :['cm']
+						  onlyCountries :["FR"],
 						  utilsScript: "https://ppt1080.b-cdn.net/js/js.mobileprefixU.js",
 						 // autoHideDialCode: false,
 						  nationalMode: true,
@@ -850,6 +857,7 @@ function processEditData(btype){
 function processSubmitForm(){ 
  
 	canContinue = true;
+	//console.log(iti.isValidNumber());
 
 	jQuery('#ppt-invalid-fields').hide();
 		
@@ -876,19 +884,21 @@ function processSubmitForm(){
 	return;
 	}
 	
-	console.log(jQuery('#username').val());
+	//Validating phone number
+	//console.log("in process "+jQuery('#valide-phone-number').val());
+	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined || !iti.isValidNumber()){		
+			// steps('5','this');
+			jQuery('[data-key="phone"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
+			return false;		
+	}
+	
  	if(jQuery('#username').val() === "" || jQuery('#username').val() === undefined){		
 			// steps('5','this');
 			jQuery('[data-key="username"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
-			return false;		
-	}
-
-	
- 	if(jQuery('#whatsapp-input').val() === "" || jQuery('#whatsapp-input').val() === undefined){		
-			// steps('5','this');
-			jQuery('[data-key="whatsapp-input"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le nom d'utilisateur est requis");
 			return false;		
 	}
 	
@@ -899,6 +909,7 @@ function processSubmitForm(){
 			jQuery('[data-key="mypass"]').addClass('required-active');
 			jQuery('[data-key="mypass1"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le mot de passe est de 6 caractères mninimum et ça doit correspondrent");
 			return false;
 		}		
 	}
@@ -982,7 +993,7 @@ function processSubmitForm(){
 		
 		const username = jQuery("#username").val();
 		const role = jQuery("#gender").val();
-		const phoneNumber = jQuery("#whatsapp-input").val();
+		const phoneNumber = jQuery("#phone").val();
 		const password = jQuery("#mypass").val();
 
 		console.log(username, role, phoneNumber, password)
@@ -993,10 +1004,10 @@ function processSubmitForm(){
 			url: 'http://192.168.84.150:8001/api/user',	
 			timeout: 15000,
 			data: {
-				username: "savelisting10",
-				role_id: 20,
-				phone_number: "678451225",
-				password: "save",
+				username: username,
+				role_id: role,
+				phone_number: phoneNumber,
+				password: password,
 				formdata: jQuery('#SUBMISSION_FORM').serialize(), 
 					 
 			},
@@ -1007,7 +1018,11 @@ function processSubmitForm(){
 					
 					jQuery('#ppt-add-listing-save').hide();
 					jQuery('#ppt-add-listing-save-success').show();
-					jQuery('#ppt-add-listing-form').show();
+					jQuery('#ppt-add-listing-form').hide();
+					setTimeout(()=>{
+						window.location.replace("http://127.0.0.1:8000");
+					}, 3000)
+					
 					
 					
 					// if(response.type == "email" || response.type == "username" ){
@@ -1672,5 +1687,50 @@ function ajax_newsletter_signup1321(){
     </div>
   </div>
 </div>
+<script src="{{ asset('assets/intl-tel-input-master/build/js/intlTelInput.js') }}"></script>
+<script>
+
+const input = document.querySelector("#phone");
+const button = document.querySelector("#register-btn");
+const errorMsg = document.querySelector("#error-msg");
+const validMsg = document.querySelector("#valid-msg");
+
+// here, the index maps to the error code returned from getValidationError - see readme
+const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+// initialise plugin
+const iti = window.intlTelInput(input, {
+   onlyCountries: ["cm"],
+  utilsScript: "{{ asset('assets/intl-tel-input-master/build/js/utils.js') }} "
+});
+
+const reset = () => {
+  input.classList.remove("error");
+  errorMsg.innerHTML = "";
+  errorMsg.classList.add("hide");
+  jQuery('#valid-msg').hide();
+};
+
+// on click button: validate
+button.addEventListener('click', () => {
+  reset();
+  if (input.value.trim()) {
+    if (iti.isValidNumber()) {
+
+      jQuery('#valid-msg').show();
+    } else {
+
+      input.classList.add("error");
+      const errorCode = iti.getValidationError();
+      errorMsg.innerHTML = errorMap[errorCode];
+      errorMsg.classList.remove("hide");
+    }
+  }
+});
+
+// on keyup / change flag: reset
+input.addEventListener('change', reset);
+input.addEventListener('keyup', reset);
+</script>
 </body>
 </html>
