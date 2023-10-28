@@ -209,7 +209,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-invalid-fields" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert"> 
-            <strong><i class="fa fa-check mr-3"></i>  SVP</strong> - Remplissez bien tous les champs 
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
         </div>
     </div>
 </div>
@@ -317,7 +317,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		<span id="error-msg" class="hide"></span>
 </div>
 </div>
- <input type="hidden" id="valide-phone-number"   value="1">
+
 <div class="form-group mt-4">
 
 <label class="">Créer un nom d'utilisateur pour votre profil. <span class="text-danger">*</span> </label>
@@ -857,6 +857,7 @@ function processEditData(btype){
 function processSubmitForm(){ 
  
 	canContinue = true;
+	//console.log(iti.isValidNumber());
 
 	jQuery('#ppt-invalid-fields').hide();
 		
@@ -884,11 +885,12 @@ function processSubmitForm(){
 	}
 	
 	//Validating phone number
-	console.log(jQuery('#valide-phone-number').val());
-	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined || jQuery('#valide-phone-number').val() === "0"){		
+	//console.log("in process "+jQuery('#valide-phone-number').val());
+	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined || !iti.isValidNumber()){		
 			// steps('5','this');
 			jQuery('[data-key="phone"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
 			return false;		
 	}
 	
@@ -896,14 +898,7 @@ function processSubmitForm(){
 			// steps('5','this');
 			jQuery('[data-key="username"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
-			return false;		
-	}
-
-	
- 	if(jQuery('#whatsapp-input').val() === "" || jQuery('#whatsapp-input').val() === undefined){		
-			// steps('5','this');
-			jQuery('[data-key="whatsapp-input"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le nom d'utilisateur est requis");
 			return false;		
 	}
 	
@@ -914,6 +909,7 @@ function processSubmitForm(){
 			jQuery('[data-key="mypass"]').addClass('required-active');
 			jQuery('[data-key="mypass1"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le mot de passe est de 6 caractères mninimum et ça doit correspondrent");
 			return false;
 		}		
 	}
@@ -997,7 +993,7 @@ function processSubmitForm(){
 		
 		const username = jQuery("#username").val();
 		const role = jQuery("#gender").val();
-		const phoneNumber = jQuery("#whatsapp-input").val();
+		const phoneNumber = jQuery("#phone").val();
 		const password = jQuery("#mypass").val();
 
 		console.log(username, role, phoneNumber, password)
@@ -1008,10 +1004,10 @@ function processSubmitForm(){
 			url: 'http://192.168.84.150:8001/api/user',	
 			timeout: 15000,
 			data: {
-				username: "savelisting10",
-				role_id: 20,
-				phone_number: "678451225",
-				password: "save",
+				username: username,
+				role_id: role,
+				phone_number: phoneNumber,
+				password: password,
 				formdata: jQuery('#SUBMISSION_FORM').serialize(), 
 					 
 			},
@@ -1716,10 +1712,10 @@ button.addEventListener('click', () => {
   reset();
   if (input.value.trim()) {
     if (iti.isValidNumber()) {
-	  jQuery('#valide-phone-number').val("1");
+
       jQuery('#valid-msg').show();
     } else {
-		 jQuery('#valide-phone-number').val("0");
+
       input.classList.add("error");
       const errorCode = iti.getValidationError();
       errorMsg.innerHTML = errorMap[errorCode];
