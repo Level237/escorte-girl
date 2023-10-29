@@ -33,10 +33,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 <main id="page-content-wrapper" class="with-mobilemenu">
-@include('layouts.header')
+   
+    @include('layouts.Frontend.header')
   @yield('content')
 
-@include('layouts.footer')
+  @include('layouts.Frontend.footer')
 
 </main>
 </div>
@@ -253,5 +254,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     </div>
   </div>
 </div>
+<script src="{{ asset('assets/js/bootstrap.js') }}"></script>
 </body>
 </html>

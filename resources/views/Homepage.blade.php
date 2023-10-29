@@ -1,6 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.Frontend.master')
 @section('title', __('Viens Yamo'))
 @section('content')
+
+  
 <html>
   <body>
 <section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">

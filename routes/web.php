@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\auth\LoginController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\LoginViewController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\CreateUserController;
+use App\Http\Controllers\HomepageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\LoginViewController;
 |
 */
 
-Route::get('/', function () {
-    return view('Homepage');
-});
+Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 Route::get('/register', [CreateUserController::class, 'create']);
 Route::get('/login',[LoginViewController::class,'getViewLogin']);

@@ -246,7 +246,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Astuce</div>
-		<p>Déjà membre? <a href='#' onclick='processLogin(0);'>Se connecter</a></p>
+		<p>Déjà membre? <a href="{{ route('login') }}">Se connecter</a></p>
         </div>
 
 

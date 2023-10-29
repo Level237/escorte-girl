@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title>Escort</title>
+    <title>Connectez vous</title>
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
