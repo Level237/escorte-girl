@@ -14,14 +14,22 @@ class LoginController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::accept('application/json')->post($url."/api/login", [
+            $response = Http::asForm()->post($url."/api/login", [
                 'phone_number' => $request->phone_number,
                 'password' => $request->password,
             ]);
             return $response;
+            if(isset($response['error'])){
+                return back()->with('error',"Numero de telephone ou mot de passe invalide");
+            }else{
+                $access_token = json_decode((string) $response->getBody(), true)['access_token'];
+                Session::put('tokenUser', $access_token);
+                Session::save();
 
+                //return $access_token;
+            }
         }catch(\Exception $e){
-            dd($e->getMessage());
+            dd($e);
         }
     }
 }

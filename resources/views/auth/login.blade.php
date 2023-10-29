@@ -74,8 +74,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 function login_process(){
 
-	var user_login 	= document.getElementById("user_login");
-	var user_pass 	= document.getElementById("user_pass");
+
+	var user_login 	= document.getElementById("phone_number");
+	var user_pass 	= document.getElementById("password");
 
 	canContinue = true;
 
@@ -104,14 +105,17 @@ function login_process(){
 
    jQuery.ajax({
         type: "POST",
-        url: ajax_site_url,
+        url: "http://127.0.0.1:8000/api/login",
 		dataType: 'json',
    		data: {
-               action: "login_process",
+            phone_number:user_login,
+            password:user_pass,
+
 			   formdata: formd,
            },
+           console.log("pass")
            success: function(response) {
-
+                console.log("level")
 				 if(response.status == "error"){
 
 				 	jQuery("#login_form_message").addClass('text-danger mb-4').html(response.msg);
@@ -120,16 +124,16 @@ function login_process(){
 					jQuery('.loginbottomextras').show();
 
 				 }else if(response.status == "func_mem"){
-
+                    console.log("level")
 					jQuery(".ppt-modal-wrap").removeClass('show');
 					processNewPayment(response.link);
 
 				 }else if(response.status == "reload"){
-
+                    console.log("level")
 				 	window.location.reload();
 
 				 }else if(response.status == "ok"){
-
+                    console.log("level")
 					window.location.href= response.link;
 
 				 }
@@ -146,22 +150,21 @@ function login_process(){
 </script>
 
 
-<form id="form_user_login" name="form_login" class="ppt-forms ajax_modal" action="{{ route('login') }}"  " method="post">
-
-@csrf
+<form id="form_user_login" name="form_login" class="ppt-forms ajax_modal"  onsubmit="login()"; method="post">
+    @csrf
   <div class="form-group position-relative">
-    <input type="text" class="form-control" placeholder="numero de téléphone" name="phone_number" id="user_login" value="" autocomplete="current-password">
+    <input type="text" class="form-control" placeholder="Entrez votre numero de télephone" name="phone_number" id="phone_number" value="" autocomplete="current-password">
     <i class="fal fa-phone"></i>
   </div>
   <div class="form-group position-relative">
-    <input type="password" placeholder="mot de passe" class="form-control" name="password" id="user_pass" value="" autocomplete="current-password">
+    <input type="password" placeholder="Entrez votre mot de passe" class="form-control" name="password" id="password" value="" autocomplete="current-password">
 
     <i class="fal fa-lock"></i>
 
     <i class="fa fa-eye" onclick="TogglePass('user_pass');"></i>
   </div>
     <div class="form-group">
-    <button type="submit" data-ppt-btn="" class=" btn-block btn-primary btn-lg font-weight-bold text-uppercase">Sign in</button>
+    <button type="submit" data-ppt-btn="" id="btn" style="background: rgba(214, 214, 214, 0.884);cursor:cell" class=" btn-block  btn-lg font-weight-bold text-uppercase">Sign in</button>
   </div>
   <div class="row small opacity-8">
     <div class="col-md-6">
@@ -253,20 +256,21 @@ function login_process(){
 
                 <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
 
-				<noscript id="deferred-styles">
-                    <link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css') }}">
-                    <link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
-                    <link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
+                                  <noscript id="deferred-styles">
 
-                				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+                                    <link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css') }}">
+                                    <link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
+                                    <link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 
-				</noscript>
+                                    <style>
+                    .bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+                    </noscript>
 
 
 
@@ -408,5 +412,37 @@ function login_process(){
     </div>
   </div>
 </div>
+
+<script>
+    const phone_number=document.getElementById("phone_number");
+    const password=document.getElementById("password");
+    let btn=document.getElementById("btn");
+    btn.disabled = true;
+
+    phone_number.addEventListener("input",()=>{
+        if(phone_number.value.length>0){
+            btn.disabled=false;
+            btn.classList.add("btn-primary")
+        }else{
+            btn.disabled=true;
+            btn.classList.remove("btn-primary")
+        }
+    })
+
+    password.addEventListener("input",()=>{
+        if(password.value.length>0){
+            btn.disabled=false;
+            btn.classList.add("btn-primary")
+        }else{
+            btn.disabled=true;
+            btn.classList.remove("btn-primary")
+        }
+    })
+
+function login(){
+
+
+}
+</script>
 </body>
 </html>
