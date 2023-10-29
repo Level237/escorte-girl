@@ -67,8 +67,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="">
 
-<div id="login_form_message">
-</div>
+@if(Session::get("error"))
+    <div id="login_form_message" class="text-danger mb-4">
+        {{ Session::get('error') }}
+    </div>
+@endif
+
 <script>
 
 
@@ -420,9 +424,10 @@ function login_process(){
     btn.disabled = true;
 
     phone_number.addEventListener("input",()=>{
-        if(phone_number.value.length>0){
+        if(phone_number.value.length>0 && password.value.length>0){
             btn.disabled=false;
             btn.classList.add("btn-primary")
+            btn.style.cursor="pointer"
         }else{
             btn.disabled=true;
             btn.classList.remove("btn-primary")
@@ -433,6 +438,7 @@ function login_process(){
         if(password.value.length>0){
             btn.disabled=false;
             btn.classList.add("btn-primary")
+            btn.style.cursor="pointer"
         }else{
             btn.disabled=true;
             btn.classList.remove("btn-primary")

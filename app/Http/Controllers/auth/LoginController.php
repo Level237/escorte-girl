@@ -14,11 +14,11 @@ class LoginController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::asForm()->post($url."/api/login", [
+            $response = Http::asForm()->post($url."/api/login/", [
                 'phone_number' => $request->phone_number,
                 'password' => $request->password,
             ]);
-            return $response;
+
             if(isset($response['error'])){
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
             }else{
