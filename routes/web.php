@@ -19,7 +19,7 @@ use App\Http\Controllers\HomepageController;
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
-Route::get('/register', [CreateUserController::class, 'create']);
-Route::get('/login',[LoginViewController::class,'getViewLogin']);
+Route::get('/register', [CreateUserController::class, 'create'])->middleware('preventBack');
+Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 Route::post('/login',[LoginController::class,'login'])->name('login');

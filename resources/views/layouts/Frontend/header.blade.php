@@ -140,10 +140,10 @@
                         @if(isset($authUser))
                         
                         <div class="btn-group">
-                            <img src="{{ asset('assets/images/escorte-login.png') }}" type="button" class="ppt-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"/>
+                            <img src="{{ asset('assets/images/escorte-login.png') }}" type="button" class="ppt-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><div class="isOnline"></div></img>
                             
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">{{ $authUser->username }}</a></li>
+                              <li><a class="dropdown-item" href="#">{{ $authUser->username }} </a></li>
                               <li><a class="dropdown-item" href="#">Votre profil</a></li>
                               
                               <li><hr class="dropdown-divider"></li>

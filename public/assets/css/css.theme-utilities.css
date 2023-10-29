@@ -2052,6 +2052,18 @@ figure [ppt-search-badges] .badge+.badge { margin-top:10px; }
 
 .text-online { color:#34c434; }
 
+.isOnline{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color:#34c434;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    cursor:pointer;
+    z-index: 999;
+}
+
 .ppt-icons-social.size-sm a span { display:none; }
 
 .single-video{padding:10px 22px;position:relative;z-index:10;background-color:#fff;margin-left:-1px;overflow:hidden;z-index:0}.single-video figure img{-webkit-transition:all1sease;-moz-transition:all 1s ease;-ms-transition:all 1s ease;-o-transition:all 1s ease;transition:all 1s ease}.single-video figure:hover img{-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);-o-transform:scale(1.1);transform:scale(1.1)}
