@@ -19,6 +19,7 @@ use App\Http\Controllers\HomepageController;
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
+// le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
 Route::get('/register', [CreateUserController::class, 'create'])->middleware('preventBack');
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
