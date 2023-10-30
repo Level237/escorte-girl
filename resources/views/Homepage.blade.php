@@ -56,9 +56,9 @@
     <p class="mt-2 opacity-5">Probablement plus d'un homme et plus d'une fois ont dû rechercher des escortes Camerounaises. Ici vous trouverez rapidement la bonne escorte dans le catalogue trié par services, prix, paramètres parmi les meilleurs de votre région.</p>
     
     <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
-        
-        <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
-        
+        @if($locations != null)
+         <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
+        @endif
         @forelse ($locations as $location)
           
             <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
