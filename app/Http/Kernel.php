@@ -6,6 +6,7 @@ use App\Http\Middleware\Admin;
 use App\Http\Middleware\Customer;
 use App\Http\Middleware\Escort;
 use App\Http\Middleware\PreventBackHistory;
+use App\Http\Middleware\User;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -71,6 +72,7 @@ class Kernel extends HttpKernel
         'admin'=>Admin::class,
         'escort'=>Escort::class,
         'customer'=>Customer::class,
+        'user'=>User::class,
         'preventBack'=>PreventBackHistory::class
     ];
 }

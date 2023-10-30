@@ -1,5 +1,5 @@
-<header class=" bg-white navbar-light border-bottom" data-block-id="header"> 
-    
+<header class=" bg-white navbar-light border-bottom" data-block-id="header">
+
     @empty($authUser)
     <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
         <div class="container">
@@ -8,13 +8,13 @@
               <nav ppt-nav="" class="ppt-top-menu pl-0">
               <ul>
               <li><a href="index-1.htm?reset=1">Home</a></li>
-      
+
               <li><a href="about-us/index.htm">About Us</a></li>
-      
+
                <li><a href="contact/index.htm">Contact</a></li>
-      
+
               </ul>
-      
+
                </nav>
             </div>
             <div class="col d-none d-md-block">
@@ -62,34 +62,34 @@
                                           <li> <a href="{{ route('login') }}">Sign In</a> </li>
                                                                               <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
                       <ul>
-      
+
                                        <li class="facebook">
                        <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
-      
+
                        <i class="fab fa-facebook"></i>
-      
-      
+
+
                        </a></li>
                                        <li class="twitter">
                        <a href="#" title="twitter" class="icon-twitter" rel="nofollow" target="_blank">
-      
+
                        <i class="fab fa-twitter"></i>
-      
-      
+
+
                        </a></li>
                                        <li class="instagram">
                        <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
-      
+
                        <i class="fab fa-instagram"></i>
-      
-      
+
+
                        </a></li>
                                        <li class="youtube">
                        <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
-      
+
                        <i class="fab fa-youtube"></i>
-      
-      
+
+
                        </a></li>
                                       </ul>
                       </div>
@@ -101,11 +101,11 @@
         </div>
       </nav>
     @endempty
-   
-  
-  
+
+
+
     <div class="container py-4 logo-lg  ">
-  
+
       <div class="row no-gutters" ppt-flex-center="">
         <div class="col-md-4">
           <a href="index.htm">
@@ -114,19 +114,19 @@
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
               <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
-  
-  
-  
+
+
+
          <li><a href="index-1.htm?reset=1">Home</a></li>
           <li><a href="index-13.htm?s=">Search</a></li>
          <li><a href="contact/index.htm">Contact</a></li>
-  
+
          <li><a href="blog/index.htm">Blog</a></li>
-  
-  
+
+
          </ul>
-  
-  
+
+
            </nav>            <div class="show-ipad show-mobile">
               <div class="d-flex">
                               <div class="ml-4 menu-toggle cursor">
@@ -136,28 +136,31 @@
               </div>
             </div>
                       <div class="hide-mobile">
-  
+
                         @if(isset($authUser))
-                        
+
                         <div class="btn-group">
                             <img src="{{ asset('assets/images/escorte-login.png') }}" type="button" class="ppt-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><div class="isOnline"></div></img>
-                            
+
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="#">{{ $authUser->username }} </a></li>
                               <li><a class="dropdown-item" href="#">Votre profil</a></li>
-                              
+
                               <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Deconnexion</a></li>
+                              <form method="POST" action="{{ route('logout') }}" id="logout">
+                                @csrf
+                            </form>
+                              <li><a style="cursor: pointer" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">Deconnexion</a></li>
                             </ul>
                           </div>
                         @else
                         <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">inscription</a>
                         @endif
-  
-                         
-  
-  
-  
+
+
+
+
+
             </div>
                     </div>
         </div>
