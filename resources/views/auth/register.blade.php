@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title> &raquo; Add Listing</title>
+    <title>Créer un compte</title>
 	<link rel="stylesheet" href="{{ asset('assets/intl-tel-input-master/build/css/intlTelInput.css') }}">
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
@@ -1001,7 +1001,7 @@ function processSubmitForm(){
 		jQuery.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8000/api/user',
+			url: 'http://127.0.0.1:8001/api/user',
 			timeout: 15000,
 			data: {
 				username: username,
@@ -1020,7 +1020,7 @@ function processSubmitForm(){
 					jQuery('#ppt-add-listing-save-success').show();
 					jQuery('#ppt-add-listing-form').hide();
 					setTimeout(()=>{
-						window.location.replace("http://127.0.0.1:8002");
+						window.location.replace("http://127.0.0.1:8000");
 					}, 3000)
 
 
