@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class LocationController extends Controller{
 
   //List of all escorts by towns and quarters
-   public static $locations;
+   public static $locations = [];
 
    public function index(){
 

@@ -57,12 +57,14 @@
     
     <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
         
-        <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">All</a></div>
+        <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
         
-        @foreach ($locations as $location)
-           
+        @forelse ($locations as $location)
+          
             <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
-        @endforeach
+        @empty
+           
+        @endforelse
                 
         
     
@@ -140,7 +142,7 @@
 <div class="container py-4">
 
 
-		@foreach ($locations as $location)
+		@forelse ($locations as $location)
 	    <div class="wrap wrap-{{ $location['town_name'] }}" id="{{ $location['town_name'] }}">
 			<h3>{{ $location['town_name'] }}</h3>
 			<hr>
@@ -149,15 +151,18 @@
 
 					
 				   
-           @foreach ($location['locals'] as $quarter)
+           @forelse ($location['locals'] as $quarter)
             <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline"><a href="javascript:void(0);" onclick="filterLetters('{{ $quarter['quarter_name'] }}');">{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
-          @endforeach
+           @empty
+            
+        @endforelse
 					
 		   
 			</div>
 			</div>
         </div>
-        @endforeach
+        @empty
+        @endforelse
         <div class="wrap wrap-Z" id="Z">
     <h3>Z</h3>
     <hr>
