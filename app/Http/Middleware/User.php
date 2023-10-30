@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 
-class Customer
+class User
 {
     /**
      * Handle an incoming request.
@@ -18,11 +18,10 @@ class Customer
     {
         $currentUser=(new CurrentUserService())->currentUser();
         $role_id=$currentUser['role_id'];
-        if($role_id !==1){
+        if($role_id !==2 && $role_id!==1 && $role_id!==3){
             abort(403);
         }else{
             return $next($request);
         }
-
     }
 }

@@ -18,9 +18,11 @@ class Admin
     {
         $currentUser=(new CurrentUserService())->currentUser();
         $role_id=$currentUser['role_id'];
-        if($role_id !=1){
+        if($role_id !==1){
             abort(403);
+        }else{
+            return $next($request);
         }
-        return $next($request);
+
     }
 }

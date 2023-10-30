@@ -18,9 +18,11 @@ class Escort
     {
         $currentUser=(new CurrentUserService())->currentUser();
         $role_id=$currentUser['role_id'];
-        if($role_id !=2){
+        if($role_id !==2){
             abort(403);
+        }else{
+            return $next($request);
         }
-        return $next($request);
+
     }
 }

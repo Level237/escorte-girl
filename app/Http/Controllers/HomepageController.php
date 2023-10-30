@@ -9,7 +9,8 @@ class HomepageController extends Controller
 {
     public function homepage(Request $request){
 
-       
+        $token=Session::get('tokenUser');
+
         return view('Homepage');
     }
 }
