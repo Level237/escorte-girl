@@ -22,7 +22,7 @@
 
 
 
-          <a href="add-listing/index.htm" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
+          <a href="/register" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Inscription</a>
 
 
                     <a href="index-13.htm?s=" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Start Search</a>
@@ -45,6 +45,218 @@
   </section>
 </body>
 </html><html>
+  
+ <div class="bg-light ppt-page-body">
+<div class="border-bottom">
+<div class="container py-4">
+ 
+<h1 class=" h3 mb-0 pb-0">LES MEILLEURES ESCORTES DU CAMEROUN SONT ICI !</h1>
+
+
+    <p class="mt-2 opacity-5">Probablement plus d'un homme et plus d'une fois ont dû rechercher des escortes Camerounaises. Ici vous trouverez rapidement la bonne escorte dans le catalogue trié par services, prix, paramètres parmi les meilleurs de votre région.</p>
+    
+    <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
+        
+        <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">All</a></div>
+        
+        @foreach ($locations as $location)
+           
+            <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
+        @endforeach
+                
+        
+    
+    <select onchange="filterCategory(this.value);" class="form-control show-mobile">
+    <option value="all">All Categories</option>
+    
+    <option value="18">Black hair Escorts</option>
+     
+    <option value="34">Fitness Escorts</option>
+     
+    <option value="19">Brunette Escorts</option>
+     
+    <option value="35">Massage / Erotic Relaxation Escorts</option>
+     
+    <option value="20">Slim EscortsTall Escorts</option>
+     
+    <option value="36">Photos Verified Escorts</option>
+     
+    <option value="21">BBW Escorts</option>
+     
+    <option value="37">Fly Me To You Escorts</option>
+     
+    <option value="22">Curvy Escorts</option>
+     
+    <option value="38">Doubles Profiles</option>
+     
+    <option value="23">Voluptuous Escorts</option>
+     
+    <option value="8">Non Asian Girls</option>
+     
+    <option value="24">Petite Escorts</option>
+     
+    <option value="9">Asian Girls</option>
+     
+    <option value="25">Touring Escorts</option>
+     
+    <option value="10">Sensual Massage</option>
+     
+    <option value="26">Tattooed Escorts</option>
+     
+    <option value="11">Blonde Escorts</option>
+     
+    <option value="27">No Tattoo Escorts</option>
+     
+    <option value="12">Busty Escorts</option>
+     
+    <option value="28">Submissive Escorts</option>
+     
+    <option value="13">Mature Escorts</option>
+     
+    <option value="29">Shaved Escorts</option>
+     
+    <option value="14">Young Escorts</option>
+     
+    <option value="30">Natural Bush Escorts</option>
+     
+    <option value="15">Cougar Escorts</option>
+     
+    <option value="31">Non Smoking Escorts</option>
+     
+    <option value="16">MILF Escorts</option>
+     
+    <option value="32">Enhanced Breasts Escorts</option>
+     
+    <option value="17">Red hair Escorts</option>
+     
+    <option value="33">Natural Breasts Escorts</option>
+        </select>
+
+
+</div>
+</div>
+
+<div class="bg-white">
+<div class="container py-4">
+
+
+		@foreach ($locations as $location)
+	    <div class="wrap wrap-{{ $location['town_name'] }}" id="{{ $location['town_name'] }}">
+			<h3>{{ $location['town_name'] }}</h3>
+			<hr>
+			<div class="py-3 ">
+		   <div class=""> 
+
+					
+				   
+           @foreach ($location['locals'] as $quarter)
+            <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline"><a href="javascript:void(0);" onclick="filterLetters('{{ $quarter['quarter_name'] }}');">{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
+          @endforeach
+					
+		   
+			</div>
+			</div>
+        </div>
+        @endforeach
+        <div class="wrap wrap-Z" id="Z">
+    <h3>Z</h3>
+    <hr>
+    <div class="py-3 ">
+   <div class=""> 
+
+    </div>
+ 	</div>
+    </div>
+         
+
+</div>
+</div>
+
+<style>
+.tablist .tab { padding: 5px 15px;  }
+.tablist .tab.active { background:#111; border-radius:4px; }
+.tablist .tab.active a { color:#fff; font-weight:bold; }
+.bg-image-wrap { height:130px; width:100%; border-radius:4px; position:relative; background: #fff; border: 1px solid #ddd; }
+.bg-image-wrap .bg-image { background-size: unset; background-repeat: no-repeat;  }
+
+@media (max-width: 575.98px) {
+.bg-image-wrap { height:100px; }
+.bg-image-wrap .bg-image {
+    background-size: contain;
+ 
+}
+}
+</style>
+ 
+<script>
+function filterLetters(l){
+	
+	jQuery(".tab").removeClass('active');
+	jQuery(".tab-"+l).addClass('active');
+	
+	
+	
+	if(l == "all"){
+		
+		jQuery(".wrap").show();
+		cleanCats();
+		
+	}else{
+		jQuery(".wrap").hide();
+		jQuery(".wrap-"+l).show();		
+	}
+
+}
+function filterCategory(l){ 
+	
+	if(l == "all"){
+		
+		jQuery(".wrap").show();
+		cleanCats();
+		
+	}else{
+		jQuery(".wrap").hide();
+		jQuery(".hascat-"+l).show();
+				
+	}
+
+}
+
+function cleanCats(){
+
+	var a = jQuery(".wrap");
+    a.each(function (a) {
+        wrapid = jQuery(this).attr('id').toString();
+		
+	 
+		var a = jQuery(".wrap-"+wrapid+" .category-wrap");
+		a.each(function (a) {
+			topid = jQuery(this).attr('data-topcatid');
+			
+			jQuery('.wrap-'+wrapid+'').addClass(" hascat-"+topid)
+			 
+		});  
+		
+		 
+		links = jQuery('.wrap-'+wrapid+' a').length; 
+		if(links == 0){
+			jQuery(this).hide();
+			jQuery('.tablist').removeClass('justify-content-between');
+			jQuery(".tab-"+wrapid).hide();
+			 
+		}
+    }); 
+
+}
+
+jQuery(document).ready(function(){
+
+cleanCats();
+
+});
+
+</script>
+</div><html>
   <body><section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
   <div class="container">
     <div class="row">

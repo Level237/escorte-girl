@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\HomepageController;
 
@@ -24,3 +25,4 @@ Route::get('/register', [CreateUserController::class, 'create'])->middleware('pr
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/list',[LocationController::class,'index'])->name('list');
