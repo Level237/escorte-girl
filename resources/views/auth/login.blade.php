@@ -168,18 +168,18 @@ function login_process(){
     <i class="fa fa-eye" onclick="TogglePass('user_pass');"></i>
   </div>
     <div class="form-group">
-    <button type="submit" data-ppt-btn="" id="btn" style="background: rgba(214, 214, 214, 0.884);cursor:cell" class=" btn-block  btn-lg font-weight-bold text-uppercase">Sign in</button>
+    <button type="submit" data-ppt-btn="" id="btn" style="background: rgba(214, 214, 214, 0.884);cursor:cell" class=" btn-block  btn-lg font-weight-bold text-uppercase">Connexion</button>
   </div>
   <div class="row small opacity-8">
     <div class="col-md-6">
       <label class="custom-control custom-checkbox">
       <input type="checkbox" name="remember" class="custom-control-input" checked="">
       <div class="custom-control-label">
-        Remember      </div>
+       Se Souvenir de moi      </div>
       </label>
     </div>
     <div class="col-md-6 text-center text-md-right">
-      <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Lost password?</u></a>
+      <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Mot de oublié?</u></a>
     </div>
   </div>
   <input type="hidden" name="testcookie" value="1">

@@ -7,9 +7,9 @@
             <div class="col-md-6 pr-0">
               <nav ppt-nav="" class="ppt-top-menu pl-0">
               <ul>
-              <li><a href="index-1.htm?reset=1">Home</a></li>
+              <li><a href="index-1.htm?reset=1">Accueil</a></li>
 
-              <li><a href="about-us/index.htm">About Us</a></li>
+              <li><a href="about-us/index.htm">A Propos</a></li>
 
                <li><a href="contact/index.htm">Contact</a></li>
 
@@ -59,7 +59,7 @@
                                       BTC</a>
                                     </div>
                   </li>
-                                          <li> <a href="{{ route('login') }}">Sign In</a> </li>
+                                          <li> <a href="{{ route('login') }}">Connexion</a> </li>
                                                                               <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
                       <ul>
 
