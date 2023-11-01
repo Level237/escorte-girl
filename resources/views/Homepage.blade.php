@@ -2,9 +2,6 @@
 @section('title', __('Viens Yamo'))
 @section('content')
 
-<<<<<<< HEAD
-
-=======
 <style>
   .cardbox {
     padding: 30px;
@@ -22,8 +19,7 @@
     content: "\f041";
 }
 </style>
-  
->>>>>>> refs/remotes/origin/main
+
 <html>
   <body>
 <section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">
@@ -67,8 +63,6 @@
 </body>
 </html><html>
 
-<<<<<<< HEAD
-=======
 @if ($announcements)
 <section class="container py-4 add-block block1 active">
 <label class="mt-2" style="color:#000000; font-size:25px; font-family:Poppins, sans-serif; font-weight: 600">Le Nº1 des annonces Yamo, Rencontres et Massage au Cameroun </label>
@@ -80,43 +74,42 @@
 
   @if($loop->index < 3)
     <div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
-      
+
           <div class="cardbox" onclick="processEditData('map');">
-          
+
           <i class="fal fa-map-marker"
           style="color:#000000; font-size:35px;  font-weight: 600" ></i>
-          
+
           <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
             {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }}) </div>
-          
-      </div> 
-      
-    </div> 
+
+      </div>
+
+    </div>
   @endif
 @empty
-  
+
 @endforelse
- 
+
 
 <div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
-    
+
         <div class="cardbox" onclick="processEditData('map');">
-        
+
         <i class="fal fa-map-marker-plus"
         style="color:#000000; font-size:35px;  font-weight: 600" ></i>
-        
+
         <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
          Plus de villes </div>
-        
-    </div> 
-    
-</div> 
-  
+
+    </div>
+
+</div>
+
 
 </div>
 </section >
 @endif
->>>>>>> refs/remotes/origin/main
  <div class="bg-light ppt-page-body">
 <div class="border-bottom">
 <div class="container py-4">

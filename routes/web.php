@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\CreateUserController;
-use App\Http\Controllers\HomepageController;
-use App\Http\Controllers\ServerUnavailableController;
 use App\Http\Controllers\User\LogoutController;
+use App\Http\Controllers\Listing\LocationController;
+use App\Http\Controllers\ServerUnavailableController;
+use App\Http\Controllers\Escort\profile\StepOneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,7 @@ Route::post('/logout',[LogoutController::class,'logout'])
 ->middleware('user');
 
 Route::get('/list',[LocationController::class,'index'])->name('list');
+
+//middleware
+Route::get('/step-one',[StepOneController::class,'stepOne']);
 

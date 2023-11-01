@@ -109,7 +109,7 @@
       <div class="row no-gutters" ppt-flex-center="">
         <div class="col-md-4">
           <a href="index.htm">
-  <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'>Sexy <span class='text-primary'>Escorts</span></div></a>
+  <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'><img style="width:100px;height:100px;" src="{{ asset('assets/images/logo.png') }}"/></div></a>
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
