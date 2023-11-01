@@ -264,7 +264,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
   <div ppt-border1="" class="p-1">
 
-    <div class="search-gradient"> </div>
+    <div class="search-gradient"></div>
 
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -273,16 +273,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
-          New York  
+          New York
         </div>
       </div>
       <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es">
-         
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
     <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+    <span class="fal fa fa-star" style="color:#000000"></span> Gold  </div>
 
 </div>
 
@@ -308,7 +307,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div ppt-search-badges="" style="z-index:1" class="right">
     <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+    <span class="fal fa fa-star" style="color:#000000"></span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es"> </div>
         </figure>
@@ -347,7 +346,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
   <div ppt-border1="" class="p-1">
 
-    <div class="search-gradient"> </div>
+    <div class="search-gradient"></div>
 
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -356,7 +355,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
-          New York  
+          New York 
         </div>
       </div>
       <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es">
@@ -365,7 +364,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div ppt-search-badges="" style="z-index:1" class="right">
     <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+    <span class="fal fa fa-star" style="color:#000000"></span> Gold  </div>
 
 </div>
 
