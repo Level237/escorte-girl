@@ -13,9 +13,10 @@ class LoginController extends Controller
 {
     public function login(Request $request){
         $url=(new UrlApiService())->getUrl();
+        $u=$url."/api/login";
 
         try{
-            $response = Http::asForm()->post($url."/api/login/", [
+            $response = Http::asForm()->post($u, [
                 'phone_number' => $request->phone_number,
                 'password' => $request->password,
             ]);
