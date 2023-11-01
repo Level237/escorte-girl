@@ -26,24 +26,24 @@
 /*-----------------------------------------------*/
 /*	00 - CONTACT LIST
 /*-----------------------------------------------*/
- 
- 
+
+
 .contact-list .contact {    border-bottom: 1px solid #e1e5e9;}
 .contact-list .contact:hover { cursor:pointer; background:#f1f5f9; }
 .contact-list .contact .d-flex { padding:10px; }
-.contact-list .contact ._name { font-weight:600; font-size:14px; } 
-.contact-list .contact ._desc { font-size:12px; margin-top: 5px;    opacity: 0.5; } 
+.contact-list .contact ._name { font-weight:600; font-size:14px; }
+.contact-list .contact ._desc { font-size:12px; margin-top: 5px;    opacity: 0.5; }
 .contact-list .contact .ppt-avatar { margin-right:20px; margin-top: 5px; }
 
 
  .active-contact{
-  
+
 }
  .contact-infos {
      padding-top: 12px;
      padding-left: 0;
 }
- 
+
  .contact-list {
      overflow: auto;
      padding-bottom: 60px;
@@ -63,12 +63,12 @@
      -webkit-box-shadow: inset 0 0 6px transparent;
      background-color: transparent;
 }
- 
+
 /*-----------------------------------------------*/
 /*	00 - CONTACT LIST
 /*-----------------------------------------------*/
- 
- 
+
+
  .user-status-discussion {
      position: absolute;
      left: 15px;
@@ -125,8 +125,8 @@
      height: 80px;
      border-left:1px solid #ddd;
 	 padding-top:5px;
-	 
-	 
+
+
 }
  .discussion-menu {
      height: 70px;
@@ -171,7 +171,7 @@
 /*-----------------------------------------------*/
 /*	00 - CHAT WINDOW
 /*-----------------------------------------------*/
- 
+
 .message-chat-text {
      background-color: #64748b;
      color: #fff;
@@ -182,13 +182,13 @@
      font-size: 14px;
 	 position: relative;
 }
- 
+
 .message-chat:not(.message-chat-right, .message-has-icon) .message-chat-text:before {
 	content: " ";
     position: absolute;
     width: 10px;
     height: 10px;
-    left: -6px;    
+    left: -6px;
     z-index: 1;
     top: auto;
     bottom: 0;
@@ -201,13 +201,14 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    right:-6px;    
+    right:-6px;
     z-index: 1;
     top: auto;
     bottom: 0;
     border: 6px solid #3b82f6;
     border-color: transparent transparent #3b82f6;
-}  
+}
+
 
 .message-chat-right .ppt-avatar { float: right;    margin-left: 20px; }
 
@@ -218,10 +219,10 @@
 }
 
 .message-chat-right:after {
- 
+
     border: 6px solid #3b82f6;
     border-color: transparent transparent #3b82f6;
-} 
+}
 
 
 
@@ -270,8 +271,8 @@
 /*-----------------------------------------------*/
 /*	00 - ATTACHMENTS
 /*-----------------------------------------------*/
-  
-.attachment-file { 
+
+.attachment-file {
 border-radius: 10px;
     width: 221px;
     border: 1px solid #eee;
@@ -283,9 +284,9 @@ border-radius: 10px;
 /*-----------------------------------------------*/
 /*	00 - CHAT WINDOW
 /*-----------------------------------------------*/
- 
 
- 
+
+
  .message-chat-right .message-chat-text.not(.chaticontxt):after {
      content: " ";
      position: absolute;
@@ -310,7 +311,7 @@ border-radius: 10px;
      border: 6px solid #efefef;
      border-color: transparent #efefef #efefef transparent;
 }
-   
+
  .discussion-list::-webkit-scrollbar-track, #ajax_chat_list::-webkit-scrollbar-track {
      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
      border-radius: 10px;
@@ -325,9 +326,9 @@ border-radius: 10px;
      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
      background-color: #e5e5e5;
 }
- 
+
  @media screen and (max-width: 767px) {
-    
+
      .infos-header{
          height: 55px !important;
          line-height: 55px !important;
@@ -362,7 +363,7 @@ border-radius: 10px;
     }
      .discussion h3{
          color: #2a2a2a;
-    } 
+    }
 	.discussion-message .fa-smile { left:5%; }
 }
  .contact-left {

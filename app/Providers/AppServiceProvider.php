@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
+use App\services\Api\CurrentUserService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer('*', function ($view) 
+        {
+            $view->with('authUser', Session::get('currentUser') );    
+        });
     }
 }

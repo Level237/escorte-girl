@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginViewController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\Listing\LocationController;
+use App\Http\Controllers\CreateUserController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\User\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +19,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Homepage');
-});
+Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+
+// le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
+Route::get('/register', [CreateUserController::class, 'create'])->middleware('preventBack');
+Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
+
+Route::post('/login',[LoginController::class,'login'])->name('login');
+
+
+
+//middleware user
+Route::post('/logout',[LogoutController::class,'logout'])
+->name('logout')
+->middleware('user');
+
+Route::get('/list',[LocationController::class,'index'])->name('list');
+
