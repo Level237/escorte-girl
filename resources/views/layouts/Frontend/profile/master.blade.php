@@ -21,9 +21,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script src="../wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
-<script src="../js/js.plugins-upload.js?ver=1" id="ppt-upload-js"></script>
-<script src="../js/js.plugins-selectpicker.js?ver=1" id="ppt-selectpicker-js"></script>
+<script src="{{ asset('assets/js/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
+<script src="{{ asset('assets/js/js.plugins-upload.js?ver=1') }}" id="ppt-upload-js"></script>
+<script src="{{ asset('assets/js/js.plugins-selectpicker.js?ver=1') }}" id="ppt-selectpicker-js"></script>
 
 
 </head>
@@ -4574,17 +4574,17 @@ function ajax_newsletter_signup1321(){
 
 				<noscript id="deferred-styles">
 
-								<link rel="stylesheet" type="text/css" id="boostrap-css" href="../css/_bootstrap.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-fonts" href="../css/css.theme-fonts.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-elementor" href="../css/css.theme-elementor.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-maps" href="../css/css.theme-maps.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-utilities" href="../css/css.theme-utilities.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="../css/css.premiumpress.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="../css/_chat.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-up" href="../css/_up-1.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-submit" href="../css/_submitform-1.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-mobileprefix" href="../css/_mobileprefix.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="../css/_theme_es.css?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-up" href="{{ asset('assets/css/_up-1.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-submit" href="{{ asset('assets/css/_submitform-1.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-mobileprefix" href="{{ asset('assets/css/_mobileprefix.css') }}?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css') }}?v=10.8.9">
 
                 				<style>
 				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>

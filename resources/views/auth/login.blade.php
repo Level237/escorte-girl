@@ -154,7 +154,7 @@ function login_process(){
 </script>
 
 
-<form id="form_user_login" name="form_login" class="ppt-forms ajax_modal"  onsubmit="login()"; method="post">
+<form id="form_user_login" name="form_login" action="{{ route('login') }}" method="post">
     @csrf
   <div class="form-group position-relative">
     <input type="text" class="form-control" placeholder="Entrez votre numero de télephone" name="phone_number" id="phone_number" value="" autocomplete="current-password">
@@ -453,6 +453,6 @@ function login(){
 
 }
 </script>
-<script async src="https://www.google.com/recaptcha/api.js"></script>
+
 </body>
 </html>
