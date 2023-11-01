@@ -349,7 +349,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </div>
 
-
+<!-- Google Recaptcha -->
+        <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 <div class="row mb-2">
 
 <input type="hidden" class="form-control" name="custom[lookinggen]" id="switchVal" value="">
@@ -461,7 +462,7 @@ function LoadStoreList(){
 	onclick="processSubmitForm()">S'inscrire</button>
 
 
-    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">Save</button>
+    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">S'inscrire</button>
 
 
     </div>
@@ -513,7 +514,7 @@ function LoadStoreList(){
 <section class="mb-5  text-600 show-mobile">
 <div class="container">
 
-<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">Save</button>
+<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">S'inscrire</button>
 
 </div>
 </section>
@@ -902,6 +903,14 @@ function processSubmitForm(){
 			return false;
 	}
 
+	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
+		
+			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+			return false;
+	}
+
  	if(jQuery('[data-key="mypass"]').length > 0){
 		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
 		|| ( jQuery('[data-key="mypass"]').val() != jQuery('[data-key="mypass1"]').val()) ||
@@ -995,8 +1004,8 @@ function processSubmitForm(){
 		const role = jQuery("#gender").val();
 		const phoneNumber = jQuery("#phone").val();
 		const password = jQuery("#mypass").val();
-
-		console.log(username, role, phoneNumber, password)
+		const recaptcha = jQuery('#g-recaptcha-response').val();
+		
 		// SAVE THE DATA
 		jQuery.ajax({
 			type: "POST",
@@ -1008,6 +1017,7 @@ function processSubmitForm(){
 				role_id: role,
 				phone_number: phoneNumber,
 				password: password,
+				recaptcha : recaptcha,
 				formdata: jQuery('#SUBMISSION_FORM').serialize(),
 
 			},
@@ -1732,5 +1742,6 @@ button.addEventListener('click', () => {
 input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
 </script>
+<script async src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>

@@ -122,16 +122,22 @@
     <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
         @if($locations != null)
          <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
-        @endif
+        
         @forelse ($locations as $location)
 
             <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
         @empty
 
         @endforelse
+<<<<<<< HEAD
 
 
 
+=======
+         @endif   
+        
+    
+>>>>>>> refs/remotes/origin/main
     <select onchange="filterCategory(this.value);" class="form-control show-mobile">
     <option value="all">All Categories</option>
 
@@ -205,7 +211,9 @@
 <div class="bg-white">
 <div class="container py-4">
 
-
+    @if ($locations)
+      
+    
 		@forelse ($locations as $location)
 	    <div class="wrap wrap-{{ $location['town_name'] }}" id="{{ $location['town_name'] }}">
 			<h3>{{ $location['town_name'] }}</h3>
@@ -227,6 +235,7 @@
         </div>
         @empty
         @endforelse
+      @endif
         <div class="wrap wrap-Z" id="Z">
     <h3>Z</h3>
     <hr>
