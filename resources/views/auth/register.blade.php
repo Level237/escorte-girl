@@ -903,6 +903,14 @@ function processSubmitForm(){
 			return false;
 	}
 
+	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
+		
+			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+			return false;
+	}
+
  	if(jQuery('[data-key="mypass"]').length > 0){
 		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
 		|| ( jQuery('[data-key="mypass"]').val() != jQuery('[data-key="mypass1"]').val()) ||
@@ -996,8 +1004,8 @@ function processSubmitForm(){
 		const role = jQuery("#gender").val();
 		const phoneNumber = jQuery("#phone").val();
 		const password = jQuery("#mypass").val();
-
-		console.log(username, role, phoneNumber, password)
+		const recaptcha = jQuery('#g-recaptcha-response').val();
+		
 		// SAVE THE DATA
 		jQuery.ajax({
 			type: "POST",
@@ -1009,6 +1017,7 @@ function processSubmitForm(){
 				role_id: role,
 				phone_number: phoneNumber,
 				password: password,
+				recaptcha : recaptcha,
 				formdata: jQuery('#SUBMISSION_FORM').serialize(),
 
 			},
