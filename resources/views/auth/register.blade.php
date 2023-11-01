@@ -462,7 +462,7 @@ function LoadStoreList(){
 	onclick="processSubmitForm()">S'inscrire</button>
 
 
-    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">Save</button>
+    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">S'inscrire</button>
 
 
     </div>
@@ -514,7 +514,7 @@ function LoadStoreList(){
 <section class="mb-5  text-600 show-mobile">
 <div class="container">
 
-<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">Save</button>
+<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">S'inscrire</button>
 
 </div>
 </section>
