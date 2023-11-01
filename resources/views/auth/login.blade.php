@@ -170,6 +170,9 @@ function login_process(){
     <div class="form-group">
     <button type="submit" data-ppt-btn="" id="btn" style="background: rgba(214, 214, 214, 0.884);cursor:cell" class=" btn-block  btn-lg font-weight-bold text-uppercase">Connexion</button>
   </div>
+  <!-- Google Recaptcha -->
+        <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+        <br>
   <div class="row small opacity-8">
     <div class="col-md-6">
       <label class="custom-control custom-checkbox">
@@ -450,5 +453,6 @@ function login(){
 
 }
 </script>
+<script async src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>
