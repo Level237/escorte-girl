@@ -19,170 +19,223 @@
     content: "\f041";
 }
 </style>
-<style id='global-styles-inline-css' type='text/css'>
-body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
-:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
-:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
-.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
-</style>
-<script src="{{ asset('assets/js/jquery.min.js') }}" id="jquery-core-js"></script>
-
-
-</head>
-<body class="home blog body-hide-footer theme-es tall-images">
-
-<div id="wrapper" style="display:none;" class="">
-
-<div id="sidebar-wrapper" style="display:none; " class="shadow">
-</div>
-
-<main id="page-content-wrapper" class="with-mobilemenu">
-
+  
 <html>
-  <body><header class=" bg-white navbar-light border-bottom" data-block-id="header"> <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 pr-0">
-        <nav ppt-nav="" class="ppt-top-menu pl-0">
-        <ul>
-        <li><a href="index-1.htm?reset=1">Home</a></li>
+  <body>
+<section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">
+<div class="container position-relative z-10 py-0 py-sm-5 _contents">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-light">
 
-        <li><a href="about-us/index.htm">About Us</a></li>
 
-         <li><a href="contact/index.htm">Contact</a></li>
+<h1 data-ppt-title="" class=" text-light">Meet Local Escorts Online Right Now!</h1>
 
-		</ul>
+<p class="lead text-light" data-ppt-subtitle="">Stunning escorts for incalls and outcalls.</p>
 
-		 </nav>
+
+
+
+        <div class="mt-5 d-flex h1buttonbox mobile-mb-4">
+
+
+
+          <a href="/register" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Inscription</a>
+
+
+                    <a href="index-13.htm?s=" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Start Search</a>
+
+
+        </div>
+
+
+
       </div>
-      <div class="col d-none d-md-block">
-        <nav ppt-nav="" class="seperator" ppt-flex-end="">
-          <ul>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle noc" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fab fa-bitcoin"></i>
-                            </a>
-              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="index-2.htm?c=USD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                USD</a>
-                                <a class="dropdown-item" href="index-3.htm?c=GBP">
-                                <i class="fal fa-pound-sign float-right mt-2"></i>
-                                GBP</a>
-                                <a class="dropdown-item" href="index-4.htm?c=EUR">
-                                <i class="fal fa-euro-sign float-right mt-2"></i>
-                                EUR</a>
-                                <a class="dropdown-item" href="index-5.htm?c=CAD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                CAD</a>
-                                <a class="dropdown-item" href="index-6.htm?c=AUD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                AUD</a>
-                                <a class="dropdown-item" href="index-7.htm?c=JPY">
-                                <i class="fal fa-yen-sign float-right mt-2"></i>
-                                JPY</a>
-                                <a class="dropdown-item" href="index-8.htm?c=INR">
-                                <i class="fal fa-rupee-sign float-right mt-2"></i>
-                                INR</a>
-                                <a class="dropdown-item" href="index-9.htm?c=RUB">
-                                <i class="fal fa-ruble-sign float-right mt-2"></i>
-                                RUB</a>
-                                <a class="dropdown-item" href="index-10.htm?c=TRY">
-                                <i class="fal fa-lira-sign float-right mt-2"></i>
-                                TRY</a>
-                                <a class="dropdown-item" href="index-11.htm?c=PTS">
-                                <span class="float-right mt-1">&#8359;</span>
-                                PTS</a>
-                                <a class="dropdown-item" href="index-12.htm?c=BTC">
-                                <i class="fab fa-bitcoin float-right mt-2"></i>
-                                BTC</a>
-                              </div>
-            </li>
-                                    <li> <a href="wp-login.php.htm">Sign In</a> </li>
-                                                                        <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
-                <ul>
-
-                                 <li class="facebook">
-                 <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
-
-                 <i class="fab fa-facebook"></i>
 
 
-                 </a></li>
-                                 <li class="twitter">
-                 <a href="#" title="twitter" class="icon-twitter" rel="nofollow" target="_blank">
-
-                 <i class="fab fa-twitter"></i>
 
 
-                 </a></li>
-                                 <li class="instagram">
-                 <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
 
-                 <i class="fab fa-instagram"></i>
-
-
-                 </a></li>
-                                 <li class="youtube">
-                 <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
-
-                 <i class="fab fa-youtube"></i>
-
-
-                 </a></li>
-                                </ul>
-                </div>
-                 </li>
-                      </ul>
-        </nav>
-      </div>
     </div>
   </div>
-</nav>
+
+  <div class="bg-image" style="background-image:url('{{ asset('assets/images/hero/hero1.jpg') }}');" data-ppt-image-bg="" data-bg="https://premiumpress1063.b-cdn.net/_demoimagesv10//framework/layouts/_es/chocolate/hero1.jpg"> </div>
+  </section>
+</body>
+</html><html>
+
+@if ($announcements)
+<section class="container py-4 add-block block1 active">
+<label class="mt-2" style="color:#000000; font-size:25px; font-family:Poppins, sans-serif; font-weight: 600">Le Nº1 des annonces Yamo, Rencontres et Massage au Cameroun </label>
+
+<div class="row mt-2">
 
 
-  <div class="container py-4 logo-lg  ">
+@forelse ( $announcements as $announcement )
 
-    <div class="row no-gutters" ppt-flex-center="">
-      <div class="col-md-4">
-        <a href="index.htm">
-<div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'>Sexy <span class='text-primary'>Escorts</span></div></a>
-      </div>
-      <div class="col" ppt-flex-end="">
-        <div class="d-flex ">
-            <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
+  @if($loop->index < 3)
+    <div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
+      
+          <div class="cardbox" onclick="processEditData('map');">
+          
+          <i class="fal fa-map-marker"
+          style="color:#000000; font-size:35px;  font-weight: 600" ></i>
+          
+          <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
+            {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }}) </div>
+          
+      </div> 
+      
+    </div> 
+  @endif
+@empty
+  
+@endforelse
+ 
+
+<div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
+    
+        <div class="cardbox" onclick="processEditData('map');">
+        
+        <i class="fal fa-map-marker-plus"
+        style="color:#000000; font-size:35px;  font-weight: 600" ></i>
+        
+        <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
+         Plus de villes </div>
+        
+    </div> 
+    
+</div> 
+  
+
+</div>
+</section >
+@endif
+ <div class="bg-light ppt-page-body">
+<div class="border-bottom">
+<div class="container py-4">
+ 
+<h1 class=" h3 mb-0 pb-0">LES MEILLEURES ESCORTES DU CAMEROUN SONT ICI !</h1>
 
 
+    <p class="mt-2 opacity-5">Probablement plus d'un homme et plus d'une fois ont dû rechercher des escortes Camerounaises. Ici vous trouverez rapidement la bonne escorte dans le catalogue trié par services, prix, paramètres parmi les meilleurs de votre région.</p>
+    
+    <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
+        @if($locations != null)
+         <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
+        
+        @forelse ($locations as $location)
+          
+            <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
+        @empty
+           
+        @endforelse
+         @endif   
+        
+    
+    <select onchange="filterCategory(this.value);" class="form-control show-mobile">
+    <option value="all">All Categories</option>
+    
+    <option value="18">Black hair Escorts</option>
+     
+    <option value="34">Fitness Escorts</option>
+     
+    <option value="19">Brunette Escorts</option>
+     
+    <option value="35">Massage / Erotic Relaxation Escorts</option>
+     
+    <option value="20">Slim EscortsTall Escorts</option>
+     
+    <option value="36">Photos Verified Escorts</option>
+     
+    <option value="21">BBW Escorts</option>
+     
+    <option value="37">Fly Me To You Escorts</option>
+     
+    <option value="22">Curvy Escorts</option>
+     
+    <option value="38">Doubles Profiles</option>
+     
+    <option value="23">Voluptuous Escorts</option>
+     
+    <option value="8">Non Asian Girls</option>
+     
+    <option value="24">Petite Escorts</option>
+     
+    <option value="9">Asian Girls</option>
+     
+    <option value="25">Touring Escorts</option>
+     
+    <option value="10">Sensual Massage</option>
+     
+    <option value="26">Tattooed Escorts</option>
+     
+    <option value="11">Blonde Escorts</option>
+     
+    <option value="27">No Tattoo Escorts</option>
+     
+    <option value="12">Busty Escorts</option>
+     
+    <option value="28">Submissive Escorts</option>
+     
+    <option value="13">Mature Escorts</option>
+     
+    <option value="29">Shaved Escorts</option>
+     
+    <option value="14">Young Escorts</option>
+     
+    <option value="30">Natural Bush Escorts</option>
+     
+    <option value="15">Cougar Escorts</option>
+     
+    <option value="31">Non Smoking Escorts</option>
+     
+    <option value="16">MILF Escorts</option>
+     
+    <option value="32">Enhanced Breasts Escorts</option>
+     
+    <option value="17">Red hair Escorts</option>
+     
+    <option value="33">Natural Breasts Escorts</option>
+        </select>
 
-       <li><a href="index-1.htm?reset=1">Home</a></li>
-        <li><a href="index-13.htm?s=">Search</a></li>
-       <li><a href="contact/index.htm">Contact</a></li>
 
-       <li><a href="blog/index.htm">Blog</a></li>
+</div>
+</div>
 
+<div class="bg-white">
+<div class="container py-4">
 
-       </ul>
+    @if ($locations)
+      
+    
+		@forelse ($locations as $location)
+	    <div class="wrap wrap-{{ $location['town_name'] }}" id="{{ $location['town_name'] }}">
+			<h3>{{ $location['town_name'] }}</h3>
+			<hr>
+			<div class="py-3 ">
+		   <div class=""> 
 
+					
+				   
+           @forelse ($location['locals'] as $quarter)
+            <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline"><a href="javascript:void(0);" onclick="filterLetters('{{ $quarter['quarter_name'] }}');">{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
+           @empty
+            
+        @endforelse
+					
+		   
+			</div>
+			</div>
+        </div>
+        @empty
+        @endforelse
+      @endif
+        <div class="wrap wrap-Z" id="Z">
+    <h3>Z</h3>
+    <hr>
+    <div class="py-3 ">
+   <div class=""> 
 
-		 </nav>            <div class="show-ipad show-mobile">
-            <div class="d-flex">
-                            <div class="ml-4 menu-toggle cursor">
-                <div ppt-icon-size="32" data-ppt-icon2="">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>                </div>
-              </div>
-            </div>
-          </div>
-                    <div class="hide-mobile">
-
-
-
-                        <a href="add-listing/index.htm" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
-
-
-
-          </div>
-                  </div>
-      </div>
     </div>
  	</div>
     </div>

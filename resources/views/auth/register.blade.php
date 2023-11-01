@@ -349,7 +349,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </div>
 
-
+<!-- Google Recaptcha -->
+        <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 <div class="row mb-2">
 
 <input type="hidden" class="form-control" name="custom[lookinggen]" id="switchVal" value="">
@@ -1732,5 +1733,6 @@ button.addEventListener('click', () => {
 input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
 </script>
+<script async src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>
