@@ -182,7 +182,7 @@ function login_process(){
       </label>
     </div>
     <div class="col-md-6 text-center text-md-right">
-      <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Mot de oublié?</u></a>
+      <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Mot de passe oublié?</u></a>
     </div>
   </div>
   <input type="hidden" name="testcookie" value="1">
