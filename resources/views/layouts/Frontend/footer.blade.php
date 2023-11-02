@@ -19,7 +19,10 @@
 
       <div class="col-md-4 text-center text-md-left logo-lg">
 
-        <div class="mb-4"> <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div> </div>
+        <div class="mb-4"> 
+         <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+         
+        </div>
 
         <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 

@@ -7,6 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/favicon/apple-icon-76x76.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/favicon/apple-icon-114x114.png') }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/favicon/apple-icon-120x120.png') }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/favicon/apple-icon-144x144.png') }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/favicon/apple-icon-152x152.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-icon-180x180.png') }}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/favicon/android-icon-192x192.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/favicon/favicon-96x96.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
     <title>@yield('title')</title>
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
@@ -54,23 +68,23 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
           <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
 
 
-	<li><a href="index.htm" class="">
-        <i class="fal fa-house"></i> Home</a></li>
+	<li><a href="/" class="">
+        <i class="fal fa-house"></i> Accueil</a></li>
 
 
-	<li><a href="index-13.htm?s=" class="">
-        <i class="fal fa-search"></i> Search</a></li>
+	<li><a href="#=" class="">
+        <i class="fal fa-search"></i> Chercher</a></li>
 
 
-     <li> <a href="add-listing/index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
+     <li> <a href="#" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
 
 
-	<li><a href="wp-login.php-2.htm" class="">
-        <i class="fa fa-users-crown"></i> My Account</a></li>
+	<li><a href="#" class="">
+        <i class="fa fa-users-crown"></i> Escorts</a></li>
 
 
-	<li><a href="blog/index.htm" class="">
-        <i class="fal fa-sparkles"></i> Blog</a></li>
+	<li><a href="#" class="">
+        <i class="fal fa-sparkles"></i> Annonces</a></li>
 
 
 

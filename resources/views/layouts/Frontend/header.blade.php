@@ -59,7 +59,8 @@
                                       BTC</a>
                                     </div>
                   </li>
-                                          <li> <a href="{{ route('login') }}">Connexion</a> </li>
+                                        <li> <a href="{{ route('login') }}">Connexion</a> </li>
+                                        <li> <a href="/register">Inscription</a> </li>
                                                                               <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
                       <ul>
 
@@ -108,8 +109,10 @@
 
       <div class="row no-gutters" ppt-flex-center="">
         <div class="col-md-4">
-          <a href="index.htm">
-  <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'>Sexy <span class='text-primary'>Escorts</span></div></a>
+         
+          <a href="/">
+  <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+</a>
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
@@ -117,11 +120,9 @@
 
 
 
-         <li><a href="index-1.htm?reset=1">Home</a></li>
-          <li><a href="index-13.htm?s=">Search</a></li>
-         <li><a href="contact/index.htm">Contact</a></li>
-
-         <li><a href="blog/index.htm">Blog</a></li>
+         <li><a href="#">Annonces</a></li>
+          <li><a href="#">Femmes</a></li>
+         <li><a href="#">Hommes</a></li>
 
 
          </ul>
@@ -154,7 +155,7 @@
                             </ul>
                           </div>
                         @else
-                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">inscription</a>
+                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
                         @endif
 
 
