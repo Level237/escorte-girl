@@ -28,10 +28,7 @@
       <div class="col-lg-6 text-light">
 
 
-<h1 data-ppt-title="" class=" text-light">Meet Local Escorts Online Right Now!</h1>
-
-<p class="lead text-light" data-ppt-subtitle="">Stunning escorts for incalls and outcalls.</p>
-
+<h1 data-ppt-title="" class=" text-light">Rencontrez des escortes locales en ligne dès maintenant !</h1>
 
 
 
@@ -39,10 +36,10 @@
 
 
 
-          <a href="/register" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Inscription</a>
+          <a href="#" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Escorts</a>
 
 
-                    <a href="index-13.htm?s=" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Start Search</a>
+                    <a href="#" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Annonces</a>
 
 
         </div>
@@ -334,9 +331,9 @@ cleanCats();
     <div class="row">
           <div class="col-lg-12">
         <div class="d-flex justify-content-between">
-          <h2 class="mb-5" data-ppt-title="">Popular Escorts</h2>
+          <h2 class="mb-5" data-ppt-title="">Escorts En Vedettes</h2>
           <div>
-                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">View More</a>
+                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
                       </div>
         </div>
       </div>
@@ -347,7 +344,7 @@ cleanCats();
   <figure>
 
 <div class="button-featured-new-wrap es">
-<div class="button-featured-new">Featured</div>
+<div class="button-featured-new">En Vedette</div>
 </div>
 
 
@@ -522,7 +519,7 @@ cleanCats();
       </div>
       <div class="col-md-6 pl-xl-5 ps-xl-5">
 
-        <h2 data-ppt-title="">We put you in touch with nearby girls and guys!</h2>
+        <h2 data-ppt-title="">Nous vous mettons en contact avec des filles et des gars à proximité !</h2>
 
         <p class="my-3" data-ppt-subtitle="">Lorem ipsum dolor sit amet, consectetur
           adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque
@@ -530,8 +527,8 @@ cleanCats();
           neque consequat.</p>
 
 
-                <a href="add-listing/index.htm" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
-                        <a href="index-13.htm?s=" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Start Search</a>
+                <a href="#" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
+                        <a href="#" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Rechercher</a>
 
 
       </div>
@@ -546,13 +543,14 @@ cleanCats();
 
         <div class="text-md-left">
 
-          <h2 class="text-light m-0" data-ppt-title="">Create your free account today!</h2>
+          <h2 class="text-light m-0" data-ppt-title="">Créez votre compte gratuit aujourd'hui !</h2>
 
        </div>
       </div>
       <div class="col-10 mx-auto col-md-4 text-center text-md-right">
 
-        <a href="wp-login.php-1.htm?action=register" class="btn-rounded-25  font- btn-xl btn-light  mt-0  btn-icon icon-after" data-ppt-btn="" data-ppt-btn-link=""> <span data-ppt-btn-txt="">Signup Now</span> <i class="fa fa-long-arrow-alt-right">&nbsp;</i> </a>
+        <a href="wp-login.php-1.htm?action=register" class="btn-rounded-25  font- btn-xl btn-light  mt-0  btn-icon icon-after" data-ppt-btn="" data-ppt-btn-link=""> 
+          <span data-ppt-btn-txt="">Inscription</span> <i class="fa fa-long-arrow-alt-right">&nbsp;</i> </a>
 
       </div>
     </div>
@@ -564,9 +562,9 @@ cleanCats();
     <div class="row">
           <div class="col-lg-12">
         <div class="d-flex justify-content-between">
-          <h2 class="mb-5" data-ppt-title="">Featured Profiles</h2>
+          <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
           <div>
-                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">View More</a>
+                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
                       </div>
         </div>
       </div>

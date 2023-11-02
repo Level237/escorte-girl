@@ -7,11 +7,11 @@
             <div class="col-md-6 pr-0">
               <nav ppt-nav="" class="ppt-top-menu pl-0">
               <ul>
-              <li><a href="index-1.htm?reset=1">Accueil</a></li>
+              <li><a href="#">Accueil</a></li>
 
-              <li><a href="about-us/index.htm">A Propos</a></li>
+              <li><a href="#">A Propos</a></li>
 
-               <li><a href="contact/index.htm">Contact</a></li>
+               <li><a href="#">Contact</a></li>
 
               </ul>
 
