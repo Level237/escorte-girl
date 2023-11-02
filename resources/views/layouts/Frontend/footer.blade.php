@@ -19,7 +19,10 @@
 
       <div class="col-md-4 text-center text-md-left logo-lg">
 
-        <div class="mb-4"> <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div> </div>
+        <div class="mb-4"> 
+         <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+         
+        </div>
 
         <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 
@@ -27,12 +30,12 @@
 
       <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2">
 
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Useful Links</div>
+        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Liens Utiles</div>
         <div class="lh-30">        <ul>
-                <li><a href="index.htm">Home</a></li>
-                <li><a href="about-us/index.htm">About Us</a></li>
-                <li><a href="how-it-works/index.htm">How it works</a></li>
-                <li><a href="blog/index.htm">Blog</a></li>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Annonces</a></li>
+                <li><a href="#">Comment ça marche</a></li>
+                <li><a href="#">Publier une annonce</a></li>
                 </ul>
         </div>
 
@@ -40,12 +43,12 @@
 
       <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2">
 
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Quick Search</div>
+        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Recherche Rapide</div>
         <div class="lh-30">        <ul>
-                <li><a href="index-13.htm?s=">Search</a></li>
-                <li><a href="index-14.htm?s=&sort=pop">Popular</a></li>
-                <li><a href="index-15.htm?s=&sort=id">Newly Added</a></li>
-                <li><a href="index-13.htm?s=">Most Relevant</a></li>
+                <li><a href="#">Rechercher</a></li>
+                <li><a href="i#">Populaire</a></li>
+                <li><a href="#">Ajouts Recents</a></li>
+                <li><a href="#">Plus Important</a></li>
                 </ul>
         </div>
 
@@ -54,8 +57,8 @@
 
       <div class="col-md-4">
 
-        <div class="fs-5 mb-2 text-600">Join our newsletter</div>
-        <p class="opacity-8 mb-3">We write rarely, but only the best content.</p>
+        <div class="fs-5 mb-2 text-600">Rejoignez notre newsletter</div>
+        <p class="opacity-8 mb-3">Nous écrivons rarement, mais seulement le meilleur contenu.</p>
 
 
 
@@ -100,9 +103,9 @@ function ajax_newsletter_signup58945(){
 
 
 <div class="input-group">
-<input type="text" name="ppt_newsletter_mailme58945" id="ppt_newsletter_mailme58945" value="" placeholder="Email Address Here.." style="height:46px;" class="form-control  rounded-0">
+<input type="text" name="ppt_newsletter_mailme58945" id="ppt_newsletter_mailme58945" value="" placeholder="Adresse e-mail ici.." style="height:46px;" class="form-control  rounded-0">
 <div class="input-group-append">
-<button type="submit" class="btn btn-primary px-3">Join</button>
+<button type="submit" class="btn btn-primary px-3">S'abonner</button>
 </div>
 
 
@@ -139,7 +142,7 @@ function ajax_newsletter_signup58945(){
 
 
         <div class="small opacity-8 mt-4">
-          We'll never share your details. See our <a class="opacity-8" href="privacy/index.htm">Privacy Policy</a>
+          Nous ne partagerons jamais vos coordonnées. <a class="opacity-8" href="#"></a>
         </div>
 
       </div>

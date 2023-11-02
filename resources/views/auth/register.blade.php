@@ -6,6 +6,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/favicon/apple-icon-76x76.png') }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/favicon/apple-icon-114x114.png') }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/favicon/apple-icon-120x120.png') }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/favicon/apple-icon-144x144.png') }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/favicon/apple-icon-152x152.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-icon-180x180.png') }}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/favicon/android-icon-192x192.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/favicon/favicon-96x96.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title>Créer un compte</title>
 	<link rel="stylesheet" href="{{ asset('assets/intl-tel-input-master/build/css/intlTelInput.css') }}">
@@ -45,11 +59,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       <div class="col-md-6 pr-0">
         <nav ppt-nav="" class="ppt-top-menu pl-0">
         <ul>
-        <li><a href="../index-1.htm?reset=1">Home</a></li>
+        <li><a href="/">Accueil</a></li>
 
-        <li><a href="../about-us/index.htm">About Us</a></li>
+        <li><a href="#">A Propos</a></li>
 
-         <li><a href="../contact/index.htm">Contact</a></li>
+         <li><a href="#">Contact</a></li>
 
 		</ul>
 
@@ -96,9 +110,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                                 <i class="fab fa-bitcoin float-right mt-2"></i>
                                 BTC</a>
                               </div>
-            </li>
-                                    <li> <a href="../wp-login.php.htm">Sign In</a> </li>
-                                                                        <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
+            				</li>
+                            <li> <a href="{{ route("login") }}">Connexion</a> </li>
+							 <li> <a href="/register">Inscription</a> </li>
+                        <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
                 <ul>
 
                                  <li class="facebook">
@@ -144,8 +159,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="row no-gutters" ppt-flex-center="">
       <div class="col-md-4">
-        <a href="../index.htm">
-<div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'>Sexy <span class='text-primary'>Escorts</span></div></a>
+        <a href="/">
+ <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+</a>
       </div>
       <div class="col" ppt-flex-end="">
         <div class="d-flex ">
@@ -153,11 +169,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-       <li><a href="../index-1.htm?reset=1">Home</a></li>
-        <li><a href="../index-13.htm?s=">Search</a></li>
-       <li><a href="../contact/index.htm">Contact</a></li>
-
-       <li><a href="../blog/index.htm">Blog</a></li>
+       <li><a href="#">Annonces</a></li>
+        <li><a href="#">Femmes</a></li>
+       <li><a href="#">Hommes</a></li>
 
 
        </ul>
@@ -175,7 +189,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-                        <a href="index.htm" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
+                        <a href="index.htm" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">
+							Publier une annonce</a>
 
 
 
@@ -1290,7 +1305,9 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
       <div class="col-md-4 text-center text-md-left logo-lg">
 
-        <div class="mb-4"> <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div> </div>
+        <div class="mb-4"> 
+			<div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+		</div>
 
         <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 
@@ -1489,23 +1506,23 @@ function ajax_newsletter_signup1321(){
           <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
 
 
-	<li><a href="../index.htm" class="">
-        <i class="fal fa-house"></i> Home</a></li>
+	<li><a href="/" class="">
+        <i class="fal fa-house"></i> Accueil</a></li>
 
 
-	<li><a href="../index-13.htm?s=" class="">
-        <i class="fal fa-search"></i> Search</a></li>
+	<li><a href="#" class="">
+        <i class="fal fa-search"></i> Chercher</a></li>
 
 
-     <li> <a href="index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
+     <li> <a href="#" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
 
 
-	<li><a href="../wp-login.php-2.htm" class="">
-        <i class="fa fa-users-crown"></i> My Account</a></li>
+	<li><a href="#" class="">
+        <i class="fa fa-users-crown"></i> Escorts</a></li>
 
 
-	<li><a href="../blog/index.htm" class="">
-        <i class="fal fa-sparkles"></i> Blog</a></li>
+	<li><a href="#" class="">
+        <i class="fal fa-sparkles"></i> Annonces</a></li>
 
 
 
