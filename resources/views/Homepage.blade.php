@@ -106,6 +106,123 @@
 
 </div>
 </section >
+@if ($escorts)
+<section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
+  <div class="container">
+    <div class="row">
+		<div class="col-lg-12">
+					<div class="d-flex justify-content-between">
+					  <h2 class="mb-5" data-ppt-title="">Escorts En Vedettes</h2>
+					  <div>
+									<a href="#" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+								  </div>
+					</div>
+		</div>
+		<div class="col-12">
+			<div class='row'>
+				@php
+					shuffle($escorts);
+				@endphp
+				@forelse ($escorts as $escort)
+					@if ($loop->index == 8)
+						@break
+					@endif
+				<div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
+				  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="43" data-lat="40.72211057045409" data-long="-73.87108987305908" data-address="">
+
+				  <figure>
+
+				<div class="button-featured-new-wrap es">
+				<div class="button-featured-new">En Vedette</div>
+				</div>
+
+
+				<div class="buttons-wrap">
+
+
+
+				<div class="button-new">{{ $escort['town']}}</div>
+
+
+
+
+
+				</div>
+				  <a href="#">
+
+				  <div ppt-border1="" class="p-1">
+
+					<div class="search-gradient"> </div>
+
+					<div class="bg-light position-relative overflow-hidden" style="height:360px;">
+					  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+						<div class="text-white fs-4 text-600">
+						{{ ucfirst($escort['username'])}}
+									<span class="text-online">•</span>
+								  </div>
+						<div class="fs-sm text-white opacity-5 text-400">
+						  {{ $escort['quarter']}}  
+						</div>
+					  </div>
+					  <div class="bg-image" data-bg="{{ $escort['photo']}}">
+						 
+					  </div>
+
+				<div ppt-search-badges="" style="z-index:1" class="right">
+					<div class="badge" style="color:#000000;background-color:#FFC300;">
+					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+
+				</div>
+
+					  <div class="list-info-pop bg-black hide-mobile">
+						<ul class="list-unstyled ">
+											  <li class="d-flex justify-content-between"> <span>Age</span> 
+											  {{ (date('Y') - date('Y',strtotime($escort['year_of_birth'])))}} Ans </li>
+											  <li class="d-flex justify-content-between"> <span>Ville</span> {{ $escort['town']}}</li>
+											  <li class="d-flex justify-content-between"> <span>Sexualité</span> {{ $escort['sexuality']}}</li>
+											</ul>
+					  </div>
+					</div>
+
+				  </div>
+				</a></figure></div>
+
+
+				<div class="show-mobile">
+				  <div class="position-relative mb-3">
+					<a href="#">
+					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+					  <div class="h-100 position-relative">
+						<figure>
+
+				<div ppt-search-badges="" style="z-index:1" class="right">
+					<div class="badge" style="color:#000000;background-color:#FFC300;">
+					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+
+				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
+						</figure>
+					  </div>
+					</div>
+					</a>
+					<div class="lh-20 text-700 " style="margin-top:20px;">
+							<span class="text-online">•</span>
+							<a href="#" class="text-dark">{{ $escort['quarter']}}  , <span class="fs-sm opacity-5">{{ (date('Y') - date('Y',strtotime($escort['year_of_birth'])))}}</span></a>
+					</div>
+				  </div>
+				</div>
+				</body>
+				</html>
+				</div>
+				@empty
+				@endforelse
+			
+			</div>
+				  </div>
+</div>
+  </div>
+</section>
+
+@endif
 @endif
  <div class="bg-light ppt-page-body">
 <div class="border-bottom">
@@ -127,75 +244,6 @@
 
         @endforelse
          @endif
-
-
-    <select onchange="filterCategory(this.value);" class="form-control show-mobile">
-    <option value="all">All Categories</option>
-
-    <option value="18">Black hair Escorts</option>
-
-    <option value="34">Fitness Escorts</option>
-
-    <option value="19">Brunette Escorts</option>
-
-    <option value="35">Massage / Erotic Relaxation Escorts</option>
-
-    <option value="20">Slim EscortsTall Escorts</option>
-
-    <option value="36">Photos Verified Escorts</option>
-
-    <option value="21">BBW Escorts</option>
-
-    <option value="37">Fly Me To You Escorts</option>
-
-    <option value="22">Curvy Escorts</option>
-
-    <option value="38">Doubles Profiles</option>
-
-    <option value="23">Voluptuous Escorts</option>
-
-    <option value="8">Non Asian Girls</option>
-
-    <option value="24">Petite Escorts</option>
-
-    <option value="9">Asian Girls</option>
-
-    <option value="25">Touring Escorts</option>
-
-    <option value="10">Sensual Massage</option>
-
-    <option value="26">Tattooed Escorts</option>
-
-    <option value="11">Blonde Escorts</option>
-
-    <option value="27">No Tattoo Escorts</option>
-
-    <option value="12">Busty Escorts</option>
-
-    <option value="28">Submissive Escorts</option>
-
-    <option value="13">Mature Escorts</option>
-
-    <option value="29">Shaved Escorts</option>
-
-    <option value="14">Young Escorts</option>
-
-    <option value="30">Natural Bush Escorts</option>
-
-    <option value="15">Cougar Escorts</option>
-
-    <option value="31">Non Smoking Escorts</option>
-
-    <option value="16">MILF Escorts</option>
-
-    <option value="32">Enhanced Breasts Escorts</option>
-
-    <option value="17">Red hair Escorts</option>
-
-    <option value="33">Natural Breasts Escorts</option>
-        </select>
-
-
 </div>
 </div>
 
@@ -325,190 +373,10 @@ cleanCats();
 });
 
 </script>
-</div><html>
-  <body><section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-  <div class="container">
-    <div class="row">
-          <div class="col-lg-12">
-        <div class="d-flex justify-content-between">
-          <h2 class="mb-5" data-ppt-title="">Escorts En Vedettes</h2>
-          <div>
-                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
-                      </div>
-        </div>
-      </div>
-            <div class="col-12">
-        <div class='row'><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="43" data-lat="40.72211057045409" data-long="-73.87108987305908" data-address="">
-
-  <figure>
-
-<div class="button-featured-new-wrap es">
-<div class="button-featured-new">En Vedette</div>
 </div>
 
 
-<div class="buttons-wrap">
 
-
-
-<div class="button-new">new</div>
-
-
-
-
-
-</div>
-  <a href="listing/roadblock/index.htm">
-
-  <div ppt-border1="" class="p-1">
-
-    <div class="search-gradient"> </div>
-
-    <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-      <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-        <div class="text-white fs-4 text-600">
-          Roadblock
-                    <span class="text-online">•</span>
-                  </div>
-        <div class="fs-sm text-white opacity-5 text-400">
-          New York  
-        </div>
-      </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es">
-         
-      </div>
-
-<div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-</div>
-
-      <div class="list-info-pop bg-black hide-mobile">
-        <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 45 </li>
-                              <li class="d-flex justify-content-between"> <span>City</span> New York</li>
-                              <li class="d-flex justify-content-between"> <span>Height</span> 167 CM </li>
-                            </ul>
-      </div>
-    </div>
-
-  </div>
-</a></figure></div>
-
-
-<div class="show-mobile">
-  <div class="position-relative mb-3">
-    <a href="listing/roadblock/index.htm">
-    <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-      <div class="h-100 position-relative">
-        <figure>
-
-<div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es"> </div>
-        </figure>
-      </div>
-    </div>
-    </a>
-    <div class="lh-20 text-700 " style="margin-top:20px;">
-            <span class="text-online">•</span>
-            <a href="listing/roadblock/index.htm" class="text-dark">Roadblock, <span class="fs-sm opacity-5">45</span></a>
-    </div>
-  </div>
-</div>
-</body>
-</html></div><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="39" data-lat="40.73967164196744" data-long="-73.94473260377197" data-address="">
-
-  <figure>
-
-<div class="button-featured-new-wrap es">
-<div class="button-featured-new">Featured</div>
-</div>
-
-
-<div class="buttons-wrap">
-
-
-
-<div class="button-new">new</div>
-
-
-
-
-
-</div>
-  <a href="listing/giuliana/index.htm">
-
-  <div ppt-border1="" class="p-1">
-
-    <div class="search-gradient"> </div>
-
-    <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-      <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-        <div class="text-white fs-4 text-600">
-          Giuliana
-                    <span class="text-online">•</span>
-                  </div>
-        <div class="fs-sm text-white opacity-5 text-400">
-          New York  
-        </div>
-      </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es">
-         
-      </div>
-
-<div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-</div>
-
-      <div class="list-info-pop bg-black hide-mobile">
-        <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 31 </li>
-                              <li class="d-flex justify-content-between"> <span>City</span> New York</li>
-                              <li class="d-flex justify-content-between"> <span>Height</span> 177 CM </li>
-                            </ul>
-      </div>
-    </div>
-
-  </div>
-</a></figure></div>
-
-
-<div class="show-mobile">
-  <div class="position-relative mb-3">
-    <a href="listing/giuliana/index.htm">
-    <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-      <div class="h-100 position-relative">
-        <figure>
-
-<div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
-    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es"> </div>
-        </figure>
-      </div>
-    </div>
-    </a>
-    <div class="lh-20 text-700 " style="margin-top:20px;">
-            <span class="text-online">•</span>
-            <a href="listing/giuliana/index.htm" class="text-dark">Giuliana, <span class="fs-sm opacity-5">31</span></a>
-    </div>
-  </div>
-</div>
-</body>
-</html></div></div>
-      </div>
-    </div>
-  </div>
-</section>
 </body>
 </html><html>
   <body><section data-ppt-blockid="text102" data-ppt-blocktype="text" data-ppt-section="" class="section-60">
@@ -549,7 +417,7 @@ cleanCats();
       </div>
       <div class="col-10 mx-auto col-md-4 text-center text-md-right">
 
-        <a href="wp-login.php-1.htm?action=register" class="btn-rounded-25  font- btn-xl btn-light  mt-0  btn-icon icon-after" data-ppt-btn="" data-ppt-btn-link=""> 
+        <a href="/register" class="btn-rounded-25  font- btn-xl btn-light  mt-0  btn-icon icon-after" data-ppt-btn="" data-ppt-btn-link=""> 
           <span data-ppt-btn-txt="">Inscription</span> <i class="fa fa-long-arrow-alt-right">&nbsp;</i> </a>
 
       </div>
@@ -564,7 +432,7 @@ cleanCats();
         <div class="d-flex justify-content-between">
           <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
           <div>
-                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+                        <a href="#" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
                       </div>
         </div>
       </div>

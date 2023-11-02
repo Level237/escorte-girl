@@ -9,6 +9,7 @@ use App\Http\Controllers\User\LogoutController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
 use App\Http\Controllers\Escort\profile\StepOneController;
+use App\Http\Controllers\Escort\DetailEscortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 
 //middleware
 Route::get('/step-one',[StepOneController::class,'stepOne']);
+
+//ESCORT GROUP URL
+Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
 
