@@ -12,6 +12,7 @@ use App\Http\Controllers\auth\AutomaticLoginController;
 use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
+use App\Http\Controllers\Escort\Profile\StepThreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 //middleware
 Route::get('/step-one',[StepOneController::class,'stepOne']);
 Route::get('/step-two',[StepTwoController::class,'stepTwo']);
+Route::get('/step-three',[StepThreeController::class,'stepThree']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
