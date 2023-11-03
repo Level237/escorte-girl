@@ -182,7 +182,7 @@ function login_process(){
 
     <i class="fal fa-lock"></i>
 
-    <i class="fa fa-eye" onclick="TogglePass('user_pass');"></i>
+    <i class="fa fa-eye" onclick="TogglePass('password');"></i>
   </div>
     <div class="form-group">
     <button type="submit" data-ppt-btn="" id="btn" style="background: rgba(214, 214, 214, 0.884);cursor:cell" class=" btn-block  btn-lg font-weight-bold text-uppercase">Connexion</button>

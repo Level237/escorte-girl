@@ -261,7 +261,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 		<div class="text-700 mb-2"><i class="fa fa-info-circle mr-2"></i> Astuce</div>
-		<p>Déjà membre? <a href="{{ route('login') }}">Se connecter</a></p>
+		<p>Déjà un compte? <a href="{{ route('login') }}">Se connecter</a></p>
         </div>
 
 
@@ -316,7 +316,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     </div>
         <div class="usertry gender  gender-3" onclick="processGender('3');">
 
-        <div><i class="fa fa-check-circle"></i> Client</div>
+        <div><i class="fa fa-check-circle"></i> Membre</div>
 
     </div>
         </div>
@@ -349,16 +349,27 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="col-md-6 mobile-mb-2">
 <label>Mot de passe <span class="text-danger">*</span> </label>
-<input type="password" name="mypass" id="mypass" class="form-control big val-nospaces" data-key="mypass" value="" maxlength="20">
 
+<div class="form-group position-relative">
+    <input type="password" placeholder="Mot de passe" class="form-control" name="mypass" id="mypass" data-key="mypass" value="" autocomplete="current-password">
+   
+    <i class="fal fa-lock"></i> 
+    
+    <i class="fa fa-eye" onclick="TogglePass('mypass');"></i>
+  </div>
 
 </div>
 
 <div class="col-md-6 mobile-mb-2">
 
 <label>Confirmation mot de passe <span class="text-danger">*</span> </label>
-<input type="password" name="mypass1" class="form-control big val-nospaces" data-key="mypass1" value="" maxlength="20">
-
+<div class="form-group position-relative">
+    <input type="password" placeholder="Confirmation mot de passe" class="form-control" name="mypass1" id="mypass1" value="" data-key="mypass1" autocomplete="current-password">
+   
+    <i class="fal fa-lock"></i> 
+    
+    <i class="fa fa-eye" onclick="TogglePass('mypass1');"></i>
+  </div>
 
 </div>
 
@@ -918,13 +929,7 @@ function processSubmitForm(){
 			return false;
 	}
 
-	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
-		
-			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
-			return false;
-	}
+	
 
  	if(jQuery('[data-key="mypass"]').length > 0){
 		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
@@ -936,6 +941,14 @@ function processSubmitForm(){
 			jQuery('#ppt-invalid-fields-text').html("Le mot de passe est de 6 caractères mninimum et ça doit correspondrent");
 			return false;
 		}
+	}
+
+	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
+		
+			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+			return false;
 	}
 
 
@@ -1017,8 +1030,8 @@ function processSubmitForm(){
 
 		const username = jQuery("#username").val();
 		const role = jQuery("#gender").val();
-		const phoneNumber = jQuery("#phone").val();
-		const password = jQuery("#mypass").val();
+		var phoneNumber = jQuery("#phone").val();
+		var password = jQuery("#mypass").val();
 		const recaptcha = jQuery('#g-recaptcha-response').val();
 		
 		// SAVE THE DATA
@@ -1038,14 +1051,15 @@ function processSubmitForm(){
 			},
 			success: function(response, statusCode) {
 
-				console.log(statusCode);
+				//console.log(response.);
 				if(statusCode === "success"){
 
 					jQuery('#ppt-add-listing-save').hide();
 					jQuery('#ppt-add-listing-save-success').show();
 					jQuery('#ppt-add-listing-form').hide();
+
 					setTimeout(()=>{
-						window.location.replace("http://127.0.0.1:8000");
+						window.location.replace("http://127.0.0.1:8000/loginAuto?phone_number="+phoneNumber+"&password="+password);
 					}, 3000)
 
 
