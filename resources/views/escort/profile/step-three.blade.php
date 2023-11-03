@@ -106,7 +106,7 @@
 
 
             </div>
-            <div class="flex  mt-6">
+            <div class="flex  mt-6 mx-4">
                 <fieldset>
                     <legend class="sr-only">Checkbox variants</legend>
 
