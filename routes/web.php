@@ -11,6 +11,7 @@ use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
 use App\Http\Controllers\Escort\profile\StepOneController;
 use App\Http\Controllers\Escort\DetailEscortController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,10 @@ Route::get('/step-one',[StepOneController::class,'stepOne']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
+
+Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
+//Route with auth middleware
+Route::middleware(['auth'])->group(function () {
+     
+});
 
