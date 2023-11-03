@@ -56,34 +56,69 @@
             <div>
 
                 <div class="flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
 
-                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel est votre sexualité?</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Bixesuel</option>
-                        <option>Lesbienne</option>
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <div class="mb-6">
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username escort *</label>
+                            <input name="escort_name"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <div class="mb-6">
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input name="email"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel age aviez vous?</label>
+                        <select id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
                         </select>
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <label for="ethnic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ethie etes vous?</label>
+                        <select id="ethnic" name="ethnic_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option>Douala</option>
+                        <option>Bamiliké</option>
+                        </select>
+                    </div>
+                </div>
 
-                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ou habitez-vous?</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <div class="flex flex-col md:flex-row mt-6">
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel est votre couleur de peau?</label>
+                        <select id="skinColor" name="skin_color_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option>Brune</option>
+                        <option>Noire</option>
+                        <option>Metis</option>
+                        <option>Blanche</option>
+                        </select>
+                    </div>
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ville etes vous?</label>
+                        <select id="countries" name="town_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option>Douala</option>
                         <option>Yaoundé</option>
                         </select>
                     </div>
                 </div>
-
-                </div>
-                <div class="flex flex-col md:flex-row">
-
-
-                </div>
             </div>
             <div class="flex p-2 mt-4">
 
                 <div class="flex-auto flex flex-row-reverse">
-                    <button class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer
+                    <button type="submit" class="text-base  ml-2  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer
             hover:bg-teal-600
             bg-teal-600
             text-teal-100
