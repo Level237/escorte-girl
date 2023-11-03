@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Escort\profile;
+namespace App\Http\Controllers\Escort\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

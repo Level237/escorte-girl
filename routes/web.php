@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\AutomaticLoginController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\User\LogoutController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
-use App\Http\Controllers\Escort\profile\StepOneController;
+use App\Http\Controllers\auth\AutomaticLoginController;
 use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\Escort\Profile\StepOneController;
+use App\Http\Controllers\Escort\Profile\StepTwoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 
 //middleware
 Route::get('/step-one',[StepOneController::class,'stepOne']);
+Route::get('/step-two',[StepTwoController::class,'stepTwo']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
