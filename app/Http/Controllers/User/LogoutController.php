@@ -14,6 +14,6 @@ class LogoutController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
 
-        return to_route('login');
+        return to_route('homepage');
     }
 }
