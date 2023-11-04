@@ -10,6 +10,7 @@ use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
 use App\Http\Controllers\auth\AutomaticLoginController;
 use App\Http\Controllers\Escort\DetailEscortController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
@@ -52,4 +53,10 @@ Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
+
+Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
+//Route with auth middleware
+Route::middleware(['auth'])->group(function () {
+     
+});
 

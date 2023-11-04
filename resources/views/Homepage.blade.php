@@ -177,7 +177,7 @@
 					  <div class="list-info-pop bg-black hide-mobile">
 						<ul class="list-unstyled ">
 											  <li class="d-flex justify-content-between"> <span>Age</span>
-											  {{ (date('Y') - date('Y',strtotime($escort['year_of_birth'])))}} Ans </li>
+											  {{ ($escort['age']) }} Ans </li>
 											  <li class="d-flex justify-content-between"> <span>Ville</span> {{ $escort['town']}}</li>
 											  <li class="d-flex justify-content-between"> <span>Sexualité</span> {{ $escort['sexuality']}}</li>
 											</ul>
@@ -206,7 +206,9 @@
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-							<a href="#" class="text-dark">{{ $escort['quarter']}}  , <span class="fs-sm opacity-5">{{ (date('Y') - date('Y',strtotime($escort['year_of_birth'])))}}</span></a>
+							<a href="#" class="text-dark">{{ $escort['quarter']}}  , 
+                <span class="fs-sm opacity-5">
+                  {{ ($escort['age']) }}</span></a>
 					</div>
 				  </div>
 				</div>
