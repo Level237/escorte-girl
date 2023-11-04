@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Escort;
 use App\Http\Controllers\Controller;
-use  App\services\Api\UrlApiService;
+use  App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 
 class EscortController extends Controller{

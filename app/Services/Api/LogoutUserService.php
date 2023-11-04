@@ -1,11 +1,11 @@
 <?php
 
-namespace App\services\Api;
+namespace App\Services\Api;
 
 use Exception;
-use App\services\Api\UrlApiService;
+use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
-use App\services\Api\HasTokenService;
+use App\Services\Api\HasTokenService;
 
 class LogoutUserService{
 
