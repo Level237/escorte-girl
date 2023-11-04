@@ -28,6 +28,8 @@ class StepOneController extends Controller
 
         if(Session::has('EscortStepOne')){
             Session::forget('EscortStepOne');
+        }else if(Session::has('EscortStepTwo')){
+            Session::forget('EscortStepTwo');
         }
         $data=[
             "escort_name"=>$request->escort_name,

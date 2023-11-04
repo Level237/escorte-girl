@@ -51,8 +51,8 @@
     </div>
     <div class="mt-8 p-4 mx-10">
 
-        <form method="GET">
-
+        <form method="POST" action="{{ route('step-three-store') }}">
+            @csrf
             <div>
 
                 <div class="flex flex-col md:flex-row mb-6">
@@ -62,6 +62,9 @@
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="large_size">Telecharger votre profil</label>
                         <input name="photo" class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file">
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">mettez un profil tres exitant de vous pour avoir plus de contacts des clients.</div>
+                        @error('photo')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                        @enderror
                     </div>
 
 
@@ -76,7 +79,9 @@
                             <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
 
                         </div>
-
+                        @error('description')
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                    @enderror
                     </div>
 
 
@@ -86,16 +91,19 @@
 
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
                         <label for="height" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selectionnez un ou plusieurs Services</label>
-                        <select id="height" name="services[]" multiple name="height_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25</option>
+
+                        <select id="height" name="services[]" multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                            @foreach ($listServices as $service)
+                            @foreach ($service as $s)
+                            <option value="{{ $s->id }}">{{ $s->service_name }}</option>
+                            @endforeach
+
+                        @endforeach
                         </select>
+                        @error('services[]')
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                    @enderror
                     </div>
 
 
