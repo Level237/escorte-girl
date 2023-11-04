@@ -13,6 +13,7 @@ use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
+use App\Http\Controllers\Ads\AdsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,9 +51,9 @@ Route::get('/step-two',[StepTwoController::class,'stepTwo']);
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
 
+
+//Annoucements GROUP URL
+Route::get('/ads',[AdsController::class, 'create']);
+
 Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
-//Route with auth middleware
-Route::middleware(['auth'])->group(function () {
-     
-});
 
