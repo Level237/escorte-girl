@@ -14,6 +14,8 @@ use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
 use App\Http\Controllers\Ads\AdsController;
+use App\Http\Controllers\Escort\Profile\StepFinalController;
+use App\Http\Controllers\Escort\Profile\StepThreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +47,11 @@ Route::post('/logout',[LogoutController::class,'logout'])
 Route::get('/list',[LocationController::class,'index'])->name('list');
 
 //middleware
-Route::get('/step-one',[StepOneController::class,'stepOne']);
-Route::get('/step-two',[StepTwoController::class,'stepTwo']);
+Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
+Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
+Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
+Route::get('/step-three',[StepThreeController::class,'stepThree']);
+Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
@@ -56,4 +61,8 @@ Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
 Route::get('/ads',[AdsController::class, 'create']);
 
 Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
+//Route with auth middleware
+Route::middleware(['auth'])->group(function () {
+
+});
 

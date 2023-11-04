@@ -51,8 +51,8 @@
     </div>
     <div class="mt-8 p-4 mx-10">
 
-        <form method="GET">
-
+        <form method="POST" action="{{ route('step-one-store') }}">
+            @csrf
             <div>
 
                 <div class="flex flex-col md:flex-row">
@@ -61,6 +61,9 @@
                         <div class="mb-6">
                             <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username escort *</label>
                             <input name="escort_name"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @error('escort_name')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
@@ -75,9 +78,10 @@
                 </div>
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel age aviez vous?</label>
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel age aviez vous? *</label>
                         <select id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>18</option>
+                            <option value="">Selectionnez un age</option>
+                            <option>18</option>
                         <option>19</option>
                         <option>20</option>
                         <option>21</option>
@@ -86,32 +90,57 @@
                         <option>24</option>
                         <option>25</option>
                         </select>
+                        @error('age')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            @enderror
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="ethnic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ethie etes vous?</label>
+                        <label for="ethnic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ethie etes vous? *</label>
                         <select id="ethnic" name="ethnic_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Douala</option>
-                        <option>Bamiliké</option>
+                        @foreach ($listEthnic as $ethnic)
+                        <option value="">Selectionnez une ethnie</option>
+                            @foreach ($ethnic as $e)
+                            <option value="{{ $e->id }}">{{ $e->ethnic_name }}</option>
+                            @endforeach
+
+                        @endforeach
                         </select>
+                        @error('ethnic_id')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row mt-6">
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel est votre couleur de peau?</label>
+                        <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel est votre couleur de peau? *</label>
                         <select id="skinColor" name="skin_color_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Brune</option>
-                        <option>Noire</option>
-                        <option>Metis</option>
-                        <option>Blanche</option>
+                            <option value="">Selectionnez une couleur de peau</option>
+                            @foreach ($listSkinColor as $skinColor)
+                            @foreach ($skinColor as $s)
+                            <option value="{{ $s->id }}">{{ $s->skin_color_name }}</option>
+                            @endforeach
+
+                        @endforeach
                         </select>
+                        @error('skin_color_id')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ville etes vous?</label>
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ville etes vous? *</label>
                         <select id="countries" name="town_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Douala</option>
-                        <option>Yaoundé</option>
+                            <option value="">Selectionnez une ville</option>
+                            @foreach ($listTown as $town)
+                            @foreach ($town as $t)
+                            <option value="{{ $t->id }}">{{ $t->town_name }}</option>
+                            @endforeach
+
+                        @endforeach
                         </select>
+                        @error('town_id')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -123,14 +152,7 @@
             bg-teal-600
             text-teal-100
             border duration-200 ease-in-out
-            border-teal-600 transition">Next</button>
-                    <button class="text-base hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer
-            hover:bg-teal-200
-            bg-teal-100
-            text-teal-700
-            border duration-200 ease-in-out
-            border-teal-600 transition">Skip</button>
-                </div>
+            border-teal-600 transition">Suivant</button>
         </form>
 
 

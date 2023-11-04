@@ -1,8 +1,8 @@
 <?php
 
-namespace App\services\Api;
+namespace App\Services\Api;
 
-use App\services\Api\UrlApiService;
+use App\Services\Api\UrlApiService;
 use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
