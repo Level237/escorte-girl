@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\services\Api\CurrentUserService;
+use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 
 class Customer
