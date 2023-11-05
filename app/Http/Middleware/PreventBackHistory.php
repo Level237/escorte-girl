@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\services\Api\CurrentUserService;
-use App\services\Api\HasTokenService;
+use App\Services\Api\HasTokenService;
+use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 
 class PreventBackHistory
@@ -24,6 +24,6 @@ class PreventBackHistory
         }else{
             return $next($request);
         }
-        
+
     }
 }

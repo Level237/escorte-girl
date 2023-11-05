@@ -51,7 +51,7 @@
     </div>
     <div class="mt-8 p-4 mx-10">
 
-        <form method="POST" action="{{ route('step-three-store') }}">
+        <form method="POST" action="{{ route('step-three-store') }}" >
             @csrf
             <div>
 
