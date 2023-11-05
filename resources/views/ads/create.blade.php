@@ -103,14 +103,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_title"><span class="title-number bg-secondary"><i class="fa fa-file"></i></span> Créer une annonce</div>
 
-
+<form  action="{{ route('ads.save') }}" id="global-form"  method="post">
+@csrf
+ <input type="hidden" name="token" id="token" value="{{$token}}">
 <div class="row">
 
 <div class="col-md-6 mobile-mb-2">
 <label>Titre <span class="text-danger">*</span> </label>
 
 <div class="form-group position-relative">
-    <input type="text" placeholder="Entrer le titre" class="form-control" name="mypass" id="mypass" data-key="mypass" value="" autocomplete="current-password">
+    <input type="text" placeholder="Entrer le titre de l'annonce" class="form-control" name="title" id="title" data-key="title" value="" autocomplete="current-password">
 
   </div>
 
@@ -122,9 +124,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="form-group position-relative">
   
     <select class="form-control" name="category" id="category">
-		<option value="1">Produits Adultes</option>
-		<option value="1">Produits Adultes</option>
-		<option value="1">Produits Adultes</option>
+		@foreach ($adsCategories as $category)
+			<option value="{{  $category['id'] }}">{{ $category['title'] }}</option>
+		@endforeach
+
 	</select>
   </div>
 
@@ -139,13 +142,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	<label>Type d'annonce <span class="text-danger">*</span> </label>
 
 		<div class="mt-2">
-
-					<div class="usertry gender checked gender-2" onclick="processGender('2');">
+					<input type="hidden" id="adstype" value="1" name="adstype">
+					<div class="usertry gender checked gender-2" onclick="processGender('1');">
 
 							<div><i class="fa fa-check-circle"></i> Offre (Vous Proposez)</div>
 
 					</div>
-					<div class="usertry gender  gender-3" onclick="processGender('3');">
+					<div class="usertry gender  gender-3" onclick="processGender('0');">
 
 						<div><i class="fa fa-check-circle"></i> Demande (Vous Recherchez)</div>
 
@@ -159,48 +162,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	<label>Ville <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
   
-    <select class="form-control" name="category" id="category">
-		<option value="1">Douala</option>
-		<option value="1">Yaounde</option>
-		<option value="1">Bafoussam</option>
+    <select class="form-control" name="town" id="town">
+		@foreach ($towns as $town)
+			<option value="{{  $town['id'] }}">{{ $town['town_name'] }}</option>
+		@endforeach
+		
 	</select>
   </div>
 
 </div>
 
-</div>
-
-<div class="row">
-
-
-  <script type="text/javascript">
-                    Dropzone.options.ads-dropzone = {
-                        maxFilesize: 10,
-                        acceptedFiles: ".jpeg,.jpg,.png",
-                        addRemoveLinks: true,
-                        timeout: 5000,
-                        maxFiles : 2
-                    };
-            </script>
-<div class="col-md-12 mobile-mb-2">
-	
-	<div >
-			<label class="w-100">Photos  <span class="text-danger">*</span>(0/3) (.png, .jpg, .jpeg) </label> 
-			
-			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
-				  <i class="fa fa-cloud-upload" style="color:red"></i>
-				  <div class="small">
-					 <form action="/file-upload" class="dropzone" id="ads-dropzone">
-			 </form>     
-				  </div>
-				</div>
-			
-          
-
-            
-     </div>
-
-</div>
 </div>
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
@@ -211,13 +182,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   </div>
   <input type="hidden" name="textarea_counter_hidden" value="100" id="textarea_counter_hidden">
     <label class="w-100">Description  <span class="text-danger">*</span> </label>
-    <textarea name="form[post_content]" class="form-control rounded-0 required-field" tabindex="2" id="field-post_content"></textarea>
+    <textarea name="form[post_content]"  class="form-control rounded-0 required-field" tabindex="2" data-key="field-post_content" id="field-post_content"></textarea>
   </div>
 	
 </div>
 
 </div>
+@csrf
+					 
+						
+</form>
+<div class="row">
+<div class="col-md-12 mobile-mb-2">
+	
+	<div >
+			<label class="w-100">Photos  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+		   
+			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
+				  <i class="fa fa-cloud-upload" style="color:red"></i>
+				  <div class="small">
+					 <form  class="dropzone" action="{{ route('ads.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
+					  @csrf
+						 <input type="hidden" name="token" id="token" value="{{$token}}">
+						
+					 </form>     
+				  </div>
+				</div>
+			
+          
 
+            
+     </div>
+
+</div>
+</div>
+  <script type="text/javascript">
+                    Dropzone.options.ads-dropzone = {
+						Name: "Charger vos fichiers ici",
+						paramName: "file",
+                        maxFilesize: 10,
+                        acceptedFiles: ".jpeg,.jpg,.png",
+                        addRemoveLinks: true,
+                        timeout: 5000,
+                        maxFiles : 2,
+						autoProcessQueue: false
+                    };
+            </script>
 
 
 
@@ -225,6 +235,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <!-- Google Recaptcha -->
         <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 <div class="row mb-2">
+
+
 
 <input type="hidden" class="form-control" name="custom[lookinggen]" id="switchVal" value="">
 
@@ -280,33 +292,6 @@ jQuery(document).ready(function() {
 });
 
 
-
-function LoadStoreList(){
-
-	jQuery.ajax({
-		type: "POST",
-		url: 'http://escort.test/',
-		dataType: 'json',
-		data: {
-				action: "load_store_list",
-				selected: "",
-		},
-		success: function(response) {
-
-		 	if(response.total > 0){
-
-				jQuery("#storelist").html(response.output);
-
-			}
-
-		},
-		error: function(e) {
-			console.log(e)
-		}
-	});
-
-}
-
 </script>
 </div>
 
@@ -325,7 +310,15 @@ function LoadStoreList(){
 
 
     <div class="d-flex justify-content-between p-2 text-600">
+		<div class="row">
+<div class="col-md-8 mobile-mb-2">
+  
+ En cliquant sur créer mon annonce, j'accepte les <a href="#">conditions d'utilisation</a>  de 
+ <a href="#">viens-yamo.com</a> et sa <a href="#">politique de confidentialité</a>.
+	
+</div>
 
+</div>
     <div>
 		<button data-ppt-btn="" class=" btn-system btn-back btn-lg scroll-top-quick" type="button" onclick="steps('1','back')">
 			<i class="fa fa-arrow-left mr-2"></i> Back</button></div>
@@ -360,34 +353,10 @@ function LoadStoreList(){
 
  </div>
 
-
-
-
-
-
-
-
-
-<div class="ppt-add-listing-payment mb-4 show-mobile" style="display:none;">
-
-    <div class="container mt-4">
-        <div class="bg-black rounded p-3 text-light">
-            <div class="d-flex justify-content-between text-700">
-
-            <div>Total</div>
-
-            <div class="totalPriceDisplay"><span class="ppt-price">0</span></div>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-
 <section class="mb-5  text-600 show-mobile">
 <div class="container">
 
-<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">S'inscrire</button>
+<button type="button" data-ppt-btn="" class=" btn-lg btn-secondary btn-save" id="mainSaveBtn">Créer l'annonce</button>
 
 </div>
 </section>
@@ -447,53 +416,6 @@ function showcustomfields(){
 	});
 }
 
-function updateTotal(){
-
-	var totaldue = 0;
-
-	if(jQuery('[data-amount]').length > 0){
-
-		var a = jQuery("[data-amount]");
-		a.each(function (a) {
-
-			var type = jQuery(this).attr('type');
-
-			console.log(type);
-
-			if(  ( type == "checkbox" || type == "radio"  ) && jQuery(this).prop("checked") ){
-
-			amount = parseFloat(jQuery(this).attr("data-amount"));
-			totaldue += amount;
-
-			}else if(jQuery(this).val() == 1){
-
-			amount = parseFloat(jQuery(this).attr("data-amount"));
-			totaldue += amount;
-
-			}
-
-		});
-	}
-
-	jQuery("#totaldue").val(totaldue);
-	jQuery(".totalPriceDisplay span").html(totaldue);
-	UpdatePrices();
-
-	if(totaldue > 0){
-
-		jQuery(".ppt-add-listing-payment").show();
-
-		jQuery(".btn-save").html("Pay Now");
-
-	}else{
-
-	jQuery(".btn-save").html("Save");
-
-	}
-
-
-}
-
 jQuery(document).ready(function(){
 
 	textarealimit();
@@ -503,18 +425,6 @@ jQuery(document).ready(function(){
 				scrollTop: 0
 			}, 100);
 			return false;
-	});
-
-
-	jQuery('input[data-key="title"]').on('change', function () {
-			username_generate(jQuery('input[data-key="title"]').val());
-
-	});
-
-	jQuery('input[data-key="username"]').on('change', function () {
-
-		jQuery(this).val(jQuery(this).val().replace(/\s+/g, ''));
-
 	});
 
 
@@ -535,102 +445,6 @@ jQuery(document).ready(function(){
 
 });
 
-
-
-
-
-function username_generate(name){
-
-	jQuery("#ajax-username").html('');
-
-	jQuery.ajax({
-                type: "POST",
-				dataType: 'json',
-                url: 'http://escort.test/',
-         	data: {
-                     action: "ajax_username_generate",
-         			name: name,
-                 },
-               success: function(response) {
-
-         			if(response.status == "ok"){
-
-					 jQuery("#ajax-username").html('');
-
-					jQuery.each(response.data, function(key, val) {
-
-						jQuery("#ajax-username").append('<div class="usertry" data-block="block" data-parent="username" data-value="'+val+'">'+val+'</div>');
-
-					});
-
-
-					jQuery('.usertry').each(function () {
-
-						jQuery(this).on('click',function(e) {
-
-							var input = jQuery('input[data-key="username"]');
-
-							 jQuery(".usertry").removeClass('checked');
-
-							 jQuery(input).removeClass('required-active');
-
-							jQuery(this).addClass('checked');
-
-							input.val(jQuery(this).attr("data-value"));
-
-
-						});
-
-					});
-
-
-
-         			}
-                 },
-                 error: function(e) {
-                     alert("error "+e)
-                 }
-	});
-
-}
-function ValidateUsername(){
-
-	var input = jQuery('[data-key="username"]');
-	if(input.val().length < 3){
-	return false;
-	}
-
-	jQuery.ajax({
-                 type: "POST",
-				 dataType: 'json',
-                 url: 'http://escort.test/',
-         		data: {
-                     action: "validateUsername",
-         			un: input.val(),
-                 },
-                 success: function(response) {
-
-						if( response.status == "ok"){
-
-						jQuery("#ajax-username").html('');
-
-						return true;
-
-						}else{
-
-						 jQuery(input).addClass('required-active');
-
-						 return false;
-						}
-                 },
-                 error: function(e) {
-                     alert("error "+e)
-                 }
-	});
-
-	return true;
-
-}
 
 function noUserAccess(){
 
@@ -731,64 +545,62 @@ function processEditData(btype){
 function processSubmitForm(){
 
 	canContinue = true;
-	//console.log(iti.isValidNumber());
+
+	
+	
 
 	jQuery('#ppt-invalid-fields').hide();
 
 	jQuery(".form-control").removeClass('required-active');
 	jQuery(".ppt-add-listing-error").html('');
 
-	// FIRE DEFAULT VALIDATION
-	//canContinue = js_validate_fields("Please completed all required fields.");
 
-	// SWITCH TAB
-	// if(jQuery(".block1 .required-active").length > 0){
-	// steps('1','this');
-	// }else if(jQuery(".block2 .required-active").length > 0){
-	// steps('2','this');
-	// }else if(jQuery(".block3 .required-active").length > 0){
-	// steps('3','this');
-	// }else if(jQuery(".block4 .required-active").length > 0){
-	// steps('4','this');
-	// }else if(jQuery(".block5 .required-active").length > 0){
-	// steps('5','this');
-	// }
 
 	if(!canContinue){
 	return;
 	}
 
-	//Validating phone number
-	//console.log("in process "+jQuery('#valide-phone-number').val());
-	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined || !iti.isValidNumber()){
-			// steps('5','this');
-			jQuery('[data-key="phone"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
-			return false;
-	}
-
- 	if(jQuery('#username').val() === "" || jQuery('#username').val() === undefined){
-			// steps('5','this');
-			jQuery('[data-key="username"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Le nom d'utilisateur est requis");
-			return false;
-	}
 
 	
 
- 	if(jQuery('[data-key="mypass"]').length > 0){
-		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
-		|| ( jQuery('[data-key="mypass"]').val() != jQuery('[data-key="mypass1"]').val()) ||
-		 jQuery('[data-key="mypass"]').val().length < 6){
-			jQuery('[data-key="mypass"]').addClass('required-active');
-			jQuery('[data-key="mypass1"]').addClass('required-active');
+	//Validating title
+
+	if(jQuery('#title').val() === "" || jQuery('#title').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="title"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Le mot de passe est de 6 caractères mninimum et ça doit correspondrent");
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné le titre de l'annonce");
 			return false;
+	}
+
+ 	
+
+
+    	if(jQuery('#field-post_content').val() === "" || jQuery('#field-post_content').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="field-post_content"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("La description est requise");
+			return false;
+	}
+
+	//Checking if at least one image has been successfully uploaded
+	let adsDropzone = document.getElementById("ads-dropzone");
+	let children = adsDropzone.children;
+	var numberUpload = 0;
+	for (let i = 0; i < children.length; i++) {
+	
+		if (Array.from(children[i].classList).includes('dz-success')){
+			numberUpload++;
 		}
 	}
+
+	if(numberUpload < 1){
+		jQuery('#ppt-invalid-fields').show();
+		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins une image");
+		return false;
+	}
+
 
 	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
 		
@@ -803,43 +615,6 @@ function processSubmitForm(){
 	jQuery('.startTime').attr('name', 'startTime[]');
 	jQuery('.endTime').attr('name', 'endTime[]');
 	jQuery('.isActive').attr('name', 'isActive[]');
-
-
-
-	// 	if(jQuery('.myemail').val() == ""){
-	// 	jQuery('.myemail').addClass('required-active');
-	// 	steps('5','this');
-	// 	alert("Please enter your email address.");
-	// 	return false;
-
-	// }
-
-	// if(!isValidEmail(jQuery('.myemail').val())){
-	// 	jQuery('.myemail').addClass('required-active');
-	// 	steps('5','this');
-	// 	alert("Please enter a valid email address.");
-	// 	return false;
-	// }
-
-
-
-	// jQuery('.myemail').removeClass('required-active');
-
-
-
-	// CHECK IF VALUE IS ON
-	// if(jQuery('#field-post_content').length){
-
-	// 	var text_length = jQuery('#field-post_content').val().length;
-	// 	if( text_length < 100 ){
-
-	// 		jQuery('#field-post_content').addClass('required-active').focus();
-
-	// 		alert("Please enter a bigger description.");
-	// 		steps('2','this');
-	// 		return false;
-	// 	}
-	// }
 
 
 	 // GOOGLE RECAPTURE
@@ -875,99 +650,102 @@ function processSubmitForm(){
 		jQuery('#ppt-add-listing-save').show();
 
 
-		const username = jQuery("#username").val();
-		const role = jQuery("#gender").val();
-		var phoneNumber = jQuery("#phone").val();
-		var password = jQuery("#mypass").val();
+		const title = jQuery("#title").val();
+		const category = jQuery("#category").val();
+		var type = jQuery("#gender").val();
+		var town = jQuery("#town").val();
+		var description = jQuery("#field-post_content").val();
 		const recaptcha = jQuery('#g-recaptcha-response').val();
-		
+		console.log(title, category, type, town, description);
+		document.getElementById('global-form').submit()
 		// SAVE THE DATA
-		jQuery.ajax({
-			type: "POST",
-			dataType: 'json',
-			url: 'http://127.0.0.1:8001/api/user',
-			timeout: 15000,
-			data: {
-				username: username,
-				role_id: role,
-				phone_number: phoneNumber,
-				password: password,
-				recaptcha : recaptcha,
-				formdata: jQuery('#SUBMISSION_FORM').serialize(),
+		// jQuery.ajax({
+		// 	type: "POST",
+		// 	dataType: 'json',
+		// 	url: 'http://127.0.0.1:8001/api/user',
+		// 	timeout: 15000,
+		// 	data: {
+		// 		title: title,
+		// 		description: description,
+		// 		type: type,
+		// 		town: town,
+		// 		category: category,
+		// 		recaptcha : recaptcha,
+		// 		formdata: jQuery('#SUBMISSION_FORM').serialize(),
 
-			},
-			success: function(response, statusCode) {
+		// 	},
+		// 	success: function(response, statusCode) {
 
-				//console.log(response.);
-				if(statusCode === "success"){
+		// 		//console.log(response.);
+		// 		if(statusCode === "success"){
 
-					jQuery('#ppt-add-listing-save').hide();
-					jQuery('#ppt-add-listing-save-success').show();
-					jQuery('#ppt-add-listing-form').hide();
+		// 			jQuery('#ppt-add-listing-save').hide();
+		// 			jQuery('#ppt-add-listing-save-success').show();
+		// 			jQuery('#ppt-add-listing-form').hide();
 
-					setTimeout(()=>{
-						window.location.replace("http://127.0.0.1:8000/loginAuto?phone_number="+phoneNumber+"&password="+password);
-					}, 3000)
-
-
-
-					// if(response.type == "email" || response.type == "username" ){
-					// steps('5','this');
-					// }
+		// 			setTimeout(()=>{
+		// 				window.location.replace("http://127.0.0.1:8000/loginAuto?phone_number="+phoneNumber+"&password="+password);
+		// 			}, 3000)
 
 
-				}
 
-			},
-			error: function(response, statusCode) {
-
-				console.log(response.responseText);
-				var obj = JSON.parse(response.responseText);
-				console.log(obj);
-				console.log(obj.username);
-
-				if(response.status === 400){
-
-					jQuery('#ppt-add-listing-save').hide();
-					jQuery('#ppt-add-listing-form').show();
-
-					let errors = Object.keys(obj);
-					console.log(errors);
-					var textToPrint = "";
-
-					errors.forEach((error)=>{
-						console.log();
-						obj[error].forEach((e) =>{
-							textToPrint = textToPrint + e + "<br>"
-						})
-
-					})
-
-					 jQuery(".ppt-add-listing-error").html('<div>'+textToPrint+"</div>");
-					// if(response.type == "email" || response.type == "username" ){
-					// steps('5','this');
-					// }
+		// 			// if(response.type == "email" || response.type == "username" ){
+		// 			// steps('5','this');
+		// 			// }
 
 
-				}
+		// 		}
 
-				if(response.status === 0){
+		// 	},
+		// 	error: function(response, statusCode) {
 
-					jQuery('#ppt-add-listing-save').hide();
-					jQuery('#ppt-add-listing-form').show();
-					jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+		// 		console.log(response.responseText);
+		// 		var obj = JSON.parse(response.responseText);
+		// 		console.log(obj);
+		// 		console.log(obj.username);
 
-					// if(response.type == "email" || response.type == "username" ){
-					// steps('5','this');
-					// }
+		// 		if(response.status === 400){
+
+		// 			jQuery('#ppt-add-listing-save').hide();
+		// 			jQuery('#ppt-add-listing-form').show();
+
+		// 			let errors = Object.keys(obj);
+		// 			console.log(errors);
+		// 			var textToPrint = "";
+
+		// 			errors.forEach((error)=>{
+		// 				console.log();
+		// 				obj[error].forEach((e) =>{
+		// 					textToPrint = textToPrint + e + "<br>"
+		// 				})
+
+		// 			})
+
+		// 			 jQuery(".ppt-add-listing-error").html('<div>'+textToPrint+"</div>");
+		// 			// if(response.type == "email" || response.type == "username" ){
+		// 			// steps('5','this');
+		// 			// }
 
 
-				}
+		// 		}
 
-			},
+		// 		if(response.status === 0){
+
+		// 			jQuery('#ppt-add-listing-save').hide();
+		// 			jQuery('#ppt-add-listing-form').show();
+		// 			jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+
+		// 			// if(response.type == "email" || response.type == "username" ){
+		// 			// steps('5','this');
+		// 			// }
 
 
-		});
+		// 		}
+
+		// 	},
+
+
+		// });
 
 	}
 
@@ -994,14 +772,14 @@ function textarealimit(){
 		 jQuery('#textarea_counter').hide();
 		 }
 
-		 jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> characters remaining');
+		 jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> caractères restants');
 
 		  jQuery('#field-post_content').keyup(function() {
 
 			   var text_length = jQuery('#field-post_content').val().length;
 			   var text_remaining = text_max - text_length;
 
-			   jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> characters remaining');
+			   jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> caractères restants');
 
 			if(text_remaining < 0){
 				jQuery('#textarea_counter').hide();

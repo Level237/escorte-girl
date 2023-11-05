@@ -10,14 +10,22 @@ class DashboardEscortController extends Controller
 {
     public function dashboard(){
 
-        $user=Session::get('currentUser');
-        //Ensuring we are having an escort
-        if($user->role_id === 2){
-            return view('dashboard.escort', compact('user'));
+        if (Session::has('currentUser')){
+
+            $user = Session::get('currentUser');
+            //Ensuring we are having an escort
+            if($user->role_id === 2){
+                return view('dashboard.escort', compact('user'));
+            }
+            else{
+                return to_route("homepage");
+            }
+
         }
         else{
-            return to_route("homepage");
-        }
+                return to_route("login");
+            }
+        
         
     }
     

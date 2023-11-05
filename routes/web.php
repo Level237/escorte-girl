@@ -14,6 +14,7 @@ use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
 use App\Http\Controllers\Ads\AdsController;
+use App\Http\Controllers\Ads\AdsImageController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 
@@ -58,7 +59,10 @@ Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
 
 
 //Annoucements GROUP URL
-Route::get('/ads',[AdsController::class, 'create']);
+Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
+Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
+
+Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
 Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
 //Route with auth middleware
