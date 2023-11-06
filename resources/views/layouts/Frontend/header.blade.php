@@ -135,7 +135,7 @@
                       <div class="hide-mobile">
 
                      
-                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
+                        <a href="{{ route('ads.create') }}" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
                        
 
 
