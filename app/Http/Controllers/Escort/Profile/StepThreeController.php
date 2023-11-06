@@ -44,6 +44,6 @@ class StepThreeController extends Controller
         Session::save();
         //$image_path = $request->photo->store('profile', 'public');
         $addProfile=(new AddProfileService())->addProfile($stepThree,$request->file('photo'));
-        return $addProfile;
+        return to_route('step.final');
     }
 }
