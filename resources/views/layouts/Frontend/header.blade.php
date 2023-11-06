@@ -38,7 +38,7 @@
                     <li> <a href="/register">Inscription</a> </li>
                   @else
                 
-                    <li> <a href="{{ route('dashboard') }}">Dashboard</a> </li>
+                    <li> <a href="{{ route('db.escort.index') }}">Dashboard</a> </li>
                      <form method="POST" action="{{ route('logout') }}" id="logout">
                                 @csrf
                             </form>

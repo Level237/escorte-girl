@@ -21,6 +21,7 @@ class LoginController extends Controller
                 'password' => $request->password,
             ]);
 
+        
             if(isset($response['error'])){
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
             }else{
@@ -32,7 +33,7 @@ class LoginController extends Controller
                 Session::save();
 
                 $currentUser=(new CurrentUserService())->currentUser();
-                return to_route("dashboard");
+                return to_route("db.escort.index");
                 //return $access_token;
             }
         }catch(\Exception $e){
