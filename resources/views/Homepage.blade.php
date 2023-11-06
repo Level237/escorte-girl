@@ -15,6 +15,7 @@
     margin-bottom: 20px;
 }
 
+
 .fa-map-marker:before {
     content: "\f041";
 }
@@ -47,10 +48,6 @@
 
 
       </div>
-
-
-
-
 
     </div>
   </div>
@@ -169,7 +166,7 @@
 					  </div>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
+					<div class="badge" style="color:#000000;background-color:#ED5858;">
 					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 				</div>
@@ -196,7 +193,7 @@
 						<figure>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
+					<div class="badge" style="color:#000000;background-color:#ED5858;">
 					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
@@ -402,7 +399,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div  style="background-color: #DA9DDC" class="button-new">new</div>
 
 
 
@@ -430,7 +427,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -456,7 +453,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es"> </div>
@@ -485,7 +482,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -513,7 +510,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -539,7 +536,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es"> </div>
@@ -630,7 +627,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -658,7 +655,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -684,7 +681,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
@@ -710,7 +707,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div style="background-color: #DA9DDC" class="button-new">new</div>
 
 
 
@@ -738,7 +735,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -764,7 +761,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=1&t=es"> </div>
@@ -790,7 +787,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -818,7 +815,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -844,7 +841,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=9&t=es"> </div>
@@ -870,7 +867,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -898,7 +895,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -924,7 +921,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=19&t=es"> </div>
@@ -950,7 +947,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC"> new</div>
 
 
 
@@ -978,7 +975,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1004,7 +1001,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=2&t=es"> </div>
@@ -1030,7 +1027,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1058,7 +1055,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1084,7 +1081,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=10&t=es"> </div>
@@ -1110,7 +1107,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1138,7 +1135,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1164,7 +1161,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=7&t=es"> </div>
@@ -1190,7 +1187,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1218,7 +1215,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1244,7 +1241,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=4&t=es"> </div>
@@ -1270,7 +1267,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1298,7 +1295,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1324,7 +1321,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=8&t=es"> </div>
@@ -1350,7 +1347,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1378,7 +1375,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1404,7 +1401,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=5&t=es"> </div>
@@ -1430,7 +1427,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div class="button-new" style="background-color: #DA9DDC">new</div>
 
 
 
@@ -1458,7 +1455,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1484,7 +1481,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=17&t=es"> </div>
@@ -1510,7 +1507,7 @@ cleanCats();
 
 
 
-<div class="button-new">new</div>
+<div style="background-color: #DA9DDC" class="button-new ">new</div>
 
 
 
@@ -1538,7 +1535,7 @@ cleanCats();
       </div>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>
@@ -1564,7 +1561,7 @@ cleanCats();
         <figure>
 
 <div ppt-search-badges="" style="z-index:1" class="right">
-    <div class="badge" style="color:#000000;background-color:#FFC300;">
+    <div class="badge" style="color:#000000;background-color:#ED5858;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 </div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=14&t=es"> </div>
