@@ -29,16 +29,16 @@ class AdsController extends Controller
 
                 $response = Http::asForm()->get($url."/api/list/towns");
                 $towns = json_decode((string) $response->getBody(), true);
-                
+
                 if($towns['data'] === null){
                     //throw an exception an display an error
                 }
                 else{
                     $towns = $towns['data'];
                 }
-                
+
             }catch(\Exception $e){
-            
+
             }
 
             //Retrieving all Ads Categories
@@ -54,12 +54,12 @@ class AdsController extends Controller
                 else{
                     $adsCategories = $adsCategories['data'];
                 }
-                
+
             }catch(\Exception $e){
-            
+
             }
 
-            
+
             //Generate product token
             do {
                 $token = Str::random(32);
@@ -72,8 +72,8 @@ class AdsController extends Controller
         else{
                 return to_route("login");
             }
-        
-        
+
+
     }
 
     public function save(Request $request){
@@ -93,9 +93,9 @@ class AdsController extends Controller
                 'description' => $request->form['post_content'],
             ]);
 
-        
+
             if($response->status() === 200){
-                
+
                 //Now uploading ads's images
 
                 foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
@@ -109,9 +109,9 @@ class AdsController extends Controller
                 }
                 return back()->with('success',"Votre annonce a ete bien creee");
                  //$photo = Storage::get('img.jpg');
-        
+
                 // $responseImage  = Http::asForm()
-               
+
                 // $responseImage = Http::attach(
                 //     'file', $photo, 'photo.jpg'
                 // )->post($url."/api/ads/image", [
@@ -121,16 +121,16 @@ class AdsController extends Controller
                 //  if($responseImage->status() === 200){
                 //      return back()->with('success',"Votre annonce a ete bien creee");
                 //  }
-                
+
             }else{
-               
+
                return back()->with('error',"Une erreur dans vos donnees");
             }
         }catch(\Exception $e){
             //dd($e);
             return back()->with('error',$e);
         }
-       
+
     }
 
 }

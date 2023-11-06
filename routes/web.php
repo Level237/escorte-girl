@@ -51,7 +51,9 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
 Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
 Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
-Route::get('/step-three',[StepThreeController::class,'stepThree']);
+Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
+Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
+Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
 Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 
 //ESCORT GROUP URL

@@ -14,10 +14,10 @@ class AddProfileService{
     public function addProfile($data,$photo){
         $url=(new UrlApiService())->getUrl();
         $path = $photo->store('profile');
-
+        $contents = fopen($photo, 'r');
         $token=Session::get('tokenUser');
         try{
-            $response=Http::acceptJson()->withToken($token)->attach("photo",$photo->getRealPath(),$photo)->asForm()->post($url.'/api/v1/addProfile', [
+            $response=Http::acceptJson()->withToken($token)->attach("photo",$contents)->post($url.'/api/v1/addProfile', [
                 'escort_name'=> mb_convert_encoding($data['escort_name'], 'UTF-8', 'UTF-8'),
                 'whatsapp_number'=>mb_convert_encoding($data['whatsapp_number'], 'UTF-8', 'UTF-8'),
                 'sexuality'=>mb_convert_encoding($data['sexuality'], 'UTF-8', 'UTF-8'),
