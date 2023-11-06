@@ -1,5 +1,5 @@
 <?php
-namespace App\services\Api;
+namespace App\Services\Api;
 
 
 use Illuminate\Support\Facades\Session;

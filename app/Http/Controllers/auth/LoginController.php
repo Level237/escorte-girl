@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\auth;
 
 use Illuminate\Http\Request;
-use App\services\Api\UrlApiService;
+use App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
-use App\services\Api\CurrentUserService;
+use App\Services\Api\CurrentUserService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
@@ -32,7 +32,7 @@ class LoginController extends Controller
                 Session::save();
 
                 $currentUser=(new CurrentUserService())->currentUser();
-                return to_route("homepage");
+                return to_route("dashboard");
                 //return $access_token;
             }
         }catch(\Exception $e){

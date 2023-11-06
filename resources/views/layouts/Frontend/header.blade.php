@@ -1,17 +1,16 @@
 <header class=" bg-white navbar-light border-bottom" data-block-id="header">
 
-    @empty($authUser)
     <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
         <div class="container">
           <div class="row">
             <div class="col-md-6 pr-0">
               <nav ppt-nav="" class="ppt-top-menu pl-0">
               <ul>
-              <li><a href="index-1.htm?reset=1">Accueil</a></li>
+              <li><a href="#">Accueil</a></li>
 
-              <li><a href="about-us/index.htm">A Propos</a></li>
+              <li><a href="#">A Propos</a></li>
 
-               <li><a href="contact/index.htm">Contact</a></li>
+               <li><a href="#">Contact</a></li>
 
               </ul>
 
@@ -24,43 +23,28 @@
                                   <i class="fab fa-bitcoin"></i>
                                   </a>
                     <div class="dropdown-menu">
-                                      <a class="dropdown-item" href="index-2.htm?c=USD">
+                                      <a class="dropdown-item" href="#">
                                       <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                      USD</a>
-                                      <a class="dropdown-item" href="index-3.htm?c=GBP">
+                                      Français</a>
+                                      <a class="dropdown-item" href="#">
                                       <i class="fal fa-pound-sign float-right mt-2"></i>
-                                      GBP</a>
-                                      <a class="dropdown-item" href="index-4.htm?c=EUR">
-                                      <i class="fal fa-euro-sign float-right mt-2"></i>
-                                      EUR</a>
-                                      <a class="dropdown-item" href="index-5.htm?c=CAD">
-                                      <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                      CAD</a>
-                                      <a class="dropdown-item" href="index-6.htm?c=AUD">
-                                      <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                      AUD</a>
-                                      <a class="dropdown-item" href="index-7.htm?c=JPY">
-                                      <i class="fal fa-yen-sign float-right mt-2"></i>
-                                      JPY</a>
-                                      <a class="dropdown-item" href="index-8.htm?c=INR">
-                                      <i class="fal fa-rupee-sign float-right mt-2"></i>
-                                      INR</a>
-                                      <a class="dropdown-item" href="index-9.htm?c=RUB">
-                                      <i class="fal fa-ruble-sign float-right mt-2"></i>
-                                      RUB</a>
-                                      <a class="dropdown-item" href="index-10.htm?c=TRY">
-                                      <i class="fal fa-lira-sign float-right mt-2"></i>
-                                      TRY</a>
-                                      <a class="dropdown-item" href="index-11.htm?c=PTS">
-                                      <span class="float-right mt-1">&#8359;</span>
-                                      PTS</a>
-                                      <a class="dropdown-item" href="index-12.htm?c=BTC">
-                                      <i class="fab fa-bitcoin float-right mt-2"></i>
-                                      BTC</a>
+                                      English</a>
+                                    
+                                     
                                     </div>
                   </li>
-                                          <li> <a href="{{ route('login') }}">Connexion</a> </li>
-                                                                              <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
+                   @if(!isset($authUser))
+                    <li> <a href="{{ route('login') }}">Connexion</a> </li>
+                    <li> <a href="/register">Inscription</a> </li>
+                  @else
+                
+                    <li> <a href="{{ route('dashboard') }}">Dashboard</a> </li>
+                     <form method="POST" action="{{ route('logout') }}" id="logout">
+                                @csrf
+                            </form>
+                    <li onclick="event.preventDefault(); document.getElementById('logout').submit();"> <a href="#">Déconnexion</a> </li>
+                  @endif
+                  <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
                       <ul>
 
                                        <li class="facebook">
@@ -100,7 +84,6 @@
           </div>
         </div>
       </nav>
-    @endempty
 
 
 
@@ -108,26 +91,40 @@
 
       <div class="row no-gutters" ppt-flex-center="">
         <div class="col-md-4">
-          <a href="index.htm">
-  <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'><img style="width:100px;height:100px;" src="{{ asset('assets/images/logo.png') }}"/></div></a>
+         
+          <a href="/">
+  <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+</a>
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
-              <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
-
-
-
-         <li><a href="index-1.htm?reset=1">Home</a></li>
-          <li><a href="index-13.htm?s=">Search</a></li>
-         <li><a href="contact/index.htm">Contact</a></li>
-
-         <li><a href="blog/index.htm">Blog</a></li>
-
-
-         </ul>
-
-
-           </nav>            <div class="show-ipad show-mobile">
+               <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
+        
+        
+                
+        <li><a href="#">Home</a></li>        
+         
+         
+             
+        <li><a href="#" onclick="jQuery('#innerstyles, #adstyles').removeClass('show');jQuery('#searchstyles').toggleClass('show');">Search</a></li>
+                 
+          
+                
+        
+         
+         
+       
+       
+       
+	          <li><a href="https://es10.premiummod.com/contact/">Contact</a></li>
+       
+       <li><a href="https://es10.premiummod.com/blog/">Blog</a></li>
+              
+              
+       </ul>
+       
+           
+		 </nav>            <div class="show-ipad show-mobile">
               <div class="d-flex">
                               <div class="ml-4 menu-toggle cursor">
                   <div ppt-icon-size="32" data-ppt-icon2="">
@@ -137,25 +134,9 @@
             </div>
                       <div class="hide-mobile">
 
-                        @if(isset($authUser))
-
-                        <div class="btn-group">
-                            <img src="{{ asset('assets/images/escorte-login.png') }}" type="button" class="ppt-avatar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><div class="isOnline"></div></img>
-
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">{{ $authUser->username }} </a></li>
-                              <li><a class="dropdown-item" href="#">Votre profil</a></li>
-
-                              <li><hr class="dropdown-divider"></li>
-                              <form method="POST" action="{{ route('logout') }}" id="logout">
-                                @csrf
-                            </form>
-                              <li><a style="cursor: pointer" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">Deconnexion</a></li>
-                            </ul>
-                          </div>
-                        @else
-                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">inscription</a>
-                        @endif
+                     
+                        <a href="/register" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
+                       
 
 
 

@@ -8,7 +8,14 @@ use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\User\LogoutController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
-use App\Http\Controllers\Escort\profile\StepOneController;
+use App\Http\Controllers\auth\AutomaticLoginController;
+use App\Http\Controllers\Escort\DetailEscortController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\Escort\Profile\StepOneController;
+use App\Http\Controllers\Escort\Profile\StepTwoController;
+use App\Http\Controllers\Ads\AdsController;
+use App\Http\Controllers\Escort\Profile\StepFinalController;
+use App\Http\Controllers\Escort\Profile\StepThreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +35,7 @@ Route::get('/register', [CreateUserController::class, 'create'])->middleware('pr
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
 Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable'])->name('unavailable');
 
 
@@ -39,5 +47,26 @@ Route::post('/logout',[LogoutController::class,'logout'])
 Route::get('/list',[LocationController::class,'index'])->name('list');
 
 //middleware
-Route::get('/step-one',[StepOneController::class,'stepOne']);
+
+
+//ESCORT GROUP URL
+Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
+
+
+//Annoucements GROUP URL
+Route::get('/ads',[AdsController::class, 'create']);
+
+Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
+
+//Route with escort middleware
+Route::middleware(['escort'])->group(function () {
+
+    Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
+    Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
+    Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
+    Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
+    Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
+    Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
+    Route::get('/step-final',[StepFinalController::class,'stepFinal']);
+});
 
