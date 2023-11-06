@@ -74,6 +74,26 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     </div>
 </div>
 
+@if (session('success'))
+<div id="" >
+    <div class="container py-5 my-5">
+        <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
+            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre annonce a été créée, cliquez ici pour la mettre en avant.
+        </div>
+    </div>
+</div>
+@endif
+
+@if (session('error'))
+<div id="ppt-invalid-fields" >
+    <div class="container py-5 my-5">
+        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{ $error }}</span>
+        </div>
+    </div>
+</div>
+@endif
+
 <div id="ppt-invalid-fields" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
@@ -140,7 +160,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="col-md-6 mobile-mb-2">
 
 	<label>Type d'annonce <span class="text-danger">*</span> </label>
-
+		<input type="hidden" id="user_id" value="{{ $user->id }}" name="user_id">
 		<div class="mt-2">
 					<input type="hidden" id="adstype" value="1" name="adstype">
 					<div class="usertry gender checked gender-2" onclick="processGender('1');">
@@ -181,6 +201,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <span></span>
   </div>
   <input type="hidden" name="textarea_counter_hidden" value="100" id="textarea_counter_hidden">
+  <input type="hidden" id="adsdesciption" value="1" name="adsdesciption">
     <label class="w-100">Description  <span class="text-danger">*</span> </label>
     <textarea name="form[post_content]"  class="form-control rounded-0 required-field" tabindex="2" data-key="field-post_content" id="field-post_content"></textarea>
   </div>
@@ -196,7 +217,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="col-md-12 mobile-mb-2">
 	
 	<div >
-			<label class="w-100">Photos  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (5 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
@@ -216,18 +237,35 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </div>
 </div>
-  <script type="text/javascript">
-                    Dropzone.options.ads-dropzone = {
-						Name: "Charger vos fichiers ici",
-						paramName: "file",
-                        maxFilesize: 10,
-                        acceptedFiles: ".jpeg,.jpg,.png",
-                        addRemoveLinks: true,
-                        timeout: 5000,
-                        maxFiles : 2,
-						autoProcessQueue: false
-                    };
-            </script>
+ 
+ <script>
+  Dropzone.options.adsDropzone = { // camelized version of the `id`
+    paramName: "file", // The name that will be used to transfer the file
+    maxFilesize: 2, // MB
+	maxFiles : 5,
+    acceptedFiles: ".jpeg,.jpg,.png",
+	Name: "Chargez vos fichiers ici",
+    init: function() {
+    this.on("addedfile", file => {
+		//Check number of added photos
+		if(this.files.length > 5){
+			this.removeFile(file);
+			return;
+		}
+       if (this.files.length) {
+        var _i, _len;
+        for (_i = 0, _len = this.files.length; _i < _len - 1; _i++) // -1 to exclude current file
+        {
+            if(this.files[_i].name === file.name && this.files[_i].size === file.size && this.files[_i].lastModified.toString() === file.lastModified.toString())
+            {
+                this.removeFile(file);
+            }
+        }
+    }
+    });
+  }
+  };
+</script>
 
 
 
@@ -766,7 +804,7 @@ function textarealimit(){
 	 if(jQuery('#field-post_content').length){
 
      	var text_length = jQuery('#field-post_content').val().length;
-
+         jQuery('#adsdesciption').val(jQuery('#field-post_content').val());
 		 var text_remaining = text_max - text_length;
 		 if(text_remaining < 0){
 		 jQuery('#textarea_counter').hide();

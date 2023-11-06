@@ -66,7 +66,7 @@ class AdsController extends Controller
             } while (Product::where("token", "=", $token)->first() instanceof Product);
 
             //Retrieving ads category
-            return view('ads.create', compact('towns', 'adsCategories', 'token'));
+            return view('ads.create', compact('towns', 'adsCategories', 'token', 'user'));
         }
 
         else{
@@ -82,43 +82,55 @@ class AdsController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         //Saving Ads
-        dd($request->all());
+
         try{
             $response = Http::asForm()->post($url."/api/ads", [
-                'user_id' => $request->phone_n,
+                'user_id' => $request->user_id,
                 'town_id' => $request->town,
                 'category_id' => $request->category,
                 'type' => $request->adstype,
                 'title' => $request->title,
-                'description' => $request->form[0],
+                'description' => $request->form['post_content'],
             ]);
 
-            if(isset($response['error'])){
-                return back()->with('error',"Numero de telephone ou mot de passe invalide");
-            }else{
-                if($request->session()->has('tokenUser')){
-                    $request->session()->forget('tokenUser');
-                }
-                $access_token = json_decode((string) $response->getBody(), true)['access_token'];
-                Session::put('tokenUser', $access_token);
-                Session::save();
+        
+            if($response->status() === 200){
+                
+                //Now uploading ads's images
 
-                $currentUser=(new CurrentUserService())->currentUser();
-                return to_route("dashboard");
-                //return $access_token;
+                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
+                    $photo = \Illuminate\Support\Facades\Storage::get($filename);
+                    $responseImage = Http::attach(
+                        'file', $photo, $filename
+                    )->post($url."/api/ads/image", [
+                        'ads_id' => json_decode((string) $response->getBody(), true)['id'],
+                    ]);
+
+                }
+                return back()->with('success',"Votre annonce a ete bien creee");
+                 //$photo = Storage::get('img.jpg');
+        
+                // $responseImage  = Http::asForm()
+               
+                // $responseImage = Http::attach(
+                //     'file', $photo, 'photo.jpg'
+                // )->post($url."/api/ads/image", [
+                //     'ads_id' => 1,
+                //  ]);
+
+                //  if($responseImage->status() === 200){
+                //      return back()->with('success',"Votre annonce a ete bien creee");
+                //  }
+                
+            }else{
+               
+               return back()->with('error',"Une erreur dans vos donnees");
             }
         }catch(\Exception $e){
-            dd($e);
+            //dd($e);
+            return back()->with('error',$e);
         }
-        // //Storage::disk('local')->put('example.txt', 'Contents');
-        $photo = Storage::get('img.jpg');
-        
-        $response = Http::attach(
-            'file', $photo, 'photo.jpg'
-        )->post($url."/api/ads/image");
-
-        dd((string)$response->getBody());
-        dd(json_decode((string) $response->getBody(), true));
+       
     }
 
 }

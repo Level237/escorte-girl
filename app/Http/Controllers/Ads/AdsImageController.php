@@ -15,7 +15,6 @@ class AdsImageController extends Controller
             
       
             $image = $request->file('file');
-            $name = "toto";
             $extension = $image->getClientOriginalExtension();
 
             $allowedfileExtension=['jpg','png','jpeg'];
@@ -29,14 +28,8 @@ class AdsImageController extends Controller
             else{
 
                 //Storing file in disk
-                // $fileName = $product->id.'_'.time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
-                // $image->storeAs('product-images', $fileName);
-
-                // //Add image to database (product_images table)
-                // $productImage = new \App\Models\productImage;
-                // $productImage->path = $fileName;
-                // $productImage->product_id = $product->id;
-                // $productImage->save();
+                $fileName = time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+                $image->storeAs('ads/'.$request->token, $fileName);
                 
                 return response('Image ajoutée avec succès', 200);
             }

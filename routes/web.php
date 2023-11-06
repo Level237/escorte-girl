@@ -48,7 +48,11 @@ Route::post('/logout',[LogoutController::class,'logout'])
 Route::get('/list',[LocationController::class,'index'])->name('list');
 
 //middleware
-
+Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
+Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
+Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
+Route::get('/step-three',[StepThreeController::class,'stepThree']);
+Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 
 //ESCORT GROUP URL
 Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
@@ -61,16 +65,8 @@ Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
 Route::get('dashboard', [DashboardEscortController::class, 'dashboard'])->name('dashboard');
+//Route with auth middleware
+Route::middleware(['auth'])->group(function () {
 
-//Route with escort middleware
-Route::middleware(['escort'])->group(function () {
-
-    Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
-    Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
-    Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
-    Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
-    Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
-    Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
-    Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 });
 
