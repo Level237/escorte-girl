@@ -30,19 +30,20 @@ class StepThreeController extends Controller
         }
 
         $data=[
-            'photo'=>$request->photo,
+
             'description'=>$request->description,
             'services'=>$request->services
         ];
 
+
         $stepTwoData=Session::get('EscortStepTwo');
 
         $stepThree=array_merge($data,$stepTwoData);
-
+        $d=json_encode($stepThree);
         Session::put('EscortStepThree',$stepThree);
         Session::save();
-
-        $addProfile=(new AddProfileService())->addProfile($stepThree);
-        return $addProfile;
+        //$image_path = $request->photo->store('profile', 'public');
+        $addProfile=(new AddProfileService())->addProfile($stepThree,$request->file('photo'));
+        return to_route('step.final');
     }
 }

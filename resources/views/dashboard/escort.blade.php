@@ -278,9 +278,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 <li class="hide-mobile hide-ipad " ppt-flex-middle>
-<a href="https://es10.premiummod.com/add-listing/" class="btn-secondary" data-ppt-btn>
+<a href="{{ route('step-one') }}" class="btn-secondary" data-ppt-btn>
 
-<span><a href="{{ route('step-one') }}"> Profile</a></span>
+<span> Profile</a></span>
 
 </a>
 </li>

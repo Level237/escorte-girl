@@ -53,7 +53,7 @@
                     <li> <a href="/register">Inscription</a> </li>
                   @else
                 
-                    <li> <a href="{{ route('dashboard') }}">Dashboard</a> </li>
+                    <li> <a href="{{ route('db.escort.index') }}">Dashboard</a> </li>
                      <form method="POST" action="{{ route('logout') }}" id="logout">
                                 @csrf
                             </form>
@@ -151,7 +151,7 @@
                       <div class="hide-mobile">
 
                      
-                        <a id="btn-annonce" href="/register"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
+                        <a id="btn-annonce" href="{{ route('ads.create') }}"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
 
             </div>
                     </div>
