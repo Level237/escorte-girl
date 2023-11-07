@@ -41,9 +41,17 @@ Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable']
 
 
 //middleware user
-Route::post('/logout',[LogoutController::class,'logout'])
-->name('logout')
-->middleware('user');
+
+Route::middleware(['user'])->group(function () {
+
+
+    Route::post('/logout',[LogoutController::class,'logout'])
+    ->name('logout');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
+    });
+});
+
 
 Route::get('/list',[LocationController::class,'index'])->name('list');
 
@@ -82,4 +90,6 @@ Route::middleware(['escort'])->group(function () {
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
 });
+
+
 

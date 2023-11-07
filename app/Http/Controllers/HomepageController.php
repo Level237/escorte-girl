@@ -14,6 +14,7 @@ class HomepageController extends Controller
 
     public function homepage(Request $request){
 
+
         $locationController = new LocationController();
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
