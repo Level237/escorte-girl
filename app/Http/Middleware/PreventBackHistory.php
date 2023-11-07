@@ -18,8 +18,8 @@ class PreventBackHistory
     public function handle(Request $request, Closure $next): Response
     {
         $hasToken=(new HasTokenService())->getToken();
-
-        if(isset($hasToken)){
+        $currentUser=(new CurrentUserService())->currentUser();
+        if(isset($currentUser)){
             return back();
         }else{
             return $next($request);

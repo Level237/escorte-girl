@@ -145,7 +145,7 @@
 
 
 				</div>
-				  <a href="#">
+				  <a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
 
 				  <div ppt-border1="" class="p-1">
 

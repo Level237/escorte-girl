@@ -21,18 +21,23 @@ class LoginController extends Controller
                 'password' => $request->password,
             ]);
 
-        
+
             if(isset($response['error'])){
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
             }else{
                 if($request->session()->has('tokenUser')){
                     $request->session()->forget('tokenUser');
                 }
+                if(Session::has('currentUser')){
+                    Session::forget('currentUser');
+                }
                 $access_token = json_decode((string) $response->getBody(), true)['access_token'];
                 Session::put('tokenUser', $access_token);
                 Session::save();
 
                 $currentUser=(new CurrentUserService())->currentUser();
+                Session::put('currentUser', $currentUser);
+                Session::save();
                 return to_route("db.escort.index");
                 //return $access_token;
             }

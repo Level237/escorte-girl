@@ -42,8 +42,19 @@ class StepThreeController extends Controller
         $d=json_encode($stepThree);
         Session::put('EscortStepThree',$stepThree);
         Session::save();
+        for ($i=0; $i<count($request->services); $i++){
+
+            $d=[
+             $request->services
+            ];
+
+        }
+
         //$image_path = $request->photo->store('profile', 'public');
-        $addProfile=(new AddProfileService())->addProfile($stepThree,$request->file('photo'));
+        $addProfile=(new AddProfileService())->addProfile($stepThree,$request->file('photo'),$request->services);
         return to_route('step.final');
+
+        //return $addProfile;
+        //return json_encode($request->services);
     }
 }
