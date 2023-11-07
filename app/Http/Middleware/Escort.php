@@ -17,10 +17,13 @@ class Escort
     public function handle(Request $request, Closure $next): Response
     {
         $currentUser=(new CurrentUserService())->currentUser();
-        $role_id=$currentUser['role_id'];
-        if($role_id !==2){
-            abort(403);
-        }else{
+
+        if($currentUser!==null){
+            if($currentUser['role_id'] !==2){
+                abort(403);
+            }
+
+
             return $next($request);
         }
 
