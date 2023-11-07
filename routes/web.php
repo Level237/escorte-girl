@@ -71,7 +71,7 @@ Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image'
 
 
 
-//Route with auth middleware
+//Route escort not completed middleware
 Route::middleware(['escort'])->group(function () {
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
     Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
@@ -80,6 +80,11 @@ Route::middleware(['escort'])->group(function () {
     Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
     Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
+
+});
+
+//Route escort  completed middleware
+Route::middleware(['escort','profileCompleted'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
         Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
@@ -89,7 +94,9 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
+
 });
+
 
 
 
