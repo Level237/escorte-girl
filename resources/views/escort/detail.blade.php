@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title> &raquo; Alessandra</title>
+    <title> &raquo; {{ $escort['escort_name']}}</title>
     
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -52,7 +52,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="list-list small letter-spacing-1 arrow">
       <span><a href="{{ route('homepage') }}" class="text-dark">Accueil</a></span>
             <span><a href="#" class="text-dark">Escorte féminine</a></span>
-                  <span><a href="#" class="text-dark"> Audrey</a></span>
+                  <span><a href="#" class="text-dark"> {{ ucfirst($escort['user']['username']) }}</a></span>
                       </div>
   </div>
 </div>
@@ -70,13 +70,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		
 		
 		<h1 class="fs-lg text-600">
-		 <div class="addeditmenu" data-key="title"></div> 
-Alessandra 		</h1>
+		 <div class="addeditmenu" data-key="title"></div> {{ ucfirst($escort['escort_name'])	}}	</h1>
 		
 		
 			<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
 						<a class="mr-3 text-dark" href="#">
-			<i class="fal fa-map-marker mr-2 text-primary"></i> <span>New York</span>
+			<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($escort['quarter'])	}}</span>
 			</a>
 						 
 						<div class=" d-inline-flex cursor">
@@ -84,7 +83,7 @@ Alessandra 		</h1>
               
 			 
                        
-			<span>Add Favorite</span>
+			<span>Ajouter aux favoris</span>
             
              
             
@@ -101,8 +100,8 @@ Alessandra 		</h1>
 
 
       <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
-      <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>123 *** ***</span></span>
-      <span class="_number" style="display:none;">123 456 678</span>
+      <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+      <span class="_number" style="display:none;">+237 {{ $escort['user']['phone_number']	}}</span>
       </a>
       
       <script>
@@ -121,7 +120,7 @@ Alessandra 		</h1>
               </a>
 			  
 		 
-      <a href="https://api.whatsapp.com/send?phone=15551234567" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+      <a href="https://api.whatsapp.com/send?phone=237{{ $escort['whatsapp_number']}}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
       <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
       </a>
       
@@ -137,35 +136,34 @@ Alessandra 		</h1>
 <nav ppt-nav="" class="list lh-30 list-fbold">
     <ul>
    
-        
-    <li class="taxonomy"><span>Ethnie</span> <span>Arab</span></li>
+    
+	<li class="taxonomy"><span>Age</span> <span>{{ $escort['age']}} Ans</span></li>
+    <li class="taxonomy"><span>Ethnie</span> <span>{{ $escort['ethnic']}}</span></li>
     
 	    
-    <li class="taxonomy"><span>Sexualité</span> <span>Gay</span></li>
+    <li class="taxonomy"><span>Sexualité</span> <span>{{ $escort['sexuality']}}</span></li>
     
 	    
     <li class="taxonomy"><span>Genre</span> <span>Escorte Féminine</span></li>
     
 	    
-    <li class="input"><span>Location</span> <span>Douala</span></li>
+    <li class="input"><span>Location</span> <span>{{ $escort['town']}}</span></li>
     
 	    
     <li class="title"><span>De quoi j'ai l'air?</span> </li>
     
 	    
-    <li class="taxonomy"><span>Mes Yeux</span> <span>Brown</span></li>
+    <li class="taxonomy"><span>Mon Teint</span> <span>{{ $escort['skin_color']}}</span></li>
+    
     
 	    
-    <li class="taxonomy"><span>Mes Cheveux</span> <span>Gray</span></li>
+    <li class="taxonomy"><span>Mon Coprs</span> <span>{{ $escort['shape']}}</span></li>
     
 	    
-    <li class="taxonomy"><span>My Coprs</span> <span>Slim</span></li>
+    <li class="input"><span>Ma Taille</span> <span>{{ $escort['height']}} CM</span></li>
     
 	    
-    <li class="input"><span>Ma Taille</span> <span>193 CM</span></li>
-    
-	    
-    <li class="input"><span>Mon Poids</span> <span>11</span></li>
+    <li class="input"><span>Mon Poids</span> <span>{{ $escort['weight']}} KG</span></li>
     
 	    
   
@@ -278,10 +276,10 @@ jQuery(document).ready(function(){
 <div id="mobileGalleryMove" class="hide-mobile">
 <div class="row no-gutters mb-4">
     <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{  $escort['photo'] }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es') }});">
+        <div class="bg-image" style="background-image:url({{  $escort['photo'] }});">
           &nbsp;
         </div>
               </div>
@@ -289,10 +287,10 @@ jQuery(document).ready(function(){
         </a>
       </div>
     <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-61.php?imgid=5&t=es&sub=1') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-31.php?imgid=8&t=es&sub=1') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('{{ asset('assets/images/demoimages/img-61.php') }}');">
+        <div class="bg-image" style="background-image:url('{{ asset('assets/images/demoimages/img-31.php') }}');">
           &nbsp;
         </div>
               </div>
@@ -313,10 +311,10 @@ jQuery(document).ready(function(){
   
  
     <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-65.php?imgid=5&t=es&sub=5') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es&sub=5') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-65.php') }});">
+        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-60.php') }});">
           &nbsp;
         </div>
                 <div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
@@ -417,7 +415,7 @@ jQuery(document).ready(function(){
         
         		 
 		<div class="overflow-hidden">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+		<p>{{ $escort['description'] }}</p>
 
 
         </div>
@@ -976,218 +974,12 @@ jQuery(document).ready(function(){
   </div>
 </div>
 </div>    
- <html>
-  <body>
-    <section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
-<div class="bg-primary footer-txt-light">
-<div class="container">
- 
-
-<div style="height:5px;">   </div>
-
- 
-
-</div>
-</div>
-
-<div class="footer-txt-dark" style="background:!important;">
-
-
-
-<div class="container py-4 pt-5">
-    <div class="row"> 
-    
-      <div class="col-md-4 text-center text-md-left logo-lg">
-      
-        <div class="mb-4"> <div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div> </div> 
-        
-        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
-      
-      </div>
-      
-      <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2"> 
-         
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Useful Links</div> 
-        <div class="lh-30">        <ul>
-                <li><a href="../../index.htm">Home</a></li>
-                <li><a href="../../about-us/index.htm">About Us</a></li>
-                <li><a href="../../how-it-works/index.htm">How it works</a></li>
-                <li><a href="../../blog/index.htm">Blog</a></li>
-                </ul>
-        </div>
-        
-      </div> 
-      
-      <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2">
-        
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Quick Search</div> 
-        <div class="lh-30">        <ul>
-                <li><a href="../../index-13.htm?s=">Search</a></li>
-                <li><a href="../../index-14.htm?s=&sort=pop">Popular</a></li>
-                <li><a href="../../index-15.htm?s=&sort=id">Newly Added</a></li>
-                <li><a href="../../index-13.htm?s=">Most Relevant</a></li>
-                </ul>
-        </div>
-           
-      </div> 
-   
-    
-      <div class="col-md-4"> 
-      
-        <div class="fs-5 mb-2 text-600">Join our newsletter</div>
-        <p class="opacity-8 mb-3">We write rarely, but only the best content.</p>
-         
-
-
-
-<script>
-
-function ajax_newsletter_signup4154(){
-
-    jQuery.ajax({
-        type: "POST",
-        url: 'http://escort.test/',		
-		dataType: 'json',
-		data: {
-            action: "newsletter_join",
-			email: jQuery('#ppt_newsletter_mailme4154').val(),	 
-        },
-        success: function(r) {
-			
-			if(r.status == "ok"){
-				jQuery('#newsletterthankyou4154').show();
-				jQuery('#mailinglist-form4154').html('');
-			}else{
-				jQuery('#mailinglist-form4154').html("Invalid Email Address");
-			}
-			
-        },
-        error: function(e) {
-            //console.log(e)
-        }
-    });
-
-}
-</script>
-
-<div id="newsletterthankyou4154" style="display:none" class="newsletter-confirmation txt">
-	<div class="h4">Email confirmation sent.</div>
-	<p>Please check your email for a confirmation email.</p>
-	<p class="small">Only once you've confirmed your email will you be subscribed to our newsletter.</p>
-</div>
-
-<form id="mailinglist-form4154" name="mailinglist-form4154" method="post" onsubmit="return IsEmailMailinglist4154();" class="footer-newsletter">
-    
-
-<div class="input-group">										 
-<input type="text" name="ppt_newsletter_mailme4154" id="ppt_newsletter_mailme4154" value="" placeholder="Email Address Here.." style="height:46px;" class="form-control  rounded-0"> 
-<div class="input-group-append">
-<button type="submit" class="btn btn-primary px-3">Join</button>
-</div>	
-
-  					
-</div>  
-
-     
-        
-         
- </form>
-<script>
-		function IsEmailMailinglist4154(){
-		var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-			var de4 	= document.getElementById("ppt_newsletter_mailme4154");
-			
-			if(de4.value == ''){
-			alert("Please enter your email.");
-			de4.style.border = 'thin solid red';
-			de4.focus();
-			return false;
-			}
-			if( !pattern.test( de4.value ) ) {	
-			alert("Invalid Email Address");
-			de4.style.border = 'thin solid blue';
-			de4.focus();
-			return false;
-			}
-			ajax_newsletter_signup4154();
-		 
-		  	return false;
-		}		
- </script>
- 
-
- 
-
-        <div class="small opacity-8 mt-4">
-          We'll never share your details. See our <a class="opacity-8" href="../../privacy/index.htm">Privacy Policy</a>
-        </div>
-    
-      </div>
-
-</div>
-</div>
-
-</div>
-
-<div class=" py-3 footer-txt-dark">
-<div class="container">
-
-
-<div class="row px-0">
-<div class="col-12">
-<div class="my-3"><div style="height:1px;" class="bg-dark opacity-2"> </div></div>
-</div>
-  <div class="col-md-6">
-    <div class="copyright opacity-8 lh-30" data-ppt-copyright="">
-      &copy; 2023  All rights reserved.
-    </div>
-  </div>
-  <div class="col-md-6 text-right d-none d-md-block">
-  <div class="ppt-icons-social  _style5 size-md rounded">
-                <ul>
-               
-                                 <li class="facebook">
-                 <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-facebook"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="twitter">
-                 <a href="#" title="twitter" class="icon-twitter" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-twitter"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="instagram">
-                 <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-instagram"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="youtube">
-                 <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-youtube"></i>
-                 
-                                  
-                 </a></li>
-                                </ul> 
-                </div>
-                
-  </div>
-</div>
-</div>
-</div>
-</section>
-  </body>
-</html></main>
+</main>
 </div> 
 
- 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="../../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
+   @include('layouts.Frontend.footer')
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+  <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 
  

@@ -102,23 +102,20 @@
         
         
                 
-        <li><a href="#">Home</a></li>        
+        <li><a href="{{ route('escort.list') }}">Escorts</a></li>        
          
          
              
-        <li><a href="#" onclick="jQuery('#innerstyles, #adstyles').removeClass('show');jQuery('#searchstyles').toggleClass('show');">Search</a></li>
+        <li><a href="#" >
+          Annonces</a>
+        </li>
                  
-          
-                
-        
-         
-         
        
        
        
-	          <li><a href="https://es10.premiummod.com/contact/">Contact</a></li>
+	          <li><a href="#">Agences</a></li>
        
-       <li><a href="https://es10.premiummod.com/blog/">Blog</a></li>
+       <li><a href="#">Blog</a></li>
               
               
        </ul>

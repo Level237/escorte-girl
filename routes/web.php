@@ -9,6 +9,7 @@ use App\Http\Controllers\User\LogoutController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
 use App\Http\Controllers\auth\AutomaticLoginController;
+use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
@@ -57,7 +58,10 @@ Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->
 Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
 
 //ESCORT GROUP URL
-Route::get('/escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
+
+Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
+Route::get('escort/list',[EscortController::class, 'list'])->name('escort.list');
+
 
 
 //Annoucements GROUP URL

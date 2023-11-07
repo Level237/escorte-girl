@@ -31,7 +31,7 @@ class AutomaticLoginController extends Controller
                 Session::save();
 
                 $currentUser=(new CurrentUserService())->currentUser();
-                return to_route("dashboard");
+                return to_route("db.escort.index");
                 //return $access_token;
         }catch(\Exception $e){
             dd($e);

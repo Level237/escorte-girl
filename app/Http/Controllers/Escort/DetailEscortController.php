@@ -14,17 +14,19 @@ class DetailEscortController extends Controller{
    public function show(Request $request){
 
      $url=(new UrlApiService())->getUrl();
+     //dd($url);
 
         try{
 
-            $response = Http::asForm()->get($url."/api/escorts/$EscortId");
-            self::$escort = json_decode((string) $response->getBody(), true);
+            $response = Http::asForm()->get($url."/api/escorts/".$request->id);
+            self::$escort = json_decode((string) $response->getBody(), true)['data'];
             //error_log($escorts);
         }catch(\Exception $e){
              self::$escort = null;
         }
 
-        return  view('escort.detail');
+        $escort = self::$escort;
+        return  view('escort.detail', compact('escort'));
    }
 
 

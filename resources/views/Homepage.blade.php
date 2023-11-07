@@ -114,7 +114,7 @@
 					<div class="d-flex justify-content-between">
 					  <h2 class="mb-5" data-ppt-title="">Escorts En Vedettes</h2>
 					  <div>
-									<a href="#" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+									<a href="{{ route('escort.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
 								  </div>
 					</div>
 		</div>
@@ -157,7 +157,7 @@
 					<div class="bg-light position-relative overflow-hidden" style="height:360px;">
 					  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 						<div class="text-white fs-4 text-600">
-						{{ ucfirst($escort['username'])}}
+						{{ ucfirst($escort['user']['username'])}}
 									<span class="text-online">•</span>
 								  </div>
 						<div class="fs-sm text-white opacity-5 text-400">
