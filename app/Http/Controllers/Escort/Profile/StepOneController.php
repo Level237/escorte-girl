@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Escort\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use App\Services\Api\CurrentUserService;
 use App\Services\Api\List\ListTownService;
 use App\Services\Api\List\ListEthnicService;
 use App\Services\Api\List\ListSkinColorService;
@@ -16,6 +17,7 @@ class StepOneController extends Controller
         if(Session::has('EscortStepOne')){
             Session::forget('EscortStepOne');
         }
+        $currentUser=(new CurrentUserService())->currentUser();
         $listEthnic=(new ListEthnicService())->list();
         $listSkinColor=(new ListSkinColorService())->list();
         $listTown=(new ListTownService())->list();

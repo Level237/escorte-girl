@@ -4,6 +4,7 @@ namespace App\Services\Api\Escort;
 
 use Exception;
 use App\Services\Api\UrlApiService;
+use App\Services\AttachServices;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AddProfileService{
 
-    public function addProfile($data,$photo){
+    public function addProfile($data,$photo,$services){
         $url=(new UrlApiService())->getUrl();
         $path = $photo->store('profile');
         $contents = fopen($photo, 'r');
@@ -30,11 +31,18 @@ class AddProfileService{
                 'weight_id'=>mb_convert_encoding($data['weight_id'], 'UTF-8', 'UTF-8'),
                 'skin_color_id'=>mb_convert_encoding($data['skin_color_id'], 'UTF-8', 'UTF-8'),
                 'quarter_id'=>mb_convert_encoding($data['quarter_id'], 'UTF-8', 'UTF-8'),
-
             ]);
 
+            $dataResponse=json_decode($response);
 
-            return $response;
+            if($dataResponse->completed==true){
+                foreach($services as $s){
+                    $attachServices=(new AttachServices())->attach($s,$dataResponse->escort);
+                }
+            }
+
+
+            return $attachServices;
         }catch(Exception $e){
             dd($e->getMessage());
         }
