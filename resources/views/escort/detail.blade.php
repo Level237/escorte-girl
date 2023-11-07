@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title> &raquo; Adrianna</title>
+    <title> &raquo; Alessandra</title>
     
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -21,20 +21,20 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script src="../../wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
+<script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
 
-<meta property="og:url" content="http://escort.test/listing/adrianna/">
+<meta property="og:url" content="http://escort.test/listing/alessandra/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Adrianna">
+<meta property="og:title" content="Alessandra">
 <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. P">
-<meta property="og:image" content="https://premiummod.com/demoimages/img.php?imgid=10&t=es">
+<meta property="og:image" content="https://premiummod.com/demoimages/img.php?imgid=5&t=es">
 <meta property="og:image:width" content="700">
 <meta property="og:image:height" content="700">
 
  
     
 </head>
-<body class="listing_type-template-default single single-listing_type postid-38 single-format-standard body-hide-footer single-design4 theme-es tall-images innerpage">
+<body class="listing_type-template-default single single-listing_type postid-33 single-format-standard body-hide-footer single-design4 theme-es tall-images innerpage">
 
 <div id="wrapper" style="display:none;" class="">
 
@@ -43,164 +43,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <main id="page-content-wrapper" class="with-mobilemenu">
 
-<html>
-  <body><header class=" bg-white navbar-light border-bottom" data-block-id="header"> <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 pr-0">
-        <nav ppt-nav="" class="ppt-top-menu pl-0"> 		
-        <ul>
-        <li><a href="../../index-1.htm?reset=1">Home</a></li>        
-              
-        <li><a href="../../about-us/index.htm">About Us</a></li>
-        
-         <li><a href="../../contact/index.htm">Contact</a></li>
-                   
-		</ul>         
-         
-		 </nav>
-      </div>
-      <div class="col d-none d-md-block">
-        <nav ppt-nav="" class="seperator" ppt-flex-end="">
-          <ul>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle noc" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fab fa-bitcoin"></i>
-                            </a>
-              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="index-1.htm?c=USD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                USD</a>
-                                <a class="dropdown-item" href="index-2.htm?c=GBP">
-                                <i class="fal fa-pound-sign float-right mt-2"></i>
-                                GBP</a>
-                                <a class="dropdown-item" href="index-3.htm?c=EUR">
-                                <i class="fal fa-euro-sign float-right mt-2"></i>
-                                EUR</a>
-                                <a class="dropdown-item" href="index-4.htm?c=CAD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                CAD</a>
-                                <a class="dropdown-item" href="index-5.htm?c=AUD">
-                                <i class="fal fa-dollar-sign float-right mt-2"></i>
-                                AUD</a>
-                                <a class="dropdown-item" href="index-6.htm?c=JPY">
-                                <i class="fal fa-yen-sign float-right mt-2"></i>
-                                JPY</a>
-                                <a class="dropdown-item" href="index-7.htm?c=INR">
-                                <i class="fal fa-rupee-sign float-right mt-2"></i>
-                                INR</a>
-                                <a class="dropdown-item" href="index-8.htm?c=RUB">
-                                <i class="fal fa-ruble-sign float-right mt-2"></i>
-                                RUB</a>
-                                <a class="dropdown-item" href="index-9.htm?c=TRY">
-                                <i class="fal fa-lira-sign float-right mt-2"></i>
-                                TRY</a>
-                                <a class="dropdown-item" href="index-10.htm?c=PTS">
-                                <span class="float-right mt-1">&#8359;</span>
-                                PTS</a>
-                                <a class="dropdown-item" href="index-11.htm?c=BTC">
-                                <i class="fab fa-bitcoin float-right mt-2"></i>
-                                BTC</a>
-                              </div>
-            </li>
-                                    <li> <a href="../../wp-login.php.htm">Sign In</a> </li>
-                                                                        <li class="hide-ipad"> <div class="ppt-icons-social  _style2 size-xs ">
-                <ul>
-               
-                                 <li class="facebook">
-                 <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-facebook"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="twitter">
-                 <a href="#" title="twitter" class="icon-twitter" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-twitter"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="instagram">
-                 <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-instagram"></i>
-                 
-                                  
-                 </a></li>
-                                 <li class="youtube">
-                 <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
-                 
-                 <i class="fab fa-youtube"></i>
-                 
-                                  
-                 </a></li>
-                                </ul> 
-                </div>
-                 </li>
-                      </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</nav>
-
- 
-  <div class="container py-4 logo-lg  ">
-   
-    <div class="row no-gutters" ppt-flex-center="">
-      <div class="col-md-4">
-        <a href="../../index.htm">
-<div class='textlogo navbar-brand-light'>Sexy <span class='text-primary'>Escorts</span></div><div class='textlogo navbar-brand-dark'>Sexy <span class='text-primary'>Escorts</span></div></a>
-      </div>
-      <div class="col" ppt-flex-end="">
-        <div class="d-flex ">
-            <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
-        
-        
-                
-       <li><a href="../../index-1.htm?reset=1">Home</a></li>        
-        <li><a href="../../index-13.htm?s=">Search</a></li>
-       <li><a href="../../contact/index.htm">Contact</a></li>
-       
-       <li><a href="../../blog/index.htm">Blog</a></li>
-         
-               
-       </ul>
-       
-           
-		 </nav>            <div class="show-ipad show-mobile">
-            <div class="d-flex">
-                            <div class="ml-4 menu-toggle cursor">
-                <div ppt-icon-size="32" data-ppt-icon2="">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>                </div>
-              </div>
-            </div>
-          </div>
-                    <div class="hide-mobile">
-          
-           
-                      
-                        <a href="../../add-listing/index.htm" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Add Profile</a>
-                                    
-                        
-            
-          </div>
-                  </div>
-      </div>
-    </div>
-  </div>
-</header>
-</body>
-</html> 
+@include('layouts.Frontend.header')
     
 
  
 <div class="border-bottom py-3">
   <div class="container">
     <div class="list-list small letter-spacing-1 arrow">
-      <span><a href="../../index.htm" class="text-dark">Home</a></span>
-            <span><a href="http://escort.test/dagender/female-escort/" class="text-dark">Female Escort</a></span>
-                  <span><a href="../../listing-category/no-tattoo-escorts/index.htm" class="text-dark">No Tattoo Escorts</a></span>
+      <span><a href="{{ route('homepage') }}" class="text-dark">Accueil</a></span>
+            <span><a href="#" class="text-dark">Escorte féminine</a></span>
+                  <span><a href="#" class="text-dark"> Audrey</a></span>
                       </div>
   </div>
 </div>
@@ -219,7 +71,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		
 		<h1 class="fs-lg text-600">
 		 <div class="addeditmenu" data-key="title"></div> 
-Adrianna 		</h1>
+Alessandra 		</h1>
 		
 		
 			<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
@@ -265,12 +117,12 @@ Adrianna 		</h1>
        		
 			  <a href="javascript:void(0);" onclick="processLogin(1);" class="btn-primary btn-block btn-lg list mb-3 mobile-buynow-trigger" data-ppt-btn="">
 			 
-			  <span>Send Message</span>
+			  <span>Envoyer Un Message</span>
               </a>
 			  
 		 
       <a href="https://api.whatsapp.com/send?phone=15551234567" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
-      <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Me!</span>
+      <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
       </a>
       
           
@@ -286,46 +138,37 @@ Adrianna 		</h1>
     <ul>
    
         
-    <li class="taxonomy"><span>Ethnicity</span> <span>African</span></li>
+    <li class="taxonomy"><span>Ethnie</span> <span>Arab</span></li>
     
 	    
-    <li class="taxonomy"><span>Sexuality</span> <span>Lesbian</span></li>
+    <li class="taxonomy"><span>Sexualité</span> <span>Gay</span></li>
     
 	    
-    <li class="taxonomy"><span>Gender</span> <span>Female Escort</span></li>
+    <li class="taxonomy"><span>Genre</span> <span>Escorte Féminine</span></li>
     
 	    
-    <li class="input"><span>Location</span> <span>New York</span></li>
+    <li class="input"><span>Location</span> <span>Douala</span></li>
     
 	    
-    <li class="title"><span>What do I look like?</span> </li>
+    <li class="title"><span>De quoi j'ai l'air?</span> </li>
     
 	    
-    <li class="taxonomy"><span>My Eyes</span> <span>Green</span></li>
+    <li class="taxonomy"><span>Mes Yeux</span> <span>Brown</span></li>
     
 	    
-    <li class="taxonomy"><span>My Hair</span> <span>Blond</span></li>
+    <li class="taxonomy"><span>Mes Cheveux</span> <span>Gray</span></li>
     
 	    
-    <li class="taxonomy"><span>My Body</span> <span>Slim</span></li>
+    <li class="taxonomy"><span>My Coprs</span> <span>Slim</span></li>
     
 	    
-    <li class="input"><span>My Height</span> <span>160 CM</span></li>
+    <li class="input"><span>Ma Taille</span> <span>193 CM</span></li>
     
 	    
-    <li class="input"><span>Dress Size</span> <span>11</span></li>
+    <li class="input"><span>Mon Poids</span> <span>11</span></li>
     
 	    
-    <li class="input"><span>Bust size</span> <span>G</span></li>
-    
-	    
-    <li class="title"><span>My Habbits</span> </li>
-    
-	    
-    <li class="taxonomy"><span>Drinking</span> <span>Socially</span></li>
-    
-	    
-    <li class="taxonomy"><span>Smoking</span> <span>Rarely</span></li>
+  
     
 	    </ul>  
 </nav>
@@ -335,170 +178,16 @@ Adrianna 		</h1>
 </div>
 </div>      
           
-<div ppt-box="" class="rounded">
-<div class="_content p-3">
- 
+     <div ppt-box="" class="rounded">
 
-<div class="addeditmenu" data-key="video" style="margin-right:100px;"></div>
 
 
 </div>
-</div>      <div ppt-box="" class="rounded">
-
-<div class="_header d-flex">
-<div class="_title w-100">
-  My Availability</div> 
-</div>
-<div class="_content p-3">
-
-
-	
-
-<div class="card-hours text-600">
-
-<div class="addeditmenu" data-key="openinghours"></div>
-
- 
- 
-<div class="d-flex justify-content-between mb-2">
-
-<span>Monday</span>
-            
-                            <span class=" small">
-              09:00 AM - 18:00 PM              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Tuesday</span>
-            
-                            <span class=" small">
-              Busy              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Wednesday</span>
-            
-                            <span class=" small">
-              Busy              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Thursday</span>
-            
-                            <span class=" small">
-              Busy              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Friday</span>
-            
-                            <span class="text-light p-1 rounded text-600 bg-primary small">
-              09:00 AM - 18:00 PM              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Saturday</span>
-            
-                            <span class=" small">
-              Busy              </span>
-              
-              </div>
-<div class="d-flex justify-content-between mb-2">
-
-<span>Sunday</span>
-            
-                            <span class=" small">
-              06:45 AM - 18:00 PM              </span>
-              
-              </div>
- 
-  
- </div>
-
-</div>
-</div>
-      <div ppt-box="" class="rounded">
-
-<div class="_header ">
-<div class="_title w-100">
-  My Rates</div> 
-</div>
-<div class="_content p-3">
-<div class="addeditmenu" data-key="callrates"></div>
-<div class="card-rates">
-  <div class="row no-gutters">
-    <div class="col-6 _title pl-0 text-left">
-      <div class="text-600">
-        My Rates      </div>
-    </div>
-    <div class="col-3 _title text-center">
-      <div>
-        Incall      </div>
-    </div>
-    <div class="col-3 _title text-center">
-      <div>
-        Out Call      </div>
-    </div>
-        <div class="col-6">
-      <span class="text-600">1 Hour </span>
-    </div>
-    <div class="col-3 text-center">
-            <i class="fa fa-times"></i>
-          </div>
-    <div class="col-3 text-center">
-            <span class="ppt-price">18</span>
-          </div>
-        <div class="col-6">
-      <span class="text-600">2 Hours </span>
-    </div>
-    <div class="col-3 text-center">
-            <i class="fa fa-times"></i>
-          </div>
-    <div class="col-3 text-center">
-            <span class="ppt-price">27</span>
-          </div>
-        <div class="col-6">
-      <span class="text-600">3 Hours </span>
-    </div>
-    <div class="col-3 text-center">
-            <i class="fa fa-times"></i>
-          </div>
-    <div class="col-3 text-center">
-            <span class="ppt-price">44</span>
-          </div>
-        <div class="col-6">
-      <span class="text-600">6 Hours </span>
-    </div>
-    <div class="col-3 text-center">
-            <i class="fa fa-times"></i>
-          </div>
-    <div class="col-3 text-center">
-            <span class="ppt-price">38</span>
-          </div>
-        <div class="col-6">
-      <span class="text-600">12 Hours </span>
-    </div>
-    <div class="col-3 text-center">
-            <i class="fa fa-times"></i>
-          </div>
-    <div class="col-3 text-center">
-            <span class="ppt-price">22</span>
-          </div>
-      </div>
-</div>
-
-
-</div>
-</div>       
+        
 <div ppt-box="" class="rounded">
   <div class="_header d-md-flex align-items-center">
     <div class="_title w-100">
-      Gifts    </div>
+      Cadeaux    </div>
   </div>
     <a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
   <div class="_content py-4 h-100" ppt-flex-middle="">
@@ -506,7 +195,7 @@ Adrianna 		</h1>
       <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
       <div class="fs-5 text-600 mt-3">
-        Send a virtual gift.      </div>
+        Envoyez un cadeau virtuel.     </div>
     </div>
   </div>
   </a>
@@ -515,7 +204,7 @@ Adrianna 		</h1>
 
 <div class="p-4 hide-mobile rounded" ppt-box="">
 
-<p class="text-600">Share this link via</p>
+<p class="text-600">Partagez ce lien via</p>
 
  
 <style>
@@ -549,18 +238,18 @@ Adrianna 		</h1>
 
 
  <ul class="icons">
-        <a href="../../login-18.php?u=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/share?url=http://escort.test/listing/adrianna/&text=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-                 <a href="https://pinterest.com/pin/create/button/?url=http://escort.test/listing/adrianna/&description=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-               <a href="https://www.linkedin.com/cws/share?url=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
 
 </ul>
 
-      <p class="small opacity-8">Or copy link</p>
+      <p class="small opacity-8">Ou copier le lien</p>
       <div class="field">
         <i class="fa fa-link"></i>
-        <input type="text" readonly="" id="copylink" value="http://escort.test/listing/adrianna/">
+        <input type="text" readonly="" id="copylink" value="#">
         <button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" data-clipboard-target="#copylink" style="min-width:60px;">Copy</button>
       </div>
 
@@ -589,10 +278,10 @@ jQuery(document).ready(function(){
 <div id="mobileGalleryMove" class="hide-mobile">
 <div class="row no-gutters mb-4">
     <div class="col-6">
-        <a href="../../demoimages/img-180.php?imgid=10&t=es" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-180.php');">
+        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es') }});">
           &nbsp;
         </div>
               </div>
@@ -600,10 +289,10 @@ jQuery(document).ready(function(){
         </a>
       </div>
     <div class="col-6">
-        <a href="../../demoimages/img-181.php?imgid=10&t=es&sub=1" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-61.php?imgid=5&t=es&sub=1') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-181.php');">
+        <div class="bg-image" style="background-image:url('{{ asset('assets/images/demoimages/img-61.php') }}');">
           &nbsp;
         </div>
               </div>
@@ -611,47 +300,27 @@ jQuery(document).ready(function(){
         </a>
       </div>
     <div class="col-6">
-        <a href="../../demoimages/img-182.php?imgid=10&t=es&sub=2" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-62.php?imgid=5&t=es&sub=2') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-182.php');">
+        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-62.php') }});">
           &nbsp;
         </div>
               </div>
     </div>
         </a>
       </div>
+  
+ 
     <div class="col-6">
-        <a href="../../demoimages/img-183.php?imgid=10&t=es&sub=3" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+        <a href="{{ asset('assets/images/demoimages/img-65.php?imgid=5&t=es&sub=5') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-183.php');">
-          &nbsp;
-        </div>
-              </div>
-    </div>
-        </a>
-      </div>
-    <div class="col-6">
-        <a href="../../demoimages/img-184.php?imgid=10&t=es&sub=4" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-184.php');">
-          &nbsp;
-        </div>
-              </div>
-    </div>
-        </a>
-      </div>
-    <div class="col-6">
-        <a href="../../demoimages/img-185.php?imgid=10&t=es&sub=5" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('../../demoimages/img-185.php');">
+        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-65.php') }});">
           &nbsp;
         </div>
                 <div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
-          All Photos        </div>
+          Toutes les Photos       </div>
         <div class="overlay-inner" style="z-index:1">
         </div>
               </div>
@@ -659,10 +328,10 @@ jQuery(document).ready(function(){
         </a>
       </div>
   
-  <a href="../../demoimages/img-186.php?imgid=10&t=es&sub=7" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="../../demoimages/img-187.php?imgid=10&t=es&sub=8" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="../../demoimages/img-188.php?imgid=10&t=es&sub=9" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="../../demoimages/img-189.php?imgid=10&t=es&sub=10" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+  <a href="{{ asset('assets/images/demoimages/img-66.php?imgid=5&t=es&sub=7') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+    <a href="{{ asset('assets/images/demoimages/img-67.php?imgid=5&t=es&sub=8') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+    <a href="{{ asset('assets/images/demoimages/img-68.php?imgid=5&t=es&sub=9') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+    <a href="{{ asset('assets/images/demoimages/img-69.php?imgid=5&t=es&sub=10') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
     
 </div>
 </div>
@@ -679,7 +348,7 @@ jQuery(document).ready(function(){
 <div ppt-box="" class="rounded">
   <div class="_header d-md-flex align-items-center">
     <div class="_title w-100">
-      About Me    </div>
+      A Propos de Moi    </div>
     <div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
       	 
 	<div class="ppt-badges clearfix mb-3"> 
@@ -697,7 +366,7 @@ jQuery(document).ready(function(){
 <div class="badge_tooltip text-center" data-direction="top">
     <div class="badge_tooltip__initiator"> 
    <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
-    <div class="badge_tooltip__item">Gold User Listing </div>
+    <div class="badge_tooltip__item">Profil Gold </div>
   </div>
   
   
@@ -720,8 +389,8 @@ jQuery(document).ready(function(){
         
 <div class="badge_tooltip text-center" data-direction="top">
     <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-grin-stars" style="color:#FEFEFE"></i> Awesome    </div>
-    <div class="badge_tooltip__item">Create your own badges in the admin area! </div>
+   <i class="fal fa fa-grin-stars" style="color:#FEFEFE"></i> Géniale    </div>
+    <div class="badge_tooltip__item">Je suis une fille coquine </div>
   </div>
   
   
@@ -749,8 +418,8 @@ jQuery(document).ready(function(){
         		 
 		<div class="overflow-hidden">
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+
+
         </div>
          
         
@@ -771,7 +440,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Affectionate cuddling</div> 
+    <div class="ml-2 ftxt">Câlins affectueux</div> 
 </div>
 
 </div>
@@ -780,7 +449,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Affectionate kissing</div> 
+    <div class="ml-2 ftxt">Baisers affectueux</div> 
 </div>
 
 </div>
@@ -789,7 +458,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Balls licking</div> 
+    <div class="ml-2 ftxt">Léchage de couilles</div> 
 </div>
 
 </div>
@@ -798,7 +467,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Blow job</div> 
+    <div class="ml-2 ftxt">Fellation</div> 
 </div>
 
 </div>
@@ -807,7 +476,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">body slide</div> 
+    <div class="ml-2 ftxt">Toboggan corporel</div> 
 </div>
 
 </div>
@@ -825,7 +494,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Cum in mouth</div> 
+    <div class="ml-2 ftxt">Jouir dans la bouche</div> 
 </div>
 
 </div>
@@ -834,7 +503,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Cum on body</div> 
+    <div class="ml-2 ftxt">Jouir sur le corps</div> 
 </div>
 
 </div>
@@ -843,7 +512,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Deep French kissing</div> 
+    <div class="ml-2 ftxt">Baiser français</div> 
 </div>
 
 </div>
@@ -852,7 +521,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Dirty talk</div> 
+    <div class="ml-2 ftxt">Conversation Sauvages</div> 
 </div>
 
 </div>
@@ -861,7 +530,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Disabled clients</div> 
+    <div class="ml-2 ftxt">Clientèle handicapée</div> 
 </div>
 
 </div>
@@ -870,7 +539,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Doggy style</div> 
+    <div class="ml-2 ftxt">Levrette</div> 
 </div>
 
 </div>
@@ -879,7 +548,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Double penetration</div> 
+    <div class="ml-2 ftxt">Double pénétration</div> 
 </div>
 
 </div>
@@ -888,7 +557,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Girlfriend experience</div> 
+    <div class="ml-2 ftxt">Expérience de couple</div> 
 </div>
 
 </div>
@@ -897,7 +566,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Happy ending</div> 
+    <div class="ml-2 ftxt">Fin heureuse</div> 
 </div>
 
 </div>
@@ -906,7 +575,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Light bondage</div> 
+    <div class="ml-2 ftxt">Servitude légère</div> 
 </div>
 
 </div>
@@ -924,7 +593,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Overnight stays</div> 
+    <div class="ml-2 ftxt">Nuitées</div> 
 </div>
 
 </div>
@@ -933,7 +602,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Passionate kissing</div> 
+    <div class="ml-2 ftxt">Baisers passionnés</div> 
 </div>
 
 </div>
@@ -942,7 +611,7 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">sensual massage only</div> 
+    <div class="ml-2 ftxt">Massage sensuel</div> 
 </div>
 
 </div>
@@ -951,19 +620,11 @@ jQuery(document).ready(function(){
 <div class="d-flex">
 
     <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Sexy lingerie</div> 
+    <div class="ml-2 ftxt">Lingerie sexy</div> 
 </div>
 
 </div>
-<div class="col-md-4">
 
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Strip tease</div> 
-</div>
-
-</div>
 </div>
 
   
@@ -973,38 +634,6 @@ jQuery(document).ready(function(){
     
   </div>
 </div>      
-<div ppt-box="" class="rounded">
-  <div class="_content py-3">
-    <div class="d-flex">
-      <div style="width:150px;">
-        <div style="height:100px; width:100px;" class="bg-light rounded position-relative overflow-hidden">
-          <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?store=1&iconimgid=10&t=es">
-            &nbsp;
-          </div>
-        </div>
-      </div>
-      <div class="w-100 ml-lg-4 pr-lg-4 hide-mobile" ppt-flex="">
-        <div class="text-600">
-          <div class="mb-0 d-flex align-items-baseline">
-            <div class="text-700">
-              Agency Details            </div>
-			          </div>
-        </div>
-        <div class="lh-20 mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. P...        </div>
-        <div class="opacity-5 fs-sm mt-2">
-          Agency Name 11        </div>
-      </div>
-      <div>
-      
-            
-       <a href="http://escort.test/agency/agency-name-11/" class="btn-primary list btn-block" data-ppt-btn="">View Agency</a>
-        
-              
-      </div>
-    </div>
-  </div>
-</div>
           </div>
   </div>
 </div>
@@ -1016,11 +645,11 @@ jQuery(document).ready(function(){
 
     <div class="col-12"> 
     
-<div class="mb-5 text-700">Recommended For You</div> 
+<div class="mb-5 text-700">Profils Similaires</div> 
       
       
 <div class='row'><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="42" data-lat="40.75878842640948" data-long="-73.89546578858642" data-address="">
+  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="37" data-lat="40.76324171770885" data-long="-73.96344369385986" data-address="">
  
   <figure>
   
@@ -1037,7 +666,7 @@ jQuery(document).ready(function(){
 
 
 </div>  
-  <a href="../ethel/index.htm">
+  <a href="../soraya/index.htm">
   
   <div ppt-border1="" class="p-1">
   
@@ -1046,14 +675,14 @@ jQuery(document).ready(function(){
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
         <div class="text-white fs-4 text-600">
-          Ethel
+          Soraya
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
           New York  
         </div>
       </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=14&t=es">
+      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=9&t=es">
          
       </div>
       
@@ -1065,9 +694,9 @@ jQuery(document).ready(function(){
       
       <div class="list-info-pop bg-black hide-mobile">
         <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 37 </li>
+                              <li class="d-flex justify-content-between"> <span>Age</span> 42 </li>
                               <li class="d-flex justify-content-between"> <span>City</span> New York</li>
-                              <li class="d-flex justify-content-between"> <span>Height</span> 195 CM </li>
+                              <li class="d-flex justify-content-between"> <span>Height</span> 168 CM </li>
                             </ul>
       </div>
     </div>
@@ -1078,7 +707,7 @@ jQuery(document).ready(function(){
 
 <div class="show-mobile">
   <div class="position-relative mb-3">
-    <a href="../ethel/index.htm">
+    <a href="../soraya/index.htm">
     <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
       <div class="h-100 position-relative">
         <figure>
@@ -1087,20 +716,20 @@ jQuery(document).ready(function(){
     <div class="badge" style="color:#000000;background-color:#FFC300;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
        
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=14&t=es"> </div>
+</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=9&t=es"> </div>
         </figure>
       </div>
     </div>
     </a>
     <div class="lh-20 text-700 " style="margin-top:20px;">
             <span class="text-online">•</span>
-            <a href="../ethel/index.htm" class="text-dark">Ethel, <span class="fs-sm opacity-5">37</span></a>
+            <a href="../soraya/index.htm" class="text-dark">Soraya, <span class="fs-sm opacity-5">42</span></a>
     </div>
   </div>
 </div>
 </body>
 </html></div><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
+  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="38" data-lat="40.74217534312245" data-long="-73.94765084718017" data-address="">
  
   <figure>
   
@@ -1117,7 +746,7 @@ jQuery(document).ready(function(){
 
 
 </div>  
-  <a href="../rooster/index.htm">
+  <a href="../adrianna/index.htm">
   
   <div ppt-border1="" class="p-1">
   
@@ -1126,14 +755,14 @@ jQuery(document).ready(function(){
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
         <div class="text-white fs-4 text-600">
-          Rooster
+          Adrianna
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
           New York  
         </div>
       </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es">
+      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=10&t=es">
          
       </div>
       
@@ -1145,9 +774,9 @@ jQuery(document).ready(function(){
       
       <div class="list-info-pop bg-black hide-mobile">
         <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 40 </li>
+                              <li class="d-flex justify-content-between"> <span>Age</span> 27 </li>
                               <li class="d-flex justify-content-between"> <span>City</span> New York</li>
-                              <li class="d-flex justify-content-between"> <span>Height</span> 181 CM </li>
+                              <li class="d-flex justify-content-between"> <span>Height</span> 160 CM </li>
                             </ul>
       </div>
     </div>
@@ -1158,7 +787,7 @@ jQuery(document).ready(function(){
 
 <div class="show-mobile">
   <div class="position-relative mb-3">
-    <a href="../rooster/index.htm">
+    <a href="../adrianna/index.htm">
     <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
       <div class="h-100 position-relative">
         <figure>
@@ -1167,23 +796,26 @@ jQuery(document).ready(function(){
     <div class="badge" style="color:#000000;background-color:#FFC300;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
        
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
+</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=10&t=es"> </div>
         </figure>
       </div>
     </div>
     </a>
     <div class="lh-20 text-700 " style="margin-top:20px;">
             <span class="text-online">•</span>
-            <a href="../rooster/index.htm" class="text-dark">Rooster, <span class="fs-sm opacity-5">40</span></a>
+            <a href="../adrianna/index.htm" class="text-dark">Adrianna, <span class="fs-sm opacity-5">27</span></a>
     </div>
   </div>
 </div>
 </body>
 </html></div><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="44" data-lat="40.71235241703782" data-long="-73.87186234925537" data-address="">
+  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="39" data-lat="40.73967164196744" data-long="-73.94473260377197" data-address="">
  
   <figure>
   
+<div class="button-featured-new-wrap es">
+<div class="button-featured-new">Featured</div>
+</div>
 
  
 <div class="buttons-wrap"> 
@@ -1197,7 +829,7 @@ jQuery(document).ready(function(){
 
 
 </div>  
-  <a href="../bowie/index.htm">
+  <a href="../giuliana/index.htm">
   
   <div ppt-border1="" class="p-1">
   
@@ -1206,14 +838,14 @@ jQuery(document).ready(function(){
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
         <div class="text-white fs-4 text-600">
-          Bowie
+          Giuliana
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
           New York  
         </div>
       </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=16&t=es">
+      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es">
          
       </div>
       
@@ -1225,7 +857,7 @@ jQuery(document).ready(function(){
       
       <div class="list-info-pop bg-black hide-mobile">
         <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 39 </li>
+                              <li class="d-flex justify-content-between"> <span>Age</span> 31 </li>
                               <li class="d-flex justify-content-between"> <span>City</span> New York</li>
                               <li class="d-flex justify-content-between"> <span>Height</span> 177 CM </li>
                             </ul>
@@ -1238,7 +870,7 @@ jQuery(document).ready(function(){
 
 <div class="show-mobile">
   <div class="position-relative mb-3">
-    <a href="../bowie/index.htm">
+    <a href="../giuliana/index.htm">
     <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
       <div class="h-100 position-relative">
         <figure>
@@ -1247,20 +879,20 @@ jQuery(document).ready(function(){
     <div class="badge" style="color:#000000;background-color:#FFC300;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
        
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=16&t=es"> </div>
+</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=11&t=es"> </div>
         </figure>
       </div>
     </div>
     </a>
     <div class="lh-20 text-700 " style="margin-top:20px;">
             <span class="text-online">•</span>
-            <a href="../bowie/index.htm" class="text-dark">Bowie, <span class="fs-sm opacity-5">39</span></a>
+            <a href="../giuliana/index.htm" class="text-dark">Giuliana, <span class="fs-sm opacity-5">31</span></a>
     </div>
   </div>
 </div>
 </body>
 </html></div><div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="32" data-lat="40.72123239521979" data-long="-73.99932092164306" data-address="">
+  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="30" data-lat="40.710433145221195" data-long="-74099462006835" data-address="">
  
   <figure>
   
@@ -1277,7 +909,7 @@ jQuery(document).ready(function(){
 
 
 </div>  
-  <a href="../paulina/index.htm">
+  <a href="../natalia/index.htm">
   
   <div ppt-border1="" class="p-1">
   
@@ -1286,14 +918,14 @@ jQuery(document).ready(function(){
     <div class="bg-light position-relative overflow-hidden" style="height:360px;">
       <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
         <div class="text-white fs-4 text-600">
-          Paulina
+          Natalia
                     <span class="text-online">•</span>
                   </div>
         <div class="fs-sm text-white opacity-5 text-400">
           New York  
         </div>
       </div>
-      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=4&t=es">
+      <div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=2&t=es">
          
       </div>
       
@@ -1305,9 +937,9 @@ jQuery(document).ready(function(){
       
       <div class="list-info-pop bg-black hide-mobile">
         <ul class="list-unstyled ">
-                              <li class="d-flex justify-content-between"> <span>Age</span> 33 </li>
+                              <li class="d-flex justify-content-between"> <span>Age</span> 29 </li>
                               <li class="d-flex justify-content-between"> <span>City</span> New York</li>
-                              <li class="d-flex justify-content-between"> <span>Height</span> 200 CM </li>
+                              <li class="d-flex justify-content-between"> <span>Height</span> 178 CM </li>
                             </ul>
       </div>
     </div>
@@ -1318,7 +950,7 @@ jQuery(document).ready(function(){
 
 <div class="show-mobile">
   <div class="position-relative mb-3">
-    <a href="../paulina/index.htm">
+    <a href="../natalia/index.htm">
     <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
       <div class="h-100 position-relative">
         <figure>
@@ -1327,14 +959,14 @@ jQuery(document).ready(function(){
     <div class="badge" style="color:#000000;background-color:#FFC300;">
     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
        
-</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=4&t=es"> </div>
+</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=2&t=es"> </div>
         </figure>
       </div>
     </div>
     </a>
     <div class="lh-20 text-700 " style="margin-top:20px;">
             <span class="text-online">•</span>
-            <a href="../paulina/index.htm" class="text-dark">Paulina, <span class="fs-sm opacity-5">33</span></a>
+            <a href="../natalia/index.htm" class="text-dark">Natalia, <span class="fs-sm opacity-5">29</span></a>
     </div>
   </div>
 </div>
@@ -1410,7 +1042,7 @@ jQuery(document).ready(function(){
 
 <script>
 
-function ajax_newsletter_signup9843(){
+function ajax_newsletter_signup4154(){
 
     jQuery.ajax({
         type: "POST",
@@ -1418,15 +1050,15 @@ function ajax_newsletter_signup9843(){
 		dataType: 'json',
 		data: {
             action: "newsletter_join",
-			email: jQuery('#ppt_newsletter_mailme9843').val(),	 
+			email: jQuery('#ppt_newsletter_mailme4154').val(),	 
         },
         success: function(r) {
 			
 			if(r.status == "ok"){
-				jQuery('#newsletterthankyou9843').show();
-				jQuery('#mailinglist-form9843').html('');
+				jQuery('#newsletterthankyou4154').show();
+				jQuery('#mailinglist-form4154').html('');
 			}else{
-				jQuery('#mailinglist-form9843').html("Invalid Email Address");
+				jQuery('#mailinglist-form4154').html("Invalid Email Address");
 			}
 			
         },
@@ -1438,17 +1070,17 @@ function ajax_newsletter_signup9843(){
 }
 </script>
 
-<div id="newsletterthankyou9843" style="display:none" class="newsletter-confirmation txt">
+<div id="newsletterthankyou4154" style="display:none" class="newsletter-confirmation txt">
 	<div class="h4">Email confirmation sent.</div>
 	<p>Please check your email for a confirmation email.</p>
 	<p class="small">Only once you've confirmed your email will you be subscribed to our newsletter.</p>
 </div>
 
-<form id="mailinglist-form9843" name="mailinglist-form9843" method="post" onsubmit="return IsEmailMailinglist9843();" class="footer-newsletter">
+<form id="mailinglist-form4154" name="mailinglist-form4154" method="post" onsubmit="return IsEmailMailinglist4154();" class="footer-newsletter">
     
 
 <div class="input-group">										 
-<input type="text" name="ppt_newsletter_mailme9843" id="ppt_newsletter_mailme9843" value="" placeholder="Email Address Here.." style="height:46px;" class="form-control  rounded-0"> 
+<input type="text" name="ppt_newsletter_mailme4154" id="ppt_newsletter_mailme4154" value="" placeholder="Email Address Here.." style="height:46px;" class="form-control  rounded-0"> 
 <div class="input-group-append">
 <button type="submit" class="btn btn-primary px-3">Join</button>
 </div>	
@@ -1461,9 +1093,9 @@ function ajax_newsletter_signup9843(){
          
  </form>
 <script>
-		function IsEmailMailinglist9843(){
+		function IsEmailMailinglist4154(){
 		var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-			var de4 	= document.getElementById("ppt_newsletter_mailme9843");
+			var de4 	= document.getElementById("ppt_newsletter_mailme4154");
 			
 			if(de4.value == ''){
 			alert("Please enter your email.");
@@ -1477,7 +1109,7 @@ function ajax_newsletter_signup9843(){
 			de4.focus();
 			return false;
 			}
-			ajax_newsletter_signup9843();
+			ajax_newsletter_signup4154();
 		 
 		  	return false;
 		}		
@@ -1608,19 +1240,19 @@ function ajax_newsletter_signup9843(){
 				<input type="hidden" id="ppt-current-position" value="left">
                 <input type="hidden" id="ppt-map-provider" value="mapbox"> 
                
-                                  <script async="" src="../../js/js.custom.js?v=10.8.9" id="premiumpress-js"></script>
-                                  <script async="" src="../../js/js.zclip.js?v=10.8.9" id="premiumpress-zclip-js"></script>
+                                  <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
+                                  <script async="" src="{{ asset('assets/js/js.zclip.js?v=10.8.9') }}" id="premiumpress-zclip-js"></script>
                                   
 				<noscript id="deferred-styles">
                 
-								<link rel="stylesheet" type="text/css" id="boostrap-css" href="../../css/_bootstrap.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-fonts" href="../../css/css.theme-fonts.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-elementor" href="../../css/css.theme-elementor.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-maps" href="../../css/css.theme-maps.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="theme-utilities" href="../../css/css.theme-utilities.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="../../css/css.premiumpress.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="../../css/_chat.css?v=10.8.9">
-								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="../../css/_theme_es.css?v=10.8.9">
+								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css/?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
+								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 				                
                 				<style>
 				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
@@ -1645,101 +1277,17 @@ function ajax_newsletter_signup9843(){
 				   
 				</script>
                 <!----------------- -->
-<div id="ppt-notice-new-custom" style="display:none;">
 
-<div class="p-3 bg-white rounded shadow-lg position-relative" style="min-width: 250px; max-width:400px;">
-  <div class="d-flex">
-    <div>
-      <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-        <div class="bg-image rounded bg-light">
-        </div>
-      </div>
-    </div>
-    <div class="pr-5">
-      <div ppt-icon-24="" data-ppt-icon-size="24" class="btn-close position-absolute" style="right:10px; top:10px;cursor:pointer;">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>      </div>
-      <a href="#" class="_link btn-close text-dark">
-      <div class="_username">
-        <strong>Sammy</strong> has updated her photo. Do you like it?
-      </div>
-      </a>
-    </div>
-  </div>
-</div>
- 
-</div>
 
 <div id="ppt-notice-new-notifications" style="display:none;">
 
-<div ppt-box="" class="rounded">
-  <div class="_content py-3">
-    <div class="d-flex">
-      <div style="width:150px;" class="hide-mobile">
-        <div style="height:60px; width:60px;" class="bg-light rounded position-relative overflow-hidden" ppt-flex-middle="">
-          <div ppt-icon-size="32" data-ppt-icon="" class="text-warning">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>          </div>
-        </div>
-      </div>
-      <div class="w-100 mx-3" ppt-flex="">
-        <div class="text-600 fs-5">
-          New Notification        </div>
-        <div class="lh-20 mt-2 fs-sm">
-          You have a new notification.        </div>
-      </div>
-      <div ppt-flex-between="" ppt-flex-end="">
-        <a href="#" class="btn-close _ok btn-warning" data-ppt-btn="">
-        <div ppt-icon-size="24" data-ppt-icon="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>        </div>
-        </a> <a href="#" class="btn-system  _cancel btn-close hide-mobile" data-ppt-btn="">
-        <div ppt-icon-size="24" data-ppt-icon="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>        </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>  
-</div>
-
-<div id="ppt-notice-new-message" style="display:none;">
-
  
-<div class="bg-white p-3 rounded shadow" style="max-width:400px;">
-          <div class="d-flex">
-            <div>
-              <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-                <div class="bg-image rounded" data-bg="">&nbsp;</div>
-              </div>
-            </div>
-            <div class="fs-5">
-              <strong class="_username">Mark</strong> Has sent you a message, take a look!            </div>
-          </div> 
-        
-        <div class="d-flex w-100 mt-4"> 
-          <button class="_ok w-100 btn-primary btn-close" data-ppt-btn="">Read</button>
-          <button class="_cancel w-100 btn-system btn-close" data-ppt-btn="">Cancel</button> 
-        </div>
-      </div>
-</div> 
-
-
-<div id="ppt-notice-new-login" style="display:none;">
-
-    <div class="card-body">
-          <div class="d-flex">
-            <div>
-              <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-                <div class="bg-image rounded" data-bg="">
-                </div>
-              </div>
-            </div>
-            <div class="_msg_login"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged in. Say hello!</a></div>
-            <div class="_msg_logout"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged of. Say Goodbye.</a></div>
-           <div class="_msg_upgrade"><a href="#" class="_link"><strong class="_username">Mark</strong> Has has just upgraded their account.</a></div>
-           
-            
-          </div>
-        </div> 
 </div>
+
+
+
+
+
  
 
 

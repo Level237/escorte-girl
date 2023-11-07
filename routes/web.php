@@ -55,7 +55,7 @@ Route::get('/step-three',[StepThreeController::class,'stepThree']);
 Route::get('/step-final',[StepFinalController::class,'stepFinal']);
 
 //ESCORT GROUP URL
-Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
+Route::get('/escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 
 
 //Annoucements GROUP URL
