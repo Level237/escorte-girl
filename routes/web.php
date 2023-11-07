@@ -84,7 +84,7 @@ Route::middleware(['escort'])->group(function () {
 });
 
 //Route escort  completed profile middleware
-Route::middleware(['escort','profileCompleted'])->group(function () {
+Route::middleware(['escort'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
         Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
