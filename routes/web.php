@@ -51,7 +51,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 
 
 //ESCORT GROUP URL
-Route::get('/escorts/{id}',[DetailEscortController::class, 'show']);
+Route::get('/escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 
 
 //Annoucements GROUP URL
