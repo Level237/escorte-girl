@@ -51,7 +51,7 @@
     </div>
     <div class="mt-8 p-4 mx-10">
 
-        <form method="POST" action="{{ route('step-three-store') }}" >
+        <form method="POST" action="{{ route('step-three-store') }}" enctype="multipart/form-data">
             @csrf
             <div>
 
@@ -60,7 +60,7 @@
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
 
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="large_size">Telecharger votre profil</label>
-                        <input name="photo" class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size" type="file">
+                        <input  type="file" name="photo" class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="large_size">
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">mettez un profil tres exitant de vous pour avoir plus de contacts des clients.</div>
                         @error('photo')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
