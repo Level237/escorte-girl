@@ -16,11 +16,16 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+
         $currentUser=(new CurrentUserService())->currentUser();
-        $role_id=$currentUser['role_id'];
-        if($role_id !==1){
-            abort(403);
-        }else{
+        $role=$currentUser['role_id'] ?? null;
+        if($currentUser!==null && $role!==1){
+
+               return back();
+
+        }else if($currentUser==null){
+            return to_route("login");
+        }else if($role==1){
             return $next($request);
         }
 
