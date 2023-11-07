@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\Api\CurrentUserService;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 
-class Admin
+class ProfileCompleted
 {
     /**
      * Handle an incoming request.
@@ -16,16 +16,12 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        $currentUser=(new CurrentUserService())->currentUser();
-        $role=$currentUser->role_id ?? null;
-        if($currentUser!==null && $role!==1){
-
-               return back();
-
-        }else if($currentUser==null){
-            return to_route("login");
-        }else if($role==1){
+        if($completed ===0){
+            return to_route('step-one');
+        }else{
             return $next($request);
         }
 

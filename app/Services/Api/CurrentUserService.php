@@ -23,7 +23,8 @@ class CurrentUserService{
             $currentUser=json_decode($response);
             Session::put('currentUser', $currentUser);
             Session::save();
-            return $response;
+            $responseData=json_decode($response);
+            return $responseData;
         }catch(Exception $e){
             dd($e->getMessage());
         }
