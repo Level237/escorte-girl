@@ -17,7 +17,7 @@ class Escort
     public function handle(Request $request, Closure $next): Response
     {
         $currentUser=(new CurrentUserService())->currentUser();
-        $role=$currentUser['role_id'] ?? null;
+        $role=$currentUser->role_id ?? null;
         if($currentUser!==null && $role!==2){
 
                return back();

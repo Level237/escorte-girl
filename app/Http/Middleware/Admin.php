@@ -18,7 +18,7 @@ class Admin
     {
 
         $currentUser=(new CurrentUserService())->currentUser();
-        $role=$currentUser['role_id'] ?? null;
+        $role=$currentUser->role_id ?? null;
         if($currentUser!==null && $role!==1){
 
                return back();
