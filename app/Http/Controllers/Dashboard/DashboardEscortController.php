@@ -12,10 +12,13 @@ class DashboardEscortController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('auth')->except('index');
+        $user = Session::get('currentUser');
+            $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        //Multiple exclude
-        $this->middleware('escort')->except(['step-one','step-two']);
+        if($completed==0){
+            return to_route('step-one');
+        }
     }
     public function index(){
 
@@ -37,32 +40,80 @@ class DashboardEscortController extends Controller
 
     public function profil (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.profil', compact('user'));
+    }
+
     }
 
     public function ads (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.ads', compact('user'));
+    }
+
     }
 
     public function messages (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.messages', compact('user'));
+    }
+
     }
 
     public function finance (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.finance', compact('user'));
+    }
+
     }
 
     public function advertise (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.advertise', compact('user'));
+    }
+
     }
 
     public function settings (){
         $user = Session::get('currentUser');
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+    $completed=$profileIsCompletedOrNot->completed ?? null;
+
+    if($completed==0){
+        return to_route('step-one');
+    }else{
         return view('dashboard.escort.settings', compact('user'));
+    }
+
     }
 
 }
