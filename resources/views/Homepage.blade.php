@@ -206,7 +206,7 @@
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-							<a href="#" class="text-dark">{{ $escort['quarter']}}  , 
+							<a href="#" class="text-dark">{{ $escort['quarter']}}  ,
                 <span class="fs-sm opacity-5">
                   {{ ($escort['age']) }}</span></a>
 					</div>

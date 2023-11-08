@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
+use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 
 class Escort
 {
@@ -17,17 +18,18 @@ class Escort
     public function handle(Request $request, Closure $next): Response
     {
         $currentUser=(new CurrentUserService())->currentUser();
-
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+        $completed=$profileIsCompletedOrNot->completed ?? null;
         $role=$currentUser->role_id ?? null;
-        if($currentUser!==null && $role!==2){
+        if($role!==2){
 
                return back();
 
-        }else if($currentUser==null){
-            return to_route("login");
-        }else if($role==2){
-            return $next($request);
         }
-
+        else if(empty($currentUser)){
+            //dd($currentUser);
+            return to_route("login");
+        }
+        return $next($request);
     }
 }

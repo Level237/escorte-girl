@@ -19,13 +19,13 @@ class ProfileCompleted
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        if($completed ===1){
+        if($completed !==0){
+            //dd($completed);
+            return back();
 
-            return $next($request);
-        }else{
-            return to_route('step-one');
         }
 
+        return $next($request);
 
 
     }
