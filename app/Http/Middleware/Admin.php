@@ -21,10 +21,8 @@ class Admin
         $role=$currentUser->role_id ?? null;
         if($currentUser!==null && $role!==1){
 
-               return back();
+               return to_route('login');
 
-        }else if($currentUser==null){
-            return to_route("login");
         }else if($role==1){
             return $next($request);
         }
