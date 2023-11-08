@@ -88,7 +88,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-invalid-fields" >
     <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
-            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{ $error }}</span>
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{ session('error') }}</span>
         </div>
     </div>
 </div>
@@ -793,7 +793,7 @@ function processSubmitForm(){
 function textarealimit(){
 
 
-   	text_max = 100;
+   	text_max = 1000;
 
      if(text_max == 0 || text_max == ""){
    	  jQuery('#textarea_counter').hide();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Services\Api\CurrentUserService;
+use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\Listing\AnnouncementController;
@@ -20,12 +21,13 @@ class HomepageController extends Controller
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
-        //dd($escorts);
+        $ads = (new AdsController())->list();
+        //dd($ads);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');
         //}
-        return view('Homepage', compact('locations', 'announcements', 'escorts'));
+        return view('Homepage', compact('locations', 'announcements', 'escorts', 'ads'));
 
     }
 }
