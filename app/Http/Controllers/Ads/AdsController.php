@@ -133,4 +133,22 @@ class AdsController extends Controller
 
     }
 
+    public function list(){
+         
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/announces");
+            $ads = json_decode((string) $response->getBody(), true);
+            $ads = $ads['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        return  $ads;
+    }
+
 }
