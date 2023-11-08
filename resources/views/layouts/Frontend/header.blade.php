@@ -1,3 +1,18 @@
+
+<style>
+  #btn-annonce{
+    background-color: #DA9DDC;
+  }
+
+  #logo-new{
+    width: 250px;
+    height: 100px;
+  }
+</style>
+
+
+
+
 <header class=" bg-white navbar-light border-bottom" data-block-id="header">
 
     <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
@@ -93,8 +108,9 @@
         <div class="col-md-4">
          
           <a href="/">
-  <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
-</a>
+            <!--<div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div> -->
+            <img id="logo-new" src="{{asset('assets/images/logo.png')}}" alt="">
+          </a>
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
@@ -132,12 +148,7 @@
                       <div class="hide-mobile">
 
                      
-                        <a href="{{ route('ads.create') }}" class="btn-secondary  rounded-pill text-600" data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
-                       
-
-
-
-
+                        <a id="btn-annonce" href="{{ route('ads.create') }}"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
 
             </div>
                     </div>

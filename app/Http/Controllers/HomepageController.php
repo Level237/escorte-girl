@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Listing\LocationController;
-use App\Http\Controllers\Listing\AnnouncementController;
-use App\Http\Controllers\Escort\EscortController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Services\Api\CurrentUserService;
+use App\Http\Controllers\Escort\EscortController;
+use App\Http\Controllers\Listing\LocationController;
+use App\Http\Controllers\Listing\AnnouncementController;
 
 class HomepageController extends Controller
 {
@@ -20,6 +21,10 @@ class HomepageController extends Controller
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
         //dd($escorts);
+        //$currentUser=(new CurrentUserService())->currentUser();
+        //if(Session::has('tokenUser')){
+           // Session::forget('tokenUser');
+        //}
         return view('Homepage', compact('locations', 'announcements', 'escorts'));
 
     }
