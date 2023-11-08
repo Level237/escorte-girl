@@ -33,7 +33,7 @@ use App\Http\Controllers\Escort\Profile\StepThreeController;
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
-Route::get('/register', [CreateUserController::class, 'create'])->middleware('preventBack');
+Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
@@ -76,14 +76,8 @@ Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image'
 
 
 //Route escort not completed profile middleware
-Route::middleware(['escort'])->group(function () {
-    Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
-    Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
-    Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
-    Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
-    Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
-    Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
-    Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
+Route::middleware(['profileCompleted'])->group(function () {
+
 
 });
 
@@ -98,6 +92,14 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
+    Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
+    Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
+    Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
+    Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
+    Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
+    Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
+    Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
+
 
 });
 

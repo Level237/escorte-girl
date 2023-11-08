@@ -10,6 +10,7 @@ use App\Services\Api\List\ListTownService;
 use App\Services\Api\List\ListEthnicService;
 use App\Services\Api\List\ListSkinColorService;
 use App\Http\Requests\Escort\Profil\StepOneRequest;
+use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 
 class StepOneController extends Controller
 {
@@ -18,12 +19,20 @@ class StepOneController extends Controller
             Session::forget('EscortStepOne');
         }
         $currentUser=(new CurrentUserService())->currentUser();
+        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
+        $completed=$profileIsCompletedOrNot->completed ?? null;
+        $role=$currentUser->role_id ?? null;
         $listEthnic=(new ListEthnicService())->list();
         $listSkinColor=(new ListSkinColorService())->list();
         $listTown=(new ListTownService())->list();
         //return $listEthnic;
         //return $request;
-        return view('escort.profile.step-one',compact('listEthnic','listSkinColor','listTown'));
+        if($completed!==0){
+            return back();
+        }else{
+            return view('escort.profile.step-one',compact('listEthnic','listSkinColor','listTown'));
+        }
+
     }
 
     public function stepOneStore(StepOneRequest $request){
