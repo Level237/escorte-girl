@@ -21,12 +21,8 @@ class Escort
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
         $role=$currentUser->role_id ?? null;
-        if($role!==2){
 
-               return back();
-
-        }
-        else if(empty($currentUser)){
+        if(empty($currentUser)){
             //dd($currentUser);
             return to_route("login");
         }

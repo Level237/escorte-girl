@@ -12,7 +12,7 @@ class DashboardEscortController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        //$this->middleware('auth')->except('index');
 
         //Multiple exclude
         $this->middleware('escort')->except(['step-one','step-two']);
