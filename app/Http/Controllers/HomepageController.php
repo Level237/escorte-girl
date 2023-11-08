@@ -20,6 +20,7 @@ class HomepageController extends Controller
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
+        //dd($escorts);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');

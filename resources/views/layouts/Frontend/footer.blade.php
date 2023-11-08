@@ -43,7 +43,7 @@
 
       <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2">
 
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Recherche Rapide</div>
+        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Recherche</div>
         <div class="lh-30">        <ul>
                 <li><a href="#">Rechercher</a></li>
                 <li><a href="i#">Populaire</a></li>

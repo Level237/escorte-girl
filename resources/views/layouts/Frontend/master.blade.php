@@ -124,7 +124,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#ED5858 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #ED5858 !important; border-color: #ED5858 !important; } .text-primary, .filters_col .distance span { color: #ED5858 !important; } .btn-outline-primary { color: #ED5858 !important; border-color: #ED5858 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #ED5858 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #ED5858!important; }				</style>
 
 				</noscript>
 
