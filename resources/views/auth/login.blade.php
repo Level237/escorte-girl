@@ -66,7 +66,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <div class="col-11 col-md-10 col-lg-9 mx-auto">
               <div class="logo">
                 <a href="/">
-                  
+
                   <div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
                   </a>
               </div>
@@ -201,6 +201,10 @@ function login_process(){
     <div class="col-md-6 text-center text-md-right">
       <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Mot de passe oublié?</u></a>
     </div>
+    <div class="col-md-12  text-md-right">
+        pas de compte?
+        <a href="{{ route('register') }}" rel="nofollow"><u>S'enregistrer</u></a>
+      </div>
   </div>
   <input type="hidden" name="testcookie" value="1">
   <input type="hidden" name="rememberme" id="rememberme" value="1">

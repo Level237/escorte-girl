@@ -33,7 +33,7 @@ use App\Http\Controllers\Escort\Profile\StepThreeController;
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
-Route::get('/register', [CreateUserController::class, 'create'])->middleware('preventBack');
+Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 Route::post('/login',[LoginController::class,'login'])->name('login');
