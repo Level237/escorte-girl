@@ -2,7 +2,8 @@
 @section('title', __('Tableau de bord'))
 
 @section('content')
-	
+
+
 <div class="fs-lg text-600 mb-2 hide-mobile">Bon Retour</div>
 
 <p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
@@ -78,4 +79,5 @@ contactez-nous – nous serions ravis de les entendre.</div>
 
 
 </div>
+
 @endsection
