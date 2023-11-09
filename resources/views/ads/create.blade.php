@@ -143,12 +143,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <label>Catégorie <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
   
+	@if($adsCategories)
     <select class="form-control" name="category" id="category">
-		@foreach ($adsCategories as $category)
+		@forelse ($adsCategories as $category)
 			<option value="{{  $category['id'] }}">{{ $category['title'] }}</option>
-		@endforeach
+		@empty
+		@endforelse
 
 	</select>
+	@endif
   </div>
 
 </div>
@@ -159,34 +162,28 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="col-md-6 mobile-mb-2">
 
-	<label>Type d'annonce <span class="text-danger">*</span> </label>
+	<label>Déplacement<span class="text-danger">*</span> </label>
 		<input type="hidden" id="user_id" value="{{ $user->id }}" name="user_id">
-		<div class="mt-2">
-					<input type="hidden" id="adstype" value="1" name="adstype">
-					<div class="usertry gender checked gender-2" onclick="processGender('1');">
-
-							<div><i class="fa fa-check-circle"></i> Offre (Vous Proposez)</div>
-
-					</div>
-					<div class="usertry gender  gender-3" onclick="processGender('0');">
-
-						<div><i class="fa fa-check-circle"></i> Demande (Vous Recherchez)</div>
-
-					</div>
+		<div class="form-group position-relative">
+				
+					 <select class="form-control" name="location" id="location">
+						<option value="Reçoit ou se déplace">Reçoit ou se déplace</option>
+						<option value="Se déplace seulement">Se déplace seulement</option>
+						<option value="Reçoit seulement">Reçoit seulement</option>
+				</select>
         </div>
 
 		
 </div>
 <div class="col-md-6 mobile-mb-2">
 
-	<label>Ville <span class="text-danger">*</span> </label>
+	<label> Clients Acceptés <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
   
-    <select class="form-control" name="town" id="town">
-		@foreach ($towns as $town)
-			<option value="{{  $town['id'] }}">{{ $town['town_name'] }}</option>
-		@endforeach
-		
+    <select class="form-control" name="accepted" id="accepted">
+			<option value="Hommes">Hommes</option>
+			<option value="Femmes">Femmes</option>
+			<option value="Tout le monde">Tout le monde</option>
 	</select>
   </div>
 
@@ -598,9 +595,6 @@ function processSubmitForm(){
 	return;
 	}
 
-
-	
-
 	//Validating title
 
 	if(jQuery('#title').val() === "" || jQuery('#title').val() === undefined){
@@ -687,14 +681,6 @@ function processSubmitForm(){
 		jQuery('#ppt-add-listing-form').hide();
 		jQuery('#ppt-add-listing-save').show();
 
-
-		const title = jQuery("#title").val();
-		const category = jQuery("#category").val();
-		var type = jQuery("#gender").val();
-		var town = jQuery("#town").val();
-		var description = jQuery("#field-post_content").val();
-		const recaptcha = jQuery('#g-recaptcha-response').val();
-		console.log(title, category, type, town, description);
 		document.getElementById('global-form').submit()
 		// SAVE THE DATA
 		// jQuery.ajax({

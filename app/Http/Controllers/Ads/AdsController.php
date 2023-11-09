@@ -16,13 +16,14 @@ class AdsController extends Controller
     public function create(){
 
 
+
         //check if user is connected
          if (Session::has('currentUser')){
 
             $url=(new UrlApiService())->getUrl();
-
+             //$currentUser=(new CurrentUserService())->currentUser();
             $user = Session::get('currentUser');
-
+            // dd($user);
             //Retrieving all towns
             $towns = null;
             try{
@@ -49,14 +50,14 @@ class AdsController extends Controller
                 $adsCategories = json_decode((string) $response->getBody(), true);
                 //dd($adsCategories);
                 if($adsCategories['data'] === null){
-                    //throw an exception an display an error
+                    return view('error');
                 }
                 else{
                     $adsCategories = $adsCategories['data'];
                 }
 
             }catch(\Exception $e){
-
+                return view('error');
             }
 
 
@@ -78,6 +79,7 @@ class AdsController extends Controller
 
     public function save(Request $request){
 
+        //dd($request->user_id);
         //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
 
@@ -86,9 +88,9 @@ class AdsController extends Controller
         try{
             $response = Http::asForm()->post($url."/api/ads", [
                 'user_id' => $request->user_id,
-                'town_id' => $request->town,
+                'location' => $request->location,
                 'category_id' => $request->category,
-                'type' => $request->adstype,
+                'accepted' => $request->accepted,
                 'title' => $request->title,
                 'description' => $request->form['post_content'],
             ]);
@@ -97,7 +99,6 @@ class AdsController extends Controller
             if($response->status() === 200){
 
                 //Now uploading ads's images
-
                 foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
                     $photo = \Illuminate\Support\Facades\Storage::get($filename);
                     $responseImage = Http::attach(
@@ -124,10 +125,11 @@ class AdsController extends Controller
 
             }else{
 
-               return back()->with('error',"Une erreur dans vos donnees");
+               dd(json_decode((string) $response->getBody(), true));
+               //return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
             }
         }catch(\Exception $e){
-            //dd($e);
+            dd($e);
             return back()->with('error',$e);
         }
 
@@ -151,7 +153,7 @@ class AdsController extends Controller
         return  $ads;
     }
 
-     public function list(){
+    public function list(){
          
         $url=(new UrlApiService())->getUrl();
         $ads = [];
@@ -166,6 +168,26 @@ class AdsController extends Controller
              $ads = [];
         }
 
+        return  view('ads.list', compact('ads'));
+    }
+
+
+    public function adsByTown(Request $request){
+         
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/adstown/".$request->id);
+            $ads = json_decode((string) $response->getBody(), true);
+            $ads = $ads['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        //dd($ads);
         return  view('ads.list', compact('ads'));
     }
 

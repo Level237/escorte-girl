@@ -68,7 +68,7 @@
 
   @if($loop->index < 3)
     <div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
-
+       <a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}">
           <div class="cardbox" onclick="processEditData('map');">
 
           <i class="fal fa-map-marker"
@@ -78,7 +78,7 @@
             {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }}) </div>
 
       </div>
-
+      </a>
     </div>
   @endif
 @empty

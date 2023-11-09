@@ -71,6 +71,7 @@ Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
 Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
 Route::get('ads/list',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
+Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
