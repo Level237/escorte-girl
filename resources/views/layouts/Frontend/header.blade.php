@@ -122,7 +122,7 @@
          
          
              
-        <li><a href="#" >
+        <li><a href="{{ route('ads.list') }}" >
           Annonces</a>
         </li>
                  
