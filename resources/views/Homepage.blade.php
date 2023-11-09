@@ -56,19 +56,7 @@
   </section>
 </body>
 </html><html>
-@php
-  function truncate($string,$length=100,$append="...") {
-  $string = trim($string);
-
-  if(strlen($string) > $length) {
-    $string = wordwrap($string, $length);
-    $string = explode("\n", $string, 2);
-    $string = $string[0] . $append;
-  }
-
-  return $string;
-}
-@endphp
+@include('utils.utils')
 @if ($announcements)
 <section class="container py-4 add-block block1 active">
 <label class="mt-2" style="color:#000000; font-size:25px; font-family:Poppins, sans-serif; font-weight: 600">Le Nº1 des annonces Yamo, Rencontres et Massage au Cameroun </label>
@@ -439,7 +427,7 @@ cleanCats();
         <div class="d-flex justify-content-between">
           <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
           <div>
-                        <a href="#" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+                        <a href="{{ route('ads.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
                       </div>
         </div>
       </div>
@@ -467,7 +455,7 @@ cleanCats();
 		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
 
 		</div>
-		  <a href="listing/rooster/index.htm">
+		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 
 		  <div ppt-border1="" class="p-1">
 
@@ -500,7 +488,7 @@ cleanCats();
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
 				  
-				  <a href="#" class="text-dark _adtitle">
+				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
             {{ truncate($ad['title'],40) }}
 							
 					</a>
@@ -545,7 +533,7 @@ cleanCats();
 
 		<div class="show-mobile">
 		  <div class="position-relative mb-3">
-			<a href="listing/rooster/index.htm">
+			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 			  <div class="h-100 position-relative">
 				<figure>

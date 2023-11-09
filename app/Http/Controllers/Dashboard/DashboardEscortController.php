@@ -23,6 +23,7 @@ class DashboardEscortController extends Controller
     public function index(){
 
             $user = Session::get('currentUser');
+            //dd($user);
             $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
             //Ensuring we are having an escort
