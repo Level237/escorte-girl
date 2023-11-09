@@ -46,6 +46,7 @@ Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable']
 
 Route::middleware(['user'])->group(function () {
 
+    Route::get("/secure-account/confirm",[SecureAccountController::class,'confirm'])->name('confirm');
     Route::post("/answer",[SecureAccountController::class,'answer'])->name('answer');
     Route::post("/answerStore",[SecureAccountController::class,'answerStore'])->name('answer-store');
     Route::get("/secure-account/questions",[SecureAccountController::class,'answerView'])->name('give-answer');

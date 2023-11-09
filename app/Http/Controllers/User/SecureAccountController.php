@@ -50,6 +50,14 @@ class SecureAccountController extends Controller
             //return $added;
         }
 
-       return $request;
+       return to_route('confirm');
+    }
+
+    public function confirm(){
+        if(Session::has('questions_id')){
+            Session::forget('questions_id');
+        }
+
+        return view('auth.secure-confirm');
     }
 }
