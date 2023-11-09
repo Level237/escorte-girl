@@ -439,7 +439,7 @@ cleanCats();
         <div class="d-flex justify-content-between">
           <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
           <div>
-                        <a href="#" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+                        <a href="{{ route('ads.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
                       </div>
         </div>
       </div>

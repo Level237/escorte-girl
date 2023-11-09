@@ -21,7 +21,7 @@ class HomepageController extends Controller
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
-        $ads = (new AdsController())->list();
+        $ads = (new AdsController())->getAds();
         //dd($ads);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){

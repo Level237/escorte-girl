@@ -133,7 +133,7 @@ class AdsController extends Controller
 
     }
 
-    public function list(){
+    public function getAds(){
          
         $url=(new UrlApiService())->getUrl();
         $ads = [];
@@ -149,6 +149,24 @@ class AdsController extends Controller
         }
 
         return  $ads;
+    }
+
+     public function list(){
+         
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/announces");
+            $ads = json_decode((string) $response->getBody(), true);
+            $ads = $ads['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        return  view('ads.list', compact('ads'));
     }
 
 }
