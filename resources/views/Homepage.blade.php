@@ -37,10 +37,10 @@
 
 
 
-          <a href="#" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Escorts</a>
+          <a href="{{ route('escort.list') }}" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Escorts</a>
 
 
-                    <a href="#" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Annonces</a>
+                    <a href="{{ route('ads.list') }}" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Annonces</a>
 
 
         </div>
@@ -389,8 +389,8 @@ cleanCats();
           neque consequat.</p>
 
 
-                <a href="#" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
-                        <a href="#" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Rechercher</a>
+                <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
+                        <a href="{{ route('escort.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Escorts</a>
 
 
       </div>

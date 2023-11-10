@@ -168,6 +168,8 @@ class AdsController extends Controller
              $ads = [];
         }
 
+        //dd($ads);
+
         return  view('ads.list', compact('ads'));
     }
 

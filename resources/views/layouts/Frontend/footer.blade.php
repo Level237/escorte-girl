@@ -32,10 +32,10 @@
 
         <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Liens Utiles</div>
         <div class="lh-30">        <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Annonces</a></li>
+                <li><a href="{{ route('homepage') }}">Accueil</a></li>
+                <li><a href="{{ route('ads.list') }}">Annonces</a></li>
                 <li><a href="#">Comment ça marche</a></li>
-                <li><a href="#">Publier une annonce</a></li>
+                <li><a href="{{ route('ads.create') }}">Publier une annonce</a></li>
                 </ul>
         </div>
 
