@@ -47,17 +47,17 @@
 
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
                         <div class="mb-6">
-                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username escort *</label>
-                            <input name="escort_name"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 text-white">Username escort *</label>
+                            <input name="escort_name"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             @error('escort_name')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
                         <div class="mb-6">
-                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input name="email"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 text-white">Email</label>
+                            <input name="email"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                         </div>
 
                     </div>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel age aviez vous? *</label>
-                        <select id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 text-white">Quel age aviez vous? *</label>
+                        <select id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="">Selectionnez un age</option>
                             <option>18</option>
                         <option>19</option>
@@ -79,12 +79,12 @@
                         <option>25</option>
                         </select>
                         @error('age')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
                             @enderror
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="ethnic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ethie etes vous? *</label>
-                        <select id="ethnic" name="ethnic_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="ethnic" class="block mb-2 text-sm font-medium text-gray-900 text-white">De Quel Ethie etes vous? *</label>
+                        <select id="ethnic" name="ethnic_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                         @foreach ($listEthnic as $ethnic)
                         <option value="">Selectionnez une ethnie</option>
                             @foreach ($ethnic as $e)
@@ -94,15 +94,15 @@
                         @endforeach
                         </select>
                         @error('ethnic_id')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row mt-6">
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quel est votre couleur de peau? *</label>
-                        <select id="skinColor" name="skin_color_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 text-white">Quel est votre couleur de peau? *</label>
+                        <select id="skinColor" name="skin_color_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="">Selectionnez une couleur de peau</option>
                             @foreach ($listSkinColor as $skinColor)
                             @foreach ($skinColor as $s)
@@ -112,12 +112,12 @@
                         @endforeach
                         </select>
                         @error('skin_color_id')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
-                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">De Quel Ville etes vous? *</label>
-                        <select id="countries" name="town_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 text-white">De Quel Ville etes vous? *</label>
+                        <select id="countries" name="town_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="">Selectionnez une ville</option>
                             @foreach ($listTown as $town)
                             @foreach ($town as $t)
@@ -127,7 +127,7 @@
                         @endforeach
                         </select>
                         @error('town_id')
-                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
