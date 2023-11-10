@@ -47,11 +47,6 @@ Réinitialisation du mot de passe
                 </div>
              </div>
 
-                   <div class="d-block d-sm-flex justify-content-between align-items-center mt-4 mb-5">
-              <span> <span class="text-muted">Pas encore enregistré?</span> <a href="{{ route('register') }}">Créer un compte</a> </span>
-
-
-        <a href="{{ route('login') }}">Connexion</a> </div>
 
 
 
