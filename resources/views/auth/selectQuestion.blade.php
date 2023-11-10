@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div style="margin-top: 100px;width:100%" class=" p-4 m-auto  w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+<div style="margin-top: 100px;width:100%" class=" p-4 m-auto  w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 bg-gray-800 border-gray-700">
 
     <!-- component -->
 <!-- This is an example component -->
@@ -106,7 +106,7 @@
                 </div>
             </div>
 			<!-- on tailwind components page will no work  -->
-            <button type="submit" class=" mt-4 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Continuer</button>
+            <button type="submit" class=" mt-4 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Continuer</button>
 
         </form>
         </div>

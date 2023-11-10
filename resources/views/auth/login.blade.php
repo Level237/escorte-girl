@@ -199,7 +199,7 @@ function login_process(){
       </label>
     </div>
     <div class="col-md-6 text-center text-md-right">
-      <a href="wp-login.php-3.htm?action=lostpassword" rel="nofollow"><u>Mot de passe oublié?</u></a>
+      <a href="{{ route('check-number') }}"><u>Mot de passe oublié?</u></a>
     </div>
     <div class="col-md-12  text-md-right">
         pas de compte?
