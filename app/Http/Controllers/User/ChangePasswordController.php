@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Services\Api\VerifySecureUserService;
 
 
@@ -24,9 +25,20 @@ class ChangePasswordController extends Controller
         }else if($error==404){
             return back()->with("error","Impossible de trouver le compte");
         }else{
+            if(Session::has('questionsUser')){
+                Session::forget('questionsUser');
+            }
             $questions=$questionsResponse;
-
-            return $questions;
+            Session::put("questionsUser",$questions);
+            Session::save();
+            return to_route('answerView');
         }
+
+    }
+
+    public function answerView(){
+
+        $questions=Session::get('questionsUser');
+        return view("user.answer-question",compact('questions'));
     }
 }
