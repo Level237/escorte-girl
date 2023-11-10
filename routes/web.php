@@ -35,6 +35,7 @@ use App\Http\Controllers\User\SecureAccountController;
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number');
+Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify');
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
 Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');

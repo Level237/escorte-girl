@@ -5,11 +5,17 @@ Réinitialisation du mot de passe
 
 @section("content")
 
+
+
 <section class="bg-light section-100">
     <div class="container">
        <div class="row">
           <div class="col-md-8 col-lg-6 mx-auto">
-
+            @if(Session::get("error"))
+            <div id="login_form_message" class="text-danger mb-4 text-center">
+                {{ Session::get('error') }}
+            </div>
+        @endif
                      <div class="text-center py-3">
                       <h1 class="h2">Réinitialisation du mot de passe</h1>
                       <p class="text-muted my-3 col-md-10 mx-auto">Entrez votre numéro de téléphone</p>
@@ -18,8 +24,9 @@ Réinitialisation du mot de passe
                 <div class="card-body p-lg-5">
 
                    <span class="clearfix"></span>
-                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="http://escort.test/wp-login.php?action=lostpassword" method="post">
-                      <div class="form-group">
+                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="{{ route('number-verify') }}" method="post">
+                      @csrf
+                    <div class="form-group">
                          <div class="input-group">
                             <div class="input-group-prepend">
                                <span class="input-group-text bg-white"><i class="fa fa-phone"></i></span>
