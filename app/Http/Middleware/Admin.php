@@ -19,7 +19,7 @@ class Admin
 
         $currentUser=(new CurrentUserService())->currentUser();
         $role=$currentUser->role_id ?? null;
-        if($currentUser!==null && $role!==1){
+        if(empty($currentUser) && $role!==1){
 
                return to_route('login');
 

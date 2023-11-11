@@ -31,10 +31,11 @@ class DashboardEscortController extends Controller
                 return view('dashboard.escort.index', compact('user'));
             }else if($completed==0){
                 return to_route('step-one');
+            }else if($user->role_id===1){
+
+                return $user;
             }
-            else{
-                return to_route("homepage");
-            }
+
 
 
     }

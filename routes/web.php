@@ -1,25 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\User\LogoutController;
+use App\Http\Controllers\Ads\AdsImageController;
+use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
+use App\Http\Controllers\User\SecureAccountController;
 use App\Http\Controllers\Auth\AutomaticLoginController;
-use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Escort\DetailEscortController;
-use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\User\ChangePasswordController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
-use App\Http\Controllers\Ads\AdsController;
-use App\Http\Controllers\Ads\AdsImageController;
+use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
-use App\Http\Controllers\User\ChangePasswordController;
-use App\Http\Controllers\User\SecureAccountController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,14 @@ Route::middleware(['escort'])->group(function () {
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
 
 
+});
+
+
+//middleware admin
+
+Route::prefix('admin')->group(function () {
+
+   Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
 });
 
 
