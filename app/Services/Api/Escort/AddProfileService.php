@@ -35,8 +35,8 @@ class AddProfileService{
             ]);
 
             $dataResponse=json_decode($response);
-
-            if($dataResponse->completed==true){
+            $completed=$dataResponse->completed ?? null;
+            if($dataResponse->completed==1){
                 foreach($services as $s){
                     $attachServices=(new AttachServices())->attach($s,$dataResponse->escort);
                 }

@@ -11,15 +11,16 @@ Réinitialisation du mot de passe
     <div class="container">
        <div class="row">
           <div class="col-md-8 col-lg-6 mx-auto">
-            @if(Session::get("error"))
-            <div id="login_form_message" class="text-danger mb-4 text-center">
-                {{ Session::get('error') }}
-            </div>
-        @endif
+
                      <div class="text-center py-3">
                       <h1 class="h2">Réinitialisation du mot de passe</h1>
                       <p class="text-muted my-3 col-md-10 mx-auto">Entrez votre numéro de téléphone</p>
                    </div>
+                   @if(session("message"))
+            <div id="login_form_message" class="text-danger mb-4 text-center">
+                {{ session('message') }}
+            </div>
+        @endif
              <div class="card shadow-sm">
                 <div class="card-body p-lg-5">
 

@@ -21,9 +21,9 @@ class ChangePasswordController extends Controller
         $questionsResponse=$verifyResponse->questions ?? null;
         $error=$verifyResponse->error ?? null;
         if($error==500){
-            return back()->with("error","votre compte n'a pas été sécurisé veuillez contactez l'administrateur");
+            return redirect()->back()->with("message","votre compte n'a pas été sécurisé veuillez contactez l'administrateur");
         }else if($error==404){
-            return back()->with("error","Impossible de trouver le compte");
+            return redirect()->back()->with("message","Impossible de trouver le compte");
         }else{
             if(Session::has('questionsUser')){
                 Session::forget('questionsUser');
