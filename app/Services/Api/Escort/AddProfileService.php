@@ -31,6 +31,7 @@ class AddProfileService{
                 'weight_id'=>mb_convert_encoding($data['weight_id'], 'UTF-8', 'UTF-8'),
                 'skin_color_id'=>mb_convert_encoding($data['skin_color_id'], 'UTF-8', 'UTF-8'),
                 'quarter_id'=>mb_convert_encoding($data['quarter_id'], 'UTF-8', 'UTF-8'),
+                'genre'=>mb_convert_encoding($data['genre'], 'UTF-8', 'UTF-8')
             ]);
 
             $dataResponse=json_decode($response);

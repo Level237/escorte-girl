@@ -47,7 +47,8 @@ class StepOneController extends Controller
             "age"=>$request->age,
             "ethnic_id"=>$request->ethnic_id,
             "skin_color_id"=>$request->skin_color_id,
-            "town_id"=>$request->town_id
+            "town_id"=>$request->town_id,
+            "genre"=>$request->genre
         ];
 
         if(isset($request->email)){
