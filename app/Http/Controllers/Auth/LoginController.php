@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
 use App\Services\Api\CurrentUserService;
+use App\Services\User\UserTypeService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
@@ -38,7 +39,9 @@ class LoginController extends Controller
                 $currentUser=(new CurrentUserService())->currentUser();
                 Session::put('currentUser', $currentUser);
                 Session::save();
-                return to_route("db.escort.index");
+
+                $userType=(new UserTypeService())->checkRole($currentUser->role_id);
+                return $userType;
                 //return $access_token;
             }
         }catch(\Exception $e){

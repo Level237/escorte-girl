@@ -20,8 +20,8 @@ class CurrentUserService{
             $response=Http::retry(3,400,throw: false)->withToken($token)->get($url.'/api/v1/currentUser');
 
             $currentUser=json_decode($response);
-            Session::put("currentUser",$currentUser);
-            Session::save();
+            //Session::put("currentUser",$currentUser);
+            //Session::save();
             $responseData=json_decode($response);
             return $responseData;
         }catch(Exception $e){

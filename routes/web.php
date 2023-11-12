@@ -118,7 +118,7 @@ Route::middleware(['escort'])->group(function () {
 
 //middleware admin
 
-Route::prefix('admin')->group(function () {
+Route::middleware(['admin'])->prefix('admin')->group(function () {
 
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
 });

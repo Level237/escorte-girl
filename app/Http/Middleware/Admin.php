@@ -2,9 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Services\Api\CurrentUserService;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 
 class Admin
@@ -17,15 +18,15 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
 
-        $currentUser=(new CurrentUserService())->currentUser();
+        $currentUser=Session::get('currentUser');
         $role=$currentUser->role_id ?? null;
-        if(empty($currentUser) && $role!==1){
-
-               return to_route('login');
-
-        }else if($role==1){
-            return $next($request);
+        if(empty($currentUser)){
+            //dd($currentUser);
+            return to_route("login");
+        }else if($currentUser->role_id!==1){
+            return redirect()->back();
         }
+        return $next($request);
 
     }
 }

@@ -44,15 +44,15 @@
                                       <a class="dropdown-item" href="#">
                                       <i class="fal fa-pound-sign float-right mt-2"></i>
                                       English</a>
-                                    
-                                     
+
+
                                     </div>
                   </li>
-                   @if(!isset($authUser))
+                   @if(!isset($user))
                     <li> <a href="{{ route('login') }}">Connexion</a> </li>
                     <li> <a href="/register">Inscription</a> </li>
                   @else
-                
+
                     <li> <a href="{{ route('db.escort.index') }}">Dashboard</a> </li>
                      <form method="POST" action="{{ route('logout') }}" id="logout">
                                 @csrf
@@ -106,7 +106,7 @@
 
       <div class="row no-gutters" ppt-flex-center="">
         <div class="col-md-4">
-         
+
           <a href="/">
             <!--<div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div> -->
             <img id="logo-new" src="{{asset('assets/images/logo.png')}}" alt="">
@@ -115,28 +115,28 @@
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
                <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
-        
-        
-                
-        <li><a href="{{ route('escort.list') }}">Escorts</a></li>        
-         
-         
-             
+
+
+
+        <li><a href="{{ route('escort.list') }}">Escorts</a></li>
+
+
+
         <li><a href="{{ route('ads.list') }}" >
           Annonces</a>
         </li>
-                 
-       
-       
-       
+
+
+
+
 	          <li><a href="#">Agences</a></li>
-       
+
        <li><a href="#">Blog</a></li>
-              
-              
+
+
        </ul>
-       
-           
+
+
 		 </nav>            <div class="show-ipad show-mobile">
               <div class="d-flex">
                               <div class="ml-4 menu-toggle cursor">
@@ -147,7 +147,7 @@
             </div>
                       <div class="hide-mobile">
 
-                     
+
                         <a id="btn-annonce" href="{{ route('ads.create') }}"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
 
             </div>

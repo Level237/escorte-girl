@@ -114,7 +114,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 <main id="page-content-wrapper" class="with-mobilemenu">
-    @if($authUser->isSecure==0)
+    @if($user->isSecure==0)
     <div>
 
         <button class="open-button" onclick="openForm()">Sécurisé votre compte</button>
