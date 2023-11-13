@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
+use  App\Services\Api\UrlApiService;
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\services\Api\CurrentUserService;
@@ -28,7 +30,21 @@ class DashboardEscortController extends Controller
         $completed=$profileIsCompletedOrNot->completed ?? null;
             //Ensuring we are having an escort
             if($user->role_id === 2 && $completed==1){
-                return view('dashboard.escort.index', compact('user'));
+                //Get Escort
+                $url=(new UrlApiService())->getUrl();
+
+                try{
+
+                    //dd(Session::get('tokenUser', null));
+                    $response = Http::withToken(Session::get('tokenUser', null))->get($url."/api/v1/getEscort");
+                    //dd((string) $response->getBody());
+                    $escort = (string) $response->getBody();
+                    //dd($escort);
+                }catch(\Exception $e){
+                    return view('error');
+                }
+
+                return view('dashboard.escort.index', compact('user', 'escort'));
             }else if($completed==0){
                 return to_route('step-one');
             }

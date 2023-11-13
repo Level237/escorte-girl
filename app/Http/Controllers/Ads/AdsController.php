@@ -109,19 +109,7 @@ class AdsController extends Controller
 
                 }
                 return back()->with('success',"Votre annonce a ete bien creee");
-                 //$photo = Storage::get('img.jpg');
-
-                // $responseImage  = Http::asForm()
-
-                // $responseImage = Http::attach(
-                //     'file', $photo, 'photo.jpg'
-                // )->post($url."/api/ads/image", [
-                //     'ads_id' => 1,
-                //  ]);
-
-                //  if($responseImage->status() === 200){
-                //      return back()->with('success',"Votre annonce a ete bien creee");
-                //  }
+               
 
             }else{
 
@@ -130,7 +118,7 @@ class AdsController extends Controller
             }
         }catch(\Exception $e){
             dd($e);
-            return back()->with('error',$e);
+            //return back()->with('error',$e);
         }
 
     }
