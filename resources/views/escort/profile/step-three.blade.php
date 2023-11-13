@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="p-5 w-100">
-
+    <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
     <div class="mx-4 p-4">
         <div class="flex items-center">
             <div class="flex items-center text-teal-600 relative">
