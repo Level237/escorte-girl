@@ -52,12 +52,24 @@ class ChangePasswordController extends Controller
 
         foreach($request->answer as $key=>$i){
             $answerService=(new VerifyAnswerService())->verify($phone_number,$request->question_id[$key],$request->answer[$key]);
+
             if($answerService->code===0){
                 return redirect()->back()->with("error","vous aviez donnez une mauvaise reponse pour une question...veuillez réessayez!");
             }else{
-                return view('');
+                Session::put('answerIsValid',$answerService);
+                Session::save();
+                return to_route('password-view');
             }
         }
 
     }
+public function passwordView(){
+    $answerIsValid=Session::get('answerIsValid');
+    $phone_number=Session::get('phone_number');
+    if(empty($answerIsValid) || $answerIsValid->code==0 || empty($phone_number)){
+        return redirect()->back();
+    }
+    return view('auth.change-password');
+}
+
 }
