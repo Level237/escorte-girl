@@ -24,7 +24,7 @@
         <link href="{{ asset('backend/assets/css/app-creative.css') }}" rel="stylesheet" type="text/css" id="app-style" />
 
         <!-- Icons css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -41,20 +41,20 @@
                             <!-- Logo light -->
                             <a href="index.html" class="logo-light">
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo.png" alt="logo">
+                                    <img src="{{ asset('backend/assets/images/logo.png') }}" alt="logo">
                                 </span>
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.png" alt="small logo">
+                                    <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="small logo">
                                 </span>
                             </a>
 
                             <!-- Logo Dark -->
                             <a href="index.html" class="logo-dark">
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="dark logo">
+                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="dark logo">
                                 </span>
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                                    <img src="{{ asset('backend/assets/images/logo-dark-sm.png') }}" alt="small logo">
                                 </span>
                             </a>
                         </div>
@@ -153,7 +153,7 @@
 
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                                <img src="{{ asset('backend/assets/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
                                 <span class="align-middle d-none d-lg-inline-block">English</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
@@ -386,11 +386,11 @@
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <span class="account-user-avatar">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                                    <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Dominic Keller</h5>
-                                    <h6 class="my-0 fw-normal">Founder</h6>
+                                    <h5 class="my-0">{{ $user->username }}</h5>
+                                    <h6 class="my-0 fw-normal">admin</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -2463,24 +2463,24 @@
         </div>
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+        <script src="{{ asset('backend/assets/js/vendor.min.js') }}"></script>
 
         <!-- Daterangepicker js -->
-        <script src="assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+        <script src="{{ asset('backend/assets/vendor/moment/moment.js') }}"></script>
+
+        <script src="{{ asset('backend/assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
 
         <!-- Apex Charts js -->
-        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+        <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
 
         <!-- Vector Map js -->
-        <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-
+        <script src="{{ asset('backend/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
         <!-- Dashboard App js -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
+        <script src="{{ asset('backend/assets/js/pages/demo.dashboard.js') }}"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{ asset('backend/assets/js/app.min.js') }}"></script>
 
     </body>
 </html>
