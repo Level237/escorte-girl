@@ -390,9 +390,13 @@
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <form method="POST" action="{{ route('logout') }}" id="logout">
+                        @csrf
+                    </form>
+
+                    <a style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('logout').submit();"class="dropdown-item">
                         <i class="mdi mdi-logout me-1"></i>
-                        <span>Logout</span>
+                        <span>Déconnexion</span>
                     </a>
                 </div>
             </li>
