@@ -25,7 +25,7 @@ Réinitialisation du mot de passe
                 <div class="card-body p-lg-5">
 
                    <span class="clearfix"></span>
-                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="{{ route('number-verify') }}" method="post">
+                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="{{ route('password-change') }}" method="post">
                       @csrf
                     <div class="form-group">
                          <div class="input-group">

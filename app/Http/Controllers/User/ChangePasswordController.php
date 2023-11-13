@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Api\ChangePasswordService;
 use App\Services\Api\VerifyAnswerService;
 use Illuminate\Support\Facades\Session;
 use App\Services\Api\VerifySecureUserService;
@@ -70,6 +71,13 @@ public function passwordView(){
         return redirect()->back();
     }
     return view('auth.change-password');
+}
+
+public function change(Request $request){
+    $phone_number=Session::get('phone_number');
+    $changePasswordResponse=(new ChangePasswordService())->change($phone_number,$request->password);
+
+    return to_route('login')->with('success','mot de passe reinitialiser avec success');
 }
 
 }

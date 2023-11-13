@@ -37,6 +37,7 @@ Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
 Route::get('/answer/verify/change-password',[ChangePasswordController::class,'passwordView'])->name('password-view');
+Route::post('/answer/verify/change-password',[ChangePasswordController::class,'change'])->name('password-change');
 Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
 Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
 Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
