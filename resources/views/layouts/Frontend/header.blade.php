@@ -109,7 +109,7 @@
 
           <a href="/">
             <!--<div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div><div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div> -->
-            <img   style="width: 120px" src="{{asset('assets/images/logo-1.png')}}" alt="">
+            <div class='textlogo navbar-brand-dark'>Viens <span style="color:#DA9DDC;">Yamo <i class="fa fa-heart"></i></span></div>
           </a>
         </div>
         <div class="col" ppt-flex-end="">
