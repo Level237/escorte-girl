@@ -35,6 +35,7 @@ use App\Http\Controllers\Dashboard\DashboardEscortController;
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
+Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
 Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
 Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
 Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
@@ -87,11 +88,7 @@ Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image'
 
 
 
-//Route escort not completed profile middleware
-Route::middleware(['profileCompleted'])->group(function () {
 
-
-});
 
 //Route escort  completed profile middleware
 Route::middleware(['escort'])->group(function () {

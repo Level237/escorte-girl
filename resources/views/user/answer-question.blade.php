@@ -24,7 +24,7 @@ Réinitialisation du mot de passe
                 <div class="card-body p-lg-5">
 
                    <span class="clearfix"></span>
-                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="{{ route('number-verify') }}" method="post">
+                   <form class="lostpasswordform" name="lostpasswordform" id="loginform" action="{{ route('answer-verify') }}" method="post">
                       @csrf
 
                       @foreach ($questions as $q)
@@ -33,7 +33,8 @@ Réinitialisation du mot de passe
 
                             <div class="input-group">
 
-                                <input type="text" name="phone_number" id="user_login" placeholder="Mon numéro de téléphone est..." value="" class="form-control">
+                                <input type="text" name="answer[]" id="user_login"  class="form-control">
+                                <input type="hidden" name="question_id[]" value="{{ $q->id }}">
                             </div>
 
                             </div>

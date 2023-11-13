@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\Api\VerifyAnswerService;
 use Illuminate\Support\Facades\Session;
 use App\Services\Api\VerifySecureUserService;
 
@@ -27,9 +28,13 @@ class ChangePasswordController extends Controller
         }else{
             if(Session::has('questionsUser')){
                 Session::forget('questionsUser');
+            }else if(Session::has('phone_number')){
+                Session::forget('phone_number');
             }
             $questions=$questionsResponse;
             Session::put("questionsUser",$questions);
+            Session::save();
+            Session::put("phone_number",$request->phone_number);
             Session::save();
             return to_route('answerView');
         }
@@ -40,5 +45,19 @@ class ChangePasswordController extends Controller
 
         $questions=Session::get('questionsUser');
         return view("user.answer-question",compact('questions'));
+    }
+
+    public function answerVerify(Request $request){
+        $phone_number=Session::get('phone_number');
+
+        foreach($request->answer as $key=>$i){
+            $answerService=(new VerifyAnswerService())->verify($phone_number,$request->question_id[$key],$request->answer[$key]);
+            if($answerService->code===0){
+                return redirect()->back()->with("error","vous aviez donnez une mauvaise reponse pour une question...veuillez réessayez!");
+            }else{
+                return view('');
+            }
+        }
+
     }
 }
