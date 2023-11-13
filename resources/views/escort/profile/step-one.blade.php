@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="p-5 w-100">
-
+    <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
     <div class="mx-4 p-4">
         <div class="flex items-center">
             <div class="flex items-center text-teal-600 relative">
@@ -69,14 +69,25 @@
                         <label for="age" class="block mb-2 text-sm font-medium text-gray-900 text-white">Quel age aviez vous? *</label>
                         <select id="age" name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="">Selectionnez un age</option>
-                            <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>24</option>
-                        <option>25</option>
+                            <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="+36">+36</option>
                         </select>
                         @error('age')
                             <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
@@ -98,7 +109,20 @@
                         @enderror
                     </div>
                 </div>
+                <div class="flex flex-col md:flex-row mt-3">
+                    <div class="w-full flex-1 mx-2 svelte-1l8159u">
+                        <label for="age" class="block mb-2 text-sm font-medium text-gray-900 text-white">Vous etes? *</label>
+                        <select id="genre" name="genre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Selectionnez votre sexe</option>
+                        <option value="1">Homme</option>
+                        <option value="0">Femme</option>
+                        </select>
+                        @error('genre')
+                            <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>
+                            @enderror
+                    </div>
 
+                </div>
                 <div class="flex flex-col md:flex-row mt-6">
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
                         <label for="skin_color" class="block mb-2 text-sm font-medium text-gray-900 text-white">Quel est votre couleur de peau? *</label>

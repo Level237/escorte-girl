@@ -1,25 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginViewController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\User\LogoutController;
+use App\Http\Controllers\Ads\AdsImageController;
+use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\ServerUnavailableController;
+use App\Http\Controllers\User\SecureAccountController;
 use App\Http\Controllers\Auth\AutomaticLoginController;
-use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Escort\DetailEscortController;
-use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\User\ChangePasswordController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
-use App\Http\Controllers\Ads\AdsController;
-use App\Http\Controllers\Ads\AdsImageController;
+use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
-use App\Http\Controllers\User\ChangePasswordController;
-use App\Http\Controllers\User\SecureAccountController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,12 @@ use App\Http\Controllers\User\SecureAccountController;
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
-Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number');
-Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify');
+Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
+Route::get('/answer/verify/change-password',[ChangePasswordController::class,'passwordView'])->name('password-view');
+Route::post('/answer/verify/change-password',[ChangePasswordController::class,'change'])->name('password-change');
+Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
+Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
+Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
 Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
 Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
@@ -87,11 +92,7 @@ Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image'
 
 
 
-//Route escort not completed profile middleware
-Route::middleware(['profileCompleted'])->group(function () {
 
-
-});
 
 //Route escort  completed profile middleware
 Route::middleware(['escort'])->group(function () {
@@ -113,6 +114,14 @@ Route::middleware(['escort'])->group(function () {
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
 
 
+});
+
+
+//middleware admin
+
+Route::middleware(['admin'])->prefix('admin')->group(function () {
+
+   Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
 });
 
 

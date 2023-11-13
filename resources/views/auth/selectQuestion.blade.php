@@ -1,8 +1,9 @@
 @extends('layouts.Frontend.escort.profile.master')
 
+
 @section('content')
 
-
+<h3 class="mt-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Selectionnez vos questions</h3>
 <div style="margin-top: 100px;width:100%" class=" p-4 m-auto  w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 bg-gray-800 border-gray-700">
 
     <!-- component -->
@@ -16,7 +17,7 @@
               display: none;
           }
       </style>
-      <select name="value" x-cloak id="select">
+      <select  name="value" x-cloak id="select">
         @foreach ($listQuestions as $question)
             <option value="{{ $question->id }}">{{ $question->question_name }}</option>
 
@@ -53,7 +54,7 @@
                                 </div>
                             </template>
                             <div x-show="selected.length    == 0" class="flex-1">
-                                <input placeholder="Select a option"
+                                <input placeholder="Selectionnez un ou plusieurs questions"
                                     class="bg-transparent p-1 px-2 appearance-none outline-none h-full w-full text-gray-800"
                                     x-bind:value="selectedValues()"
                                 >
@@ -163,5 +164,25 @@
   </div>
 
 </div>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
+<script type="text/javascript">
 
+
+    $(document).ready(function() {
+
+      var last_valid_selection = null;
+
+      $('#select').change(function(event) {
+
+        if ($(this).val().length > 3) {
+
+          $(this).val(last_valid_selection);
+        } else {
+          last_valid_selection = $(this).val();
+        }
+      });
+    });
+    </script>
 @endsection

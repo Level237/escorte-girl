@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
+use Illuminate\Support\Facades\Session;
 
 class Escort
 {
@@ -17,7 +18,7 @@ class Escort
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $currentUser=(new CurrentUserService())->currentUser();
+        $currentUser=Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
         $role=$currentUser->role_id ?? null;
@@ -25,6 +26,8 @@ class Escort
         if(empty($currentUser)){
             //dd($currentUser);
             return to_route("login");
+        }else if($currentUser->role_id!==2){
+            return redirect()->back();
         }
         return $next($request);
     }

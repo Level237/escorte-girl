@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="p-5 w-100">
-
+    <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
     <div class="mx-4 p-4">
         <div class="flex items-center">
             <div class="flex items-center text-teal-600 relative">
@@ -111,7 +111,7 @@
 
                     <div class="flex items-center mb-4">
                         <input id="checkbox-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
-                        <label for="checkbox-2" class="ml-2 text-sm font-medium text-gray-900 text-gray-300">Je Sousigne avoir +18 ans </label>
+                        <label for="checkbox-2" class="ml-2 text-sm font-medium text-white">Je Sousigne avoir +18 ans </label>
                     </div>
                 </fieldset>
 

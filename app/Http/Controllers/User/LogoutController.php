@@ -11,6 +11,7 @@ class LogoutController extends Controller
     public function logout(Request $request){
         $logoutService=(new LogoutUserService())->logout($request);
         $request->session()->forget('tokenUser');
+        $request->session()->forget('currentUser');
         $request->session()->flush();
         $request->session()->regenerate();
 

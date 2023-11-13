@@ -8,20 +8,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\services\Api\CurrentUserService;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
+use App\Services\User\UserTypeService;
 
 class DashboardEscortController extends Controller
 {
 
-    public function __construct()
-    {
-        $user = Session::get('currentUser');
-            $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
-
-        if($completed==0){
-            return to_route('step-one');
-        }
-    }
     public function index(){
 
             $user = Session::get('currentUser');
@@ -53,6 +44,7 @@ class DashboardEscortController extends Controller
             }
 
 
+            return view('dashboard.escort.index');
     }
 
     public function profil (){

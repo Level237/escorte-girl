@@ -26,6 +26,7 @@ class StepOneRequest extends FormRequest
             'age'=>"required",
             "ethnic_id"=>"required",
             "skin_color_id"=>"required",
+            "genre"=>"required",
             "town_id"=>"required"
         ];
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Services\Api\CurrentUserService;
+
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;

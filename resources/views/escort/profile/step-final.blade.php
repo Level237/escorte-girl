@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="p-5 w-100">
-
+    <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
     <div class="mx-4 p-4">
         <div class="flex items-center">
             <div class="flex items-center text-teal-600 relative">
@@ -39,21 +39,21 @@
 
 
 
-        <div style="padding-bottom: 20px;" class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
+        <div style="padding-bottom: 20px;" class="w-full p-4 text-center  border border-gray-200 rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
 
                 <img  class="w-20 m-auto" src="{{ asset('assets/images/bombe-de-table.png') }}">
 
             <h5 class="mb-2 text-3xl font-bold text-gray-900 text-white">Félicitation votre profil a bien été creer</h5>
             <p class="mb-5 text-base text-gray-500 sm:text-lg text-gray-400">Vous pouvez maintenant accedez à vos informations personnels et commencez à publier une annonce pour attirer vos clients.</p>
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                <a href="{{ route('db.escort.profil') }}" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+                <a href="{{ route('db.escort.profil') }}" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
 
                     <div class="text-left">
                         <div class="mb-1 text-xs">Consulter</div>
                         <div class="-mt-1 font-sans text-sm font-semibold">Votre profil</div>
                     </div>
                 </a>
-                <a href="{{ route('db.escort.index') }}" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
+                <a href="{{ route('db.escort.index') }}" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 bg-gray-700 hover:bg-gray-600 focus:ring-gray-700">
 
                     <div class="text-left">
                         <div class="mb-1 text-xs">Accedez</div>

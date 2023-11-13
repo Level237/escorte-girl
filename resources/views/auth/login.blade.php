@@ -67,7 +67,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               <div class="logo">
                 <a href="/">
 
-                  <div class='textlogo navbar-brand-dark'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+
+                    <div class='textlogo navbar-brand-dark'>Viens <span style="color:#DA9DDC;">Yamo <i class="fa fa-heart"></i></span></div>
                   </a>
               </div>
             </div>
@@ -90,6 +91,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     </div>
 @endif
 
+@if(Session::get("success"))
+    <div id="login_form_message" class="text-primary mb-4">
+        {{ Session::get('success') }}
+    </div>
+@endif
 <script>
 
 
