@@ -31,4 +31,14 @@ class EscortController extends Controller{
      $escorts = $this->index();
      return view('escort.list', compact('escorts'));
    }
+
+   public function displayProfil($path)
+  {
+        $url=(new UrlApiService())->getUrl();
+        $response = Http::asForm()->get($url.'/api/displayprofil/'.$path);
+        return $response;
+
+    }
+
+   
 }

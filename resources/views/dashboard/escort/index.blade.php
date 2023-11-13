@@ -19,7 +19,7 @@
          <a href="/dashboard//?tab=details&sub=username" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Noms</div>
-            <div class="small opacity-8" style="max-width:150px;">demo</div>
+            <div class="small opacity-8" style="max-width:150px;">{{ $escort['escort_name'] }}</div>
         </span>
         </a>
     </div>
@@ -30,7 +30,7 @@
         <a href="/dashboard/my-account//?tab=details&sub=address" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Ma Position</div>
-            <div class="small opacity-8" style="max-width:150px;">Douala</div>
+            <div class="small opacity-8" style="max-width:150px;">{{ $escort['quarter'] }}, {{ $escort['town'] }}</div>
         </span>
         </a>
     </div>
@@ -40,7 +40,7 @@
         <a href="/dashboard/my-account//?tab=details&sub=contact" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Mon WhatsApp</div>
-            <div class="small opacity-8 text-truncate" style="max-width:150px;">+237 675824349</div>
+            <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $escort['whatsapp_number'] }}</div>
         </span>
         </a>
     </div>

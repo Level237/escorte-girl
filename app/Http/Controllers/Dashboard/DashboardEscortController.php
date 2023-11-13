@@ -38,7 +38,7 @@ class DashboardEscortController extends Controller
                     //dd(Session::get('tokenUser', null));
                     $response = Http::withToken(Session::get('tokenUser', null))->get($url."/api/v1/getEscort");
                     //dd((string) $response->getBody());
-                    $escort = (string) $response->getBody();
+                    $escort = json_decode((string) $response->getBody(), true);
                     //dd($escort);
                 }catch(\Exception $e){
                     return view('error');

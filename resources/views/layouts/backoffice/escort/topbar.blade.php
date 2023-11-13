@@ -1,21 +1,47 @@
 <div class="card-mobile-transparent p-3 mb-4  mobile-negative-margin-x" ppt-border1>
 <nav ppt-nav class="sepetator">
+<style>
+ 
+.ppt-badges ._badge + ._badge {
+    margin-left: 10px;
+}
+.ppt-badges ._badge {
+    color: #444;
+    background: #fafafb;
+    border-radius: 4px;
+    padding: 0px;
+    text-align: left;
+    font-size: 14px;
+    float: left;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: 1px solid #8f8f8f;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%)!important;
+}
+</style>
 <ul>
 
 <li  class="w-100">
 
 <div class="d-flex">
-<a href="https://es10.premiummod.com/author/demo/" class="ppt-avatar ppt-avatar-lg  rounded-circle" >
+<a href="{{ route('escort.details', ['id' => $escort['id']]) }}" class="ppt-avatar ppt-avatar-lg  rounded-circle" >
 
-                <div class="_wrap bg-image" data-bg="https://es10.premiummod.com/wp-content/uploads/sites/5/2023/10/gay-escorts-lesbian-escorts-300x169.jpg">&nbsp;</div>
+    @php
+        if (filter_var($escort['photo'], FILTER_VALIDATE_URL))
+         echo " <div class='_wrap bg-image' 
+                data-bg='".$escort['photo']."'>&nbsp;</div>";
+        else {
+             echo " <div class='_wrap bg-image' 
+                data-bg='".route('display.profil',$escort['photo'])."'>&nbsp;</div>";
+        }
+    @endphp
+               
 
-
-
-                </a>
+</a>
 
 
 <div class=" ml-4">
-<a href="https://es10.premiummod.com/my-account//?tab=details">
+<a href="#">
 
     <div class="d-flex align-items-center">
     <div class="fs-md text-600">{{ ucfirst($user->username) }}</div>
@@ -33,28 +59,57 @@
 
 
 
-<li class="ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href="javascript:void(0);" onclick="processBoost(0);" class="btn-primary" data-ppt-btn>
+<li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
+<a href=""  class="btn-primary" data-ppt-btn>
 <div class="d-flex">
 
-	    <div ppt-icon-16 data-ppt-icon-size="16" class="mr-2" ppt-flex-middle><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
-    <span style="display:inline-block;" class="text-600" ppt-flex-middle
-     data-pre-layout="boost" data-ppt-countdown="2023-11-04 06:12:30" data-timezone="0">&nbsp;</span>
+	    
+    <div class="badge_tooltip text-center" data-direction="top">
+    <div class="badge_tooltip__initiator"> 
+   <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
+    <div class="badge_tooltip__item">Profil Gold </div>
+  </div>
+
+</div>
+</a>
+</li>
+
+<li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
+<a href=""   style="color:#FBFBFB;background-color:#2BA346;" data-ppt-btn>
+<div class="d-flex">
+
+	    
+    <div class="badge_tooltip text-center" data-direction="top">
+        <div class="badge_tooltip__initiator"> 
+            <i class="fal fa fa-check" style="color:#FBFBFB"></i> 
+        Verifié  
+        </div>
+    <div class="badge_tooltip__item">Profil Verifie </div>
+  </div>
+
+</div>
+</a>
+</li>
+
+<li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
+<a href="{{ route('escort.details', ['id' => $escort['id']]) }}"   
+    style="color:#FBFBFB;background-color:#DFABE1;" target="_blank" data-ppt-btn>
+<div class="d-flex">
+
+	    
+    <div class="badge_tooltip text-center" data-direction="top">
+        <div class="badge_tooltip__initiator"> 
+            <i class="fal fa fa-user" style="color:#FBFBFB"></i> 
+             Visiter mon profil  
+        </div>
+    <div class="badge_tooltip__item">Voir mon profil public </div>
+  </div>
 
 </div>
 </a>
 </li>
 
 
-
-
-<li class="hide-mobile hide-ipad " ppt-flex-middle>
-<a href="https://es10.premiummod.com/add-listing/" class="btn-secondary" data-ppt-btn>
-
-<span><a href="{{ route('step-one') }}"> Profile</a></span>
-
-</a>
-</li>
 
 
 
