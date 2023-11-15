@@ -77,11 +77,13 @@ Listes des utilisateurs
                                             <th>Email</th>
                                             <th>Numéro de Téléphone</th>
                                             <th>Role</th>
-                                            <th>Order Status</th>
                                             <th style="width: 125px;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($users as $user)
+
+                                        @forelse ($user as $u)
                                         <tr>
                                             <td>
                                                 <div class="form-check">
@@ -89,274 +91,32 @@ Listes des utilisateurs
                                                     <label class="form-check-label" for="customCheck2">&nbsp;</label>
                                                 </div>
                                             </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9708</a> </td>
+                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">{{ $u->id }}</a> </td>
                                             <td>
-                                                August 05 2018 <small class="text-muted">10:29 PM</small>
+                                                {{ $u->username }}</small>
                                             </td>
                                             <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
+                                                <h5>{{ $u->email }}</h5>
                                             </td>
                                             <td>
-                                                $176.41
+                                               {{ $u->phone_number }}
                                             </td>
                                             <td>
-                                                Mastercard
+                                                {{ $u->role->role_name }}
                                             </td>
-                                            <td>
-                                                <h5><span class="badge badge-info-lighten">Shipped</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck3">
-                                                    <label class="form-check-label" for="customCheck3">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9707</a> </td>
-                                            <td>August 04 2018 <small class="text-muted">08:18 AM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-warning-lighten"><i class="mdi mdi-timer-sand"></i> Awaiting Authorization</span></h5>
-                                            </td>
-                                            <td>
-                                                $1,458.65
-                                            </td>
-                                            <td>
-                                                Visa
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-warning-lighten">Processing</span></h5>
-                                            </td>
                                             <td>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck4">
-                                                    <label class="form-check-label" for="customCheck4">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9706</a> </td>
-                                            <td>August 04 2018 <small class="text-muted">10:29 PM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
-                                            </td>
-                                            <td>
-                                                $801.99
-                                            </td>
-                                            <td>
-                                                Credit Card
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-warning-lighten">Processing</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck5">
-                                                    <label class="form-check-label" for="customCheck5">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9705</a> </td>
-                                            <td>August 03 2018 <small class="text-muted">07:56 AM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
-                                            </td>
-                                            <td>
-                                                $215.35
-                                            </td>
-                                            <td>
-                                                Mastercard
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten">Delivered</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck6">
-                                                    <label class="form-check-label" for="customCheck6">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9704</a> </td>
-                                            <td>May 22 2018 <small class="text-muted">07:22 PM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-danger-lighten"><i class="mdi mdi-cancel"></i> Payment Failed</span></h5>
-                                            </td>
-                                            <td>
-                                                $2,514.36
-                                            </td>
-                                            <td>
-                                                Paypal
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-danger-lighten">Cancelled</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck7">
-                                                    <label class="form-check-label" for="customCheck7">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9703</a> </td>
-                                            <td>April 02 2018 <small class="text-muted">03:02 AM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
-                                            </td>
-                                            <td>
-                                                $183.20
-                                            </td>
-                                            <td>
-                                                Payoneer
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-info-lighten">Shipped</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
+                                        @empty
 
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck8">
-                                                    <label class="form-check-label" for="customCheck8">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9702</a> </td>
-                                            <td>March 18 2018 <small class="text-muted">11:19 PM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-warning-lighten"><i class="mdi mdi-timer-sand"></i> Awaiting Authorization</span></h5>
-                                            </td>
-                                            <td>
-                                                $1,768.41
-                                            </td>
-                                            <td>
-                                                Visa
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-warning-lighten">Processing</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
+                                        @endforelse
 
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck9">
-                                                    <label class="form-check-label" for="customCheck9">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9701</a> </td>
-                                            <td>February 01 2018 <small class="text-muted">07:22 AM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-info-lighten"><i class="mdi mdi-cash"></i> Unpaid</span></h5>
-                                            </td>
-                                            <td>
-                                                $3,582.99
-                                            </td>
-                                            <td>
-                                                Paypal
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-info-lighten">Shipped</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck10">
-                                                    <label class="form-check-label" for="customCheck10">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9700</a> </td>
-                                            <td>January 22 2018 <small class="text-muted">08:09 PM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
-                                            </td>
-                                            <td>
-                                                $923.95
-                                            </td>
-                                            <td>
-                                                Credit Card
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten">Delivered</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck11">
-                                                    <label class="form-check-label" for="customCheck11">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">#BM9699</a> </td>
-                                            <td>January 17 2018 <small class="text-muted">02:30 PM</small></td>
-                                            <td>
-                                                <h5><span class="badge badge-success-lighten"><i class="mdi mdi-bitcoin"></i> Paid</span></h5>
-                                            </td>
-                                            <td>
-                                                $5,177.68
-                                            </td>
-                                            <td>
-                                                Mastercard
-                                            </td>
-                                            <td>
-                                                <h5><span class="badge badge-info-lighten">Shipped</span></h5>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                        </tr>
+                                        @endforeach
+
 
                                     </tbody>
                                 </table>
