@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Admin\User\ListUserController;
 use App\Http\Controllers\Admin\User\SuspendUserController;
 use Illuminate\Support\Facades\Route;
@@ -129,6 +130,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('users/suspend',[ListUserController::class,'listUserBan'])->name('users.suspend');
    Route::get('users/role/',[ListUserController::class,'userByRole'])->name('user-by-role');
    Route::get('suspend/user/{id}',[SuspendUserController::class,'ban'])->name('suspend-user');
+   Route::get('activate/user/{id}',[ActivateUserController::class,'activate'])->name('activate-user');
 });
 
 
