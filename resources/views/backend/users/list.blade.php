@@ -17,8 +17,8 @@ Listes des utilisateurs
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#">Utilisateurs</a></li>
-                                <li class="breadcrumb-item active">Orders</li>
+                                <li class="breadcrumb-item"><a href="#">Ajouter un utilisateur</a></li>
+                                <li class="breadcrumb-item active">utilisateurs</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Ajouter un Utilisateur</h4>
@@ -29,26 +29,38 @@ Listes des utilisateurs
 
             <div class="row">
                 <div class="col-12">
+                    @if(Session::has('success'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-xl-8">
-                                    <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                    <form method="get" action="{{ route('user-by-role') }}" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                                         <div class="col-auto">
                                             <label for="inputPassword2" class="visually-hidden">Search</label>
-                                            <input type="search" class="form-control" id="inputPassword2" placeholder="Search...">
+
                                         </div>
                                         <div class="col-auto">
                                             <div class="d-flex align-items-center">
-                                                <label for="status-select" class="me-2">Status</label>
-                                                <select class="form-select" id="status-select">
+
+
+
+                                                <select name="role_id" class="form-select" id="status-select">
                                                     <option selected>Filtrer par role...</option>
-                                                    <option value="1">Administrateur</option>
-                                                    <option value="2">Escort</option>
-                                                    <option value="3">Utilisateur</option>
+                                                    @foreach ($roles as $role)
+                                                    @foreach ($role as $r)
+                                                    <option value="{{ $r->id }}">{{ $r->role_name }}</option>
+                                                    @endforeach
+
+                                                    @endforeach
+
+
 
                                                 </select>
-                                                <button type="button" class="btn btn-primary"> Fitrer</button>
+                                                <button type="submit" class="btn btn-primary"> Fitrer</button>
                                             </div>
                                         </div>
                                     </form>
@@ -95,7 +107,7 @@ Listes des utilisateurs
                                                 {{ $u->username }}</small>
                                             </td>
                                             <td>
-                                                <h5>{{ $u->email }}</h5>
+                                                <h5>{{ $u->email ?? "Aucun" }} </h5>
                                             </td>
                                             <td>
                                                {{ $u->phone_number }}
@@ -105,7 +117,8 @@ Listes des utilisateurs
                                             </td>
 
                                             <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+
+                                                <a href="{{ route('suspend-user',$u->id) }}" style="cursor: pointer" class="action-icon"> <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Suspendre le compte" class="ri-user-unfollow-fill"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                             </td>
