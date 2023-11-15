@@ -20,6 +20,16 @@ class AllUserService{
 
         return $data;
     }
+    public function listUserBan(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->get($url."/api/v1/users/ban");
+
+        $data=json_decode($response);
+
+        return $data;
+    }
 
     public function roles(){
         $url=(new UrlApiService())->getUrl();
