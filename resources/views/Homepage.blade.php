@@ -161,7 +161,8 @@
 						  {{ $escort['quarter']}}  
 						</div>
 					  </div>
-					  <div class="bg-image" data-bg="{{ $escort['photo']}}">
+					  <div class="bg-image" 
+					  data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )}}">
 						 
 					  </div>
 
@@ -196,7 +197,8 @@
 					<div class="badge" style="color:#000000;background-color:#ED5858;">
 					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
-				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
+				</div>           <div class="bg-image z-0" 
+				data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']]) }}"> </div>
 						</figure>
 					  </div>
 					</div>

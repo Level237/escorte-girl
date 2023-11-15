@@ -77,7 +77,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 //ESCORT GROUP URL
 
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
-Route::get('displayProfil/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
+Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list',[EscortController::class, 'list'])->name('escort.list');
 
 
