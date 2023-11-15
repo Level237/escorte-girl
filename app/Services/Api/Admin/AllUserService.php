@@ -4,11 +4,9 @@ namespace App\Services\Api\Admin;
 
 use Exception;
 use App\Services\Api\UrlApiService;
-use App\Services\AttachServices;
-use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+
 
 class AllUserService{
 
