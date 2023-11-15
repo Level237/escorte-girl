@@ -17,8 +17,8 @@ Listes des utilisateurs
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#">Utilisateurs</a></li>
-                                <li class="breadcrumb-item active">Orders</li>
+                                <li class="breadcrumb-item"><a href="#">Ajouter un utilisateur</a></li>
+                                <li class="breadcrumb-item active">utilisateurs</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Ajouter un Utilisateur</h4>
@@ -102,7 +102,7 @@ Listes des utilisateurs
                                                 {{ $u->username }}</small>
                                             </td>
                                             <td>
-                                                <h5>{{ $u->email }}</h5>
+                                                <h5>{{ $u->email ?? "Aucun" }} </h5>
                                             </td>
                                             <td>
                                                {{ $u->phone_number }}
