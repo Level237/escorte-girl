@@ -22,9 +22,13 @@ class LoginController extends Controller
                 'password' => $request->password,
             ]);
 
-
+            $dataResponse=json_decode($response);
+            $code=$dataResponse->code ?? null;
+            $message=$dataResponse->message ?? null;
             if(isset($response['error'])){
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
+            }else if($code===203){
+                return back()->with('error',$message);
             }else{
                 if($request->session()->has('tokenUser')){
                     $request->session()->forget('tokenUser');

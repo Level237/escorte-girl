@@ -88,6 +88,9 @@
                         <li>
                             <a href="apps-projects-details.html">Ajouter un utilisateur</a>
                         </li>
+                        <li>
+                            <a href="{{ route('users') }}">Comptes suspendus</a>
+                        </li>
                     </ul>
                 </div>
             </li>
