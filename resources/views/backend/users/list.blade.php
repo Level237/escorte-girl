@@ -29,6 +29,11 @@ Listes des utilisateurs
 
             <div class="row">
                 <div class="col-12">
+                    @if(Session::has('success'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
@@ -112,7 +117,8 @@ Listes des utilisateurs
                                             </td>
 
                                             <td>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+
+                                                <a href="{{ route('suspend-user',$u->id) }}" style="cursor: pointer" class="action-icon"> <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Suspendre le compte" class="ri-user-unfollow-fill"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                             </td>
