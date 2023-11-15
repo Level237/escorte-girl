@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 
 class ListUserController extends Controller
 {
-    public function listUser(){
+    public function listUser(Request $request){
 
         $users=(new AllUserService())->list();
+        $roles=(new AllUserService())->roles();
 
-        return view('backend.users.list',compact('users'));
+        return $request;
+    }
+
+    public function userByRole(Request $request){
+
     }
 }

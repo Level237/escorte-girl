@@ -33,22 +33,29 @@ Listes des utilisateurs
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-xl-8">
-                                    <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                    <form method="get" action="{{ route('users') }}" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                                         <div class="col-auto">
                                             <label for="inputPassword2" class="visually-hidden">Search</label>
-                                            <input type="search" class="form-control" id="inputPassword2" placeholder="Search...">
+
                                         </div>
                                         <div class="col-auto">
                                             <div class="d-flex align-items-center">
-                                                <label for="status-select" class="me-2">Status</label>
-                                                <select class="form-select" id="status-select">
+
+
+
+                                                <select name="role_id" class="form-select" id="status-select">
                                                     <option selected>Filtrer par role...</option>
-                                                    <option value="1">Administrateur</option>
-                                                    <option value="2">Escort</option>
-                                                    <option value="3">Utilisateur</option>
+                                                    @foreach ($roles as $role)
+                                                    @foreach ($role as $r)
+                                                    <option value="{{ $r->id }}">{{ $r->role_name }}</option>
+                                                    @endforeach
+
+                                                    @endforeach
+
+
 
                                                 </select>
-                                                <button type="button" class="btn btn-primary"> Fitrer</button>
+                                                <button type="submit" class="btn btn-primary"> Fitrer</button>
                                             </div>
                                         </div>
                                     </form>

@@ -83,7 +83,7 @@
                 <div class="collapse" id="sidebarProjects">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="apps-projects-list.html">List</a>
+                            <a href="{{ route('users') }}">List</a>
                         </li>
                         <li>
                             <a href="apps-projects-details.html">Ajouter un utilisateur</a>
