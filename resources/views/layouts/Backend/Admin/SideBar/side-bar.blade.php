@@ -74,14 +74,23 @@
 
             <li class="side-nav-title">Profil</li>
 
-
-
-
-
-
-
-
-
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
+                    <i class="uil-briefcase"></i>
+                    <span> Utilisateurs </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarProjects">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="apps-projects-list.html">List</a>
+                        </li>
+                        <li>
+                            <a href="apps-projects-details.html">Ajouter un utilisateur</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
                     <i class="uil-envelope"></i>
@@ -100,23 +109,7 @@
                 </div>
             </li>
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
-                    <i class="uil-briefcase"></i>
-                    <span> Utilisateurs </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarProjects">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="apps-projects-list.html">List</a>
-                        </li>
-                        <li>
-                            <a href="apps-projects-details.html">Ajouter un utilisateur</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
 
 
 

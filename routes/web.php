@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\User\ListUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -122,6 +123,7 @@ Route::middleware(['escort'])->group(function () {
 Route::middleware(['admin'])->prefix('admin')->group(function () {
 
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
+   Route::get('users',[ListUserController::class,'listUser']);
 });
 
 
