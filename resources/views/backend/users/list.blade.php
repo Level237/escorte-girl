@@ -16,12 +16,12 @@ Listes des utilisateurs
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">eCommerce</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="#">Utilisateurs</a></li>
                                 <li class="breadcrumb-item active">Orders</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Utilisateur</h4>
+                        <h4 class="page-title">Ajouter un Utilisateur</h4>
                     </div>
                 </div>
             </div>
@@ -42,21 +42,20 @@ Listes des utilisateurs
                                             <div class="d-flex align-items-center">
                                                 <label for="status-select" class="me-2">Status</label>
                                                 <select class="form-select" id="status-select">
-                                                    <option selected>Choose...</option>
-                                                    <option value="1">Paid</option>
-                                                    <option value="2">Awaiting Authorization</option>
-                                                    <option value="3">Payment failed</option>
-                                                    <option value="4">Cash On Delivery</option>
-                                                    <option value="5">Fulfilled</option>
-                                                    <option value="6">Unfulfilled</option>
+                                                    <option selected>Filtrer par role...</option>
+                                                    <option value="1">Administrateur</option>
+                                                    <option value="2">Escort</option>
+                                                    <option value="3">Utilisateur</option>
+
                                                 </select>
+                                                <button type="button" class="btn btn-primary"> Fitrer</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col-xl-4">
                                     <div class="text-xl-end mt-xl-0 mt-2">
-                                        <button type="button" class="btn btn-danger mb-2 me-2"><i class="mdi mdi-basket me-1"></i> Add New Order</button>
+                                        <button type="button" class="btn btn-danger mb-2 me-2"> Nouvel utilisateur</button>
                                         <button type="button" class="btn btn-light mb-2">Export</button>
                                     </div>
                                 </div><!-- end col-->
@@ -136,7 +135,7 @@ Listes des utilisateurs
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                    <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
+                    <script>document.write(new Date().getFullYear())</script> © Stillforce Technology
                 </div>
                 <div class="col-md-6">
                     <div class="text-md-end footer-links d-none d-md-block">
