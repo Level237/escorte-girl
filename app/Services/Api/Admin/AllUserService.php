@@ -33,5 +33,16 @@ class AllUserService{
 
         return $data;
     }
+
+    public function getUserByRole($id){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->get($url."/api/v1/users/role/".$id);
+
+        $data=json_decode($response);
+
+        return $data;
+    }
 }
 
