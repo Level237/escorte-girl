@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use App\services\Api\CurrentUserService;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 use App\Services\User\UserTypeService;
+use App\Services\Api\Escort\GetEscortService;
 
 class DashboardEscortController extends Controller
 {
@@ -18,24 +19,19 @@ class DashboardEscortController extends Controller
             $user = Session::get('currentUser');
             //dd($user);
             $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
+            $completed=$profileIsCompletedOrNot->completed ?? null;
+
             //Ensuring we are having an escort
             if($user->role_id === 2 && $completed==1){
-                //Get Escort
-                $url=(new UrlApiService())->getUrl();
-
-                try{
-
-                    //dd(Session::get('tokenUser', null));
-                    $response = Http::withToken(Session::get('tokenUser', null))->get($url."/api/v1/getEscort");
-                    //dd((string) $response->getBody());
-                    $escort = json_decode((string) $response->getBody(), true);
-                    //dd($escort);
-                }catch(\Exception $e){
-                    return view('error');
+                
+                //Retrieve the escort
+                $escort = (new GetEscortService)->getEscort();
+                if($escort){
+                    return view('dashboard.escort.index', compact('user', 'escort'));
                 }
-
-                return view('dashboard.escort.index', compact('user', 'escort'));
+                else
+                  return view('error');
+                
             }else if($completed==0){
                 return to_route('step-one');
             }
@@ -50,79 +46,119 @@ class DashboardEscortController extends Controller
     public function profil (){
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.profil', compact('user'));
-    }
+        if($completed==0){
+            return to_route('step-one');
+        }else{
+            return view('dashboard.escort.profil', compact('user'));
+        }
 
     }
 
     public function ads (){
+
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.ads', compact('user'));
-    }
+      
+        if($completed==0){
+            return to_route('step-one');
+        }
+
+        else{
+
+            //Retrieve the escort
+            $escort = (new GetEscortService)->getEscort();
+            
+            if($escort){
+
+                //Retrieve escort'ads
+                $ads = $this->getAds($user->id);
+                if($ads){
+                    $ads = $ads['data'];
+                    return view('dashboard.escort.ads.index', compact('user', 'escort', 'ads'));
+                }
+                else{
+                    return view('error');
+                }
+                 
+            }
+               
+            else 
+                return view('error');
+        }
 
     }
 
     public function messages (){
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.messages', compact('user'));
-    }
+        if($completed==0){
+            return to_route('step-one');
+        }else{
+            return view('dashboard.escort.messages', compact('user'));
+        }
 
     }
 
     public function finance (){
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.finance', compact('user'));
-    }
+        if($completed==0){
+            return to_route('step-one');
+        }else{
+            return view('dashboard.escort.finance', compact('user'));
+        }
 
     }
 
     public function advertise (){
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.advertise', compact('user'));
-    }
+        if($completed==0){
+            return to_route('step-one');
+        }else{
+            return view('dashboard.escort.advertise', compact('user'));
+        }
 
     }
 
     public function settings (){
         $user = Session::get('currentUser');
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-    $completed=$profileIsCompletedOrNot->completed ?? null;
+        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-    if($completed==0){
-        return to_route('step-one');
-    }else{
-        return view('dashboard.escort.settings', compact('user'));
+        if($completed==0){
+            return to_route('step-one');
+        }else{
+            return view('dashboard.escort.settings', compact('user'));
+        }
+
     }
 
-    }
+  
 
+      public function getAds($id){
+        
+        //Get all user's ads
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::get($url."/api/userAds/".$id);
+            $ads = json_decode((string) $response->getBody(), true);
+            return $ads;
+
+        }
+        catch(\Exception $e){
+            return null;
+        }
+    }
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Ads;
 use App\Http\Controllers\Controller;
 use  App\Services\Api\UrlApiService;
+use App\Services\Api\Ads\AdsCategoryService;
+use App\Services\Api\Escort\GetEscortService;
+use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -24,41 +27,11 @@ class AdsController extends Controller
              //$currentUser=(new CurrentUserService())->currentUser();
             $user = Session::get('currentUser');
             // dd($user);
-            //Retrieving all towns
-            $towns = null;
-            try{
-
-                $response = Http::asForm()->get($url."/api/list/towns");
-                $towns = json_decode((string) $response->getBody(), true);
-
-                if($towns['data'] === null){
-                    //throw an exception an display an error
-                }
-                else{
-                    $towns = $towns['data'];
-                }
-
-            }catch(\Exception $e){
-
-            }
-
-            //Retrieving all Ads Categories
-            $adsCategories = null;
-            try{
-
-                $response = Http::asForm()->get($url."/api/list/categories");
-                $adsCategories = json_decode((string) $response->getBody(), true);
-                //dd($adsCategories);
-                if($adsCategories['data'] === null){
-                    return view('error');
-                }
-                else{
-                    $adsCategories = $adsCategories['data'];
-                }
-
-            }catch(\Exception $e){
+          
+            //Retrieving all categories
+            $adsCategories = (new AdsCategoryService)->getCategories();
+            if($adsCategories == null)
                 return view('error');
-            }
 
 
             //Generate product token
@@ -67,7 +40,7 @@ class AdsController extends Controller
             } while (Product::where("token", "=", $token)->first() instanceof Product);
 
             //Retrieving ads category
-            return view('ads.create', compact('towns', 'adsCategories', 'token', 'user'));
+            return view('ads.create', compact('adsCategories', 'token', 'user'));
         }
 
         else{
@@ -201,6 +174,20 @@ class AdsController extends Controller
         }
 
         return  view('ads.detail', compact('ad', 'ads'));
+   }
+
+   public function edit($id){
+
+     $escort = (new GetEscortService)->getEscort();
+     $ad = (new AdsService)->getAdsById($id);
+     $adsCategories = (new AdsCategoryService)->getCategories();
+
+     if($escort && $adsCategories && $ad){
+        return view('dashboard.escort.ads.edit', compact('escort', 'adsCategories','ad'));
+     }
+    else
+        return view('error');
+
    }
 
 
