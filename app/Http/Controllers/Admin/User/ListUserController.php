@@ -23,4 +23,11 @@ class ListUserController extends Controller
         return view('backend.users.list',compact('users',"roles"));
 
     }
+
+    public function listUserBan(){
+        $users=(new AllUserService())->listUserBan();
+        $roles=(new AllUserService())->roles();
+
+        return view('backend.users.users-suspend',compact('users',"roles"));
+    }
 }
