@@ -161,7 +161,7 @@
 						  {{ $escort['quarter']}}  
 						</div>
 					  </div>
-					  <div class="bg-image" 
+					  <div class="bg-image"
 					  data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )}}">
 						 
 					  </div>
@@ -197,7 +197,7 @@
 					<div class="badge" style="color:#000000;background-color:#ED5858;">
 					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
-				</div>           <div class="bg-image z-0" 
+				</div>           <div class="bg-image z-0"
 				data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']]) }}"> </div>
 						</figure>
 					  </div>
@@ -420,7 +420,7 @@ cleanCats();
     </div>
   </div>
 </section>
-  
+
  @if($ads)
 <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
   <div class="container">
@@ -443,7 +443,7 @@ cleanCats();
 						@break
 					@endif
 	<div class="col-6 col-sm-6 col-md-4 col-lg-4">
-	
+
 	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
 		  <figure>
@@ -483,54 +483,54 @@ cleanCats();
 
 		</div>
 
-			 
+
 			</div>
 
 			 <div class="p-4 bg-white"  style="min-height:220px;">
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
-				  
+
 				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
             {{ truncate($ad['title'],40) }}
-							
+
 					</a>
-				  
+
 				</div>
-				 
-			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3"> 
+
+			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
 
 					<ul class="list-unstyled">
-	
+
 						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
               &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
               </li>
 
 					</ul>
 					<span style="font-weight:bold">Client accepté :</span> {{ $ad['accepted'] }} <br>
-					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}		
-				
+					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}
+
 				</nav>
-				
+
 				<div style="min-height:60px;">
 				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
 				</div>
-				
-				
-						
-				
-			   </div>  
-				
-				
+
+
+
+
+			   </div>
+
+
 			  </div>
 		  </div>
 		</a>
-		
-		
+
+
 		</figure>
-		
+
 		</div>
-		
-		
+
+
 
 
 		<div class="show-mobile">
@@ -555,9 +555,9 @@ cleanCats();
 			</div>
 		  </div>
 		</div>
-	
-			
-    
+
+
+
 	</div>
 	@empty
 	@endforelse
@@ -568,4 +568,5 @@ cleanCats();
   </div>
 </section>
 @endif
+
 @endsection

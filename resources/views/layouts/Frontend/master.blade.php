@@ -39,6 +39,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 </head>
+
 <body class="home blog body-hide-footer theme-es tall-images">
 
 <div id="wrapper" style="display:none;" class="">
@@ -47,7 +48,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 <main id="page-content-wrapper" class="with-mobilemenu">
-   
+
     @include('layouts.Frontend.header')
   @yield('content')
 

@@ -86,7 +86,7 @@
                             <a href="{{ route('users') }}">List</a>
                         </li>
                         <li>
-                            <a href="apps-projects-details.html">Ajouter un utilisateur</a>
+                            <a href="{{ route('users.create') }}">Ajouter un utilisateur</a>
                         </li>
 
                     </ul>
