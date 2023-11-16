@@ -3902,7 +3902,10 @@ function updatecommentfilter(g){
 							  <div class="p-2 bg-white" ppt-border1="">
 								<div class="bg-light position-relative overflow-hidden" style="height:220px;">
 								 <figure>
-								  <div class="bg-image js-image-trigger-set ppt-lazy-img-8888 js-image-preload-set" data-ppt-image-bg="" style="background-image:url('{{ $ad['user']['escort'][0]['photo'] }}');" data-bg="{{ $ad['user']['escort'][0]['photo'] }}">
+								  <div class="bg-image js-image-trigger-set ppt-lazy-img-8888 js-image-preload-set" 
+                  data-ppt-image-bg="" 
+                  style="background-image:url('{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}');" 
+                  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
 									&nbsp;
 								  </div>
 

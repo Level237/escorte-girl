@@ -35,4 +35,13 @@ class AdsImageController extends Controller
             }
 
     }
+
+      public function displayAdsImage($id, $path)
+  {
+     
+        $url=(new UrlApiService())->getUrl();
+        $response = Http::asForm()->get($url.'/api/displayadsimage/'.$id.'/'.$path);
+        return $response;
+   
+    }
 }

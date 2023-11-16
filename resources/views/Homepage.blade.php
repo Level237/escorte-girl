@@ -473,7 +473,7 @@ cleanCats();
 				  {{ ucfirst($ad['town']['town_name']) }}  
 				</div>
 			  </div>
-			  <div class="bg-image" data-bg="{{ $ad['user']['escort'][0]['photo'] }}">
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
 				 
 			  </div>
 

@@ -273,46 +273,36 @@ jQuery(document).ready(function(){
 <div class="addeditmenu" data-key="images"></div>
 <div id="mobileGalleryMove" class="hide-mobile">
 <div class="row no-gutters mb-4">
-    <div class="col-6">
-        <a href="{{ $ad['user']['escort'][0]['photo'] }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+
+    @forelse ($ad['images'] as $image)
+		@if ($loop->index == 3)
+			@break
+		@endif
+		
+	<div class="col-6">
+        <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ $ad['user']['escort'][0]['photo'] }});">
+        <div class="bg-image" style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
           &nbsp;
         </div>
               </div>
     </div>
         </a>
-      </div>
-    <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-31.php?imgid=8&t=es&sub=1') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url('{{ asset('assets/images/demoimages/img-31.php') }}');">
-          &nbsp;
-        </div>
-              </div>
     </div>
-        </a>
-      </div>
-    <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-62.php?imgid=5&t=es&sub=2') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+    @empty
+	@endforelse
+
+  	@forelse ($ad['images'] as $image)
+		@if ($loop->index != 3)
+			@continue
+		@endif
+	<div class="col-6">
+        <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
       <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-62.php') }});">
-          &nbsp;
-        </div>
-              </div>
-    </div>
-        </a>
-      </div>
-  
- 
-    <div class="col-6">
-        <a href="{{ asset('assets/images/demoimages/img-60.php?imgid=5&t=es&sub=5') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ asset('assets/images/demoimages/img-60.php') }});">
+        <div class="bg-image" 
+        style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
           &nbsp;
         </div>
                 <div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
@@ -323,11 +313,19 @@ jQuery(document).ready(function(){
     </div>
         </a>
       </div>
+    @empty
+	@endforelse
   
-  <a href="{{ asset('assets/images/demoimages/img-66.php?imgid=5&t=es&sub=7') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="{{ asset('assets/images/demoimages/img-67.php?imgid=5&t=es&sub=8') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="{{ asset('assets/images/demoimages/img-68.php?imgid=5&t=es&sub=9') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-    <a href="{{ asset('assets/images/demoimages/img-69.php?imgid=5&t=es&sub=10') }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+
+  	@forelse ($ad['images'] as $image)
+		@if ($loop->index <= 3)
+			@continue
+		@endif
+  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+   @empty
+	@endforelse
+  
+  
     
 </div>
 </div>
@@ -675,7 +673,7 @@ jQuery(document).ready(function(){
 				  {{ ucfirst($ad['town']['town_name']) }}  
 				</div>
 			  </div>
-			  <div class="bg-image" data-bg="{{ $ad['user']['escort'][0]['photo'] }}">
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
 				 
 			  </div>
 

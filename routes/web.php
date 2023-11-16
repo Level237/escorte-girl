@@ -86,6 +86,7 @@ Route::get('escort/list',[EscortController::class, 'list'])->name('escort.list')
 //Annoucements GROUP URL
 Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
 Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
+Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
 Route::get('ads/list',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');

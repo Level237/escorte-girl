@@ -76,7 +76,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		  <a href="{{ route('escort.details', ['id' => $escort['id']])}}" class="text-dark">
 		  
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
-			<div class="bg-image" data-bg="{{ $escort['photo'] }}">
+			<div class="bg-image" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}">
 			
 			</div>
 		</div>
@@ -682,7 +682,7 @@ function filterToggle(val){
 						  {{ $escort['quarter']}}  
 						</div>
 					  </div>
-					  <div class="bg-image" data-bg="{{ $escort['photo']}}">
+					  <div class="bg-image" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}">
 						 
 					  </div>
 
