@@ -195,8 +195,10 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 		 
 			</div>
 			<div class=" text-center">
-			<div class='small opacity-5'><a href="#" class="text-dark"><i class="fa fa-trash" style="color:red;"></i> </a></div>    </div>
+			<div class='small opacity-5'><a href="#" class="text-dark" data-toggle="modal" data-target="#exampleModal{{$image['id']}}"><i class="fa fa-trash" style="color:red;"></i> </a></div>    </div>
 		  </div>
+
+
 		  
 
 		</div>
@@ -206,6 +208,31 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 
 </div>
 </div>
+       @forelse ($ad['images'] as $image)
+       <div class="modal fade" id="exampleModal{{$image['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                    <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{ route('ads.delete',['id' => $image['id']]) }}" id="delete-form{{$ad['id']}}">
+                                                    @csrf
+                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                   
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                          @empty
+      
+    @endforelse            
 	<div >
 			<label class="w-100">Photos (10 maximum) ( vous pouvez encore ajouter {{ 10 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   

@@ -61,9 +61,31 @@
                       
                     <td class="text-center dashhideme">		
                       <a href="{{ route('ads.edit', ['id' => $ad['id']]) }}" ><i class="fa fa-edit me-2 font-success"></i></a>
-                      <a href="#" data-bs-toggle="modal" data-original-title="test" data-bs-target="">
+                      <a href="{{ route('ads.delete',['id' => $ad['id']])  }}" data-toggle="modal" data-target="#exampleModal{{$ad['id']}}">
                         <i class="fa fa-trash font-danger"></i>
                       </a>
+                     
+                       <div class="modal fade" id="exampleModal{{$ad['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                    <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{ route('ads.delete',['id' => $ad['id']]) }}" id="delete-form{{$ad['id']}}">
+                                                    @csrf
+                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                   
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                     </td>
                   </tr>  
                  @empty

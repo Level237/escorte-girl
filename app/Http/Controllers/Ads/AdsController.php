@@ -230,5 +230,28 @@ class AdsController extends Controller
 
    }
 
+   public function delete($id){
+
+        $url=(new UrlApiService())->getUrl();
+        //dd('hrel');
+       //Deleting ads
+         try{
+            $response = Http::asForm()->delete($url."/api/ads/".$id);
+        
+            if($response->status() === 200){
+               
+                return back()->with('success',"Annonce supprimée");
+
+            }else{
+            
+                dd((string) $response->getBody());
+              return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
+            }
+        }catch(\Exception $e){
+            dd($e);
+           return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
+        }
+   }
+
 
 }

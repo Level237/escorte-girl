@@ -92,6 +92,7 @@ Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
 Route::post('/ads/update',[AdsController::class, 'update'])->name('ads.update');
 Route::get('ads/list',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
+Route::post('ads/delete/{id}',[AdsController::class, 'delete'])->name('ads.delete');
 Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
