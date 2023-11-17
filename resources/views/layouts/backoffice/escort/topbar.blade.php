@@ -32,7 +32,7 @@
                 data-bg='".$escort['photo']."'>&nbsp;</div>";
         else {
              echo " <div class='_wrap bg-image' 
-                data-bg='".route('display.profil',$escort['photo'])."'>&nbsp;</div>";
+                data-bg='".route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )."'>&nbsp;</div>";
         }
     @endphp
                

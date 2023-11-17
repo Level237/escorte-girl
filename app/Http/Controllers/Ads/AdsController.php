@@ -181,7 +181,7 @@ class AdsController extends Controller
      $escort = (new GetEscortService)->getEscort();
      $ad = (new AdsService)->getAdsById($id);
      $adsCategories = (new AdsCategoryService)->getCategories();
-
+     //dd($escort);
      if($escort && $adsCategories && $ad){
         return view('dashboard.escort.ads.edit', compact('escort', 'adsCategories','ad'));
      }

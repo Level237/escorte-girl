@@ -3,7 +3,8 @@
 
 @section('content')
 
-
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
         
 <div class="fs-lg text-600 mb-2">Editer votre annonce </div>
 
@@ -171,8 +172,12 @@
   <div class="card-sponsored p-3 mb-4 rounded overflow-hidden" style="overflow-x: visible; display:none;" ppt-border1>
 
 
-<div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
+<div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" 
+data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 
+    @forelse ($ad['images'] as $image)
+      
+   
 		<div class="item">
 
 
@@ -181,7 +186,7 @@
 		  <a href="#" class="text-dark">
 		  
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
-			<div class="bg-image" data-bg="https://premiummod.com/demoimages/img.php?imgid=15&t=es">
+			<div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}">
 			
 			</div>
 		</div>
@@ -194,13 +199,16 @@
 		  
 
 		</div>
+     @empty
+      
+    @endforelse
 
-
+    
 
 </div>
 </div>
 	<div >
-			<label class="w-100">Photos (5 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (10 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
@@ -333,11 +341,7 @@ jQuery(document).ready(function() {
     <div class="d-flex justify-content-between p-2 text-600">
 		<div class="row">
 <div class="col-md-8 mobile-mb-2">
-  
- En cliquant sur enregistrer l'annonce, vous acceptez les <a href="#">conditions d'utilisation</a>  de 
- <a href="#">viens-yamo.com</a> et sa <a href="#">politique de confidentialité</a>.
-	
-</div>
+
 
 </div>
 
