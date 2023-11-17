@@ -32,17 +32,14 @@
             z-index: 99;
             position: fixed;
             top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
             visibility: hidden;
           }
           .card{
-
+            top:-400px;
             position: absolute;
             width: 50%;
             height: 50%;
-            opacity: 1;
            z-index: 999;
             background: white;
 
@@ -320,13 +317,24 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script>
     const btn=document.getElementById("popup-search");
     const popup=document.querySelector('.popup-card');
+    const card=document.querySelector('.card');
     const closeBtn=document.getElementById('close');
 
     closeBtn.addEventListener('click',()=>{
+
+        card.style.top='-430px'
+        card.style.transition="top 2s";
         popup.style.visibility="hidden";
+        popup.style.transition="visibility 2s";
     })
     btn.addEventListener('click',()=>{
         popup.style.visibility="visible";
+
+        popup.style.display='flex';
+        popup.style.alignItems='center';
+        popup.style.justifyContent='center';
+        card.style.top='0'
+        card.style.transition="top 2s";
         popup.style.transition="all 1s ease-out;";
     })
 </script>
