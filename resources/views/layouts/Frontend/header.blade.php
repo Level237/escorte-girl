@@ -8,8 +8,8 @@
     width: 250px;
     height: 100px;
   }
-</style>
 
+</style>
 
 
 
@@ -131,9 +131,9 @@
 
 	          <li><a href="#">Agences</a></li>
 
-       <li><a href="#">Blog</a></li>
 
 
+        <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li>
        </ul>
 
 
@@ -144,6 +144,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>                </div>
                 </div>
               </div>
+
             </div>
                       <div class="hide-mobile">
 
@@ -151,6 +152,7 @@
                         <a id="btn-annonce" href="{{ route('ads.create') }}"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
 
             </div>
+
                     </div>
         </div>
       </div>
