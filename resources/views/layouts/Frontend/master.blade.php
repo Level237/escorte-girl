@@ -323,9 +323,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     closeBtn.addEventListener('click',()=>{
 
         card.style.top='-430px'
-        card.style.transition="top 2s";
+        card.style.transition="top 1s";
         popup.style.visibility="hidden";
-        popup.style.transition="visibility 2s";
+        popup.style.transition="visibility 1s";
     })
     btn.addEventListener('click',()=>{
         popup.style.visibility="visible";
@@ -334,7 +334,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         popup.style.alignItems='center';
         popup.style.justifyContent='center';
         card.style.top='0'
-        card.style.transition="top 2s";
+        card.style.transition="top 1s";
         popup.style.transition="all 1s ease-out;";
     })
 </script>
