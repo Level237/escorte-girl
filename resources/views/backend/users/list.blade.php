@@ -67,7 +67,7 @@ Listes des utilisateurs
                                 </div>
                                 <div class="col-xl-4">
                                     <div class="text-xl-end mt-xl-0 mt-2">
-                                        <button type="button" class="btn btn-danger mb-2 me-2"> Nouvel utilisateur</button>
+                                        <a href="{{ route('users.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> Nouvel utilisateur</button></a>
                                         <button type="button" class="btn btn-light mb-2">Export</button>
                                     </div>
                                 </div><!-- end col-->
