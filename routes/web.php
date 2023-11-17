@@ -89,11 +89,13 @@ Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
 Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
+Route::post('/ads/update',[AdsController::class, 'update'])->name('ads.update');
 Route::get('ads/list',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
+Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
 
 
 

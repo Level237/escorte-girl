@@ -13,6 +13,7 @@ use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
+use Redirect;
 
 class AdsController extends Controller
 {
@@ -93,6 +94,45 @@ class AdsController extends Controller
             dd($e);
             //return back()->with('error',$e);
         }
+
+    }
+
+    public function update(Request $request){
+
+         //Retrieve URL API
+        $url=(new UrlApiService())->getUrl();
+        //Check if we have at least 4 images
+        $ad = (new AdsService)->getAdsById($request->ads_id);
+        //dd($request->ads_id);
+         if(count($ad['images']) < 4){
+                 return Redirect::back()->withErrors(['msg' => 'Votre annonce doit avoir un minimum de 4 images']);
+        }
+
+        //Updating ads
+         try{
+            $response = Http::asForm()->post($url."/api/ads/update", [
+                'id' => $request->ads_id,
+                'location' => $request->location,
+                'category_id' => $request->category,
+                'accepted' => $request->accepted,
+                'title' => $request->title,
+                'description' => $request->form['post_content'],
+            ]);
+        
+            if($response->status() === 200){
+
+                //Now uploading ads's images
+                return back()->with('success',"Votre annonce a été bien ,ise à jour bien");
+
+            }else{
+
+              return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour1"]);
+            }
+        }catch(\Exception $e){
+            //dd($e);
+           return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour"]);
+        }
+
 
     }
 
@@ -181,7 +221,7 @@ class AdsController extends Controller
      $escort = (new GetEscortService)->getEscort();
      $ad = (new AdsService)->getAdsById($id);
      $adsCategories = (new AdsCategoryService)->getCategories();
-     //dd($escort);
+     
      if($escort && $adsCategories && $ad){
         return view('dashboard.escort.ads.edit', compact('escort', 'adsCategories','ad'));
      }

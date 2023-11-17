@@ -5,7 +5,7 @@
 
 <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-        
+      
 <div class="fs-lg text-600 mb-2">Editer votre annonce </div>
 
     
@@ -33,17 +33,17 @@
 <div id="" >
     <div class="container py-5 my-5">
         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
-            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre annonce a été créée, cliquez ici pour la mettre en avant.
+            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre annonce a été mise à jour avec succès.
         </div>
     </div>
 </div>
 @endif
 
-@if (session('error'))
+@if($errors->any())
 <div id="ppt-invalid-fields1" >
     <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
-            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{ session('error') }}</span>
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
         </div>
     </div>
 </div>
@@ -76,9 +76,9 @@
 
     <div class="card card-add-block mb-0"><div class="card-body">
 
-<form  action="{{ route('ads.save') }}" id="global-form"  method="post">
+<form  action="{{ route('ads.update') }}" id="global-form"  method="post">
 @csrf
- <input type="hidden" name="token" id="token" value="">
+<input type="hidden" name="ads_id" id="ads_id" value="{{ $ad['id'] }}">
 <div class="row">
 
 <div class="col-md-6 mobile-mb-2">
@@ -130,6 +130,7 @@
 
 		
 </div>
+
 <div class="col-md-6 mobile-mb-2">
 
 	<label> Clients Acceptés <span class="text-danger">*</span> </label>
@@ -183,39 +184,37 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 
 		<div class="badge_tooltip" data-direction="top">
 			<div class="badge_tooltip__initiator"> 
-		  <a href="#" class="text-dark">
+		 
 		  
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
 			<div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}">
-			
+			   
 			</div>
 		</div>
 		  
-		  </a>
+		 
 			</div>
-			<div class="badge_tooltip__item text-center">
-			Profile<div class='small opacity-5'>Supprimer</div>    </div>
+			<div class=" text-center">
+			<div class='small opacity-5'><a href="#" class="text-dark"><i class="fa fa-trash" style="color:red;"></i> </a></div>    </div>
 		  </div>
 		  
 
 		</div>
      @empty
       
-    @endforelse
-
-    
+    @endforelse    
 
 </div>
 </div>
 	<div >
-			<label class="w-100">Photos (10 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (10 maximum) ( vous pouvez encore ajouter {{ 10 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
 				  <div class="small">
-					 <form  class="dropzone" action="{{ route('ads.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
+					 <form  class="dropzone" action="{{ route('update.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
 					  @csrf
-						 <input type="hidden" name="token" id="token" value="">
+						 <input type="hidden" name="ads_id" id="ads_id" value="{{ $ad['id'] }}">
 						
 					 </form>     
 				  </div>
@@ -548,30 +547,30 @@ function processSubmitForm(){
 	}
 
 	//Checking if at least one image has been successfully uploaded
-	let adsDropzone = document.getElementById("ads-dropzone");
-	let children = adsDropzone.children;
-	var numberUpload = 0;
-	for (let i = 0; i < children.length; i++) {
+	// let adsDropzone = document.getElementById("ads-dropzone");
+	// let children = adsDropzone.children;
+	// var numberUpload = 0;
+	// for (let i = 0; i < children.length; i++) {
 	
-		if (Array.from(children[i].classList).includes('dz-success')){
-			numberUpload++;
-		}
-	}
+	// 	if (Array.from(children[i].classList).includes('dz-success')){
+	// 		numberUpload++;
+	// 	}
+	// }
 
-	if(numberUpload < 1){
-		jQuery('#ppt-invalid-fields').show();
-		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins une image");
-		return false;
-	}
+	// if(numberUpload < 1){
+	// 	jQuery('#ppt-invalid-fields').show();
+	// 	jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins une image");
+	// 	return false;
+	// }
 
 
-	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
+	// if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
 		
-			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
-			return false;
-	}
+	// 		jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
+	// 		jQuery('#ppt-invalid-fields').show();
+	// 		jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+	// 		return false;
+	// }
 
 
 		// BUSINESS HOURS PLUGIN
