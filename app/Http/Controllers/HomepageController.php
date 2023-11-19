@@ -22,7 +22,7 @@ class HomepageController extends Controller
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
         $ads = (new AdsController())->getAds();
-        //dd($announcements);
+        //dd($escorts);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');

@@ -61,22 +61,18 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 
-	@php
-		shuffle($escorts);
-	@endphp
-	@forelse ($escorts as $escort)
-		@if ($loop->index == 12)
-			@break
-		@endif
+
+	@forelse ($allEscorts as $allEscort)
+	
 		<div class="item">
 
 
 		<div class="badge_tooltip" data-direction="top">
 			<div class="badge_tooltip__initiator"> 
-		  <a href="{{ route('escort.details', ['id' => $escort['id']])}}" class="text-dark">
+		  <a href="{{ route('escort.details', ['id' => $allEscort['id']])}}" class="text-dark">
 		  
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
-			<div class="bg-image" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}">
+			<div class="bg-image" data-bg="{{ route('display.profil',['id'=>$allEscort['id'], 'path'=>$allEscort['photo'] ]) }}">
 			
 			</div>
 		</div>
@@ -84,7 +80,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		  </a>
 			</div>
 			<div class="badge_tooltip__item text-center">
-			{{ ucfirst($escort['escort_name']) }}<div class='small opacity-5'>{{ $escort['age'] }} - {{ $escort['town'] }}</div>    </div>
+			{{ ucfirst($allEscort['escort_name']) }}<div class='small opacity-5'>{{ $allEscort['age'] }} - {{ $allEscort['town'] }}</div>    </div>
 		  </div>
 		  
 
@@ -105,7 +101,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="col-md-6 text-600">
     
           
-		  {{ count($escorts)}} Résultats
+		  {{ $total}} escortes au total
      
          
 
@@ -640,12 +636,10 @@ function filterToggle(val){
 		</div>
 		<div class="col-12">
 			<div class='row'>
-				@php
-					shuffle($escorts);
-				@endphp
+			
 				@forelse ($escorts as $escort)
 					
-				<div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
+				<div class="col-6 col-sm-6 col-md-4 col-lg-4"><html>
 				  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="43" data-lat="40.72211057045409" data-long="-73.87108987305908" data-address="">
 
 				  <figure>
@@ -748,7 +742,39 @@ function filterToggle(val){
 </div>
   </div>
 </section>
-
+<div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3"> 
+    <div class="ajax-search-pagenav pagination-md">
+      <ul class="pagination">
+        @php
+          $i = 1;
+        @endphp
+         @if ($current_page != 1)
+            <li class="page-item"><a href="{{ route('escort.list', ['id' => $current_page-1]) }}"  class="page-link">
+            <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
+		        </a></li>
+        @endif
+        @while ($i <= $nb_pages)
+         @if ($current_page == $i)
+            <li class ="page-item active"><a href="{{ route('escort.list', ['id' => $i]) }}"  class="page-link bg-primary">{{ $i }}</a></li>
+         @else
+            <li class="page-item"><a href="{{ route('escort.list', ['id' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
+         @endif
+          
+           @php
+          $i++;
+        @endphp
+        
+        @endwhile 
+ 
+        @if ($current_page != $nb_pages)
+            <li class="page-item"><a href="{{ route('escort.list', ['id' => $current_page+1]) }}"  class="page-link">
+            <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+		        </a></li>
+        @endif
+       
+    
+    </ul></div>
+  </div>
 @endif
  
 
