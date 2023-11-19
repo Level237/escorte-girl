@@ -38,7 +38,7 @@ class EscortController extends Controller{
         $current_page = $request->id ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
-        //dd($starting_point);
+      
         $escorts = array_slice($allEscorts, $starting_point, $per_page, true);
 
         $escorts = new Paginator($escorts, $total, $per_page, $current_page, [

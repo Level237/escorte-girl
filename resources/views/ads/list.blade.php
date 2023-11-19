@@ -3884,13 +3884,9 @@ function updatecommentfilter(g){
 		</div>
 		<div class="col-12">
 			<div class='row'>
-				@php
-					shuffle($ads);
-				@endphp
+			
 				@forelse ($ads as $ad)
-				    @if($loop->index === 10)
-						@break
-					@endif
+				   
 					 <div class="col-6 col-sm-12 col-lg-12 listview">
 						  <div class="hide-mobile mb-4" data-pid="165">
 
@@ -3999,7 +3995,39 @@ function updatecommentfilter(g){
 							  </div>
 					</div>
 				@endforelse
-
+        <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3"> 
+    <div class="ajax-search-pagenav pagination-md">
+      <ul class="pagination">
+        @php
+          $i = 1;
+        @endphp
+         @if ($current_page != 1)
+            <li class="page-item"><a href="{{ route('ads.list', ['id' => $current_page-1]) }}"  class="page-link">
+            <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
+		        </a></li>
+        @endif
+        @while ($i <= $nb_pages)
+         @if ($current_page == $i)
+            <li class ="page-item active"><a href="{{ route('ads.list', ['id' => $i]) }}"  class="page-link bg-primary">{{ $i }}</a></li>
+         @else
+            <li class="page-item"><a href="{{ route('ads.list', ['id' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
+         @endif
+          
+           @php
+          $i++;
+        @endphp
+        
+        @endwhile 
+ 
+        @if ($current_page != $nb_pages)
+            <li class="page-item"><a href="{{ route('ads.list', ['id' => $current_page+1]) }}"  class="page-link">
+            <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+		        </a></li>
+        @endif
+       
+    
+    </ul></div>
+  </div>
 			</div>
 				  </div>
 </div>

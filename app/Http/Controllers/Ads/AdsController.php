@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Redirect;
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class AdsController extends Controller
 {
@@ -154,24 +155,38 @@ class AdsController extends Controller
         return  $ads;
     }
 
-    public function list(){
+    public function list(Request $request){
          
         $url=(new UrlApiService())->getUrl();
-        $ads = [];
+        $allAds = [];
 
         try{
 
             $response = Http::asForm()->get($url."/api/announces");
-            $ads = json_decode((string) $response->getBody(), true);
-            $ads = $ads['data'];
+            $allAds = json_decode((string) $response->getBody(), true);
+            $allAds = $allAds['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $ads = [];
+             $allAds = [];
         }
 
-        //dd($ads);
+        $total = count($allAds);
+        $per_page = 5;
+        $nb_pages = ceil($total/$per_page);
+        $current_page = $request->id ?? 1;
 
-        return  view('ads.list', compact('ads'));
+        $starting_point = ($current_page * $per_page) - $per_page;
+      
+        $ads = array_slice($allAds, $starting_point, $per_page, true);
+
+        $ads = new Paginator($ads, $total, $per_page, $current_page, [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
+
+        //dd($allAds);
+
+        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
     }
 
 
