@@ -66,8 +66,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="col-md-6 text-600">
 
 
-		  {{ count($ads)}} Résultats
-
+	
 
 
     <em class="text-500 ajax-search-found-wrap" style="display:none;">

@@ -23,7 +23,72 @@
 
 <html>
   <body>
-<section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">
+
+<section data-ppt-blockid="hero3" data-ppt-blocktype="hero" data-ppt-section="" 
+class="position-relative " data-overlay="gradient-left">
+
+ 
+<div class="container position-relative z-10 py-0 py-sm-5 _contents">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-light">
+       
+ <h1 data-ppt-title="">Le Nº1 des annonces Yamo. 
+	</h1> <br/> 
+ <h6 data-ppt-title="">
+	 @forelse ( $announcements as $announcement )
+
+		@if($loop->index < 3)
+		
+			<a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" style="text-decoration: none; color:white">
+              
+			
+                    {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }}),
+		     
+			</a>
+			
+		@endif
+		@empty
+
+	@endforelse
+	 <a href="#" style="text-decoration: none; color:white">Autres villes</a> 
+	</h6> <br/> 
+<h1 data-ppt-title="">Vous recherchez <br/> 
+	<span class="ppt-animate" data-animation="ppt-animate-fade-in" 
+	data-items="Un Massage?,Du Sexe?,Autre chose?" data-id="15231"> </span></h1>
+        
+
+        
+
+        
+        
+        <div class="mt-1 d-flex h1buttonbox mobile-mb-4">
+        
+                
+                    
+                    
+                  
+        </div>
+        
+                <div class="mt-5">
+          <form method="get" action="#" style="max-width:400px;">
+            <div class="bg-white rounded-lg p-1 d-flex">
+              <input class="typeahead form-control form-control-lg border-0 mb-0" type="text" 
+			  name="s" placeholder="Que recherchez-vous..."/>
+              <button class="btn-primary btn-search" data-ppt-btn="" type="submit"><span>Chercher</span></button>
+            </div>
+          </form>
+        </div>
+                
+                
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-image" style="background-image:url('{{ asset('assets/images/hero/hero4.png') }}');" data-ppt-image-bg="" 
+  data-bg="{{ asset('assets/images/hero/hero4.png') }}"> </div>
+   
+</section>
+{{-- <section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">
 <div class="container position-relative z-10 py-0 py-sm-5 _contents">
     <div class="row align-items-center">
       <div class="col-lg-6 text-light">
@@ -53,56 +118,186 @@
   </div>
 
   <div class="bg-image" style="background-image:url('{{ asset('assets/images/hero/hero1.jpg') }}');" data-ppt-image-bg="" data-bg="https://premiumpress1063.b-cdn.net/_demoimagesv10//framework/layouts/_es/chocolate/hero1.jpg"> </div>
-  </section>
-</body>
-</html><html>
+  </section> --}}
+
 @include('utils.utils')
-@if ($announcements)
-<section class="container py-4 add-block block1 active">
-<label class="mt-2" style="color:#000000; font-size:25px; font-family:Poppins, sans-serif; font-weight: 600">Le Nº1 des annonces Yamo, Rencontres et Massage au Cameroun </label>
-
-<div class="row mt-2">
 
 
-@forelse ( $announcements as $announcement )
+ @if($ads)
+<section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
+  <div class="container">
+    <div class="row">
+          <div class="col-lg-12">
+        <div class="d-flex justify-content-between">
+          <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
+          <div>
+                        <a href="{{ route('ads.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
+                      </div>
+        </div>
+      </div>
+    <div class="col-12">
+        <div class='row'>
+	 	@php
+					shuffle($ads);
+				@endphp
+	@forelse($ads as $ad)
+	  	@if ($loop->index == 9)
+						@break
+					@endif
+	<div class="col-6 col-sm-6 col-md-4 col-lg-4">
 
-  @if($loop->index < 3)
-    <div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
-       <a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}">
-          <div class="cardbox" onclick="processEditData('map');">
+	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" 
+	data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
-          <i class="fal fa-map-marker"
-          style="color:#000000; font-size:35px;  font-weight: 600" ></i>
+		  <figure>
 
-          <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
-            {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }}) </div>
+
+
+		<div class="buttons-wrap">
+
+
+
+		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+
+		</div>
+		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+
+		  <div ppt-border1="" class="p-1">
+
+			<div class="search-gradient"> </div>
+
+			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
+			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+				<div class="text-white fs-4 text-600">
+				 {{ ucfirst($ad['user']['username']) }}
+							<span class="text-online">•</span>
+						  </div>
+				<div class="fs-sm text-white opacity-5 text-400">
+				  {{ ucfirst($ad['town']['town_name']) }}  
+				</div>
+			  </div>
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
+				 
+			  </div>
+
+		<div ppt-search-badges="" style="z-index:1" class="right">
+			<div class="badge" style="color:#fff;background-color:#ED5858;">
+			<span class="fal fa fa-star" style="color:#000"> </span> {{ $ad['ethnie']['ethnic_name'] }}  </div>
+
+		</div>
+
+
+			</div>
+
+			 <div class="p-4 bg-white"  style="min-height:220px;">
+			  <div class="d-sm-flex flex-sm-column">
+				<div class="fs-6  mb-2">
+
+				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
+            {{ truncate($ad['title'],40) }}
+
+					</a>
+
+				</div>
+
+			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
+
+					<ul class="list-unstyled">
+
+						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
+              &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
+              </li>
+
+					</ul>
+					<span style="font-weight:bold">Client accepté :</span> {{ $ad['accepted'] }} <br>
+					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}
+
+				</nav>
+
+				<div style="min-height:60px;">
+				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
+				</div>
+
+
+
+
+			   </div>
+
+
+			  </div>
+		  </div>
+		</a>
+
+
+		</figure>
+
+		</div>
+
+
+
+
+		<div class="show-mobile">
+		  <div class="position-relative mb-3">
+			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+			  <div class="h-100 position-relative">
+				<figure>
+
+		<div ppt-search-badges="" style="z-index:1" class="right">
+			<div class="badge" style="color:#000000;background-color:#ED5858;">
+			<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+
+		</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
+				</figure>
+			  </div>
+			</div>
+			</a>
+			<div class="lh-20 text-700 " style="margin-top:20px;">
+					<span class="text-online">•</span>
+					<a href="listing/rooster/index.htm" class="text-dark">Rooster, <span class="fs-sm opacity-5">40</span></a>
+			</div>
+		  </div>
+		</div>
+
+
+
+	</div>
+	@empty
+	@endforelse
+
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+@endif
+
+<section data-ppt-blockid="text102" data-ppt-blocktype="text" data-ppt-section="" class="section-60">
+  <div class="container">
+    <div class="row  y-middle">
+      <div class="col-md-6 pr-lg-5 pe-lg-5" style="overflow: hidden; max-height:400px">
+        <img data-src="{{ asset('assets/images/nake-girl.jpg') }}" 
+		class="img-fluid lazy rounded shadow-sm  mobile-mb-2" alt="image" data-ppt-image="">
+      </div>
+      <div class="col-md-6 pl-xl-5 ps-xl-5">
+
+        <h2 data-ppt-title="">Nous vous mettons en contact avec des filles et des gars à proximité !</h2>
+
+        <p class="my-3" data-ppt-subtitle="">Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque
+          nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique
+          neque consequat.</p>
+
+
+                <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
+                        <a href="{{ route('escort.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Escorts</a>
+
 
       </div>
-      </a>
     </div>
-  @endif
-@empty
+  </div>
+</section>
 
-@endforelse
-
-
-<div class="col-6 col-md-4 col-xl-3 data-map-city-wrap" >
-
-        <div class="cardbox" onclick="processEditData('map');">
-
-        <i class="fal fa-map-marker-plus"
-        style="color:#000000; font-size:35px;  font-weight: 600" ></i>
-
-        <div class="small data-map-city" style="color:#000000; font-size:20px; font-family:Poppins, sans-serif; font-weight: 600">
-         Plus de villes </div>
-
-    </div>
-
-</div>
-
-
-</div>
-</section >
 @if ($escorts)
 <section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
   <div class="container">
@@ -222,8 +417,6 @@
 </div>
   </div>
 </section>
-
-@endif
 @endif
  <div class="bg-light ppt-page-body">
 <div class="border-bottom">
@@ -374,33 +567,10 @@ cleanCats();
 });
 
 </script>
-</div><html>
-  <body><section data-ppt-blockid="text102" data-ppt-blocktype="text" data-ppt-section="" class="section-60">
-  <div class="container">
-    <div class="row  y-middle">
-      <div class="col-md-6 pr-lg-5 pe-lg-5">
-        <img data-src="https://premiummod.com/demoimages/img.php?fw=text102&t=es" class="img-fluid lazy rounded shadow-sm  mobile-mb-2" alt="image" data-ppt-image="">
-      </div>
-      <div class="col-md-6 pl-xl-5 ps-xl-5">
-
-        <h2 data-ppt-title="">Nous vous mettons en contact avec des filles et des gars à proximité !</h2>
-
-        <p class="my-3" data-ppt-subtitle="">Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque
-          nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique
-          neque consequat.</p>
+</div>
 
 
-                <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
-                        <a href="{{ route('escort.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Escorts</a>
-
-
-      </div>
-    </div>
-  </div>
-</section>
-</body>
-</html><section data-ppt-blockid='text122' data-ppt-blocktype='text' data-ppt-section="" class="bg-primary section-40 hide-mobile">
+<section data-ppt-blockid='text122' data-ppt-blocktype='text' data-ppt-section="" class="bg-primary section-40 hide-mobile">
   <div class="container">
     <div class="row align-items-center  text-center text-md-right">
       <div class="col-md-8 mobile-mb-2">
@@ -421,152 +591,6 @@ cleanCats();
   </div>
 </section>
 
- @if($ads)
-<section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-  <div class="container">
-    <div class="row">
-          <div class="col-lg-12">
-        <div class="d-flex justify-content-between">
-          <h2 class="mb-5" data-ppt-title="">Annonces En Vedettes</h2>
-          <div>
-                        <a href="{{ route('ads.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
-                      </div>
-        </div>
-      </div>
-    <div class="col-12">
-        <div class='row'>
-	 	@php
-					shuffle($ads);
-				@endphp
-	@forelse($ads as $ad)
-	  	@if ($loop->index == 9)
-						@break
-					@endif
-	<div class="col-6 col-sm-6 col-md-4 col-lg-4">
 
-	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-		  <figure>
-
-
-
-		<div class="buttons-wrap">
-
-
-
-		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
-
-		</div>
-		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-
-		  <div ppt-border1="" class="p-1">
-
-			<div class="search-gradient"> </div>
-
-			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
-			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-				<div class="text-white fs-4 text-600">
-				 {{ ucfirst($ad['user']['username']) }}
-							<span class="text-online">•</span>
-						  </div>
-				<div class="fs-sm text-white opacity-5 text-400">
-				  {{ ucfirst($ad['town']['town_name']) }}  
-				</div>
-			  </div>
-			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
-				 
-			  </div>
-
-		<div ppt-search-badges="" style="z-index:1" class="right">
-			<div class="badge" style="color:#fff;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000"> </span> {{ $ad['ethnie']['ethnic_name'] }}  </div>
-
-		</div>
-
-
-			</div>
-
-			 <div class="p-4 bg-white"  style="min-height:220px;">
-			  <div class="d-sm-flex flex-sm-column">
-				<div class="fs-6  mb-2">
-
-				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
-            {{ truncate($ad['title'],40) }}
-
-					</a>
-
-				</div>
-
-			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
-
-					<ul class="list-unstyled">
-
-						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
-              &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
-              </li>
-
-					</ul>
-					<span style="font-weight:bold">Client accepté :</span> {{ $ad['accepted'] }} <br>
-					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}
-
-				</nav>
-
-				<div style="min-height:60px;">
-				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
-				</div>
-
-
-
-
-			   </div>
-
-
-			  </div>
-		  </div>
-		</a>
-
-
-		</figure>
-
-		</div>
-
-
-
-
-		<div class="show-mobile">
-		  <div class="position-relative mb-3">
-			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-			  <div class="h-100 position-relative">
-				<figure>
-
-		<div ppt-search-badges="" style="z-index:1" class="right">
-			<div class="badge" style="color:#000000;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-		</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
-				</figure>
-			  </div>
-			</div>
-			</a>
-			<div class="lh-20 text-700 " style="margin-top:20px;">
-					<span class="text-online">•</span>
-					<a href="listing/rooster/index.htm" class="text-dark">Rooster, <span class="fs-sm opacity-5">40</span></a>
-			</div>
-		  </div>
-		</div>
-
-
-
-	</div>
-	@empty
-	@endforelse
-
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-@endif
 
 @endsection
