@@ -52,8 +52,8 @@ class StepThreeController extends Controller
 
         //$image_path = $request->photo->store('profile', 'public');
         $addProfile=(new AddProfileService())->addProfile($stepThree,$request->file('photo'),$request->services);
-        //return to_route('step.final');
-        return $request->file('photo');
+        return to_route('step.final');
+        //return $addProfile;
         //return $addProfile;
         //return json_encode($request->services);
     }
