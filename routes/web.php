@@ -26,6 +26,9 @@ use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
 
+//Importing Controllers for Membership
+use App\Http\Controllers\Memberships\MemberShipController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,7 +85,8 @@ Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
 
-
+//Memberships GROUP URL
+Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
 
 //Annoucements GROUP URL
 Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');

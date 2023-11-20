@@ -74,16 +74,17 @@ class AdsController extends Controller
             if($response->status() === 200){
 
                 //Now uploading ads's images
+                $id = json_decode((string) $response->getBody(), true)['id'];
                 foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
                     $photo = \Illuminate\Support\Facades\Storage::get($filename);
                     $responseImage = Http::attach(
                         'file', $photo, $filename
                     )->post($url."/api/ads/image", [
-                        'ads_id' => json_decode((string) $response->getBody(), true)['id'],
+                        'ads_id' => $id,
                     ]);
 
                 }
-                return back()->with('success',"Votre annonce a ete bien creee");
+                return to_route('membership.display', ['adsId'=>$id]);
                
 
             }else{

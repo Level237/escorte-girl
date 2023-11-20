@@ -64,6 +64,10 @@
                       <a href="{{ route('ads.delete',['id' => $ad['id']])  }}" data-toggle="modal" data-target="#exampleModal{{$ad['id']}}">
                         <i class="fa fa-trash font-danger"></i>
                       </a>
+
+                      <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" >
+                        <i class="fa fa-plane font-danger"></i>
+                      </a>
                      
                        <div class="modal fade" id="exampleModal{{$ad['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">

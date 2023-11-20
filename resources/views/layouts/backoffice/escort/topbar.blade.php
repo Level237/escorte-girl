@@ -66,8 +66,8 @@
 	    
     <div class="badge_tooltip text-center" data-direction="top">
     <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
-    <div class="badge_tooltip__item">Profil Gold </div>
+   <i class="fal fa fa-star" style="color:#000000"></i> Acheter du crédit   </div>
+    <div class="badge_tooltip__item">Achat Crédit </div>
   </div>
 
 </div>
