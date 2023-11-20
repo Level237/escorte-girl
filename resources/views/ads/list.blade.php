@@ -3923,7 +3923,8 @@ function updatecommentfilter(g){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-								  <a href="https://es10.premiummod.com/listing/ethel/" class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
+								  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+                  class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
 
