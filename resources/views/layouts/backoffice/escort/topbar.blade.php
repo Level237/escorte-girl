@@ -1,7 +1,7 @@
 <div class="card-mobile-transparent p-3 mb-4  mobile-negative-margin-x" ppt-border1>
 <nav ppt-nav class="sepetator">
 <style>
- 
+
 .ppt-badges ._badge + ._badge {
     margin-left: 10px;
 }
@@ -28,14 +28,14 @@
 
     @php
         if (filter_var($escort['photo'], FILTER_VALIDATE_URL))
-         echo " <div class='_wrap bg-image' 
+         echo " <div class='_wrap bg-image'
                 data-bg='".$escort['photo']."'>&nbsp;</div>";
         else {
-             echo " <div class='_wrap bg-image' 
+             echo " <div class='_wrap bg-image'
                 data-bg='".route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )."'>&nbsp;</div>";
         }
     @endphp
-               
+
 
 </a>
 
@@ -63,9 +63,9 @@
 <a href=""  class="btn-primary" data-ppt-btn>
 <div class="d-flex">
 
-	    
+
     <div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
     <div class="badge_tooltip__item">Profil Gold </div>
   </div>
@@ -78,11 +78,11 @@
 <a href=""   style="color:#FBFBFB;background-color:#2BA346;" data-ppt-btn>
 <div class="d-flex">
 
-	    
+
     <div class="badge_tooltip text-center" data-direction="top">
-        <div class="badge_tooltip__initiator"> 
-            <i class="fal fa fa-check" style="color:#FBFBFB"></i> 
-        Verifié  
+        <div class="badge_tooltip__initiator">
+            <i class="fal fa fa-check" style="color:#FBFBFB"></i>
+        Verifié
         </div>
     <div class="badge_tooltip__item">Profil Verifie </div>
   </div>
@@ -92,15 +92,15 @@
 </li>
 
 <li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href="{{ route('escort.details', ['id' => $escort['id']]) }}"   
+<a href="{{ route('escort.details', ['id' => $escort['id']]) }}"
     style="color:#FBFBFB;background-color:#DFABE1;" target="_blank" data-ppt-btn>
 <div class="d-flex">
 
-	    
+
     <div class="badge_tooltip text-center" data-direction="top">
-        <div class="badge_tooltip__initiator"> 
-            <i class="fal fa fa-user" style="color:#FBFBFB"></i> 
-             Visiter mon profil  
+        <div class="badge_tooltip__initiator">
+            <i class="fal fa fa-user" style="color:#FBFBFB"></i>
+             Visiter mon profil
         </div>
     <div class="badge_tooltip__item">Voir mon profil public </div>
   </div>
@@ -110,7 +110,11 @@
 </li>
 
 
+<li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
 
+        Balance:{{ $user->balance }}
+
+</li>
 
 
 

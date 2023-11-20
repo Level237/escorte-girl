@@ -4,9 +4,16 @@
 @section('content')
 
 
-<div class="fs-lg text-600 mb-2 hide-mobile">Bon Retour</div>
+<div style="display: flex;align-items:center;">
+    <div style="flex: 1">
+        <div class="fs-lg text-600 mb-2 hide-mobile">Bon Retour</div>
 
-<p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
+    <p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
+    </div>
+    <div>
+        Balance : {{ $user->balance }} Xp
+    </div>
+    </div>
 
 <div ppt-border1="" class="p-3 p-md-4  hide-mobile mt-2 mb-5">
 
