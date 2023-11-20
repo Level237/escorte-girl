@@ -214,7 +214,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="col-md-12 mobile-mb-2">
 	
 	<div >
-			<label class="w-100">Photos (5 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (10 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
@@ -239,7 +239,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   Dropzone.options.adsDropzone = { // camelized version of the `id`
     paramName: "file", // The name that will be used to transfer the file
     maxFilesize: 2, // MB
-	maxFiles : 5,
+	maxFiles : 10,
     acceptedFiles: ".jpeg,.jpg,.png",
 	Name: "Chargez vos fichiers ici",
     init: function() {
@@ -581,9 +581,6 @@ function processSubmitForm(){
 
 	canContinue = true;
 
-	
-	
-
 	jQuery('#ppt-invalid-fields').hide();
 
 	jQuery(".form-control").removeClass('required-active');
@@ -627,9 +624,9 @@ function processSubmitForm(){
 		}
 	}
 
-	if(numberUpload < 1){
+	if(numberUpload < 4){
 		jQuery('#ppt-invalid-fields').show();
-		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins une image");
+		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins 4 images de qualité");
 		return false;
 	}
 
