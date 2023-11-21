@@ -10,12 +10,8 @@ class MemberShipController extends Controller
 {
     public function display($id){
         $memberships = (new MemberShipService)->MemberShip();
-        if(Session::has('currentMembership')){
-            Session::forget('currentMembership');
-        }
-        Session::put('currentMembership',$id);
-        Session::save();
-        return view('membership.index', compact('memberships'));
+
+        return view('membership.index', compact('memberships','id'));
     }
 
      public function index(){

@@ -34,6 +34,7 @@ use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\ChoosePlanController;
 //Importing Controllers for Membership
 use App\Http\Controllers\Memberships\MemberShipController;
+use App\Http\Controllers\Purchase\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,8 +141,8 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
     Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
-
-
+    Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
+    Route::get('congratulations',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
 });
 
 

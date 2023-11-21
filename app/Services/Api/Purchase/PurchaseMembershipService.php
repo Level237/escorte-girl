@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Purchase;
+namespace App\Services\Api\Purchase;
 
 use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;

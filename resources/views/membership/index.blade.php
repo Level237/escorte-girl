@@ -37,7 +37,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-    @if(Session::get('membership'))
+
+    @if(session('membership'))
     <div class="ppt-modal-wrap show modal-payment modal-bottom-rightxxx"><div class="ppt-modal-wrap-overlay"></div><div class="ppt-modal-item ppt-animate-bouncein bg-white w-500 ppt-modal-shadow"><div class="ppt-modal-container"><div class="card-popup large">
         <div class="bg-primary pt-3">
             <div class="card-popup-content">
@@ -64,12 +65,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" action="https://es10.premiummod.com/callback/" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
-        <input type="hidden" name="credit_total" id="credit_total" value="25">
-        <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
-        <input type="hidden" name="item_name" value="Free Membership">
+        <form method="post" action="{{ route('purchase-with-credit') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
+        @csrf
+            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')->id }}">
+        <input type="hidden" name="announcement_id" value="{{ $id }}" class="paymentcustomfield">
 
-        @if($user->balance >= Session::get('membership')->price )
+        @if($user->balance >= Session::get('membership')->price)
             <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
                 <div class="d-flex payment-%name%">
                     <div style="width:120px; height:40px; font-size: 30px;" class="mr-4 rounded overflow-hidden position-relative">
