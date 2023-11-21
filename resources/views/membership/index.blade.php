@@ -130,7 +130,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="row">
  <div class="col-8">
 
- <p><strong>Abonnement Premium</strong></p>
+ <p><strong>Abonnemen Premium</strong></p>
 
   <p class="mb-0">Free for 24 hour access!</p>
 
