@@ -23,9 +23,11 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view)
         {
+
             $userBalance=(new CurrentUserService())->currentUser();
+            $balance=$userBalance->balance ?? null;
             $view->with('user', Session::get('currentUser') );
-            $view->with('userBalance', $userBalance->balance );
+            $view->with('userBalance', $balance );
         });
     }
 }
