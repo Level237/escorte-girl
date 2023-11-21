@@ -119,6 +119,8 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
+    //Memberships GROUP URL
+Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
     Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
     Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
