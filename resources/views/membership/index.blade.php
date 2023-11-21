@@ -22,7 +22,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script type="text/javascript" src="<script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}" id="jquery-core-js"></script>" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 
 
 </head>
@@ -82,9 +82,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-
 <div class="row hide-mobile">
-            <div class="col-lg-4 mb-4">
+    @if ($memberships)
+
+
+    @forelse ($memberships as $membership)
+
+
+    <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
 
                     <a class="text-dark text-decoration-none" href="javascript:void(0);">
@@ -96,7 +101,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   1 Mois                </div>
 
               <div class="memprice">
-                <span class="text-700 ppt-price">XAF3000.00</span>
+                <span class="text-700 ppt-price">XAF {{ $membership['price'] }}</span>
               </div>
 
           </div>
@@ -104,60 +109,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
         <div class="d-flex justify-content-between align-items-baseline">
           <div class="small opacity-8 text-500 ">
-            Abonnement Premium         </div>
+            ABONNEMENT {{ $membership['membership_name'] }}        </div>
 
         </div>
       </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card card-pricing-membership shadow-sm mb-3">
+       @empty
 
-                    <a class="text-dark text-decoration-none" href="javascript:void(0);" >
-
-
-          <div class="card-body text-center position-relative">
-
-              <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
-                  1 Mois               </div>
-
-              <div class="memprice">
-                <span class="text-700 ppt-price">XAF 5000.00</span>
-              </div>
-
-          </div>
-          </a>
-        </div>
-        <div class="d-flex justify-content-between align-items-baseline">
-          <div class="small opacity-8 text-500 ">
-            Abonnement Gold          </div>
-          <div>
-                     </div>
-        </div>
-      </div>
-            <div class="col-lg-4 mb-4">
-        <div class="card card-pricing-membership shadow-sm mb-3">
-
-                    <a class="text-dark text-decoration-none" href="javascript:void(0);">
+    @endforelse
+    @endif
 
 
-          <div class="card-body text-center position-relative">
-
-              <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
-                  1 Mois                </div>
-
-              <div class="memprice">
-                <span class="text-700 ppt-price">XAF 10000.00</span>
-              </div>
-
-          </div>
-          </a>
-        </div>
-        <div class="d-flex justify-content-between align-items-baseline">
-          <div class="small opacity-8 text-500 ">
-            Ultra VIP         </div>
-          <div>
-                     </div>
-        </div>
-      </div>
       </div>
 
 <div class="">

@@ -88,7 +88,9 @@ Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
 
-
+//Memberships GROUP URL
+Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
+Route::get('/memberships',[MemberShipController::class, 'index'])->name('membership.index');
 
 //Annoucements GROUP URL
 Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
