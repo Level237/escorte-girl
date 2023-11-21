@@ -141,7 +141,7 @@
             </li>
 
 
-            <li class="side-nav-title">Localisation</li>
+        <li class="side-nav-title">Localisation</li>
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
@@ -195,17 +195,18 @@
                     </ul>
                 </div>
             </li>
+
             <li class="side-nav-title">Abonnements</li>
 
             <li class="side-nav-item">
-                <a style="cursor: pointer"  class="side-nav-link">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships') }}">
                     <i class="uil-box"></i>
-                    <span> Gerer mes abonnements </span>
+                    <span> Gerer les abonnements </span>
 
                 </a>
             </li>
             <li class="side-nav-item">
-                <a style="cursor: pointer"  class="side-nav-link">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships.create') }}" >
                     <i class="uil-box"></i>
                     <span> Créer un abonnement</span>
 
