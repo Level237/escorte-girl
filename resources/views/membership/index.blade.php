@@ -79,21 +79,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
     </div>
-<<<<<<< HEAD
-    
-=======
 
 
-
->>>>>>> 4d47894de0a45b5ed63f3a2c1387e8ed55f8fc8e
 
 <div class="row hide-mobile">
     @if ($memberships)
-      
+
 
     @forelse ($memberships as $membership)
-      
-   
+
+
     <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
 
@@ -115,15 +110,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="d-flex justify-content-between align-items-baseline">
           <div class="small opacity-8 text-500 ">
             ABONNEMENT {{ $membership['membership_name'] }}        </div>
-       
+
         </div>
       </div>
        @empty
-      
+
     @endforelse
     @endif
-    
-      
+
+
       </div>
 
 <div class="">
@@ -132,55 +127,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="row">
- <div class="col-8">
-
- <p><strong>Abonnement Premium</strong></p>
-
-  <p class="mb-0">Free for 24 hour access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);">Sélectionner</a>
 
 
- </div>
-<div class="col-12"><hr /></div>
-</div>
- <div class="row">
- <div class="col-8">
 
- <p><strong>Abonnement Gold</strong></p>
-
-  <p class="mb-0">$20 for 1 months access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner
-</a>
-
-
- </div>
-<div class="col-12"><hr /></div>
-</div>
- <div class="row">
- <div class="col-8">
-
- <p><strong>Abonnement Ultra VIP</strong></p>
-
-  <p class="mb-0">$50 for 6 months access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner</a>
-
-
- </div>
-<div class="col-12"><hr /></div>
-</div>
-
- </div>
-</div>
 <div class="card p-3">
 
 <div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici le<span class="text-600">November 21, 2023 3:33 am</span> </div>
@@ -710,7 +659,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				<input type="hidden" id="ppt-current-position" value="left" />
                 <input type="hidden" id="ppt-map-provider" value="google" />
 
-                                  <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
+                <script async src="{{ asset('assets/js/js.custom.js') }}" id="premiumpress-js"></script>
 
 				<noscript id="deferred-styles">
 
