@@ -1,9 +1,15 @@
 <?php
 
+//Importing admin 
 use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\Admin\User\ListUserController;
 use App\Http\Controllers\Admin\User\SuspendUserController;
+use App\Http\Controllers\Admin\Membership\ListMemberShipController;
+use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
+use App\Http\Controllers\Admin\Membership\EditMemberShipController;
+use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -145,6 +151,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('users/role/',[ListUserController::class,'userByRole'])->name('user-by-role');
    Route::get('suspend/user/{id}',[SuspendUserController::class,'ban'])->name('suspend-user');
    Route::get('activate/user/{id}',[ActivateUserController::class,'activate'])->name('activate-user');
+
+
+   Route::get('memberships',[ListMemberShipController::class,'index'])->name('memberships');
+   Route::get('memberships/create',[CreateMemberShipController::class,'create'])->name('memberships.create');
+   Route::get('memberships/edit',[EditMemberShipController::class,'edit'])->name('memberships.edit');
+   Route::get('memberships/delete',[DeleteMemberShipController::class,'delete'])->name('memberships.delete');
 });
 
 
