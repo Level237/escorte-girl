@@ -127,55 +127,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="row">
- <div class="col-8">
-
- <p><strong>Abonnemen Premium</strong></p>
-
-  <p class="mb-0">Free for 24 hour access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);">Sélectionner</a>
 
 
- </div>
-<div class="col-12"><hr /></div>
-</div>
- <div class="row">
- <div class="col-8">
 
- <p><strong>Abonnement Gold</strong></p>
-
-  <p class="mb-0">$20 for 1 months access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner
-</a>
-
-
- </div>
-<div class="col-12"><hr /></div>
-</div>
- <div class="row">
- <div class="col-8">
-
- <p><strong>Abonnement Ultra VIP</strong></p>
-
-  <p class="mb-0">$50 for 6 months access!</p>
-
- </div>
- <div class="col-4 pt-2">
-    <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner</a>
-
-
- </div>
-<div class="col-12"><hr /></div>
-</div>
-
- </div>
-</div>
 <div class="card p-3">
 
 <div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici le<span class="text-600">November 21, 2023 3:33 am</span> </div>
