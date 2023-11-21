@@ -69,27 +69,31 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
         <input type="hidden" name="item_name" value="Free Membership">
 
-        <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
-        <div class="d-flex payment-%name%">
-            <div style="width:120px; height:40px; font-size: 30px;" class="mr-4 rounded overflow-hidden position-relative">
-            😀
+        @if($user->balance >= Session::get('membership')->price )
+            <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+                <div class="d-flex payment-%name%">
+                    <div style="width:120px; height:40px; font-size: 30px;" class="mr-4 rounded overflow-hidden position-relative">
+                    😀
+                    </div>
+                        <div class="w-100">
+                            <div class="d-flex justify-content-between">
+                                <div class="text-700 text-left">
+                                Utilisez mon nombre de crédit
+                                <div class="tiny">
+                                    <span class="opacity-5ppt-price">Balance:{{ $user->balance }} crédits</span>
+                                </div>
+
+
+                                </div>
+                                <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+                            </div>
+
+                        </div>
+
+                </div>
             </div>
-                <div class="w-100">
-            <div class="d-flex justify-content-between">
-        <div class="text-700 text-left">
-        Utilisez mon nombre de crédit<div class="tiny">
-        <span class="opacity-5ppt-price">Balance:{{ $user->balance }} crédits</span>
-        </div>
+        @endif
 
-
-        </div>
-        <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
-        </div>
-
-        </div>
-
-        </div>
-        </div>
 
 
         </form>
