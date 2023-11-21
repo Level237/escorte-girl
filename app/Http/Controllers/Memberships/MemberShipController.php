@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Memberships;
-use App\Http\Controllers\Controller;
-use App\Services\Api\MemberShip\MemberShipService;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use App\Services\Api\MemberShip\MemberShipService;
 
 class MemberShipController extends Controller
 {
-    public function display(){
+    public function display($id){
         $memberships = (new MemberShipService)->MemberShip();
+        if(Session::has('currentMembership')){
+            Session::forget('currentMembership');
+        }
+        Session::put('currentMembership',$id);
+        Session::save();
         return view('membership.index', compact('memberships'));
     }
 
