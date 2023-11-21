@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title> Souscrire</title>
-    
+    <title> Souscrire à un Abonnement escort</title>
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -23,8 +23,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
 <script type="text/javascript" src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
- 
-    
+
+
 </head>
 <body class="page-template page-template-templates page-template-tpl-page-memberships page-template-templatestpl-page-memberships-php page page-id-16 logged-in body-hide-footer demomode theme-es tall-images innerpage" >
 
@@ -35,7 +35,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <main id="page-content-wrapper" class="with-mobilemenu">
 
- 
+
 <div id="ppt-register" class="ppt-forms bg-white">
   <div class="container-fluid px-0">
     <div class="row g-0 min-vh-100">
@@ -51,7 +51,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <div class="col-12 col-xl-10 mx-auto">
               <div class="logo">
                <a href="/">
-           
+
             <div class='textlogo navbar-brand-dark'>Viens <span style="color:#DA9DDC;">Yamo <i class="fa fa-heart"></i></span></div>
           </a>
               </div>
@@ -61,7 +61,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <div class="container my-auto py-5">
           <div class="row g-0">
             <div class="col-12 col-xl-10 mx-auto">
-              
+
 
 <div class="" >
 
@@ -69,60 +69,60 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
     <div class="clearfix mb-3">
-    
-  	     
-     <h2 class="text-600 mb-3"> 
+
+
+     <h2 class="text-600 mb-3">
         <span class="smilecode float-right" style="font-size: 40px;">&#x1F600;</span> Boostez Annonces</h2>
-     
+
      <p>Boostez vos annonces et obtenez plus de clients.</p>
-    
-           
-      
+
+
+
     </div>
-    
- 
+
+
 
 
 <div class="row hide-mobile">
             <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
-              
+
                     <a class="text-dark text-decoration-none" href="javascript:void(0);">
-                    
-          
+
+
           <div class="card-body text-center position-relative">
-       
+
               <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
                   1 Mois                </div>
-                           
+
               <div class="memprice">
                 <span class="text-700 ppt-price">XAF3000.00</span>
               </div>
-       
+
           </div>
           </a>
         </div>
         <div class="d-flex justify-content-between align-items-baseline">
           <div class="small opacity-8 text-500 ">
             Abonnement Premium         </div>
-       
+
         </div>
       </div>
             <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
-              
+
                     <a class="text-dark text-decoration-none" href="javascript:void(0);" >
-                    
-          
+
+
           <div class="card-body text-center position-relative">
-       
+
               <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
                   1 Mois               </div>
-                           
+
               <div class="memprice">
                 <span class="text-700 ppt-price">XAF 5000.00</span>
               </div>
-       
+
           </div>
           </a>
         </div>
@@ -135,19 +135,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       </div>
             <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
-              
+
                     <a class="text-dark text-decoration-none" href="javascript:void(0);">
-                    
-          
+
+
           <div class="card-body text-center position-relative">
-       
+
               <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
                   1 Mois                </div>
-                           
+
               <div class="memprice">
                 <span class="text-700 ppt-price">XAF 10000.00</span>
               </div>
-       
+
           </div>
           </a>
         </div>
@@ -159,61 +159,61 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
       </div>
       </div>
- 
+
 <div class="">
 <div>
 <hr />
 
 
- 
+
 <div class="row">
  <div class="col-8">
- 
+
  <p><strong>Abonnement Premium</strong></p>
- 
+
   <p class="mb-0">Free for 24 hour access!</p>
-  
+
  </div>
  <div class="col-4 pt-2">
     <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);">Sélectionner</a>
-    
-    
+
+
  </div>
-<div class="col-12"><hr /></div> 
+<div class="col-12"><hr /></div>
 </div>
  <div class="row">
  <div class="col-8">
- 
+
  <p><strong>Abonnement Gold</strong></p>
- 
+
   <p class="mb-0">$20 for 1 months access!</p>
-  
+
  </div>
  <div class="col-4 pt-2">
     <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner
 </a>
-    
-    
+
+
  </div>
-<div class="col-12"><hr /></div> 
+<div class="col-12"><hr /></div>
 </div>
  <div class="row">
  <div class="col-8">
- 
+
  <p><strong>Abonnement Ultra VIP</strong></p>
- 
+
   <p class="mb-0">$50 for 6 months access!</p>
-  
+
  </div>
  <div class="col-4 pt-2">
     <a data-ppt-btn class=" btn-primary btn-block" href="javascript:void(0);" >Sélectionner</a>
-    
-    
+
+
  </div>
-<div class="col-12"><hr /></div> 
+<div class="col-12"><hr /></div>
 </div>
-  
- </div> 
+
+ </div>
 </div>
 <div class="card p-3">
 
@@ -224,22 +224,22 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <script>
    function ajax_cancel_membership(){
-   
+
    if (window.confirm("Are you sure? This action cannot be undone.")) {
-          
-		
+
+
        jQuery.ajax({
            type: "POST",
-           url: 'https://es10.premiummod.com/',		
+           url: 'https://es10.premiummod.com/',
    		data: {
             action: "cancel_membership",
    			uid: "10",
-   			
+
            },
            success: function(response) {
-   			
-   			  location.href = "https://es10.premiummod.com/my-account/";        
-   			
+
+   			  location.href = "https://es10.premiummod.com/my-account/";
+
            },
            error: function(e) {
                console.log(e)
@@ -250,7 +250,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </script>
     <div id="dislpay_features" >
       <div class="mt-4">
-         
+
 
 <div id="membership_table_compare">
 <div class="card card-body shadow-sm card-mobile-transparent">
@@ -260,31 +260,31 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="_name align-self-center">&nbsp;</div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
                 <span class="">Aucun</span>
-                
-           
+
+
                 </div>
                             <div class="_value">
                 <span class="">Premium</span>
-                
-           
+
+
                 </div>
                             <div class="_value">
                 <span class="">Gold</span>
-                
-           
+
+
                 </div>
                             <div class="_value">
                 <span class="">Ultra VIP</span>
-                
-           
+
+
                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 <div class="_block small text-600">
 <div class="d-flex justify-content-between">
@@ -292,92 +292,92 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="_name align-self-center">&nbsp;</div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value" style="min-width:50px;">
-                
-                
+
+
                 <div>
                                 </div>
-                
+
                 </div>
                             <div class="_value" style="min-width:50px;">
-                
-                
+
+
                 <div>
                 XAF 3000                </div>
-                
+
                 </div>
                             <div class="_value" style="min-width:50px;">
-                
-                
+
+
                 <div>
                 XAF 5000                </div>
-                
+
                 </div>
                             <div class="_value" style="min-width:50px;">
-                
-                
+
+
                 <div>
                 XAF 10000                </div>
-                
+
                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
-    
+
 <div class="_block odd block-view_photos">
 <div class="d-flex justify-content-between">
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
-		  Photos 
-          
-          
+
+		  Photos
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Gérer ses photos</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 <div class="_block  block-view_photos">
@@ -385,52 +385,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
-		  Vidéos 
-          
-          
+
+		  Vidéos
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Gérer des vidéos.</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 <div class="_block odd block-view_music">
@@ -438,52 +438,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
-		  Contacts Privé 
-          
-          
+
+		  Contacts Privé
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 <div class="_block  block-liked">
@@ -491,52 +491,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
+
 		  Voir les visiteurs
-          
-          
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Voir quels utilisateurs ont aimé votre profil</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 
@@ -547,52 +547,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
+
 		  Top recherche
-          
-          
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Send messages to other users.</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 
@@ -603,52 +603,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
-		  Page d'accueil 
-          
-          
+
+		  Page d'accueil
+
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Profil en page d'accueil</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
-                <div class="_num"> </div>                
+
+                <div class="_num"> </div>
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
 
 <div class="_block  block-adfree">
@@ -656,60 +656,60 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="_name align-self-center">
           <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-		  
-		  
+
+
           Bannières
-          
+
    <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
     <div class="badge_tooltip__item">Votre Annonce en page d'accueil.</div>
   </div>
-          
+
     </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
-        
+
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
+
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
+
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-times text-danger"></i>
-                
+
                                 </div>
                             <div class="_value">
-                 
-                                 
+
+
                 <i class="fa fa-check text-success"></i>
-                
+
                                 </div>
                     </div>
     </div>
     </div>
-</div> 
+</div>
 
-</div>  
-</div>  
+</div>
+</div>
       </div>
     </div>
- 
+
     <a href="{{ route('homepage') }}" class="text-decoration-none text-dark" >
     <div class="btn-light text-center text-600 p-3 mt-4">
       Pas Maintenant!   </div>
     </a>
-            
-    
+
+
   </div>
 </div>
             </div>
@@ -721,33 +721,33 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 </main>
-</div> 
+</div>
 
- 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
 <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "https://es10.premiummod.com/index.php";  
-				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "https://es10.premiummod.com/index.php";
+				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "AIzaSyBhXeBRfGfmKU0s9kpCqBtkKFj33HWWZRI";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value="" />
 				<input type="hidden" id="ppt-current-dec" value="" />
 				<input type="hidden" id="ppt-current-symbol" value="$" />
 				<input type="hidden" id="ppt-current-position" value="left" />
-                <input type="hidden" id="ppt-map-provider" value="google" /> 
-               
+                <input type="hidden" id="ppt-map-provider" value="google" />
+
                                   <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="https://ppt1080.b-cdn.net/css/_bootstrap.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="https://ppt1080.b-cdn.net/css/css.theme-fonts.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="https://ppt1080.b-cdn.net/css/css.theme-elementor.css?v=10.9.3"/>
@@ -756,15 +756,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="https://ppt1080.b-cdn.net/css/css.premiumpress.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="https://ppt1080.b-cdn.net/css/_chat.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="https://ppt1080.b-cdn.net/css/_theme_es.css?v=10.9.3"/>
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                
-     
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
+
+
 				<script>
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
@@ -777,19 +777,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
 				</script>
                 <!----------------- -->
 
 
- 
+
 </div>
 
 
- 
 
- 
 
-</div> 
+
+
+</div>
 </body>
 </html>

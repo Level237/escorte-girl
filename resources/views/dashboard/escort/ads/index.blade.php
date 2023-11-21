@@ -70,7 +70,7 @@
                             <i class="fa fa-plane font-danger"></i>
                         </a>
                       @else
-                        <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" >
+                        <a href="#" >
                             <i class="fa fa-check font-danger"></i>
                         </a>
                       @endif

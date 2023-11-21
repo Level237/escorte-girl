@@ -85,8 +85,7 @@ Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
 
-//Memberships GROUP URL
-Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
+
 
 //Annoucements GROUP URL
 Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
@@ -118,6 +117,8 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
+    //Memberships GROUP URL
+Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
     Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
     Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');
