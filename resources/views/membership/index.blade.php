@@ -87,12 +87,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
     @forelse ($memberships as $membership)
-
+    <form method="POST" action="{{ route('logout') }}" id="choosePlan">
+        @csrf
+    </form>
 
     <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
 
-                    <a class="text-dark text-decoration-none" href="javascript:void(0);">
+                    <a class="text-dark text-decoration-none" style="cursor: pointer" onclick="event.preventDefault(); document.getElementById('choosePlan').submit();">
 
 
           <div class="card-body text-center position-relative">

@@ -82,6 +82,23 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 //middleware
 
 
+
+
+
+
+//Route escort  completed profile middleware
+Route::middleware(['escort'])->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
+        Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
+        Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
+        Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
+        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
+        Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
+        Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
+    });
+
+
 //ESCORT GROUP URL
 
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
@@ -107,21 +124,6 @@ Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image'
 Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
 
 
-
-
-
-
-//Route escort  completed profile middleware
-Route::middleware(['escort'])->group(function () {
-    Route::prefix('dashboard')->group(function () {
-        Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
-        Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
-        Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
-        Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
-        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
-        Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
-        Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
-    });
     //Memberships GROUP URL
 Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
