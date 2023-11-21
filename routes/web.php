@@ -1,6 +1,6 @@
 <?php
 
-//Importing admin 
+//Importing admin
 use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\Admin\User\ListUserController;
@@ -31,7 +31,7 @@ use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
-
+use App\Http\Controllers\Escort\ChoosePlanController;
 //Importing Controllers for Membership
 use App\Http\Controllers\Memberships\MemberShipController;
 
@@ -107,6 +107,7 @@ Route::middleware(['escort'])->group(function () {
 
 //ESCORT GROUP URL
 
+Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');

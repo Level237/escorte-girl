@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class MemberShipService{
 
      public function MemberShip(){
-        
+
         //Get all memberships
         $url=(new UrlApiService())->getUrl();
 
@@ -19,6 +19,24 @@ class MemberShipService{
             $memberships = json_decode((string) $response->getBody(), true);
             //dd($memberships);
             return $memberships['data'];
+
+        }
+        catch(\Exception $e){
+            return null;
+        }
+    }
+
+    public function show($id){
+
+        //Get current memberships
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::asForm()->get($url."/api/membership/".$id);
+            $memberships = json_decode(($response));
+            //dd($memberships);
+            //return $memberships['data'];
+            return $memberships;
 
         }
         catch(\Exception $e){
