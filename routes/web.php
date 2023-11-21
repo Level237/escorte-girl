@@ -40,6 +40,9 @@ use App\Http\Controllers\Memberships\MemberShipController;
 |
 */
 
+Route::get('/test',function(){
+    return view('membership.test-popup');
+});
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
 Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
