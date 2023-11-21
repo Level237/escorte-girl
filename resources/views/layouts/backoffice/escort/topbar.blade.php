@@ -65,7 +65,7 @@
 
 
     <div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-star" style="color:#000000"></i> Acheter du crédit   </div>
     <div class="badge_tooltip__item">Achat Crédit </div>
   </div>
@@ -112,7 +112,7 @@
 
 <li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
 
-        Balance:{{ $user->balance }}
+        Balance:{{ $userBalance }}
 
 </li>
 

@@ -11,7 +11,7 @@
     <p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
     </div>
     <div>
-        Balance : {{ $user->balance }} Xp
+        Balance : {{ $userBalance }} Xp
     </div>
     </div>
 
