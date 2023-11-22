@@ -69,7 +69,7 @@
           </tbody>
           </table>
           @else
-           Vous n'avez aucune annonce <a href="{{ route('ads.create') }}"> cliquer ici </a> pour en créer une.
+           Vous n'avez aucun abonnement<a href="{{ route('db.escort.ads') }}"> cliquer ici </a> pour booster vos annonces.
           @endif
           </div>
 
