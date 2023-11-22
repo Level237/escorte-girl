@@ -12,8 +12,12 @@ class CurrentPurchaseService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
         $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/purchases/user/");
-        $data=json_decode($response);
-
-        return $data;
+        $data = json_decode((string) $response->getBody(), true);
+        if($data['data'] === null){
+            return null;
+        }
+        else{
+            return $data['data'];
+        }
     }
 }

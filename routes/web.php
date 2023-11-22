@@ -34,6 +34,7 @@ use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\ChoosePlanController;
 //Importing Controllers for Membership
 use App\Http\Controllers\Memberships\MemberShipController;
+use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
 use App\Http\Controllers\Purchase\PurchaseController;
 
 /*
@@ -131,7 +132,7 @@ Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town'
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
 
-
+Route::get('/mes-abonnements',[CurrentUserPurchaseController::class,'currentPurchase'])->name('my-purchase');
     //Memberships GROUP URL
 Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');

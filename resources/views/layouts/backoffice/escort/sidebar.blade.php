@@ -82,7 +82,7 @@
   </div>
 </div>
 </a>
-<a href="{{ route('db.escort.ads')}}"  ppt-list-item class="hover-bg-light  page-link-store">
+<a href="{{ route('my-purchase')}}"  ppt-list-item class="hover-bg-light  page-link-store">
     <div class="d-flex flex-row p-md-2 py-3">
 
       <div class="mr-3">
