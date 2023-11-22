@@ -87,8 +87,14 @@ Route::middleware(['user'])->group(function () {
 
 Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
-//middleware
+Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
+Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
+Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
+Route::get('ads/list/{id?}',[AdsController::class, 'list'])->name('ads.list');
+Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
+Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 
+Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
 
 
@@ -110,9 +116,7 @@ Route::middleware(['escort'])->group(function () {
 //ESCORT GROUP URL
 
 Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
-Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
-Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
-Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
+
 
 //Memberships GROUP URL
 Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
@@ -121,15 +125,14 @@ Route::get('/memberships',[MemberShipController::class, 'index'])->name('members
 //Annoucements GROUP URL
 Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
 Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
-Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
+
 Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
 Route::post('/ads/update',[AdsController::class, 'update'])->name('ads.update');
-Route::get('ads/list/{id?}',[AdsController::class, 'list'])->name('ads.list');
-Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
+
 Route::post('ads/delete/{id}',[AdsController::class, 'delete'])->name('ads.delete');
 
 
-Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
+
 Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
 
 Route::get('/mes-abonnements',[CurrentUserPurchaseController::class,'currentPurchase'])->name('my-purchase');
