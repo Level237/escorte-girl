@@ -1,5 +1,5 @@
 @extends('layouts.Frontend.escort.profile.master')
-
+@section('title', __('Informations Personnelles'))
 @section('content')
 <div class="p-5 w-100">
     <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
@@ -47,7 +47,7 @@
 
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">
                         <div class="mb-6">
-                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 text-white">Username escort *</label>
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 text-white">Votre Nom Sur le Site *</label>
                             <input name="escort_name"  type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             @error('escort_name')
                             <p class="mt-2 text-sm text-red-600 text-red-500"><span class="font-medium">Oops! </span>{{ $message }}</p>

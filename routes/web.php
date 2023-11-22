@@ -144,6 +144,7 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::post('/step-two-store',[StepTwoController::class,'stepTwoStore'])->name('step-two-store');
     Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
     Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
+    Route::post('/profile-images',[StepThreeController::class,'images'])->name('profile-images');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
     Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
     Route::get('congratulations',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
