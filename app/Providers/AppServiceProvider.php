@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
-use App\services\Api\CurrentUserService;
+use App\Services\Api\CurrentUserService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +23,11 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view)
         {
+
+            $userBalance=(new CurrentUserService())->currentUser();
+            $balance=$userBalance->balance ?? null;
             $view->with('user', Session::get('currentUser') );
+            $view->with('userBalance', $balance );
         });
     }
 }

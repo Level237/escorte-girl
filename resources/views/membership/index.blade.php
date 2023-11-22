@@ -36,6 +36,179 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <main id="page-content-wrapper" class="with-mobilemenu">
 
 
+
+
+    @if(session('membership'))
+    <div class="ppt-modal-wrap show modal-payment modal-bottom-rightxxx"><div class="ppt-modal-wrap-overlay"></div><div class="ppt-modal-item ppt-animate-bouncein bg-white w-500 ppt-modal-shadow"><div class="ppt-modal-container"><div class="card-popup large">
+        <div class="bg-primary pt-3">
+            <div class="card-popup-content">
+            <div class="text-white mt-3">
+                <strong class="h1 ppt-price ppt-price-set">XAF{{ Session::get('membership')->price }}</strong>
+                <div class="text-truncate mt-2 opacity-8 text-600">Abonnement:{{ Session::get('membership')->membership_name }}</div>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="card-body pop-animate fadeIn delay-200 text-center col-lg-10 mx-auto mb-4">
+
+        <div class="text-center" id="spinner" style="display:none;">
+            <div class="mb-5"><span class="fa fa-spin fa-3x fa-sync"></span></div>
+            <div class="opacity-5">Redirecting to a secure payment page...</div>
+        </div>
+
+
+        <div id="pay_wrap">
+
+
+        <div id="pay-with-whatsapp"></div>
+
+
+
+        <form method="post" action="{{ route('purchase-with-credit') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
+        @csrf
+            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')->id }}">
+        <input type="hidden" name="announcement_id" value="{{ $id }}" class="paymentcustomfield">
+
+        @if($user->balance >= Session::get('membership')->price)
+            <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+                <div class="d-flex payment-%name%">
+                    <div style="width:120px; height:40px; font-size: 30px;" class="mr-4 rounded overflow-hidden position-relative">
+                    😀
+                    </div>
+                        <div class="w-100">
+                            <div class="d-flex justify-content-between">
+                                <div class="text-700 text-left">
+                                Utilisez mon nombre de crédit
+                                <div class="tiny">
+                                    <span class="opacity-5ppt-price">Balance:{{ $user->balance }} crédits</span>
+                                </div>
+
+
+                                </div>
+                                <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+                            </div>
+
+                        </div>
+
+                </div>
+            </div>
+        @endif
+
+
+
+        </form>
+
+        <hr>
+
+
+        <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+        <div class="d-flex payment-gateway_paypal">
+            <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
+            <div class="bg-image js-image-trigger-set" style="background-image:url('https://premiumpress1063.b-cdn.net/_demoimagesv10/gateways/paypal.png'); background-size: contain;"></div>
+            </div>
+            <div class="w-100">
+            <div class="d-flex justify-content-between">
+                <div class="text-700 mt-2">
+
+
+
+        <form method="post" style="margin:0px !important;" action="https://www.paypal.com/cgi-bin/webscr" name="checkout_paypal1">
+
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="sample@paypal.com">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="no_shipping" value="1">
+
+            <input type="hidden" name="item_number" value="SUBS-mem1-10-1835253144">
+            <input type="hidden" name="item_name" value="Free Membership">
+            <input type="hidden" name="amount" value="25" id="paypalAmount">
+
+
+
+        <button class="btn mt-n2  btn mt-n2-block font-weight-bold text-uppercase " style="cursor:pointer">Pay Now</button><input type="hidden" name="bn" value="PREMIUMPRESSLIMITED_SP">
+        <input type="hidden" name="charset" value="utf-8">
+        <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
+        <input type="hidden" name="rm" value="2">
+        <input type="hidden" name="lc" value="">
+        <input type="hidden" name="return" value="https://es10.premiummod.com/callback/?auth=1&amp;cid=SUBS-mem1-10-1835253144">
+        <input type="hidden" name="cancel_return" value="https://es10.premiummod.com/callback/?cancel=1">
+        <input type="hidden" name="notify_url" value="https://es10.premiummod.com/callback/">
+        </form>
+
+
+        </div>
+        <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+
+
+
+
+
+        <form method="post" action="https://es10.premiummod.com/callback/" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();">
+        <input type="hidden" name="email" value="mark@markfail.com">
+        <input type="hidden" name="admin_test_callback" value="1">
+        <input type="hidden" name="amount" value="25" id="admin_test_total">
+        <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
+        <input type="hidden" name="description" value="Free Membership">
+        <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+        <div class="d-flex payment-%name%">
+            <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
+            <div class="bg-image js-image-trigger-set" style="background-image:url('%icon%'); background-size: contain;"></div>
+            </div>
+            <div class="w-100">
+            <div class="d-flex justify-content-between">
+                <div class="text-700 mt-2">
+
+
+        <input type="hidden" name="subscription" value="0">Test Payment</div>
+        <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+
+
+        </form>
+
+
+
+
+         </div>
+        <div class="mt-4 opacity-5 small">
+        <div class=" d-inline-flex mx-auto">
+            <div ppt-icon-16="" data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+            <div class="ml-2">
+            All payment pages are secured using SSL.</div>
+            </div>
+        </div>
+
+
+        <script>
+
+        function togglePay(){
+
+        jQuery('#spinner').show();
+        jQuery('#pay_wrap').hide();
+
+        }
+
+
+        jQuery( "form button, form .btn:not(.btn-sm)" ).click(function() {
+          togglePay();
+        });
+        </script>
+        </div>
+        </div></div><div class="show-mobile ppt-modal-mobile-close p-3 w-100"><a href="#" class="btn-system btn-close w-100 shadow-sm" data-ppt-btn="">X</a></div></div></div>
+
+    @endif
 <div id="ppt-register" class="ppt-forms bg-white">
   <div class="container-fluid px-0">
     <div class="row g-0 min-vh-100">
@@ -92,7 +265,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="col-lg-4 mb-4">
         <div class="card card-pricing-membership shadow-sm mb-3">
 
-                    <a class="text-dark text-decoration-none" href="javascript:void(0);">
+                    <a class="text-dark text-decoration-none" style="cursor: pointer" href="{{ route('show.plan',$membership['id']) }}">
 
 
           <div class="card-body text-center position-relative">

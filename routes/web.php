@@ -1,6 +1,6 @@
 <?php
 
-//Importing admin 
+//Importing admin
 use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\Admin\User\ListUserController;
@@ -31,9 +31,11 @@ use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
-
+use App\Http\Controllers\Escort\ChoosePlanController;
 //Importing Controllers for Membership
 use App\Http\Controllers\Memberships\MemberShipController;
+use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
+use App\Http\Controllers\Purchase\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,8 +90,26 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 //middleware
 
 
+
+
+
+
+//Route escort  completed profile middleware
+Route::middleware(['escort'])->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
+        Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
+        Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
+        Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
+        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
+        Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
+        Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
+    });
+
+
 //ESCORT GROUP URL
 
+Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
@@ -112,22 +132,7 @@ Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town'
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
 
-
-
-
-
-
-//Route escort  completed profile middleware
-Route::middleware(['escort'])->group(function () {
-    Route::prefix('dashboard')->group(function () {
-        Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
-        Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
-        Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
-        Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
-        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
-        Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
-        Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
-    });
+Route::get('/mes-abonnements',[CurrentUserPurchaseController::class,'currentPurchase'])->name('my-purchase');
     //Memberships GROUP URL
 Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
@@ -137,8 +142,8 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::get('/step-three',[StepThreeController::class,'stepThree'])->name('step-three');
     Route::post('/step-three-store',[StepThreeController::class,'stepThreeStore'])->name('step-three-store');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
-
-
+    Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
+    Route::get('congratulations',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
 });
 
 
