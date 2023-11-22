@@ -1,13 +1,13 @@
 @extends('layouts.backoffice.escort.app')
-@section('title', __('Mes Annonces'))
+@section('title', __('Mes Abonnements'))
 
 @section('content')
 
 @include('utils.utils')
 
-<div class="fs-lg text-600 mb-2">Vos Annonces </div>
+<div class="fs-lg text-600 mb-2">Vos Abonnements </div>
 
-<p class="mb-4">Vous avez un total de <span class="  ">{{ count($ads) }}</span> annonces.
+<p class="mb-4">Vous avez un total de <span class="  ">{{ count($currentPurchase) }}</span> abonnements.
 
   </p>
 
@@ -25,12 +25,12 @@
           <table class="table small table-orders">
             <thead>
               <tr>
-                <th>Titre</th>
-                <th class="text-center">Description</th>
-                <th class="text-center">Catégorie</th>
+                <th>Annonce</th>
+                <th class="text-center">Type Abonnement</th>
+                <th class="text-center">Moyen de paiement:</th>
 
-                <th class="text-center">Status</th>
-                <th class="text-center dashhideme">Actions</th>
+                <th class="text-center">Expire le:</th>
+                <th class="text-center dashhideme">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -38,66 +38,28 @@
                   <tr class="row-14889" >
                     <td><span class="font-weight-bold">
 
-                    <a href="{{ route('ads.details', ['id'=>$ad['id']])}}" target="_blank">{{truncate($ad['title'], 20) }}</a>
+                    <a href="{{ route('ads.details', ['id'=>$purchase['announce_id']])}}" target="_blank">{{truncate($purchase['announce_title'], 10) }}</a>
 
 
                     </span> </td>
-                    <td class="text-center text-muted">{{truncate($ad['description'], 20) }}</td>
-                    <td class="text-center">{{ $ad['category']['title'] }}</td>
-
+                    <td class="text-center">{{ $purchase['membership_type'] }}</td>
+                    <td class="text-center">{{ $purchase['payment_type'] }}</td>
+                    <td class="text-center">{{ $purchase['expire_at'] }}</td>
                     <td class="text-center">
 
-                      @if($ad['status'])
+                      @if($purchase['status']==1)
 
                          <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
-                          <span>Publié </span> </span>
+                          <span>En Cours </span> </span>
                       @else
                           <span class="inline-flex items-center font-weight-bold order-status-icon status-6"> <span class="dot mr-2"></span>
-                          <span>Non Publié</span> </span>
+                          <span>Expiré</span> </span>
                       @endif
 
                       </td>
 
 
-                    <td class="text-center dashhideme">
-                      <a href="{{ route('ads.edit', ['id' => $ad['id']]) }}" ><i class="fa fa-edit me-2 font-success"></i></a>
-                      <a href="{{ route('ads.delete',['id' => $ad['id']])  }}" data-toggle="modal" data-target="#exampleModal{{$ad['id']}}">
-                        <i class="fa fa-trash font-danger"></i>
-                      </a>
 
-                      @if($ad['isSubscribe']===0)
-                        <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" >
-                            <i class="fa fa-plane font-danger"></i>
-                        </a>
-                      @else
-                        <a href="#" >
-                            <i class="fa fa-check font-danger"></i>
-                        </a>
-                      @endif
-
-
-                       <div class="modal fade" id="exampleModal{{$ad['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
-                                                    <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="POST" action="{{ route('ads.delete',['id' => $ad['id']]) }}" id="delete-form{{$ad['id']}}">
-                                                    @csrf
-                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Oui</button>
-                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                    </td>
                   </tr>
                  @empty
 
