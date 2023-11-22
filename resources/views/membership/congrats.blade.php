@@ -1,7 +1,7 @@
 @extends("layouts.Frontend.master")
 
 @section('title')
-Validation
+Félicitations
 @endsection
 
 @section("content")
@@ -34,7 +34,7 @@ Validation
 
 
          <!-- RETURN USER TO THE PURCHASED/PAID ITEM --->
-                                                <div><a href="{{ route('db.escort.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Compte</a></div>
+                                                <div><a href="{{ route('my-purchase') }}" data-ppt-btn class="btn-primary btn-lg my-3">Voir mes Abonnements</a></div>
 
 
 

@@ -38,7 +38,7 @@
                   <tr class="row-14889" >
                     <td><span class="font-weight-bold">
 
-                    <a href="{{ route('ads.details', ['id'=>$purchase['announce_id']])}}" target="_blank">{{truncate($purchase['announce_title'], 10) }}</a>
+                    <a href="{{ route('ads.details', ['id'=>$purchase['announce_id']])}}" target="_blank">{{truncate($purchase['announce_title'], 15) }}</a>
 
 
                     </span> </td>
