@@ -6,17 +6,14 @@ use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class PurchaseMembershipService{
+class CurrentPurchaseService{
 
-    public function purchaseWithCredit($memberShip_id,$announcement_id){
-
+    public function currentPurchase(){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/subscribe/withCredit/".$memberShip_id."/".$announcement_id);
+        $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/purchases/user/");
         $data=json_decode($response);
 
         return $data;
     }
-
-
 }

@@ -82,7 +82,30 @@
   </div>
 </div>
 </a>
+<a href="{{ route('db.escort.ads')}}"  ppt-list-item class="hover-bg-light  page-link-store">
+    <div class="d-flex flex-row p-md-2 py-3">
 
+      <div class="mr-3">
+
+        <div ppt-icon-24 ppt-icon-size="24">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>    </div>
+
+      </div>
+
+      <div class="w-100" ppt-flex-between>
+        <div>
+
+          <div class="text-600 mb-2">
+            Mes Abonnements
+          </div>
+
+          <div class="opacity-5 text-400 small">
+           Ici, vous pouvez afficher tout vos abonnements en cours    </div>
+        </div>
+
+      </div>
+    </div>
+    </a>
 <a href="{{ route('db.escort.messages')}}"  ppt-list-item class="hover-bg-light  page-link-messages">
 <div class="d-flex flex-row p-md-2 py-3">
 
