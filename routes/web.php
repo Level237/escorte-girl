@@ -162,9 +162,11 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 
    Route::get('memberships',[ListMemberShipController::class,'index'])->name('memberships');
-   Route::get('memberships/create',[CreateMemberShipController::class,'create'])->name('memberships.create');
-   Route::get('memberships/edit',[EditMemberShipController::class,'edit'])->name('memberships.edit');
-   Route::get('memberships/delete',[DeleteMemberShipController::class,'delete'])->name('memberships.delete');
+   Route::get('memberships/create',[CreateMemberShipController::class,'addView'])->name('memberships.create');
+   Route::post('memberships/create',[CreateMemberShipController::class,'store'])->name('memberships.create');
+   Route::get('memberships/edit/{id}',[EditMemberShipController::class,'edit'])->name('memberships.edit');
+   Route::post('memberships/update',[EditMemberShipController::class,'update'])->name('memberships.update');
+   Route::post('memberships/delete/{id}',[DeleteMemberShipController::class,'delete'])->name('memberships.delete');
 });
 
 

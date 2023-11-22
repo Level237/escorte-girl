@@ -30,11 +30,25 @@ Listes des abonnements
                 <div class="col-12">
                     @if(Session::has('success'))
                     <div class="alert alert-primary" role="alert">
-                        {{ Session::get('success') }}
+                         <div class="container">
+                                        <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
+                                            <strong><i class="fa fa-check mr-3"></i>{{ session('success') }}</strong>
+                                        </div>
+                                    </div>
                     </div>
                     @endif
                     <div class="card">
                         <div class="card-body">
+                            
+                            @if(session('failure'))
+                                <div id="ppt-invalid-fields1" >
+                                    <div class="container ">
+                                        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i> {{ session('failure') }}  </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                             <div class="row mb-2">
                                 <div class="col-xl-8">
                                     <form method="get" action="{{ route('user-by-role') }}" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
@@ -49,11 +63,12 @@ Listes des abonnements
                                 </div>
                                 <div class="col-xl-4">
                                     <div class="text-xl-end mt-xl-0 mt-2">
-                                        <a href="{{ route('users.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> Nouvel Abonnement</button></a>
+                                        <a href="{{ route('memberships.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> Nouvel Abonnement</button></a>
                                         <button type="button" class="btn btn-light mb-2">Exporter</button>
                                     </div>
                                 </div><!-- end col-->
                             </div>
+
 
                             <div class="table-responsive">
                                 <table class="table table-centered table-nowrap mb-0">
@@ -98,8 +113,31 @@ Listes des abonnements
                                                 <td>
 
                                                    
-                                                    <a href="{{ route('suspend-user',$membership['id']) }}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                    <a href="{{ route('suspend-user',$membership['id']) }}" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                    <a href="{{ route('memberships.edit',$membership['id']) }}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal{{$membership['id']}}"
+                                                      class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                
+                                                     <div class="modal fade" id="exampleModal{{$membership['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="POST" action="{{ route('memberships.delete',$membership['id']) }}" id="delete-form{{$membership['id']}}">
+                                                                    @csrf
+                                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @empty

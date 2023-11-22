@@ -1,7 +1,7 @@
 @extends('layouts.Backend.Admin.app')
 
 @section('title')
-Nouvel abonnement
+Éditer abonnement
 @endsection
 
 @section('content')
@@ -24,10 +24,10 @@ Nouvel abonnement
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('memberships') }}">Abonnements</a></li>
-                                <li class="breadcrumb-item active">Nouvel abonnement</li>
+                                <li class="breadcrumb-item active">Édition abonnement</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Nouvel Abonnement</h4>
+                        <h4 class="page-title">Édition Abonnement</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ Nouvel abonnement
                                 <div id="" >
                                     <div class="container">
                                         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre abonnement a été bien créée.
+                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre abonnement a été bien modifiée.
                                         </div>
                                     </div>
                                 </div>
@@ -61,32 +61,37 @@ Nouvel abonnement
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('memberships.create') }}">
+                                            <form method="POST" action="{{ route('memberships.update') }}">
                                                 @csrf
+                                                 <input type="hidden" name="id"  value="{{ $membership['id'] }}">
                                                 <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="simpleinput" class="form-label">Nom de l'abonnement</label>
                                                         <input type="text" name="membership_name"  
-                                                        placeholder="Entrez le nom de l'abonnement"  class="form-control" value="{{ old('membership_name') }}" required>
+                                                        placeholder="Entrez le nom de l'abonnement"  class="form-control" 
+                                                        value="{{ $membership['membership_name'] }}" required>
                                                     </div>
                                                 </div>
 
                                             </div>
                                                 <div class="mb-3">
                                                     <label for="example-email" class="form-label">Durée</label>
-                                                    <input type="number" id="period" min="0" name="period" value="{{ old('period') }}" class="form-control" 
+                                                    <input type="number" id="period" min="0" name="period" 
+                                                    value="{{ $membership['period'] }}" class="form-control" 
                                                     placeholder="Durée en jours avant l'expiration de l'abonnement" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="example-email" class="form-label">Coût</label>
-                                                    <input type="number" id="price" min="0" name="price" value="{{ old('price') }}" class="form-control" 
+                                                    <input type="number" id="price" min="0" name="price" 
+                                                    value="{{ $membership['price'] }}" class="form-control" 
                                                     placeholder="Entrez le montant à payer pour cette abonnement" required>
                                                 </div>
                                                
 
                                                     <div class="col-auto">
-                                                        <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+                                                        <button type="submit" class="btn btn-primary mb-2">
+                                                            Enregistrer</button>
                                                     </div>
                                             </form>
 
