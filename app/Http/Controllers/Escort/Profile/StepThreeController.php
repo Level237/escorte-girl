@@ -8,11 +8,13 @@ use App\Http\Requests\Escort\Profil\StepThreeRequest;
 use App\Services\Api\Escort\AddProfileService;
 use Illuminate\Support\Facades\Session;
 use App\Services\Api\List\ListServicesApi;
+use App\Services\Api\CurrentUserService;
 
 class StepThreeController extends Controller
 {
     public function stepThree(){
-
+        $user=(new CurrentUserService())->currentUser();
+        //dd($currentUser);
         $dataStepTwo=Session::get("EscortStepTwo");
 
         if(!Session::has('EscortStepOne') || empty($dataStepTwo)){
@@ -21,7 +23,7 @@ class StepThreeController extends Controller
         }
         $listServices=(new ListServicesApi())->list();
 
-        return view('escort.profile.step-three',compact('listServices'));
+        return view('escort.profile.step-three',compact('listServices', 'user'));
     }
 
     public function stepThreeStore(StepThreeRequest $request){
@@ -56,5 +58,28 @@ class StepThreeController extends Controller
         //return $addProfile;
         //return $addProfile;
         //return json_encode($request->services);
+    }
+
+    public function images(Request $request){
+        
+            $image = $request->file('file');
+            $extension = $image->getClientOriginalExtension();
+
+            $allowedfileExtension=['jpg','png','jpeg'];
+
+            $check = in_array($extension,$allowedfileExtension);
+
+            if(!$check){
+
+                return response('Extension invalide', 400);
+            }
+            else{
+
+                //Storing file in disk
+                $fileName = time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+                $image->storeAs('profile/'.$request->user_id, $fileName);
+                
+                return response('Image ajoutée avec succès', 200);
+            }
     }
 }

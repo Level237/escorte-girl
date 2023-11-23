@@ -14,8 +14,8 @@ class AddProfileService{
 
     public function addProfile($data,$photo,$services){
         $url=(new UrlApiService())->getUrl();
-        $path = $photo->store('profile');
-        $contents = fopen($photo, 'r');
+        //$path = $photo->store('profile');
+        //$contents = fopen($photo, 'r');
         $token=Session::get('tokenUser');
         $name=$photo->getClientOriginalName();
         try{

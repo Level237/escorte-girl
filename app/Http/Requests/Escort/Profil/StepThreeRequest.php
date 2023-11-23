@@ -22,7 +22,6 @@ class StepThreeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "photo"=>"required|mimes:png,jpeg,jpg|max:2048",
             "description"=>"required",
             "services"=>"required"
         ];
