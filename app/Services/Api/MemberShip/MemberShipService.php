@@ -36,7 +36,7 @@ class MemberShipService{
                 'period' => $membership['period'],
                 'price' => $membership['price'],
             ]);
-           
+
             return $response;
 
         }
@@ -55,7 +55,7 @@ class MemberShipService{
                 'period' => $membership['period'],
                 'price' => $membership['price'],
             ]);
-           
+
             return $response;
 
         }
@@ -81,7 +81,7 @@ class MemberShipService{
 
 
     public function getMemberShip($id){
-         
+
         $url=(new UrlApiService())->getUrl();
 
         try{
@@ -93,7 +93,7 @@ class MemberShipService{
             return $e;
         }
     }
-    
+
     public function show($id){
 
         //Get current memberships
