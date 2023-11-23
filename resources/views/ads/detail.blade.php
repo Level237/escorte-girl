@@ -258,10 +258,10 @@ jQuery(document).ready(function(){
 		</span>
 			</div>&nbsp;&nbsp;&nbsp;
 						<div class=" d-inline-flex cursor">
-			<div class="mr-2"><i class="fa fa-user mr-2 text-primary"></i></div> <span>			
+			
         <div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
                        
-			<span>Fille {{ $ad['ethnie']['ethnic_name'] }}</span>   
+  
             
 		</div>
 		
@@ -679,7 +679,7 @@ jQuery(document).ready(function(){
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
 			<div class="badge" style="color:#fff;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000"> </span> {{ $ad['ethnie']['ethnic_name'] }}  </div>
+			<span class="fal fa fa-star" style="color:#000"> </span> Bami </div>
 
 		</div>
 

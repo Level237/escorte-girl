@@ -25,7 +25,6 @@ class AddProfileService{
                 'sexuality'=>mb_convert_encoding($data['sexuality'], 'UTF-8', 'UTF-8'),
                 'age'=>mb_convert_encoding($data['age'], 'UTF-8', 'UTF-8'),
                 'description'=>mb_convert_encoding($data['description'], 'UTF-8', 'UTF-8'),
-                'ethnic_id'=>mb_convert_encoding($data['ethnic_id'], 'UTF-8', 'UTF-8'),
                 'shape_id'=>mb_convert_encoding($data['shape_id'], 'UTF-8', 'UTF-8'),
                 'height_id'=>mb_convert_encoding($data['height_id'], 'UTF-8', 'UTF-8'),
                 'weight_id'=>mb_convert_encoding($data['weight_id'], 'UTF-8', 'UTF-8'),

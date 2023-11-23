@@ -19,6 +19,7 @@ class EscortController extends Controller{
         try{
 
             $response = Http::asForm()->get($url."/api/escorts");
+            //dd(json_decode((string) $response->getBody(), true));
             self::$escorts = json_decode((string) $response->getBody(), true);
             self::$escorts = self::$escorts['data'];
             //error_log($escorts);
