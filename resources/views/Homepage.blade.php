@@ -182,7 +182,7 @@ class="position-relative " data-overlay="gradient-left">
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
 			<div class="badge" style="color:#fff;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000"> </span> {{ $ad['ethnie']['ethnic_name'] }}  </div>
+			<span class="fal fa fa-star" style="color:#000"> </span>   </div>
 
 		</div>
 

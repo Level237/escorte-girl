@@ -24,7 +24,6 @@ class StepOneRequest extends FormRequest
         return [
             'escort_name'=>"required",
             'age'=>"required",
-            "ethnic_id"=>"required",
             "skin_color_id"=>"required",
             "genre"=>"required",
             "town_id"=>"required"

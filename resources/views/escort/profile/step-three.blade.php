@@ -126,7 +126,7 @@
         <form method="POST" action="{{ route('step-three-store') }}" enctype="multipart/form-data" id="global-form">
             @csrf
             <div>
-
+				<input type="hidden" name="user_id" id="user_id" value="{{ $user->id }}">
                 <div class="flex flex-col md:flex-row">
 
                     <div class="w-full flex-1 mx-2 svelte-1l8159u">

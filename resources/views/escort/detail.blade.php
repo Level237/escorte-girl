@@ -138,7 +138,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
    
     
 	<li class="taxonomy"><span>Age</span> <span>{{ $escort['age']}} Ans</span></li>
-    <li class="taxonomy"><span>Ethnie</span> <span>{{ $escort['ethnic']}}</span></li>
+ 
     
 	    
     <li class="taxonomy"><span>Sexualité</span> <span>{{ $escort['sexuality']}}</span></li>
