@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Redirect;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Ad;
 
 class AdsController extends Controller
 {
@@ -79,6 +81,10 @@ class AdsController extends Controller
                 }
                  //Delete directory
                 \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
+
+                //Send mail
+                 Mail::to('delanofofe@gmail.com')
+                ->send(new Ad($request->except('_token')));
                 return to_route('membership.display', ['adsId'=>$id]);
                
 
