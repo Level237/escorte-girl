@@ -794,7 +794,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       </div>
     </div>
 
-    <a href="{{ route('homepage') }}" class="text-decoration-none text-dark" >
+    <a href="{{ route('db.escort.ads') }}" class="text-decoration-none text-dark" >
     <div class="btn-light text-center text-600 p-3 mt-4">
       Pas Maintenant!   </div>
     </a>
