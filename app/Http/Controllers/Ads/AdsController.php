@@ -8,7 +8,6 @@ use App\Services\Api\Escort\GetEscortService;
 use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -35,14 +34,8 @@ class AdsController extends Controller
             if($adsCategories == null)
                 return view('error');
 
-
-            //Generate product token
-            do {
-                $token = Str::random(32);
-            } while (Product::where("token", "=", $token)->first() instanceof Product);
-
             //Retrieving ads category
-            return view('ads.create', compact('adsCategories', 'token', 'user'));
+            return view('ads.create', compact('adsCategories', 'user'));
         }
 
         else{
@@ -75,7 +68,7 @@ class AdsController extends Controller
 
                 //Now uploading ads's images
                 $id = json_decode((string) $response->getBody(), true)['id'];
-                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
+                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
                     $photo = \Illuminate\Support\Facades\Storage::get($filename);
                     $responseImage = Http::attach(
                         'file', $photo, $filename
@@ -84,6 +77,8 @@ class AdsController extends Controller
                     ]);
 
                 }
+                 //Delete directory
+                \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
                 return to_route('membership.display', ['adsId'=>$id]);
                
 

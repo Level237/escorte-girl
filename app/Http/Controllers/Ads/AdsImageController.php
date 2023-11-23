@@ -31,7 +31,7 @@ class AdsImageController extends Controller
 
                 //Storing file in disk
                 $fileName = time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
-                $image->storeAs('ads/'.$request->token, $fileName);
+                $image->storeAs('ads/'.$request->user_id, $fileName);
                 
                 return response('Image ajoutée avec succès', 200);
             }
