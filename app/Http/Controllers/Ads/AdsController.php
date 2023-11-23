@@ -124,7 +124,7 @@ class AdsController extends Controller
             if($response->status() === 200){
 
                 //Now uploading ads's images
-                return back()->with('success',"Votre annonce a été bien ,ise à jour bien");
+                return back()->with('success',"Votre annonce a été bien mise à jour bien");
 
             }else{
 

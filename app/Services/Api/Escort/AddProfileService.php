@@ -17,9 +17,9 @@ class AddProfileService{
         //$path = $photo->store('profile');
         //$contents = fopen($photo, 'r');
         $token=Session::get('tokenUser');
-        $name=$photo->getClientOriginalName();
+        //$name=$photo->getClientOriginalName();
         try{
-            $response=Http::acceptJson()->withToken($token)->attach("photo",$contents,$name)->post($url.'/api/v1/addProfile', [
+            $response=Http::acceptJson()->withToken($token)->post($url.'/api/v1/addProfile', [
                 'escort_name'=> mb_convert_encoding($data['escort_name'], 'UTF-8', 'UTF-8'),
                 'whatsapp_number'=>mb_convert_encoding($data['whatsapp_number'], 'UTF-8', 'UTF-8'),
                 'sexuality'=>mb_convert_encoding($data['sexuality'], 'UTF-8', 'UTF-8'),
@@ -34,11 +34,36 @@ class AddProfileService{
                 'genre'=>mb_convert_encoding($data['genre'], 'UTF-8', 'UTF-8')
             ]);
 
+           
             $dataResponse=json_decode($response);
-            $completed=$dataResponse->completed ?? null;
-            if($completed==1){
+            //dd($dataResponse);
+            // $completed=$dataResponse->completed ?? null;
+            
+            if($response->status() === 201){
+            
+                 //Now uploading ads's images
+                $id = json_decode((string) $response->getBody(), true)['id'];
+                //dd($id);
+                $i = 1;
+                foreach (\Illuminate\Support\Facades\Storage::files('profile/'.$data['user_id']) as $filename) {
+                    $photo = \Illuminate\Support\Facades\Storage::get($filename);
+                    $responseImage = Http::attach(
+                        'file', $photo, $filename
+                    )->post($url."/api/escort/image", [
+                        'escort_id' => $id,
+                        'index' =>$i
+                    ]);
+                    $i++;
+                    //dd(json_decode(responseImage));
+
+                }
+                //Delete directory
+                \Illuminate\Support\Facades\Storage::deleteDirectory('profile/'.$data['user_id']);
+
+
+                //Saving services
                 foreach($services as $s){
-                    $attachServices=(new AttachServices())->attach($s,$dataResponse->escort);
+                    $attachServices=(new AttachServices())->attach($s,$dataResponse);
                 }
                 return $attachServices;
             }
