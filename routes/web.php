@@ -32,6 +32,10 @@ use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
 use App\Http\Controllers\Escort\ChoosePlanController;
+
+//Importing search route
+use App\Http\Controllers\Search\SearchController;
+
 //Importing Controllers for Membership
 use App\Http\Controllers\Memberships\MemberShipController;
 use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
@@ -51,7 +55,11 @@ use App\Http\Controllers\Purchase\PurchaseController;
 Route::get('/test',function(){
     return view('membership.test-popup');
 });
+
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+
+//SEARCH GROUP URL
+Route::get('search',[SearchController::class,'search'])->name('search');
 
 Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
 Route::get('/answer/verify/change-password',[ChangePasswordController::class,'passwordView'])->name('password-view');
@@ -111,6 +119,7 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
+
 
 
 //ESCORT GROUP URL

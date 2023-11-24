@@ -70,9 +70,9 @@ class="position-relative " data-overlay="gradient-left">
         </div>
         
                 <div class="mt-5">
-          <form method="get" action="#" style="max-width:400px;">
+          <form method="get" action="{{ route('search') }}" style="max-width:400px;">
             <div class="bg-white rounded-lg p-1 d-flex">
-              <input class="typeahead form-control form-control-lg border-0 mb-0" type="text" 
+              <input class="typeahead form-control form-control-lg border-0 mb-0" type="text"  required
 			  name="s" placeholder="Que recherchez-vous..."/>
               <button class="btn-primary btn-search" data-ppt-btn="" type="submit"><span>Chercher</span></button>
             </div>
