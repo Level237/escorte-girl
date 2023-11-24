@@ -127,17 +127,15 @@
                      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr class="header">
                             <td align="left" valign="top">
-                                <img src="{{ asset('assets/email/email-temp/logo-care.png') }}" class="main-logo">
+                                <img src="{{ asset('assets/email/email-temp/logo-viens.png') }}" class="main-logo">
                             </td>
                             <td class="menu" align="right">
                                 <ul>
-                                    <li style="display: inline-block;text-decoration: unset"><a href="http://youdom-care.com/index.php" 
-                                      style="text-transform: capitalize;color:#444;font-size:16px;margin-right:15px;text-decoration: none;" target="_blank">Acceuil</a>
-                                    </li>
-                                    <li style="display: inline-block;text-decoration: unset"><a href="http://youdom-care.com/index.php/services" 
+                                  
+                                    <li style="display: inline-block;text-decoration: unset"><a href="https://escort.stillforce.tech/ads/list" 
                                       style="text-transform: capitalize;color:#444;font-size:16px;margin-right:15px;text-decoration: none;" target="_blank">Annonces</a>
                                     </li>
-                                    <li style="display: inline-block;text-decoration: unset"><a href="http://youdom-care.com/index.php/clients/join-us" 
+                                    <li style="display: inline-block;text-decoration: unset"><a href="https://escort.stillforce.tech/escort/list" 
                                       style="text-transform: capitalize;color:#444;font-size:16px;margin-right:15px;text-decoration: none;" target="_blank">Escorts</a></li>
                                    
                                 </ul>

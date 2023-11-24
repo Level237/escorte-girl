@@ -82,9 +82,14 @@ class AdsController extends Controller
                  //Delete directory
                 \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
 
+
+                $ad['location'] = $request->location;
+                $ad['accepted'] = $request->accepted;
+                $ad['title'] = $request->title;
+                $ad['description'] = $request->form['post_content'];
                 //Send mail
                  Mail::to('delanofofe@gmail.com')
-                ->send(new Ad($request->except('_token')));
+                ->send(new Ad($ad));
                 return to_route('membership.display', ['adsId'=>$id]);
                
 

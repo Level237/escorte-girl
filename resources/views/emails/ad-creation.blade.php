@@ -25,7 +25,7 @@
                                     padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Titre : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{$ad->title}}</p>
+                                        {{$ad['title']}}</p>
                                 </td>
                                 <td><img src="{{ asset('assets/email/email-temp/space.jpg') }}" alt=" " height="25" width="30">
                                 </td>
@@ -33,7 +33,7 @@
                                     <h5 style="font-size: 16px;font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Description : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $ad->description }}</p>
+                                        {{ $ad['description'] }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -41,7 +41,7 @@
                                     <h5 style="font-size: 16px; font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Clients acceptés</h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $ad->accepted}}</p>
+                                        {{ $ad['accepted']}}</p>
                                 </td>
                                 <td><img src="{{ asset('assets/email/email-temp/space.jpg') }}" alt=" " height="25" width="30">
                                 </td>
@@ -49,7 +49,7 @@
                                     <h5 style="font-size: 16px; font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Lieu : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $ad->location }}</p>
+                                        {{ $ad['location'] }}</p>
                                 </td>
                             </tr>
  

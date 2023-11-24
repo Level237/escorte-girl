@@ -305,7 +305,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="card p-3">
 
-<div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici sous <span class="text-600">14 jours</span> </div>
+<div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici <span class="text-600">14 jours</span> </div>
 
 
 </div>
