@@ -3934,7 +3934,6 @@ function updatecommentfilter(g){
 								<ul class="list-unstyled">
 													  <li> <span>Age</span> {{ $ad['user']['escort'][0]['age'] }} </li>
 													  <li> <span><i class="fa fa-map-marker"></i></span>&nbsp;{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</li>
-													  <li> <span></span> {{ $ad['ethnie']['ethnic_name'] }} </li>
 													</ul>
 
 								</nav>

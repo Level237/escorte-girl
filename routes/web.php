@@ -94,7 +94,7 @@ Route::get('ads/list/{id?}',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 
-
+Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
 
 

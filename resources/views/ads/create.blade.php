@@ -125,7 +125,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <form  action="{{ route('ads.save') }}" id="global-form"  method="post">
 @csrf
- <input type="hidden" name="token" id="token" value="{{$token}}">
+ <input type="hidden" name="user_id" id="token" value="{{$user->id}}">
 <div class="row">
 
 <div class="col-md-6 mobile-mb-2">
@@ -221,7 +221,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				  <div class="small">
 					 <form  class="dropzone" action="{{ route('ads.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
 					  @csrf
-						 <input type="hidden" name="token" id="token" value="{{$token}}">
+						 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
 						
 					 </form>     
 				  </div>

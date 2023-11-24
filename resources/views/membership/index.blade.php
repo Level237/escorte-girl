@@ -274,7 +274,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="card p-3">
 
-<div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici le<span class="text-600">November 21, 2023 3:33 am</span> </div>
+<div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici <span class="text-600">14 jours</span> </div>
 
 
 </div>
@@ -437,6 +437,58 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 
+<div class="_block  block-liked">
+<div class="d-flex justify-content-between">
+
+    <div class="_name align-self-center">
+          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+		  Voir les visiteurs
+
+
+   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+    <div class="badge_tooltip__initiator">
+   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+    <div class="badge_tooltip__item">Voir quels utilisateurs ont aimé votre profil</div>
+  </div>
+
+    </div>
+    <div class="w-100">
+        <div class="d-flex  justify-content-between">
+
+                            <div class="_value">
+
+
+                <i class="fa fa-check text-success"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-check text-success"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-check text-success"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-check text-success"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                    </div>
+    </div>
+    </div>
+</div>
+
 <div class="_block  block-view_photos">
 <div class="d-flex justify-content-between">
 
@@ -490,110 +542,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 
-<div class="_block odd block-view_music">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Contacts Privé
 
 
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-<div class="_block  block-liked">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Voir les visiteurs
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Voir quels utilisateurs ont aimé votre profil</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
 
 
 
@@ -708,6 +658,58 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 
+<div class="_block odd block-view_music">
+<div class="d-flex justify-content-between">
+
+    <div class="_name align-self-center">
+          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+		  Contacts Privé
+
+
+   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+    <div class="badge_tooltip__initiator">
+   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+    <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
+  </div>
+
+    </div>
+    <div class="w-100">
+        <div class="d-flex  justify-content-between">
+
+                            <div class="_value">
+
+
+                <i class="fa fa-times text-danger"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-times text-danger"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-times text-danger"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                            <div class="_value">
+
+
+                <i class="fa fa-check text-success"></i>
+
+                <div class="_num"> </div>
+                                </div>
+                    </div>
+    </div>
+    </div>
+</div>
+
 <div class="_block  block-adfree">
 <div class="d-flex justify-content-between">
 
@@ -761,7 +763,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       </div>
     </div>
 
-    <a href="{{ route('homepage') }}" class="text-decoration-none text-dark" >
+    <a href="{{ route('db.escort.ads') }}" class="text-decoration-none text-dark" >
     <div class="btn-light text-center text-600 p-3 mt-4">
       Pas Maintenant!   </div>
     </a>

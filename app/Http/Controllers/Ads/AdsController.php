@@ -8,13 +8,14 @@ use App\Services\Api\Escort\GetEscortService;
 use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Redirect;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Ad;
 
 class AdsController extends Controller
 {
@@ -35,14 +36,8 @@ class AdsController extends Controller
             if($adsCategories == null)
                 return view('error');
 
-
-            //Generate product token
-            do {
-                $token = Str::random(32);
-            } while (Product::where("token", "=", $token)->first() instanceof Product);
-
             //Retrieving ads category
-            return view('ads.create', compact('adsCategories', 'token', 'user'));
+            return view('ads.create', compact('adsCategories', 'user'));
         }
 
         else{
@@ -75,7 +70,7 @@ class AdsController extends Controller
 
                 //Now uploading ads's images
                 $id = json_decode((string) $response->getBody(), true)['id'];
-                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->token) as $filename) {
+                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
                     $photo = \Illuminate\Support\Facades\Storage::get($filename);
                     $responseImage = Http::attach(
                         'file', $photo, $filename
@@ -84,6 +79,17 @@ class AdsController extends Controller
                     ]);
 
                 }
+                 //Delete directory
+                \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
+
+
+                $ad['location'] = $request->location;
+                $ad['accepted'] = $request->accepted;
+                $ad['title'] = $request->title;
+                $ad['description'] = $request->form['post_content'];
+                //Send mail
+                 Mail::to('delanofofe@gmail.com')
+                ->send(new Ad($ad));
                 return to_route('membership.display', ['adsId'=>$id]);
                
 
