@@ -19,4 +19,6 @@ class PurchaseController extends Controller
     public function purchaseFinal(){
         return view('membership.congrats');
     }
+
+
 }
