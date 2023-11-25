@@ -18,5 +18,16 @@ class PurchaseMembershipService{
         return $data;
     }
 
+    public function initPayment($price){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/payment/",[
+            'price'=>$price
+        ]);
+        $data=json_decode($response);
+
+        return $data;
+    }
+
 
 }

@@ -40,6 +40,7 @@ use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\Memberships\MemberShipController;
 use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
 use App\Http\Controllers\Purchase\PurchaseController;
+use App\Http\Controllers\Purchase\PurchaseMomoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,6 +122,7 @@ Route::middleware(['escort'])->group(function () {
     });
 
 
+    Route::post('init/payment',[PurchaseMomoController::class,'initPayment'])->name('initPayment');
 
 //ESCORT GROUP URL
 
