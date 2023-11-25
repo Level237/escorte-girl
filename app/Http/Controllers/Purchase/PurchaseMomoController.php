@@ -17,8 +17,10 @@ class PurchaseMomoController extends Controller
             Session::forget('paymentSession');
         }
         try{
+
             $initPaymentResponse=(new PurchaseMembershipService())->initPayment($request->price);
-            if($initPaymentResponse->code==201){
+             $code=$initPaymentResponse->code ?? null;
+            if($code==201){
                 Session::put('paymentSession',$initPaymentResponse->data);
                 Session::save();
                 return Redirect::intended($initPaymentResponse->data->payment_url);
