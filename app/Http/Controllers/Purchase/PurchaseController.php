@@ -25,8 +25,9 @@ class PurchaseController extends Controller
         return view('membership.congrats');
     }
 
-    public function purchaseFinalMomo(){
+    public function purchaseFail(){
 
+        return view('membership.fail');
 
     }
 

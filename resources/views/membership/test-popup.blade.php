@@ -59,13 +59,11 @@
             });
             CinetPay.waitResponse(function(data) {
                 if (data.status == "REFUSED") {
+                    window.location.assign(`http://127.0.0.1:8000/payment/fail`);
 
-                     window.location.assign(`http://127.0.0.1:8000/congratulation/${membership}/${announce}`);
 
                 } else if (data.status == "ACCEPTED") {
-                    if (alert("Votre paiement a été effectué avec succès")) {
-                        window.location.reload();
-                    }
+                    window.location.assign(`http://127.0.0.1:8000/congratulation/${membership}/${announce}`);
                 }
             });
             CinetPay.onError(function(data) {
