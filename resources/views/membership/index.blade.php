@@ -102,7 +102,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <hr>
 
 
-        <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+        <div onclick="javascript:void(0);" class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
         <div class="d-flex payment-gateway_paypal">
             <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
             <div class="bg-image js-image-trigger-set" style="background-image:url('{{ asset('assets/images/mobile_money.jpeg') }}'); background-size: contain;"></div>

@@ -53,9 +53,7 @@ use App\Http\Controllers\Purchase\PurchaseMomoController;
 |
 */
 
-Route::get('/test',function(){
-    return view('membership.test-popup');
-});
+Route::get('/test',[PurchaseMomoController::class,'openPopup'])->name('init-payment');
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
@@ -158,7 +156,8 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::post('/profile-images',[StepThreeController::class,'images'])->name('profile-images');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
     Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
-    Route::get('congratulations',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
+    Route::get('/congratulation/{membership}/{announce}',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
+    //Route::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
 });
 
 

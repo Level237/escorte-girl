@@ -5,7 +5,7 @@ Félicitations
 @endsection
 
 @section("content")
-
+@csrf
 <section class="section-60">
       <div class="container">
       <div class="row">
