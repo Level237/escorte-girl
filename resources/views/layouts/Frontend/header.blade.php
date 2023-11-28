@@ -9,9 +9,99 @@
     height: 100px;
   }
 
+@media(max-width : 700px){
+
+  .nav-links{
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding :  8px 5px;
+  position: relative;
+  color: white;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links ul li::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #F44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+  width: 100%;
+}
+
+nav .fa{
+  display: none;
+}
+    .text-box h1{
+    font-size: 20px;
+  }
+  .nav-links ul li{
+    display: block;
+  }
+
+  .nav-links{
+      position: absolute;
+      background: #000000;
+      width: 200px;
+      top: 0px;
+      left: -1000px;
+      text-align: left;
+      z-index: 20000000;
+      transition: 1s;
+  }
+
+  .nav-links .fa{
+    display: block;
+    color: white;
+    margin: 5px;
+    font-size:22px;
+    cursor: pointer;
+  }
+
+  .nav-links ul{
+    padding: 30px;
+  }
+  .appeared{
+    left: 0px;
+  }
+}
 </style>
 
+ <div class="nav-links show-mobile" id="navLinks">
+            <i class="fa fa-bars" onclick="hideMenu()"></i> 
+            <ul>
 
+                  <li><a href="{{ route('homepage') }}"> ACCUEIL </a></li>
+                  <li><a href="{{ route('ads.list') }}"> ANNONCES </a></li>
+                  <li><a href="{{ route('escort.list') }}"> ESCORTS </a></li>
+                   @if(!isset($user))
+                  <li><a href="{{ route('login') }}"> CONNEXION </a></li>
+                  <li><a href="/register"> INSCRIPTION </a></li>
+                  @else
+                  <li><a href="{{ route('db.escort.index') }}"> MON TABLEAU DE BORD </a></li>
+                  
+                  <li onclick="event.preventDefault(); document.getElementById('logout').submit();"><a href="#"> DÉCONNEXION </a></li>
+                  @endif
+                  <li><a href="#"> CONTACT</a></li>
+
+            </ul>
+          
+        </div>
 
 <header class=" bg-white navbar-light border-bottom" data-block-id="header">
 
@@ -137,15 +227,20 @@
        </ul>
 
 
-		 </nav>            <div class="show-ipad show-mobile">
-              <div class="d-flex">
-                              <div class="ml-4 menu-toggle cursor">
-                  <div ppt-icon-size="32" data-ppt-icon2="">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>                </div>
-                </div>
-              </div>
-
+		 </nav>            
+     <div class="show-ipad show-mobile">
+        <div class="d-flex">
+          <div class="ml-4  cursor">
+                  <div ppt-icon-size="32" data-ppt-icon2="" onclick="showMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" 
+                    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                     d="M4 6h16M4 12h16M4 18h16"></path></svg>                
+                  </div>
             </div>
+        </div>
+
+      </div>
+      
                       <div class="hide-mobile">
 
 
@@ -158,4 +253,16 @@
         </div>
       </div>
     </div>
+      <script>
+
+      var navLinks = document.getElementById('navLinks');
+
+      function showMenu(){
+        navLinks.classList.toggle("appeared");
+      }
+
+      function hideMenu(){
+        navLinks.classList.toggle("appeared");
+      }
+  </script>
   </header>
