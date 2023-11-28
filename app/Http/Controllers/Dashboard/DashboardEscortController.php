@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use  App\Services\Api\UrlApiService;
-use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
+use App\Services\User\UserTypeService;
 use Illuminate\Support\Facades\Session;
 use App\services\Api\CurrentUserService;
-use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
-use App\Services\User\UserTypeService;
 use App\Services\Api\Escort\GetEscortService;
+use App\Services\Api\Purchase\PurchaseMembershipService;
+use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 
 class DashboardEscortController extends Controller
 {
@@ -23,7 +24,7 @@ class DashboardEscortController extends Controller
 
             //Ensuring we are having an escort
             if($user->role_id === 2 && $completed==1){
-                
+
                 //Retrieve the escort
                 $escort = (new GetEscortService)->getEscort();
                 if($escort){
@@ -31,7 +32,7 @@ class DashboardEscortController extends Controller
                 }
                 else
                   return view('error');
-                
+
             }else if($completed==0){
                 return to_route('step-one');
             }
@@ -62,7 +63,7 @@ class DashboardEscortController extends Controller
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
 
-      
+
         if($completed==0){
             return to_route('step-one');
         }
@@ -71,7 +72,7 @@ class DashboardEscortController extends Controller
 
             //Retrieve the escort
             $escort = (new GetEscortService)->getEscort();
-            
+
             if($escort){
 
                 //Retrieve escort'ads
@@ -83,10 +84,10 @@ class DashboardEscortController extends Controller
                 else{
                     return view('error');
                 }
-                 
+
             }
-               
-            else 
+
+            else
                 return view('error');
         }
 
@@ -144,10 +145,10 @@ class DashboardEscortController extends Controller
 
     }
 
-  
+
 
       public function getAds($id){
-        
+
         //Get all user's ads
         $url=(new UrlApiService())->getUrl();
 

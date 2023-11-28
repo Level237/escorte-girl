@@ -1,7 +1,7 @@
 @extends("layouts.Frontend.master")
 
 @section('title')
-Félicitations
+Echec du Paiement
 @endsection
 
 @section("content")
@@ -17,7 +17,7 @@ Félicitations
       <div class="card-popup-content">
       <div class="">
       <span class="smilecode" style="font-size: 40px;">&#x1F600;</span>
-       <h5 class="text-white">Abonnement souscrit avec succès</h5>
+       <h5 class="text-white">Votre paiement à échoué</h5>
        </div>
       </div>
 </div>
@@ -27,14 +27,14 @@ Félicitations
 
 
 
-                  <p class="text-600">Merci, votre Abonnement a été Validé avec succès.
+                  <p class="text-600">Veuillez réessayez!.
 
                     </p>
                   <p class="margin-top3">Si vous avez des questions, n'hésitez pas à nous contacter.</p>
 
 
          <!-- RETURN USER TO THE PURCHASED/PAID ITEM --->
-                                                <div><a href="{{ route('my-purchase') }}" data-ppt-btn class="btn-primary btn-lg my-3">Voir mes Abonnements</a></div>
+                                                <div><a href="{{ route('db.escort.ads') }}" data-ppt-btn class="btn-primary btn-lg my-3">Booster une annonce</a></div>
 
 
 

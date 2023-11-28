@@ -102,7 +102,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <hr>
 
 
-        <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+        <div onclick="javascript:void(0);" class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
         <div class="d-flex payment-gateway_paypal">
             <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
             <div class="bg-image js-image-trigger-set" style="background-image:url('{{ asset('assets/images/mobile_money.jpeg') }}'); background-size: contain;"></div>
@@ -113,8 +113,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" style="margin:0px !important;" action="https://www.paypal.com/cgi-bin/webscr" name="checkout_paypal1">
-
+        <form method="post" style="margin:0px !important;" action="{{route('initPayment')}}" name="checkout_paypal1">
+            @csrf
             <input type="hidden" name="price" value="{{ Session::get('membership')->price }}">
             <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')->id }}">
             <input type="hidden" name="announcement_id" value="{{ $id }}" class="paymentcustomfield">

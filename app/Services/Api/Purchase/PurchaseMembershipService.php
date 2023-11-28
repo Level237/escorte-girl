@@ -18,5 +18,25 @@ class PurchaseMembershipService{
         return $data;
     }
 
+    public function initPayment($price){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/payment/",[
+            'price'=>$price
+        ]);
+        $data=json_decode($response);
+
+        return $data;
+    }
+
+    public function verifyPayment($memberShip_id,$announcement_id){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/verify/payment/".$memberShip_id."/".$announcement_id);
+        $data=json_decode($response);
+
+        return $data;
+    }
+
 
 }

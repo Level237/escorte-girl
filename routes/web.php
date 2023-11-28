@@ -40,6 +40,7 @@ use App\Http\Controllers\Search\SearchController;
 use App\Http\Controllers\Memberships\MemberShipController;
 use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
 use App\Http\Controllers\Purchase\PurchaseController;
+use App\Http\Controllers\Purchase\PurchaseMomoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,7 @@ use App\Http\Controllers\Purchase\PurchaseController;
 |
 */
 
-Route::get('/test',function(){
-    return view('membership.test-popup');
-});
+Route::get('/test',[PurchaseMomoController::class,'openPopup'])->name('init-payment');
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
@@ -121,6 +120,7 @@ Route::middleware(['escort'])->group(function () {
     });
 
 
+    Route::post('init/payment',[PurchaseMomoController::class,'initPayment'])->name('initPayment');
 
 //ESCORT GROUP URL
 
@@ -156,7 +156,9 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::post('/profile-images',[StepThreeController::class,'images'])->name('profile-images');
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
     Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
-    Route::get('congratulations',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
+    Route::get('/congratulation/{membership}/{announce}',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
+    Route::get('payment/fail',[PurchaseController::class,'purchaseFail'])->name('congrats-fail');
+    //000000000000000000000R0oute::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
 });
 
 

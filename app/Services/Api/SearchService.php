@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class SearchService{
 
      public function search($term){
-        
+
         //Get API URL
         $url=(new UrlApiService())->getUrl();
         $result = [];

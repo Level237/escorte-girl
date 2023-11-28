@@ -33,17 +33,17 @@ class SearchController extends Controller
                             $types[$result['type']]= "Quartiers";
                             break;
                     }
-                    
+
                 }
-                    
+
             }
-           
+
             return view('search.index', compact('results', 'types', 'term'));
         }
         else{
             //Request did not gone well do something here
         }
-        
+
 
     }
 

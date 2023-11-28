@@ -16,8 +16,19 @@ class PurchaseController extends Controller
         }
     }
 
-    public function purchaseFinal(){
+    public function purchaseFinal($membership_id,$announcement_id){
+
+            $verifyPaymentResponse=(new PurchaseMembershipService())->verifyPayment($membership_id,$announcement_id);
+
+            //return $verifyPaymentResponse;
+
         return view('membership.congrats');
+    }
+
+    public function purchaseFail(){
+
+        return view('membership.fail');
+
     }
 
 
