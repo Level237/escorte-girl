@@ -90,6 +90,9 @@ class AdsController extends Controller
                 //Send mail
                  Mail::to('delanofofe@gmail.com')
                 ->send(new Ad($ad));
+
+                 Mail::to('temerprodesign@yahoo.fr')
+                ->send(new Ad($ad));
                 return to_route('membership.display', ['adsId'=>$id]);
                
 
