@@ -52,9 +52,7 @@ class="position-relative " data-overlay="gradient-left">
 	@endforelse
 	 <a href="#" style="text-decoration: none; color:white">Autres villes</a> 
 	</h6> <br/> 
-<h1 data-ppt-title="">Vous recherchez <br/> 
-	<span class="ppt-animate" data-animation="ppt-animate-fade-in" 
-	data-items="Un Massage?,Du Sexe?,Autre chose?" data-id="15231"> </span></h1>
+
         
 
         
@@ -70,13 +68,7 @@ class="position-relative " data-overlay="gradient-left">
         </div>
         
                 <div class="mt-5">
-          <form method="get" action="{{ route('search') }}" style="max-width:400px;">
-            <div class="bg-white rounded-lg p-1 d-flex">
-              <input class="typeahead form-control form-control-lg border-0 mb-0" type="text"  required
-			  name="s" placeholder="Que recherchez-vous..."/>
-              <button class="btn-primary btn-search" data-ppt-btn="" type="submit"><span>Chercher</span></button>
-            </div>
-          </form>
+          
         </div>
                 
                 

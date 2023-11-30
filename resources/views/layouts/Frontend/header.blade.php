@@ -79,6 +79,17 @@ nav .fa{
   .appeared{
     left: 0px;
   }
+
+  .search-bar {
+  flex: 1;
+  height: 36px;
+  padding-left: 10px;
+  font-size: 16px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 2px;
+  box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+  width: 0;
+} 
 }
 </style>
 
@@ -109,20 +120,7 @@ nav .fa{
         <div class="container">
           <div class="row">
             <div class="col-md-6 pr-0">
-              <nav ppt-nav="" class="ppt-top-menu pl-0">
-              <ul>
-              <li><a href="#">Accueil</a></li>
-
-              <li><a href="#">A Propos</a></li>
-
-               <li><a href="#">Contact</a></li>
-
-              </ul>
-
-               </nav>
-            </div>
-            <div class="col d-none d-md-block">
-              <nav ppt-nav="" class="seperator" ppt-flex-end="">
+              <nav ppt-nav="" class="ppt-top-menu pl-0 seperator" >
                 <ul>
                               <li class="dropdown"> <a href="#" class="dropdown-toggle noc" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <i class="fab fa-bitcoin"></i>
@@ -185,6 +183,33 @@ nav .fa{
                        </li>
                             </ul>
               </nav>
+
+            </div>
+            <div class="col d-none d-md-block">
+               
+              <nav ppt-nav="" class="seperator" ppt-flex-end="">
+                <form method="get" action="{{ route('search') }}" >
+                  @csrf
+                <div class="position-relative hide-mobile filter-keyword mb-4" >
+
+                  <input type="text" class="form-control  customfilter typeahead shadow-sm" 
+                   required name="s" data-type="text" 
+                  data-key="keyword" autocomplete="off"  data-formatted-text="Keyword" 
+                  placeholder="Rechercher.." value="" style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
+
+
+                  <button class="btn iconbit"  type="submit" 
+                  style="position:absolute; top:0px; right:5px;" >
+
+                      <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
+
+                  </button>
+
+
+              </div>
+              </form>
+                  
+              </nav>
             </div>
           </div>
         </div>
@@ -204,7 +229,8 @@ nav .fa{
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
-               <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
+           
+            <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
 
 
 
@@ -218,15 +244,10 @@ nav .fa{
 
 
 
-
-	          <li><a href="#">Agences</a></li>
-
-
-
-        <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li>
+        {{-- <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li> --}}
        </ul>
 
-
+        
 		 </nav>            
      <div class="show-ipad show-mobile">
         <div class="d-flex">
@@ -241,12 +262,14 @@ nav .fa{
 
       </div>
       
-                      <div class="hide-mobile">
+                      <div class="hide-mobile" >
 
 
                         <a id="btn-annonce" href="{{ route('ads.create') }}"  class="btn-secondary  rounded-pill text-600"  data-ppt-btn="" data-ppt-btn-txt="">Publier une annonce</a>
 
             </div>
+
+           
 
 
                     </div>
