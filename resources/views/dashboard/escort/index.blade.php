@@ -10,9 +10,9 @@
 
     <p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
     </div>
-    <div>
+    {{-- <div>
         Balance : {{ $userBalance }} Xp
-    </div>
+    </div> --}}
     </div>
 
 <div ppt-border1="" class="p-3 p-md-4  hide-mobile mt-2 mb-5">

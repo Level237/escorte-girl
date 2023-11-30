@@ -1,24 +1,6 @@
 <div class="card-mobile-transparent p-3 mb-4  mobile-negative-margin-x" ppt-border1>
 <nav ppt-nav class="sepetator">
-<style>
 
-.ppt-badges ._badge + ._badge {
-    margin-left: 10px;
-}
-.ppt-badges ._badge {
-    color: #444;
-    background: #fafafb;
-    border-radius: 4px;
-    padding: 0px;
-    text-align: left;
-    font-size: 14px;
-    float: left;
-    font-weight: 600;
-    padding: 5px 10px;
-    border: 1px solid #8f8f8f;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%)!important;
-}
-</style>
 <ul>
 
 <li  class="w-100">
@@ -48,7 +30,9 @@
 
     </div>
 
-    <div class="fs-sm opacity-5 text-truncate" style="max-width:350px">Téléphone &bull; {{ $user->phone_number }} </div>
+    <div class="fs-sm opacity-5 text-truncate" style="max-width:350px">
+        Téléphone &bull; {{ $user->phone_number }} 
+    </div>
 </a>
 </div>
 
@@ -110,7 +94,7 @@
 </li>
 
 
-<li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
+<li class=" ml-auto ml-lg-2 ml-xl-2 hide-mobile" ppt-flex-middle>
 
         Balance:{{ $userBalance }}
 
@@ -120,7 +104,11 @@
 
 <li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
 <a href="" class="btn-system" data-ppt-btn>
- <div ppt-icon-16 data-ppt-icon-size="16" class="show-mobile py-3 float-right" ppt-flex-middle><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg></div>
+ <div ppt-icon-16 data-ppt-icon-size="16" class="show-mobile py-3 float-right" ppt-flex-middle onclick="event.preventDefault(); document.getElementById('logoutprofile').submit();">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 
+    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+</svg></div>
   <form method="POST" action="{{ route('logout') }}" id="logoutprofile">
                                 @csrf
                             </form>

@@ -1,7 +1,32 @@
-
-    <section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
+<section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
 <div class="bg-primary footer-txt-light">
 <div class="container">
+
+  <style>
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+}
+</style>
 
 <div style="height:5px;">   </div>
 
@@ -24,7 +49,8 @@
          
         </div>
 
-        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
+        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur 
+          adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 
       </div>
 
@@ -205,3 +231,36 @@ function ajax_newsletter_signup58945(){
 </div>
 </div>
 </section>
+<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
+      <div class="container h-100 px-0">
+        <div class="suha-footer-nav h-100">
+          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
+
+
+	<li><a href="/" class="">
+        <i class="fal fa-house"></i> Accueil</a></li>
+
+
+	<li><a href="#=" class="">
+        <i class="fal fa-search"></i> Chercher</a></li>
+
+
+     <li class=""> <a href="{{ route('ads.create') }}" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a>
+    
+    </li>
+   
+
+
+	<li><a href="{{ route('escort.list') }}" class="">
+        <i class="fa fa-users-crown"></i> Escorts</a></li>
+
+
+	<li><a href="{{ route('ads.list') }}" class="">
+        <i class="fal fa-sparkles"></i> Annonces</a></li>
+
+
+
+          </ul>
+        </div>
+      </div>
+</div>
