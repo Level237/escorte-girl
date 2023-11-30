@@ -641,40 +641,6 @@ jQuery(document).ready(function(){
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
-
- 
- 
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-       
-    
-	<li><a href="../../index.htm" class="">
-        <i class="fal fa-house"></i> Home</a></li>
-	    
-	    
-	<li><a href="../../index-13.htm?s=" class="">
-        <i class="fal fa-search"></i> Search</a></li>
-	    
-	    
-     <li> <a href="../../add-listing/index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li> 
-     
-        
-	<li><a href="../../wp-login.php-2.htm" class="">
-        <i class="fa fa-users-crown"></i> My Account</a></li>
-	    
-	    
-	<li><a href="../../blog/index.htm" class="">
-        <i class="fal fa-sparkles"></i> Blog</a></li>
-	    
-	 
-    
-          </ul>
-        </div>
-      </div>
-</div>
-
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
                
                               

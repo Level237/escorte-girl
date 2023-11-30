@@ -181,7 +181,7 @@ class AdsController extends Controller
         }
 
         $total = count($allAds);
-        $per_page = 5;
+        $per_page = 6;
         $nb_pages = ceil($total/$per_page);
         $current_page = $request->id ?? 1;
 

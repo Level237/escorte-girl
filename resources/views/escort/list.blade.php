@@ -708,24 +708,35 @@ function filterToggle(val){
 
 
 				<div class="show-mobile">
+          <div class="buttons-wrap">
+
+
+
+				<div class="button-new">{{ $escort['town']}}</div>
+
+
+
+
+
+				</div>
 				  <div class="position-relative mb-3">
-					<a href="#">
+					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
+
 					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 					  <div class="h-100 position-relative">
 						<figure>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+				
 
-				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
+				</div>           <div class="bg-image z-0" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}"> </div>
 						</figure>
 					  </div>
 					</div>
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-							<a href="#" class="text-dark">{{ $escort['quarter']}}  , 
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
                 <span class="fs-sm opacity-5">
                   {{ ($escort['age']) }}</span></a>
 					</div>
@@ -831,39 +842,7 @@ function filterToggle(val){
  
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
- 
- 
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-       
-    
-	<li><a href="https://es10.premiummod.com" class="">
-        <i class="fal fa-house"></i> Home</a></li>
-	    
-	    
-	<li><a href="https://es10.premiummod.com/?s=" class="">
-        <i class="fal fa-search"></i> Search</a></li>
-	    
-	    
-	<li><a href="https://es10.premiummod.com/add-listing/" class="">
-        <i class="fa fa-plus"></i> </a></li>
-	    
-	    
-	<li><a href="https://es10.premiummod.com/my-account/" class="">
-        <i class="fa fa-users-crown"></i> My Account</a></li>
-	    
-	    
-	<li><a href="https://es10.premiummod.com/blog/" class="">
-        <i class="fal fa-sparkles"></i> Blog</a></li>
-	    
-	 
-    
-          </ul>
-        </div>
-      </div>
-</div>
+
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
                
