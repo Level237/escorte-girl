@@ -181,7 +181,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <div data-tag="listing" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_listing taxonomy"
         onclick="processFilterbox('tax_listing','');">
-<<<<<<< HEAD
 
        <div class="text-600 filtertxt">Catégorie</div>
 
@@ -191,21 +190,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
         </div>
-=======
-       
-      
-       <div class="text-600 filtertxt">Catégorie</div>
-       
-
-       
-       <div ppt-icon-16 data-ppt-icon-size="16">
-      
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-        
-        
-        </div> 
->>>>>>> refs/remotes/origin/main
         </li>
 
                 <li class="">
@@ -214,13 +198,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         onclick="processFilterbox('keyword','');">
 
        <div class="text-600 filtertxt">Mot-clé</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
@@ -228,30 +205,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
         </div>
-=======
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-       
-       
-       <div ppt-icon-16 data-ppt-icon-size="16">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
->>>>>>> refs/remotes/origin/main
         </li>
 
                 <li class="">
@@ -748,83 +701,24 @@ function filterToggle(val){
 
 
 				<div class="show-mobile">
-          <div class="buttons-wrap">
-
-
-
-				<div class="button-new">{{ $escort['town']}}</div>
-
-
-
-
-
-				</div>
 				  <div class="position-relative mb-3">
-					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
-
+					<a href="#">
 					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 					  <div class="h-100 position-relative">
 						<figure>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-				
+					<div class="badge" style="color:#000000;background-color:#FFC300;">
+					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
-				</div>           <div class="bg-image z-0" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}"> </div>
+				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
 						</figure>
 					  </div>
 					</div>
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 							<a href="#" class="text-dark">{{ $escort['quarter']}}  ,
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
-=======
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
->>>>>>> refs/remotes/origin/main
                 <span class="fs-sm opacity-5">
                   {{ ($escort['age']) }}</span></a>
 					</div>
@@ -931,18 +825,6 @@ function filterToggle(val){
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 <div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
       <div class="container h-100 px-0">
@@ -975,30 +857,6 @@ function filterToggle(val){
         </div>
       </div>
 </div>
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
 
