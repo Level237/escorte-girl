@@ -20,9 +20,12 @@ class PurchaseController extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             return view('membership.congrats');
 =======
+=======
+>>>>>>> refs/remotes/origin/main
 =======
 >>>>>>> refs/remotes/origin/main
 =======

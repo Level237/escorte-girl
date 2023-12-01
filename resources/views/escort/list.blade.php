@@ -220,6 +220,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
@@ -228,6 +229,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         </div>
 =======
+=======
+>>>>>>> refs/remotes/origin/main
 =======
 >>>>>>> refs/remotes/origin/main
 =======
@@ -784,7 +787,11 @@ function filterToggle(val){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 							<a href="#" class="text-dark">{{ $escort['quarter']}}  ,
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
 =======
 							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
 >>>>>>> refs/remotes/origin/main
@@ -935,6 +942,7 @@ function filterToggle(val){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
       <div class="container h-100 px-0">
@@ -967,6 +975,8 @@ function filterToggle(val){
         </div>
       </div>
 </div>
+=======
+>>>>>>> refs/remotes/origin/main
 =======
 >>>>>>> refs/remotes/origin/main
 =======
