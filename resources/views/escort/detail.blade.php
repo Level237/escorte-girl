@@ -613,10 +613,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 			},5000);
 		});                     
 </script>
-			</div>
-			
-			<div class="col" style="margin-top:5px">
-			   <span>&#9989; Dénoncer ce profil plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+<br>
+<span>&#9989; Dénoncer ce profil plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
 			   <div class="p-4 rounded" ppt-box="">
 				  <button class="btn-primary text-600  text-center" data-ppt-btn="" 
 							style="min-width:60px; background-color: red;">
@@ -624,6 +622,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 					  </button>
 				</div>
 			</div>
+			
+		
 
 		 </div>
 			  
