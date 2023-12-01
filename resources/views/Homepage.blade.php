@@ -466,7 +466,9 @@ class="position-relative " data-overlay="gradient-left">
 
 
            @forelse ($location['locals'] as $quarter)
-            <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline"><a href="javascript:void(0);" onclick="filterLetters('{{ $quarter['quarter_name'] }}');">{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
+            <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline">
+				<a href="{{ route('escort.quarter', ['quarterID' => $quarter['quarter_id'] ]) }}" 
+					>{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
            @empty
 
         @endforelse

@@ -24,4 +24,20 @@ class GetEscortService{
             return null;
         }
     }
+
+     public function getEscortByQuarter($quarterID){
+        
+        //Get Escort by Quarter
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::asForm()->get($url."/api/escortByQuarter/".$quarterID);
+            $escorts = json_decode((string) $response->getBody(), true);
+            $escorts = $escorts['data'];
+            return $escorts;
+        }
+        catch(\Exception $e){
+            return null;
+        }
+    }
 }

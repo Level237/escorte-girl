@@ -97,6 +97,7 @@ Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town'
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
+Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
 Route::get('ads/list/{id?}',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');

@@ -62,215 +62,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
 
 <div class="container py-md-5">
-  <div class="row d-flex flex-row-reverse">
-    <div class="col-lg-5 col-xl-4 mb-4">
-       
-		<div class="mb-4 pb-3 border-bottom">
-		 
-		
-		
-		<h1 class="fs-lg text-600">
-		 <div class="addeditmenu" data-key="title"></div> {{ ucfirst($escort['escort_name'])	}}	</h1>
-		
-		
-			<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
-						<a class="mr-3 text-dark" href="#">
-			<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($escort['quarter'])	}}</span>
-			</a>
-						 
-						<div class=" d-inline-flex cursor">
-			<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-              
-			 
-                       
-			<span>Ajouter aux favoris</span>
-            
-             
-            
-		</div>
-		
-		</span>
-			</div>
-            			
-			</div>
-	 
-		</div>      
-<div class="ppt-single-button-box">
- 
-
-
-      <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
-      <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-      <span class="_number" style="display:none;">+237 {{ $escort['user']['phone_number']	}}</span>
-      </a>
-      
-      <script>
-	  function showPhone(){
-	  
-	  		jQuery('._text').hide();
-	  		jQuery('._number').show();
-	  }
-	  
-	  </script>
-      
-       		
-			  <a href="javascript:void(0);" onclick="processLogin(1);" class="btn-primary btn-block btn-lg list mb-3 mobile-buynow-trigger" data-ppt-btn="">
-			 
-			  <span>Envoyer Un Message</span>
-              </a>
-			  
-		 
-      <a href="https://api.whatsapp.com/send?phone=237{{ $escort['whatsapp_number']}}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
-      <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
-      </a>
-      
-          
-</div>
-      <div ppt-box="" class="rounded">
-<div class="_header"> 
-<div class="_content p-3">
-
- 
-
-<div class="ppt-single-datafields">
-<nav ppt-nav="" class="list lh-30 list-fbold">
-    <ul>
-   
-    
-	<li class="taxonomy"><span>Age</span> <span>{{ $escort['age']}} Ans</span></li>
- 
-    
-	    
-    <li class="taxonomy"><span>Sexualité</span> <span>{{ $escort['sexuality']}}</span></li>
-    
-	    
-    <li class="taxonomy"><span>Genre</span> <span>Escorte Féminine</span></li>
-    
-	    
-    <li class="input"><span>Location</span> <span>{{ $escort['town']}}</span></li>
-    
-	    
-    <li class="title"><span>De quoi j'ai l'air?</span> </li>
-    
-	    
-    <li class="taxonomy"><span>Mon Teint</span> <span>{{ $escort['skin_color']}}</span></li>
-    
-    
-	    
-    <li class="taxonomy"><span>Mon Coprs</span> <span>{{ $escort['shape']}}</span></li>
-    
-	    
-    <li class="input"><span>Ma Taille</span> <span>{{ $escort['height']}} CM</span></li>
-    
-	    
-    <li class="input"><span>Mon Poids</span> <span>{{ $escort['weight']}} KG</span></li>
-    
-	    
+  <div class="row d-flex ">
   
-    
-	    </ul>  
-</nav>
-</div> 
-
-</div>
-</div>
-</div>      
-          
-     <div ppt-box="" class="rounded">
-
-
-
-</div>
-        
-<div ppt-box="" class="rounded">
-  <div class="_header d-md-flex align-items-center">
-    <div class="_title w-100">
-      Cadeaux    </div>
-  </div>
-    <a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
-  <div class="_content py-4 h-100" ppt-flex-middle="">
-    <div class="text-center my-4">
-      <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
-      <div class="fs-5 text-600 mt-3">
-        Envoyez un cadeau virtuel.     </div>
-    </div>
-  </div>
-  </a>
-  </div>
-        
-
-<div class="p-4 hide-mobile rounded" ppt-box="">
-
-<p class="text-600">Partagez ce lien via</p>
-
- 
-<style>
- 
-.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
-.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
-.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
-.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
-.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
-.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
-.card-share .icons a:nth-child(1):hover{  background: #1877F2;}
-.card-share .icons a:nth-child(2){  color: #46C1F6;  border-color: #b6e7fc;}
-.card-share .icons a:nth-child(2):hover{  background: #46C1F6;}
-.card-share .icons a:nth-child(3){  color: #e1306c;  border-color: #f5bccf;}
-.card-share .icons a:nth-child(3):hover{  background: #e1306c;}
-.card-share .icons a:nth-child(4){  color: #f64c5b;  border-color: #f64c5b;}
-.card-share .icons a:nth-child(4):hover{  background: #f64c5b;}
-.card-share .icons a:nth-child(5){  color: #0088cc;  border-color: #b3e6ff;}
-.card-share .icons a:nth-child(5):hover{  background: #0088cc;}
-.card-share .icons a:hover{  color: #fff;  border-color: transparent;}
-.card-share .icons a:hover i{  transform: scale(1.2);}
-.card-share .field{  margin: 12px 0 -5px 0;  height: 45px;  border-radius: 4px;  padding: 0 5px;  border: 1px solid #e1e1e1;}
-.card-share .field.active{  border-color: #000;}
-.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
-.card-share .field.active i{  color: #000;}
-.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
- 
-</style>
-
-<div class="card-share">
-
-
- <ul class="icons">
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
-
-</ul>
-
-      <p class="small opacity-8">Ou copier le lien</p>
-      <div class="field">
-        <i class="fa fa-link"></i>
-        <input type="text" readonly="" id="copylink" value="#">
-        <button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" data-clipboard-target="#copylink" style="min-width:60px;">Copy</button>
-      </div>
-
-</div>
-
-<script>      
-jQuery(document).ready(function(){  
-	setTimeout(function() {
-		var clipboard = new ClipboardJS('.js-copy-link');
-		clipboard.on('success', function(e) { 
-		
-		jQuery(".card-share .field").addClass("active");
-		
-		 alert("Link saved to your clipboard.");
-		 
-		 });
-		 
-	},5000);
-});                     
-</script> </div>  
- 
-    </div>
-    <div class="col-lg-7 col-xl-8 maincontent pr-lg-5">
+    <div class="col-lg-10 col-xl-12 maincontent pr-lg-5">
       
 <div class="addeditmenu" data-key="images"></div>
 <div id="mobileGalleryMove" class="hide-mobile">
@@ -338,9 +132,39 @@ jQuery(document).ready(function(){
 
       
 <div ppt-box="" class="rounded">
+
+	
   <div class="_header d-md-flex align-items-center">
+
     <div class="_title w-100">
-      A Propos de Moi    </div>
+        <h1 class="fs-lg text-600">
+			  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+			  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+			  <span class="_number" style="display:none;">+237 {{ $escort['user']['phone_number']	}}</span>
+			  </a>
+			  
+			  <script>
+			  function showPhone(){
+			  
+					jQuery('._text').hide();
+					jQuery('._number').show();
+			  }
+			  
+			  </script>
+      </h1> 
+	  
+    </div>
+
+    <div class="_title w-100"> 
+      
+      <h1 class="fs-lg text-600">
+      <a href="https://api.whatsapp.com/send?phone=237{{ $escort['whatsapp_number']}}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+      <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+      </a>
+      </h1> 
+      
+    </div>
+	
     <div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
       	 
 	<div class="ppt-badges clearfix mb-3"> 
@@ -350,43 +174,14 @@ jQuery(document).ready(function(){
  
     <div class="">
                
-           
-<div class="_badge " style="color:#000000;background-color:#FFC300;"> 
-    
-    
-        
-<div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
-    <div class="badge_tooltip__item">Profil Gold </div>
-  </div>
-  
-  
-</div>
-     
-               
-           
-<div class="_badge " style="color:#FBFBFB;background-color:#2BA346;"> 
-    
-    
-      <i class="fal fa fa-check" style="color:#FBFBFB"></i> 
-  Verified  
-</div>
-     
-               
-           
-<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;"> 
-    
-    
-        
-<div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-grin-stars" style="color:#FEFEFE"></i> Géniale    </div>
-    <div class="badge_tooltip__item">Je suis une fille coquine </div>
-  </div>
-  
-  
-</div>
+          
+
+     <a href="javascript:void(0);" onclick="processLogin(1);" class="btn-primary btn-block btn-lg list mb-3 mobile-buynow-trigger" data-ppt-btn="">
+			 
+			  <span>Envoyer Un Message</span>
+              </a>
+			  
+		
      
          
         </div>
@@ -395,6 +190,36 @@ jQuery(document).ready(function(){
 	</div>
 	    </div>
   </div>
+  
+  <div class="_header d-md-flex align-items-center">
+
+    <div class="_title w-100">
+        <h1 class="fs-md text-600">
+      A Propos de Moi   
+      </h1> 
+	  
+    </div>
+
+    <div class="_title w-100"> 
+      
+      <h3 class="fs-md text-600">
+      <div class="addeditmenu" data-key="title"></div> {{ ucfirst($escort['escort_name'])	}}
+    
+      </h3> 
+      
+    </div>
+	 <div class="_title w-100"> 
+      
+      <h3 class="fs-md text-600">
+      <div class="addeditmenu" data-key="title"></div> <i class="fal fa-map-marker mr-2 text-primary"></i>  {{ ucfirst($escort['quarter'])}} , {{ $escort['town']}}
+    
+      </h3> 
+      
+    </div>
+	
+   
+  </div>
+  
   <div class="_content py-3 pl-4 py-lg-4">
   
   
@@ -420,11 +245,113 @@ jQuery(document).ready(function(){
 
 </div>
   
+ <div class="row">
+    <div class="col">
+      <nav ppt-nav="" class="list  list-fbold">
+        <ul>  
+            
+          <li class="taxonomy"><span>Age</span> <span>{{ $escort['age']}} Ans</span></li>
+        
+            
+              
+            <li class="taxonomy"><span>Sexualité</span> <span>{{ $escort['sexuality']}}</span></li>
+            
+              
+            <li class="taxonomy"><span>Genre</span> <span>Femme</span></li>
+            
+              
+            <li class="input"><span>Location</span> <span>{{ $escort['town']}}</span></li>
+            
+            
+              </ul>  
+        </nav>
+    </div>
+    <div class="col">
+      <nav ppt-nav="" class="list  list-fbold">
+        <ul>  
+            
+          
+              
+            <li class="taxonomy"><span>Mon Teint</span> <span>{{ $escort['skin_color']}}</span></li>
+            
+            
+              
+            <li class="taxonomy"><span>Mon Coprs</span> <span>{{ $escort['shape']}}</span></li>
+            
+              
+            <li class="input"><span>Ma Taille</span> <span>{{ $escort['height']}} CM</span></li>
+            
+              
+            <li class="input"><span>Mon Poids</span> <span>{{ $escort['weight']}} KG</span></li>
+            
+              
+          
+            
+              </ul>  
+        </nav>
+    </div>
+    <div class="col">
+	    <nav ppt-nav="" class="list list-fbold">
+        <ul>  
+            
+           <li class="input"><span>Mes Disponibilites</span> </li>
+              
+            <li class="taxonomy"><span>Lundi</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+            
+            
+              
+            <li class="taxonomy"><span>Mardi</span> <span><span class=" small">
+						  09H - 18H             </span></span></li>
+            
+              
+            <li class="input"><span>Mercredi</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+            
+              
+           
+			   
+            
+              
+          
+            
+              </ul>  
+        </nav>
+    </div>
+	 <div class="col">
+	    <nav ppt-nav="" class="list list-fbold">
+        <ul>  
+            
+          
+              
+           
+            
+              
+            <li class="input"><span>Jeudi</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+			   
+            <li class="input"><span>Vendredi</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+			   
+            <li class="input"><span>Samedi</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+			   
+            <li class="input"><span>Dimanche</span> <span><span class=" small">
+						  09H - 18H              </span></span></li>
+            
+              
+          
+            
+              </ul>  
+        </nav>
+    </div>
+  </div>
+  <hr>
 
-    
-    
-<div class="addeditmenu" data-key="features"></div>
-<div class="my-3 fs-7 text-600">Services</div> 
+ <div class="row">
+    <div class="col">
+      <div class="addeditmenu" data-key="features"></div>
+<div class="my-3 fs-7 text-600">Mes Services</div> 
  
 <div class="row lh-30 fs-sm">
 <div class="col-md-4">
@@ -618,14 +545,100 @@ jQuery(document).ready(function(){
 </div>
 
 </div>
+    </div>
+    <div class="col">
+	     <div class="row">
+			<div class="col">
+			  <p class="text-600">Partagez ce lien via</p>
+			  <style>
+		 
+		.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
+		.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
+		.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+		.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
+		.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
+		.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
+		.card-share .icons a:nth-child(1):hover{  background: #1877F2;}
+		.card-share .icons a:nth-child(2){  color: #46C1F6;  border-color: #b6e7fc;}
+		.card-share .icons a:nth-child(2):hover{  background: #46C1F6;}
+		.card-share .icons a:nth-child(3){  color: #e1306c;  border-color: #f5bccf;}
+		.card-share .icons a:nth-child(3):hover{  background: #e1306c;}
+		.card-share .icons a:nth-child(4){  color: #f64c5b;  border-color: #f64c5b;}
+		.card-share .icons a:nth-child(4):hover{  background: #f64c5b;}
+		.card-share .icons a:nth-child(5){  color: #0088cc;  border-color: #b3e6ff;}
+		.card-share .icons a:nth-child(5):hover{  background: #0088cc;}
+		.card-share .icons a:hover{  color: #fff;  border-color: transparent;}
+		.card-share .icons a:hover i{  transform: scale(1.2);}
+		.card-share .field{  margin: 12px 0 -5px 0;  height: 45px;  border-radius: 4px;  padding: 0 5px;  border: 1px solid #e1e1e1;}
+		.card-share .field.active{  border-color: #000;}
+		.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
+		.card-share .field.active i{  color: #000;}
+		.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
+		 
+		</style>
 
+		<div class="card-share">
+
+
+		 <ul class="icons">
+				<a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+				<a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+				<a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+				<a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+
+		</ul>
+
+			  <p class="small opacity-8">Ou copier le lien</p>
+			  <div class="field">
+				<i class="fa fa-link"></i>
+				<input type="text" readonly="" id="copylink" value="#">
+				<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" data-clipboard-target="#copylink" style="min-width:60px;">Copy</button>
+			  </div>
+
+		</div>
+
+		<script>      
+		jQuery(document).ready(function(){  
+			setTimeout(function() {
+				var clipboard = new ClipboardJS('.js-copy-link');
+				clipboard.on('success', function(e) { 
+				
+				jQuery(".card-share .field").addClass("active");
+				
+				 alert("Link saved to your clipboard.");
+				 
+				 });
+				 
+			},5000);
+		});                     
+</script>
+<br>
+<span>&#9989; Dénoncer ce profil plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+			   <div class="p-4 rounded" ppt-box="">
+				  <button class="btn-primary text-600  text-center" data-ppt-btn="" 
+							style="min-width:60px; background-color: red;">
+						Dénoncer ce profil
+					  </button>
+				</div>
+			</div>
+			
+		
+
+		 </div>
+			  
+    </div>
   
+  </div>
+
+
+
     
       
     
     
   </div>
-</div>      
+</div>   
           </div>
   </div>
 </div>
@@ -697,41 +710,10 @@ jQuery(document).ready(function(){
                 <!----------------- -->
 
 
-<div id="ppt-notice-new-notifications" style="display:none;">
-
- 
-</div>
 
 
 
 
 
- 
-
-
-
-<div id="locationMap">
-</div>
-<!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap" data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
