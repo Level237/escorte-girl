@@ -17,6 +17,7 @@ class AnnouncementController extends Controller{
         try{
 
             $response = Http::asForm()->get($url."/api/announcementsTown");
+            //dd(json_decode((string) $response->getBody(), true));
             self::$announcements = json_decode((string) $response->getBody(), true);
             //error_log($announcements);
         }catch(\Exception $e){
