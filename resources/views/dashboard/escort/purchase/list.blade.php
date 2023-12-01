@@ -50,7 +50,7 @@
                       @if($purchase['status']==1)
 
                          <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
-                          <span>En Cours </span> </span>
+                          <span>En Cours</span> </span>
                       @else
                           <span class="inline-flex items-center font-weight-bold order-status-icon status-6"> <span class="dot mr-2"></span>
                           <span>Expiré</span> </span>

@@ -158,7 +158,7 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
     Route::get('/congratulation/{membership}/{announce}',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
     Route::get('payment/fail',[PurchaseController::class,'purchaseFail'])->name('congrats-fail');
-    //000000000000000000000R0oute::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
+    //Route::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
 });
 
 
