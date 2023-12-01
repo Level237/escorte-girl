@@ -52,7 +52,9 @@ class DashboardEscortController extends Controller
         if($completed==0){
             return to_route('step-one');
         }else{
-            return view('dashboard.escort.profil', compact('user'));
+            //Retrieve the escort    
+            $escort = (new GetEscortService)->getEscort();
+            return view('dashboard.escort.profil', compact('user','escort'));
         }
 
     }

@@ -86,7 +86,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Rechercher">
+                <input type="text" class="form-control" placeholder="Recherche">
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fa fa-search"></i>
@@ -108,36 +108,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
 
-
-	<li><a href="/" class="">
-        <i class="fal fa-house"></i> Accueil</a></li>
-
-
-	<li><a href="#=" class="">
-        <i class="fal fa-search"></i> Chercher</a></li>
-
-
-     <li> <a href="#" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fa fa-users-crown"></i> Escorts</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-sparkles"></i> Annonces</a></li>
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
 
@@ -288,32 +259,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
 </div>
 
-
-
-
-<div id="locationMap">
-</div>
-<!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap" data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <script>
     const btn=document.getElementById("popup-search");
     const popup=document.querySelector('.popup-card');

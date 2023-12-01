@@ -153,11 +153,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
         <div class="_header border-0 cursor" ppt-flex-row  onclick="AccountMenuToggle();">
           <div class="_title">
-            Account Options
+            Rubriques
           </div>
-          <div class="_close">
+         
+          <div class="_close" >
             <div ppt-icon-24 data-ppt-icon-size="24">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>            </div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" 
+              fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" 
+              stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>            
+            </div>
           </div>
       </div>
 
@@ -291,23 +295,6 @@ jQuery(window).on('load',function () {
 
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
-
-
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-
-
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
-
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
 
 
@@ -375,31 +362,6 @@ jQuery(window).on('load',function () {
 
 </div>
 
-
-
-<div id="locationMap">
-</div>
-<!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap"  data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
     function openForm() {

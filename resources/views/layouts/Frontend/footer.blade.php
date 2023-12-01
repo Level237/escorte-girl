@@ -1,7 +1,32 @@
-
-    <section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
+<section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
 <div class="bg-primary footer-txt-light">
 <div class="container">
+
+  <style>
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+}
+</style>
 
 <div style="height:5px;">   </div>
 
@@ -24,7 +49,8 @@
          
         </div>
 
-        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
+        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur 
+          adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 
       </div>
 
@@ -43,12 +69,12 @@
 
       <div class="col-6 col-md-3 col-xl-2 text-center text-md-left mobile-mb-2">
 
-        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Recherche</div>
+        <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Annonces</div>
         <div class="lh-30">        <ul>
-                <li><a href="#">Rechercher</a></li>
-                <li><a href="i#">Populaire</a></li>
-                <li><a href="#">Ajouts Recents</a></li>
-                <li><a href="#">Plus Important</a></li>
+                <li><a href="i#">Massage</a></li>
+                <li><a href="#">Produits Adultes</a></li>
+                <li><a href="#">Rencontres - Escortes</a></li>
+                <li><a href="#">Plus De Catégories</a></li>
                 </ul>
         </div>
 
@@ -115,6 +141,35 @@ function ajax_newsletter_signup58945(){
 
 
  </form>
+ <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+         <div class="position-relative filter-keyword mb-4 show-mobile">
+          <form method="get" action="{{ route('search') }}" >
+                  @csrf
+          <input type="text" class="form-control customfilter typeahead shadow-sm" 
+          name="s"  required  
+          data-formatted-text="Keyword" placeholder="Rechercher.." value="" style="height:50px;">
+          
+          
+          <button class="btn iconbit" type="submit"  style="position:absolute; top:5px; right:5px;" >
+          
+              <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
+          
+          </button>
+
+       
+          
+          </form>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
 <script>
 		function IsEmailMailinglist58945(){
 		var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
@@ -205,3 +260,40 @@ function ajax_newsletter_signup58945(){
 </div>
 </div>
 </section>
+<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
+      <div class="container h-100 px-0">
+        <div class="suha-footer-nav h-100">
+          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
+
+
+	<li><a href="/" class="">
+        <i class="fal fa-house"></i> Accueil</a></li>
+
+
+	<li><a href="#" class="" data-toggle="modal" data-target="#exampleModal">
+        <i  class="fal fa-search"></i> Chercher</a></li>
+
+
+
+
+     <li class=""> <a href="{{ route('ads.create') }}" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a>
+    
+    </li>
+   
+
+
+	<li><a href="{{ route('escort.list') }}" class="">
+        <i class="fa fa-users-crown"></i> Escorts</a></li>
+
+
+	<li><a href="{{ route('ads.list') }}" class="">
+        <i class="fal fa-sparkles"></i> Annonces</a></li>
+
+
+
+          </ul>
+        </div>
+      </div>
+
+     
+</div>

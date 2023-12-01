@@ -52,9 +52,7 @@ class="position-relative " data-overlay="gradient-left">
 	@endforelse
 	 <a href="#" style="text-decoration: none; color:white">Autres villes</a> 
 	</h6> <br/> 
-<h1 data-ppt-title="">Vous recherchez <br/> 
-	<span class="ppt-animate" data-animation="ppt-animate-fade-in" 
-	data-items="Un Massage?,Du Sexe?,Autre chose?" data-id="15231"> </span></h1>
+
         
 
         
@@ -70,13 +68,7 @@ class="position-relative " data-overlay="gradient-left">
         </div>
         
                 <div class="mt-5">
-          <form method="get" action="{{ route('search') }}" style="max-width:400px;">
-            <div class="bg-white rounded-lg p-1 d-flex">
-              <input class="typeahead form-control form-control-lg border-0 mb-0" type="text"  required
-			  name="s" placeholder="Que recherchez-vous..."/>
-              <button class="btn-primary btn-search" data-ppt-btn="" type="submit"><span>Chercher</span></button>
-            </div>
-          </form>
+          
         </div>
                 
                 
@@ -242,19 +234,28 @@ class="position-relative " data-overlay="gradient-left">
 			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 			  <div class="h-100 position-relative">
 				<figure>
+					<div class="buttons-wrap">
 
+
+
+		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+
+		</div>
 		<div ppt-search-badges="" style="z-index:1" class="right">
-			<div class="badge" style="color:#000000;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+			
 
-		</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
+		</div>           <div class="bg-image z-0" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> </div>
 				</figure>
 			  </div>
 			</div>
 			</a>
-			<div class="lh-20 text-700 " style="margin-top:20px;">
+			<div class="lh-20 text-700" style="margin-top:20px;">
 					<span class="text-online">•</span>
-					<a href="listing/rooster/index.htm" class="text-dark">Rooster, <span class="fs-sm opacity-5">40</span></a>
+					<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark">{{ truncate($ad['title'],15) }}</span></a>
+			</div>
+			<div class="lh-20" style="margin-top:0px;">
+					<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+						class="text-dark lh-20 text-300">{{ substr($ad['description'],0,50) }}</span></a>
 			</div>
 		  </div>
 		</div>
@@ -362,8 +363,7 @@ class="position-relative " data-overlay="gradient-left">
 					  </div>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#ED5858;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+				
 
 				</div>
 
@@ -383,14 +383,23 @@ class="position-relative " data-overlay="gradient-left">
 
 				<div class="show-mobile">
 				  <div class="position-relative mb-3">
-					<a href="#">
+					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
 					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 					  <div class="h-100 position-relative">
 						<figure>
+                       <div class="buttons-wrap">
 
+
+
+				<div class="button-new">{{ $escort['town']}}</div>
+
+
+
+
+
+				</div>
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#ED5858;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+					
 
 				</div>           <div class="bg-image z-0"
 				data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']]) }}"> </div>

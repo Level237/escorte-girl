@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> Escorts  </title>
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='noindex, follow, max-image-preview:large' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -22,9 +22,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
- 
-    
+<script src="{{ asset('assets/js/jquery.min.js') }}" id="jquery-core-js"></script>
+
+
 </head>
 <body class="search search-results logged-in body-hide-footer demomode theme-es tall-images innerpage" >
 
@@ -42,20 +42,20 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
  <section class="section-40 bg-light mt-1">
 
   <div class="container main-container">
-  
+
     <div class="row">
-  
-            
+
+
       <div class="col">
-      
-        <div class="row px-0">  
-          
-          <div class="col-12"> 
-            
-             
-           
-                        
-     
+
+        <div class="row px-0">
+
+          <div class="col-12">
+
+
+
+
+
 <div class="card-sponsored p-3 mb-4 rounded hide-mobile overflow-hidden" style="overflow-x: visible; display:none;" ppt-border1>
 
 
@@ -63,26 +63,26 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 	@forelse ($allEscorts as $allEscort)
-	
+
 		<div class="item">
 
 
 		<div class="badge_tooltip" data-direction="top">
-			<div class="badge_tooltip__initiator"> 
+			<div class="badge_tooltip__initiator">
 		  <a href="{{ route('escort.details', ['id' => $allEscort['id']])}}" class="text-dark">
-		  
+
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
 			<div class="bg-image" data-bg="{{ route('display.profil',['id'=>$allEscort['id'], 'path'=>$allEscort['photo'] ]) }}">
-			
+
 			</div>
 		</div>
-		  
+
 		  </a>
 			</div>
 			<div class="badge_tooltip__item text-center">
 			{{ ucfirst($allEscort['escort_name']) }}<div class='small opacity-5'>{{ $allEscort['age'] }} - {{ $allEscort['town'] }}</div>    </div>
 		  </div>
-		  
+
 
 		</div>
 	@empty
@@ -93,55 +93,55 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 
-           
-            
+
+
             <div class="my-3 hide-mobile" id="search-tax-top">
 <div class="row">
 
     <div class="col-md-6 text-600">
-    
-          
-		  {{ $total}} escortes au total
-     
-         
 
-    <em class="text-500 ajax-search-found-wrap" style="display:none;"> 
-    
-    
+
+		  {{ $total}} escortes au total
+
+
+
+    <em class="text-500 ajax-search-found-wrap" style="display:none;">
+
+
     <span class="ajax-search-found"></span> Résultats
-    
-  
-    
+
+
+
     </em>
- 
-    	 
+
+
 	</div>
 	<div class="col-md-6 text-right text-600">
- 
-       
+
+
     <div class="sponsored-text cursor text-right" style="display:none" onclick="processSponsored(0);">
- 		
+
         <span>
 		<div class="d-inline-flex">
-		<span class="mr-2">Profils Sponsorisés</span> 
-        
+		<span class="mr-2">Profils Sponsorisés</span>
+
         <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
         </div>
-         </span> 
-        
-        
+         </span>
+
+
     </div>
-       
-    
-    </div> 
-    
+
+
+    </div>
+
 </div>
 </div>
 
-            
-              
-              
-            
+
+
+
+
 
 
 
@@ -150,239 +150,283 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="position-relative filter-keyword mb-4 show-mobile">
 
   <input type="text" class="form-control customfilter typeahead shadow-sm" name="keyword" id="keyword" data-type="text" onchange="_filter_update()"  data-key="keyword" autocomplete="off"  data-formatted-text="Keyword" placeholder="Keyword.." value="" style="height:50px;">
-  
-   
+
+
   <button class="btn iconbit" type="button" onclick="_filter_update()" style="position:absolute; top:5px; right:5px;" >
-  
+
       <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
-  
+
   </button>
-  
-  
+
+
 </div>
 
 
 <div class="position-relative show-mobile  mb-4">
- 
 
-    <div class="p-3  filterbox mobile m-0 cursor" ppt-border1 cursor onclick="jQuery('.filterboxWrap').toggleClass('_show');"> 
-        
+
+    <div class="p-3  filterbox mobile m-0 cursor" ppt-border1 cursor onclick="jQuery('.filterboxWrap').toggleClass('_show');">
+
         <span ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 416C0 398.3 14.33 384 32 384H86.66C99 355.7 127.2 336 160 336C192.8 336 220.1 355.7 233.3 384H480C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H233.3C220.1 476.3 192.8 496 160 496C127.2 496 99 476.3 86.66 448H32C14.33 448 0 433.7 0 416V416zM192 416C192 398.3 177.7 384 160 384C142.3 384 128 398.3 128 416C128 433.7 142.3 448 160 448C177.7 448 192 433.7 192 416zM352 176C384.8 176 412.1 195.7 425.3 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H425.3C412.1 316.3 384.8 336 352 336C319.2 336 291 316.3 278.7 288H32C14.33 288 0 273.7 0 256C0 238.3 14.33 224 32 224H278.7C291 195.7 319.2 176 352 176zM384 256C384 238.3 369.7 224 352 224C334.3 224 320 238.3 320 256C320 273.7 334.3 288 352 288C369.7 288 384 273.7 384 256zM480 64C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H265.3C252.1 156.3 224.8 176 192 176C159.2 176 131 156.3 118.7 128H32C14.33 128 0 113.7 0 96C0 78.33 14.33 64 32 64H118.7C131 35.75 159.2 16 192 16C224.8 16 252.1 35.75 265.3 64H480zM160 96C160 113.7 174.3 128 192 128C209.7 128 224 113.7 224 96C224 78.33 209.7 64 192 64C174.3 64 160 78.33 160 96z"/></svg></span>
-        
+
         <span class="text-600 ml-2">Filtres</span>
-        
+
         <em class="opacity-5 ml-3 text-500 ajax-search-found-wrap" style="display:none;"> <span class="ajax-search-found"></span> résultats </em>
-    </div> 
-</div> 
+    </div>
+</div>
 
 <div class="filterboxWrap " >
-<ul> 
+<ul>
         <li class="">
-        
-        <div data-tag="listing" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_listing taxonomy" 
+
+        <div data-tag="listing" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_listing taxonomy"
         onclick="processFilterbox('tax_listing','');">
+<<<<<<< HEAD
+
+       <div class="text-600 filtertxt">Catégorie</div>
+
+
+       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+
+
+
+        </div>
+=======
        
+      
        <div class="text-600 filtertxt">Catégorie</div>
        
+
        
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+       <div ppt-icon-16 data-ppt-icon-size="16">
       
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
         
         
         </div> 
+>>>>>>> refs/remotes/origin/main
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="keyword" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-keyword taxonomy" 
+
+        <div data-tag="keyword" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-keyword taxonomy"
         onclick="processFilterbox('keyword','');">
-       
+
        <div class="text-600 filtertxt">Mot-clé</div>
-       
-       
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+
+
+
+        </div>
+=======
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+       
+       
+       <div ppt-icon-16 data-ppt-icon-size="16">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
       
         
         
         </div> 
+>>>>>>> refs/remotes/origin/main
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="distance" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-distance taxonomy" 
+
+        <div data-tag="distance" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-distance taxonomy"
         onclick="processFilterbox('distance','');">
-       
+
        <div class="text-600 filtertxt">À proximité</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="country" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_country taxonomy" 
+
+        <div data-tag="country" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_country taxonomy"
         onclick="processFilterbox('tax_country','');">
-       
+
        <div class="text-600 filtertxt">Location</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="store" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_store taxonomy" 
+
+        <div data-tag="store" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_store taxonomy"
         onclick="processFilterbox('tax_store','tax');">
-       
+
        <div class="text-600 filtertxt">Agence</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="dagender" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dagender taxonomy" 
+
+        <div data-tag="dagender" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dagender taxonomy"
         onclick="processFilterbox('tax_dagender','tax');">
-       
+
        <div class="text-600 filtertxt">Genre</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="dasexuality" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dasexuality taxonomy" 
+
+        <div data-tag="dasexuality" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dasexuality taxonomy"
         onclick="processFilterbox('tax_dasexuality','tax');">
-       
+
        <div class="text-600 filtertxt">Sexualité</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="">
-        
-        <div data-tag="dathnicity" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dathnicity taxonomy" 
+
+        <div data-tag="dathnicity" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dathnicity taxonomy"
         onclick="processFilterbox('tax_dathnicity','tax');">
-       
+
        <div class="text-600 filtertxt">Ethnie</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="_closed">
-        
-        <div data-tag="daeyes" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_daeyes taxonomy" 
+
+        <div data-tag="daeyes" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_daeyes taxonomy"
         onclick="processFilterbox('tax_daeyes','tax');">
-       
+
        <div class="text-600 filtertxt">Teint</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
-               
-        
+
+
+
                 <li class="_closed">
-        
-        <div data-tag="dabody" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dabody taxonomy" 
+
+        <div data-tag="dabody" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dabody taxonomy"
         onclick="processFilterbox('tax_dabody','tax');">
-       
+
        <div class="text-600 filtertxt">Corps</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
-              
-        
-             
-        
+
+
+
+
+
                 <li class="_closed">
-        
-        <div data-tag="features" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_features taxonomy" 
+
+        <div data-tag="features" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_features taxonomy"
         onclick="processFilterbox('tax_features','tax');">
-       
+
        <div class="text-600 filtertxt">Services</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
+
                 <li class="_closed">
-        
-        <div data-tag="age" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_age taxonomy" 
+
+        <div data-tag="age" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_age taxonomy"
         onclick="processFilterbox('tax_age','tax');">
-       
+
        <div class="text-600 filtertxt">Age</div>
-       
-       
+
+
        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-      
-        
-        
-        </div> 
+
+
+
+        </div>
         </li>
-        
-               
-        
+
+
+
         </ul>
 <div class="clearfix"></div>
 </div>
 </div>
 <div id="currentFilters" style="cursor:pointer;"></div>
- 
+
 
 
 <div id="search-toggle-bar">
 <div class="mb-4 d-md-flex justify-content-md-between  mt-4">
- 
- 
+
+
 <div class="d-flex hide-mobile hide-ipad filterToggle">
 <div class="d-flex mr-4">
-      
+
 <span class="toggle-me toggle-featured-wrap " onclick="filterToggle('featured');">
 
-      
+
 <span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
         <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
         <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
@@ -392,20 +436,20 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </svg></span>
 
 
-      
-      
-      
+
+
+
       <span>VIP</span>
       </div>
-      
-           
+
+
      <input type="hidden" class="toggle-featured" data-type="text" data-key="featured" value="1" >
-		        
+
     <div class="d-flex mr-4">
-      
+
 <span class="toggle-me toggle-verified-wrap " onclick="filterToggle('verified');">
 
-      
+
 <span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
         <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
         <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
@@ -415,20 +459,20 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </svg></span>
 
 
-      
-      
-      
+
+
+
       <span>Verifié</span>
       </div>
-      
-           
+
+
      <input type="hidden" class="toggle-verified" data-type="text" data-key="verified" value="1" >
-		        
+
     <div class="d-flex mr-4">
-      
+
 <span class="toggle-me toggle-hasvideo-wrap " onclick="filterToggle('hasvideo');">
 
-      
+
 <span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
         <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
         <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
@@ -438,71 +482,71 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </svg></span>
 
 
-      
-      
-      
+
+
+
       <span>Video</span>
       </div>
-      
-           
+
+
      <input type="hidden" class="toggle-hasvideo" data-type="text" data-key="hasvideo" value="1" >
-		        
+
     <div class="d-flex mr-4">
-      
+
 <span class="toggle-me toggle-favs-wrap " onclick="filterToggle('favs');">
 
- 
+
 
 <span ppt-icon-24 data-ppt-icon-size="24" class="mr-2 mt-n1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg></span>
-      
-      
-      
-      
+
+
+
+
       <span>Favoris</span>
       </div>
-      
-           
+
+
      <input type="hidden" class="toggle-favs" data-type="text" data-key="favs" value="1" >
-		        
+
     <div class="d-flex mr-4">
-      
+
 <span class="toggle-me toggle-morefilters-wrap " onclick="filterToggle('morefilters');">
 
- 
-    
-<span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg></span> 
-    
-      
-      
-      
+
+
+<span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg></span>
+
+
+
+
       <span>Autres Filtres</span>
       </div>
-      
-              
-       
- 
+
+
+
+
 
 </div>
 <script>
 function filterToggle(val){
 
 	if(val == "map"){
-	
+
 	window.location = "https://es10.premiummod.com/?s=&map=1";
-	
+
 	}else if(val == "favs"){
-		
-		
-			
+
+
+
 		var favsf = jQuery('#filter-custom-favs');
 		if(favsf.hasClass('on')){
 		favsf.removeClass('on').addClass('off');
-		favsf.removeClass("customfilter"); 
+		favsf.removeClass("customfilter");
 		}else{
 		favsf.removeClass('off').addClass('on');
 		favsf.addClass("customfilter");
 		}
-		
+
 
 		var toggleFieldWrap = jQuery('.toggle-'+val+'-wrap');
 		if(toggleFieldWrap.hasClass('on')){
@@ -510,12 +554,12 @@ function filterToggle(val){
 		}else{
 		toggleFieldWrap.removeClass('off').addClass('on');
 		}
-		
+
 		_filter_update();
-		
-			
+
+
 	}else if(val == "morefilters"){
-	 	
+
 				var toggleFieldWrap = jQuery('.toggle-'+val+'-wrap');
 		if(toggleFieldWrap.hasClass('on')){
 		toggleFieldWrap.removeClass('on').addClass('off');
@@ -524,40 +568,40 @@ function filterToggle(val){
 		toggleFieldWrap.removeClass('off').addClass('on');
 		jQuery("._closed").addClass("_closedxxx").removeClass("_closed");
 		}
-		
-	
+
+
 	}else{
 
 		var toggleField = jQuery('.toggle-'+val);
 		var toggleFieldWrap = jQuery('.toggle-'+val+'-wrap');
 		if(toggleFieldWrap.hasClass('on')){
 		toggleFieldWrap.removeClass('on').addClass('off');
-		toggleField.removeClass("customfilter"); 
+		toggleField.removeClass("customfilter");
 		}else{
 		toggleFieldWrap.removeClass('off').addClass('on');
 		toggleField.addClass("customfilter");
 		}
-		_filter_update(); 
-	
+		_filter_update();
+
 	}
 
 }
 </script>
- 
- 
+
+
 
 <div>
 
 
     <div class="d-flex">
-    
+
 
  <div class="d-flex ml-3 hide-mobile">
 
 
 
 <div class="badge_tooltip text-center" data-direction="top">
-<div class="badge_tooltip__initiator"> 
+<div class="badge_tooltip__initiator">
 <div ppt-icon-24 data-ppt-icon-size="24" class="js-text-primary cursor" onclick="_updatecardlayout('grid')"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></div>
 
 </div>
@@ -567,21 +611,21 @@ function filterToggle(val){
 
 
 <div class="badge_tooltip text-center" data-direction="top">
-<div class="badge_tooltip__initiator"> 
+<div class="badge_tooltip__initiator">
 <div ppt-icon-24 data-ppt-icon-size="24" class="js-text-primary cursor ml-2"  onclick="window.location='https://es10.premiummod.com/?s=&listview=1';" ><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg></div>
 
 </div>
 <div class="badge_tooltip__item">List View</div>
 </div>
- 
 
- 
+
+
 
 
 
 
 <div class="badge_tooltip text-center" data-direction="top">
-<div class="badge_tooltip__initiator"> 
+<div class="badge_tooltip__initiator">
 
 <div ppt-icon-24 data-ppt-icon-size="24" class="js-text-primary cursor ml-2" onclick="window.location='https://es10.premiummod.com/?s=&map=1';"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
 
@@ -591,38 +635,38 @@ function filterToggle(val){
 
 
 
- 
+
 </div>
-    
- </div>   
- </div>      
-    
+
+ </div>
+ </div>
+
 
  <input type="hidden" name="sort" class="customfilter" id="filter-sortby-main"  data-type="select" data-key="sortby" value="" />
-    
+
     <script>
     function filterSortBy(val){
-    	
+
 		if(val == ""){
 		jQuery('#filter-sortby-main').removeClass('customfilter');
 		}else{
-		
+
 		jQuery('#filter-sortby-main').addClass('customfilter');
-		
+
         var sortSel = jQuery('.sortby option:selected');
         var dir = sortSel.attr("data-dir");
-        
-        var sortField = jQuery('#filter-sortby-main');	
-        sortField.val(val+'-'+ dir); 
-		
+
+        var sortField = jQuery('#filter-sortby-main');
+        sortField.val(val+'-'+ dir);
+
 		}
-     
-        _filter_update(); 
-    
+
+        _filter_update();
+
     }
     </script>
     </div>
- 
+
 
 </div>
 
@@ -632,13 +676,13 @@ function filterToggle(val){
   <div class="container">
     <div class="row">
 		<div class="col-lg-12">
-					
+
 		</div>
 		<div class="col-12">
 			<div class='row'>
-			
+
 				@forelse ($escorts as $escort)
-					
+
 				<div class="col-6 col-sm-6 col-md-4 col-lg-4"><html>
 				  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="43" data-lat="40.72211057045409" data-long="-73.87108987305908" data-address="">
 
@@ -701,24 +745,79 @@ function filterToggle(val){
 
 
 				<div class="show-mobile">
+          <div class="buttons-wrap">
+
+
+
+				<div class="button-new">{{ $escort['town']}}</div>
+
+
+
+
+
+				</div>
 				  <div class="position-relative mb-3">
-					<a href="#">
+					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
+
 					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 					  <div class="h-100 position-relative">
 						<figure>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+				
 
-				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
+				</div>           <div class="bg-image z-0" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}"> </div>
 						</figure>
 					  </div>
 					</div>
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-							<a href="#" class="text-dark">{{ $escort['quarter']}}  , 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+							<a href="#" class="text-dark">{{ $escort['quarter']}}  ,
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
+=======
+							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+>>>>>>> refs/remotes/origin/main
                 <span class="fs-sm opacity-5">
                   {{ ($escort['age']) }}</span></a>
 					</div>
@@ -731,8 +830,8 @@ function filterToggle(val){
 					<div  id="noresults" style="">
 						<div class="p-4 py-5 text-center font-weight-bold">
 						 <i class="fal fa-frown fa-8x mb-4 text-light"></i>
-							   <div class="py-2">No Results Found</div>    
-						  <a href="https://es10.premiummod.com/?s=" class="btn btn-primary btn-md text-light mx-auto" style="max-width:200px;">Reset Filters</a>  
+							   <div class="py-2">No Results Found</div>
+						  <a href="https://es10.premiummod.com/?s=" class="btn btn-primary btn-md text-light mx-auto" style="max-width:200px;">Reset Filters</a>
 							  </div>
 					</div>
 				@endforelse
@@ -742,7 +841,7 @@ function filterToggle(val){
 </div>
   </div>
 </section>
-<div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3"> 
+<div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3">
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
         @php
@@ -759,44 +858,44 @@ function filterToggle(val){
          @else
             <li class="page-item"><a href="{{ route('escort.list', ['id' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
          @endif
-          
+
            @php
           $i++;
         @endphp
-        
-        @endwhile 
- 
+
+        @endwhile
+
         @if ($current_page != $nb_pages)
             <li class="page-item"><a href="{{ route('escort.list', ['id' => $current_page+1]) }}"  class="page-link">
             <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
-       
-    
+
+
     </ul></div>
   </div>
 @endif
- 
 
 
-             
-                        
+
+
+
                                         <div class="my-3 text-center">
                             <a href='javascript:void(0)' class='samplebanneronly'><img src='https://premiummod.com/demoimages/img.php?bannerid=search_bottom&t=es&ct=chocolate1' class='img-fluid' alt='sample banner'></a>                            </div>
-							 
-             
+
+
           </div>
-          
-        </div> 
-        
-      </div>  
-      
-    </div> 
-    
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-  
+
 </section>
- 
+
 <textarea style="width:100%; height:100px; display:none" id="_filter_data"></textarea>
 
 <!-- per row/ per page / card layout -->
@@ -804,12 +903,12 @@ function filterToggle(val){
 <input type="hidden" name="perrow"  class="customfilter" data-type="select" data-key="perrow" value="4">
 <input type="hidden" name="perpage"  class="customfilter" data-type="select" data-key="perpage" value="12">
 <!-- end -->
- 
+
 
 
 <input type="hidden" id="filter-custom-favs"  name="favorites" data-type="text" data-key="favorites" value="1" >
 
- 
+
 
 
 
@@ -817,69 +916,102 @@ function filterToggle(val){
 
 
    @include('layouts.Frontend.footer')
-  
-</main>
-</div> 
 
- 
+</main>
+</div>
+
+
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
- 
- 
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
 <div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
       <div class="container h-100 px-0">
         <div class="suha-footer-nav h-100">
           <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-       
-    
+
+
 	<li><a href="https://es10.premiummod.com" class="">
         <i class="fal fa-house"></i> Home</a></li>
-	    
-	    
+
+
 	<li><a href="https://es10.premiummod.com/?s=" class="">
         <i class="fal fa-search"></i> Search</a></li>
-	    
-	    
+
+
 	<li><a href="https://es10.premiummod.com/add-listing/" class="">
         <i class="fa fa-plus"></i> </a></li>
-	    
-	    
+
+
 	<li><a href="https://es10.premiummod.com/my-account/" class="">
         <i class="fa fa-users-crown"></i> My Account</a></li>
-	    
-	    
+
+
 	<li><a href="https://es10.premiummod.com/blog/" class="">
         <i class="fal fa-sparkles"></i> Blog</a></li>
-	    
-	 
-    
+
+
+
           </ul>
         </div>
       </div>
 </div>
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "https://es10.premiummod.com/index.php";  
-				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "https://es10.premiummod.com/index.php";
+				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "AIzaSyBhXeBRfGfmKU0s9kpCqBtkKFj33HWWZRI";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value="" />
 				<input type="hidden" id="ppt-current-dec" value="" />
 				<input type="hidden" id="ppt-current-symbol" value="$" />
 				<input type="hidden" id="ppt-current-position" value="left" />
-                <input type="hidden" id="ppt-map-provider" value="google" /> 
-               
+                <input type="hidden" id="ppt-map-provider" value="google" />
+
                                   <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
                                   <script async src="https://ppt1080.b-cdn.net/js/js.search.js?v=10.9.3" id="premiumpress-search"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="https://ppt1080.b-cdn.net/css/_bootstrap.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="https://ppt1080.b-cdn.net/css/css.theme-fonts.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="https://ppt1080.b-cdn.net/css/css.theme-elementor.css?v=10.9.3"/>
@@ -888,15 +1020,15 @@ function filterToggle(val){
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="https://ppt1080.b-cdn.net/css/css.premiumpress.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="https://ppt1080.b-cdn.net/css/_chat.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="https://ppt1080.b-cdn.net/css/_theme_es.css?v=10.9.3"/>
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                
-     
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
+
+
 				<script>
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
@@ -909,7 +1041,7 @@ function filterToggle(val){
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
 				</script>
                 <!----------------- -->
 
@@ -920,11 +1052,11 @@ function filterToggle(val){
 </div>
 
 
- 
 
- 
 
-</div> 
+
+
+</div>
 
 
 

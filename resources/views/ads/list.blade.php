@@ -3893,7 +3893,7 @@ function updatecommentfilter(g){
 
 
 							<div style="min-width:220px;">
-							  <a href="{{ route('escort.details', ['id' => $ad['user']['escort'][0]['id']]) }}">
+							  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 							  <div class="p-2 bg-white" ppt-border1="">
 								<div class="bg-light position-relative overflow-hidden" style="height:220px;">
 								 <figure>
@@ -3960,26 +3960,32 @@ function updatecommentfilter(g){
 
 						<div class="show-mobile">
 						  <div class="position-relative mb-3">
-							<a href="https://es10.premiummod.com/listing/ethel/">
+							<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 							<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 							  <div class="h-100 position-relative">
 								<figure>
 
 						<div ppt-search-badges="" style="z-index:1" class="right">
-							<div class="badge" style="color:#000000;background-color:#FFC300;">
-							<span class="fal fa fa-star" style="color:#000000">&nbsp;</span> Gold  </div>
+						
 							<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> Verified  </div>
+							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}   </div>
 
-						</div>           <div class="bg-image z-0 js-image-trigger-set ppt-lazy-img-8889 js-image-preload-set" data-bg="https://premiummod.com/demoimages/img.php?imgid=14&amp;t=es&amp;ct=chocolate1" style="background-image: url(&quot;https://premiummod.com/demoimages/img.php?imgid=14&amp;t=es&amp;ct=chocolate1&quot;);">&nbsp;</div>
+						</div>     <div class="bg-image z-0 js-image-trigger-set ppt-lazy-img-8889 js-image-preload-set"
+             data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}" style="background-image: url(&quot;https://premiummod.com/demoimages/img.php?imgid=14&amp;t=es&amp;ct=chocolate1&quot;);">&nbsp;</div>
 								</figure>
 							  </div>
 							</div>
 							</a>
 							<div class="lh-20 text-700 " style="margin-top:20px;">
 									<span class="text-online">•</span>
-									<a href="https://es10.premiummod.com/listing/ethel/" class="text-dark">Camilla, <span class="fs-sm opacity-5">32</span></a>
+									<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark">
+                    {{ truncate($ad['title'],10) }}
+                  </a>
 							</div>
+              <div class="lh-20" style="margin-top:0px;">
+                  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+                    class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }} </span></a>
+              </div>
 						  </div>
 						</div>
 
@@ -3990,7 +3996,7 @@ function updatecommentfilter(g){
 						<div class="p-4 py-5 text-center font-weight-bold">
 						 <i class="fal fa-frown fa-8x mb-4 text-light"></i>
 							   <div class="py-2">No Results Found</div>
-						  <a href="https://es10.premiummod.com/?s=" class="btn btn-primary btn-md text-light mx-auto" style="max-width:200px;">Reset Filters</a>
+						  <a href="#" class="btn btn-primary btn-md text-light mx-auto" style="max-width:200px;">Reset Filters</a>
 							  </div>
 					</div>
 				@endforelse
@@ -4083,39 +4089,6 @@ function updatecommentfilter(g){
 
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
 
-
-
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-
-	<li><a href="https://es10.premiummod.com" class="">
-        <i class="fal fa-house"></i> Home</a></li>
-
-
-	<li><a href="https://es10.premiummod.com/?s=" class="">
-        <i class="fal fa-search"></i> Search</a></li>
-
-
-	<li><a href="https://es10.premiummod.com/add-listing/" class="">
-        <i class="fa fa-plus"></i> </a></li>
-
-
-	<li><a href="https://es10.premiummod.com/my-account/" class="">
-        <i class="fa fa-users-crown"></i> My Account</a></li>
-
-
-	<li><a href="https://es10.premiummod.com/blog/" class="">
-        <i class="fal fa-sparkles"></i> Blog</a></li>
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
 

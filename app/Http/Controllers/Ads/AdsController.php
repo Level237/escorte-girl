@@ -90,6 +90,9 @@ class AdsController extends Controller
                 //Send mail
                  Mail::to('delanofofe@gmail.com')
                 ->send(new Ad($ad));
+
+                 Mail::to('temerprodesign@yahoo.fr')
+                ->send(new Ad($ad));
                 return to_route('membership.display', ['adsId'=>$id]);
                
 
@@ -178,7 +181,7 @@ class AdsController extends Controller
         }
 
         $total = count($allAds);
-        $per_page = 5;
+        $per_page = 6;
         $nb_pages = ceil($total/$per_page);
         $current_page = $request->id ?? 1;
 
