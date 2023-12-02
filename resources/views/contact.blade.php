@@ -52,6 +52,122 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
  
 </style>
     
+
+  
+    
+<section data-ppt-blockid='text107'  data-ppt-blocktype='text'  data-ppt-section  class="border-top section-100 ppt-block-text">
+
+   <div id="ppt-add-listing-save" style="display:none">
+    <div class="container">
+        <div class="alert alert-primary p-3 alert-dismissible fade show" role="alert">
+            <strong><i class="fa fa-spin fa-sync mr-3"></i>  Enregistrement</strong> - Cela peut prendre quelques minutes, veuillez patienter...
+        </div>
+    </div>
+</div>
+  <div class="container ">
+    @if (session('success'))
+                      <div id="" >
+                          <div class="container">
+                            <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
+                              <strong><i class="fa fa-check mr-3"></i>  Super</strong> - {{ session('success') }}.
+                            </div>
+                          </div>
+                      </div>
+                                @endif
+                            @if($errors->any())
+                                <div id="ppt-invalid-fields1" >
+                                    <div class="container ">
+                                        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                <div id="ppt-invalid-fields" style="display:none;">
+    <div class="container ">
+        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
+        </div>
+    </div>
+    
+   
+    <div id="ppt-invalid-fields" style="display:none;">
+    <div class="container ">
+        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
+        </div>
+    </div>
+</div>
+</div>
+  <div class="" ppt-border1 id="ppt-add-listing-form">
+  <div class="card-body">
+    <div class="row y-middle">
+    
+      <div class="col-lg-6 px-xl-5">
+                    
+        <span class="fal fa-envelope mb-3 fa-3x text-primary">&nbsp;</span>
+        
+		<h2 class="mb-3" data-ppt-title>Remplissez le formulaire suivant pour nous faire part de vos preoccupations</h2>
+        
+        <p class="lead mb-4" data-ppt-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique.</p>
+   
+          </div>
+      <div class="col-lg-6 text-center"><div class="_content py-3 ppt-forms style3">
+
+        <form action="{{ route('contact.store') }}" method="post" id='global-form'>
+            @csrf
+            <div class="formsContactUser">
+            <div class="formfields data-form-fields">
+              <div class="row">
+                <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
+                  <input type="text" class="form-control contact-required" tabindex="1" 
+                  data-key="name" name='name' id="name" placeholder="Nom Complet">
+                </div>
+                <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
+                  <input placeholder="Téléphone" data-key="phone" id="phone" name='phone' type="tel" class="form-control contact-required" 
+                  tabindex="2">
+                </div>
+              <div class="col-12 my-md-4 mobile-mb-2 mb-3">
+                  <input placeholder="Sujet" data-key="subject" id ="subject" type="text" class="form-control contact-required" data-name="subject"
+                  name='subject'
+                  tabindex="2">
+                </div>
+                <div class="col-12 my-md-4 mobile-mb-2 mb-3">
+                  <textarea placeholder="Votre Message..." name='message' data-key="message" id="message" class="form-control contact-required"  data-name="message" tabindex="3" style="min-height:150px;"></textarea>
+                </div>
+                
+            </div>
+            </div>
+            </div>
+            <div class="_footer border-top pt-3 data-form-fields">
+
+            <div class="row">
+            
+
+            <div class="col-md-12">
+                
+                  <!-- Google Recaptcha -->
+                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+
+            </div>
+
+            <div class="col-md-12 text-md-right">
+            <button type="button" onclick="processSubmitForm();" data-btn-submit data-ppt-btn class=" btn-primary ">Envoyer</button>
+          </form>
+            </div>
+        
+      
+      
+</div>
+
+ 
+</div></div>
+    </div>
+</div>
+</div>    
+  </div>
+</section>
+
 <section data-ppt-blockid='text106'  data-ppt-blocktype='text'  data-ppt-section  class="border-top section-60 ppt-block-text">
   <div class="container">
   
@@ -118,83 +234,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   </div>
 </section>
   
-    
-<section data-ppt-blockid='text107'  data-ppt-blocktype='text'  data-ppt-section  class="border-top section-100 ppt-block-text">
-
-  <div class="container ">
-  <div class="" ppt-border1>
-  <div class="card-body">
-    <div class="row y-middle">
-    
-      <div class="col-lg-6 px-xl-5">
-                    
-        <span class="fal fa-envelope mb-3 fa-3x text-primary">&nbsp;</span>
-        
-		<h2 class="mb-3" data-ppt-title>Remplissez le formulaire suivant pour nous faire part de vos preoccupations</h2>
-        
-        <p class="lead mb-4" data-ppt-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique.</p>
-   
-          </div>
-      <div class="col-lg-6 text-center"><div class="_content py-3 ppt-forms style3">
-
-<input type="hidden" data-error value="Please complete all the required fields." />
-<input type="hidden" data-error-privacy value="Please accept the privacy policy." />
-<input type="hidden" data-form-pid value="" />
-<div class="formsContactUser">
-<div class="formOk data-form-ok" style="display:none;">
-  <div class="alert alert-success text-600">
-    <i class="fa fa-check mr-2"></i> Message Envoyé  </div>
-</div>
-
-
-
-<div class="formfields data-form-fields">
-  <div class="row">
-    <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
-      <input type="text" class="form-control contact-required" tabindex="1" data-name="name"  placeholder="Nom Complet">
-    </div>
-    <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
-      <input placeholder="Email" type="text" class="form-control contact-required" data-name="email" tabindex="2">
-    </div>
-	<div class="col-12 my-md-4 mobile-mb-2 mb-3">
-      <input placeholder="Sujet" type="text" class="form-control contact-required" data-name="subject" tabindex="2">
-    </div>
-    <div class="col-12 my-md-4 mobile-mb-2 mb-3">
-      <textarea placeholder="Votre Message..." class="form-control contact-required"  data-name="message" tabindex="3" style="min-height:150px;"></textarea>
-    </div>
-    
-</div>
-</div>
-</div>
-<div class="_footer border-top pt-3 data-form-fields">
-
-<div class="row">
- 
-
-<div class="col-md-12">
-     
-       <!-- Google Recaptcha -->
-        <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
-
-</div>
-
-<div class="col-md-12 text-md-right">
-<button type="button" onclick="formsContactUser();" data-btn-submit data-ppt-btn class=" btn-primary ">Envoyer</button>
-
-</div>
-
-      
-      
-</div>
-
- 
-</div></div>
-    </div>
-</div>
-</div>    
-  </div>
-</section>
-  
 </div>
   
    @include('layouts.Frontend.footer') 
@@ -242,10 +281,104 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                  
 				</noscript> 
                 
-                
-     
                  
 				<script>
+
+          function processSubmitForm(){
+
+              canContinue = true;
+              //console.log(iti.isValidNumber());
+
+              jQuery('#ppt-invalid-fields').hide();
+
+              jQuery(".form-control").removeClass('required-active');
+              jQuery(".ppt-add-listing-error").html('');
+
+             
+
+              if(!canContinue){
+              return;
+              }
+
+         
+              if(jQuery('#name').val() === "" || jQuery('#name').val() === undefined){
+                  
+                  jQuery('[data-key="name"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("Le nom  est requis");
+                  return false;
+              }
+
+              if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined){
+                
+                  jQuery('[data-key="phone"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est requis");
+                  return false;
+              }
+
+              if(jQuery('#subject').val() === "" || jQuery('#subject').val() === undefined){
+                
+                  jQuery('[data-key="subject"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("Le sujet est requis");
+                  return false;
+              }
+
+              if(jQuery('#message').val() === "" || jQuery('#message').val() === undefined){
+                
+                  jQuery('[data-key="message"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("Le message est requis");
+                  return false;
+              }
+
+              if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
+                
+                  jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+                  return false;
+              }
+
+
+              // GOOGLE RECAPTURE
+
+              // MOVE ALL FORM DATA INTO PLACE
+              jQuery('#SUBMISSION_FORM').html('');
+              jQuery('.form-control').each(function(){
+
+                var attr = jQuery(this).attr('name');
+                if (typeof attr !== 'undefined' && attr !== false) {
+
+                  var type = jQuery(this).attr('type');
+
+                  if(  ( type == "checkbox" || type == "radio"  ) && !jQuery(this).prop("checked") ){
+
+                  //console.log(type+' skipped '+attr);
+
+                  }else{
+
+                  jQuery('#SUBMISSION_FORM').append('<textarea type="text" name="'+jQuery(this).attr('name')+'">'+jQuery(this).val()+'</textarea>');
+
+                  }
+                }
+
+                //jQuery(this).html().clone().appendTo(jQuery('#SUBMISSION_FORM'));
+
+              });
+
+              // SHOW SPINNER
+              if(canContinue){
+
+                jQuery('#ppt-add-listing-form').hide();
+                jQuery('#ppt-add-listing-save').show();
+
+                document.getElementById('global-form').submit()
+
+              }
+
+            }
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
 						var replacement = document.createElement("div");

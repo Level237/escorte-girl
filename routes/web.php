@@ -46,7 +46,7 @@ use App\Http\Controllers\Purchase\PurchaseMomoController;
 use App\Http\Controllers\ContactController;
 
 //Importing Denounce Controller
-use App\Http\Controllers\Ads\DenounceAdsController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,8 +80,9 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
 Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable'])->name('unavailable');
 
-//DENOUNCE GROUP URL
-Route::get('/denounceads/{adsID}',[DenounceAdsController::class,'create'])->name('denounce.ads');
+//REPORT GROUP URL
+Route::get('/report/{id}/{type}',[ReportController::class,'create'])->name('report');
+Route::post('/report',[ReportController::class,'store'])->name('report.store');
 
 //middleware user
 
@@ -113,6 +114,7 @@ Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAds
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
 Route::get('/contact',[ContactController::class,'create'])->name('contact');
+Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 
 
 

@@ -616,10 +616,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <br>
 <span>&#9989; Dénoncer ce profil plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
 			   <div class="p-4 rounded" ppt-box="">
-				  <button class="btn-primary text-600  text-center" data-ppt-btn="" 
+				  <a href="{{ route('report', ['id'=>$escort['id'], 'type'=>'escort']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
 							style="min-width:60px; background-color: red;">
 						Dénoncer ce profil
 					  </button>
+          </a>
 				</div>
 			</div>
 			

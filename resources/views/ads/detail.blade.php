@@ -158,7 +158,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   </div>
         
 <div class="p-4 rounded" ppt-box="">
-  <a href="{{ route('denounce.ads', ['adsID'=>$ad['id']]) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+  <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
             style="min-width:60px; background-color: red;">
         Dénoncer cette annonce
       </button></a>
