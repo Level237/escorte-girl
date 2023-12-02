@@ -29,9 +29,9 @@
         <div class="_content p-lg-5 p-3" >
 
 
-<div class="fs-lg text-600 mb-2">Balance &amp; Invoices </div>
+<div class="fs-lg text-600 mb-2">Compte & Paiement </div>
 
-<p class="mb-4">Your account balance is <span class="  ppt-price">$2,222,394,955.52</span>.
+<p class="mb-4">Votre compte possède <span class="">{{ $userBalance }} de credits</span>.
 
   </p>
 
@@ -51,10 +51,10 @@
               <tr>
                 <th>Order ID</th>
                 <th class="text-center">Date</th>
-                <th class="text-center">Amount</th>
+                <th class="text-center">Montant</th>
 
                 <th class="text-center">Status</th>
-                <th class="text-center dashhideme">Invoice</th>
+                <th class="text-center dashhideme">Type</th>
               </tr>
             </thead>
             <tbody>
