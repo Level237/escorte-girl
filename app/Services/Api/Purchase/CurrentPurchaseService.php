@@ -20,4 +20,13 @@ class CurrentPurchaseService{
             return $data['data'];
         }
     }
+
+    public function currentPayment(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/payment/user");
+
+        $data = json_decode($response);
+        return $data;
+    }
 }

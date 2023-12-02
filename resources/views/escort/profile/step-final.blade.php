@@ -1,7 +1,7 @@
 @extends('layouts.Frontend.escort.profile.master')
 
 @section('content')
-<div class="p-5 w-100">
+<div class="p-5 overflow-hidden w-100">
     <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
     <div class="mx-4 p-4">
         <div class="flex items-center">
@@ -24,7 +24,7 @@
                 <div class=" rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-teal-300">
                     <p class="flex justify-center">3</p>
                 </div>
-                <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-500">Profil Escorte</div>
+                <div class="absolute top-0 -ml-1 text-center mt-16 w-25 text-xs font-medium uppercase text-gray-500">Profil Escorte</div>
             </div>
             <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-teal-300"></div>
             <div class="flex items-center text-teal-500 relative">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-8 p-4 mx-10">
+    <div class="mt-8 p-4">
 
 
 

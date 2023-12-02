@@ -1,81 +1,210 @@
 @extends('layouts.backoffice.escort.app')
-@section('title', __('Tableau de bord'))
+@section('title', __('Mes Transactions'))
 
 @section('content')
-	
-<div class="fs-lg text-600 mb-2 hide-mobile">Bon Retour</div>
-
-<p class="mb-4 hide-mobile">Voici un aperçu de votre compte.</p>
-
-<div ppt-border1="" class="p-3 p-md-4  hide-mobile mt-2 mb-5">
 
 
-<div class="d-md-flex justift-content-between">
 
 
-    <div class="d-md-flex border-right pr-3 w-100 mr-3 ">
-        <div ppt-icon-size="32" class="mr-3 hide-ipad show-desktop-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
-         <a href="/dashboard//?tab=details&sub=username" class="text-black text-decoration-none">
-        <span>
-            <div class="text-600">Noms</div>
-            <div class="small opacity-8" style="max-width:150px;">demo</div>
-        </span>
-        </a>
+
+<div ppt-border1 class="mb-4 bg-light border-top-0 page-orders">
+  <div class="d-xl-flex" >
+
+
+
+    <div class="h-100 account-left">
+      <div ppt-box class="w-100">
+
+
+        <div class="_content p-0" id="_account_menuitems">
+        </div>
+      </div>
     </div>
 
 
-    <div class="d-md-flex border-right pr-3 w-100 mr-3 ">
-        <div ppt-icon-size="32" class="mr-3 hide-ipad show-desktop-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
-        <a href="/dashboard/my-account//?tab=details&sub=address" class="text-black text-decoration-none">
-        <span>
-            <div class="text-600">Ma Position</div>
-            <div class="small opacity-8" style="max-width:150px;">Douala</div>
-        </span>
-        </a>
+    <div class="w-100 bg-white">
+
+      <div ppt-box class="flex-column account-right shadow-0">
+
+        <div class="_content p-lg-5 p-3" >
+
+
+<div class="fs-lg text-600 mb-2">Transactions </div>
+
+<p class="mb-4">Votre compte possède <span class="">{{ $userBalance }} de credits</span>.
+
+  </p>
+
+
+
+
+
+
+
+      <div id="ajax_makepayment_form"></div>
+            <div class="card mb-5" id="myinvoicesform">
+
+        <div class="card-body p-0">
+          <div class="overflow-auto">
+            @if(count($payments)!=0)
+            <table class="table small table-orders">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Montant</th>
+
+                    <th class="text-center">Status</th>
+                    <th class="text-center dashhideme">Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                   @foreach ($payments as $payment)
+                   <tr class="row-2989" >
+                    <td><span class="font-weight-bold">
+
+                        <a href="https://es10.premiummod.com/?invoiceid=2989" target="_blank">#{{ $payment->id }}</a>
+
+
+                        </span>
+                    </td>
+                    <td class="text-center text-muted">{{ $payment->created_at }}</td>
+                    <td class="text-center">{{ $payment->price }} XAF</td>
+
+                    <td class="text-center">
+
+
+
+
+                        <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
+                        <span>Payé</span> </span>
+
+
+
+
+                    </td>
+
+
+                            <td class="text-center dashhideme"><a href="https://es10.premiummod.com/?invoiceid=2989" class="btn btn-system btn-sm" target="_blank">{{ $payment->payment_type }}</a>
+                              </td>
+          </tr>
+                   @endforeach
+
+                        </tbody>
+              </table>
+            @endif
+              @if (count($payments)==0)
+              Vous n'aviez encore effectuer aucune transactions.
+              @endif
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+<script>
+
+
+jQuery(document).ready(function(){
+
+jQuery(".count-invoices-total").html('80');
+jQuery(".count-invoices-unpaid").html('0');
+
+
+jQuery(".count-balance").html("$2,222,394,955.52");
+
+});
+
+
+
+
+   function CheckFormData()
+   {
+
+   	var amount = document.getElementById("cashout-amount");
+   	var message = document.getElementById("cashout-message");
+
+
+   	if(message.value == '')
+   	{
+   		alert("Please provide payment method details.");
+   		message.focus();
+		jQuery("#pdetails").show();
+   		message.style.border = 'thin solid red';
+   		return false;
+   	}
+
+
+   	if(amount.value == '')
+   	{
+   		alert("Please enter a valid amount.");
+   		amount.focus();
+   		amount.style.border = 'thin solid red';
+   		return false;
+   	}
+
+	  if(amount.value > 2222394955.52)
+   	{
+   		alert("Please enter a valid amount.");
+   		amount.focus();
+   		amount.style.border = 'thin solid red';
+   		return false;
+   	}
+
+	jQuery("[data-btn-submit]").prop('disabled', true);
+
+
+
+     jQuery.ajax({
+           type: "POST",
+           url: 'https://es10.premiummod.com/',
+   		data: {
+            action: "cashout_new",
+			total: 	amount.value,
+			msg: 	message.value,
+			method: jQuery('#cashout-method').val(),
+           },
+           success: function(response) {
+
+			jQuery('.cashoutformmsg').hide();
+   			jQuery('#cashoutform').html('').hide();
+   			jQuery('#cashoutnew').show();
+
+           },
+           error: function(e) {
+               alert("error "+e)
+           }
+       });
+
+   	return false;
+   }
+
+
+</script>
+
+
+
+
+        </div>
+      </div>
     </div>
-
-    <div class="d-md-flex w-100">
-        <div ppt-icon-size="32" class="mr-3 hide-ipad show-desktop-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
-        <a href="/dashboard/my-account//?tab=details&sub=contact" class="text-black text-decoration-none">
-        <span>
-            <div class="text-600">Mon WhatsApp</div>
-            <div class="small opacity-8 text-truncate" style="max-width:150px;">+237 675824349</div>
-        </span>
-        </a>
-    </div>
-</div>
-
-</div>
-
-
-<div class="bg-light p-3 p-md-5 rounded-lg mb-4 position-relative mt-xl-n3" >
-
-
-<div class="row">
-<div class="col-md-6">
-
-<div class="lh-30">
-<div class="fs-5 text-600 mb-2">Bon Retour!</div>
-Nous mettons constamment à jour et améliorons notre service. Si vous avez des questions ou des commentaires,
-contactez-nous – nous serions ravis de les entendre.</div>
-
-<div class="mt-3 fs-sm contactuslink"><a href="/contact/" class="btn-xs btn-system" data-ppt-btn>Contactez-nous</a></div>
-
-</div>
-<div class="col-md-6">
-<div class="my-4 my-md-0">
-
-<div class="position-relative">
-<img src="{{ asset('assets/images/img.jpg') }}" class="img-fluid rounded-lg" alt="img" />
-
-</div>
-
-</div>
-</div>
-
+  </div>
 </div>
 
 
 
-</div>
+
+
+
+
+
+
 @endsection

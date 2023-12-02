@@ -66,7 +66,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="col-md-6 text-600">
 
 
-	
+
 
 
     <em class="text-500 ajax-search-found-wrap" style="display:none;">
@@ -3871,9 +3871,9 @@ function updatecommentfilter(g){
 		</div>
 		<div class="col-12">
 			<div class='row'>
-			
+
 				@forelse ($ads as $ad)
-				   
+
 					 <div class="col-6 col-sm-12 col-lg-12 listview">
 						  <div class="hide-mobile mb-4" data-pid="165">
 
@@ -3885,9 +3885,9 @@ function updatecommentfilter(g){
 							  <div class="p-2 bg-white" ppt-border1="">
 								<div class="bg-light position-relative overflow-hidden" style="height:220px;">
 								 <figure>
-								  <div class="bg-image js-image-trigger-set ppt-lazy-img-8888 js-image-preload-set" 
-                  data-ppt-image-bg="" 
-                  style="background-image:url('{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}');" 
+								  <div class="bg-image js-image-trigger-set ppt-lazy-img-8888 js-image-preload-set"
+                  data-ppt-image-bg=""
+                  style="background-image:url('{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}');"
                   data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
 									&nbsp;
 								  </div>
@@ -3911,7 +3911,7 @@ function updatecommentfilter(g){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-								  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+								  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
                   class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
@@ -3954,7 +3954,7 @@ function updatecommentfilter(g){
 								<figure>
 
 						<div ppt-search-badges="" style="z-index:1" class="right">
-						
+
 							<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
 							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}   </div>
 
@@ -3971,7 +3971,7 @@ function updatecommentfilter(g){
                   </a>
 							</div>
               <div class="lh-20" style="margin-top:0px;">
-                  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+                  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
                     class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }} </span></a>
               </div>
 						  </div>
@@ -3988,7 +3988,7 @@ function updatecommentfilter(g){
 							  </div>
 					</div>
 				@endforelse
-        <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3"> 
+        <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3">
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
         @php
@@ -4005,20 +4005,20 @@ function updatecommentfilter(g){
          @else
             <li class="page-item"><a href="{{ route('ads.list', ['id' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
          @endif
-          
+
            @php
           $i++;
         @endphp
-        
-        @endwhile 
- 
+
+        @endwhile
+
         @if ($current_page != $nb_pages)
             <li class="page-item"><a href="{{ route('ads.list', ['id' => $current_page+1]) }}"  class="page-link">
             <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
-       
-    
+
+
     </ul></div>
   </div>
 			</div>
@@ -4075,8 +4075,10 @@ function updatecommentfilter(g){
 </div>
 
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
+
 
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->

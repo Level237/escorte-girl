@@ -31,7 +31,7 @@
     </div>
 
     <div class="fs-sm opacity-5 text-truncate" style="max-width:350px">
-        Téléphone &bull; {{ $user->phone_number }} 
+        Téléphone &bull; {{ $user->phone_number }}
     </div>
 </a>
 </div>
@@ -44,13 +44,15 @@
 
 
 <li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href=""  class="btn-primary" data-ppt-btn>
+<a href="{{ route('purchase.credit') }}"  class="btn-primary" data-ppt-btn>
+
 <div class="d-flex">
 
 
     <div class="badge_tooltip text-center" data-direction="top">
     <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-star" style="color:#000000"></i> Acheter du crédit   </div>
+
+   <i class="fal fa fa-star" style="color:#000000"></i> Acheter du crédit  </div>
     <div class="badge_tooltip__item">Achat Crédit </div>
   </div>
 
@@ -105,8 +107,8 @@
 <li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
 <a href="" class="btn-system" data-ppt-btn>
  <div ppt-icon-16 data-ppt-icon-size="16" class="show-mobile py-3 float-right" ppt-flex-middle onclick="event.preventDefault(); document.getElementById('logoutprofile').submit();">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 
-    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+    stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
     d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
 </svg></div>
   <form method="POST" action="{{ route('logout') }}" id="logoutprofile">

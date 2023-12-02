@@ -66,44 +66,45 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div id="wrapper" style="display:none;" class="">
 
-<div id="sidebar-wrapper" style="display:none; " class="shadow">
-</div>
+    <div id="sidebar-wrapper" style="display:none; " class="shadow">
+    </div>
 
-<main id="page-content-wrapper" class="with-mobilemenu">
+    <main id="page-content-wrapper" class="with-mobilemenu">
 
-    @include('layouts.Frontend.header')
-  @yield('content')
+        @include('layouts.Frontend.header')
 
-  <div class="popup-card">
-    <div class="card">
-        <div class="card-header">
+    @yield('content')
 
-          <h2 class="text-center">Rechercher</h2>
-            <div style="position: absolute;right:5px;top:-6px">
-                <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
+    <div class="popup-card">
+        <div class="card">
+            <div class="card-header">
+
+            <h2 class="text-center">Rechercher</h2>
+                <div style="position: absolute;right:5px;top:-6px">
+                    <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
+                </div>
+            </div>
+
+            <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Recherche">
+                    <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Recherche">
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </div>
-              </div>
-        </div>
     </div>
-  </div>
 
-  @include('layouts.Frontend.footer')
+    @include('layouts.Frontend.footer')
 
-</main>
+    </main>
 </div>
 
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
+
 
 
 
