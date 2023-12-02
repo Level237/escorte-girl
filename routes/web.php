@@ -42,6 +42,12 @@ use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
 use App\Http\Controllers\Purchase\PurchaseController;
 use App\Http\Controllers\Purchase\PurchaseMomoController;
 
+//Importing Contact Controller
+use App\Http\Controllers\ContactController;
+
+//Importing Denounce Controller
+use App\Http\Controllers\Ads\DenounceAdsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,6 +80,8 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
 Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable'])->name('unavailable');
 
+//DENOUNCE GROUP URL
+Route::get('/denounceads/{adsID}',[DenounceAdsController::class,'create'])->name('denounce.ads');
 
 //middleware user
 
@@ -91,7 +99,7 @@ Route::middleware(['user'])->group(function () {
     });
 });
 
-
+Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
@@ -104,7 +112,7 @@ Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAds
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
-
+Route::get('/contact',[ContactController::class,'create'])->name('contact');
 
 
 

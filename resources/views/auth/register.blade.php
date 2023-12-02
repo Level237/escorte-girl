@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en-US">
-<!--[if lte IE 8 ]><html lang="en" class="ie ie8"><![endif]-->
-<!--[if IE 9 ]><html lang="en" class="ie"><![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +25,7 @@
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
-/*! This file is auto-generated */
+
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
 </style>
 <style id='global-styles-inline-css' type='text/css'>
@@ -38,12 +37,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </style>
 
 <script src="{{ asset('assets/js/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
-<script src="{{ asset('assets/js/js.plugins-upload.js?ver=1') }}" id="ppt-upload-js"></script>
-<script src="{{ asset('assets/js/js.plugins-selectpicker.js?ver=1') }}" id="ppt-selectpicker-js"></script>
+{{-- <script src="{{ asset('assets/js/js.plugins-upload.js?ver=1') }}" id="ppt-upload-js"></script>
+<script src="{{ asset('assets/js/js.plugins-selectpicker.js?ver=1') }}" id="ppt-selectpicker-js"></script> --}}
 
 
 </head>
-<body class="page-template page-template-templates page-template-tpl-add page-template-templatestpl-add-php page page-id-16 body-hide-footer theme-es tall-images innerpage">
+<body class="page-template page-template-templates page-template-tpl-add 
+page-template-templatestpl-add-php page page-id-16 body-hide-footer theme-es tall-images innerpage">
 
 <div id="wrapper" style="display:none;" class="">
 
@@ -59,7 +59,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-add-listing-save" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-primary p-3 alert-dismissible fade show" role="alert">
-            <strong><i class="fa fa-spin fa-sync mr-3"></i>  Saving Your Changes</strong> - This may take a few minutes, please wait...
+            <strong><i class="fa fa-spin fa-sync mr-3"></i>  Enregistrement</strong> - Cela peut prendre quelques minutes, veuillez patienter...
         </div>
     </div>
 </div>
@@ -283,34 +283,6 @@ jQuery(document).ready(function() {
 	processSwitch();
 });
 
-
-
-function LoadStoreList(){
-
-	jQuery.ajax({
-		type: "POST",
-		url: 'http://escort.test/',
-		dataType: 'json',
-		data: {
-				action: "load_store_list",
-				selected: "",
-		},
-		success: function(response) {
-
-		 	if(response.total > 0){
-
-				jQuery("#storelist").html(response.output);
-
-			}
-
-		},
-		error: function(e) {
-			console.log(e)
-		}
-	});
-
-}
-
 </script>
 </div>
 
@@ -372,21 +344,7 @@ function LoadStoreList(){
 
 
 
-<div class="ppt-add-listing-payment mb-4 show-mobile" style="display:none;">
 
-    <div class="container mt-4">
-        <div class="bg-black rounded p-3 text-light">
-            <div class="d-flex justify-content-between text-700">
-
-            <div>Total</div>
-
-            <div class="totalPriceDisplay"><span class="ppt-price">0</span></div>
-
-            </div>
-        </div>
-    </div>
-
-</div>
 
 <section class="mb-5  text-600 show-mobile">
 <div class="container">
@@ -400,16 +358,6 @@ function LoadStoreList(){
 
 
 </main></div>
-
-
-<input type="hidden" name="totaldue" id="totaldue" class="form-control" value="0">
-
-
-
-
-
-
-<form method="post" enctype="multipart/form-data" id="SUBMISSION_FORM" onsubmit="return false;" style="display:none;"></form>
 
 
 <script>
@@ -451,53 +399,6 @@ function showcustomfields(){
 	});
 }
 
-function updateTotal(){
-
-	var totaldue = 0;
-
-	if(jQuery('[data-amount]').length > 0){
-
-		var a = jQuery("[data-amount]");
-		a.each(function (a) {
-
-			var type = jQuery(this).attr('type');
-
-			console.log(type);
-
-			if(  ( type == "checkbox" || type == "radio"  ) && jQuery(this).prop("checked") ){
-
-			amount = parseFloat(jQuery(this).attr("data-amount"));
-			totaldue += amount;
-
-			}else if(jQuery(this).val() == 1){
-
-			amount = parseFloat(jQuery(this).attr("data-amount"));
-			totaldue += amount;
-
-			}
-
-		});
-	}
-
-	jQuery("#totaldue").val(totaldue);
-	jQuery(".totalPriceDisplay span").html(totaldue);
-	UpdatePrices();
-
-	if(totaldue > 0){
-
-		jQuery(".ppt-add-listing-payment").show();
-
-		jQuery(".btn-save").html("Pay Now");
-
-	}else{
-
-	jQuery(".btn-save").html("Save");
-
-	}
-
-
-}
-
 jQuery(document).ready(function(){
 
 	textarealimit();
@@ -522,9 +423,6 @@ jQuery(document).ready(function(){
 	});
 
 
-
-
-
 	jQuery(".btn-save").on('click',function(e) {
 		processSubmitForm();
 	});
@@ -538,109 +436,6 @@ jQuery(document).ready(function(){
 
 
 });
-
-
-
-
-
-function username_generate(name){
-
-	jQuery("#ajax-username").html('');
-
-	jQuery.ajax({
-                type: "POST",
-				dataType: 'json',
-                url: 'http://escort.test/',
-         	data: {
-                     action: "ajax_username_generate",
-         			name: name,
-                 },
-               success: function(response) {
-
-         			if(response.status == "ok"){
-
-					 jQuery("#ajax-username").html('');
-
-					jQuery.each(response.data, function(key, val) {
-
-						jQuery("#ajax-username").append('<div class="usertry" data-block="block" data-parent="username" data-value="'+val+'">'+val+'</div>');
-
-					});
-
-
-					jQuery('.usertry').each(function () {
-
-						jQuery(this).on('click',function(e) {
-
-							var input = jQuery('input[data-key="username"]');
-
-							 jQuery(".usertry").removeClass('checked');
-
-							 jQuery(input).removeClass('required-active');
-
-							jQuery(this).addClass('checked');
-
-							input.val(jQuery(this).attr("data-value"));
-
-
-						});
-
-					});
-
-
-
-         			}
-                 },
-                 error: function(e) {
-                     alert("error "+e)
-                 }
-	});
-
-}
-function ValidateUsername(){
-
-	var input = jQuery('[data-key="username"]');
-	if(input.val().length < 3){
-	return false;
-	}
-
-	jQuery.ajax({
-                 type: "POST",
-				 dataType: 'json',
-                 url: 'http://escort.test/',
-         		data: {
-                     action: "validateUsername",
-         			un: input.val(),
-                 },
-                 success: function(response) {
-
-						if( response.status == "ok"){
-
-						jQuery("#ajax-username").html('');
-
-						return true;
-
-						}else{
-
-						 jQuery(input).addClass('required-active');
-
-						 return false;
-						}
-                 },
-                 error: function(e) {
-                     alert("error "+e)
-                 }
-	});
-
-	return true;
-
-}
-
-function noUserAccess(){
-
-alert("You can add more media once you've saved this ad.");
-return false;
-}
 
 function steps(id,action){
 
@@ -810,40 +605,10 @@ function processSubmitForm(){
 
 
 
-	// 	if(jQuery('.myemail').val() == ""){
-	// 	jQuery('.myemail').addClass('required-active');
-	// 	steps('5','this');
-	// 	alert("Please enter your email address.");
-	// 	return false;
-
-	// }
-
-	// if(!isValidEmail(jQuery('.myemail').val())){
-	// 	jQuery('.myemail').addClass('required-active');
-	// 	steps('5','this');
-	// 	alert("Please enter a valid email address.");
-	// 	return false;
-	// }
 
 
 
-	// jQuery('.myemail').removeClass('required-active');
-
-
-
-	// CHECK IF VALUE IS ON
-	// if(jQuery('#field-post_content').length){
-
-	// 	var text_length = jQuery('#field-post_content').val().length;
-	// 	if( text_length < 100 ){
-
-	// 		jQuery('#field-post_content').addClass('required-active').focus();
-
-	// 		alert("Please enter a bigger description.");
-	// 		steps('2','this');
-	// 		return false;
-	// 	}
-	// }
+	
 
 
 	 // GOOGLE RECAPTURE
@@ -977,53 +742,6 @@ function processSubmitForm(){
 
 }
 
-
-function textarealimit(){
-
-
-   	text_max = 100;
-
-     if(text_max == 0 || text_max == ""){
-   	  jQuery('#textarea_counter').hide();
-	  jQuery('#textarea_counter_hidden').val('1');
-   	  return;
-     }
-
-	 if(jQuery('#field-post_content').length){
-
-     	var text_length = jQuery('#field-post_content').val().length;
-
-		 var text_remaining = text_max - text_length;
-		 if(text_remaining < 0){
-		 jQuery('#textarea_counter').hide();
-		 }
-
-		 jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> characters remaining');
-
-		  jQuery('#field-post_content').keyup(function() {
-
-			   var text_length = jQuery('#field-post_content').val().length;
-			   var text_remaining = text_max - text_length;
-
-			   jQuery('#textarea_counter span').html( '<b>' + text_remaining + '</b> characters remaining');
-
-			if(text_remaining < 0){
-				jQuery('#textarea_counter').hide();
-				 jQuery('#textarea_counter_hidden').val('1');
-			}else{
-				jQuery('#textarea_counter').show();
-				 jQuery('#textarea_counter_hidden').val('0');
-			}
-
-		  });
-
-	 }
-
-}
-
-/* SCROLL */
-!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):t.PerfectScrollbar=e()}(this,function(){"use strict";function t(t){return getComputedStyle(t)}function e(t,e){for(var i in e){var r=e[i];"number"==typeof r&&(r+="px"),t.style[i]=r}return t}function i(t){var e=document.createElement("div");return e.className=t,e}function r(t,e){if(!v)throw new Error("No element matching method supported");return v.call(t,e)}function l(t){t.remove?t.remove():t.parentNode&&t.parentNode.removeChild(t)}function n(t,e){return Array.prototype.filter.call(t.children,function(t){return r(t,e)})}function o(t,e){var i=t.element.classList,r=m.state.scrolling(e);i.contains(r)?clearTimeout(Y[e]):i.add(r)}function s(t,e){Y[e]=setTimeout(function(){return t.isAlive&&t.element.classList.remove(m.state.scrolling(e))},t.settings.scrollingThreshold)}function a(t,e){o(t,e),s(t,e)}function c(t){if("function"==typeof window.CustomEvent)return new CustomEvent(t);var e=document.createEvent("CustomEvent");return e.initCustomEvent(t,!1,!1,void 0),e}function h(t,e,i,r,l){var n=i[0],o=i[1],s=i[2],h=i[3],u=i[4],d=i[5];void 0===r&&(r=!0),void 0===l&&(l=!1);var f=t.element;t.reach[h]=null,f[s]<1&&(t.reach[h]="start"),f[s]>t[n]-t[o]-1&&(t.reach[h]="end"),e&&(f.dispatchEvent(c("ps-scroll-"+h)),e<0?f.dispatchEvent(c("ps-scroll-"+u)):e>0&&f.dispatchEvent(c("ps-scroll-"+d)),r&&a(t,h)),t.reach[h]&&(e||l)&&f.dispatchEvent(c("ps-"+h+"-reach-"+t.reach[h]))}function u(t){return parseInt(t,10)||0}function d(t){return r(t,"input,[contenteditable]")||r(t,"select,[contenteditable]")||r(t,"textarea,[contenteditable]")||r(t,"button,[contenteditable]")}function f(e){var i=t(e);return u(i.width)+u(i.paddingLeft)+u(i.paddingRight)+u(i.borderLeftWidth)+u(i.borderRightWidth)}function p(t,e){return t.settings.minScrollbarLength&&(e=Math.max(e,t.settings.minScrollbarLength)),t.settings.maxScrollbarLength&&(e=Math.min(e,t.settings.maxScrollbarLength)),e}function b(t,i){var r={width:i.railXWidth},l=Math.floor(t.scrollTop);i.isRtl?r.left=i.negativeScrollAdjustment+t.scrollLeft+i.containerWidth-i.contentWidth:r.left=t.scrollLeft,i.isScrollbarXUsingBottom?r.bottom=i.scrollbarXBottom-l:r.top=i.scrollbarXTop+l,e(i.scrollbarXRail,r);var n={top:l,height:i.railYHeight};i.isScrollbarYUsingRight?i.isRtl?n.right=i.contentWidth-(i.negativeScrollAdjustment+t.scrollLeft)-i.scrollbarYRight-i.scrollbarYOuterWidth:n.right=i.scrollbarYRight-t.scrollLeft:i.isRtl?n.left=i.negativeScrollAdjustment+t.scrollLeft+2*i.containerWidth-i.contentWidth-i.scrollbarYLeft-i.scrollbarYOuterWidth:n.left=i.scrollbarYLeft+t.scrollLeft,e(i.scrollbarYRail,n),e(i.scrollbarX,{left:i.scrollbarXLeft,width:i.scrollbarXWidth-i.railBorderXWidth}),e(i.scrollbarY,{top:i.scrollbarYTop,height:i.scrollbarYHeight-i.railBorderYWidth})}function g(t,e){function i(e){b[d]=g+Y*(e[a]-v),o(t,f),R(t),e.stopPropagation(),e.preventDefault()}function r(){s(t,f),t[p].classList.remove(m.state.clicking),t.event.unbind(t.ownerDocument,"mousemove",i)}var l=e[0],n=e[1],a=e[2],c=e[3],h=e[4],u=e[5],d=e[6],f=e[7],p=e[8],b=t.element,g=null,v=null,Y=null;t.event.bind(t[h],"mousedown",function(e){g=b[d],v=e[a],Y=(t[n]-t[l])/(t[c]-t[u]),t.event.bind(t.ownerDocument,"mousemove",i),t.event.once(t.ownerDocument,"mouseup",r),t[p].classList.add(m.state.clicking),e.stopPropagation(),e.preventDefault()})}var v="undefined"!=typeof Element&&(Element.prototype.matches||Element.prototype.webkitMatchesSelector||Element.prototype.mozMatchesSelector||Element.prototype.msMatchesSelector),m={main:"ps",element:{thumb:function(t){return"ps__thumb-"+t},rail:function(t){return"ps__rail-"+t},consuming:"ps__child--consume"},state:{focus:"ps--focus",clicking:"ps--clicking",active:function(t){return"ps--active-"+t},scrolling:function(t){return"ps--scrolling-"+t}}},Y={x:null,y:null},X=function(t){this.element=t,this.handlers={}},w={isEmpty:{configurable:!0}};X.prototype.bind=function(t,e){void 0===this.handlers[t]&&(this.handlers[t]=[]),this.handlers[t].push(e),this.element.addEventListener(t,e,!1)},X.prototype.unbind=function(t,e){var i=this;this.handlers[t]=this.handlers[t].filter(function(r){return!(!e||r===e)||(i.element.removeEventListener(t,r,!1),!1)})},X.prototype.unbindAll=function(){var t=this;for(var e in t.handlers)t.unbind(e)},w.isEmpty.get=function(){var t=this;return Object.keys(this.handlers).every(function(e){return 0===t.handlers[e].length})},Object.defineProperties(X.prototype,w);var y=function(){this.eventElements=[]};y.prototype.eventElement=function(t){var e=this.eventElements.filter(function(e){return e.element===t})[0];return e||(e=new X(t),this.eventElements.push(e)),e},y.prototype.bind=function(t,e,i){this.eventElement(t).bind(e,i)},y.prototype.unbind=function(t,e,i){var r=this.eventElement(t);r.unbind(e,i),r.isEmpty&&this.eventElements.splice(this.eventElements.indexOf(r),1)},y.prototype.unbindAll=function(){this.eventElements.forEach(function(t){return t.unbindAll()}),this.eventElements=[]},y.prototype.once=function(t,e,i){var r=this.eventElement(t),l=function(t){r.unbind(e,l),i(t)};r.bind(e,l)};var W=function(t,e,i,r,l){void 0===r&&(r=!0),void 0===l&&(l=!1);var n;if("top"===e)n=["contentHeight","containerHeight","scrollTop","y","up","down"];else{if("left"!==e)throw new Error("A proper axis should be provided");n=["contentWidth","containerWidth","scrollLeft","x","left","right"]}h(t,i,n,r,l)},L={isWebKit:"undefined"!=typeof document&&"WebkitAppearance"in document.documentElement.style,supportsTouch:"undefined"!=typeof window&&("ontouchstart"in window||window.DocumentTouch&&document instanceof window.DocumentTouch),supportsIePointer:"undefined"!=typeof navigator&&navigator.msMaxTouchPoints,isChrome:"undefined"!=typeof navigator&&/Chrome/i.test(navigator&&navigator.userAgent)},R=function(t){var e=t.element,i=Math.floor(e.scrollTop);t.containerWidth=e.clientWidth,t.containerHeight=e.clientHeight,t.contentWidth=e.scrollWidth,t.contentHeight=e.scrollHeight,e.contains(t.scrollbarXRail)||(n(e,m.element.rail("x")).forEach(function(t){return l(t)}),e.appendChild(t.scrollbarXRail)),e.contains(t.scrollbarYRail)||(n(e,m.element.rail("y")).forEach(function(t){return l(t)}),e.appendChild(t.scrollbarYRail)),!t.settings.suppressScrollX&&t.containerWidth+t.settings.scrollXMarginOffset<t.contentWidth?(t.scrollbarXActive=!0,t.railXWidth=t.containerWidth-t.railXMarginWidth,t.railXRatio=t.containerWidth/t.railXWidth,t.scrollbarXWidth=p(t,u(t.railXWidth*t.containerWidth/t.contentWidth)),t.scrollbarXLeft=u((t.negativeScrollAdjustment+e.scrollLeft)*(t.railXWidth-t.scrollbarXWidth)/(t.contentWidth-t.containerWidth))):t.scrollbarXActive=!1,!t.settings.suppressScrollY&&t.containerHeight+t.settings.scrollYMarginOffset<t.contentHeight?(t.scrollbarYActive=!0,t.railYHeight=t.containerHeight-t.railYMarginHeight,t.railYRatio=t.containerHeight/t.railYHeight,t.scrollbarYHeight=p(t,u(t.railYHeight*t.containerHeight/t.contentHeight)),t.scrollbarYTop=u(i*(t.railYHeight-t.scrollbarYHeight)/(t.contentHeight-t.containerHeight))):t.scrollbarYActive=!1,t.scrollbarXLeft>=t.railXWidth-t.scrollbarXWidth&&(t.scrollbarXLeft=t.railXWidth-t.scrollbarXWidth),t.scrollbarYTop>=t.railYHeight-t.scrollbarYHeight&&(t.scrollbarYTop=t.railYHeight-t.scrollbarYHeight),b(e,t),t.scrollbarXActive?e.classList.add(m.state.active("x")):(e.classList.remove(m.state.active("x")),t.scrollbarXWidth=0,t.scrollbarXLeft=0,e.scrollLeft=0),t.scrollbarYActive?e.classList.add(m.state.active("y")):(e.classList.remove(m.state.active("y")),t.scrollbarYHeight=0,t.scrollbarYTop=0,e.scrollTop=0)},T={"click-rail":function(t){t.event.bind(t.scrollbarY,"mousedown",function(t){return t.stopPropagation()}),t.event.bind(t.scrollbarYRail,"mousedown",function(e){var i=e.pageY-window.pageYOffset-t.scrollbarYRail.getBoundingClientRect().top>t.scrollbarYTop?1:-1;t.element.scrollTop+=i*t.containerHeight,R(t),e.stopPropagation()}),t.event.bind(t.scrollbarX,"mousedown",function(t){return t.stopPropagation()}),t.event.bind(t.scrollbarXRail,"mousedown",function(e){var i=e.pageX-window.pageXOffset-t.scrollbarXRail.getBoundingClientRect().left>t.scrollbarXLeft?1:-1;t.element.scrollLeft+=i*t.containerWidth,R(t),e.stopPropagation()})},"drag-thumb":function(t){g(t,["containerWidth","contentWidth","pageX","railXWidth","scrollbarX","scrollbarXWidth","scrollLeft","x","scrollbarXRail"]),g(t,["containerHeight","contentHeight","pageY","railYHeight","scrollbarY","scrollbarYHeight","scrollTop","y","scrollbarYRail"])},keyboard:function(t){function e(e,r){var l=Math.floor(i.scrollTop);if(0===e){if(!t.scrollbarYActive)return!1;if(0===l&&r>0||l>=t.contentHeight-t.containerHeight&&r<0)return!t.settings.wheelPropagation}var n=i.scrollLeft;if(0===r){if(!t.scrollbarXActive)return!1;if(0===n&&e<0||n>=t.contentWidth-t.containerWidth&&e>0)return!t.settings.wheelPropagation}return!0}var i=t.element,l=function(){return r(i,":hover")},n=function(){return r(t.scrollbarX,":focus")||r(t.scrollbarY,":focus")};t.event.bind(t.ownerDocument,"keydown",function(r){if(!(r.isDefaultPrevented&&r.isDefaultPrevented()||r.defaultPrevented)&&(l()||n())){var o=document.activeElement?document.activeElement:t.ownerDocument.activeElement;if(o){if("IFRAME"===o.tagName)o=o.contentDocument.activeElement;else for(;o.shadowRoot;)o=o.shadowRoot.activeElement;if(d(o))return}var s=0,a=0;switch(r.which){case 37:s=r.metaKey?-t.contentWidth:r.altKey?-t.containerWidth:-30;break;case 38:a=r.metaKey?t.contentHeight:r.altKey?t.containerHeight:30;break;case 39:s=r.metaKey?t.contentWidth:r.altKey?t.containerWidth:30;break;case 40:a=r.metaKey?-t.contentHeight:r.altKey?-t.containerHeight:-30;break;case 32:a=r.shiftKey?t.containerHeight:-t.containerHeight;break;case 33:a=t.containerHeight;break;case 34:a=-t.containerHeight;break;case 36:a=t.contentHeight;break;case 35:a=-t.contentHeight;break;default:return}t.settings.suppressScrollX&&0!==s||t.settings.suppressScrollY&&0!==a||(i.scrollTop-=a,i.scrollLeft+=s,R(t),e(s,a)&&r.preventDefault())}})},wheel:function(e){function i(t,i){var r=Math.floor(o.scrollTop),l=0===o.scrollTop,n=r+o.offsetHeight===o.scrollHeight,s=0===o.scrollLeft,a=o.scrollLeft+o.offsetWidth===o.scrollWidth;return!(Math.abs(i)>Math.abs(t)?l||n:s||a)||!e.settings.wheelPropagation}function r(t){var e=t.deltaX,i=-1*t.deltaY;return void 0!==e&&void 0!==i||(e=-1*t.wheelDeltaX/6,i=t.wheelDeltaY/6),t.deltaMode&&1===t.deltaMode&&(e*=10,i*=10),e!==e&&i!==i&&(e=0,i=t.wheelDelta),t.shiftKey?[-i,-e]:[e,i]}function l(e,i,r){if(!L.isWebKit&&o.querySelector("select:focus"))return!0;if(!o.contains(e))return!1;for(var l=e;l&&l!==o;){if(l.classList.contains(m.element.consuming))return!0;var n=t(l);if([n.overflow,n.overflowX,n.overflowY].join("").match(/(scroll|auto)/)){var s=l.scrollHeight-l.clientHeight;if(s>0&&!(0===l.scrollTop&&r>0||l.scrollTop===s&&r<0))return!0;var a=l.scrollWidth-l.clientWidth;if(a>0&&!(0===l.scrollLeft&&i<0||l.scrollLeft===a&&i>0))return!0}l=l.parentNode}return!1}function n(t){var n=r(t),s=n[0],a=n[1];if(!l(t.target,s,a)){var c=!1;e.settings.useBothWheelAxes?e.scrollbarYActive&&!e.scrollbarXActive?(a?o.scrollTop-=a*e.settings.wheelSpeed:o.scrollTop+=s*e.settings.wheelSpeed,c=!0):e.scrollbarXActive&&!e.scrollbarYActive&&(s?o.scrollLeft+=s*e.settings.wheelSpeed:o.scrollLeft-=a*e.settings.wheelSpeed,c=!0):(o.scrollTop-=a*e.settings.wheelSpeed,o.scrollLeft+=s*e.settings.wheelSpeed),R(e),(c=c||i(s,a))&&!t.ctrlKey&&(t.stopPropagation(),t.preventDefault())}}var o=e.element;void 0!==window.onwheel?e.event.bind(o,"wheel",n):void 0!==window.onmousewheel&&e.event.bind(o,"mousewheel",n)},touch:function(e){function i(t,i){var r=Math.floor(h.scrollTop),l=h.scrollLeft,n=Math.abs(t),o=Math.abs(i);if(o>n){if(i<0&&r===e.contentHeight-e.containerHeight||i>0&&0===r)return 0===window.scrollY&&i>0&&L.isChrome}else if(n>o&&(t<0&&l===e.contentWidth-e.containerWidth||t>0&&0===l))return!0;return!0}function r(t,i){h.scrollTop-=i,h.scrollLeft-=t,R(e)}function l(t){return t.targetTouches?t.targetTouches[0]:t}function n(t){return!(t.pointerType&&"pen"===t.pointerType&&0===t.buttons||(!t.targetTouches||1!==t.targetTouches.length)&&(!t.pointerType||"mouse"===t.pointerType||t.pointerType===t.MSPOINTER_TYPE_MOUSE))}function o(t){if(n(t)){var e=l(t);u.pageX=e.pageX,u.pageY=e.pageY,d=(new Date).getTime(),null!==p&&clearInterval(p)}}function s(e,i,r){if(!h.contains(e))return!1;for(var l=e;l&&l!==h;){if(l.classList.contains(m.element.consuming))return!0;var n=t(l);if([n.overflow,n.overflowX,n.overflowY].join("").match(/(scroll|auto)/)){var o=l.scrollHeight-l.clientHeight;if(o>0&&!(0===l.scrollTop&&r>0||l.scrollTop===o&&r<0))return!0;var s=l.scrollLeft-l.clientWidth;if(s>0&&!(0===l.scrollLeft&&i<0||l.scrollLeft===s&&i>0))return!0}l=l.parentNode}return!1}function a(t){if(n(t)){var e=l(t),o={pageX:e.pageX,pageY:e.pageY},a=o.pageX-u.pageX,c=o.pageY-u.pageY;if(s(t.target,a,c))return;r(a,c),u=o;var h=(new Date).getTime(),p=h-d;p>0&&(f.x=a/p,f.y=c/p,d=h),i(a,c)&&t.preventDefault()}}function c(){e.settings.swipeEasing&&(clearInterval(p),p=setInterval(function(){e.isInitialized?clearInterval(p):f.x||f.y?Math.abs(f.x)<.01&&Math.abs(f.y)<.01?clearInterval(p):(r(30*f.x,30*f.y),f.x*=.8,f.y*=.8):clearInterval(p)},10))}if(L.supportsTouch||L.supportsIePointer){var h=e.element,u={},d=0,f={},p=null;L.supportsTouch?(e.event.bind(h,"touchstart",o),e.event.bind(h,"touchmove",a),e.event.bind(h,"touchend",c)):L.supportsIePointer&&(window.PointerEvent?(e.event.bind(h,"pointerdown",o),e.event.bind(h,"pointermove",a),e.event.bind(h,"pointerup",c)):window.MSPointerEvent&&(e.event.bind(h,"MSPointerDown",o),e.event.bind(h,"MSPointerMove",a),e.event.bind(h,"MSPointerUp",c)))}}},H=function(r,l){var n=this;if(void 0===l&&(l={}),"string"==typeof r&&(r=document.querySelector(r)),!r||!r.nodeName)throw new Error("no element is specified to initialize PerfectScrollbar");this.element=r,r.classList.add(m.main),this.settings={handlers:["click-rail","drag-thumb","keyboard","wheel","touch"],maxScrollbarLength:null,minScrollbarLength:null,scrollingThreshold:1e3,scrollXMarginOffset:0,scrollYMarginOffset:0,suppressScrollX:!1,suppressScrollY:!1,swipeEasing:!0,useBothWheelAxes:!1,wheelPropagation:!0,wheelSpeed:1};for(var o in l)n.settings[o]=l[o];this.containerWidth=null,this.containerHeight=null,this.contentWidth=null,this.contentHeight=null;var s=function(){return r.classList.add(m.state.focus)},a=function(){return r.classList.remove(m.state.focus)};this.isRtl="rtl"===t(r).direction,this.isNegativeScroll=function(){var t=r.scrollLeft,e=null;return r.scrollLeft=-1,e=r.scrollLeft<0,r.scrollLeft=t,e}(),this.negativeScrollAdjustment=this.isNegativeScroll?r.scrollWidth-r.clientWidth:0,this.event=new y,this.ownerDocument=r.ownerDocument||document,this.scrollbarXRail=i(m.element.rail("x")),r.appendChild(this.scrollbarXRail),this.scrollbarX=i(m.element.thumb("x")),this.scrollbarXRail.appendChild(this.scrollbarX),this.scrollbarX.setAttribute("tabindex",0),this.event.bind(this.scrollbarX,"focus",s),this.event.bind(this.scrollbarX,"blur",a),this.scrollbarXActive=null,this.scrollbarXWidth=null,this.scrollbarXLeft=null;var c=t(this.scrollbarXRail);this.scrollbarXBottom=parseInt(c.bottom,10),isNaN(this.scrollbarXBottom)?(this.isScrollbarXUsingBottom=!1,this.scrollbarXTop=u(c.top)):this.isScrollbarXUsingBottom=!0,this.railBorderXWidth=u(c.borderLeftWidth)+u(c.borderRightWidth),e(this.scrollbarXRail,{display:"block"}),this.railXMarginWidth=u(c.marginLeft)+u(c.marginRight),e(this.scrollbarXRail,{display:""}),this.railXWidth=null,this.railXRatio=null,this.scrollbarYRail=i(m.element.rail("y")),r.appendChild(this.scrollbarYRail),this.scrollbarY=i(m.element.thumb("y")),this.scrollbarYRail.appendChild(this.scrollbarY),this.scrollbarY.setAttribute("tabindex",0),this.event.bind(this.scrollbarY,"focus",s),this.event.bind(this.scrollbarY,"blur",a),this.scrollbarYActive=null,this.scrollbarYHeight=null,this.scrollbarYTop=null;var h=t(this.scrollbarYRail);this.scrollbarYRight=parseInt(h.right,10),isNaN(this.scrollbarYRight)?(this.isScrollbarYUsingRight=!1,this.scrollbarYLeft=u(h.left)):this.isScrollbarYUsingRight=!0,this.scrollbarYOuterWidth=this.isRtl?f(this.scrollbarY):null,this.railBorderYWidth=u(h.borderTopWidth)+u(h.borderBottomWidth),e(this.scrollbarYRail,{display:"block"}),this.railYMarginHeight=u(h.marginTop)+u(h.marginBottom),e(this.scrollbarYRail,{display:""}),this.railYHeight=null,this.railYRatio=null,this.reach={x:r.scrollLeft<=0?"start":r.scrollLeft>=this.contentWidth-this.containerWidth?"end":null,y:r.scrollTop<=0?"start":r.scrollTop>=this.contentHeight-this.containerHeight?"end":null},this.isAlive=!0,this.settings.handlers.forEach(function(t){return T[t](n)}),this.lastScrollTop=Math.floor(r.scrollTop),this.lastScrollLeft=r.scrollLeft,this.event.bind(this.element,"scroll",function(t){return n.onScroll(t)}),R(this)};return H.prototype.update=function(){this.isAlive&&(this.negativeScrollAdjustment=this.isNegativeScroll?this.element.scrollWidth-this.element.clientWidth:0,e(this.scrollbarXRail,{display:"block"}),e(this.scrollbarYRail,{display:"block"}),this.railXMarginWidth=u(t(this.scrollbarXRail).marginLeft)+u(t(this.scrollbarXRail).marginRight),this.railYMarginHeight=u(t(this.scrollbarYRail).marginTop)+u(t(this.scrollbarYRail).marginBottom),e(this.scrollbarXRail,{display:"none"}),e(this.scrollbarYRail,{display:"none"}),R(this),W(this,"top",0,!1,!0),W(this,"left",0,!1,!0),e(this.scrollbarXRail,{display:""}),e(this.scrollbarYRail,{display:""}))},H.prototype.onScroll=function(t){this.isAlive&&(R(this),W(this,"top",this.element.scrollTop-this.lastScrollTop),W(this,"left",this.element.scrollLeft-this.lastScrollLeft),this.lastScrollTop=Math.floor(this.element.scrollTop),this.lastScrollLeft=this.element.scrollLeft)},H.prototype.destroy=function(){this.isAlive&&(this.event.unbindAll(),l(this.scrollbarX),l(this.scrollbarY),l(this.scrollbarXRail),l(this.scrollbarYRail),this.removePsClasses(),this.element=null,this.scrollbarX=null,this.scrollbarY=null,this.scrollbarXRail=null,this.scrollbarYRail=null,this.isAlive=!1)},H.prototype.removePsClasses=function(){this.element.className=this.element.className.split(" ").filter(function(t){return!t.match(/^ps([-_].+|)$/)}).join(" ")},H});
-
 </script>
 
 
@@ -1153,40 +871,6 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
 
-
-
-
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-
-	<li><a href="/" class="">
-        <i class="fal fa-house"></i> Accueil</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-search"></i> Chercher</a></li>
-
-
-     <li> <a href="#" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fa fa-users-crown"></i> Escorts</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-sparkles"></i> Annonces</a></li>
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
-
 <link rel='stylesheet' id='ppt-up-css-css' href='{{ asset('assets/css/_up.css?ver=6.3.2') }}' type='text/css' media='all'>
 <link rel='stylesheet' id='ppt-submit-css-css' href='{{ asset('assets/css/_submitform.css?ver=6.3.2') }}' type='text/css' media='all'>
 <script src="{{ asset('assets/js/js.up.js?ver=1') }}" id="ppt-up-js-js"></script>
@@ -1196,9 +880,6 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
                <script>
 				var ajax_img_url = "https://ppt1080.b-cdn.net/";
-				var ajax_site_url = "http://escort.test/index.php";
-				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/";
-				var ajax_googlemaps_key = "";
 				 </script>
 
 				<input type="hidden" id="ppt-current-tho" value=",">
@@ -1207,23 +888,23 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 				<input type="hidden" id="ppt-current-position" value="left">
                 <input type="hidden" id="ppt-map-provider" value="mapbox">
 
-                                  <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
-                                  <script async="" src="{{ asset('assets/js/js.up-1.js?v=10.8.9') }}" id="premiumpress-up-js"></script>
-                                  <script async="" src="{{ asset('assets/js/js.search.js?v=10.8.9') }}" id="premiumpress-submit-js"></script>
+                <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
+                <script async="" src="{{ asset('assets/js/js.up-1.js?v=10.8.9') }}" id="premiumpress-up-js"></script>
+                <script async="" src="{{ asset('assets/js/js.search.js?v=10.8.9') }}" id="premiumpress-submit-js"></script>
 
 				<noscript id="deferred-styles">
 
-								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css') }}">
-								<link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-up" href="{{ asset('assets/css/_up-1.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-submit" href="{{ asset('assets/css/_submitform-1.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-mobileprefix" href="{{ asset('assets/css/_mobileprefix.css?v=10.8.9') }}">
-								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css') }}">
+				<link rel="stylesheet" type="text/css" id="theme-maps" href="{{ asset('assets/css/css.theme-maps.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="theme-utilities" href="{{ asset('assets/css/css.theme-utilities.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-up" href="{{ asset('assets/css/_up-1.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-submit" href="{{ asset('assets/css/_submitform-1.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-mobileprefix" href="{{ asset('assets/css/_mobileprefix.css?v=10.8.9') }}">
+				<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 
                 				<style>
 				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
@@ -1248,128 +929,10 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
 				</script>
                 <!----------------- -->
-<div id="ppt-notice-new-custom" style="display:none;">
-
-<div class="p-3 bg-white rounded shadow-lg position-relative" style="min-width: 250px; max-width:400px;">
-  <div class="d-flex">
-    <div>
-      <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-        <div class="bg-image rounded bg-light">
-        </div>
-      </div>
-    </div>
-    <div class="pr-5">
-      <div ppt-icon-24="" data-ppt-icon-size="24" class="btn-close position-absolute" style="right:10px; top:10px;cursor:pointer;">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>      </div>
-      <a href="#" class="_link btn-close text-dark">
-      <div class="_username">
-        <strong>Sammy</strong> has updated her photo. Do you like it?
-      </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-</div>
-
-<div id="ppt-notice-new-notifications" style="display:none;">
-
-<div ppt-box="" class="rounded">
-  <div class="_content py-3">
-    <div class="d-flex">
-      <div style="width:150px;" class="hide-mobile">
-        <div style="height:60px; width:60px;" class="bg-light rounded position-relative overflow-hidden" ppt-flex-middle="">
-          <div ppt-icon-size="32" data-ppt-icon="" class="text-warning">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>          </div>
-        </div>
-      </div>
-      <div class="w-100 mx-3" ppt-flex="">
-        <div class="text-600 fs-5">
-          New Notification        </div>
-        <div class="lh-20 mt-2 fs-sm">
-          You have a new notification.        </div>
-      </div>
-      <div ppt-flex-between="" ppt-flex-end="">
-        <a href="#" class="btn-close _ok btn-warning" data-ppt-btn="">
-        <div ppt-icon-size="24" data-ppt-icon="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>        </div>
-        </a> <a href="#" class="btn-system  _cancel btn-close hide-mobile" data-ppt-btn="">
-        <div ppt-icon-size="24" data-ppt-icon="">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>        </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div id="ppt-notice-new-message" style="display:none;">
 
 
-<div class="bg-white p-3 rounded shadow" style="max-width:400px;">
-          <div class="d-flex">
-            <div>
-              <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-                <div class="bg-image rounded" data-bg="">&nbsp;</div>
-              </div>
-            </div>
-            <div class="fs-5">
-              <strong class="_username">Mark</strong> Has sent you a message, take a look!            </div>
-          </div>
-
-        <div class="d-flex w-100 mt-4">
-          <button class="_ok w-100 btn-primary btn-close" data-ppt-btn="">Read</button>
-          <button class="_cancel w-100 btn-system btn-close" data-ppt-btn="">Cancel</button>
-        </div>
-      </div>
-</div>
-
-
-<div id="ppt-notice-new-login" style="display:none;">
-
-    <div class="card-body">
-          <div class="d-flex">
-            <div>
-              <div style="height:50px; width:50px;" class="rounded bg-light mr-4 position-relative">
-                <div class="bg-image rounded" data-bg="">
-                </div>
-              </div>
-            </div>
-            <div class="_msg_login"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged in. Say hello!</a></div>
-            <div class="_msg_logout"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged of. Say Goodbye.</a></div>
-           <div class="_msg_upgrade"><a href="#" class="_link"><strong class="_username">Mark</strong> Has has just upgraded their account.</a></div>
-
-
-          </div>
-        </div>
-</div>
-
-
-
-
-<div id="locationMap">
-</div>
 <!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap" data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <script src="{{ asset('assets/intl-tel-input-master/build/js/intlTelInput.js') }}"></script>
 <script>
 

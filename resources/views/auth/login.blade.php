@@ -240,37 +240,7 @@ function login_process(){
 
 
 
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
 
-
-	<li><a href="/" class="">
-        <i class="fal fa-house"></i> Accueil</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-search"></i>Chercher</a></li>
-
-
-     <li> <a href="/" class="menu-add bg-primary ">
-      <i class="fa fa-plus text-white"></i> </a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fa fa-users-crown"></i> Escorts</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-sparkles"></i>Annonces</a></li>
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
 

@@ -206,7 +206,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
        <div class="text-600 filtertxt">Mot-clé</div>
 
 
-
        <div ppt-icon-16 data-ppt-icon-size="16">
 
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -712,17 +711,28 @@ function filterToggle(val){
 
 
 				<div class="show-mobile">
+          <div class="buttons-wrap">
+
+
+
+				<div class="button-new">{{ $escort['town']}}</div>
+
+
+
+
+
+				</div>
 				  <div class="position-relative mb-3">
-					<a href="#">
+					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
+
 					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 					  <div class="h-100 position-relative">
 						<figure>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
-				</div>           <div class="bg-image z-0" data-bg="{{ $escort['photo']}}"> </div>
+
+				</div>           <div class="bg-image z-0" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}"> </div>
 						</figure>
 					  </div>
 					</div>
@@ -873,6 +883,7 @@ function filterToggle(val){
         </div>
       </div>
 </div>
+
 
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->

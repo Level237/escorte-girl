@@ -108,7 +108,7 @@ nav .fa{
                   
                   <li onclick="event.preventDefault(); document.getElementById('logout').submit();"><a href="#"> DÉCONNEXION </a></li>
                   @endif
-                  <li><a href="#"> CONTACT</a></li>
+                  <li><a href="{{ route('contact') }}"> CONTACT</a></li>
 
             </ul>
           
