@@ -1,7 +1,7 @@
 @extends("layouts.Frontend.master")
 
 @section('title')
-Félicitations
+Achat de credit
 @endsection
 
 @section("content")
@@ -15,26 +15,52 @@ Félicitations
 <div class="bg-primary pt-3">
 
       <div class="card-popup-content">
-      <div class="">
-      <span class="smilecode" style="font-size: 40px;">&#x1F600;</span>
-       <h5 class="text-white">Abonnement souscrit avec succès</h5>
-       </div>
+
+
+       <h5 class="text-white">Achat de Credit</h5>
+
       </div>
 </div>
 <div class="card-body bg-white text-center">
 
 
+            <form action="{{ route('purchase.init.credit') }}" method="post">
+                @csrf
+                <div class="form-group mt-4">
+
+                    <label class="">Entrez le nombre de credit à acheter</label>
+
+                    <select name="price" id="" class="form-control">
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="500">500</option>
+                        <option value="600">600</option>
+                        <option value="700">700</option>
+                        <option value="800">800</option>
+                        <option value="900">900</option>
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                        <option value="3000">3000</option>
+                        <option value="4000">4000</option>
+                        <option value="5000">5000</option>
+                        <option value="6000">6000</option>
+                        <option value="7000">7000</option>
+                        <option value="8000">8000</option>
+                        <option value="9000">9000</option>
+                        <option value="10000">10000</option>
+                    </select>
+
+
+                    </div>
+
+                    <div><button type="submit" data-ppt-btn class="btn-primary btn-lg my-3">Acheter</button></div>
+            </form>
 
 
 
-                  <p class="text-600">Merci, votre Abonnement a été Validé avec succès.
 
-                    </p>
-                  <p class="margin-top3">Si vous avez des questions, contactez nous.</p>
-
-
-
-                                                <div><a href="{{ route('my-purchase') }}" data-ppt-btn class="btn-primary btn-lg my-3">Voir mes Abonnements</a></div>
 
 
 
@@ -225,3 +251,4 @@ Félicitations
 
 
 @endsection
+

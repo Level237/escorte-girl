@@ -15,28 +15,10 @@ class PurchaseController extends Controller
     public function purchaseWithCredit(Request $request){
         $purchaseService=(new PurchaseMembershipService())->purchaseWithCredit($request->membership_id,$request->announcement_id);
         if($purchaseService->code===200){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             return view('membership.congrats');
-=======
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-=======
->>>>>>> refs/remotes/origin/main
-            
-            return to_route('congrats-purchase');
->>>>>>> refs/remotes/origin/main
+
+
         }
     }
 
@@ -62,6 +44,16 @@ class PurchaseController extends Controller
 
         return view('membership.fail');
 
+    }
+
+    public function purchaseCredit(){
+        return view('purchase.purchase-credit');
+    }
+
+    public function purchaseInitCredit(Request $request){
+        $price=$request->price;
+
+        return view('purchase.purchase-credit-with-momo',compact('price'));
     }
 
 
