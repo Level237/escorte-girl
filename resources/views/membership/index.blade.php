@@ -224,7 +224,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="row hide-mobile">
+<div class="row ">
     @if ($memberships)
 
 
