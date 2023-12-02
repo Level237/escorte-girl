@@ -11,6 +11,7 @@ use App\services\Api\CurrentUserService;
 use App\Services\Api\Escort\GetEscortService;
 use App\Services\Api\Purchase\PurchaseMembershipService;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
+use App\Services\Api\Purchase\CurrentPurchaseService;
 
 class DashboardEscortController extends Controller
 {
@@ -116,8 +117,10 @@ class DashboardEscortController extends Controller
         if($completed==0){
             return to_route('step-one');
         }else{
+            $payments=(new CurrentPurchaseService())->currentPayment();
             $escort = (new GetEscortService)->getEscort();
-            return view('dashboard.escort.finance', compact('user','escort'));
+            return $payments;
+            //return view('dashboard.escort.finance', compact('user','escort'));
         }
 
     }

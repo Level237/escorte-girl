@@ -27,11 +27,6 @@ class CurrentPurchaseService{
         $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/payment/user");
 
         $data = json_decode((string) $response->getBody(), true);
-        if($data['data'] === null){
-            return null;
-        }
-        else{
-            return $data['data'];
-        }
+        return $data;
     }
 }
