@@ -147,19 +147,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div >
 
-<div class="position-relative filter-keyword mb-4 show-mobile">
 
-  <input type="text" class="form-control customfilter typeahead shadow-sm" name="keyword" id="keyword" data-type="text" onchange="_filter_update()"  data-key="keyword" autocomplete="off"  data-formatted-text="Keyword" placeholder="Keyword.." value="" style="height:50px;">
-  
-   
-  <button class="btn iconbit" type="button" onclick="_filter_update()" style="position:absolute; top:5px; right:5px;" >
-  
-      <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
-  
-  </button>
-  
-  
-</div>
 
 
 <div class="position-relative show-mobile  mb-4">

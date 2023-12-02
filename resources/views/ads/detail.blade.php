@@ -158,10 +158,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   </div>
         
 <div class="p-4 rounded" ppt-box="">
-  <button class="btn-primary text-600  text-center" data-ppt-btn="" 
+  <a href="{{ route('denounce.ads', ['adsID'=>$ad['id']]) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
             style="min-width:60px; background-color: red;">
         Dénoncer cette annonce
-      </button>
+      </button></a>
 </div>
 
 <div class="p-4 hide-mobile rounded" ppt-box="">
@@ -735,23 +735,23 @@ jQuery(document).ready(function(){
 
 		<div class="show-mobile">
 		  <div class="position-relative mb-3">
-			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+			<a href="listing/rooster/index.htm">
 			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 			  <div class="h-100 position-relative">
 				<figure>
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
 			<div class="badge" style="color:#000000;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ad['user']['username']) }} </div>
+			<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
-		</div> <div class="bg-image z-0" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> </div>
+		</div>           <div class="bg-image z-0" data-bg="https://premiummod.com/demoimages/img.php?imgid=18&t=es"> </div>
 				</figure>
 			  </div>
 			</div>
 			</a>
 			<div class="lh-20 text-700 " style="margin-top:20px;">
 					<span class="text-online">•</span>
-					<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark"> {{ truncate($ad['title'],10) }}
+					<a href="listing/rooster/index.htm" class="text-dark">Rooster, <span class="fs-sm opacity-5">40</span></a>
 			</div>
 		  </div>
 		</div>
@@ -771,6 +771,39 @@ jQuery(document).ready(function(){
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
+
+ 
+ 
+<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
+      <div class="container h-100 px-0">
+        <div class="suha-footer-nav h-100">
+          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
+       
+    
+	<li><a href="../../index.htm" class="">
+        <i class="fal fa-house"></i> Home</a></li>
+	    
+	    
+	<li><a href="../../index-13.htm?s=" class="">
+        <i class="fal fa-search"></i> Search</a></li>
+	    
+	    
+     <li> <a href="../../add-listing/index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li> 
+     
+        
+	<li><a href="../../wp-login.php-2.htm" class="">
+        <i class="fa fa-users-crown"></i> My Account</a></li>
+	    
+	    
+	<li><a href="../../blog/index.htm" class="">
+        <i class="fal fa-sparkles"></i> Blog</a></li>
+	    
+	 
+    
+          </ul>
+        </div>
+      </div>
+</div>
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
                

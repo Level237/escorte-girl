@@ -253,6 +253,7 @@ class AdsController extends Controller
              $ad = null;
         }
 
+     
         return  view('ads.detail', compact('ad', 'ads'));
    }
 
