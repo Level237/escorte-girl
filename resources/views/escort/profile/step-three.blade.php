@@ -32,9 +32,9 @@
 }
 
 </style>
-<div class="p-5 w-100">
+<div class="p-5 overflow-hidden w-100">
     <h3 class="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white text-center">Completer votre profil</h3>
-    <div class="mx-4 p-4">
+    <div class="p-2">
         <div class="flex items-center">
             <div class="flex items-center text-teal-600 relative">
                 <div class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-teal-600">
@@ -55,7 +55,7 @@
                 <div class=" rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-teal-300">
                     <p class="flex justify-center">3</p>
                 </div>
-                <div class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium uppercase text-teal-500">Profil Escorte</div>
+                <div class="absolute top-0 -ml-1 text-center mt-16 w-25 text-xs font-medium uppercase text-gray-500">Profil Escorte</div>
             </div>
             <div class="flex-auto border-t-2 transition duration-500 ease-in-out border-teal-300"></div>
             <div class="flex items-center text-gray-500 relative">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-8 p-4 mx-10">
+    <div class="mt-8 p-4">
 
         <div id="ppt-invalid-fields" style="display:none;">
             <div class="container text-white" >
@@ -108,10 +108,10 @@
     <div class="row">
         <div class="col-md-12 mobile-mb-2">
             <div >
-                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 text-white">Photos (10 maximum)  
+                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 text-white">Photos (10 maximum)
                     <span class="text-danger">*</span> (.png, .jpg, .jpeg), La première sera utilisée pour votre profil</label>
                 <div class="cardbox closed">
-                    
+
                        <div class="small">
                         <form action="{{ route('profile-images') }}" class="dropzone" id="my-dropzone" name="file" files="true" enctype="multipart/form-data">
                             @csrf
@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-        
+
         <form method="POST" action="{{ route('step-three-store') }}" enctype="multipart/form-data" id="global-form">
             @csrf
             <div>
@@ -206,7 +206,7 @@
 <script>
     function processSubmitForm(){
 
-       
+
 	canContinue = true;
 
 	jQuery('#ppt-invalid-fields').hide();
@@ -229,7 +229,7 @@
 			return false;
 	}
 
- 	
+
  console.log(jQuery('#services').val().length)
 
     	if(jQuery('#services').val().length === 0 ){
@@ -245,7 +245,7 @@
 	let children = adsDropzone.children;
 	var numberUpload = 0;
 	for (let i = 0; i < children.length; i++) {
-	
+
 		if (Array.from(children[i].classList).includes('dz-success')){
 			numberUpload++;
 		}
