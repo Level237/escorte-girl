@@ -1,5 +1,5 @@
 @extends('layouts.backoffice.escort.app')
-@section('title', __('Tableau de bord'))
+@section('title', __('Mes Transactions'))
 
 @section('content')
 
@@ -29,7 +29,7 @@
         <div class="_content p-lg-5 p-3" >
 
 
-<div class="fs-lg text-600 mb-2">Compte & Paiement </div>
+<div class="fs-lg text-600 mb-2">Transactions </div>
 
 <p class="mb-4">Votre compte possède <span class="">{{ $userBalance }} de credits</span>.
 
