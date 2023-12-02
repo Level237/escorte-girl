@@ -22,7 +22,7 @@
     <body>
         <div id="sdk" style="visibility: hidden">
             <h2>Prix:</h2>
-            <p id="price">{{ $price }}</p>
+            <p id="price" >{{ $price }}</p>
         </div>
     </body>
     <script>
@@ -59,7 +59,7 @@
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`http://127.0.0.1:8000/`);
+                    window.location.assign(`http://127.0.0.1:8000/purchase/credit/successfully/${price}`);
                 }
             });
             CinetPay.onError(function(data) {

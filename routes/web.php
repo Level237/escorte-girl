@@ -170,6 +170,8 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     //Route::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
     Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::post('purchase/credit',[PurchaseController::class,'purchaseInitCredit'])->name('purchase.init.credit');
+    Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');
+    Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
 });
 
 

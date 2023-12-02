@@ -9,6 +9,7 @@ use App\Services\Api\Purchase\PurchaseMembershipService;
 use  App\Services\Api\MemberShip\MemberShipService;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SuccessfulMembershipPayment;
+use App\Services\Api\Purchase\PurchaseCreditService;
 
 class PurchaseController extends Controller
 {
@@ -54,6 +55,17 @@ class PurchaseController extends Controller
         $price=$request->price;
 
         return view('purchase.purchase-credit-with-momo',compact('price'));
+    }
+
+    public function purchaseStoreCredit($price){
+        $purchaseResponse=(new PurchaseCreditService())->purchaseCredit($price);
+
+        return view('purchase.congrats-credit');
+    }
+
+    public function purchaseSuccess(){
+
+        return view('purchase.congrats-credit');
     }
 
 
