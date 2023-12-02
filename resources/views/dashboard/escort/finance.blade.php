@@ -95,7 +95,9 @@
                         </tbody>
               </table>
             @endif
-
+              @if (count($payments)==0)
+              Vous n'aviez encore effectuer aucune transactions.
+              @endif
           </div>
 
 
