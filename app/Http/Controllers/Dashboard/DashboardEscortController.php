@@ -119,8 +119,8 @@ class DashboardEscortController extends Controller
         }else{
             $payments=(new CurrentPurchaseService())->currentPayment();
             $escort = (new GetEscortService)->getEscort();
-            return $payments;
-            //return view('dashboard.escort.finance', compact('user','escort'));
+            //return $payments;
+            return view('dashboard.escort.finance', compact('user','escort','payments'));
         }
 
     }

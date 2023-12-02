@@ -46,49 +46,56 @@
 
         <div class="card-body p-0">
           <div class="overflow-auto">
-          <table class="table small table-orders">
-            <thead>
-              <tr>
-                <th>Order ID</th>
-                <th class="text-center">Date</th>
-                <th class="text-center">Montant</th>
+            @if(count($payments)!=0)
+            <table class="table small table-orders">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Montant</th>
 
-                <th class="text-center">Status</th>
-                <th class="text-center dashhideme">Type</th>
-              </tr>
-            </thead>
-            <tbody>
-
-
-                            <tr class="row-2989" >
-                <td><span class="font-weight-bold">
-
-                <a href="https://es10.premiummod.com/?invoiceid=2989" target="_blank">#002989</a>
+                    <th class="text-center">Status</th>
+                    <th class="text-center dashhideme">Type</th>
+                  </tr>
+                </thead>
+                <tbody>
 
 
-                </span> </td>
-                <td class="text-center text-muted">October 18, 2022 5:28 pm</td>
-                <td class="text-center">$30.00</td>
+                   @foreach ($payments as $payment)
+                   <tr class="row-2989" >
+                    <td><span class="font-weight-bold">
 
-                <td class="text-center">
-
-
+                        <a href="https://es10.premiummod.com/?invoiceid=2989" target="_blank">#{{ $payment->id }}</a>
 
 
-                <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
-                <span>Paid</span> </span>
+                        </span>
+                    </td>
+                    <td class="text-center text-muted">{{ $payment->created_at }}</td>
+                    <td class="text-center">{{ $payment->price }} XAF</td>
+
+                    <td class="text-center">
 
 
 
 
-                   </td>
+                        <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
+                        <span>Payé</span> </span>
 
 
-                <td class="text-center dashhideme"><a href="https://es10.premiummod.com/?invoiceid=2989" class="btn btn-system btn-sm" target="_blank">Invoice</a>
-                                  </td>
-              </tr>
-                    </tbody>
-          </table>
+
+
+                    </td>
+
+
+                            <td class="text-center dashhideme"><a href="https://es10.premiummod.com/?invoiceid=2989" class="btn btn-system btn-sm" target="_blank">{{ $payment->payment_type }}</a>
+                              </td>
+          </tr>
+                   @endforeach
+
+                        </tbody>
+              </table>
+            @endif
+
           </div>
 
 
