@@ -116,7 +116,8 @@ class DashboardEscortController extends Controller
         if($completed==0){
             return to_route('step-one');
         }else{
-            return view('dashboard.escort.finance', compact('user'));
+            $escort = (new GetEscortService)->getEscort();
+            return view('dashboard.escort.finance', compact('user','escort'));
         }
 
     }
