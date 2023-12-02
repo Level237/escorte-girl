@@ -4075,11 +4075,10 @@ function updatecommentfilter(g){
 </div>
 
 
-<<<<<<< HEAD
-=======
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
->>>>>>> refs/remotes/origin/main
+
 
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
