@@ -51,10 +51,28 @@
         </span>
         </a>
     </div>
-</div>
 
 </div>
 
+</div>
+<div ppt-border1="" class="p-3 p-md-4  hide-mobile  mb-5">
+
+
+    <div class="d-md-flex justify-content-between">
+
+        <div class="d-md-flex w-100">
+            <div ppt-icon-size="32" class="mr-3 hide-ipad show-desktop-lg"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+            <a href="/dashboard/my-account//?tab=details&sub=contact" class="text-black text-decoration-none">
+            <span>
+                <div class="text-600">Nombre de visites</div>
+                <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $escort['visits'] }}</div>
+            </span>
+            </a>
+        </div>
+
+    </div>
+
+    </div>
 
 <div class="bg-light p-3 p-md-5 rounded-lg mb-4 position-relative mt-xl-n3" >
 
