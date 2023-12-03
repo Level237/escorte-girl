@@ -25,7 +25,7 @@ class CurrentUserService{
             $responseData=json_decode($response);
             return $responseData;
         }catch(Exception $e){
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
 
     }
