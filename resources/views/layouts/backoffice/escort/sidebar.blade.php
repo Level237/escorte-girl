@@ -148,7 +148,7 @@
       <div class="text-600 mb-2">
         Solde &amp; Factures
 
-		<span class="badge btn-danger ppt-price">2222396820.52</span>
+		<span class="badge btn-danger">{{ $userBalance }} pièces</span>
 
 
       </div>
