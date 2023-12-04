@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> &raquo; {{ $escort['escort_name']}}</title>
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -31,8 +31,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <meta property="og:image:width" content="700">
 <meta property="og:image:height" content="700">
 
- 
-    
+
+
 </head>
 <body class="listing_type-template-default single single-listing_type postid-33 single-format-standard body-hide-footer single-design4 theme-es tall-images innerpage">
 
@@ -44,9 +44,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <main id="page-content-wrapper" class="with-mobilemenu">
 
 @include('layouts.Frontend.header')
-    
 
- 
+
+
 <div class="border-bottom py-3">
   <div class="container">
     <div class="list-list small letter-spacing-1 arrow">
@@ -56,160 +56,151 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                       </div>
   </div>
 </div>
-    
+
     <div id="mobileGallery"></div>
-    
-    
+
+
 
 <div class="container py-md-5">
   <div class="row d-flex flex-row-reverse">
     <div class="col-lg-5 col-xl-4 mb-4">
-       
+
 		<div class="mb-4 pb-3 border-bottom">
-		 
-		
-		
+
+
+
 		<h1 class="fs-lg text-600">
 		 <div class="addeditmenu" data-key="title"></div> {{ ucfirst($escort['escort_name'])	}}	</h1>
-		
-		
+
+
 			<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
 						<a class="mr-3 text-dark" href="#">
 			<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($escort['quarter'])	}}</span>
 			</a>
-						 
+
 						<div class=" d-inline-flex cursor">
 			<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-              
-			 
-                       
+
+
+
 			<span>Ajouter aux favoris</span>
-            
-             
-            
+
+
+
 		</div>
-		
+
 		</span>
 			</div>
-            			
+
 			</div>
-	 
-		</div>      
+
+		</div>
 <div class="ppt-single-button-box">
- 
+
 
 
       <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
       <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
       <span class="_number" style="display:none;">+237 {{ $escort['user']['phone_number']	}}</span>
       </a>
-      
+
       <script>
 	  function showPhone(){
-	  
+
 	  		jQuery('._text').hide();
 	  		jQuery('._number').show();
 	  }
-	  
+
 	  </script>
-      
-       		
+
+
 			  <a href="javascript:void(0);" onclick="processLogin(1);" class="btn-primary btn-block btn-lg list mb-3 mobile-buynow-trigger" data-ppt-btn="">
-			 
+
 			  <span>Envoyer Un Message</span>
               </a>
-			  
-		 
+
+
       <a href="https://api.whatsapp.com/send?phone=237{{ $escort['whatsapp_number']}}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
       <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
       </a>
-      
-          
+
+
 </div>
       <div ppt-box="" class="rounded">
-<div class="_header"> 
+<div class="_header">
 <div class="_content p-3">
 
- 
+
 
 <div class="ppt-single-datafields">
 <nav ppt-nav="" class="list lh-30 list-fbold">
     <ul>
-   
-    
+
+
 	<li class="taxonomy"><span>Age</span> <span>{{ $escort['age']}} Ans</span></li>
- 
-    
-	    
+
+
+
     <li class="taxonomy"><span>Sexualité</span> <span>{{ $escort['sexuality']}}</span></li>
-    
-	    
+
+
     <li class="taxonomy"><span>Genre</span> <span>Escorte Féminine</span></li>
-    
-	    
+
+
     <li class="input"><span>Location</span> <span>{{ $escort['town']}}</span></li>
-    
-	    
+
+
     <li class="title"><span>De quoi j'ai l'air?</span> </li>
-    
-	    
+
+
     <li class="taxonomy"><span>Mon Teint</span> <span>{{ $escort['skin_color']}}</span></li>
-    
-    
-	    
+
+
+
     <li class="taxonomy"><span>Mon Coprs</span> <span>{{ $escort['shape']}}</span></li>
-    
-	    
+
+
     <li class="input"><span>Ma Taille</span> <span>{{ $escort['height']}} CM</span></li>
-    
-	    
+
+
     <li class="input"><span>Mon Poids</span> <span>{{ $escort['weight']}} KG</span></li>
-    
-	    
-  
-    
-	    </ul>  
+
+
+
+
+	    </ul>
 </nav>
-</div> 
+</div>
 
 </div>
 </div>
-</div>      
-          
+</div>
+
      <div ppt-box="" class="rounded">
 
 
 
 </div>
-        
-<div ppt-box="" class="rounded">
-  <div class="_header d-md-flex align-items-center">
-    <div class="_title w-100">
-      Cadeaux    </div>
+
+<div class="p-4 rounded" ppt-box="">
+    <span>&#9989; Dénoncer ce profil avec preuves si vous êtes victime d'une tentative d'arnaque.</span>
+    <a href="{{ route('report', ['id'=>$escort['id'], 'type'=>'escort']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn=""
+              style="min-width:60px; background-color: red;">
+          Dénoncer ce profil
+        </button></a>
   </div>
-    <a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
-  <div class="_content py-4 h-100" ppt-flex-middle="">
-    <div class="text-center my-4">
-      <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
-      <div class="fs-5 text-600 mt-3">
-        Envoyez un cadeau virtuel.     </div>
-    </div>
-  </div>
-  </a>
-  </div>
-        
+
 
 <div class="p-4 hide-mobile rounded" ppt-box="">
 
 <p class="text-600">Partagez ce lien via</p>
 
- 
+
 <style>
- 
+
 .card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
 .card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
-.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;}
 .card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
 .card-share .icons a i{  transition: transform 0.3s ease-in-out;}
 .card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
@@ -229,7 +220,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 .card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
 .card-share .field.active i{  color: #000;}
 .card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
- 
+
 </style>
 
 <div class="card-share">
@@ -253,36 +244,36 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </div>
 
-<script>      
-jQuery(document).ready(function(){  
+<script>
+jQuery(document).ready(function(){
 	setTimeout(function() {
 		var clipboard = new ClipboardJS('.js-copy-link');
-		clipboard.on('success', function(e) { 
-		
+		clipboard.on('success', function(e) {
+
 		jQuery(".card-share .field").addClass("active");
-		
+
 		 alert("Link saved to your clipboard.");
-		 
+
 		 });
-		 
+
 	},5000);
-});                     
-</script> </div>  
- 
+});
+</script> </div>
+
     </div>
     <div class="col-lg-7 col-xl-8 maincontent pr-lg-5">
-      
+
 <div class="addeditmenu" data-key="images"></div>
 <div id="mobileGalleryMove" class="hide-mobile">
 
 <div class="row no-gutters mb-4">
-    
-	
+
+
 	@forelse ($escort['images'] as $image)
 		@if ($loop->index == 3)
 			@break
 		@endif
-		
+
 	<div class="col-6">
         <a href="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$image['path']]) }}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
         <div class="m-sm-1">
@@ -317,7 +308,7 @@ jQuery(document).ready(function(){
       </div>
     @empty
 	@endforelse
-		
+
 	@forelse ($escort['images'] as $image)
 		@if ($loop->index <= 3)
 			@continue
@@ -336,367 +327,232 @@ jQuery(document).ready(function(){
 }
 </style>
 
-      
+
 <div ppt-box="" class="rounded">
   <div class="_header d-md-flex align-items-center">
     <div class="_title w-100">
       A Propos de Moi    </div>
     <div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
-      	 
-	<div class="ppt-badges clearfix mb-3"> 
-    	
-        
-                
- 
+
+	<div class="ppt-badges clearfix mb-3">
+
+
+
+
     <div class="">
-               
-           
-<div class="_badge " style="color:#000000;background-color:#FFC300;"> 
-    
-    
-        
+
+
+<div class="_badge " style="color:#000000;background-color:#FFC300;">
+
+
+
 <div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-star" style="color:#000000"></i> Gold    </div>
     <div class="badge_tooltip__item">Profil Gold </div>
   </div>
-  
-  
+
+
 </div>
-     
-               
-           
-<div class="_badge " style="color:#FBFBFB;background-color:#2BA346;"> 
-    
-    
-      <i class="fal fa fa-check" style="color:#FBFBFB"></i> 
-  Verified  
+
+
+
+<div class="_badge " style="color:#FBFBFB;background-color:#2BA346;">
+
+
+      <i class="fal fa fa-check" style="color:#FBFBFB"></i>
+  Verified
 </div>
-     
-               
-           
-<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;"> 
-    
-    
-        
+
+
+
+<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;">
+
+
+
 <div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
+    <div class="badge_tooltip__initiator">
    <i class="fal fa fa-grin-stars" style="color:#FEFEFE"></i> Géniale    </div>
     <div class="badge_tooltip__item">Je suis une fille coquine </div>
   </div>
-  
-  
+
+
 </div>
-     
-         
+
+
         </div>
-	
-	 
+
+
 	</div>
 	    </div>
   </div>
   <div class="_content py-3 pl-4 py-lg-4">
-  
-  
-    
-     	
+
+
+
+
 <div class="ppt-single-desc _style1">
 
 <div class="addeditmenu" data-key="content"></div>
 
 
 <div>
-        
-        		 
+
+
 		<div class="overflow-hidden">
 		<p>{{ $escort['description'] }}</p>
 
 
         </div>
-         
-        
+
+
         </div>
 
 
 </div>
-  
 
-    
-    
+
+
+
 <div class="addeditmenu" data-key="features"></div>
-<div class="my-3 fs-7 text-600">Services</div> 
- 
+<div class="my-3 fs-7 text-600">Services</div>
+
 <div class="row lh-30 fs-sm">
-<div class="col-md-4">
+  @forelse ($escort['services'] as $service)
+    <div class="col-md-4">
 
-<div class="d-flex">
+    <div class="d-flex">
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Câlins affectueux</div> 
-</div>
 
-</div>
-<div class="col-md-4">
+        <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+        <div class="ml-2 ftxt">{{ $service['service_name'] }}</div>
+    </div>
 
-<div class="d-flex">
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baisers affectueux</div> 
-</div>
+    </div>
+  @empty
+  <div class="col-md-4">
 
-</div>
-<div class="col-md-4">
+    <div class="d-flex">
 
-<div class="d-flex">
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Léchage de couilles</div> 
-</div>
+        <div class="ml-2 ftxt">Pas de service</div>
+    </div>
 
-</div>
-<div class="col-md-4">
 
-<div class="d-flex">
+    </div>
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Fellation</div> 
-</div>
+  @endforelse
 
-</div>
-<div class="col-md-4">
 
-<div class="d-flex">
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Toboggan corporel</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Costumes</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Jouir dans la bouche</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Jouir sur le corps</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baiser français</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Conversation Sauvages</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Clientèle handicapée</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Levrette</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Double pénétration</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Expérience de couple</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Fin heureuse</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Servitude légère</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Massage</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Nuitées</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baisers passionnés</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Massage sensuel</div> 
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Lingerie sexy</div> 
-</div>
 
 </div>
 
-</div>
 
-  
-    
-      
-    
-    
+
+
   </div>
-</div>      
+</div>
           </div>
   </div>
 </div>
+<div ppt-box="" class="rounded p-3">
+    <div class="_header d-md-flex align-items-center">
+      <div class="_title w-100">
+        Commentaires   </div>
 
+    </div>
+    <div class="card">
+        <div class="row">
+        <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+        <div class="col-10">
+        <div class="comment-box ml-2">
+        <h4>Add a comment</h4>
+        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+        <div class="comment-area"> <textarea class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+        <div class="comment-btns mt-2">
+        <div class="row">
+        <div class="col-6">
+        <div class="pull-left"> <button class="btn btn-success btn-sm">Cancel</button> </div>
+        </div>
+        <div class="col-6">
+        <div class="pull-right"> <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</div>
 
   </div>
 </div>
-</div>    
+</div>
 </main>
-</div> 
+</div>
 
    @include('layouts.Frontend.footer')
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 
- 
- 
+
+
 <div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
       <div class="container h-100 px-0">
         <div class="suha-footer-nav h-100">
           <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-       
-    
+
+
 	<li><a href="../../index.htm" class="">
         <i class="fal fa-house"></i> Home</a></li>
-	    
-	    
+
+
 	<li><a href="../../index-13.htm?s=" class="">
         <i class="fal fa-search"></i> Search</a></li>
-	    
-	    
-     <li> <a href="../../add-listing/index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li> 
-     
-        
+
+
+     <li> <a href="../../add-listing/index.htm" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
+
+
 	<li><a href="../../wp-login.php-2.htm" class="">
         <i class="fa fa-users-crown"></i> My Account</a></li>
-	    
-	    
+
+
 	<li><a href="../../blog/index.htm" class="">
         <i class="fal fa-sparkles"></i> Blog</a></li>
-	    
-	 
-    
+
+
+
           </ul>
         </div>
       </div>
 </div>
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "http://escort.test/index.php";  
-				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "http://escort.test/index.php";
+				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value=",">
 				<input type="hidden" id="ppt-current-dec" value=".">
 				<input type="hidden" id="ppt-current-symbol" value="<i class='fab fa-bitcoin'>&nbsp;</i>">
 				<input type="hidden" id="ppt-current-position" value="left">
-                <input type="hidden" id="ppt-map-provider" value="mapbox"> 
-               
+                <input type="hidden" id="ppt-map-provider" value="mapbox">
+
                                   <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
                                   <script async="" src="{{ asset('assets/js/js.zclip.js?v=10.8.9') }}" id="premiumpress-zclip-js"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css?v=10.8.9') }}">
@@ -705,15 +561,15 @@ jQuery(document).ready(function(){
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                
-     
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
+
+
 				<script>
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
@@ -726,21 +582,21 @@ jQuery(document).ready(function(){
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
 				</script>
                 <!----------------- -->
 
 
 <div id="ppt-notice-new-notifications" style="display:none;">
 
- 
+
 </div>
 
 
 
 
 
- 
+
 
 
 

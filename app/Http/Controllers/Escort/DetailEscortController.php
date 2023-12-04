@@ -27,7 +27,7 @@ class DetailEscortController extends Controller{
 
         $escort = self::$escort;
         //dd($escort);
-        return  view('escort.detail', compact('escort'));
+        return  view('escort.detail1', compact('escort'));
    }
 
 

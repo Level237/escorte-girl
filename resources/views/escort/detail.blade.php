@@ -26,6 +26,88 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </style>
 <script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+html,
+body {
+height: 100%
+}
+body {
+display: grid;
+place-items: center;
+font-family: 'Manrope', sans-serif;
+background: red
+}
+.card {
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+padding: 20px;
+width: 450px;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border-radius: 6px;
+-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+}
+.comment-box {
+padding: 5px
+}
+.comment-area textarea {
+resize: none;
+border: 1px solid #ad9f9f
+}
+.form-control:focus {
+color: #495057;
+background-color: #fff;
+border-color: #ffffff;
+outline: 0;
+box-shadow: 0 0 0 1px rgb(255, 0, 0) !important
+}
+.send {
+color: #fff;
+background-color: #ff0000;
+border-color: #ff0000
+}
+.send:hover {
+color: #fff;
+background-color: #f50202;
+border-color: #f50202
+}
+.rating {
+display: flex;
+margin-top: -10px;
+flex-direction: row-reverse;
+margin-left: -4px;
+float: left
+}
+.rating>input {
+display: none
+}
+.rating>label {
+position: relative;
+width: 19px;
+font-size: 25px;
+color: #ff0000;
+cursor: pointer
+}
+.rating>label::before {
+content: "\2605";
+position: absolute;
+opacity: 0
+}
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+opacity: 1 !important
+}
+.rating>input:checked~label:before {
+opacity: 1
+}
+.rating:hover>input:checked~label:before {
+opacity: 0.4
+}
+</style>
 <meta property="og:url" content="http://escort.test/listing/alessandra/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alessandra">
@@ -508,15 +590,11 @@ jQuery(document).ready(function(){
 
     <div class="d-flex">
 
-<<<<<<< HEAD
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Câlins affectueux</div>
-</div>
-=======
+
         <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-        <div class="ml-2 ftxt">{{ $service['service_name'] }}</div> 
+        <div class="ml-2 ftxt">{{ $service['service_name'] }}</div>
     </div>
->>>>>>> refs/remotes/origin/main
+
 
     </div>
   @empty
@@ -524,191 +602,17 @@ jQuery(document).ready(function(){
 
     <div class="d-flex">
 
-<<<<<<< HEAD
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baisers affectueux</div>
-</div>
-=======
-        
-        <div class="ml-2 ftxt">Pas de service</div> 
+
+        <div class="ml-2 ftxt">Pas de service</div>
     </div>
->>>>>>> refs/remotes/origin/main
+
 
     </div>
-    
+
   @endforelse
 
 
-<<<<<<< HEAD
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Léchage de couilles</div>
-</div>
 
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Fellation</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Toboggan corporel</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Costumes</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Jouir dans la bouche</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Jouir sur le corps</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baiser français</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Conversation Sauvages</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Clientèle handicapée</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Levrette</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Double pénétration</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Expérience de couple</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Fin heureuse</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Servitude légère</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Massage</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Nuitées</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Baisers passionnés</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Massage sensuel</div>
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="d-flex">
-
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">Lingerie sexy</div>
-</div>
-
-</div>
-=======
->>>>>>> refs/remotes/origin/main
 
 </div>
 
