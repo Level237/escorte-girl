@@ -24,6 +24,36 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </style>
 
 <style>
+/* Tooltip container */
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  top: -5px;
+  right: 105%;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+}
+</style>
+
+<style>
 
 
     /* Button used to open the contact form - fixed at the bottom of the page */

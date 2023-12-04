@@ -60,17 +60,24 @@
 
 
                     <td class="text-center dashhideme">
-                      <a href="{{ route('ads.edit', ['id' => $ad['id']]) }}" ><i class="fa fa-edit me-2 font-success"></i></a>
-                      <a href="{{ route('ads.delete',['id' => $ad['id']])  }}" data-toggle="modal" data-target="#exampleModal{{$ad['id']}}">
+                      <a href="{{ route('ads.edit', ['id' => $ad['id']]) }}" class="tooltip1">
+                         <span class="tooltiptext1">Modifier</span>
+                        <i class="fa fa-edit me-2 font-success"></i></a>
+                        &nbsp;
+                      <a href="{{ route('ads.delete',['id' => $ad['id']])  }}" class="tooltip1" data-toggle="modal" data-target="#exampleModal{{$ad['id']}}">
+                         <span class="tooltiptext1">Supprimer</span>
                         <i class="fa fa-trash font-danger"></i>
                       </a>
-
+                       &nbsp;
                       @if($ad['isSubscribe']===0)
-                        <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" >
+                        <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" class="tooltip1">
+                          <span class="tooltiptext1">Booster</span>
                             <i class="fa fa-plane font-danger"></i>
                         </a>
+                        
                       @else
-                        <a href="#" >
+                        <a href="#" class="tooltip1">
+                            <span class="tooltiptext1">Boostée</span>
                             <i class="fa fa-check font-danger"></i>
                         </a>
                       @endif
