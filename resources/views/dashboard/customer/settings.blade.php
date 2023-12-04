@@ -1,4 +1,4 @@
-@extends('layouts.backoffice.escort.app')
+@extends('layouts.backoffice.customer.app')
 @section('title', __('Tableau de bord'))
 
 @section('content')

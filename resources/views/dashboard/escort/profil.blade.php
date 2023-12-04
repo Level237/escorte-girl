@@ -3,12 +3,12 @@
 
 @section('content')
 
-	<div class="fs-lg text-600 mb-4">Mon Profil</div>
+	<div class="fs-lg text-600 mb-4">Mon Profil <a class="fs-md"  target='_blank' href="{{ route('escort.details', ['id' => $escort['id']]) }}">(Visiter mon profil public)</a></div>
 
 <p class="mb-4">Ici, vous pouvez afficher, modifier et gérer les détails de votre profil.</p>
 
 
-<label class="text-600">Photo Profil</label>
+<label class="text-600">Photo Profil  </label>
 
 
 <form method="post" action="" onsubmit="return ValidateStore();" class="save_store_form" >

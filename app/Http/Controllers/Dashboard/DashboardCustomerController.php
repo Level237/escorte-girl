@@ -18,8 +18,6 @@ class DashboardCustomerController extends Controller
 
             $user = Session::get('currentUser');
             //dd($user);
-            $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-            $completed=$profileIsCompletedOrNot->completed ?? null;
 
             //Ensuring we are having a customer
             if($user->role_id === 3)
@@ -27,6 +25,13 @@ class DashboardCustomerController extends Controller
                 return view('dashboard.customer.index', compact('user'));
             else
                 return to_route("homepage");
+
+    }
+
+    public function profil (){
+
+        $user = Session::get('currentUser');
+        return view('dashboard.customer.profil', compact('user'));
 
     }
 
@@ -38,17 +43,9 @@ class DashboardCustomerController extends Controller
 
     public function finance (){
         $user = Session::get('currentUser');
-        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
-
-        if($completed==0){
-            return to_route('step-one');
-        }else{
-            $payments=(new CurrentPurchaseService())->currentPayment();
-            $escort = (new GetEscortService)->getEscort();
-            //return $payments;
-            return view('dashboard.escort.finance', compact('user','escort','payments'));
-        }
+        $payments=(new CurrentPurchaseService())->currentPayment();
+        //return $payments;
+        return view('dashboard.customer.finance', compact('user','payments'));
 
     }
 
@@ -66,16 +63,9 @@ class DashboardCustomerController extends Controller
     }
 
     public function settings (){
-        $user = Session::get('currentUser');
-        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        if($completed==0){
-            return to_route('step-one');
-        }else{
-            $escort = (new GetEscortService)->getEscort();
-            return view('dashboard.escort.settings', compact('user','escort'));
-        }
+        $user = Session::get('currentUser');
+        return view('dashboard.customer.settings', compact('user'));
 
     }
 

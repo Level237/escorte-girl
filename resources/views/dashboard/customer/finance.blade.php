@@ -1,4 +1,4 @@
-@extends('layouts.backoffice.escort.app')
+@extends('layouts.backoffice.customer.app')
 @section('title', __('Mes Transactions'))
 
 @section('content')
@@ -65,7 +65,7 @@
                    <tr class="row-2989" >
                     <td><span class="font-weight-bold">
 
-                        <a href="https://es10.premiummod.com/?invoiceid=2989" target="_blank">#{{ $payment->id }}</a>
+                        <a href="#" target="_blank">#{{ $payment->id }}</a>
 
 
                         </span>
@@ -87,7 +87,7 @@
                     </td>
 
 
-                            <td class="text-center dashhideme"><a href="https://es10.premiummod.com/?invoiceid=2989" class="btn btn-system btn-sm" target="_blank">{{ $payment->payment_type }}</a>
+                            <td class="text-center dashhideme"><a href="#" class="btn btn-system btn-sm" target="_blank">{{ $payment->payment_type }}</a>
                               </td>
           </tr>
                    @endforeach

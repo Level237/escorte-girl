@@ -13,7 +13,7 @@ class UserTypeService{
         if($role_id===1){
             return to_route('admin.dashboard');
         }else if($role_id===3){
-            return to_route('admin.dashboard');
+            return to_route('db.customer.index');
         }
         else if($role_id===2 && $completed===1){
             return to_route('db.escort.index');
