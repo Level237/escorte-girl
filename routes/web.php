@@ -31,6 +31,7 @@ use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
 use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\Dashboard\DashboardCustomerController;
 use App\Http\Controllers\Escort\ChoosePlanController;
 
 //Importing search route
@@ -180,13 +181,13 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
 
 //Customer group route
 Route::middleware(['customer'])->prefix('customer')->group(function () {
-        Route::get('index', [DashboardEscortController::class, 'index'])->name('customer.escort.index');
-        Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
-        Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
-        Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
-        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
-        Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
-        Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
+        Route::get('index', [DashboardCustomerController::class, 'index'])->name('db.customer.index');
+        Route::get('profil', [DashboardCustomerController::class, 'profil'])->name('db.customer.profil');
+        Route::get('ads', [DashboardCustomerController::class, 'ads'])->name('db.customer.ads');
+        Route::get('messages', [DashboardCustomerController::class, 'messages'])->name('db.customer.messages');
+        Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
+        Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
+        Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
 });
 
 //middleware admin

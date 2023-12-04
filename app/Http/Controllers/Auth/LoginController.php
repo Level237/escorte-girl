@@ -25,7 +25,7 @@ class LoginController extends Controller
             $code = $dataResponse->code ?? null;
             $message = $dataResponse->message ?? null;
             if(isset($response['error'])){
-                dd(json_decode((string) $response->getBody(), true));
+                //dd(json_decode((string) $response->getBody(), true));
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
             }else if($code===203){
                 return back()->with('error',$message);

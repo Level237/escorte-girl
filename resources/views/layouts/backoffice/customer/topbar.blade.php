@@ -6,20 +6,7 @@
 <li  class="w-100">
 
 <div class="d-flex">
-<a href="{{ route('escort.details', ['id' => $escort['id']]) }}" class="ppt-avatar ppt-avatar-lg  rounded-circle" >
 
-    @php
-        if (filter_var($escort['photo'], FILTER_VALIDATE_URL))
-         echo " <div class='_wrap bg-image'
-                data-bg='".$escort['photo']."'>&nbsp;</div>";
-        else {
-             echo " <div class='_wrap bg-image'
-                data-bg='".route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )."'>&nbsp;</div>";
-        }
-    @endphp
-
-
-</a>
 
 
 <div class=" ml-4">
@@ -59,40 +46,6 @@
 </div>
 </a>
 </li>
-
-<li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href=""   style="color:#FBFBFB;background-color:#2BA346;" data-ppt-btn>
-<div class="d-flex">
-
-
-    <div class="badge_tooltip text-center" data-direction="top">
-        <div class="badge_tooltip__initiator">
-            <i class="fal fa fa-user" style="color:#FBFBFB"></i>
-                &nbsp;
-                Balance : {{ $userBalance }}
-        </div>
-    <div class="badge_tooltip__item">Profil Verifie </div>
-  </div>
-
-</div>
-</a>
-</li>
-
-{{-- <li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href="{{ route('escort.details', ['id' => $escort['id']]) }}"
-    style="color:#FBFBFB;background-color:#DFABE1;" target="_blank" data-ppt-btn>
-<div class="d-flex">
-    <div class="badge_tooltip text-center" data-direction="top">
-        <div class="badge_tooltip__initiator">
-            <i class="fal fa fa-user" style="color:#FBFBFB"></i>
-             Visiter mon profil
-        </div>
-    <div class="badge_tooltip__item">Voir mon profil public </div>
-  </div>
-
-</div>
-</a>
-</li> --}}
 
 
 
