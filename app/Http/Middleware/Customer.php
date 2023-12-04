@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Services\Api\CurrentUserService;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,17 +18,15 @@ class Customer
     public function handle(Request $request, Closure $next): Response
     {
 
-        $currentUser=(new CurrentUserService())->currentUser();
+        $currentUser=Session::get('currentUser');
         $role=$currentUser->role_id ?? null;
-        if($currentUser!==null && $role!==3){
-
-               return back();
-
-        }else if($currentUser==null){
+        if(empty($currentUser)){
+            //dd($currentUser);
             return to_route("login");
-        }else if($role==3){
-            return $next($request);
+        }else if($role!==3){
+            return redirect()->back();
         }
+        return $next($request);
 
     }
 }
