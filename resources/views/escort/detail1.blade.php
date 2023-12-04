@@ -615,9 +615,12 @@ jQuery(document).ready(function(){
                 </div>
         </div>
 
+        @if(count($reviews)!==0)
         <div style="margin-top: 50px;">
             <h3 style="text-align: center;color:rgb(85, 85, 85);">Commentaires les plus récents</h3>
         </div>
+        @endif
+
 
         @forelse ($reviews as $review)
         <div class="comment mt-4 text-justify float-left">
@@ -645,7 +648,7 @@ jQuery(document).ready(function(){
         @empty
 
         @endforelse
-
+                <p style="font-size: 15px;margin-left:50px;text-align: center;color:rgb(85, 85, 85);">Aucun Commentaires disponible</p>
             </div>
             </div>
         </div>
