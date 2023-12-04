@@ -234,6 +234,10 @@ class AdsController extends Controller
         return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
     }
 
+    public function adsTown(){
+        return view('ads.ads-town');
+    }
+
    
 
    public function show(Request $request){
