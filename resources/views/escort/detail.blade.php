@@ -28,16 +28,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
-html,
-body {
-height: 100%
-}
-body {
-display: grid;
-place-items: center;
-font-family: 'Manrope', sans-serif;
-background: red
-}
+
+
 .card {
 position: relative;
 display: flex;

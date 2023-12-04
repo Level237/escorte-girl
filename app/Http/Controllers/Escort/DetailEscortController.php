@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Escort;
 use App\Http\Controllers\Controller;
+use App\Services\Api\Escort\ListReviewsServices;
 use  App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class DetailEscortController extends Controller{
         try{
 
             $response = Http::asForm()->get($url."/api/escorts/".$request->id);
+            $reviews=(new ListReviewsServices())->listReviews($request->id);
             self::$escort = json_decode((string) $response->getBody(), true)['data'];
             //error_log($escorts);
         }catch(\Exception $e){
@@ -27,7 +29,8 @@ class DetailEscortController extends Controller{
 
         $escort = self::$escort;
         //dd($escort);
-        return  view('escort.detail1', compact('escort'));
+        //return $reviews;
+        return  view('escort.detail1', compact('escort','reviews'));
    }
 
 

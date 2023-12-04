@@ -59,7 +59,7 @@ use App\Http\Controllers\ReportController;
 |
 */
 
-Route::get('/payment',[PurchaseMomoController::class,'openPopup'])->name('init-payment');
+
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 
@@ -129,7 +129,7 @@ Route::middleware(['escort'])->group(function () {
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
-
+    Route::get('/payment',[PurchaseMomoController::class,'openPopup'])->name('init-payment');
 
     Route::post('init/payment',[PurchaseMomoController::class,'initPayment'])->name('initPayment');
 
