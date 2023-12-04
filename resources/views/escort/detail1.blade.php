@@ -35,6 +35,63 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
 
+
+
+
+
+
+
+.che{
+    color:#f5bccf ;
+}
+
+
+
+
+    .comments{
+        margin-top: 5%;
+
+    }
+
+
+    .comment{
+
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+        margin-left: 70px;
+    }
+    .comment h5,.comment span,.darker h5,.darker span{
+        display: inline;
+    }
+
+    .comment p,.comment span,.darker p,.darker span{
+        color: black;
+    }
+
+    h1,h4{
+        color: black;
+    }
+    label{
+        color: rgb(212, 208, 208);
+    }
+
+    #align-form{
+        margin-top: 20px;
+    }
+
+
+
+
+    #darker img{
+        margin-right: 15px;
+        position: static;
+    }
+
+
+
 .card {
 position: relative;
 display: flex;
@@ -541,25 +598,65 @@ jQuery(document).ready(function(){
             <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
             <div style="flex: 1" class="comment-box ml-2">
                 <h4>Ajouter votre commentaire</h4>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                <div class="comment-area"> <textarea class="form-control" rows="4"></textarea> </div>
-                <div class="comment-btns mt-2">
-                <div class="row">
-                <div class="col-6">
-                    <div class="pull-right"> <button class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
-                </div>
+                <form action="{{ route('review.user',$escort['id']) }}" method="post">
+                    @csrf
+                    <div class="rating"> <input type="radio" required name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                    <div class="comment-area"> <textarea name="comment" class="form-control" rows="4"></textarea> </div>
+                    <div class="comment-btns mt-2">
+                    <div class="row">
+                    <div class="col-6">
+                        <div class="pull-right"> <button type="submit" class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                    </div>
 
-                </div>
-                </div>
+                    </div>
+                    </div>
+                </form>
+
                 </div>
         </div>
 
+        @if(count($reviews)!==0)
+        <div style="margin-top: 50px;">
+            <h3 style="text-align: center;color:rgb(85, 85, 85);">Commentaires les plus récents</h3>
+        </div>
+        @endif
 
 
+        @forelse ($reviews as $review)
+        <div class="comment mt-4 text-justify float-left">
+            <img src="{{ asset('assets/images/user (1).png') }}" alt="" class="rounded-circle" width="40" height="40">
+            <h5>{{ $review['user'] }}</h5>
+            <span style="font-style: initial">{{ $review['created_at'] }}</span>
 
+            <br>
+            @php
+                $countReview=$review['stars'];
+                $countNotReview=5-$review['stars'];
+            @endphp
+
+            <div style="font-size: 15px;margin-left:50px;text-align: justify;">
+                @for($i = 0; $i < $countReview; $i++)
+                    <span class="fa fa-star" style="color: #f5bccf "></span>
+                @endfor
+                @for($i = 0; $i < $countNotReview; $i++)
+                <span class="fa fa-star"></span>
+            @endfor
+            </div>
+
+            <p style="font-size: 15px;margin-left:50px;text-align: justify;color:rgb(85, 85, 85);">{{ $review['comment'] }}</p>
+        </div>
+        @empty
+
+        @endforelse
+                <p style="font-size: 15px;margin-left:50px;text-align: center;color:rgb(85, 85, 85);">Aucun Commentaires disponible</p>
+            </div>
+            </div>
+        </div>
 
 
         </div>
+
+
 </div>
 </div>
 

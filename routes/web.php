@@ -48,6 +48,7 @@ use App\Http\Controllers\ContactController;
 
 //Importing Denounce Controller
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\User\ReviewUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -178,7 +179,7 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
 });
 
-
+Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('review.user')->middleware('customer');
 
 //Customer group route
 Route::middleware(['customer'])->prefix('customer')->group(function () {
@@ -189,7 +190,9 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
-});
+
+
+    });
 
 //middleware admin
 
