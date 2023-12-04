@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use Illuminate\Http\Request;
 use App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
@@ -22,10 +21,11 @@ class LoginController extends Controller
                 'password' => $request->password,
             ]);
 
-            $dataResponse=json_decode($response);
-            $code=$dataResponse->code ?? null;
-            $message=$dataResponse->message ?? null;
+            $dataResponse = json_decode($response);
+            $code = $dataResponse->code ?? null;
+            $message = $dataResponse->message ?? null;
             if(isset($response['error'])){
+                dd(json_decode((string) $response->getBody(), true));
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
             }else if($code===203){
                 return back()->with('error',$message);
@@ -46,7 +46,7 @@ class LoginController extends Controller
 
                 $userType=(new UserTypeService())->checkRole($currentUser->role_id);
                 return $userType;
-                //return $access_token;
+             
             }
         }catch(\Exception $e){
             dd($e);
