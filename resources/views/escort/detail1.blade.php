@@ -35,6 +35,63 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
 
 
+
+
+
+
+
+
+.che{
+    color:#f5bccf ;
+}
+
+
+
+
+    .comments{
+        margin-top: 5%;
+
+    }
+
+
+    .comment{
+
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+        margin-left: 70px;
+    }
+    .comment h5,.comment span,.darker h5,.darker span{
+        display: inline;
+    }
+
+    .comment p,.comment span,.darker p,.darker span{
+        color: black;
+    }
+
+    h1,h4{
+        color: black;
+    }
+    label{
+        color: rgb(212, 208, 208);
+    }
+
+    #align-form{
+        margin-top: 20px;
+    }
+
+
+
+
+    #darker img{
+        margin-right: 15px;
+        position: static;
+    }
+
+
+
 .card {
 position: relative;
 display: flex;
@@ -554,12 +611,45 @@ jQuery(document).ready(function(){
                 </div>
         </div>
 
+        <div style="margin-top: 50px;">
+            <h3 style="text-align: center;color:rgb(85, 85, 85);">Commentaires les plus récents</h3>
+        </div>
 
+        @forelse ($reviews as $review)
+        <div class="comment mt-4 text-justify float-left">
+            <img src="{{ asset('assets/images/user (1).png') }}" alt="" class="rounded-circle" width="40" height="40">
+            <h5>{{ $review['user'] }}</h5>
+            <span style="font-style: initial">{{ $review['created_at'] }}</span>
 
+            <br>
+            @php
+                $countReview=$review['stars'];
+                $countNotReview=5-$review['stars'];
+            @endphp
 
+            <div style="font-size: 15px;margin-left:50px;text-align: justify;">
+                @for($i = 0; $i < $countReview; $i++)
+                    <span class="fa fa-star" style="color: #f5bccf "></span>
+                @endfor
+                @for($i = 0; $i < $countNotReview; $i++)
+                <span class="fa fa-star"></span>
+            @endfor
+            </div>
+
+            <p style="font-size: 15px;margin-left:50px;text-align: justify;color:rgb(85, 85, 85);">{{ $review['comment'] }}</p>
+        </div>
+        @empty
+
+        @endforelse
+
+            </div>
+            </div>
+        </div>
 
 
         </div>
+
+
 </div>
 </div>
 
