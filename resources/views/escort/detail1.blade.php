@@ -60,17 +60,17 @@ color: #495057;
 background-color: #fff;
 border-color: #ffffff;
 outline: 0;
-box-shadow: 0 0 0 1px rgb(255, 0, 0) !important
+box-shadow: 0 0 0 1px #f5bccf !important
 }
 .send {
 color: #fff;
-background-color: #ff0000;
-border-color: #ff0000
+background-color: #f5bccf;
+border: none;
 }
 .send:hover {
 color: #fff;
-background-color: #f50202;
-border-color: #f50202
+background-color: #f5bccf;
+border-color: #f5bccf
 }
 .rating {
 display: flex;
@@ -86,7 +86,7 @@ display: none
 position: relative;
 width: 19px;
 font-size: 25px;
-color: #ff0000;
+color: #f5bccf;
 cursor: pointer
 }
 .rating>label::before {
@@ -529,8 +529,7 @@ jQuery(document).ready(function(){
 </div>
           </div>
   </div>
-</div>
-<div ppt-box="" class="rounded p-3">
+  <div ppt-box="" class="rounded p-3">
     <div class="_header d-md-flex align-items-center">
       <div class="_title w-100">
         Commentaires   </div>
@@ -539,7 +538,7 @@ jQuery(document).ready(function(){
     <div class="card ">
 
         <div class="flex justify-center align-items-center" style="display: flex;flex-direction:row;justify-content:space-between">
-            <div style="width: 100px;"><img src="{{ asset('assets/images/icon-user.svg') }}" width="50" class="rounded-circle mt-2"> </div>
+            <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
             <div style="flex: 1" class="comment-box ml-2">
                 <h4>Ajouter votre commentaire</h4>
                 <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
@@ -547,7 +546,7 @@ jQuery(document).ready(function(){
                 <div class="comment-btns mt-2">
                 <div class="row">
                 <div class="col-6">
-                    <div class="pull-right"> <button class="btn btn-success send btn-sm">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                    <div class="pull-right"> <button class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
                 </div>
 
                 </div>
@@ -562,6 +561,8 @@ jQuery(document).ready(function(){
 
         </div>
 </div>
+</div>
+
 
   </div>
 </div>
