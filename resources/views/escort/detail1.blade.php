@@ -598,16 +598,20 @@ jQuery(document).ready(function(){
             <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
             <div style="flex: 1" class="comment-box ml-2">
                 <h4>Ajouter votre commentaire</h4>
-                <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                <div class="comment-area"> <textarea class="form-control" rows="4"></textarea> </div>
-                <div class="comment-btns mt-2">
-                <div class="row">
-                <div class="col-6">
-                    <div class="pull-right"> <button class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
-                </div>
+                <form action="{{ route('review.user',$escort['id']) }}" method="post">
+                    @csrf
+                    <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                    <div class="comment-area"> <textarea name="comment" class="form-control" rows="4"></textarea> </div>
+                    <div class="comment-btns mt-2">
+                    <div class="row">
+                    <div class="col-6">
+                        <div class="pull-right"> <button type="submit" class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                    </div>
 
-                </div>
-                </div>
+                    </div>
+                    </div>
+                </form>
+
                 </div>
         </div>
 
