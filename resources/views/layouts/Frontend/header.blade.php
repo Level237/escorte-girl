@@ -288,4 +288,49 @@ nav .fa{
         navLinks.classList.toggle("appeared");
       }
   </script>
+
+      <div class="container h-100 px-0 show-mobile">
+        <div class="suha-footer-nav h-100">
+          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
+
+          <li><a href="{{ route('db.escort.index') }}" class="">
+                <i class="fa fa-user" style="color: #ED5858;"></i>Mon Compte</a></li>
+
+          <li><a href="{{ route('ads.create') }}" class="">
+                <i class="fal fa-plus-circle" style="color: #ED5858;"></i> Créer une annonce</a></li>
+          <li><a href="{{ route('ads.list') }}" class="">
+                <i class="fal fa-sparkles" style="color: #ED5858;"></i> Annonces</a></li>
+
+
+
+          </ul>
+        </div>
+      </div>
+
+      <br>
+
+       @if(!isset($user))
+       <div class="container show-mobile">
+         <div class="d-flex justify-content-center">
+            <div class=>
+               
+            <div class>
+                <a href="{{ route('escort.list') }}" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
+                 class="btn-system">Besoin d'aide pour s'inscrire?</a>
+            </div>
+            <div>
+               
+            </div>
+         </div>
+         
+      </div>
+      </div>
+      @endif
+
+      <br>
+ 
+ 
+
+
+
   </header>

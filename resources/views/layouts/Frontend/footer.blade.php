@@ -260,6 +260,7 @@ function ajax_newsletter_signup58945(){
 </div>
 </div>
 </section>
+
 <div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
       <div class="container h-100 px-0">
         <div class="suha-footer-nav h-100">
