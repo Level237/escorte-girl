@@ -3946,36 +3946,51 @@ function updatecommentfilter(g){
 						  </div>
 						</div>
 
-						<div class="show-mobile">
-						  <div class="position-relative mb-3">
-							<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-							<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-							  <div class="h-100 position-relative">
-								<figure>
+				
 
-						<div ppt-search-badges="" style="z-index:1" class="right">
+            <div class="show-mobile">
+          <div class="position-relative mb-3">
+          <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+          <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+            <div class="h-100 position-relative">
+            <figure>
 
-							<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}   </div>
+            
+              <div class="buttons-wrap">
 
-						</div>     <div class="bg-image z-0 js-image-trigger-set ppt-lazy-img-8889 js-image-preload-set"
-             data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}" style="background-image: url(&quot;https://premiummod.com/demoimages/img.php?imgid=14&amp;t=es&amp;ct=chocolate1&quot;);">&nbsp;</div>
-								</figure>
-							  </div>
-							</div>
-							</a>
-							<div class="lh-20 text-700 " style="margin-top:20px;">
-									<span class="text-online">•</span>
-									<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark">
-                    {{ truncate($ad['title'],10) }}
-                  </a>
-							</div>
-              <div class="lh-20" style="margin-top:0px;">
-                  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                    class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }} </span></a>
+                <div class="button-new" 
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+
               </div>
-						  </div>
-						</div>
+              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+                  
+                    <div class="fs-sm text-white  text-600">
+                    {{ ucfirst($ad['town']['town_name']) }}  
+                    </div>
+              </div>          
+              <div class="bg-image z-0" 
+              data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+                </div>
+              <div ppt-search-badges="" style="z-index:1" class="right">
+                    <div class="badge" style="color:#000000;background-color:#FFC300;">
+                    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+          
+                  </div> 
+              </figure>
+              </div>
+          </div>
+          </a>
+          <div class="lh-20 text-700" style="margin-top:20px;">
+              <span class="text-online">•</span>
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+                class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+          </div>
+          <div class="lh-20" style="margin-top:0px;">
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+                class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
+          </div>
+          </div>
+		</div>
 
 						</div>
 

@@ -676,8 +676,8 @@ function filterToggle(val){
 					  </div>
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+					<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
 
 				</div>
 
@@ -695,8 +695,13 @@ function filterToggle(val){
 				</a></figure></div>
 
 
-				<div class="show-mobile">
-          <div class="buttons-wrap">
+        <div class="show-mobile">
+				  <div class="position-relative mb-3">
+					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
+					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+					  <div class="h-100 position-relative">
+						<figure>
+                       <div class="buttons-wrap">
 
 
 
@@ -707,29 +712,33 @@ function filterToggle(val){
 
 
 				</div>
-				  <div class="position-relative mb-3">
-					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
-
-					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-					  <div class="h-100 position-relative">
-						<figure>
-
 				<div ppt-search-badges="" style="z-index:1" class="right">
-				
-
-				</div>           <div class="bg-image z-0" data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo'] ]) }}"> </div>
+						
+						<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
+       
+		</div>   
+		 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+					
+						<div class="fs-sm text-white opacity-1 text-400">
+						  {{ $escort['quarter']}}  
+						</div>
+					  </div> 
+          <div class="bg-image z-0"
+				data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']]) }}"> </div>
 						</figure>
 					  </div>
 					</div>
 					</a>
 					<div class="lh-20 text-700 " style="margin-top:20px;">
 							<span class="text-online">•</span>
-							<a href="#" class="text-dark">	{{ ucfirst($escort['user']['username'])}}  , 
+							<a href="#" class="text-dark">{{ ucfirst($escort['user']['username'])}}  ,
                 <span class="fs-sm opacity-5">
-                  {{ ($escort['age']) }}</span></a>
+                  {{ ($escort['age']) }} Ans</span></a>
 					</div>
 				  </div>
 				</div>
+
 				</body>
 				</html>
 				</div>
@@ -902,28 +911,7 @@ function filterToggle(val){
 
 
 
-<div id="locationMap">
-</div>
-<!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap"  data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 </body>
 </html>
