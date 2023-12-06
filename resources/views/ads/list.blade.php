@@ -3896,7 +3896,7 @@ function updatecommentfilter(g){
 							<div class="badge" style="color:#FFFF;background-color:#ED5858;">
 							<span class="fal fa fa-star" style="color:#000000">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}  </div>
 							<div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
-							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> VerifiÉ  </div>
+							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> GOLD  </div>
 
 						</div>            </figure>
 								</div>

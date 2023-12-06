@@ -21,13 +21,15 @@ class HomepageController extends Controller
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
         $announcements = (new AnnouncementController())->index();
+        $announcements = $announcements[0];
+        $emptyTowns = $announcements[1];
         $ads = (new AdsController())->getAds();
         //dd($locations);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');
         //}
-        return view('Homepage', compact('locations', 'announcements', 'escorts', 'ads'));
+        return view('Homepage', compact('locations', 'announcements','emptyTowns', 'escorts', 'ads'));
 
     }
 }

@@ -11,17 +11,21 @@
 
     <div class="container">
         <div class="row">
-
-            <div class="col">
+            @forelse ($announcements as $announcement)
+                
+           
+            <div class="col-4">
                 <i class='fas fa-map-marker-alt' style='font-size:24px; color:#DA9ADC'></i> &nbsp;
                 <strong class="h4">
-                    <a href="../listing-category/asian-girls/index.htm" class="text-dark">
-                        Douala
+                    <a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" class="text-dark">
+                        {{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }})
                     </a>
                 </strong>
             </div>
 
-           
+            @empty
+                
+            @endforelse
         </div>
     </div>
 
@@ -32,21 +36,28 @@
 <div class="border-bottom">
 <div class="container py-4">
  
-<h1 class=" h3 mb-0 pb-0">Les autres villes</h1>
+<h1 class=" h3 mb-0 pb-0">Toutes les villes</h1>
 <hr>
 
 
     <div class="container">
         <div class="row">
 
-            <div class="col">
+            @forelse ($allTowns as $town)
+                
+           
+            <div class="col-3 mb-3">
                 <i class='fas fa-map-marker-alt' style='font-size:24px; color:#DA9ADC'></i> &nbsp;
                 <strong class="h4">
-                    <a href="../listing-category/asian-girls/index.htm" class="text-dark">
-                        Douala
+                    <a href="{{ route('ads.town', ['id'=>$town['id']]) }}" class="text-dark">
+                        {{ $town['town_name'] }} 
                     </a>
                 </strong>
             </div>
+
+            @empty
+                
+            @endforelse
 
            
         </div>

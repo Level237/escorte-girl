@@ -16,6 +16,7 @@ use Redirect;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Ad;
+use App\Http\Controllers\Listing\AnnouncementController;
 
 class AdsController extends Controller
 {
@@ -235,7 +236,10 @@ class AdsController extends Controller
     }
 
     public function adsTown(){
-        return view('ads.ads-town');
+         $data = (new AnnouncementController())->index();
+        $announcements = $data[0];
+        $allTowns = $data[1];
+        return view('ads.ads-town', compact('announcements', 'allTowns'));
     }
 
    

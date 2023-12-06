@@ -50,7 +50,7 @@
        
            
 	<div class="hide-ipad ml-auto ms-auto">
-        <a href="#" data-ppt-btn="" 
+        <a href="{{ route('adstown') }}" data-ppt-btn="" 
 		class="btn-primary btn-rounded-25 text-600" data-ppt-btn2-txt="">Autres Villes</a>
                       </div>
     </nav>
@@ -81,7 +81,7 @@
 
 			@endforelse
 			<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" >
+					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
 						Autres Villes
 				    </a>
 				</div>
@@ -224,8 +224,10 @@ class="position-relative " data-overlay="gradient-left">
 			  </div>
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
-			<div class="badge" style="color:#fff;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000"> </span>   </div>
+			
+			
+			<div class="badge" style="color:#000000;background-color:#FFC300;">
+			<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 		</div>
 
@@ -430,8 +432,7 @@ class="position-relative " data-overlay="gradient-left">
 			
 
 				<div ppt-search-badges="" style="z-index:1" class="right">
-						<div class="badge" style="color:#000000;background-color:#FFC300;">
-						<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+						
 						<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
 						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
        
