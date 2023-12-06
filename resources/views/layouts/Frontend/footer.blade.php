@@ -58,10 +58,12 @@
 
         <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Liens Utiles</div>
         <div class="lh-30">        <ul>
+                <li><a href="#">CGU</a></li>
+                <li><a href="{{ route('ads.list') }}">Aide</a></li>
+                <li><a href="{{ route('ads.create') }}">Vie Privée</a></li>
                 <li><a href="{{ route('contact') }}">Nous Ecrire</a></li>
-                <li><a href="{{ route('ads.list') }}">Annonces</a></li>
-                <li><a href="#">Comment ça marche</a></li>
-                <li><a href="{{ route('ads.create') }}">Publier une annonce</a></li>
+                
+                
                 </ul>
         </div>
 
@@ -71,10 +73,10 @@
 
         <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle2="">Annonces</div>
         <div class="lh-30">        <ul>
-                <li><a href="i#">Massage</a></li>
-                <li><a href="#">Produits Adultes</a></li>
-                <li><a href="#">Rencontres - Escortes</a></li>
-                <li><a href="#">Plus De Catégories</a></li>
+                <li><a href="{{ route('ads.category', ['id'=>'2']) }}">Massage</a></li>
+                <li><a href="{{ route('ads.category', ['id'=>'3']) }}">Produits Adultes</a></li>
+                <li><a href="{{ route('ads.category', ['id'=>'1']) }}">Rencontres - Escortes</a></li>
+                <li><a href="{{ route('ads.list') }}">Toutes les annonces</a></li>
                 </ul>
         </div>
 

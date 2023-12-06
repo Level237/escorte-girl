@@ -3920,6 +3920,7 @@ function updatecommentfilter(g){
 
 							   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
 								<ul class="list-unstyled">
+                            <li>  {{ $ad['category']['title'] }} </li>
 													  <li> <span>Age</span> {{ $ad['user']['escort'][0]['age'] }} </li>
 													  <li> <span><i class="fa fa-map-marker"></i></span>&nbsp;{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</li>
 													</ul>
@@ -4010,15 +4011,15 @@ function updatecommentfilter(g){
           $i = 1;
         @endphp
          @if ($current_page != 1)
-            <li class="page-item"><a href="{{ route('ads.list', ['id' => $current_page-1]) }}"  class="page-link">
+            <li class="page-item"><a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
             <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
         @while ($i <= $nb_pages)
          @if ($current_page == $i)
-            <li class ="page-item active"><a href="{{ route('ads.list', ['id' => $i]) }}"  class="page-link bg-primary">{{ $i }}</a></li>
+            <li class ="page-item active"><a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">{{ $i }}</a></li>
          @else
-            <li class="page-item"><a href="{{ route('ads.list', ['id' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
+            <li class="page-item"><a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
          @endif
 
            @php
@@ -4164,30 +4165,5 @@ function updatecommentfilter(g){
 
 </div>
 
-
-
-<div id="locationMap">
-</div>
-<!--map-modal -->
-<div class="map-modal-wrap shadow hidepage" style="display:none;">
-  <div class="map-modal-wrap-overlay">
-  </div>
-  <div class="map-modal-item">
-    <div class="map-modal-container">
-      <div class="map-modal">
-        <div id="singleMap"  data-latitude="54.2890174" data-longitude="-0.4024484">
-        </div>
-      </div>
-      <div class="card-body">
-        <h3><a href="#" class="text-dark">&nbsp;</a></h3>
-        <div class="address text-muted small letter-spacing-1">
-        </div>
-        <div class="map-modal-close bg-primary text-center">
-          <i class="fal fa-times">&nbsp;</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>

@@ -184,7 +184,7 @@ class AdsController extends Controller
         $total = count($allAds);
         $per_page = 6;
         $nb_pages = ceil($total/$per_page);
-        $current_page = $request->id ?? 1;
+        $current_page = $request->current_page ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
       
@@ -219,7 +219,42 @@ class AdsController extends Controller
         $total = count($allAds);
         $per_page = 5;
         $nb_pages = ceil($total/$per_page);
-        $current_page = $request->id ?? 1;
+        $current_page = $request->current_page ?? 1;
+
+        $starting_point = ($current_page * $per_page) - $per_page;
+      
+        $ads = array_slice($allAds, $starting_point, $per_page, true);
+
+        $ads = new Paginator($ads, $total, $per_page, $current_page, [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
+
+        //dd($allAds);
+
+        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
+    }
+
+    public function adsByCategory(Request $request){
+         
+        $url=(new UrlApiService())->getUrl();
+        $allAds = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/adscategory/".$request->id);
+            $allAds = json_decode((string) $response->getBody(), true);
+            $allAds = $allAds['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $allAds = [];
+        }
+
+        //dd($allAds);
+        $total = count($allAds);
+        $per_page = 5;
+        $nb_pages = ceil($total/$per_page);
+        $current_page = $request->current_page ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
       

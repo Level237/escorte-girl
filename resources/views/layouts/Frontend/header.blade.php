@@ -234,8 +234,8 @@ nav .fa{
 
 
 
-        <li><a href="{{ route('escort.list') }}">Escorts</a></li>
-
+        <li><a href="{{ route('escort.list') }}">Femmes</a></li>
+        <li><a href="{{ route('escort.list') }}">Hommes</a></li>
 
 
         <li><a href="{{ route('ads.list') }}" >
