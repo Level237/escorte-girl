@@ -245,7 +245,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                  
 				<script>
 
-                    function processSubmitForm(){
+            function scrollTop(){
+              jQuery('body,html').animate({
+                    scrollTop: 0
+                  }, 100);
+            }
+            function processSubmitForm(){
 
               canContinue = true;
               //console.log(iti.isValidNumber());
@@ -267,6 +272,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="name"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le nom  est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -275,6 +281,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="phone"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -285,6 +292,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="message"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le message est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -293,6 +301,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+                  scrollTop();
                   return false;
               }
 
@@ -348,18 +357,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				   
 				</script>
                 <!----------------- -->
-
-
-
-
- 
 </div>
-
-
- 
-
- 
-
 </div> 
 <script async src="https://www.google.com/recaptcha/api.js"></script>
 </body>

@@ -65,7 +65,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 <div id="ppt-add-listing-save-success" style="display:none;">
-    <div class="container ">
+    <div class="container py-5 my-5">
         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
             <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre compte a été créée, amusez vous.
         </div>
@@ -73,7 +73,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 <div id="ppt-invalid-fields" style="display:none;">
-    <div class="container">
+    <div class="container py-5 my-5">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
             <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
         </div>
@@ -239,6 +239,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <script>
 
+function CheckNewStore(val){
+
+if(val == "-1"){
+jQuery('#switchNewStore').show();
+jQuery('#switchNewStore').find('input').addClass('form-control');
+}
+
+}
 
 function processGender(id){
 	jQuery('.gender').removeClass('checked');
@@ -275,6 +283,34 @@ jQuery(document).ready(function() {
 	processSwitch();
 });
 
+
+
+function LoadStoreList(){
+
+	jQuery.ajax({
+		type: "POST",
+		url: 'http://escort.test/',
+		dataType: 'json',
+		data: {
+				action: "load_store_list",
+				selected: "",
+		},
+		success: function(response) {
+
+		 	if(response.total > 0){
+
+				jQuery("#storelist").html(response.output);
+
+			}
+
+		},
+		error: function(e) {
+			console.log(e)
+		}
+	});
+
+}
+
 </script>
 </div>
 
@@ -295,11 +331,15 @@ jQuery(document).ready(function() {
     <div class="d-flex justify-content-between p-2 text-600">
 
     <div>
+		<button data-ppt-btn="" class=" btn-system btn-back btn-lg scroll-top-quick" type="button" onclick="steps('1','back')">
+			<i class="fa fa-arrow-left mr-2"></i> Back</button></div>
+
+    <div>
     <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600" type="button" id="register-btn"
 	onclick="processSubmitForm()">S'inscrire</button>
 
 
-   
+    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">S'inscrire</button>
 
 
     </div>
@@ -460,7 +500,6 @@ function updateTotal(){
 
 jQuery(document).ready(function(){
 
-	scrollTop();
 	textarealimit();
 
 	jQuery('.scroll-top-quick').click(function () {
@@ -500,6 +539,103 @@ jQuery(document).ready(function(){
 
 });
 
+
+
+
+
+function username_generate(name){
+
+	jQuery("#ajax-username").html('');
+
+	jQuery.ajax({
+                type: "POST",
+				dataType: 'json',
+                url: 'http://escort.test/',
+         	data: {
+                     action: "ajax_username_generate",
+         			name: name,
+                 },
+               success: function(response) {
+
+         			if(response.status == "ok"){
+
+					 jQuery("#ajax-username").html('');
+
+					jQuery.each(response.data, function(key, val) {
+
+						jQuery("#ajax-username").append('<div class="usertry" data-block="block" data-parent="username" data-value="'+val+'">'+val+'</div>');
+
+					});
+
+
+					jQuery('.usertry').each(function () {
+
+						jQuery(this).on('click',function(e) {
+
+							var input = jQuery('input[data-key="username"]');
+
+							 jQuery(".usertry").removeClass('checked');
+
+							 jQuery(input).removeClass('required-active');
+
+							jQuery(this).addClass('checked');
+
+							input.val(jQuery(this).attr("data-value"));
+
+
+						});
+
+					});
+
+
+
+         			}
+                 },
+                 error: function(e) {
+                     alert("error "+e)
+                 }
+	});
+
+}
+function ValidateUsername(){
+
+	var input = jQuery('[data-key="username"]');
+	if(input.val().length < 3){
+	return false;
+	}
+
+	jQuery.ajax({
+                 type: "POST",
+				 dataType: 'json',
+                 url: 'http://escort.test/',
+         		data: {
+                     action: "validateUsername",
+         			un: input.val(),
+                 },
+                 success: function(response) {
+
+						if( response.status == "ok"){
+
+						jQuery("#ajax-username").html('');
+
+						return true;
+
+						}else{
+
+						 jQuery(input).addClass('required-active');
+
+						 return false;
+						}
+                 },
+                 error: function(e) {
+                     alert("error "+e)
+                 }
+	});
+
+	return true;
+
+}
+
 function noUserAccess(){
 
 alert("You can add more media once you've saved this ad.");
@@ -525,11 +661,76 @@ function steps(id,action){
 
 }
 
-function scrollTop(){
-	jQuery('body,html').animate({
-				scrollTop: 0
-			}, 100);
+
+function processEditData(btype){
+
+	fd = btype;
+
+	 if(btype != "map" && btype != "category" && jQuery(".modal-"+fd).length > 0){
+
+		 jQuery(".modal-"+fd).remove();
+
+	 }else{
+
+	jQuery.ajax({
+			type: "POST",
+			url: ajax_site_url,
+			data: {
+				   action: "load_editlisting_form",
+				   type: btype,
+				   eid: 0,
+
+			   },
+			   success: function(response) {
+
+
+			   pptModal(btype, response, "modal-bottom-rightxxx", "ppt-animate-fadein bg-white w-700 p-3", 0);
+
+				if(btype == "map"){
+
+				jQuery('head').append('<link rel="stylesheet" href="'+ CNDPath + 'css/css.plugins-flag.css" type="text/css" id="ppt-loaded-flags" />');
+
+				}
+
+				if(btype == "sms"){
+
+					loadJS(CNDPath + 'js/js.mobileprefixU.js', 'ppt-mobile-sms', function(el) {
+
+						var handleChange = function() {
+							jQuery("#mobilenum-input").val(iti.getNumber());
+						}
+
+						var input = document.querySelector("#mobilenum-input");
+						var iti = window.intlTelInput(input, {
+						  onlyCountries :["FR"],
+						  utilsScript: "https://ppt1080.b-cdn.net/js/js.mobileprefixU.js",
+						 // autoHideDialCode: false,
+						  nationalMode: true,
+
+						});
+
+						input.addEventListener('change', handleChange);
+						input.addEventListener('keyup', handleChange);
+
+						jQuery(".iti__country-list li").click(function(e) {
+							jQuery("#mobilenum-input").val( '+' + jQuery(this).data('dial-code') );
+
+						});
+					});
+
+				}
+
+
+			   },
+			   error: function(e) {
+				   console.log(e)
+			   }
+		   });
+
+	}
+
 }
+
 
 function processSubmitForm(){
 
@@ -540,6 +741,22 @@ function processSubmitForm(){
 
 	jQuery(".form-control").removeClass('required-active');
 	jQuery(".ppt-add-listing-error").html('');
+
+	// FIRE DEFAULT VALIDATION
+	//canContinue = js_validate_fields("Please completed all required fields.");
+
+	// SWITCH TAB
+	// if(jQuery(".block1 .required-active").length > 0){
+	// steps('1','this');
+	// }else if(jQuery(".block2 .required-active").length > 0){
+	// steps('2','this');
+	// }else if(jQuery(".block3 .required-active").length > 0){
+	// steps('3','this');
+	// }else if(jQuery(".block4 .required-active").length > 0){
+	// steps('4','this');
+	// }else if(jQuery(".block5 .required-active").length > 0){
+	// steps('5','this');
+	// }
 
 	if(!canContinue){
 	return;
@@ -552,7 +769,6 @@ function processSubmitForm(){
 			jQuery('[data-key="phone"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
-			scrollTop();
 			return false;
 	}
 
@@ -561,7 +777,6 @@ function processSubmitForm(){
 			jQuery('[data-key="username"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Le nom d'utilisateur est requis");
-			scrollTop();
 			return false;
 	}
 
@@ -575,7 +790,6 @@ function processSubmitForm(){
 			jQuery('[data-key="mypass1"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Le mot de passe est de 6 caractères mninimum et ça doit correspondrent");
-			scrollTop();
 			return false;
 		}
 	}
@@ -585,7 +799,6 @@ function processSubmitForm(){
 			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
-			scrollTop();
 			return false;
 	}
 
@@ -594,6 +807,43 @@ function processSubmitForm(){
 	jQuery('.startTime').attr('name', 'startTime[]');
 	jQuery('.endTime').attr('name', 'endTime[]');
 	jQuery('.isActive').attr('name', 'isActive[]');
+
+
+
+	// 	if(jQuery('.myemail').val() == ""){
+	// 	jQuery('.myemail').addClass('required-active');
+	// 	steps('5','this');
+	// 	alert("Please enter your email address.");
+	// 	return false;
+
+	// }
+
+	// if(!isValidEmail(jQuery('.myemail').val())){
+	// 	jQuery('.myemail').addClass('required-active');
+	// 	steps('5','this');
+	// 	alert("Please enter a valid email address.");
+	// 	return false;
+	// }
+
+
+
+	// jQuery('.myemail').removeClass('required-active');
+
+
+
+	// CHECK IF VALUE IS ON
+	// if(jQuery('#field-post_content').length){
+
+	// 	var text_length = jQuery('#field-post_content').val().length;
+	// 	if( text_length < 100 ){
+
+	// 		jQuery('#field-post_content').addClass('required-active').focus();
+
+	// 		alert("Please enter a bigger description.");
+	// 		steps('2','this');
+	// 		return false;
+	// 	}
+	// }
 
 
 	 // GOOGLE RECAPTURE

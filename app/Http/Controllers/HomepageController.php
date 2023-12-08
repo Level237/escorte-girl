@@ -20,6 +20,7 @@ class HomepageController extends Controller
         $locationController = new LocationController();
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
+        //dd($escorts);
         $announcements = (new AnnouncementController())->index();
         $announcements = $announcements[0];
         $emptyTowns = $announcements[1];

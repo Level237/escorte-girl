@@ -284,6 +284,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                  
 				<script>
 
+          function scrollTop(){
+            jQuery('body,html').animate({
+                  scrollTop: 0
+                }, 100);
+          }
           function processSubmitForm(){
 
               canContinue = true;
@@ -306,6 +311,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="name"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le nom  est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -314,6 +320,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="phone"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -322,6 +329,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="subject"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le sujet est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -330,6 +338,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="message"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le message est requis");
+                  scrollTop();
                   return false;
               }
 
@@ -338,6 +347,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
+                  scrollTop();
                   return false;
               }
 

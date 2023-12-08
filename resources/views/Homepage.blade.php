@@ -431,12 +431,16 @@ class="position-relative " data-overlay="gradient-left">
 
 			
 
+			    @if ($escort['isVerified'] == '1')
+					
+				
 				<div ppt-search-badges="" style="z-index:1" class="right">
 						
 						<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
 						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
        
-		</div>    
+				</div>
+				@endif    
 
 					  <div class="list-info-pop bg-black hide-mobile">
 						<ul class="list-unstyled ">
@@ -469,12 +473,14 @@ class="position-relative " data-overlay="gradient-left">
 
 
 				</div>
-				<div ppt-search-badges="" style="z-index:1" class="right">
-						
-						<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
-       
-		</div>   
+				@if ($escort['isVerified'] == '1')
+						<div ppt-search-badges="" style="z-index:1" class="right">
+								
+								<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
+			
+						</div>   
+				@endif
 		 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 					
 						<div class="fs-sm text-white opacity-1 text-400">
