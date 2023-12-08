@@ -19,8 +19,6 @@ class Escort
     public function handle(Request $request, Closure $next): Response
     {
         $currentUser=Session::get('currentUser');
-        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
         $role=$currentUser->role_id ?? null;
 
         if(empty($currentUser)){

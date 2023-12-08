@@ -20,43 +20,35 @@ class DashboardEscortController extends Controller
 
             $user = Session::get('currentUser');
             //dd($user);
-            $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-            $completed=$profileIsCompletedOrNot->completed ?? null;
-
             //Ensuring we are having an escort
-            if($user->role_id === 2 && $completed==1){
+            if($user->role_id === 2){
 
                 //Retrieve the escort
-                $escort = (new GetEscortService)->getEscort();
-                if($escort){
-                    return view('dashboard.escort.index', compact('user', 'escort'));
+
+                if($user){
+                    return view('dashboard.escort.index', compact('user'));
                 }
                 else
                   return view('error');
 
-            }else if($completed==0){
-                return to_route('step-one');
             }
             else{
                 return to_route("homepage");
             }
 
 
-            return view('dashboard.escort.index');
+            //return view('dashboard.escort.index');
     }
 
     public function profil (){
         $user = Session::get('currentUser');
-        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        if($completed==0){
-            return to_route('step-one');
-        }else{
+
+
             //Retrieve the escort
             $escort = (new GetEscortService)->getEscort();
             return view('dashboard.escort.profil', compact('user','escort'));
-        }
+
 
     }
 
@@ -67,11 +59,9 @@ class DashboardEscortController extends Controller
         $completed=$profileIsCompletedOrNot->completed ?? null;
 
 
-        if($completed==0){
-            return to_route('step-one');
-        }
 
-        else{
+
+
 
             //Retrieve the escort
             $escort = (new GetEscortService)->getEscort();
@@ -92,7 +82,7 @@ class DashboardEscortController extends Controller
 
             else
                 return view('error');
-        }
+
 
     }
 

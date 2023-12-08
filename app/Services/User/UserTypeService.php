@@ -15,10 +15,8 @@ class UserTypeService{
         }else if($role_id===3){
             return to_route('db.customer.index');
         }
-        else if($role_id===2 && $completed===1){
+        else if($role_id===2){
             return to_route('db.escort.index');
-        }else if($completed==0){
-            return to_route('step-one');
         }
     }
 }
