@@ -26,7 +26,7 @@
          <a href="/dashboard//?tab=details&sub=username" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Noms</div>
-            <div class="small opacity-8" style="max-width:150px;">{{ $escort['escort_name'] }}</div>
+            <div class="small opacity-8" style="max-width:150px;">{{ $user->username }}</div>
         </span>
         </a>
     </div>
@@ -37,7 +37,7 @@
         <a href="/dashboard/my-account//?tab=details&sub=address" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Ma Position</div>
-            <div class="small opacity-8" style="max-width:150px;">{{ $escort['quarter'] }}, {{ $escort['town'] }}</div>
+
         </span>
         </a>
     </div>
@@ -47,7 +47,7 @@
         <a href="/dashboard/my-account//?tab=details&sub=contact" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Mon WhatsApp</div>
-            <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $escort['whatsapp_number'] }}</div>
+            <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $user->phone_number }}</div>
         </span>
         </a>
     </div>
@@ -65,7 +65,7 @@
             <a href="/dashboard/my-account//?tab=details&sub=contact" class="text-black text-decoration-none">
             <span>
                 <div class="text-600">Nombre Total de visites de votre profil </div>
-                <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $escort['visits'] }}</div>
+
             </span>
             </a>
         </div>

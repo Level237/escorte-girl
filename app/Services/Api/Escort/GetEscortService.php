@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class GetEscortService{
 
      public function getEscort(){
-        
+
         //Get Escort
         $url=(new UrlApiService())->getUrl();
 
@@ -26,7 +26,7 @@ class GetEscortService{
     }
 
      public function getEscortByQuarter($quarterID){
-        
+
         //Get Escort by Quarter
         $url=(new UrlApiService())->getUrl();
 

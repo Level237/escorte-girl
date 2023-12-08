@@ -6,17 +6,9 @@
 <li  class="w-100">
 
 <div class="d-flex">
-<a href="{{ route('escort.details', ['id' => $escort['id']]) }}" class="ppt-avatar ppt-avatar-lg  rounded-circle" >
 
-    @php
-        if (filter_var($escort['photo'], FILTER_VALIDATE_URL))
-         echo " <div class='_wrap bg-image'
-                data-bg='".$escort['photo']."'>&nbsp;</div>";
-        else {
-             echo " <div class='_wrap bg-image'
-                data-bg='".route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )."'>&nbsp;</div>";
-        }
-    @endphp
+
+
 
 
 </a>
