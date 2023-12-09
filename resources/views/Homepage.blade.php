@@ -131,37 +131,7 @@ class="position-relative " data-overlay="gradient-left">
   data-bg="{{ asset('assets/images/hero/hero4.png') }}"> </div>
    
 </section>
-{{-- <section data-ppt-blockid="hero1" data-ppt-blocktype="hero" data-ppt-section="" class="hero1 py-5 position-relative bg-light">
-<div class="container position-relative z-10 py-0 py-sm-5 _contents">
-    <div class="row align-items-center">
-      <div class="col-lg-6 text-light">
 
-
-<h1 data-ppt-title="" class=" text-light">Rencontrez des escortes locales en ligne dès maintenant !</h1>
-
-
-
-        <div class="mt-5 d-flex h1buttonbox mobile-mb-4">
-
-
-
-          <a href="{{ route('escort.list') }}" class="btn-lg  text-600 btn-primary" data-ppt-btn="" data-ppt-btn-txt="">Escorts</a>
-
-
-                    <a href="{{ route('ads.list') }}" class="btn-lg btn-light text-600" data-ppt-btn="" data-ppt-btn2-txt="">Annonces</a>
-
-
-        </div>
-
-
-
-      </div>
-
-    </div>
-  </div>
-
-  <div class="bg-image" style="background-image:url('{{ asset('assets/images/hero/hero1.jpg') }}');" data-ppt-image-bg="" data-bg="https://premiumpress1063.b-cdn.net/_demoimagesv10//framework/layouts/_es/chocolate/hero1.jpg"> </div>
-  </section> --}}
 
 @include('utils.utils')
 
@@ -200,7 +170,7 @@ class="position-relative " data-overlay="gradient-left">
 
 
 
-		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
 
 		</div>
 		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
@@ -293,7 +263,7 @@ class="position-relative " data-overlay="gradient-left">
 					<div class="buttons-wrap">
 
 						<div class="button-new" 
-						style="background-color: #DA9DDC; font-size:10px;">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+						style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
 
 					</div>
 					<div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -358,7 +328,6 @@ class="position-relative " data-overlay="gradient-left">
 
 
                 <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>
-                        <a href="{{ route('escort.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn2-txt="">Escorts</a>
 
 
       </div>
@@ -366,219 +335,9 @@ class="position-relative " data-overlay="gradient-left">
   </div>
 </section>
 
-@if ($escorts)
-<section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-  <div class="container">
-    <div class="row">
-		<div class="col-lg-12">
-					<div class="d-flex justify-content-between">
-					  <h2 class="mb-5" data-ppt-title="">Escorts En Vedettes</h2>
-					  <div>
-									<a href="{{ route('escort.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Voir Plus</a>
-								  </div>
-					</div>
-		</div>
-		<div class="col-12">
-			<div class='row'>
-				@php
-					shuffle($escorts);
-				@endphp
-				@forelse ($escorts as $escort)
-					@if ($loop->index == 8)
-						@break
-					@endif
-				<div class="col-6 col-sm-6 col-md-4 col-lg-3"><html>
-				  <body><div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="43" data-lat="40.72211057045409" data-long="-73.87108987305908" data-address="">
 
-				  <figure>
-
-				<div class="button-featured-new-wrap es">
-				<div class="button-featured-new">En Vedette</div>
-				</div>
-
-
-				<div class="buttons-wrap">
-
-
-
-				<div class="button-new">{{ $escort['town']}}</div>
-
-
-
-
-
-				</div>
-				  <a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
-
-				  <div ppt-border1="" class="p-1">
-
-					<div class="search-gradient"> </div>
-
-					<div class="bg-light position-relative overflow-hidden" style="height:360px;">
-					  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-						<div class="text-white fs-4 text-600">
-						{{ ucfirst($escort['user']['username'])}}
-									<span class="text-online">•</span>
-								  </div>
-						<div class="fs-sm text-white opacity-5 text-400">
-						  {{ $escort['quarter']}}  
-						</div>
-					  </div>
-					  <div class="bg-image"
-					  data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']] )}}">
-						 
-					  </div>
-
-			
-
-			    @if ($escort['isVerified'] == '1')
-					
-				
-				<div ppt-search-badges="" style="z-index:1" class="right">
-						
-						<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-						<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
-       
-				</div>
-				@endif    
-
-					  <div class="list-info-pop bg-black hide-mobile">
-						<ul class="list-unstyled ">
-											  <li class="d-flex justify-content-between"> <span>Age</span>
-											  {{ ($escort['age']) }} Ans </li>
-											  <li class="d-flex justify-content-between"> <span>Ville</span> {{ $escort['town']}}</li>
-											  <li class="d-flex justify-content-between"> <span>Sexualité</span> {{ $escort['sexuality']}}</li>
-											</ul>
-					  </div>
-					</div>
-
-				  </div>
-				</a></figure></div>
-
-
-				<div class="show-mobile">
-				  <div class="position-relative mb-3">
-					<a href="{{ route('escort.details', ['id' => $escort['id']]) }}">
-					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-					  <div class="h-100 position-relative">
-						<figure>
-                       <div class="buttons-wrap">
-
-
-
-				<div class="button-new">{{ $escort['town']}}</div>
-
-
-
-
-
-				</div>
-				@if ($escort['isVerified'] == '1')
-						<div ppt-search-badges="" style="z-index:1" class="right">
-								
-								<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Verifié  </div>
-			
-						</div>   
-				@endif
-		 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-					
-						<div class="fs-sm text-white opacity-1 text-400">
-						  {{ $escort['quarter']}}  
-						</div>
-					  </div> 
-          <div class="bg-image z-0"
-				data-bg="{{ route('display.profil',['id'=>$escort['id'], 'path'=>$escort['photo']]) }}"> </div>
-						</figure>
-					  </div>
-					</div>
-					</a>
-					<div class="lh-20 text-700 " style="margin-top:20px;">
-							<span class="text-online">•</span>
-							<a href="#" class="text-dark">{{ ucfirst($escort['user']['username'])}}  ,
-                <span class="fs-sm opacity-5">
-                  {{ ($escort['age']) }} Ans</span></a>
-					</div>
-				  </div>
-				</div>
-				</body>
-				</html>
-				</div>
-				@empty
-				@endforelse
-
-			</div>
-				  </div>
-</div>
-  </div>
-</section>
-@endif
  <div class="bg-light ppt-page-body">
 <div class="border-bottom">
-<div class="container py-4">
-
-<h1 class=" h3 mb-0 pb-0">LES MEILLEURES ESCORTES DU CAMEROUN SONT ICI !</h1>
-
-
-    <p class="mt-2 opacity-5">Probablement plus d'un homme et plus d'une fois ont dû rechercher des escortes Camerounaises. Ici vous trouverez rapidement la bonne escorte dans le catalogue trié par services, prix, paramètres parmi les meilleurs de votre région.</p>
-
-    <div class="d-flex justify-content-between mt-4 tablist hide-mobile">
-        @if($locations != null)
-         <div class="tab tab-all active"><a href="javascript:void(0);" onclick="filterLetters('all');">Tout</a></div>
-
-        @forelse ($locations as $location)
-
-            <div class="tab tab-{{ $location['town_name'] }}"><a href="javascript:void(0);" onclick="filterLetters('{{ $location['town_name'] }}');">{{ $location['town_name'] }}({{ $location['numberEscort'] }})</a></div>
-        @empty
-
-        @endforelse
-         @endif
-</div>
-</div>
-
-<div class="bg-white">
-<div class="container py-4">
-
-    @if ($locations)
-
-
-		@forelse ($locations as $location)
-	    <div class="wrap wrap-{{ $location['town_name'] }}" id="{{ $location['town_name'] }}">
-			<h3>{{ $location['town_name'] }}</h3>
-			<hr>
-			<div class="py-3 ">
-		   <div class="">
-
-
-
-           @forelse ($location['locals'] as $quarter)
-            <div class="tab tab-{{ $quarter['quarter_name'] }}" style="display: inline">
-				<a href="{{ route('escort.quarter', ['quarterID' => $quarter['quarter_id'] ]) }}" 
-					>{{ $quarter['quarter_name'] }}({{ $quarter['total'] }})</a></div> |
-           @empty
-
-        @endforelse
-
-
-			</div>
-			</div>
-        </div>
-        @empty
-        @endforelse
-      @endif
-        <div class="wrap wrap-Z" id="Z">
-    <h3>Z</h3>
-    <hr>
-    <div class="py-3 ">
-   <div class="">
-
-    </div>
- 	</div>
-    </div>
-
-
-</div>
-</div>
 
 <style>
 .tablist .tab { padding: 5px 15px;  }

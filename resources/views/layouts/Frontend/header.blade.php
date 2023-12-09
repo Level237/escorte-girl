@@ -233,11 +233,6 @@ nav .fa{
             <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
 
 
-
-        <li><a href="{{ route('escort.list') }}">Femmes</a></li>
-        <li><a href="{{ route('escort.list') }}">Hommes</a></li>
-
-
         <li><a href="{{ route('ads.list') }}" >
           Annonces</a>
         </li>

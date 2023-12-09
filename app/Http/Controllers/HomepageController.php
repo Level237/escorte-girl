@@ -21,11 +21,11 @@ class HomepageController extends Controller
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
         //dd($escorts);
-        $announcements = (new AnnouncementController())->index();
-        $announcements = $announcements[0];
-        $emptyTowns = $announcements[1];
+        $data = (new AnnouncementController())->index();
+        $announcements = $data[0];
+        $emptyTowns = $data[1];
         $ads = (new AdsController())->getAds();
-        //dd($locations);
+        //dd($ads);
         //$currentUser=(new CurrentUserService())->currentUser();
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');
