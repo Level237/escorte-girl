@@ -55,24 +55,18 @@ class DashboardEscortController extends Controller
     public function ads (){
 
         $user = Session::get('currentUser');
-        $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
-        $completed=$profileIsCompletedOrNot->completed ?? null;
-
-
-
-
-
 
             //Retrieve the escort
-            $escort = (new GetEscortService)->getEscort();
 
-            if($escort){
+
+            if($user){
 
                 //Retrieve escort'ads
                 $ads = $this->getAds($user->id);
+                return $ads;
                 if($ads){
                     $ads = $ads['data'];
-                    return view('dashboard.escort.ads.index', compact('user', 'escort', 'ads'));
+                    return view('dashboard.escort.ads.index', compact('user', 'ads'));
                 }
                 else{
                     return view('error');
