@@ -127,6 +127,124 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 @csrf
  <input type="hidden" name="user_id" id="token" value="{{$user->id}}">
 <div class="row">
+<input type="hidden" class="form-control" name="gender" id="gender" value="1">
+<div class="col-md-6">
+
+    <label>Je suis <span class="text-danger">*</span> </label>
+
+    <div class="mt-2">
+
+        <div class="usertry gender checked gender-1" onclick="processGender('1');">
+
+        <div><i class="fa fa-check-circle"></i> Escorte Girl</div>
+
+    </div>
+        <div class="usertry gender  gender-2" onclick="processGender('2');">
+
+        <div><i class="fa fa-check-circle"></i> Escorte Boy</div>
+
+    </div>
+    </div>
+
+</div>
+
+<div class="col-md-6">
+
+    <label>Âge <span class="text-danger">*</span> </label>
+
+    <div class="mt-2">
+
+        <div class="form-group position-relative">
+  
+			<select class="form-control" name="age" id="age">
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+				<option value="32">32</option>
+				<option value="33">33</option>
+				<option value="34">34</option>
+				<option value="35">35</option>
+				<option value="36">36</option>
+				<option value="37">37</option>
+				<option value="38">38</option>
+				<option value="39">39</option>
+				<option value="40">40</option>
+				<option value="41">41</option>
+				<option value="42">42</option>
+				<option value="43">43</option>
+				<option value="44">44</option>
+				<option value="45">45</option>
+				<option value="46">46</option>
+				<option value="47">47</option>
+				<option value="48">48</option>
+				<option value="49">49</option>
+				<option value="50">50</option>
+			</select>
+			
+		</div>
+    </div>
+
+</div>
+
+
+
+<div class="col-md-6 mobile-mb-2">
+<label>Numéro de téléphone <span class="text-danger">*</span></label>
+
+<div class="form-group position-relative">
+    	<input  type="tel" class="form-control required" data-key="phone" name="phone" id="phone" value="" required>
+		<span id="valid-msg" style="display:none">✓ Valid</span>
+		<span id="error-msg" class="hide"></span>
+  </div>
+
+</div>
+
+<div class="col-md-6 mobile-mb-2">
+
+<label>Ville </label>
+<div class="form-group position-relative">
+    @if($towns)
+    <select class="form-control" name="town" id="town" data-key="town" onchange="fetchQuarters(this)">
+		<option value="">Sélectionner la ville</option>
+		@forelse ($towns as $town)
+			<option value="{{  $town['id'] }}">{{ $town['town_name'] }}</option>
+		@empty
+		@endforelse
+
+	</select>
+	@endif
+   
+    <i class="fal fa-map-marker"></i> 
+
+  </div>
+
+</div>
+
+
+<div class="col-md-12 mobile-mb-2" style="display: none" id='quarterList'>
+<label>Quartier <span class="text-danger">*</span> </label>
+
+<div class="form-group position-relative" id='selectList'>
+    <select class="form-control" name="quarter" id="quarter" data-key="quarter">
+		<option value="">Sélectionner le quartier</option>
+		
+
+	</select>
+
+  </div>
+
+</div>
 
 <div class="col-md-6 mobile-mb-2">
 <label>Titre <span class="text-danger">*</span> </label>
@@ -206,6 +324,22 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 
 </div>
+
+<div class="row">
+<div class="col-md-12 mobile-mb-2">
+  
+  <div class="form-group">
+  <div  class="text-muted small float-right">
+    <span></span>
+  </div>
+    <label class="w-100">Vos Services  <span class="text-danger">*</span> </label>
+    <textarea name="services"  rows='5' class="form-control rounded-0 required-field" tabindex="2" 
+	data-key="services" id="services"></textarea>
+  </div>
+	
+</div>
+
+</div>
 @csrf
 					 
 						
@@ -239,7 +373,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   Dropzone.options.adsDropzone = { // camelized version of the `id`
     paramName: "file", // The name that will be used to transfer the file
     maxFilesize: 2, // MB
-	maxFiles : 10,
+	maxFiles : 4,
     acceptedFiles: ".jpeg,.jpg,.png",
 	Name: "Chargez vos fichiers ici",
     init: function() {
@@ -277,7 +411,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<input type="hidden" class="form-control" name="tax[dagender]" id="gender" value="2">
+
 
 
 <script>
@@ -317,12 +451,14 @@ function processInterested(id){
 }
 
 jQuery(document).ready(function() {
+	scrollTop();
 	jQuery('#reg_field_tax_dagender').on('change', function () {
 		processGender(jQuery("#reg_field_tax_dagender").val());
 	});
 });
 
 jQuery(document).ready(function() {
+	scrollTop();
 	processSwitch();
 });
 
@@ -354,16 +490,10 @@ jQuery(document).ready(function() {
 </div>
 
 </div>
-    <div>
-		<button data-ppt-btn="" class=" btn-system btn-back btn-lg scroll-top-quick" type="button" onclick="steps('1','back')">
-			<i class="fa fa-arrow-left mr-2"></i> Back</button></div>
 
     <div>
     <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600" type="button" id="register-btn"
 	onclick="processSubmitForm()">Créer l'annonce</button>
-
-
-    <button data-ppt-btn="" class=" btn-secondary btn-block btn-lg text-600 btn-save" type="button">Créer l'annonce</button>
 
 
     </div>
@@ -450,9 +580,15 @@ function showcustomfields(){
 		jQuery(this).removeClass("required-field-xxx").addClass("required-field");
 	});
 }
+function scrollTop(){
+	jQuery('body,html').animate({
+				scrollTop: 0
+			}, 100);
+}
 
 jQuery(document).ready(function(){
 
+	scrollTop();
 	textarealimit();
 
 	jQuery('.scroll-top-quick').click(function () {
@@ -577,6 +713,38 @@ function processEditData(btype){
 }
 
 
+function fetchQuarters(town){
+	
+	
+	// FETCH QUARTERS
+		jQuery.ajax({
+			type: "GET",
+			dataType: 'json',
+			url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+			timeout: 15000,
+		
+			success: function(response, statusCode) {
+
+				$quarters = response.data;
+				var textToPrint = "";
+				$quarters.forEach((e)=>{
+					textToPrint = textToPrint + `<option value="${e.id}">${e.quarter_name}</option>`
+				})
+				jQuery('#quarterList').show();
+				
+				jQuery("#quarter").html(textToPrint);
+
+			},
+			error: function(response, statusCode) {
+
+				jQuery('#ppt-add-listing-form').show();
+				jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+				scrollTop();
+			},
+
+
+		});
+}
 function processSubmitForm(){
 
 	canContinue = true;
@@ -592,6 +760,18 @@ function processSubmitForm(){
 	return;
 	}
 
+
+	//Validating phone number
+	//console.log("in process "+jQuery('#valide-phone-number').val());
+	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined || !iti.isValidNumber()){
+			// steps('5','this');
+			jQuery('[data-key="phone"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
+			scrollTop();
+			return false;
+	}
+
 	//Validating title
 
 	if(jQuery('#title').val() === "" || jQuery('#title').val() === undefined){
@@ -599,6 +779,26 @@ function processSubmitForm(){
 			jQuery('[data-key="title"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné le titre de l'annonce");
+			scrollTop();
+			return false;
+	}
+
+
+	if(jQuery('#town').val() === "" || jQuery('#town').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="town"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la ville");
+			scrollTop();
+			return false;
+	}
+
+	if(jQuery('#quarter').val() === "" || jQuery('#quarter').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="quarter"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la quartier");
+			scrollTop();
 			return false;
 	}
 
@@ -610,8 +810,20 @@ function processSubmitForm(){
 			jQuery('[data-key="field-post_content"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("La description est requise");
+			scrollTop();
 			return false;
 	}
+
+	if(jQuery('#services').val() === "" || jQuery('#services').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="services"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné vos services");
+			scrollTop();
+			return false;
+	}
+
+
 
 	//Checking if at least one image has been successfully uploaded
 	let adsDropzone = document.getElementById("ads-dropzone");
@@ -624,9 +836,9 @@ function processSubmitForm(){
 		}
 	}
 
-	if(numberUpload < 4){
+	if(numberUpload < 2){
 		jQuery('#ppt-invalid-fields').show();
-		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins 4 images de qualité");
+		jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins 2 images de qualité");
 		return false;
 	}
 

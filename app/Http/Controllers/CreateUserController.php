@@ -10,6 +10,8 @@ class CreateUserController extends Controller
 
         //Fetching list towns
         $towns = (new TownService())->getTowns();
+         if($towns == null)
+                return view('error');
         return view('auth.register', compact('towns'));
     }
     

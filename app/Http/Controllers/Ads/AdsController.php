@@ -16,29 +16,33 @@ use Redirect;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Ad;
+use App\Services\Api\Location\TownService;
 use App\Http\Controllers\Listing\AnnouncementController;
 
 class AdsController extends Controller
 {
     public function create(){
 
-
-
         //check if user is connected
          if (Session::has('currentUser')){
-
+           
             $url=(new UrlApiService())->getUrl();
              //$currentUser=(new CurrentUserService())->currentUser();
             $user = Session::get('currentUser');
-            // dd($user);
+            //dd($user->id);
           
+            //Fetching list towns
+            $towns = (new TownService())->getTowns();
+                 if($towns == null)
+                return view('error');
             //Retrieving all categories
             $adsCategories = (new AdsCategoryService)->getCategories();
             if($adsCategories == null)
                 return view('error');
 
-            //Retrieving ads category
-            return view('ads.create', compact('adsCategories', 'user'));
+             //Delete directory on page refresh
+                \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$user->id);
+            return view('ads.create', compact('adsCategories', 'user', 'towns'));
         }
 
         else{
@@ -50,7 +54,7 @@ class AdsController extends Controller
 
     public function save(Request $request){
 
-        //dd($request->user_id);
+        
         //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
 
@@ -59,14 +63,20 @@ class AdsController extends Controller
         try{
             $response = Http::asForm()->post($url."/api/ads", [
                 'user_id' => $request->user_id,
-                'location' => $request->location,
+                'town_id' => $request->town,
+                'quarter_id' => $request->quarter,
+                'gender' => $request->gender,
+                'age' => $request->age,
+                'phone' => $request->phone,
+                'services' => $request->services,
                 'category_id' => $request->category,
                 'accepted' => $request->accepted,
                 'title' => $request->title,
+                'location' => $request->location,
                 'description' => $request->form['post_content'],
             ]);
 
-
+            //dd(json_decode((string) $response->getBody(), true));
             if($response->status() === 200){
 
                 //Now uploading ads's images
