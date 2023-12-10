@@ -59,7 +59,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div id="ppt-add-listing-save" style="display:none;">
     <div class="container py-5 my-5">
         <div class="alert alert-primary p-3 alert-dismissible fade show" role="alert">
-            <strong><i class="fa fa-spin fa-sync mr-3"></i>  Saving Your Changes</strong> - This may take a few minutes, please wait...
+            <strong><i class="fa fa-spin fa-sync mr-3"></i>  Enregistrement</strong> - Cela peut prendre quelques minutes, veuillez patienter...
         </div>
     </div>
 </div>
@@ -153,19 +153,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
 
 </div>
-<label>Numéro de téléphone <span class="text-danger">*</span></label>
 
-
-	<div class="field_wrapper">
-	<div class="form-group ">
-	
-</div>
-</div>
 
 <div class="row">
 
 <div class="col-md-5 mobile-mb-2">
-<label>Mot de passe <span class="text-danger">*</span> </label>
+<label>Numéro de téléphone <span class="text-danger">*</span></label>
 
 <div class="form-group position-relative">
     	<input name="custom[whatsapp]" type="tel" class="form-control required" data-key="phone" id="phone" value="" required>
@@ -597,7 +590,7 @@ function processSubmitForm(){
 
 	if(jQuery('#town').val() === "" || jQuery('#town').val() === undefined){
 			// steps('5','this');
-			jQuery('[data-key="username"]').addClass('required-active');
+			jQuery('[data-key="town"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Votre ville de résidence est requise");
 			scrollTop();
@@ -716,12 +709,14 @@ function processSubmitForm(){
 			},
 			error: function(response, statusCode) {
 
+				console.log(statusCode);
+				console.log(response.status);
 				console.log(response.responseText);
 				var obj = JSON.parse(response.responseText);
 				console.log(obj);
 				console.log(obj.username);
 
-				if(response.status === 400){
+				if(response.status == '400'){
 
 					jQuery('#ppt-add-listing-save').hide();
 					jQuery('#ppt-add-listing-form').show();
@@ -739,6 +734,7 @@ function processSubmitForm(){
 					})
 
 					 jQuery(".ppt-add-listing-error").html('<div>'+textToPrint+"</div>");
+					 scrollTop();
 					// if(response.type == "email" || response.type == "username" ){
 					// steps('5','this');
 					// }
@@ -746,17 +742,23 @@ function processSubmitForm(){
 
 				}
 
-				if(response.status === 0){
+				else if(response.status == '0'){
 
 					jQuery('#ppt-add-listing-save').hide();
 					jQuery('#ppt-add-listing-form').show();
 					jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
-
+					scrollTop();
 					// if(response.type == "email" || response.type == "username" ){
 					// steps('5','this');
 					// }
 
 
+				}
+				else{
+
+					jQuery('#ppt-add-listing-save').hide();
+					jQuery('#ppt-add-listing-form').show();
+					jQuery(".ppt-add-listing-error").html(`Une erreur inconnue s'est produite`);
 				}
 
 			},
