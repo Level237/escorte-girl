@@ -177,7 +177,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="col-md-7 mobile-mb-2">
 
-<label>Email <span class="text-danger">*</span> </label>
+<label>Email </label>
 <div class="form-group position-relative">
     <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="" data-key="Email" 
 	autocomplete="current-password">
@@ -208,6 +208,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
 
 	<select name="town" id="town" class="form-control" value="" data-key="town" >
+		<option value="">Sélectionner la ville</option>
 		@foreach ($towns as $town)
 			<option value="{{ $town['id'] }}">{{ $town['town_name'] }}</option>
 		@endforeach
@@ -594,7 +595,14 @@ function processSubmitForm(){
 			return false;
 	}
 
-	
+	if(jQuery('#town').val() === "" || jQuery('#town').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="username"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Votre ville de résidence est requise");
+			scrollTop();
+			return false;
+	}	
 
  	if(jQuery('[data-key="mypass"]').length > 0){
 		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
@@ -660,6 +668,8 @@ function processSubmitForm(){
 
 		const username = jQuery("#username").val();
 		const role = jQuery("#gender").val();
+		const town = jQuery("#town").val();
+		const email = jQuery("#email").val();
 		var phoneNumber = jQuery("#phone").val();
 		var password = jQuery("#mypass").val();
 		const recaptcha = jQuery('#g-recaptcha-response').val();
@@ -673,6 +683,8 @@ function processSubmitForm(){
 			data: {
 				username: username,
 				role_id: role,
+				town_id: town,
+				email: email,
 				phone_number: phoneNumber,
 				password: password,
 				recaptcha : recaptcha,
