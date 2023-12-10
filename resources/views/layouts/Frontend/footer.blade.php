@@ -272,9 +272,10 @@ function ajax_newsletter_signup58945(){
 	<li><a href="/" class="">
         <i class="fal fa-house"></i> Accueil</a></li>
 
+  	<li><a href="{{ route('db.escort.index') }}" class="">
+        <i  class="fal fa-user"></i> Mon Compte</a></li>
 
-	<li><a href="#" class="" data-toggle="modal" data-target="#exampleModal">
-        <i  class="fal fa-search"></i> Chercher</a></li>
+
 
 
 
@@ -285,8 +286,8 @@ function ajax_newsletter_signup58945(){
    
 
 
-	<li><a href="{{ route('escort.list') }}" class="">
-        <i class="fa fa-users-crown"></i> Escorts</a></li>
+		<li><a href="#" class="" data-toggle="modal" data-target="#exampleModal">
+        <i  class="fal fa-search"></i> Chercher</a></li>
 
 
 	<li><a href="{{ route('ads.list') }}" class="">

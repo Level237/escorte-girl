@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Api\Escort;
+namespace App\Services\Api\Location;
 
 use Exception;
 use App\Services\Api\UrlApiService;
@@ -11,18 +11,22 @@ class TownService{
 
      public function getTowns(){
         
+        $url=(new UrlApiService())->getUrl();
          //Retrieving all towns
             $towns = null;
+            
             try{
 
-                $response = Http::asForm()->get($url."/api/list/towns");
+                $response = Http::asForm()->get($url."/api/towns");
+                
                 $towns = json_decode((string) $response->getBody(), true);
 
+                //dd($towns);
                 if($towns['data'] === null){
                     return null;
                 }
                 else{
-                    $towns = $towns['data'];
+                    return $towns['data'];
                 }
 
             }catch(\Exception $e){

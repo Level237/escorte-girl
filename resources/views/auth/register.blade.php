@@ -116,26 +116,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         </div>
 
 
-
-
-        <div class="ppt-add-listing-payment" style="display:none;">
-            <div class="container px-0 mb-4">
-                <div class="bg-black rounded p-3 text-light">
-                    <div class="d-flex justify-content-between text-700">
-
-                    <div>Total</div>
-
-                    <div class="totalPriceDisplay"><span class="ppt-price">0</span></div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-
-
         </div>
 
     </div>
@@ -178,19 +158,66 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 	<div class="field_wrapper">
 	<div class="form-group ">
-		<input name="custom[whatsapp]" type="tel" class="form-control required" data-key="phone" id="phone" value="" required>
+	
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-5 mobile-mb-2">
+<label>Mot de passe <span class="text-danger">*</span> </label>
+
+<div class="form-group position-relative">
+    	<input name="custom[whatsapp]" type="tel" class="form-control required" data-key="phone" id="phone" value="" required>
 		<span id="valid-msg" style="display:none">✓ Valid</span>
 		<span id="error-msg" class="hide"></span>
-</div>
+  </div>
+
 </div>
 
-<div class="form-group mt-4">
+<div class="col-md-7 mobile-mb-2">
 
-<label class="">Créer un nom d'utilisateur pour votre profil. <span class="text-danger">*</span> </label>
+<label>Email <span class="text-danger">*</span> </label>
+<div class="form-group position-relative">
+    <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="" data-key="Email" 
+	autocomplete="current-password">
+   
+    <i class="fal fa-envelope"></i> 
+
+  </div>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mobile-mb-2">
+<label class="">Nom d'utilisateur. <span class="text-danger">*</span> </label>
 
 
   <input type="input" name="form[post_title]" id="username"
   data-key="username" maxlength="150" placeholder="vaginsucrer" class="form-control  big required-field" tabindex="1" value="">
+
+</div>
+
+<div class="col-md-6 mobile-mb-2">
+
+<label>Ville <span class="text-danger">*</span> </label>
+<div class="form-group position-relative">
+    
+
+	<select name="town" id="town" class="form-control" value="" data-key="town" >
+		@foreach ($towns as $town)
+			<option value="{{ $town['id'] }}">{{ $town['town_name'] }}</option>
+		@endforeach
+	</select>
+   
+    <i class="fal fa-map-marker"></i> 
+
+  </div>
+
+</div>
 
 </div>
 
@@ -266,12 +293,14 @@ function processInterested(id){
 }
 
 jQuery(document).ready(function() {
+	scrollTop();
 	jQuery('#reg_field_tax_dagender').on('change', function () {
 		processGender(jQuery("#reg_field_tax_dagender").val());
 	});
 });
 
 jQuery(document).ready(function() {
+	scrollTop();
 	processSwitch();
 });
 

@@ -76,7 +76,7 @@
                         </a>
                         
                       @else
-                        <a href="#" class="tooltip1">
+                        <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" class="tooltip1">
                             <span class="tooltiptext1">Boostée</span>
                             <i class="fa fa-check font-danger"></i>
                         </a>

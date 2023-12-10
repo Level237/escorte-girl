@@ -93,13 +93,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	  </script>
       
        		
-			  <a href="{{ route('escort.details', ['id' => $ad['user']['escort'][0]['id']]) }}"  class="btn-primary btn-block btn-lg list mb-3 mobile-buynow-trigger" data-ppt-btn="">
-			 
-			  <span>Profil de l'escorte</span>
-              </a>
-			  
+			
 		 
-      <a href="https://api.whatsapp.com/send?phone=237{{ $ad['user']['escort'][0]['whatsapp_number'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+      <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
       <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
       </a>
       
@@ -223,6 +219,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <script>      
 jQuery(document).ready(function(){  
+  
 	setTimeout(function() {
 		var clipboard = new ClipboardJS('.js-copy-link');
 		clipboard.on('success', function(e) { 
@@ -252,7 +249,7 @@ jQuery(document).ready(function(){
 			<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			
         <div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
                        
-			<span>{{ $ad['user']['escort'][0]['age'] }} Ans</span>   
+			<span>{{ $ad['age'] }} Ans</span>   
             
 		</div>
 		
@@ -655,7 +652,7 @@ jQuery(document).ready(function(){
 
 
 
-		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
 
 		</div>
 		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">

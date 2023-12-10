@@ -237,6 +237,10 @@ nav .fa{
           Annonces</a>
         </li>
 
+        <li><a href="{{ route('db.escort.index') }}" >
+          Mon Tableau Bord</a>
+        </li>
+
 
 
         {{-- <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li> --}}
@@ -310,7 +314,7 @@ nav .fa{
             <div class=>
                
             <div class>
-                <a href="{{ route('escort.list') }}" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
+                <a href="#" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
                  class="btn-system">Besoin d'aide pour s'inscrire?</a>
             </div>
             <div>

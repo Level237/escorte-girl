@@ -3921,7 +3921,7 @@ function updatecommentfilter(g){
 							   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
 								<ul class="list-unstyled">
                             <li>  {{ $ad['category']['title'] }} </li>
-													  <li> <span>Age</span> {{ $ad['user']['escort'][0]['age'] }} </li>
+													  <li> <span>Age</span> {{ $ad['age'] }} </li>
 													  <li> <span><i class="fa fa-map-marker"></i></span>&nbsp;{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</li>
 													</ul>
 
@@ -3960,7 +3960,7 @@ function updatecommentfilter(g){
               <div class="buttons-wrap">
 
                 <div class="button-new" 
-                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['user']['escort'][0]['age'] }} Ans</div>
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">

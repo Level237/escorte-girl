@@ -56,16 +56,15 @@ class DashboardEscortController extends Controller
 
         $user = Session::get('currentUser');
 
-            //Retrieve the escort
-
 
             if($user){
 
                 //Retrieve escort'ads
                 $ads = $this->getAds($user->id);
-                return $ads;
+                //return $ads;
                 if($ads){
                     $ads = $ads['data'];
+                    //dd($ads);
                     return view('dashboard.escort.ads.index', compact('user', 'ads'));
                 }
                 else{
