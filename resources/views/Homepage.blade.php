@@ -515,11 +515,11 @@ class="position-relative " data-overlay="gradient-left">
 </div>
 	  
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
+<div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="10000">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     @php
@@ -534,7 +534,7 @@ class="position-relative " data-overlay="gradient-left">
 				<div class='row'>
 				
 			@forelse($ads as $ad)
-				@if ($loop->index == 2)
+				@if ($loop->index == 4)
 								@break
 							@endif
 			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
@@ -544,17 +544,12 @@ class="position-relative " data-overlay="gradient-left">
 
 				  <figure>
 
-				<div class="button-featured-new-wrap es">
-					<div class="button-featured-new">ULTRA VIP</div>
-				</div>
 
-				<div class="buttons-wrap">
+				<div class="buttons-wrap"> 
+   
+								<div class="button-new">GOLD</div>   
 
-
-
-				<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
-
-				</div>
+							</div>
 				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 
 				  <div ppt-border1="" class="p-1">
@@ -654,7 +649,7 @@ class="position-relative " data-overlay="gradient-left">
 		</section>
     </div>
 	
-	@for($i=2; $i < count($ads); $i=$i+4)
+	@for($i=4; $i < count($ads)-4; $i=$i+4)
 		<div class="carousel-item">
 			<section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
 		  <div class="container">
@@ -1068,11 +1063,11 @@ class="position-relative " data-overlay="gradient-left">
 		</div>
 	@endfor
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>

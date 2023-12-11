@@ -37,7 +37,7 @@
         <a href="/dashboard/my-account//?tab=details&sub=address" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Ma Position</div>
-
+            <div class="small opacity-8 text-truncate" style="max-width:150px;">{{ $user->phone_number }}</div>
         </span>
         </a>
     </div>
