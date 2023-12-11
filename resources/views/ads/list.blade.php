@@ -3895,8 +3895,24 @@ function updatecommentfilter(g){
 						<div ppt-search-badges="" style="z-index:1" class="right">
 							<div class="badge" style="color:#FFFF;background-color:#ED5858;">
 							<span class="fal fa fa-star" style="color:#000000">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}  </div>
-							<div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
-							<span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span> GOLD  </div>
+							@if($ad['subscribe_id'] ===1)
+                            <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+
+                                <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>PREMIUM</div>
+
+                                @endif
+                                @if($ad['subscribe_id'] ===2)
+                            <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+
+                                <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>GOLD</div>
+
+                                @endif
+                                @if($ad['subscribe_id'] ===3)
+                                <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+
+                                    <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>EXTRA VIP</div>
+
+                                    @endif
 
 						</div>            </figure>
 								</div>
@@ -3947,7 +3963,7 @@ function updatecommentfilter(g){
 						  </div>
 						</div>
 
-				
+
 
             <div class="show-mobile">
           <div class="position-relative mb-3">
@@ -3956,38 +3972,39 @@ function updatecommentfilter(g){
             <div class="h-100 position-relative">
             <figure>
 
-            
+
               <div class="buttons-wrap">
 
-                <div class="button-new" 
+                <div class="button-new"
                 style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                  
+
                     <div class="fs-sm text-white  text-600">
                     {{ ucfirst($ad['town']['town_name']) }}  
                     </div>
-              </div>          
-              <div class="bg-image z-0" 
+              </div>
+              <div class="bg-image z-0"
               data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
                 </div>
               <div ppt-search-badges="" style="z-index:1" class="right">
+
                     <div class="badge" style="color:#000000;background-color:#FFC300;">
                     <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-          
-                  </div> 
+
+                  </div>
               </figure>
               </div>
           </div>
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
                 class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
                 class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
           </div>
           </div>
