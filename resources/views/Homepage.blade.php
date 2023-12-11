@@ -213,24 +213,22 @@ class="position-relative " data-overlay="gradient-left">
 							<div class="bg-image z-0" 
 							data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
 							</div>
-							<div ppt-search-badges="" style="z-index:1" class="right">
-										<div class="badge" style="color:#000000;background-color:#FFC300;">
-										<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+							<div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
+										<div class="badge" style="color:#fff;background-color:red;">
+										<span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
+										
 					
 									</div> 
 							</figure>
 						</div>
 					</div>
 					</a>
-					<div class="lh-20 text-700" style="margin-top:20px;">
+					<div class="lh-20 " style="margin-top:20px;">
 							<span class="text-online">•</span>
 							<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
-								class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+								class="text-white">{{ truncate($ad['title'],15) }}</span></a>
 					</div>
-					<div class="lh-20" style="margin-top:0px;">
-							<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
-								class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
-					</div>
+					
 				  </div>
 				</div>
 
@@ -324,7 +322,7 @@ class="position-relative " data-overlay="gradient-left">
 								  <div class="h-100 position-relative">
 									<figure>
 
-									
+								
 										<div class="buttons-wrap">
 
 											<div class="button-new" 
@@ -340,24 +338,22 @@ class="position-relative " data-overlay="gradient-left">
 										<div class="bg-image z-0" 
 										data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}"> 
 										</div>
-										<div ppt-search-badges="" style="z-index:1" class="right">
-													<div class="badge" style="color:#000000;background-color:#FFC300;">
-													<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-								
-												</div> 
+										<div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
+										<div class="badge" style="color:#fff;background-color:red;">
+										<span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
+										
+					
+									</div>  
 										</figure>
 									</div>
 								</div>
 								</a>
-								<div class="lh-20 text-700" style="margin-top:20px;">
+								<div class="lh-20 " style="margin-top:20px;">
 										<span class="text-online">•</span>
 										<a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}" 
-											class="text-dark">{{ truncate($ads[$i]['title'],10) }}</span></a>
+											class="text-white">{{ truncate($ads[$i]['title'],15) }}</span></a>
 								</div>
-								<div class="lh-20" style="margin-top:0px;">
-										<a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}" 
-											class="text-dark lh-20 text-300">{{ truncate($ads[$i]['description'],40) }}</span></a>
-								</div>
+								
 							  </div>
 							</div>
 
@@ -370,9 +366,7 @@ class="position-relative " data-overlay="gradient-left">
 
 							  <figure>
 
-							<div class="button-featured-new-wrap es">
-								<div class="button-featured-new">ULTRA VIP</div>
-							</div>
+							
 
 							<div class="buttons-wrap">
 
@@ -425,7 +419,8 @@ class="position-relative " data-overlay="gradient-left">
 
 							<div class="show-mobile">
 							  <div class="position-relative mb-3">
-								<a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}">
+								<a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}">
+								
 								<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 								  <div class="h-100 position-relative">
 									<figure>
@@ -434,36 +429,35 @@ class="position-relative " data-overlay="gradient-left">
 										<div class="buttons-wrap">
 
 											<div class="button-new" 
-											style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i]['age'] }} Ans</div>
+											style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+1]['age'] }} Ans</div>
 
 										</div>
 										<div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 												
 													<div class="fs-sm text-white  text-600">
-													 {{ ucfirst($ads[$i]['town']['town_name']) }}  
+													 {{ ucfirst($ads[$i+1]['town']['town_name']) }}  
 													</div>
 										</div>          
 										<div class="bg-image z-0" 
-										data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}"> 
+										data-bg="{{ route('display.ads.image',['id'=>$ads[$i+1]['id'], 'path'=>$ads[$i+1]['images'][0]['path']] )}}"> 
 										</div>
-										<div ppt-search-badges="" style="z-index:1" class="right">
-													<div class="badge" style="color:#000000;background-color:#FFC300;">
-													<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-								
-												</div> 
+										<div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
+										<div class="badge" style="color:#fff;background-color:red;">
+										<span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
+										
+					
+									</div> 
 										</figure>
+										
 									</div>
 								</div>
 								</a>
-								<div class="lh-20 text-700" style="margin-top:20px;">
+								<div class="lh-20 " style="margin-top:20px;">
 										<span class="text-online">•</span>
-										<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
-											class="text-dark">{{ truncate($ads[$i]['title'],10) }}</span></a>
+										<a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}" 
+											class="text-white">{{ truncate($ads[$i+1]['title'],15) }}</span></a>
 								</div>
-								<div class="lh-20" style="margin-top:0px;">
-										<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" 
-											class="text-dark lh-20 text-300">{{ truncate($ads[$i]['description'],40) }}</span></a>
-								</div>
+								
 							  </div>
 							</div>
 
