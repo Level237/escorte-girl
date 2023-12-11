@@ -366,7 +366,9 @@ class="position-relative " data-overlay="gradient-left">
 
 							  <figure>
 
-							
+							<div class="button-featured-new-wrap es">
+								<div class="button-featured-new">ULTRA VIP</div>
+							</div>
 
 							<div class="buttons-wrap">
 
@@ -497,7 +499,6 @@ class="position-relative " data-overlay="gradient-left">
   data-bg="{{ asset('assets/images/hero/hero4.png') }}"> </div>
    
 </section>
-
 
 
 
