@@ -93,7 +93,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	  </script>
       
        		
-			
+			 
+			  
 		 
       <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
       <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
@@ -154,16 +155,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   </div>
         
 <div class="p-4 rounded" ppt-box="">
-  <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
             style="min-width:60px; background-color: red;">
         Dénoncer cette annonce
       </button></a>
 </div>
 
-
 <div class="p-4 hide-mobile rounded" ppt-box="">
 
-<p class="text-600">Partagez cette annonce via</p>
+<p class="text-600">Partagez cette lien via</p>
 
  
 <style>
@@ -217,9 +217,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 </div>
 
-<script>      
+<script>   
+
+function scrollTop(){
+	jQuery('body,html').animate({
+				scrollTop: 0
+			}, 100);
+}
+
+scrollTop();
+
+
 jQuery(document).ready(function(){  
-  
+  scrollTop();
 	setTimeout(function() {
 		var clipboard = new ClipboardJS('.js-copy-link');
 		clipboard.on('success', function(e) { 
@@ -419,9 +429,12 @@ jQuery(document).ready(function(){
  
 <div class="row lh-30 fs-sm">
 
-<div class="col">
+
+<div class="col-md-4">
 
 <div class="d-flex">
+
+    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
     <div class="ml-2 ftxt">{{ $ad['services'] }}</div> 
 </div>
 
@@ -496,7 +509,7 @@ jQuery(document).ready(function(){
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
 			<div class="badge" style="color:#fff;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000"> </span> GOLD</div>
+			<span class="fal fa fa-star" style="color:#000"> </span> Bami </div>
 
 		</div>
 
@@ -550,7 +563,7 @@ jQuery(document).ready(function(){
 		
 
 
-		<div class="show-mobile">
+	<div class="show-mobile">
 		  <div class="position-relative mb-3">
 			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
 			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
@@ -587,6 +600,10 @@ jQuery(document).ready(function(){
    @include('layouts.Frontend.footer')
 <div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
+
+
+ 
+ 
 
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->

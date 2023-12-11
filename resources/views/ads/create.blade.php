@@ -1070,41 +1070,10 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
   @include('layouts.Frontend.footer')
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+	<img src="../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
 
 
-
-
-<div class="footer-nav-area hidepage " style="display:none;" id="mobile-bottom-bar">
-      <div class="container h-100 px-0">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-
-	<li><a href="/" class="">
-        <i class="fal fa-house"></i> Accueil</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-search"></i> Chercher</a></li>
-
-
-     <li> <a href="#" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fa fa-users-crown"></i> Escorts</a></li>
-
-
-	<li><a href="#" class="">
-        <i class="fal fa-sparkles"></i> Annonces</a></li>
-
-
-
-          </ul>
-        </div>
-      </div>
-</div>
 
 <link rel='stylesheet' id='ppt-up-css-css' href='{{ asset('assets/css/_up.css?ver=6.3.2') }}' type='text/css' media='all'>
 <link rel='stylesheet' id='ppt-submit-css-css' href='{{ asset('assets/css/_submitform.css?ver=6.3.2') }}' type='text/css' media='all'>
