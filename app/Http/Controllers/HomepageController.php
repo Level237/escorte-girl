@@ -8,6 +8,7 @@ use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\Listing\AnnouncementController;
+use App\Services\Api\Ads\AdsService;
 
 class HomepageController extends Controller
 {
@@ -22,6 +23,7 @@ class HomepageController extends Controller
         $escorts = (new EscortController())->index();
         //dd($escorts);
         $data = (new AnnouncementController())->index();
+        $homeAds=(new AdsService())->homeAds();
         $announcements = $data[0];
         $emptyTowns = $data[1];
         $ads = (new AdsController())->getAds();
@@ -30,7 +32,9 @@ class HomepageController extends Controller
         //if(Session::has('tokenUser')){
            // Session::forget('tokenUser');
         //}
-        return view('Homepage', compact('locations', 'announcements','emptyTowns', 'escorts', 'ads'));
+
+        //return $homeAds;
+        return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'escorts', 'ads'));
 
     }
 }
