@@ -3910,7 +3910,7 @@ function updatecommentfilter(g){
                                 @if($ad['subscribe_id'] ===3)
                                 <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
 
-                                    <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>EXTRA VIP</div>
+                                    <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>ULTRA VIP</div>
 
                                     @endif
 
