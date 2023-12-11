@@ -11,7 +11,7 @@ class SearchController extends Controller
 
         $results = (new SearchService)->search($request->s);
         $term = $request->s;
-        //dd($term);
+        //dd($results);
         if($results){
             //retrieving all types
             $types = [];
