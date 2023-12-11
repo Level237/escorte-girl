@@ -26,4 +26,16 @@ class AnnouncementController extends Controller{
 
         return  self::$announcements;
    }
+
+   public function filter(){
+    $url=(new UrlApiService())->getUrl();
+    try{
+        $response = Http::asForm()->get($url."/api/announcementsTown");
+            //dd(json_decode((string) $response->getBody(), true));
+            self::$announcements = json_decode((string) $response->getBody(), true);
+    }catch(\Exception $e){
+
+    }
+   }
+
 }
