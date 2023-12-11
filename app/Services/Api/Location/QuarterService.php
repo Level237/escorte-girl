@@ -1,27 +1,37 @@
 <?php
 
-namespace App\Services\Api\Escort;
+namespace App\Services\Api\Location;
 
 use Exception;
 use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class GetEscortService{
+class QuarterService{
 
-     public function getEscort(){
+     public function list($townId){
 
-        //Get Escort
-        $url=(new UrlApiService())->getUrl();
+         $url=(new UrlApiService())->getUrl();
+         //Retrieving all quarters for this town
+            $quarters = null;
+            
+            try{
 
-        try{
-            $response = Http::withToken(Session::get('tokenUser', null))->get($url."/api/v1/getEscort");
-            $escort = json_decode((string) $response->getBody(), true);
-            return $response;
+                $response = Http::asForm()->get($url."/api/list/quarterByTown/".$townId);
+                
+                $quarters = json_decode((string) $response->getBody(), true);
 
-        }
-        catch(\Exception $e){
-            return null;
-        }
+                //dd($quarters);
+                if($quarters['data'] === null){
+                    return null;
+                }
+                else{
+                    return $quarters['data'];
+                }
+
+            }catch(\Exception $e){
+
+                return null;
+            }
     }
 }
