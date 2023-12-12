@@ -194,7 +194,7 @@ nav .fa{
 
                   <input type="text" class="form-control  customfilter typeahead shadow-sm" 
                    required name="s" data-type="text" 
-                  data-key="keyword" autocomplete="off"  data-formatted-text="Keyword" 
+                  data-key="keyword" autocomplete="on"  data-formatted-text="Keyword" 
                   placeholder="Rechercher.." value="" style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
 
 
@@ -275,6 +275,41 @@ nav .fa{
         </div>
       </div>
     </div>
+<hr>
+    <div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
+  <div class="container ">
+    <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>
+
+
+
+        <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
+
+        @forelse ( $numberAdsByTowns as $numberAdsByTown )
+
+		@if($loop->index < 3)
+
+
+			<li><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
+        {{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})</a></li>
+
+		@endif
+		@empty
+
+	@endforelse
+
+
+
+
+       </ul>
+
+
+	<div class="hide-ipad ml-auto ms-auto">
+        <a href="{{ route('adstown') }}" data-ppt-btn=""
+		class="btn-primary btn-rounded-25 text-600" data-ppt-btn2-txt="">Autres Villes</a>
+                      </div>
+    </nav>
+  </div>
+</div>
       <script>
 
       var navLinks = document.getElementById('navLinks');
@@ -288,7 +323,7 @@ nav .fa{
       }
   </script>
 
-      <div class="container h-100 px-0 show-mobile">
+  <div class="container h-100 px-0 show-mobile">
         <div class="suha-footer-nav h-100">
           <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
 
@@ -304,18 +339,39 @@ nav .fa{
 
           </ul>
         </div>
-      </div>
+   </div>
+   
+   <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
+		
+		<form method="get" action="{{ route('search') }}" >
+                  @csrf
+			<input type="text" class="form-control customfilter typeahead shadow-sm" 
+			name="keyword" id="keyword" data-type="text" onchange="_filter_update()"  
+			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword" 
+			placeholder="Rechercher.." value="" style="height:50px;">
+		  
+		   
+			  <button class="btn iconbit" type="submit"
+			style="position:absolute; top:5px; right:5px;" >
+			  
+				  <span ppt-icon-24 data-ppt-icon-size="24">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 
+				stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" 
+				stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+			  </span>
+			  
+			  </button>
+		</form>
+	  
+	</div>
 
-      <br>
-
-       @if(!isset($user))
        <div class="container show-mobile">
          <div class="d-flex justify-content-center">
             <div class=>
                
             <div class>
                 <a href="#" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
-                 class="btn-system">Besoin d'aide pour s'inscrire?</a>
+                 class="btn-system">Besoin d'aide pour s'inscrire? </a>
             </div>
             <div>
                
@@ -324,10 +380,40 @@ nav .fa{
          
       </div>
       </div>
-      @endif
+    
 
       <br>
- 
+ <div class="show-mobile mb-3 mt-2">
+  <div class="container ">
+
+        <a href="#">Le Nº1 des annonces Yamo.  </a>
+
+		<div class="row">
+			@forelse ( $numberAdsByTowns as $numberAdsByTown )
+
+		      @if($loop->index < 3)
+
+
+				<div class="col-6" style="margin-top:10px">
+					<i class="fa fa-map-marker"></i><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
+						{{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})
+				    </a>
+				</div>
+
+
+
+			@endif
+					@empty
+
+			@endforelse
+			<div class="col-6" style="margin-top:10px">
+					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
+						Autres Villes
+				    </a>
+				</div>
+
+		</div>
+  </div>
  
 
 

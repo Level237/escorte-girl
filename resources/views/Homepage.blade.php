@@ -24,71 +24,10 @@
 <html>
   <body>
 @include('utils.utils')
-<div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
-  <div class="container ">
-    <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>
-
-
-
-        <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
-
-        @forelse ( $announcements as $announcement )
-
-		@if($loop->index < 3)
-
-
-			<li><a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" >{{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }})</a></li>
-
-		@endif
-		@empty
-
-	@endforelse
 
 
 
 
-       </ul>
-
-
-	<div class="hide-ipad ml-auto ms-auto">
-        <a href="{{ route('adstown') }}" data-ppt-btn=""
-		class="btn-primary btn-rounded-25 text-600" data-ppt-btn2-txt="">Autres Villes</a>
-                      </div>
-    </nav>
-  </div>
-</div>
-
-<div class="show-mobile mb-3 mt-2">
-  <div class="container ">
-
-        <a href="#">Le Nº1 des annonces Yamo.  </a>
-
-		<div class="row">
-			@forelse ( $announcements as $announcement )
-
-		      @if($loop->index < 3)
-
-
-				<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" >
-						{{ $announcement['town_name'] }} ({{ $announcement['totalAnnounces']  }})
-				    </a>
-				</div>
-
-
-
-			@endif
-					@empty
-
-			@endforelse
-			<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
-						Autres Villes
-				    </a>
-				</div>
-
-		</div>
-  </div>
 </div>
 
 
