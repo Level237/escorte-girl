@@ -131,9 +131,7 @@
 
                                             </ol>
                                             <div class="carousel-inner">
-                                                        @php
-                                                            shuffle($vipAds);
-                                                        @endphp
+
                                                         <div class="carousel-item active">
                                                         <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
                                                             <div class="container">
