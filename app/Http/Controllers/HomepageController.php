@@ -24,6 +24,7 @@ class HomepageController extends Controller
         //dd($escorts);
         $data = (new AnnouncementController())->index();
         $homeAds=(new AdsService())->homeAds();
+        $vipAds=(new AdsService())->vipAds();
         $announcements = $data[0];
         $emptyTowns = $data[1];
         $ads = (new AdsController())->getAds();
@@ -34,7 +35,7 @@ class HomepageController extends Controller
         //}
 
         //return $homeAds;
-        return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'escorts', 'ads'));
+        return view('Homepage', compact('locations','vipAds', 'announcements','emptyTowns','homeAds', 'escorts', 'ads'));
 
     }
 }
