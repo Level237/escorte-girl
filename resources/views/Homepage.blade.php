@@ -263,7 +263,7 @@
                                                             </div>
                                                             </section>
                                                         </div>
-{{ count($vipAds) }}
+
                                                         @if(count($vipAds) > 2)
                                                             @for($i=count($vipAds) -2; $i >2 ; $i=$i-2)
                                                                 <div class="carousel-item">
