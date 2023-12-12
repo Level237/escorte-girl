@@ -132,7 +132,7 @@
                                             </ol>
                                             <div class="carousel-inner">
                                                         @php
-                                                            shuffle($ads);
+                                                            shuffle($vipAds);
                                                         @endphp
                                                         <div class="carousel-item active">
                                                         <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
@@ -142,7 +142,7 @@
                                                                 <div class="col-12">
                                                                     <div class='row'>
 
-                                                                @forelse($ads as $ad)
+                                                                @forelse($vipAds as $ad)
                                                                     @if ($loop->index == 2)
                                                                                     @break
                                                                                 @endif
@@ -264,7 +264,8 @@
                                                             </section>
                                                         </div>
 
-                                                        @for($i=2; $i < count($ads); $i=$i+2)
+                                                        @if(count($vipAds) > 2)
+                                                            @for($i=count($vipAds) -2; $i >2 ; $i=$i-2)
                                                                 <div class="carousel-item">
                                                                     <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
                                                                         <div class="container">
@@ -493,7 +494,9 @@
                                                                         </div>
                                                                     </section>
                                                                 </div>
-                                                        @endfor
+                                                            @endfor
+                                                        @endif
+
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
