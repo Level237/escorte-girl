@@ -246,7 +246,7 @@ class="position-relative " data-overlay="gradient-left">
 		</section>
     </div>
 
-	@for($i=2; $i < count($ads); $i=$i+2)
+	@for($i=2; $i < count($ads) -2 ; $i=$i+2)
 		<div class="carousel-item">
 			<section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
 		  <div class="container">

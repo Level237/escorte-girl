@@ -61,396 +61,584 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     
 
 <div class="container py-md-5">
-  <div class="row d-flex flex-row-reverse">
-    <div class="col-lg-5 col-xl-4 mb-4">
-       
-		<div class="mb-4 pb-3 border-bottom">
-		 
-		
-		
-		<h6 class="fs-lg text-100">
-		 <div class="addeditmenu" data-key="title"></div>Contactez l'annonceur	</h6>
-		
-		
-	 
-		</div>      
-<div class="ppt-single-button-box">
- 
 
-
-      <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
-      <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-      <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
-      </a>
-      
-      <script>
-	  function showPhone(){
-	  
-	  		jQuery('._text').hide();
-	  		jQuery('._number').show();
-	  }
-	  
-	  </script>
-      
-       		
-			 
+			  <div class="row d-flex flex-row-reverse">
 			  
-		 
-      <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
-      <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
-      </a>
-      
-          
-</div>
-     
-          
-
-        
-<div ppt-box="" class="rounded">
-  <div class="_header d-md-flex align-items-center">
-    <div class="_title w-100">
-      VIENS YAMO   </div>
-  </div>
-    <a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
-  <div class="_content py-4 h-100" ppt-flex-middle="">
-    <div class="text-center my-4">
-      <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
-      <div class="fs-5 text-600 mt-3">
-        N'oubliez pas de mentionner VIENS YAMO lors de votre appel!    </div>
-    </div>
-  </div>
-  </a>
-  </div>
-
-  <div ppt-box="" class="rounded">
-  <div class="_header d-md-flex align-items-center">
-    <div class="_title w-100">
-      EVITEZ LES ARNAQUES   </div>
-  </div>
-     <ul>
-   
-    
-	<li class="text-center my-4 p-3">
-    <span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span> 
-    </li>
-    <li class="text-center my-4 p-3">
-      <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span> 
-      </li>
-    
-	    
-    <li class="text-center my-4 p-3">
-      <span>&#10060; Ne pas faire confiance pour un service trop beau pour être vrai.
-        </span></li>
-    
-	    
-    <li class="text-center my-4 p-3">
-      <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
-    </li>
-    
-	    
-  
-    
-	    </ul> 
-  </div>
-        
-<div class="p-4 rounded" ppt-box="">
-   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
-            style="min-width:60px; background-color: red;">
-        Dénoncer cette annonce
-      </button></a>
-</div>
-
-<div class="p-4 hide-mobile rounded" ppt-box="">
-
-<p class="text-600">Partagez cette lien via</p>
-
- 
-<style>
- 
-.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
-.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
-.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
-.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
-.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
-.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
-.card-share .icons a:nth-child(1):hover{  background: #1877F2;}
-.card-share .icons a:nth-child(2){  color: #46C1F6;  border-color: #b6e7fc;}
-.card-share .icons a:nth-child(2):hover{  background: #46C1F6;}
-.card-share .icons a:nth-child(3){  color: #e1306c;  border-color: #f5bccf;}
-.card-share .icons a:nth-child(3):hover{  background: #e1306c;}
-.card-share .icons a:nth-child(4){  color: #f64c5b;  border-color: #f64c5b;}
-.card-share .icons a:nth-child(4):hover{  background: #f64c5b;}
-.card-share .icons a:nth-child(5){  color: #0088cc;  border-color: #b3e6ff;}
-.card-share .icons a:nth-child(5):hover{  background: #0088cc;}
-.card-share .icons a:hover{  color: #fff;  border-color: transparent;}
-.card-share .icons a:hover i{  transform: scale(1.2);}
-.card-share .field{  margin: 12px 0 -5px 0;  height: 45px;  border-radius: 4px;  padding: 0 5px;  border: 1px solid #e1e1e1;}
-.card-share .field.active{  border-color: #000;}
-.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
-.card-share .field.active i{  color: #000;}
-.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
- 
-</style>
-
-<div class="card-share">
-
-
- <ul class="icons">
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-        <a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
-
-</ul>
-
-      <p class="small opacity-8">Ou copier le lien</p>
-      <div class="field">
-        <i class="fa fa-link"></i>
-        <input type="text" readonly="" id="copylink" value="#">
-        <button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
-            data-clipboard-target="#copylink" style="min-width:60px;">
-        Copier
-      </button>
-      </div>
-
-</div>
-
-<script>   
-
-function scrollTop(){
-	jQuery('body,html').animate({
-				scrollTop: 0
-			}, 100);
-}
-
-scrollTop();
-
-
-jQuery(document).ready(function(){  
-  scrollTop();
-	setTimeout(function() {
-		var clipboard = new ClipboardJS('.js-copy-link');
-		clipboard.on('success', function(e) { 
-		
-		jQuery(".card-share .field").addClass("active");
-		
-		 alert("Lien enregistré dans votre presse-papiers.");
-		 
-		 });
-		 
-	},5000);
-});                     
-</script> </div>  
- 
-    </div>
-    
-    <div class="col-lg-7 col-xl-8 maincontent pr-lg-5">
-      	<h6 class="fs-lg text-100">
-		 <div class="addeditmenu" data-key="title"></div>{{ $ad['title'] }}	</h6>
-     
-			<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
-						<a class="mr-3 text-dark" href="#">
-			<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</span>
-			</a>
+					<div class="col-lg-5 col-xl-4 mb-4 hide-mobile">
+							   
+								<div class="mb-4 pb-3 border-bottom">
+								 
+								
+								
+								<h6 class="fs-lg text-100">
+								 <div class="addeditmenu" data-key="title"></div>Contactez l'escorte	</h6>
+								
+								
+							 
+								</div>      
+						<div class="ppt-single-button-box">
 						 
-						<div class=" d-inline-flex cursor">
-			<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			
-        <div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-                       
-			<span>{{ $ad['age'] }} Ans</span>   
-            
-		</div>
-		
-		</span>
-			</div>&nbsp;&nbsp;&nbsp;
-						<div class=" d-inline-flex cursor">
-			
-        <div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-                       
-  
-            
-		</div>
-		
-		</span>
-			</div>
-            			
-			</div>
-      <br>
-<div class="addeditmenu" data-key="images"></div>
-<div id="mobileGalleryMove" class="hide-mobile">
-<div class="row no-gutters mb-4">
-
-    @forelse ($ad['images'] as $image)
-		@if ($loop->index == 3)
-			@break
-		@endif
-		
-	<div class="col-6">
-        <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
-          &nbsp;
-        </div>
-              </div>
-    </div>
-        </a>
-    </div>
-    @empty
-	@endforelse
-
-  	@forelse ($ad['images'] as $image)
-		@if ($loop->index != 3)
-			@continue
-		@endif
-	<div class="col-6">
-        <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
-        <div class="m-sm-1">
-      <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-        <div class="bg-image" 
-        style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
-          &nbsp;
-        </div>
-                <div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
-          Toutes les Photos       </div>
-        <div class="overlay-inner" style="z-index:1">
-        </div>
-              </div>
-    </div>
-        </a>
-      </div>
-    @empty
-	@endforelse
-  
-
-  	@forelse ($ad['images'] as $image)
-		@if ($loop->index <= 3)
-			@continue
-		@endif
-  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
-   @empty
-	@endforelse
-  
-  
-    
-</div>
-</div>
-
-<style>
-
-.img-wrap  { height:450px; }
-@media (max-width: 575.98px) {
-.img-wrap  { height:250px; margin:5px; }
-}
-</style>
-
-      
-<div ppt-box="" class="rounded">
-  <div class="_header d-md-flex align-items-center">
-    <div class="_title w-100">
-      Description de l'annonce    </div>
-    <div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
-      	 
-	<div class="ppt-badges clearfix mb-3"> 
-    	
-        
-                
- 
-    <div class="">
-               
-           
-<div class="_badge " style="color:#000000;background-color:#FFC300;"> 
-    
-    
-        
-<div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-users" style="color:#000000"></i> {{ $ad['accepted'] }}	    </div>
-    <div class="badge_tooltip__item">{{ $ad['accepted'] }}	 </div>
-  </div>
-  
-  
-</div>
-     
-               
-           
-<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;"> 
-    
-    
-        
-<div class="badge_tooltip text-center" data-direction="top">
-    <div class="badge_tooltip__initiator"> 
-   <i class="fal fa fa-map-marker" style="color:#FEFEFE"></i> {{ $ad['location'] }}	   </div>
-    <div class="badge_tooltip__item">{{ $ad['location'] }}	 </div>
-  </div>
-  
-  
-</div>
-     
-         
-        </div>
-	
-	 
-	</div>
-	    </div>
-  </div>
-  <div class="_content py-3 pl-4 py-lg-4">
-  
-  
-    
-     	
-<div class="ppt-single-desc _style1">
-
-<div class="addeditmenu" data-key="content"></div>
 
 
-<div>
-        
-        		 
-		<div class="overflow-hidden">
-		<p>{{ $ad['description'] }}</p>
+							  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+							  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+							  <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+							  </a>
+							  
+							  <script>
+							  function showPhone(){
+							  
+									jQuery('._text').hide();
+									jQuery('._number').show();
+							  }
+							  
+							  </script>
+							  
+									
+									 
+									  
+								 
+							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+							  </a>
+							  
+								  
+						</div>
+							 
+								  
+
+								
+						<div ppt-box="" class="rounded">
+						  <div class="_header d-md-flex align-items-center">
+							<div class="_title w-100">
+							  VIENS YAMO   </div>
+						  </div>
+							<a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
+						  <div class="_content py-4 h-100" ppt-flex-middle="">
+							<div class="text-center my-4">
+							  <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
+							  <div class="fs-5 text-600 mt-3">
+								N'oubliez pas de mentionner VIENS YAMO lors de votre appel!    </div>
+							</div>
+						  </div>
+						  </a>
+						  </div>
+
+						  <div ppt-box="" class="rounded">
+						  <div class="_header d-md-flex align-items-center">
+							<div class="_title w-100">
+							  EVITEZ LES ARNAQUES   </div>
+						  </div>
+							 <ul>
+						   
+							
+							<li class="text-center my-4 p-3">
+							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span> 
+							</li>
+							<li class="text-center my-4 p-3">
+							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span> 
+							  </li>
+							
+								
+							<li class="text-center my-4 p-3">
+							  <span>&#10060; Ne pas faire confiance pour un service trop beau pour être vrai.
+								</span></li>
+							
+								
+							<li class="text-center my-4 p-3">
+							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+							</li>
+							
+								
+						  
+							
+								</ul> 
+						  </div>
+								
+						<div class="p-4 rounded" ppt-box="">
+						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+									style="min-width:60px; background-color: red;">
+								Dénoncer cette annonce
+							  </button></a>
+						</div>
+
+						<div class="p-4 hide-mobile rounded" ppt-box="">
+
+						<p class="text-600">Partagez cette lien via</p>
+
+						 
+						<style>
+						 
+						.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
+						.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
+						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+						.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
+						.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
+						.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
+						.card-share .icons a:nth-child(1):hover{  background: #1877F2;}
+						.card-share .icons a:nth-child(2){  color: #46C1F6;  border-color: #b6e7fc;}
+						.card-share .icons a:nth-child(2):hover{  background: #46C1F6;}
+						.card-share .icons a:nth-child(3){  color: #e1306c;  border-color: #f5bccf;}
+						.card-share .icons a:nth-child(3):hover{  background: #e1306c;}
+						.card-share .icons a:nth-child(4){  color: #f64c5b;  border-color: #f64c5b;}
+						.card-share .icons a:nth-child(4):hover{  background: #f64c5b;}
+						.card-share .icons a:nth-child(5){  color: #0088cc;  border-color: #b3e6ff;}
+						.card-share .icons a:nth-child(5):hover{  background: #0088cc;}
+						.card-share .icons a:hover{  color: #fff;  border-color: transparent;}
+						.card-share .icons a:hover i{  transform: scale(1.2);}
+						.card-share .field{  margin: 12px 0 -5px 0;  height: 45px;  border-radius: 4px;  padding: 0 5px;  border: 1px solid #e1e1e1;}
+						.card-share .field.active{  border-color: #000;}
+						.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
+						.card-share .field.active i{  color: #000;}
+						.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
+						 
+						</style>
+
+						<div class="card-share">
 
 
-        </div>
-         
-        
-        </div>
+						 <ul class="icons">
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+
+						</ul>
+
+							  <p class="small opacity-8">Ou copier le lien</p>
+							  <div class="field">
+								<i class="fa fa-link"></i>
+								<input type="text" readonly="" id="copylink" value="#">
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+									data-clipboard-target="#copylink" style="min-width:60px;">
+								Copier
+							  </button>
+							  </div>
+
+						</div>
+
+						<script>   
+
+						function scrollTop(){
+							jQuery('body,html').animate({
+										scrollTop: 0
+									}, 100);
+						}
+
+						scrollTop();
 
 
-</div>
-  
+						jQuery(document).ready(function(){  
+						  scrollTop();
+							setTimeout(function() {
+								var clipboard = new ClipboardJS('.js-copy-link');
+								clipboard.on('success', function(e) { 
+								
+								jQuery(".card-share .field").addClass("active");
+								
+								 alert("Lien enregistré dans votre presse-papiers.");
+								 
+								 });
+								 
+							},5000);
+						});                     
+						</script> </div>  
+						 
+					</div>
+							
+					<div class="col-lg-7 col-xl-8 maincontent pr-lg-5">
+								<h6 class="fs-lg text-100">
+								<div class="addeditmenu" data-key="title"></div>{{ $ad['title'] }}	</h6>
+							 
+								<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
+											<a class="mr-3 text-dark" href="#">
+												<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</span>
+											</a>
+														 
+											<div class=" d-inline-flex cursor">
+												<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
+															   
+													<span>{{ $ad['age'] }} Ans</span>   
+													
+												</div>
+												
+												</span>
+											</div>
+											
+											&nbsp;&nbsp;&nbsp;
+											<div class=" d-inline-flex cursor">
+											
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
+															   
+										  
+													
+												</div>
+												
+												</span>
+											</div>
+												
+							    </div>
+							  <br>
+						<div class="addeditmenu" data-key="images"></div>
+						<div id="mobileGalleryMove" class="hide-mobile">
+						<div class="row no-gutters mb-4">
 
-    
-    
-<div class="addeditmenu" data-key="features"></div>
-<div class="my-3 fs-7 text-600">Services</div> 
- 
-<div class="row lh-30 fs-sm">
+							@forelse ($ad['images'] as $image)
+								@if ($loop->index == 3)
+									@break
+								@endif
+								
+							<div class="col-6">
+								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+								<div class="m-sm-1">
+							  <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
+								<div class="bg-image" style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
+								  &nbsp;
+								</div>
+									  </div>
+							</div>
+								</a>
+							</div>
+							@empty
+							@endforelse
+
+							@forelse ($ad['images'] as $image)
+								@if ($loop->index != 3)
+									@continue
+								@endif
+							<div class="col-6">
+								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+								<div class="m-sm-1">
+							  <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
+								<div class="bg-image" 
+								style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
+								  &nbsp;
+								</div>
+										<div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
+								  Toutes les Photos       </div>
+								<div class="overlay-inner" style="z-index:1">
+								</div>
+									  </div>
+							</div>
+								</a>
+							  </div>
+							@empty
+							@endforelse
+						  
+
+							@forelse ($ad['images'] as $image)
+								@if ($loop->index <= 3)
+									@continue
+								@endif
+						  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+						   @empty
+							@endforelse
+						  
+						  
+							
+						</div>
+						</div>
+
+						<style>
+
+						.img-wrap  { height:450px; }
+						@media (max-width: 575.98px) {
+						.img-wrap  { height:250px; margin:5px; }
+						}
+						</style>
+
+							  
+						<div ppt-box="" class="rounded">
+						  <div class="_header d-md-flex align-items-center">
+							<div class="_title w-100">
+							  Description de l'annonce    </div>
+							<div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
+								 
+							<div class="ppt-badges clearfix mb-3"> 
+								
+								
+										
+						 
+							<div class="">
+									   
+								   
+						<div class="_badge " style="color:#000000;background-color:#FFC300;"> 
+							
+							
+								
+						<div class="badge_tooltip text-center" data-direction="top">
+							<div class="badge_tooltip__initiator"> 
+						   <i class="fal fa fa-users" style="color:#000000"></i> {{ $ad['accepted'] }}	    </div>
+							<div class="badge_tooltip__item">{{ $ad['accepted'] }}	 </div>
+						  </div>
+						  
+						  
+						</div>
+							 
+									   
+								   
+						<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;"> 
+							
+							
+								
+						<div class="badge_tooltip text-center" data-direction="top">
+							<div class="badge_tooltip__initiator"> 
+						   <i class="fal fa fa-map-marker" style="color:#FEFEFE"></i> {{ $ad['location'] }}	   </div>
+							<div class="badge_tooltip__item">{{ $ad['location'] }}	 </div>
+						  </div>
+						  
+						  
+						</div>
+							 
+								 
+								</div>
+							
+							 
+							</div>
+								</div>
+						  </div>
+						  <div class="_content py-3 pl-4 py-lg-4">
+						  
+						  
+							
+								
+						<div class="ppt-single-desc _style1">
+
+						<div class="addeditmenu" data-key="content"></div>
 
 
-<div class="col-md-4">
+						<div>
+								
+										 
+								<div class="overflow-hidden">
+								<p>{{ $ad['description'] }}</p>
 
-<div class="d-flex">
 
-    <div ppt-icon-24="" data-ppt-icon-size="24" class="text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-    <div class="ml-2 ftxt">{{ $ad['services'] }}</div> 
-</div>
+								</div>
+								 
+								
+								</div>
 
-</div>
 
-</div>
+						</div>
+						  
 
-  
-    
-      
-    
-    
-  </div>
-</div>      
-          </div>
-  </div>
+							
+							
+						<div class="addeditmenu" data-key="features"></div>
+						<div class="my-3 fs-7 text-600">Services</div> 
+						 
+						<div class="row lh-30 fs-sm">
+
+
+						<div class="col-md-4">
+
+						<div class="d-flex">
+
+							
+							<div class="ml-2 ftxt">{{ $ad['services'] }}</div> 
+						</div>
+
+						</div>
+
+						</div>
+
+						  
+							
+							  
+							
+							
+						  </div>
+						</div>      
+					</div>
+					<br>
+					<div class="col-lg-5 col-xl-4 mb-4 show-mobile">
+							   
+								<div class="mb-4 pb-3 border-bottom">
+								 
+								
+								
+								<h6 class="fs-lg text-100">
+								 <div class="addeditmenu" data-key="title"></div>Contactez l'escorte	</h6>
+								
+								
+							 
+								</div>      
+						<div class="ppt-single-button-box">
+						 
+
+
+							  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+							  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+							  <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+							  </a>
+							  
+							  <script>
+							  function showPhone(){
+							  
+									jQuery('._text').hide();
+									jQuery('._number').show();
+							  }
+							  
+							  </script>
+							  
+									
+									 
+									  
+								 
+							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+							  </a>
+							  
+								  
+						</div>
+							 
+								  
+
+								
+						<div ppt-box="" class="rounded">
+						  <div class="_header d-md-flex align-items-center">
+							<div class="_title w-100">
+							  VIENS YAMO   </div>
+						  </div>
+							<a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
+						  <div class="_content py-4 h-100" ppt-flex-middle="">
+							<div class="text-center my-4">
+							  <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
+							  <div class="fs-5 text-600 mt-3">
+								N'oubliez pas de mentionner VIENS YAMO lors de votre appel!    </div>
+							</div>
+						  </div>
+						  </a>
+						  </div>
+
+						  <div ppt-box="" class="rounded">
+						  <div class="_header d-md-flex align-items-center">
+							<div class="_title w-100">
+							  EVITEZ LES ARNAQUES   </div>
+						  </div>
+							 <ul>
+						   
+							
+							<li class="text-center my-4 p-3">
+							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span> 
+							</li>
+							<li class="text-center my-4 p-3">
+							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span> 
+							  </li>
+							
+								
+							<li class="text-center my-4 p-3">
+							  <span>&#10060; Ne pas faire confiance pour un service trop beau pour être vrai.
+								</span></li>
+							
+								
+							<li class="text-center my-4 p-3">
+							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+							</li>
+							
+								
+						  
+							
+								</ul> 
+						  </div>
+								
+						<div class="p-4 rounded" ppt-box="">
+						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+									style="min-width:60px; background-color: red;">
+								Dénoncer cette annonce
+							  </button></a>
+						</div>
+
+						<div class="p-4 hide-mobile rounded" ppt-box="">
+
+						<p class="text-600">Partagez cette lien via</p>
+
+						 
+						<style>
+						 
+						.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
+						.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
+						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+						.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
+						.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
+						.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
+						.card-share .icons a:nth-child(1):hover{  background: #1877F2;}
+						.card-share .icons a:nth-child(2){  color: #46C1F6;  border-color: #b6e7fc;}
+						.card-share .icons a:nth-child(2):hover{  background: #46C1F6;}
+						.card-share .icons a:nth-child(3){  color: #e1306c;  border-color: #f5bccf;}
+						.card-share .icons a:nth-child(3):hover{  background: #e1306c;}
+						.card-share .icons a:nth-child(4){  color: #f64c5b;  border-color: #f64c5b;}
+						.card-share .icons a:nth-child(4):hover{  background: #f64c5b;}
+						.card-share .icons a:nth-child(5){  color: #0088cc;  border-color: #b3e6ff;}
+						.card-share .icons a:nth-child(5):hover{  background: #0088cc;}
+						.card-share .icons a:hover{  color: #fff;  border-color: transparent;}
+						.card-share .icons a:hover i{  transform: scale(1.2);}
+						.card-share .field{  margin: 12px 0 -5px 0;  height: 45px;  border-radius: 4px;  padding: 0 5px;  border: 1px solid #e1e1e1;}
+						.card-share .field.active{  border-color: #000;}
+						.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
+						.card-share .field.active i{  color: #000;}
+						.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
+						 
+						</style>
+
+						<div class="card-share">
+
+
+						 <ul class="icons">
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+
+						</ul>
+
+							  <p class="small opacity-8">Ou copier le lien</p>
+							  <div class="field">
+								<i class="fa fa-link"></i>
+								<input type="text" readonly="" id="copylink" value="#">
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+									data-clipboard-target="#copylink" style="min-width:60px;">
+								Copier
+							  </button>
+							  </div>
+
+						</div>
+
+						<script>   
+
+						function scrollTop(){
+							jQuery('body,html').animate({
+										scrollTop: 0
+									}, 100);
+						}
+
+						scrollTop();
+
+
+						jQuery(document).ready(function(){  
+						  scrollTop();
+							setTimeout(function() {
+								var clipboard = new ClipboardJS('.js-copy-link');
+								clipboard.on('success', function(e) { 
+								
+								jQuery(".card-share .field").addClass("active");
+								
+								 alert("Lien enregistré dans votre presse-papiers.");
+								 
+								 });
+								 
+							},5000);
+						});                     
+						</script> </div>  
+						 
+					</div>
+			  </div>
 </div>
 
 
@@ -565,26 +753,48 @@ jQuery(document).ready(function(){
 
 	<div class="show-mobile">
 		  <div class="position-relative mb-3">
-			<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-			  <div class="h-100 position-relative">
-				<figure>
+          <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+          <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+            <div class="h-100 position-relative">
+            <figure>
 
-		<div ppt-search-badges="" style="z-index:1" class="right">
-			<div class="badge" style="color:#000000;background-color:#ED5858;">
-			<span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ad['user']['username']) }} </div>
 
-		</div> <div class="bg-image z-0" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> </div>
-				</figure>
-			  </div>
-			</div>
-			</a>
-			<div class="lh-20 text-700 " style="margin-top:20px;">
-					<span class="text-online">•</span>
-					<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark"> {{ truncate($ad['title'],10) }}
-			</div>
-		  </div>
-		</div>
+              <div class="buttons-wrap">
+
+                <div class="button-new"
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
+
+              </div>
+              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+
+                    <div class="fs-sm text-white  text-600">
+                    {{ ucfirst($ad['town']['town_name']) }}  
+                    </div>
+              </div>
+              <div class="bg-image z-0"
+              data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+                </div>
+              <div ppt-search-badges="" style="z-index:1" class="right">
+
+                    <div class="badge" style="color:#000000;background-color:#FFC300;">
+                    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+
+                  </div>
+              </figure>
+              </div>
+          </div>
+          </a>
+          <div class="lh-20 text-700" style="margin-top:20px;">
+              <span class="text-online">•</span>
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+                class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+          </div>
+          <div class="lh-20" style="margin-top:0px;">
+              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+                class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
+          </div>
+          </div>
+	</div>
 
 </div>
 @empty
