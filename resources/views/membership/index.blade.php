@@ -350,32 +350,31 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
-                            <div class="_value" style="min-width:50px;">
-
-
+                <div class="_value" style="min-width:20px;">
+                              XAF 0
                 <div>
-                                </div>
+                </div>
 
                 </div>
                             <div class="_value" style="min-width:50px;">
 
 
                 <div>
-                XAF 3000                </div>
+                XAF 3k                </div>
 
                 </div>
                             <div class="_value" style="min-width:50px;">
 
 
                 <div>
-                XAF 5000                </div>
+                XAF 5k               </div>
 
                 </div>
                             <div class="_value" style="min-width:50px;">
 
 
                 <div>
-                XAF 10000                </div>
+                XAF 10k                </div>
 
                 </div>
                     </div>

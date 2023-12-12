@@ -31,7 +31,7 @@
 
 @if (session('success'))
 <div id="" >
-    <div class="container py-5 my-5">
+    <div class="container">
         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
             <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre annonce a été mise à jour avec succès.
         </div>
@@ -41,7 +41,7 @@
 
 @if($errors->any())
 <div id="ppt-invalid-fields1" >
-    <div class="container py-5 my-5">
+    <div class="container">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
             <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
         </div>
@@ -50,7 +50,7 @@
 @endif
 
 <div id="ppt-invalid-fields" style="display:none;">
-    <div class="container py-5 my-5">
+    <div class="container">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
             <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
         </div>
@@ -81,6 +81,95 @@
 <input type="hidden" name="ads_id" id="ads_id" value="{{ $ad['id'] }}">
 <div class="row">
 
+<div class="col-md-6">
+
+    <label>Je suis <span class="text-danger">*</span> </label>
+
+    <div class="mt-2">
+
+        <div class="form-group position-relative">
+  
+			<select class="form-control" name="gender" id="gender">
+					<option value="1" @if ($ad['gender'] == 1) selected @endif > Escorte Girl</option>
+					<option value="2" @if ($ad['gender'] == 2) selected @endif > Escorte Boy</option>
+			</select>
+			
+		</div>
+    </div>
+
+</div>
+
+<div class="col-md-6">
+
+    <label>Âge <span class="text-danger">*</span> </label>
+
+    <div class="mt-2">
+
+        <div class="form-group position-relative">
+  
+			<select class="form-control" name="age" id="age">
+				@for ($i=18; $i < 51; $i++)
+					<option value="{{ $i }}" @if ($ad['age'] == $i) selected @endif>
+						{{ $i }}</option>
+				@endfor
+				
+			</select>
+			
+		</div>
+    </div>
+
+</div>
+
+
+
+<div class="col-md-6 mobile-mb-2">
+<label>Numéro de téléphone <span class="text-danger">*</span></label>
+
+<div class="form-group position-relative">
+    	<input  type="tel" class="form-control required" data-key="phone" name="phone" id="phone" 
+		value="{{ $ad['whatsapp'] }}" required>
+		<span id="valid-msg" style="display:none">✓ Valid</span>
+		<span id="error-msg" class="hide"></span>
+  </div>
+
+</div>
+
+<div class="col-md-6 mobile-mb-2">
+
+<label>Ville </label>
+<div class="form-group position-relative">
+    @if($towns)
+    <select class="form-control" name="town" id="town" data-key="town" onchange="fetchQuarters(this)">
+		<option value="">Sélectionner la ville</option>
+		@forelse ($towns as $town)
+			<option @if ($ad['town']['id'] ==$town['id']) selected @endif value="{{  $town['id'] }}">{{ $town['town_name'] }}</option>
+		@empty
+		@endforelse
+
+	</select>
+	@endif
+   
+    <i class="fal fa-map-marker"></i> 
+
+  </div>
+
+</div>
+
+<div class="col-md-12 mobile-mb-2"  id='quarterList'>
+<label>Quartier <span class="text-danger">*</span> </label>
+
+<div class="form-group position-relative" id='selectList'>
+    <select class="form-control" name="quarter" id="quarter" data-key="quarter">
+		@forelse ($quarters as $quarter)
+			<option @if ($ad['quarter']['id'] ==$quarter['id']) selected @endif value="{{  $quarter['id'] }}">
+				{{ $quarter['quarter_name'] }}</option>
+		@empty
+		@endforelse
+	</select>
+
+  </div>
+
+</div>
 <div class="col-md-6 mobile-mb-2">
 <label>Titre <span class="text-danger">*</span> </label>
 
@@ -163,6 +252,21 @@
 </div>
 
 </div>
+<div class="row">
+<div class="col-md-12 mobile-mb-2">
+  
+  <div class="form-group">
+  <div  class="text-muted small float-right">
+    <span></span>
+  </div>
+    <label class="w-100">Vos Services  <span class="text-danger">*</span> </label>
+    <textarea name="services"  rows='5' class="form-control rounded-0 required-field" tabindex="2" 
+	data-key="services" id="services">{{ $ad['services'] }}</textarea>
+  </div>
+	
+</div>
+
+</div>
 @csrf
 					 
 						
@@ -234,7 +338,7 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
       
     @endforelse            
 	<div >
-			<label class="w-100">Photos (10 maximum) ( vous pouvez encore ajouter {{ 10 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (4 maximum) ( vous pouvez encore ajouter {{ 4 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
@@ -534,6 +638,39 @@ function processEditData(btype){
 }
 
 
+function fetchQuarters(town){
+	
+	
+	// FETCH QUARTERS
+		jQuery.ajax({
+			type: "GET",
+			dataType: 'json',
+			url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+			timeout: 15000,
+		
+			success: function(response, statusCode) {
+
+				$quarters = response.data;
+				var textToPrint = "<option value=''>Sélectionner un quartier</option>";
+				$quarters.forEach((e)=>{
+					textToPrint = textToPrint + `<option value="${e.id}">${e.quarter_name}</option>`
+				})
+				jQuery('#quarterList').show();
+				
+				jQuery("#quarter").html(textToPrint);
+
+			},
+			error: function(response, statusCode) {
+
+				jQuery('#ppt-add-listing-form').show();
+				jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+				scrollTop();
+			},
+
+
+		});
+}
+
 function processSubmitForm(){
 
 	canContinue = true;
@@ -552,6 +689,17 @@ function processSubmitForm(){
 	return;
 	}
 
+	//Validating phone number
+	//console.log("in process "+jQuery('#valide-phone-number').val());
+	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="phone"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
+			scrollTop();
+			return false;
+	}
+
 	//Validating title
 
 	if(jQuery('#title').val() === "" || jQuery('#title').val() === undefined){
@@ -562,7 +710,23 @@ function processSubmitForm(){
 			return false;
 	}
 
- 	
+ 	if(jQuery('#town').val() === "" || jQuery('#town').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="town"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la ville");
+			scrollTop();
+			return false;
+	}
+
+	if(jQuery('#quarter').val() === "" || jQuery('#quarter').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="quarter"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la quartier");
+			scrollTop();
+			return false;
+	}
 
 
     	if(jQuery('#field-post_content').val() === "" || jQuery('#field-post_content').val() === undefined){
@@ -573,31 +737,14 @@ function processSubmitForm(){
 			return false;
 	}
 
-	//Checking if at least one image has been successfully uploaded
-	// let adsDropzone = document.getElementById("ads-dropzone");
-	// let children = adsDropzone.children;
-	// var numberUpload = 0;
-	// for (let i = 0; i < children.length; i++) {
-	
-	// 	if (Array.from(children[i].classList).includes('dz-success')){
-	// 		numberUpload++;
-	// 	}
-	// }
-
-	// if(numberUpload < 1){
-	// 	jQuery('#ppt-invalid-fields').show();
-	// 	jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné au moins une image");
-	// 	return false;
-	// }
-
-
-	// if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
-		
-	// 		jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
-	// 		jQuery('#ppt-invalid-fields').show();
-	// 		jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
-	// 		return false;
-	// }
+	if(jQuery('#services').val() === "" || jQuery('#services').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="services"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné vos services");
+			scrollTop();
+			return false;
+	}
 
 
 		// BUSINESS HOURS PLUGIN
@@ -641,6 +788,8 @@ function processSubmitForm(){
 		document.getElementById('global-form').submit()
 
 	}
+
+
 
 }
 
@@ -688,6 +837,50 @@ function textarealimit(){
 
 }
 
-</script>             
-        
+</script>  
+<script src="{{ asset('assets/intl-tel-input-master/build/js/intlTelInput.js') }}"></script>           
+<script>
+
+const input = document.querySelector("#phone");
+const button = document.querySelector("#register-btn");
+const errorMsg = document.querySelector("#error-msg");
+const validMsg = document.querySelector("#valid-msg");
+
+// here, the index maps to the error code returned from getValidationError - see readme
+const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+// initialise plugin
+const iti = window.intlTelInput(input, {
+   onlyCountries: ["cm"],
+  utilsScript: "{{ asset('assets/intl-tel-input-master/build/js/utils.js') }} "
+});
+
+const reset = () => {
+  input.classList.remove("error");
+  errorMsg.innerHTML = "";
+  errorMsg.classList.add("hide");
+  jQuery('#valid-msg').hide();
+};
+
+// on click button: validate
+button.addEventListener('click', () => {
+  reset();
+  if (input.value.trim()) {
+    if (iti.isValidNumber()) {
+
+      jQuery('#valid-msg').show();
+    } else {
+
+      input.classList.add("error");
+      const errorCode = iti.getValidationError();
+      errorMsg.innerHTML = errorMap[errorCode];
+      errorMsg.classList.remove("hide");
+    }
+  }
+});
+
+// on keyup / change flag: reset
+input.addEventListener('change', reset);
+input.addEventListener('keyup', reset);
+</script>    
 @endsection

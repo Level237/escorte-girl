@@ -43,7 +43,7 @@ class AdsImageController extends Controller
             //Check if limit of images has already been reach
              $ad = (new AdsService)->getAdsById($request->ads_id);
         
-            if(count($ad['images']) >= 10){
+            if(count($ad['images']) >= 4){
                  return response('Limite de photos atteinte', 400);
             }
 

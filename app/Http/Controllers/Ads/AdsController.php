@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Ads;
 use App\Http\Controllers\Controller;
 use  App\Services\Api\UrlApiService;
 use App\Services\Api\Ads\AdsCategoryService;
-use App\Services\Api\Escort\GetEscortService;
 use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
@@ -17,6 +16,7 @@ use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Ad;
 use App\Services\Api\Location\TownService;
+use App\Services\Api\Location\QuarterService;
 use App\Http\Controllers\Listing\AnnouncementController;
 
 class AdsController extends Controller
@@ -123,17 +123,24 @@ class AdsController extends Controller
 
          //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
-        //Check if we have at least 4 images
+        //Check if we have at least 2 images
         $ad = (new AdsService)->getAdsById($request->ads_id);
         //dd($request->ads_id);
-         if(count($ad['images']) < 4){
-                 return Redirect::back()->withErrors(['msg' => 'Votre annonce doit avoir un minimum de 4 images']);
+         if(count($ad['images']) < 2){
+                 return Redirect::back()->withErrors(['msg' => 'Votre annonce doit avoir un minimum de 2 images']);
         }
 
         //Updating ads
          try{
+
             $response = Http::asForm()->post($url."/api/ads/update", [
                 'id' => $request->ads_id,
+                'town_id' => $request->town,
+                'quarter_id' => $request->quarter,
+                'gender' => $request->gender,
+                'age' => $request->age,
+                'phone' => $request->phone,
+                'services' => $request->services,
                 'location' => $request->location,
                 'category_id' => $request->category,
                 'accepted' => $request->accepted,
@@ -148,7 +155,7 @@ class AdsController extends Controller
 
             }else{
 
-              return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour1"]);
+              return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour"]);
             }
         }catch(\Exception $e){
             //dd($e);
@@ -312,12 +319,15 @@ class AdsController extends Controller
 
    public function edit($id){
 
-     $escort = (new GetEscortService)->getEscort();
      $ad = (new AdsService)->getAdsById($id);
      $adsCategories = (new AdsCategoryService)->getCategories();
-     
-     if($escort && $adsCategories && $ad){
-        return view('dashboard.escort.ads.edit', compact('escort', 'adsCategories','ad'));
+     $towns = (new TownService())->getTowns();
+     //dd($ad['town']['id']);
+     if($ad)
+      $quarters = (new QuarterService())->list($ad['town']['id']);
+        //dd($quarters);
+     if($adsCategories && $ad && $quarters){
+        return view('dashboard.escort.ads.edit', compact('adsCategories','ad', 'towns', 'quarters'));
      }
     else
         return view('error');
