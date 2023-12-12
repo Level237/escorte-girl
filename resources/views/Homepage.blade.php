@@ -265,7 +265,7 @@
                                                         </div>
 
                                                         @if(count($vipAds) > 2)
-                                                            @for($i=count($vipAds) -2; $i >2 ; $i=$i-2)
+                                                            @for($i=count($vipAds); $i >2 ; $i=$i-2)
                                                                 <div class="carousel-item">
                                                                     <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
                                                                         <div class="container">
