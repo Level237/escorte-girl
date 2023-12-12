@@ -120,7 +120,7 @@
                                                 @endphp
 
                                                 @endif
-                                                {{ $numberCaroussel }}
+
                                                 @for($i = 1; $i < $numberCaroussel; $i++)
                                                 @if($i===1)
                                                     <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="active"></li>
@@ -263,7 +263,7 @@
                                                             </div>
                                                             </section>
                                                         </div>
-
+{{ count($vipAds) }}
                                                         @if(count($vipAds) > 2)
                                                             @for($i=count($vipAds) -2; $i >2 ; $i=$i-2)
                                                                 <div class="carousel-item">
@@ -498,6 +498,7 @@
                                                         @endif
 
                                     </div>
+                                    @if(count($vipAds) >2)
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
@@ -506,6 +507,8 @@
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Next</span>
                                     </a>
+                                    @endif
+
                             </div>
 
 
