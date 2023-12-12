@@ -65,6 +65,34 @@ class AdsService{
             return null;
         }
     }
-
-
+    public function vipAds(){
+        try{
+            $url=(new UrlApiService())->getUrl();
+            $response = Http::asForm()->get($url."/api/vip/annonces");
+            $ad = json_decode((string) $response->getBody(), true);
+            if($ad['data'] === null){
+                return null;
+            }
+            else{
+                return $ad['data'];
+            }
+        }catch(Exception $e){
+            return null;
+        }
+    }
+    public function goldAds(){
+        try{
+            $url=(new UrlApiService())->getUrl();
+            $response = Http::asForm()->get($url."/api/gold/annonces");
+            $ad = json_decode((string) $response->getBody(), true);
+            if($ad['data'] === null){
+                return null;
+            }
+            else{
+                return $ad['data'];
+            }
+        }catch(Exception $e){
+            return null;
+        }
+    }
 }

@@ -22,13 +22,15 @@ class HomepageController extends Controller
  
         $data = (new AdsService())->index();
         $homeAds=(new AdsService())->homeAds();
+        $vipAds=(new AdsService())->vipAds();
+        $goldAds=(new AdsService())->goldAds();
         $announcements = $data[0];
         $emptyTowns = $data[1];
         $ads = (new AdsController())->getAds();
        
 
         //return $homeAds;
-        return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'ads'));
+        return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'ads','vipAds','goldAds'));
 
     }
 }

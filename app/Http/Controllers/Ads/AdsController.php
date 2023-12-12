@@ -25,12 +25,12 @@ class AdsController extends Controller
 
         //check if user is connected
          if (Session::has('currentUser')){
-           
+
             $url=(new UrlApiService())->getUrl();
              //$currentUser=(new CurrentUserService())->currentUser();
             $user = Session::get('currentUser');
             //dd($user->id);
-          
+
             //Fetching list towns
             $towns = (new TownService())->getTowns();
                  if($towns == null)
@@ -54,7 +54,7 @@ class AdsController extends Controller
 
     public function save(Request $request){
 
-        
+
         //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
 
@@ -105,7 +105,7 @@ class AdsController extends Controller
                  Mail::to('temerprodesign@yahoo.fr')
                 ->send(new Ad($ad));
                 return to_route('membership.display', ['adsId'=>$id]);
-               
+
 
             }else{
 
@@ -147,7 +147,7 @@ class AdsController extends Controller
                 'title' => $request->title,
                 'description' => $request->form['post_content'],
             ]);
-        
+
             if($response->status() === 200){
 
                 //Now uploading ads's images
@@ -166,7 +166,7 @@ class AdsController extends Controller
     }
 
     public function getAds(){
-         
+
         $url=(new UrlApiService())->getUrl();
         $ads = [];
 
@@ -184,7 +184,7 @@ class AdsController extends Controller
     }
 
     public function list(Request $request){
-         
+
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
 
@@ -204,7 +204,7 @@ class AdsController extends Controller
         $current_page = $request->current_page ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
-      
+
         $ads = array_slice($allAds, $starting_point, $per_page, true);
 
         $ads = new Paginator($ads, $total, $per_page, $current_page, [
@@ -219,12 +219,12 @@ class AdsController extends Controller
 
 
     public function adsByTown(Request $request){
-         
+
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
 
         try{
-
+            $id=$request->id;
             $response = Http::asForm()->get($url."/api/adstown/".$request->id);
             $allAds = json_decode((string) $response->getBody(), true);
             $allAds = $allAds['data'];
@@ -239,7 +239,7 @@ class AdsController extends Controller
         $current_page = $request->current_page ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
-      
+
         $ads = array_slice($allAds, $starting_point, $per_page, true);
 
         $ads = new Paginator($ads, $total, $per_page, $current_page, [
@@ -249,11 +249,11 @@ class AdsController extends Controller
 
         //dd($allAds);
 
-        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
+        return  view('ads.by-town', compact('ads','id', 'allAds', 'current_page', 'nb_pages'));
     }
 
     public function adsByCategory(Request $request){
-         
+
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
 
@@ -274,7 +274,7 @@ class AdsController extends Controller
         $current_page = $request->current_page ?? 1;
 
         $starting_point = ($current_page * $per_page) - $per_page;
-      
+
         $ads = array_slice($allAds, $starting_point, $per_page, true);
 
         $ads = new Paginator($ads, $total, $per_page, $current_page, [
@@ -294,7 +294,7 @@ class AdsController extends Controller
         return view('ads.ads-town', compact('announcements', 'allTowns'));
     }
 
-   
+
 
    public function show(Request $request){
 
@@ -308,12 +308,12 @@ class AdsController extends Controller
             $response1 = Http::asForm()->get($url."/api/announces/");
             $ad = json_decode((string) $response->getBody(), true)['data'];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
-            
+
         }catch(\Exception $e){
              $ad = null;
         }
 
-     
+
         return  view('ads.detail', compact('ad', 'ads'));
    }
 
@@ -341,13 +341,13 @@ class AdsController extends Controller
        //Deleting ads
          try{
             $response = Http::asForm()->delete($url."/api/ads/".$id);
-        
+
             if($response->status() === 200){
-               
+
                 return back()->with('success',"Annonce supprimée");
 
             }else{
-            
+
                 dd((string) $response->getBody());
               return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
             }
