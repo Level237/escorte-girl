@@ -24,6 +24,7 @@ class ReportRequest extends FormRequest
          return [
             'id' => ['required', 'string'],
             'name' => ['required', 'string'],
+            'myfile' => ['required', 'image', 'max:20480','mimes:jpg,png,jpeg'],
             'phone' => ['required','string'],
             'type' => ['required','string'], 
             'message' => ['required','string'], 
