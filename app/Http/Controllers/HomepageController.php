@@ -9,6 +9,7 @@ use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
 use App\Http\Controllers\Listing\AnnouncementController;
 use App\Services\Api\Ads\AdsService;
+use App\Services\Api\MemberShip\CheckSubscribeService;
 
 class HomepageController extends Controller
 {
@@ -17,7 +18,7 @@ class HomepageController extends Controller
 
     public function homepage(Request $request){
 
-
+        $check=(new CheckSubscribeService())->check();
         $locationController = new LocationController();
         $locations = $locationController->index();
         $escorts = (new EscortController())->index();
