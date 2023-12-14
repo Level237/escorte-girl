@@ -214,7 +214,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
      <h2 class="text-600 mb-3">
-        <span class="smilecode float-right" style="font-size: 40px;">&#x1F600;</span> Boostez Annonces</h2>
+        <span class="smilecode float-right" style="font-size: 40px;">&#x1F600;</span> Souscrire à un abonnement</h2>
 
      <p>Boostez vos annonces et obtenez plus de clients.</p>
 
@@ -237,13 +237,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                     <a class="text-dark text-decoration-none" style="cursor: pointer" href="{{ route('show.plan',$membership['id']) }}">
 
 
-          <div class="card-body text-center position-relative">
+          <div class="card-body text-center">
 
               <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
                   1 Mois                </div>
 
               <div class="memprice">
-                <span class="text-700 ppt-price">XAF {{ $membership['price'] }}</span>
+                <span class="text-700 " style="padding:12px;display:flex">{{ $membership['price'] }} XAF </span>
               </div>
 
           </div>

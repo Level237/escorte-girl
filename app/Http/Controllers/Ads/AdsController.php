@@ -61,8 +61,7 @@ class AdsController extends Controller
         //Saving Ads
 
         try{
-            $response = Http::asForm()->post($url."/api/ads", [
-                'user_id' => $request->user_id,
+            $response = Http::asForm()->post($url."/api/v1/ads", [
                 'town_id' => $request->town,
                 'quarter_id' => $request->quarter,
                 'gender' => $request->gender,
