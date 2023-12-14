@@ -44,12 +44,12 @@
 
       <div class="col-md-4 text-center text-md-left logo-lg">
 
-        <div class="mb-4"> 
+        <div class="mb-4">
          <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
-         
+
         </div>
 
-        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur 
+        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur
           adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
 
       </div>
@@ -62,8 +62,8 @@
                 <li><a href="{{ route('ads.list') }}">Aide</a></li>
                 <li><a href="{{ route('ads.create') }}">Vie Privée</a></li>
                 <li><a href="{{ route('contact') }}">Nous Ecrire</a></li>
-                
-                
+
+
                 </ul>
         </div>
 
@@ -147,28 +147,28 @@ function ajax_newsletter_signup58945(){
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-     
+
       <div class="modal-body">
          <div class="position-relative filter-keyword mb-4 show-mobile">
           <form method="get" action="{{ route('search') }}" >
                   @csrf
-          <input type="text" class="form-control customfilter typeahead shadow-sm" 
-          name="s"  required  
+          <input type="text" class="form-control customfilter typeahead shadow-sm"
+          name="s"  required
           data-formatted-text="Keyword" placeholder="Rechercher.." value="" style="height:50px;">
-          
-          
+
+
           <button class="btn iconbit" type="submit"  style="position:absolute; top:5px; right:5px;" >
-          
+
               <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
-          
+
           </button>
 
-       
-          
+
+
           </form>
         </div>
       </div>
-    
+
     </div>
   </div>
 </div>
@@ -281,9 +281,9 @@ function ajax_newsletter_signup58945(){
 
 
      <li class=""> <a href="{{ route('ads.create') }}" class="menu-add bg-primary "><i class="fa fa-plus text-white"></i> </a>
-    
+
     </li>
-   
+
 
 
 		<li><a href="#" class="" data-toggle="modal" data-target="#exampleModal">
@@ -299,5 +299,5 @@ function ajax_newsletter_signup58945(){
         </div>
       </div>
 
-     
+
 </div>

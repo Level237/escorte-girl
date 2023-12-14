@@ -180,10 +180,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <label>Email </label>
 <div class="form-group position-relative">
-    <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="" data-key="Email" 
+    <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="" data-key="Email"
 	autocomplete="current-password">
-   
-    <i class="fal fa-envelope"></i> 
+
+    <i class="fal fa-envelope"></i>
 
   </div>
 
@@ -206,7 +206,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <label>Ville <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
-    
+
 
 	<select name="town" id="town" class="form-control" value="" data-key="town" >
 		<option value="">Sélectionner la ville</option>
@@ -214,8 +214,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 			<option value="{{ $town['id'] }}">{{ $town['town_name'] }}</option>
 		@endforeach
 	</select>
-   
-    <i class="fal fa-map-marker"></i> 
+
+    <i class="fal fa-map-marker"></i>
 
   </div>
 
@@ -232,9 +232,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="form-group position-relative">
     <input type="password" placeholder="Mot de passe" class="form-control" name="mypass" id="mypass" data-key="mypass" value="" autocomplete="current-password">
-   
-    <i class="fal fa-lock"></i> 
-    
+
+    <i class="fal fa-lock"></i>
+
     <i class="fa fa-eye" onclick="TogglePass('mypass');"></i>
   </div>
 
@@ -245,9 +245,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <label>Confirmation mot de passe <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
     <input type="password" placeholder="Confirmation mot de passe" class="form-control" name="mypass1" id="mypass1" value="" data-key="mypass1" autocomplete="current-password">
-   
-    <i class="fal fa-lock"></i> 
-    
+
+    <i class="fal fa-lock"></i>
+
     <i class="fa fa-eye" onclick="TogglePass('mypass1');"></i>
   </div>
 
@@ -330,7 +330,7 @@ jQuery(document).ready(function() {
 	onclick="processSubmitForm()">S'inscrire</button>
 
 
-   
+
 
 
     </div>
@@ -603,7 +603,7 @@ function processSubmitForm(){
 			jQuery('#ppt-invalid-fields-text').html("Votre ville de résidence est requise");
 			scrollTop();
 			return false;
-	}	
+	}
 
  	if(jQuery('[data-key="mypass"]').length > 0){
 		if(jQuery('[data-key="mypass"]').val() == "" || jQuery('[data-key="mypass1"]').val() == ""
@@ -619,7 +619,7 @@ function processSubmitForm(){
 	}
 
 	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
-		
+
 			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
@@ -674,7 +674,7 @@ function processSubmitForm(){
 		var phoneNumber = jQuery("#phone").val();
 		var password = jQuery("#mypass").val();
 		const recaptcha = jQuery('#g-recaptcha-response').val();
-		
+
 		// SAVE THE DATA
 		jQuery.ajax({
 			type: "POST",
@@ -950,9 +950,9 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
 </style>
 
-  @include('layouts.Frontend.footer')
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 <link rel='stylesheet' id='ppt-up-css-css' href='{{ asset('assets/css/_up.css?ver=6.3.2') }}' type='text/css' media='all'>
 <link rel='stylesheet' id='ppt-submit-css-css' href='{{ asset('assets/css/_submitform.css?ver=6.3.2') }}' type='text/css' media='all'>
@@ -1075,5 +1075,6 @@ input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
 </script>
 <script async src="https://www.google.com/recaptcha/api.js"></script>
+
 </body>
 </html>

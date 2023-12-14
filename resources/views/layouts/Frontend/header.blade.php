@@ -89,12 +89,12 @@ nav .fa{
   border-radius: 2px;
   box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
   width: 0;
-} 
+}
 }
 </style>
 
  <div class="nav-links show-mobile" id="navLinks">
-            <i class="fa fa-bars" onclick="hideMenu()"></i> 
+            <i class="fa fa-bars" onclick="hideMenu()"></i>
             <ul>
 
                   <li><a href="{{ route('homepage') }}"> ACCUEIL </a></li>
@@ -105,13 +105,13 @@ nav .fa{
                   <li><a href="/register"> INSCRIPTION </a></li>
                   @else
                   <li><a href="{{ route('db.escort.index') }}"> MON TABLEAU DE BORD </a></li>
-                  
+
                   <li onclick="event.preventDefault(); document.getElementById('logout').submit();"><a href="#"> DÉCONNEXION </a></li>
                   @endif
                   <li><a href="{{ route('contact') }}"> CONTACT</a></li>
 
             </ul>
-          
+
         </div>
 
 <header class=" bg-white navbar-light border-bottom" data-block-id="header">
@@ -140,8 +140,15 @@ nav .fa{
                     <li> <a href="{{ route('login') }}">Connexion</a> </li>
                     <li> <a href="/register">Inscription</a> </li>
                   @else
-
-                    <li> <a href="{{ route('db.escort.index') }}">Ton Tableau de bord</a> </li>
+                    @if($user->role_id==2)
+                        <li> <a href="{{ route('db.escort.index') }}">Ton Tableau de bord</a> </li>
+                    @endif
+                    @if($user->role_id==1)
+                        <li> <a href="{{ route('admin.dashboard') }}">Ton Tableau de bord</a> </li>
+                    @endif
+                    @if($user->role_id==3)
+                        <li> <a href="{{ route('db.customer.index') }}">Ton Tableau de bord</a> </li>
+                    @endif
                      <form method="POST" action="{{ route('logout') }}" id="logout">
                                 @csrf
                             </form>
@@ -186,19 +193,19 @@ nav .fa{
 
             </div>
             <div class="col d-none d-md-block">
-               
+
               <nav ppt-nav="" class="seperator" ppt-flex-end="">
                 <form method="get" action="{{ route('search') }}" >
                   @csrf
                 <div class="position-relative hide-mobile filter-keyword mb-4" >
 
-                  <input type="text" class="form-control  customfilter typeahead shadow-sm" 
-                   required name="s" data-type="text" 
-                  data-key="keyword" autocomplete="on"  data-formatted-text="Keyword" 
+                  <input type="text" class="form-control  customfilter typeahead shadow-sm"
+                   required name="s" data-type="text"
+                  data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
                   placeholder="Rechercher.." value="" style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
 
 
-                  <button class="btn iconbit"  type="submit" 
+                  <button class="btn iconbit"  type="submit"
                   style="position:absolute; top:0px; right:5px;" >
 
                       <span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></span>
@@ -208,7 +215,7 @@ nav .fa{
 
               </div>
               </form>
-                  
+
               </nav>
             </div>
           </div>
@@ -229,7 +236,7 @@ nav .fa{
         </div>
         <div class="col" ppt-flex-end="">
           <div class="d-flex ">
-           
+
             <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
 
 
@@ -246,21 +253,21 @@ nav .fa{
         {{-- <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li> --}}
        </ul>
 
-        
-		 </nav>            
+
+		 </nav>
      <div class="show-ipad show-mobile">
         <div class="d-flex">
           <div class="ml-4  cursor">
                   <div ppt-icon-size="32" data-ppt-icon2="" onclick="showMenu()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24"
                     stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                     d="M4 6h16M4 12h16M4 18h16"></path></svg>                
+                     d="M4 6h16M4 12h16M4 18h16"></path></svg>
                   </div>
             </div>
         </div>
 
       </div>
-      
+
                       <div class="hide-mobile" >
 
 
@@ -268,7 +275,7 @@ nav .fa{
 
             </div>
 
-           
+
 
 
                     </div>
@@ -340,47 +347,47 @@ nav .fa{
           </ul>
         </div>
    </div>
-   
+
    <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
-		
+
 		<form method="get" action="{{ route('search') }}" >
                   @csrf
-			<input type="text" class="form-control customfilter typeahead shadow-sm" 
-			name="keyword" id="keyword" data-type="text" onchange="_filter_update()"  
-			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword" 
+			<input type="text" class="form-control customfilter typeahead shadow-sm"
+			name="keyword" id="keyword" data-type="text" onchange="_filter_update()"
+			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
 			placeholder="Rechercher.." value="" style="height:50px;">
-		  
-		   
+
+
 			  <button class="btn iconbit" type="submit"
 			style="position:absolute; top:5px; right:5px;" >
-			  
+
 				  <span ppt-icon-24 data-ppt-icon-size="24">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" 
-				stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" 
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+				stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round"
 				stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
 			  </span>
-			  
+
 			  </button>
 		</form>
-	  
+
 	</div>
 
        <div class="container show-mobile">
          <div class="d-flex justify-content-center">
             <div class=>
-               
+
             <div class>
                 <a href="#" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
                  class="btn-system">Besoin d'aide pour s'inscrire? </a>
             </div>
             <div>
-               
+
             </div>
          </div>
-         
+
       </div>
       </div>
-    
+
 
       <br>
  <div class="show-mobile mb-3 mt-2">
@@ -414,7 +421,7 @@ nav .fa{
 
 		</div>
   </div>
- 
+
 
 
 
