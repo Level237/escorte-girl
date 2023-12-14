@@ -109,7 +109,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         
 		<h2 class="mb-3" data-ppt-title>Remplissez le formulaire suivant pour nous faire part de vos preoccupations</h2>
         
-        <p class="lead mb-4" data-ppt-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique.</p>
+        <p class="lead mb-4" data-ppt-subtitle>
+         Vous pouvez nous écrire via les réseaux sociaux.</p>
    
           </div>
       <div class="col-lg-6 text-center"><div class="_content py-3 ppt-forms style3">
@@ -187,10 +188,46 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             
 		<h2 class="mb-3" data-ppt-title>Vous avez des questions ? N'hésitez pas à nous contacter.</h2>
         
-        <p class="lead mb-4" data-ppt-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="lead mb-4" data-ppt-subtitle>Vous pouvez nous écrire via les réseaux sociaux. ou remplir le formulaire de contact ci-dessus.</p>
         
+          <div class="col-md-6 text-right d-none d-md-block">
+  <div class="ppt-icons-social  _style5 size-md rounded">
+                <ul>
+
+                                 <li class="facebook">
+                 <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
+
+                 <i class="fab fa-facebook"></i>
+
+
+                 </a></li>
+                                 <li class="twitter">
+                 <a href="#" title="twitter" class="icon-twitter" rel="nofollow" target="_blank">
+
+                 <i class="fab fa-twitter"></i>
+
+
+                 </a></li>
+                                 <li class="instagram">
+                 <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
+
+                 <i class="fab fa-instagram"></i>
+
+
+                 </a></li>
+                                 <li class="youtube">
+                 <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
+
+                 <i class="fab fa-youtube"></i>
+
+
+                 </a></li>
+                                </ul>
+                </div>
+
+  </div>
           
-    <div class="d-flex flex-row">
+    {{-- <div class="d-flex flex-row">
           <div>
             <span class="fa fa-map-marker text-primary mr-4 me-4"></span>
           </div>
@@ -222,7 +259,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <h5 class="mb-1" data-ppt-f3a>Email</h5>
             <p data-ppt-f3b>contact@viens-yamo.com</p>
           </div>
-        </div>
+        </div> --}}
         
             
             
