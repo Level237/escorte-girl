@@ -127,7 +127,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       <div class="col-lg-6 text-center"><div class="_content py-3 ppt-forms style3">
 
 
-      <form action="{{ route('report.store') }}" method="post" id='global-form'>
+      <form action="{{ route('report.store') }}" method="post" id='global-form' enctype="multipart/form-data">
           @csrf
         <div class="formsContactUser">
         <div class="formOk data-form-ok" style="display:none;">
@@ -143,15 +143,25 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               <input type="hidden" name="id" value="{{ $id }}">
               <input type="hidden" name="type" value="{{ $type }}">
               <input type="text" class="form-control contact-required" tabindex="1"
-              data-key="name" name='name' id="name"
+              data-key="name" name='name' id="name" value="{{ old('name') }}"
                data-name="name"  placeholder="Nom Complet">
             </div>
+           
             <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
-              <input placeholder="Téléphone" type="text" data-key="phone" id="phone" name='phone' class="form-control contact-required" data-name="phone" tabindex="2">
+              <input placeholder="Téléphone" type="text" data-key="phone" id="phone" name='phone' 
+              value="{{ old('phone') }}"
+              class="form-control contact-required" data-name="phone" tabindex="2">
+            </div>
+
+             <div class="col-md-12 mobile-mb-2 mb-3 mt-3 mb-lg-0">
+              <label for="myfile">Ajouter une preuve (Capture d'ecran, conversation etc...):</label>
+              <input type="file" id="myfile" name="myfile" data-key="myfile" 
+              value="{{ old('myfile') }}"
+              class="form-control contact-required" data-name="phone" tabindex="2">
             </div>
 
             <div class="col-12 my-md-4 mobile-mb-2 mb-3">
-              <textarea placeholder="Votre Message..."  name='message' data-key="message" id="message" class="form-control contact-required"  data-name="message" tabindex="3" style="min-height:150px;"></textarea>
+              <textarea placeholder="Votre Message..."  name='message' data-key="message" id="message" class="form-control contact-required"  data-name="message" tabindex="3" style="min-height:150px;">{{ old('message') }}</textarea>
             </div>
             
         </div>
@@ -285,7 +295,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                   return false;
               }
 
-            
+              if(jQuery('#myfile').val() === "" || jQuery('#myfile').val() === undefined){
+                
+                  jQuery('[data-key="myfile"]').addClass('required-active');
+                  jQuery('#ppt-invalid-fields').show();
+                  jQuery('#ppt-invalid-fields-text').html("La preuve est requise");
+                  scrollTop();
+                  return false;
+              }
 
               if(jQuery('#message').val() === "" || jQuery('#message').val() === undefined){
                 

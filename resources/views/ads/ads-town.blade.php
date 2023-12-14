@@ -14,7 +14,7 @@
             @forelse ($announcements as $announcement)
                 
            
-            <div class="col-4">
+            <div class="col-md-4">
                 <i class='fas fa-map-marker-alt' style='font-size:24px; color:#DA9ADC'></i> &nbsp;
                 <strong class="h4">
                     <a href="{{ route('ads.town', ['id'=>$announcement['town_id'] ]) }}" class="text-dark">
@@ -46,7 +46,7 @@
             @forelse ($allTowns as $town)
                 
            
-            <div class="col-3 mb-3">
+            <div class="col-md-3 col-sm-6 mb-3">
                 <i class='fas fa-map-marker-alt' style='font-size:24px; color:#DA9ADC'></i> &nbsp;
                 <strong class="h4">
                     <a href="{{ route('ads.town', ['id'=>$town['id']]) }}" class="text-dark">

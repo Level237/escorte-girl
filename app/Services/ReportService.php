@@ -11,16 +11,29 @@ class ReportService{
 
     public function create($report){
 
+        //dd($report['id']);
         $url=(new UrlApiService())->getUrl();
 
+        $image = $report['myfile'];
+         //Storing file in disk
+         $fileName = $image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+         $image->storeAs('reports/'.$report['id'], $fileName);
+
+         $photo = \Illuminate\Support\Facades\Storage::get('reports/'.$report['id'].'/'.$fileName);
+
         try{
-            $response = Http::post($url."/api/reports", [
-                'id' => $report['id'],
-                'name' => $report['name'],
-                'phone' => $report['phone'],
-                'type' => $report['type'],
-                'message' => $report['message'],
-            ]);
+            $response = Http::attach('myfile', $photo, $fileName)->post($url."/api/reports", [
+                        'id' => $report['id'],
+                        'name' => $report['name'],
+                        'phone' => $report['phone'],
+                        'type' => $report['type'],
+                        'message' => $report['message'],
+                    ]);
+
+            //dd($response);
+
+            //Delete directory
+            \Illuminate\Support\Facades\Storage::deleteDirectory('reports/'.$report['id']);
 
             return $response;
 

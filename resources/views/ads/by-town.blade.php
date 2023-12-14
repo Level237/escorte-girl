@@ -3990,8 +3990,18 @@ function updatecommentfilter(g){
                 </div>
               <div ppt-search-badges="" style="z-index:1" class="right">
 
-                    <div class="badge" style="color:#000000;background-color:#FFC300;">
-                    <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+                    @if($ad['subscribe_id'] ===1)
+								<div class="badge" style="color:#000000;background-color:#FFC300;">
+								<span class="fal fa fa-star" style="color:#000000"> </span> PREMIUM </div>
+                            @endif
+			@if($ad['subscribe_id'] ===2)
+								<div class="badge" style="color:#000000;background-color:#FFC300;">
+								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
+                            @endif
+                            @if($ad['subscribe_id'] ===3)
+                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
+                        @endif
 
                   </div>
               </figure>

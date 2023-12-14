@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\Session;
 
 class AdsService{
 
+
+    public function index(){
+
+        $url=(new UrlApiService())->getUrl();
+        $numberAdsByTown = null;
+        try{
+
+                $response = Http::asForm()->get($url."/api/announcementsTown");
+                //dd(json_decode((string) $response->getBody(), true));
+                $numberAdsByTown = json_decode((string) $response->getBody(), true);
+                return  $numberAdsByTown;
+
+        }catch(\Exception $e){
+                return $numberAdsByTown;
+        }
+    }
+
      public function getAdsById($id){
 
         $url=(new UrlApiService())->getUrl();

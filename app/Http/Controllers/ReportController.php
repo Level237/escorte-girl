@@ -20,13 +20,13 @@ class ReportController extends Controller
          $report['phone'] = $request->phone;
          $report['type'] = $request->type;
          $report['message'] = $request->message;
-
+         $report['myfile'] = $request->file('myfile');
 
 
          $report = (new ReportService)->create($report);
 
          if($report){
-
+         
             if($report->status() == 201){
                 return Redirect::back()->with('success',"Votre message a été reçu avec succès");
 
