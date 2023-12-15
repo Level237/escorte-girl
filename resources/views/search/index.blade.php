@@ -221,7 +221,7 @@
 																@break
 
 															@case('quarters')
-																<li class="LC20lb MBeuO"><a href="{{ route('ads.town', ['id'=>$result['searchable']['id']]) }}">{{ $result['title'] }}</a></li>
+																<li class="LC20lb MBeuO"><a href="{{ route('ads.quarter', ['id'=>$result['searchable']['id']]) }}">{{ $result['title'] }}</a></li>
 																<br>
 																@break
 
