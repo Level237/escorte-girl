@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> {{ ucfirst($ad['title']) }}</title>
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -31,8 +31,138 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <meta property="og:image:width" content="700">
 <meta property="og:image:height" content="700">
 
- 
-    
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+
+
+
+
+
+
+
+.che{
+    color:#f5bccf ;
+}
+
+
+
+
+    .comments{
+        margin-top: 5%;
+
+    }
+
+
+    .comment{
+
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+        margin-left: 70px;
+    }
+    .comment h5,.comment span,.darker h5,.darker span{
+        display: inline;
+    }
+
+    .comment p,.comment span,.darker p,.darker span{
+        color: black;
+    }
+
+    h1,h4{
+        color: black;
+    }
+    label{
+        color: rgb(212, 208, 208);
+    }
+
+    #align-form{
+        margin-top: 20px;
+    }
+
+
+
+
+    #darker img{
+        margin-right: 15px;
+        position: static;
+    }
+
+
+
+.card {
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+padding: 20px;
+width: 100%;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border-radius: 6px;
+-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+}
+.comment-box {
+padding: 5px
+}
+.comment-area textarea {
+resize: none;
+border: 1px solid #ad9f9f
+}
+.form-control:focus {
+color: #495057;
+background-color: #fff;
+border-color: #ffffff;
+outline: 0;
+box-shadow: 0 0 0 1px #f5bccf !important
+}
+.send {
+color: #fff;
+background-color: #f5bccf;
+border: none;
+}
+.send:hover {
+color: #fff;
+background-color: #f5bccf;
+border-color: #f5bccf
+}
+.rating {
+display: flex;
+margin-top: -10px;
+flex-direction: row-reverse;
+margin-left: -4px;
+float: left
+}
+.rating>input {
+display: none
+}
+.rating>label {
+position: relative;
+width: 19px;
+font-size: 25px;
+color: #f5bccf;
+cursor: pointer
+}
+.rating>label::before {
+content: "\2605";
+position: absolute;
+opacity: 0
+}
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+opacity: 1 !important
+}
+.rating>input:checked~label:before {
+opacity: 1
+}
+.rating:hover>input:checked~label:before {
+opacity: 0.4
+}
+</style>
+
 </head>
 <body class="listing_type-template-default single single-listing_type postid-33 single-format-standard body-hide-footer single-design4 theme-es tall-images innerpage">
 
@@ -45,7 +175,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 @include('layouts.Frontend.header')
 @include('utils.utils')
- 
+
 <div class="border-bottom py-3">
   <div class="container">
     <div class="list-list small letter-spacing-1 arrow">
@@ -55,59 +185,59 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                       </div>
   </div>
 </div>
-    
+
     <div id="mobileGallery"></div>
-    
-    
+
+
 
 <div class="container py-md-5">
 
 			  <div class="row d-flex flex-row-reverse">
-			  
+
 					<div class="col-lg-5 col-xl-4 mb-4 hide-mobile">
-							   
+
 								<div class="mb-4 pb-3 border-bottom">
-								 
-								
-								
+
+
+
 								<h6 class="fs-lg text-100">
 								 <div class="addeditmenu" data-key="title"></div>Contactez l'escorte	</h6>
-								
-								
-							 
-								</div>      
+
+
+
+								</div>
 						<div class="ppt-single-button-box">
-						 
+
 
 
 							  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
 							  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 							  <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
 							  </a>
-							  
+
 							  <script>
 							  function showPhone(){
-							  
+
 									jQuery('._text').hide();
 									jQuery('._number').show();
 							  }
-							  
+
 							  </script>
-							  
-									
-									 
-									  
-								 
+
+
+
+
+
 							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
 							  </a>
-							  
-								  
-						</div>
-							 
-								  
 
-								
+
+						</div>
+
+
+
+
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -131,33 +261,33 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 							  EVITEZ LES ARNAQUES   </div>
 						  </div>
 							 <ul>
-						   
-							
+
+
 							<li class="text-center my-4 p-3">
-							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span> 
+							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span>
 							</li>
 							<li class="text-center my-4 p-3">
-							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span> 
+							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span>
 							  </li>
-							
-								
+
+
 							<li class="text-center my-4 p-3">
 							  <span>&#10060; Ne pas faire confiance pour un service trop beau pour être vrai.
 								</span></li>
-							
-								
+
+
 							<li class="text-center my-4 p-3">
-							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span>
 							</li>
-							
-								
-						  
-							
-								</ul> 
+
+
+
+
+								</ul>
 						  </div>
-								
+
 						<div class="p-4 rounded" ppt-box="">
-						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn=""
 									style="min-width:60px; background-color: red;">
 								Dénoncer cette annonce
 							  </button></a>
@@ -167,12 +297,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						<p class="text-600">Partagez cette lien via</p>
 
-						 
+
 						<style>
-						 
+
 						.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
 						.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
-						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;}
 						.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
 						.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
 						.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
@@ -192,7 +322,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
 						.card-share .field.active i{  color: #000;}
 						.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
-						 
+
 						</style>
 
 						<div class="card-share">
@@ -211,7 +341,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 							  <div class="field">
 								<i class="fa fa-link"></i>
 								<input type="text" readonly="" id="copylink" value="#">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -219,7 +349,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						</div>
 
-						<script>   
+						<script>
 
 						function scrollTop(){
 							jQuery('body,html').animate({
@@ -230,56 +360,56 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						scrollTop();
 
 
-						jQuery(document).ready(function(){  
+						jQuery(document).ready(function(){
 						  scrollTop();
 							setTimeout(function() {
 								var clipboard = new ClipboardJS('.js-copy-link');
-								clipboard.on('success', function(e) { 
-								
+								clipboard.on('success', function(e) {
+
 								jQuery(".card-share .field").addClass("active");
-								
+
 								 alert("Lien enregistré dans votre presse-papiers.");
-								 
+
 								 });
-								 
+
 							},5000);
-						});                     
-						</script> </div>  
-						 
+						});
+						</script> </div>
+
 					</div>
-							
+
 					<div class="col-lg-7 col-xl-8 maincontent pr-lg-5">
 								<h6 class="fs-lg text-100">
 								<div class="addeditmenu" data-key="title"></div>{{ $ad['title'] }}	</h6>
-							 
+
 								<div class="mt-3 d-md-flex text-600 link-dark fs-7 mt-3 download-bar mobile-mb-2">
 											<a class="mr-3 text-dark" href="#">
 												<i class="fal fa-map-marker mr-2 text-primary"></i> <span>{{ ucfirst($ad['quarter']['quarter_name']) }}, {{ ucfirst($ad['town']['town_name']) }}</span>
 											</a>
-														 
+
 											<div class=" d-inline-flex cursor">
-												<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>			
+												<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>
 												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-															   
-													<span>{{ $ad['age'] }} Ans</span>   
-													
+
+													<span>{{ $ad['age'] }} Ans</span>
+
 												</div>
-												
+
 												</span>
 											</div>
-											
+
 											&nbsp;&nbsp;&nbsp;
 											<div class=" d-inline-flex cursor">
-											
+
 												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
-															   
-										  
-													
+
+
+
 												</div>
-												
+
 												</span>
 											</div>
-												
+
 							    </div>
 							  <br>
 						<div class="addeditmenu" data-key="images"></div>
@@ -290,7 +420,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								@if ($loop->index == 3)
 									@break
 								@endif
-								
+
 							<div class="col-6">
 								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
 								<div class="m-sm-1">
@@ -313,7 +443,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
 								<div class="m-sm-1">
 							  <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-								<div class="bg-image" 
+								<div class="bg-image"
 								style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
 								  &nbsp;
 								</div>
@@ -327,7 +457,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 							  </div>
 							@empty
 							@endforelse
-						  
+
 
 							@forelse ($ad['images'] as $image)
 								@if ($loop->index <= 3)
@@ -336,9 +466,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
 						   @empty
 							@endforelse
-						  
-						  
-							
+
+
+
 						</div>
 						</div>
 
@@ -350,87 +480,87 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						}
 						</style>
 
-							  
+
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
 							  Description de l'annonce    </div>
 							<div class="lh-10 w-100 mt-2 pt-1 mr-3 hide-mobile" ppt-flex-end="">
-								 
-							<div class="ppt-badges clearfix mb-3"> 
-								
-								
-										
-						 
+
+							<div class="ppt-badges clearfix mb-3">
+
+
+
+
 							<div class="">
-									   
-								   
-						<div class="_badge " style="color:#000000;background-color:#FFC300;"> 
-							
-							
-								
+
+
+						<div class="_badge " style="color:#000000;background-color:#FFC300;">
+
+
+
 						<div class="badge_tooltip text-center" data-direction="top">
-							<div class="badge_tooltip__initiator"> 
+							<div class="badge_tooltip__initiator">
 						   <i class="fal fa fa-users" style="color:#000000"></i> {{ $ad['accepted'] }}	    </div>
 							<div class="badge_tooltip__item">{{ $ad['accepted'] }}	 </div>
 						  </div>
-						  
-						  
+
+
 						</div>
-							 
-									   
-								   
-						<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;"> 
-							
-							
-								
+
+
+
+						<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;">
+
+
+
 						<div class="badge_tooltip text-center" data-direction="top">
-							<div class="badge_tooltip__initiator"> 
+							<div class="badge_tooltip__initiator">
 						   <i class="fal fa fa-map-marker" style="color:#FEFEFE"></i> {{ $ad['location'] }}	   </div>
 							<div class="badge_tooltip__item">{{ $ad['location'] }}	 </div>
 						  </div>
-						  
-						  
+
+
 						</div>
-							 
-								 
+
+
 								</div>
-							
-							 
+
+
 							</div>
 								</div>
 						  </div>
 						  <div class="_content py-3 pl-4 py-lg-4">
-						  
-						  
-							
-								
+
+
+
+
 						<div class="ppt-single-desc _style1">
 
 						<div class="addeditmenu" data-key="content"></div>
 
 
 						<div>
-								
-										 
+
+
 								<div class="overflow-hidden">
 								<p>{{ $ad['description'] }}</p>
 
 
 								</div>
-								 
-								
+
+
 								</div>
 
 
 						</div>
-						  
 
-							
-							
+
+
+
 						<div class="addeditmenu" data-key="features"></div>
-						<div class="my-3 fs-7 text-600">Services</div> 
-						 
+						<div class="my-3 fs-7 text-600">Services</div>
+
 						<div class="row lh-30 fs-sm">
 
 
@@ -438,67 +568,133 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						<div class="d-flex">
 
-							
-							<div class="ml-2 ftxt">{{ $ad['services'] }}</div> 
+
+							<div class="ml-2 ftxt">{{ $ad['services'] }}</div>
 						</div>
 
 						</div>
 
 						</div>
 
-						  
-							
-							  
-							
-							
+
+
+
+
+
 						  </div>
-						</div>      
+
+						</div>
+                        <div ppt-box="" class="rounded p-3">
+                            <div class="_header d-md-flex align-items-center">
+                              <div class="_title w-100">
+                                Commentaires   </div>
+
+                            </div>
+                            <div class="card ">
+
+                                <div class="flex justify-center align-items-center" style="display: flex;flex-direction:row;justify-content:space-between">
+                                    <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
+                                    <div style="flex: 1" class="comment-box ml-2">
+                                        <h4>Ajouter votre commentaire</h4>
+                                        <form action="{{ route('review.user',$announceId) }}" method="post">
+                                            @csrf
+                                            <div class="rating"> <input type="radio" required name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                            <div class="comment-area"> <textarea required name="comment" class="form-control" rows="4"></textarea> </div>
+                                            <div class="comment-btns mt-2">
+                                            <div class="row">
+                                            <div class="col-6">
+                                                <div class="pull-right"> <button type="submit" class="send">Envoyer<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                            </div>
+
+                                            </div>
+                                            </div>
+                                        </form>
+
+                                        </div>
+                                </div>
+
+                                @if(count($reviews)!==0)
+                                <div style="margin-top: 50px;">
+                                    <h3 style="text-align: center;color:rgb(85, 85, 85);">Commentaires les plus récents</h3>
+                                </div>
+                                @endif
+
+
+                                @forelse ($reviews as $review)
+                                <div class="comment mt-4 text-justify float-left">
+                                    <img src="{{ asset('assets/images/user (1).png') }}" alt="" class="rounded-circle" width="40" height="40">
+                                    <h5>{{ $review['user'] }}</h5>
+                                    <span style="font-style: initial">{{ $review['created_at'] }}</span>
+
+                                    <br>
+                                    @php
+                                        $countReview=$review['stars'];
+                                        $countNotReview=5-$review['stars'];
+                                    @endphp
+
+                                    <div style="font-size: 15px;margin-left:50px;text-align: justify;">
+                                        @for($i = 0; $i < $countReview; $i++)
+                                            <span class="fa fa-star" style="color: #f5bccf "></span>
+                                        @endfor
+                                        @for($i = 0; $i < $countNotReview; $i++)
+                                        <span class="fa fa-star"></span>
+                                    @endfor
+                                    </div>
+
+                                    <p style="font-size: 15px;margin-left:50px;text-align: justify;color:rgb(85, 85, 85);">{{ $review['comment'] }}</p>
+                                </div>
+                                @empty
+                                <p style="font-size: 15px;margin-left:50px;text-align: center;color:rgb(85, 85, 85);">Aucun Commentaires disponible</p>
+                                @endforelse
+
+                                    </div>
+                                </div>
 					</div>
 					<br>
 					<div class="col-lg-5 col-xl-4 mb-4 show-mobile">
-							   
+
 								<div class="mb-4 pb-3 border-bottom">
-								 
-								
-								
+
+
+
 								<h6 class="fs-lg text-100">
 								 <div class="addeditmenu" data-key="title"></div>Contactez l'escorte	</h6>
-								
-								
-							 
-								</div>      
+
+
+
+								</div>
 						<div class="ppt-single-button-box">
-						 
+
 
 
 							  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
 							  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 							  <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
 							  </a>
-							  
+
 							  <script>
 							  function showPhone(){
-							  
+
 									jQuery('._text').hide();
 									jQuery('._number').show();
 							  }
-							  
+
 							  </script>
-							  
-									
-									 
-									  
-								 
+
+
+
+
+
 							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
 							  </a>
-							  
-								  
-						</div>
-							 
-								  
 
-								
+
+						</div>
+
+
+
+
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -522,33 +718,33 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 							  EVITEZ LES ARNAQUES   </div>
 						  </div>
 							 <ul>
-						   
-							
+
+
 							<li class="text-center my-4 p-3">
-							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span> 
+							<span>&#10060; Ne JAMAIS payer le transport à un(e) client(e) que vous ne connaissez pas.</span>
 							</li>
 							<li class="text-center my-4 p-3">
-							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span> 
+							  <span>&#10060; Ne JAMAIS faire d'avance de paiement sans être avec la personne concernée.</span>
 							  </li>
-							
-								
+
+
 							<li class="text-center my-4 p-3">
 							  <span>&#10060; Ne pas faire confiance pour un service trop beau pour être vrai.
 								</span></li>
-							
-								
+
+
 							<li class="text-center my-4 p-3">
-							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span> 
+							  <span>&#9989; Dénoncer l'annonce plus bas avec preuves si vous êtes victime d'une tentative d'arnaque.</span>
 							</li>
-							
-								
-						  
-							
-								</ul> 
+
+
+
+
+								</ul>
 						  </div>
-								
+
 						<div class="p-4 rounded" ppt-box="">
-						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn="" 
+						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn=""
 									style="min-width:60px; background-color: red;">
 								Dénoncer cette annonce
 							  </button></a>
@@ -558,12 +754,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						<p class="text-600">Partagez cette lien via</p>
 
-						 
+
 						<style>
-						 
+
 						.card-share :is(header, .icons, .field){  display: flex;  align-items: center;  justify-content: space-between;}
 						.card-share .icons a{  display: flex;  align-items: center;  border-radius: 50%;  justify-content: center;  transition: all 0.3s ease-in-out;}
-						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;} 
+						.card-share .icons{  margin: 15px 0 20px 0; padding: 0px;}
 						.card-share .icons a{  height: 50px;  width: 50px;  font-size: 20px;  text-decoration: none;  border: 1px solid transparent;}
 						.card-share .icons a i{  transition: transform 0.3s ease-in-out;}
 						.card-share .icons a:nth-child(1){  color: #1877F2;  border-color: #b7d4fb;}
@@ -583,7 +779,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						.card-share .field i{  width: 50px;  font-size: 18px;  text-align: center;}
 						.card-share .field.active i{  color: #000;}
 						.card-share .field input{  width: 100%;  height: 100%;  border: none;  outline: none;  font-size: 12px;}
-						 
+
 						</style>
 
 						<div class="card-share">
@@ -602,7 +798,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 							  <div class="field">
 								<i class="fa fa-link"></i>
 								<input type="text" readonly="" id="copylink" value="#">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -610,7 +806,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						</div>
 
-						<script>   
+						<script>
 
 						function scrollTop(){
 							jQuery('body,html').animate({
@@ -621,22 +817,22 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						scrollTop();
 
 
-						jQuery(document).ready(function(){  
+						jQuery(document).ready(function(){
 						  scrollTop();
 							setTimeout(function() {
 								var clipboard = new ClipboardJS('.js-copy-link');
-								clipboard.on('success', function(e) { 
-								
+								clipboard.on('success', function(e) {
+
 								jQuery(".card-share .field").addClass("active");
-								
+
 								 alert("Lien enregistré dans votre presse-papiers.");
-								 
+
 								 });
-								 
+
 							},5000);
-						});                     
-						</script> </div>  
-						 
+						});
+						</script> </div>
+
 					</div>
 			  </div>
 </div>
@@ -646,13 +842,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="container">
   <div class="row">
 
-    <div class="col-12"> 
-    
-<div class="mb-5 text-700">Autres Annonces</div> 
-      
-      
+    <div class="col-12">
+
+<div class="mb-5 text-700">Autres Annonces</div>
+
+
 <div class='row'>
-  
+
   @php
 	shuffle($ads);
 				@endphp
@@ -661,7 +857,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						@break
 					@endif
   <div class="col-6 col-sm-6 col-md-4 col-lg-4">
-  
+
     	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
 		  <figure>
@@ -711,54 +907,54 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 		</div>
 
-			 
+
 			</div>
 
 			 <div class="p-4 bg-white"  style="min-height:220px;">
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
-				  
+
 				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
             {{ truncate($ad['title'],40) }}
-							
+
 					</a>
-				  
+
 				</div>
-				 
-			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3"> 
+
+			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
 
 					<ul class="list-unstyled">
-	
+
 						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
               &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
               </li>
 
 					</ul>
 					<span style="font-weight:bold">Client accepté :</span> {{ $ad['accepted'] }} <br>
-					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}		
-				
+					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}
+
 				</nav>
-				
+
 				<div style="min-height:60px;">
 				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
 				</div>
-				
-				
-						
-				
-			   </div>  
-				
-				
+
+
+
+
+			   </div>
+
+
 			  </div>
 		  </div>
 		</a>
-		
-		
+
+
 		</figure>
-		
+
 		</div>
-		
-		
+
+
 
 
 	<div class="show-mobile">
@@ -819,45 +1015,45 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 @empty
 	@endforelse
-</div>      
+</div>
     </div>
   </div>
 </div>
-</div>    
+</div>
 </main>
-</div> 
+</div>
 
    @include('layouts.Frontend.footer')
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 
- 
- 
+
+
 
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "http://escort.test/index.php";  
-				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "http://escort.test/index.php";
+				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value=",">
 				<input type="hidden" id="ppt-current-dec" value=".">
 				<input type="hidden" id="ppt-current-symbol" value="<i class='fab fa-bitcoin'>&nbsp;</i>">
 				<input type="hidden" id="ppt-current-position" value="left">
-                <input type="hidden" id="ppt-map-provider" value="mapbox"> 
-               
+                <input type="hidden" id="ppt-map-provider" value="mapbox">
+
                                   <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
                                   <script async="" src="{{ asset('assets/js/js.zclip.js?v=10.8.9') }}" id="premiumpress-zclip-js"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css?v=10.8.9') }}">
@@ -866,15 +1062,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                
-     
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
+
+
 				<script>
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
@@ -887,21 +1083,21 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
 				</script>
                 <!----------------- -->
 
 
 <div id="ppt-notice-new-notifications" style="display:none;">
 
- 
+
 </div>
 
 
 
 
 
- 
+
 
 
 

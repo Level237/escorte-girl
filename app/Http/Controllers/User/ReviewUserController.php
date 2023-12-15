@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class ReviewUserController extends Controller
 {
-    public function review($escortId,Request $request){
-        $reviewResponse=(new ReviewService())->review($escortId,$request);
+    public function review($announceId,Request $request){
+        $reviewResponse=(new ReviewService())->review($announceId,$request);
         return back();
     }
 }

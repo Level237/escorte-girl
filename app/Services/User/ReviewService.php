@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Session;
 
 class ReviewService{
 
-    public function review($escortId,$request){
+    public function review($announceId,$request){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->post($url.'/api/v1/review/new/'.$escortId,[
+        $response=Http::withToken($token)->post($url.'/api/v1/review/new/'.$announceId,[
             'comment'=>$request->comment,
             'stars'=>$request->rating
         ]);
