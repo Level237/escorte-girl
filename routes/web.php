@@ -106,6 +106,7 @@ Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/adstown',[AdsController::class, 'adsTown'])->name('adstown');
 Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
+Route::get('/adsquarter/{id}',[AdsController::class, 'adsByQuarter'])->name('ads.quarter');
 Route::get('/adscategory/{id}',[AdsController::class, 'adsByCategory'])->name('ads.category');
 Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');

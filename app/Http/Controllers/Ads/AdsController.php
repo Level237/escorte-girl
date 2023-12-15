@@ -251,6 +251,41 @@ class AdsController extends Controller
         return  view('ads.by-town', compact('ads','id', 'allAds', 'current_page', 'nb_pages'));
     }
 
+    public function adsByQuarter(Request $request){
+
+        $url=(new UrlApiService())->getUrl();
+        $allAds = [];
+
+        try{
+            $id=$request->id;
+            $response = Http::asForm()->get($url."/api/adsquarter/".$request->id);
+            //dd(json_decode((string) $response->getBody(), true));
+            $allAds = json_decode((string) $response->getBody(), true);
+            $allAds = $allAds['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $allAds = [];
+        }
+
+        $total = count($allAds);
+        $per_page = 5;
+        $nb_pages = ceil($total/$per_page);
+        $current_page = $request->current_page ?? 1;
+
+        $starting_point = ($current_page * $per_page) - $per_page;
+
+        $ads = array_slice($allAds, $starting_point, $per_page, true);
+
+        $ads = new Paginator($ads, $total, $per_page, $current_page, [
+            'path' => $request->url(),
+            'query' => $request->query(),
+        ]);
+
+        //dd($allAds);
+
+        return  view('ads.by-town', compact('ads','id', 'allAds', 'current_page', 'nb_pages'));
+    }
+
     public function adsByCategory(Request $request){
 
         $url=(new UrlApiService())->getUrl();

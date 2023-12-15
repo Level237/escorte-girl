@@ -10,6 +10,7 @@ class SearchController extends Controller
     public function search(Request $request){
 
         $results = (new SearchService)->search($request->s);
+        //dd($results);
         $term = $request->s;
         //dd($results);
         if($results){
@@ -20,14 +21,14 @@ class SearchController extends Controller
                  continue;
                 else{
                     switch($result['type']){
-                        case "escorts" :
-                            $types[$result['type']]= "Escortes";
-                            break;
                         case "towns" :
                             $types[$result['type']]= "Villes";
                             break;
                         case "announcements" :
-                            $types[$result['type']]= "Annonces";;
+                            $types[$result['type']]= "Annonces";
+                            break;
+                        case "users" :
+                            $types[$result['type']]= "Utilisateurs - Annonces";
                             break;
                         case "quarters" :
                             $types[$result['type']]= "Quartiers";
@@ -41,7 +42,7 @@ class SearchController extends Controller
             return view('search.index', compact('results', 'types', 'term'));
         }
         else{
-            //Request did not gone well do something here
+           return view('search.index', compact('results', 'term'));
         }
 
 
