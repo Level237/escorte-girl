@@ -338,13 +338,8 @@ opacity: 0.4
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-<<<<<<< HEAD
 								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
-=======
-								<input type="text" readonly="" id="copylink" value="#">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
->>>>>>> a775518464aa62026148597e14ee79bedfe3a4ab
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -800,13 +795,8 @@ opacity: 0.4
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-<<<<<<< HEAD
 								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
-=======
-								<input type="text" readonly="" id="copylink" value="#">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
->>>>>>> a775518464aa62026148597e14ee79bedfe3a4ab
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -944,7 +934,7 @@ opacity: 0.4
 				</nav>
 
 				<div style="min-height:60px;">
-				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
+				  <span class="shortcode_excerpt"> {{ truncate($ad['description'],100) }}</span>
 				</div>
 
 
@@ -1011,11 +1001,11 @@ opacity: 0.4
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
               <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+                class="text-dark">{{ truncate($ad['title'],40) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
               <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
+                class="text-dark lh-20 text-300">{{ truncate($ad['description'],65) }}</span></a>
           </div>
           </div>
 	</div>
