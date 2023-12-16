@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 use App\Weather;
+use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Api\CurrentUserService;
-use App\Services\Api\Ads\AdsService;
+use App\Services\Api\MemberShip\CheckSubscribeService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view)
         {
-
+            $check=(new CheckSubscribeService())->check();
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
             $view->with('user', Session::get('currentUser') );
@@ -34,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
                 $numberAdsByTowns = $data[0];
                 $view->with('numberAdsByTowns', $numberAdsByTowns );
             }
-            
+
         });
     }
 }

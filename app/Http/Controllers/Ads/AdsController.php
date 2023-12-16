@@ -18,6 +18,8 @@ use App\Mail\Ad;
 use App\Services\Api\Location\TownService;
 use App\Services\Api\Location\QuarterService;
 use App\Http\Controllers\Listing\AnnouncementController;
+use App\Services\Api\Escort\ListReviewsServices;
+use App\Services\User\ReviewService;
 
 class AdsController extends Controller
 {
@@ -343,7 +345,8 @@ class AdsController extends Controller
             $response1 = Http::asForm()->get($url."/api/announces/");
             $ad = json_decode((string) $response->getBody(), true)['data'];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
-
+            $reviews=(new ListReviewsServices())->listReviews($request->id);
+            $announceId=$request->id;
         }catch(\Exception $e){
              $ad = null;
         }
@@ -351,7 +354,7 @@ class AdsController extends Controller
         $hostURL = request()->getHttpHost()."/ads/".$ad['id'];
         //dd($hostURL);
 
-        return  view('ads.detail', compact('ad', 'ads', 'hostURL'));
+        return  view('ads.detail', compact('ad', 'ads','reviews','announceId', 'hostURL'));
    }
 
    public function edit($id){
