@@ -31,6 +31,45 @@
 </div>
 
 
+@if (Session::has('checkAge'))
+  <input type="hidden" id="checkAge" value="true">
+@else
+<input type="hidden" id="checkAge" value="false">
+  <!-- Modal -->
+<div class="modal fade" id="CheckAgeModal" tabindex="-1"  
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content" style="background-color: #1a1c1e">
+      
+      <div class="modal-body text-center">
+      
+         <div class="row justify-content-center" style="color: red; font-size:50px; font-weight:bold">
+            18+ 
+          </div>
+          <div class="row justify-content-center" style="padding-left: 20px; padding-right:20px">
+               <span class="text-white"> Veuillez confirmer que vous avez plus de 18 ans ou quitter le site Web. <br>
+            Ce site utilise des cookies uniquement pour analyser le trafic</span>
+          </div>
+          <hr>
+          <div class="row justify-content-center" >
+             <a href="http://www.google.com">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <i class="fa fa-arrow-left"></i>&nbsp; QUITTER</button>
+             </a> &nbsp;
+        <a href="{{ route('check-age') }}"> <button type="button" class="btn btn-primary">
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 18 ANS</button></a>
+          </div>
+            
+      </div>
+    
+    </div>
+  </div>
+</div>
+@endif
+
+
+
+
 @if($vipAds)
 <section data-ppt-blockid="hero3" data-ppt-blocktype="hero" data-ppt-section=""
     class="position-relative " data-overlay="gradient-left">
@@ -1348,6 +1387,14 @@ function cleanCats(){
 }
 
 jQuery(document).ready(function(){
+  
+  console.log(jQuery('#checkAge').val());
+  if(jQuery('#checkAge').val() == 'false'){
+
+      jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
+      jQuery('#CheckAgeModal').modal('show');
+ 
+  }
 
 cleanCats();
 

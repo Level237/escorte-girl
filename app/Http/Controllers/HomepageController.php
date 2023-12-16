@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use Redirect;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\Escort\EscortController;
 use App\Http\Controllers\Listing\LocationController;
@@ -40,5 +40,11 @@ class HomepageController extends Controller
         //return $homeAds;
         return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'ads','vipAds','goldAds'));
 
+    }
+
+    public function checkAge(){
+        //Registering checkAge in session
+         Session::put('checkAge', true);
+         return redirect()->route('homepage');
     }
 }

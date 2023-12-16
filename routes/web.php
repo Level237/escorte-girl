@@ -64,8 +64,11 @@ use App\Http\Controllers\User\ReviewUserController;
 
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+Route::get('checkAge',[HomepageController::class,'checkAge'])->name('check-age');
 
-//SEARCH GROUP URL
+Route::middleware(['checkAge'])->group(function () {
+
+    //SEARCH GROUP URL
 Route::get('search',[SearchController::class,'search'])->name('search');
 
 Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
@@ -195,6 +198,9 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
 
 
     });
+
+
+});
 
 //middleware admin
 
