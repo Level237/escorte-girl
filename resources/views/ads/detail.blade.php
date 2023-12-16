@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en-US">
-<!--[if lte IE 8 ]><html lang="en" class="ie ie8"><![endif]-->
-<!--[if IE 9 ]><html lang="en" class="ie"><![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> {{ ucfirst($ad['title']) }}</title>
+
+<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+<meta property="og:description"        content="How much does culture influence creative thinking?" />
+<meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
     
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -23,13 +27,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </style>
 <script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
 
-<meta property="og:url" content="http://escort.test/listing/alessandra/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Alessandra">
-<meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. P">
-<meta property="og:image" content="https://premiummod.com/demoimages/img.php?imgid=5&t=es">
-<meta property="og:image:width" content="700">
-<meta property="og:image:height" content="700">
+
 
  
     
@@ -165,7 +163,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						<div class="p-4 hide-mobile rounded" ppt-box="">
 
-						<p class="text-600">Partagez cette lien via</p>
+						<p class="text-600">Partagez cette annonce via</p>
 
 						 
 						<style>
@@ -199,18 +197,18 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 						 <ul class="icons">
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+								<a href="https://facebook.com/sharer.php?u=http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://twitter.com/share?url=http://escort.test/listing/adrianna/&text=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+								<a href="https://www.instagram.com/" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+								<a href="https://pinterest.com/pin/create/button/?url=http://escort.test/listing/adrianna/&description=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+								<a href="https://www.linkedin.com/sharing/share-offsite/?url=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
 
 						</ul>
 
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-								<input type="text" readonly="" id="copylink" value="#">
+								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
@@ -556,7 +554,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 						<div class="p-4 hide-mobile rounded" ppt-box="">
 
-						<p class="text-600">Partagez cette lien via</p>
+						<p class="text-600">Partagez cette annonce via</p>
 
 						 
 						<style>
@@ -590,18 +588,18 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 						 <ul class="icons">
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-								<a href="#" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+								<a href="../../login-18.php?u=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://twitter.com/share?url=http://escort.test/listing/adrianna/&text=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+								<a href="https://www.instagram.com/" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
+								<a href="https://pinterest.com/pin/create/button/?url=http://escort.test/listing/adrianna/&description=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+								<a href="https://www.linkedin.com/cws/share?url=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
 
 						</ul>
 
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-								<input type="text" readonly="" id="copylink" value="#">
+								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier

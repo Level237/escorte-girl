@@ -332,6 +332,7 @@ class AdsController extends Controller
 
    public function show(Request $request){
 
+  
      $ad = null;
      $ads = null;
      $url=(new UrlApiService())->getUrl();
@@ -347,8 +348,10 @@ class AdsController extends Controller
              $ad = null;
         }
 
+        $hostURL = request()->getHttpHost()."/ads/".$ad['id'];
+        //dd($hostURL);
 
-        return  view('ads.detail', compact('ad', 'ads'));
+        return  view('ads.detail', compact('ad', 'ads', 'hostURL'));
    }
 
    public function edit($id){
