@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 use App\Weather;
+use App\Services\Api\Ads\AdsService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Api\CurrentUserService;
-use App\Services\Api\Ads\AdsService;
+use App\Services\Api\MemberShip\CheckSubscribeService;
 
 class AppServiceProvider extends ServiceProvider
 {
