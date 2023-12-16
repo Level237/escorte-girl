@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view)
         {
-
+            $check=(new CheckSubscribeService())->check();
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
             $view->with('user', Session::get('currentUser') );
@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
                 $numberAdsByTowns = $data[0];
                 $view->with('numberAdsByTowns', $numberAdsByTowns );
             }
-            
+
         });
     }
 }
