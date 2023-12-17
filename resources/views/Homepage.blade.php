@@ -36,15 +36,15 @@
 @else
 <input type="hidden" id="checkAge" value="false">
   <!-- Modal -->
-<div class="modal fade" id="CheckAgeModal" tabindex="-1"  
+<div class="modal fade" id="CheckAgeModal" tabindex="-1"
 aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" >
     <div class="modal-content" style="background-color: #1a1c1e">
-      
+
       <div class="modal-body text-center">
-      
+
          <div class="row justify-content-center" style="color: red; font-size:50px; font-weight:bold">
-            18+ 
+            18+
           </div>
           <div class="row justify-content-center" style="padding-left: 20px; padding-right:20px">
                <span class="text-white"> Veuillez confirmer que vous avez plus de 18 ans ou quitter le site Web. <br>
@@ -59,9 +59,9 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
         <a href="{{ route('check-age') }}"> <button type="button" class="btn btn-primary">
           <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 18 ANS</button></a>
           </div>
-            
+
       </div>
-    
+
     </div>
   </div>
 </div>
@@ -110,139 +110,13 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             </ol>
                                             <div class="carousel-inner">
 
-                                                        <div class="carousel-item active">
-                                                        <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-                                                            <div class="container">
-                                                                <div class="row">
 
-                                                                <div class="col-12">
-                                                                    <div class='row'>
-
-                                                                @forelse($vipAds as $ad)
-                                                                    @if ($loop->index == 2)
-                                                                                    @break
-                                                                                @endif
-                                                                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                                                                <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                                                                data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                                                                    <figure>
-
-                                                                    <div class="button-featured-new-wrap es">
-                                                                        <div class="button-featured-new">ULTRA VIP</div>
-                                                                    </div>
-
-                                                                    <div class="buttons-wrap">
-
-
-
-                                                                    <div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
-
-                                                                    </div>
-                                                                    <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-
-                                                                    <div ppt-border1="" class="p-1">
-
-                                                                        <div class="search-gradient"> </div>
-
-                                                                        <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                                                                        <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                                                            <div class="text-white fs-4 text-600">
-                                                                            {{ ucfirst($ad['user']['username']) }}
-                                                                                        <span class="text-online">•</span>
-                                                                                    </div>
-                                                                            <div class="fs-sm text-white opacity-5 text-400">
-                                                                            {{ truncate($ad['title'],30) }}  
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
-                                                                             
-                                                                        </div>
-
-                                                                    <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                                                                        <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                                                        <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ad['town']['town_name']) }}   </div>
-
-                                                                    </div>
-
-
-                                                                        </div>
-
-
-                                                                    </div>
-                                                                    </a>
-
-
-                                                                    </figure>
-
-                                                                    </div>
-
-
-
-
-
-                                                                    <div class="show-mobile">
-                                                                    <div class="position-relative mb-3">
-                                                                        <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-                                                                        <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                                                                        <div class="h-100 position-relative">
-                                                                            <figure>
-
-
-                                                                                <div class="buttons-wrap">
-
-                                                                                    <div class="button-new"
-                                                                                    style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
-
-                                                                                </div>
-                                                                                <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                                                            <div class="fs-sm text-white  text-600">
-                                                                                            {{ ucfirst($ad['town']['town_name']) }}  
-                                                                                            </div>
-                                                                                </div>
-                                                                                <div class="bg-image z-0"
-                                                                                data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
-                                                                                </div>
-                                                                                <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
-                                                                                            <div class="badge" style="color:#fff;background-color:red;">
-                                                                                            <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
-
-
-                                                                                        </div>
-                                                                                </figure>
-                                                                            </div>
-                                                                        </div>
-                                                                        </a>
-                                                                        <div class="lh-20 " style="margin-top:20px;">
-                                                                                <span class="text-online">•</span>
-                                                                                <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                                                                                    class="text-white">{{ truncate($ad['title'],15) }}</span></a>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    </div>
-
-
-
-                                                                </div>
-
-                                                                @empty
-                                                                @endforelse
-
-                                                            </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            </section>
-                                                        </div>
 
                                                         @if(count($vipAds) > 2)
-                                                            @for($i=count($vipAds); $i >2 ; $i=$i-2)
-                                                                <div class="carousel-item">
+                                                            @for($i=0; $i <=count($vipAds)-1 ; $i=$i+2)
+                                                                <div class="carousel-item @if($i===0)
+                                                                active
+                                                                @endif">
                                                                     <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
                                                                         <div class="container">
                                                                             <div class="row">
@@ -265,10 +139,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
 
-                                                                                            <div class="button-new" style="background-color: #DA9DDC">{{ $ads[$i]['age'] }} Ans</div>
+                                                                                            <div class="button-new" style="background-color: #DA9DDC">{{ $vipAds[$i]['age'] }} Ans</div>
 
                                                                                             </div>
-                                                                                            <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}">
+                                                                                            <a href="{{ route('ads.details', ['id' => $vipAds[$i]['id']]) }}">
 
                                                                                             <div ppt-border1="" class="p-1">
 
@@ -277,14 +151,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                 <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                                                                                 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                                                                                     <div class="text-white fs-4 text-600">
-                                                                                                    {{ ucfirst($ads[$i]['user']['username']) }}
+                                                                                                    {{ ucfirst($vipAds[$i]['user']['username']) }}
                                                                                                                 <span class="text-online">•</span>
                                                                                                             </div>
                                                                                                     <div class="fs-sm text-white opacity-5 text-400">
-                                                                                                    {{ truncate($ads[$i]['title'],30) }}  
+                                                                                                    {{ truncate($vipAds[$i]['title'],30) }}  
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}">
+                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['path']] )}}">
                                                                                                      
                                                                                                 </div>
 
@@ -292,7 +166,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
                                                                                                 <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                                                                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i]['town']['town_name']) }}   </div>
+                                                                                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i]['town']['town_name']) }}   </div>
 
                                                                                             </div>
 
@@ -312,7 +186,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                                                                                             <div class="show-mobile">
                                                                                             <div class="position-relative mb-3">
-                                                                                                <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}">
+                                                                                                <a href="{{ route('ads.details', ['id' => $vipAds[$i]['id']]) }}">
                                                                                                 <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
                                                                                                 <div class="h-100 position-relative">
                                                                                                     <figure>
@@ -321,17 +195,17 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                         <div class="buttons-wrap">
 
                                                                                                             <div class="button-new"
-                                                                                                            style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i]['age'] }} Ans</div>
+                                                                                                            style="background-color: #DA9DDC; font-size:10px;">{{ $vipAds[$i]['age'] }} Ans</div>
 
                                                                                                         </div>
                                                                                                         <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
                                                                                                                     <div class="fs-sm text-white  text-600">
-                                                                                                                    {{ ucfirst($ads[$i]['town']['town_name']) }}  
+                                                                                                                    {{ ucfirst($vipAds[$i]['town']['town_name']) }}  
                                                                                                                     </div>
                                                                                                         </div>
                                                                                                         <div class="bg-image z-0"
-                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}"> 
+                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['path']] )}}"> 
                                                                                                         </div>
                                                                                                         <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
                                                                                                         <div class="badge" style="color:#fff;background-color:red;">
@@ -345,122 +219,124 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                 </a>
                                                                                                 <div class="lh-20 " style="margin-top:20px;">
                                                                                                         <span class="text-online">•</span>
-                                                                                                        <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}"
-                                                                                                            class="text-white">{{ truncate($ads[$i]['title'],15) }}</span></a>
+                                                                                                        <a href="{{ route('ads.details', ['id' => $vipAds[$i]['id']]) }}"
+                                                                                                            class="text-white">{{ truncate($vipAds[$i]['title'],15) }}</span></a>
                                                                                                 </div>
 
                                                                                             </div>
                                                                                             </div>
 
                                                                                     </div>
-
+                                                                                    @if($i<=count($vipAds)-2)
                                                                                     <div class="col-6 col-sm-6 col-md-3 col-lg-3">
 
-                                                                                        <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                                                                                        data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
+                                                                                      <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
+                                                                                      data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
-                                                                                            <figure>
-
-
-                                                                                            <div class="button-featured-new-wrap es">
-                                                                                                <div class="button-featured-new">ULTRA VIP</div>
-                                                                                            </div>
+                                                                                          <figure>
 
 
-                                                                                            <div class="buttons-wrap">
+                                                                                          <div class="button-featured-new-wrap es">
+                                                                                              <div class="button-featured-new">ULTRA VIP</div>
+                                                                                          </div>
 
 
-
-                                                                                            <div class="button-new" style="background-color: #DA9DDC">{{ $ads[$i+1]['age'] }} Ans</div>
-
-                                                                                            </div>
-                                                                                            <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}">
-
-                                                                                            <div ppt-border1="" class="p-1">
-
-                                                                                                <div class="search-gradient"> </div>
-
-                                                                                                <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                                                                                                <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                                                                                    <div class="text-white fs-4 text-600">
-                                                                                                    {{ ucfirst($ads[$i+1]['user']['username']) }}
-                                                                                                                <span class="text-online">•</span>
-                                                                                                            </div>
-                                                                                                    <div class="fs-sm text-white opacity-5 text-400">
-                                                                                                    {{ truncate($ads[$i+1]['title'],30) }}  
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i+1]['id'], 'path'=>$ads[$i+1]['images'][0]['path']] )}}">
-                                                                                                     
-                                                                                                </div>
-
-                                                                                            <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                                                                                                <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                                                                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i+1]['town']['town_name']) }}   </div>
-
-                                                                                            </div>
-
-
-                                                                                                </div>
-
-
-                                                                                            </div>
-                                                                                            </a>
-
-
-                                                                                            </figure>
-
-                                                                                            </div>
+                                                                                          <div class="buttons-wrap">
 
 
 
-                                                                                            <div class="show-mobile">
-                                                                                            <div class="position-relative mb-3">
-                                                                                                <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}">
+                                                                                          <div class="button-new" style="background-color: #DA9DDC">{{ $vipAds[$i+1]['age'] }} Ans</div>
 
-                                                                                                <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                                                                                                <div class="h-100 position-relative">
-                                                                                                    <figure>
+                                                                                          </div>
+                                                                                          <a href="{{ route('ads.details', ['id' => $vipAds[$i+1]['id']]) }}">
 
+                                                                                          <div ppt-border1="" class="p-1">
 
-                                                                                                        <div class="buttons-wrap">
+                                                                                              <div class="search-gradient"> </div>
 
-                                                                                                            <div class="button-new"
-                                                                                                            style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+1]['age'] }} Ans</div>
+                                                                                              <div class="bg-light position-relative overflow-hidden" style="height:360px;">
+                                                                                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+                                                                                                  <div class="text-white fs-4 text-600">
+                                                                                                  {{ ucfirst($vipAds[$i+1]['user']['username']) }}
+                                                                                                              <span class="text-online">•</span>
+                                                                                                          </div>
+                                                                                                  <div class="fs-sm text-white opacity-5 text-400">
+                                                                                                  {{ truncate($vipAds[$i+1]['title'],30) }}  
+                                                                                                  </div>
+                                                                                              </div>
+                                                                                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['path']] )}}">
+                                                                                                   
+                                                                                              </div>
 
-                                                                                                        </div>
-                                                                                                        <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                                                                                    <div class="fs-sm text-white  text-600">
-                                                                                                                    {{ ucfirst($ads[$i+1]['town']['town_name']) }}  
-                                                                                                                    </div>
-                                                                                                        </div>
-                                                                                                        <div class="bg-image z-0"
-                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$ads[$i+1]['id'], 'path'=>$ads[$i+1]['images'][0]['path']] )}}"> 
-                                                                                                        </div>
-                                                                                                        <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
-                                                                                                        <div class="badge" style="color:#fff;background-color:red;">
-                                                                                                        <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
+                                                                                          <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                                                                                                    </div>
-                                                                                                        </figure>
+                                                                                              <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                                                                              <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i+1]['town']['town_name']) }}   </div>
 
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                </a>
-                                                                                                <div class="lh-20 " style="margin-top:20px;">
-                                                                                                        <span class="text-online">•</span>
-                                                                                                        <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}"
-                                                                                                            class="text-white">{{ truncate($ads[$i+1]['title'],15) }}</span></a>
-                                                                                                </div>
+                                                                                          </div>
 
-                                                                                            </div>
-                                                                                            </div>
 
-                                                                                    </div>
+                                                                                              </div>
+
+
+                                                                                          </div>
+                                                                                          </a>
+
+
+                                                                                          </figure>
+
+                                                                                          </div>
+
+
+
+                                                                                          <div class="show-mobile">
+                                                                                          <div class="position-relative mb-3">
+                                                                                              <a href="{{ route('ads.details', ['id' => $vipAds[$i+1]['id']]) }}">
+
+                                                                                              <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+                                                                                              <div class="h-100 position-relative">
+                                                                                                  <figure>
+
+
+                                                                                                      <div class="buttons-wrap">
+
+                                                                                                          <div class="button-new"
+                                                                                                          style="background-color: #DA9DDC; font-size:10px;">{{ $vipAds[$i+1]['age'] }} Ans</div>
+
+                                                                                                      </div>
+                                                                                                      <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+
+                                                                                                                  <div class="fs-sm text-white  text-600">
+                                                                                                                  {{ ucfirst($vipAds[$i+1]['town']['town_name']) }}  
+                                                                                                                  </div>
+                                                                                                      </div>
+                                                                                                      <div class="bg-image z-0"
+                                                                                                      data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['path']] )}}"> 
+                                                                                                      </div>
+                                                                                                      <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
+                                                                                                      <div class="badge" style="color:#fff;background-color:red;">
+                                                                                                      <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
+
+
+                                                                                                  </div>
+                                                                                                      </figure>
+
+                                                                                                  </div>
+                                                                                              </div>
+                                                                                              </a>
+                                                                                              <div class="lh-20 " style="margin-top:20px;">
+                                                                                                      <span class="text-online">•</span>
+                                                                                                      <a href="{{ route('ads.details', ['id' => $vipAds[$i+1]['id']]) }}"
+                                                                                                          class="text-white">{{ truncate($vipAds[$i+1]['title'],15) }}</span></a>
+                                                                                              </div>
+
+                                                                                          </div>
+                                                                                          </div>
+
+                                                                                  </div>
+                                                                                    @endif
+
 
 
 
@@ -1387,13 +1263,13 @@ function cleanCats(){
 }
 
 jQuery(document).ready(function(){
-  
+
   console.log(jQuery('#checkAge').val());
   if(jQuery('#checkAge').val() == 'false'){
 
       jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
       jQuery('#CheckAgeModal').modal('show');
- 
+
   }
 
 cleanCats();
