@@ -114,7 +114,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
     <div class="row no-gutters">
 
-    
+
 
 
     <div class="col-lg-12">
@@ -156,14 +156,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="mt-2">
 
         <div class="form-group position-relative">
-  
+
 			<select class="form-control" name="age" id="age">
 				@for ($i=18; $i < 51; $i++)
 					<option value="{{ $i }}" >
 						{{ $i }}</option>
 				@endfor
 			</select>
-			
+
 		</div>
     </div>
 
@@ -196,8 +196,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 	</select>
 	@endif
-   
-    <i class="fal fa-map-marker"></i> 
+
+    <i class="fal fa-map-marker"></i>
 
   </div>
 
@@ -210,7 +210,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="form-group position-relative" id='selectList'>
     <select class="form-control" name="quarter" id="quarter" data-key="quarter">
 		<option value="">Sélectionner le quartier</option>
-		
+
 
 	</select>
 
@@ -232,7 +232,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <label>Catégorie <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
-  
+
 	@if($adsCategories)
     <select class="form-control" name="category" id="category">
 		@forelse ($adsCategories as $category)
@@ -255,7 +255,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	<label>Déplacement<span class="text-danger">*</span> </label>
 		<input type="hidden" id="user_id" value="{{ $user->id }}" name="user_id">
 		<div class="form-group position-relative">
-				
+
 					 <select class="form-control" name="location" id="location">
 						<option value="Reçoit ou se déplace">Reçoit ou se déplace</option>
 						<option value="Se déplace seulement">Se déplace seulement</option>
@@ -263,13 +263,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				</select>
         </div>
 
-		
+
 </div>
 <div class="col-md-6 mobile-mb-2">
 
 	<label> Clients Acceptés <span class="text-danger">*</span> </label>
 <div class="form-group position-relative">
-  
+
     <select class="form-control" name="accepted" id="accepted">
 			<option value="Hommes">Hommes</option>
 			<option value="Femmes">Femmes</option>
@@ -282,7 +282,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
-  
+
   <div class="form-group">
   <div id="textarea_counter" class="text-muted small float-right">
     <span></span>
@@ -292,55 +292,55 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <label class="w-100">Description  <span class="text-danger">*</span> </label>
     <textarea name="form[post_content]"  class="form-control rounded-0 required-field" tabindex="2" data-key="field-post_content" id="field-post_content"></textarea>
   </div>
-	
+
 </div>
 
 </div>
 
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
-  
+
   <div class="form-group">
   <div  class="text-muted small float-right">
     <span></span>
   </div>
     <label class="w-100">Vos Services  <span class="text-danger">*</span> </label>
-    <textarea name="services"  rows='5' class="form-control rounded-0 required-field" tabindex="2" 
+    <textarea name="services"  rows='5' class="form-control rounded-0 required-field" tabindex="2"
 	data-key="services" id="services"></textarea>
   </div>
-	
+
 </div>
 
 </div>
 @csrf
-					 
-						
+
+
 </form>
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
-	
+
 	<div >
-			<label class="w-100">Photos (10 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
-		   
+			<label class="w-100">Photos (10 maximum)  <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label>
+
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
 				  <div class="small">
 					 <form  class="dropzone" action="{{ route('ads.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
 					  @csrf
 						 <input type="hidden" name="user_id" id="user_id" value="{{$user->id}}">
-						
-					 </form>     
+
+					 </form>
 				  </div>
 				</div>
-			
-          
 
-            
+
+
+
      </div>
 
 </div>
 </div>
- 
+
  <script>
   Dropzone.options.adsDropzone = { // camelized version of the `id`
     paramName: "file", // The name that will be used to transfer the file
@@ -455,10 +455,10 @@ jQuery(document).ready(function() {
     <div class="d-flex justify-content-between p-2 text-600">
 		<div class="row">
 <div class="col-md-8 mobile-mb-2">
-  
- En cliquant sur créer mon annonce, j'accepte les <a href="#">conditions d'utilisation</a>  de 
+
+ En cliquant sur créer mon annonce, j'accepte les <a href="#">conditions d'utilisation</a>  de
  <a href="#">viens-yamo.com</a> et sa <a href="#">politique de confidentialité</a>.
-	
+
 </div>
 
 </div>
@@ -686,15 +686,15 @@ function processEditData(btype){
 
 
 function fetchQuarters(town){
-	
-	
+
+
 	// FETCH QUARTERS
 		jQuery.ajax({
 			type: "GET",
 			dataType: 'json',
 			url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
 			timeout: 15000,
-		
+
 			success: function(response, statusCode) {
 
 				$quarters = response.data;
@@ -703,7 +703,7 @@ function fetchQuarters(town){
 					textToPrint = textToPrint + `<option value="${e.id}">${e.quarter_name}</option>`
 				})
 				jQuery('#quarterList').show();
-				
+
 				jQuery("#quarter").html(textToPrint);
 
 			},
@@ -774,7 +774,7 @@ function processSubmitForm(){
 			return false;
 	}
 
- 	
+
 
 
     	if(jQuery('#field-post_content').val() === "" || jQuery('#field-post_content').val() === undefined){
@@ -802,7 +802,7 @@ function processSubmitForm(){
 	let children = adsDropzone.children;
 	var numberUpload = 0;
 	for (let i = 0; i < children.length; i++) {
-	
+
 		if (Array.from(children[i].classList).includes('dz-success')){
 			numberUpload++;
 		}
@@ -816,7 +816,7 @@ function processSubmitForm(){
 
 
 	if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
-		
+
 			jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
 			jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
@@ -863,7 +863,7 @@ function processSubmitForm(){
 		jQuery('#ppt-add-listing-save').show();
 
 		document.getElementById('global-form').submit()
-	
+
 	}
 
 }
@@ -1042,7 +1042,7 @@ ul.timeline li.active:before { background: #000;     z-index: 1; }
 
   @include('layouts.Frontend.footer')
 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
 	<img src="../images/loading.svg" alt="loading page" style="max-width:150px;"> </div>
 
 
