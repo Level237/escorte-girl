@@ -77,7 +77,8 @@ class AdsController extends Controller
                 'description' => $request->form['post_content'],
             ]);
 
-            //dd(json_decode((string) $response->getBody(), true));
+            dd($response->getBody());
+            dd(json_decode((string) $response->getBody(), true));
             if($response->status() === 200){
 
                 //Now uploading ads's images
