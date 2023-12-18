@@ -65,6 +65,7 @@ class AdsController extends Controller
         try{
             $response = Http::asForm()->withToken($token)->post($url."/api/v1/ads", [
                 'town_id' => $request->town,
+                'user_id' => $request->user_id,
                 'quarter_id' => $request->quarter,
                 'gender' => $request->gender,
                 'age' => $request->age,
@@ -77,6 +78,7 @@ class AdsController extends Controller
                 'description' => $request->form['post_content'],
             ]);
 
+            //dd($response);
             //dd(json_decode((string) $response->getBody(), true));
             if($response->status() === 200){
 
@@ -110,12 +112,12 @@ class AdsController extends Controller
 
             }else{
 
-               dd(json_decode((string) $response->getBody(), true));
-               //return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
+               //dd(json_decode((string) $response->getBody(), true));
+               return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
             }
         }catch(\Exception $e){
-            dd($e);
-            //return back()->with('error',$e);
+            //dd($e);
+            return back()->with('error',$e);
         }
 
     }
