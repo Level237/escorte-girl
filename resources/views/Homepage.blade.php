@@ -659,7 +659,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     {{ truncate($goldAds[$i+3]['title'],30) }}  
                                     </div>
                                 </div>
-                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+2]['images'][0]['path']] )}}">
+                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['path']] )}}">
                                      
                                 </div>
 
