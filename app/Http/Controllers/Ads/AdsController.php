@@ -61,9 +61,9 @@ class AdsController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         //Saving Ads
-
+        $token=Session::get('tokenUser');
         try{
-            $response = Http::asForm()->post($url."/api/v1/ads", [
+            $response = Http::asForm()->withToken($token)->post($url."/api/v1/ads", [
                 'town_id' => $request->town,
                 'quarter_id' => $request->quarter,
                 'gender' => $request->gender,
@@ -334,7 +334,7 @@ class AdsController extends Controller
 
    public function show(Request $request){
 
-  
+
      $ad = null;
      $ads = null;
      $url=(new UrlApiService())->getUrl();
