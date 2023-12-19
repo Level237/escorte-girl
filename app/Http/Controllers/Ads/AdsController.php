@@ -354,9 +354,9 @@ class AdsController extends Controller
         }
 
         $hostURL = request()->getHttpHost()."/ads/".$ad['id'];
-        //dd($hostURL);
+        dd($hostURL);
 
-        return  view('ads.detail', compact('ad', 'ads','reviews','announceId', 'hostURL'));
+        //return  view('ads.detail', compact('ad', 'ads','reviews','announceId', 'hostURL'));
    }
 
    public function edit($id){
