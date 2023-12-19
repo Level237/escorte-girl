@@ -12,7 +12,7 @@
 <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
 <meta property="og:description"        content="How much does culture influence creative thinking?" />
 <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -339,7 +339,7 @@ opacity: 0.4
 							  <div class="field">
 								<i class="fa fa-link"></i>
 								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -490,7 +490,7 @@ opacity: 0.4
 
 
 
-							<div class="">
+							<div class="flex" style="display: flex">
 
 
 						<div class="_badge " style="color:#000000;background-color:#FFC300;">
@@ -506,7 +506,18 @@ opacity: 0.4
 
 						</div>
 
+                        <div class="_badge " style="color:#000000;background-color:gray;">
 
+
+
+                            <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
+                                <div class="badge_tooltip__initiator">
+                               <i class="fal fa fa-eye" style="color:#000000"></i> {{ $ad['visits'] }} vues	    </div>
+                                <div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
+                              </div>
+
+
+                            </div>
 
 						<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;">
 
@@ -796,7 +807,7 @@ opacity: 0.4
 							  <div class="field">
 								<i class="fa fa-link"></i>
 								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn="" 
+								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
