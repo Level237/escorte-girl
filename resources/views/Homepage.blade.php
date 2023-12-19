@@ -417,136 +417,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 </ol>
   <div class="carousel-inner">
-    @php
-		shuffle($goldAds);
-	@endphp
-    <div class="carousel-item active">
-	   <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-		  <div class="container">
-			<div class="row">
-
-			<div class="col-12">
-				<div class='row'>
-
-			@forelse($goldAds as $ad)
-				@if ($loop->index == 4)
-								@break
-							@endif
-			<div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-			<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-			data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-				  <figure>
 
 
-				<div class="buttons-wrap">
-
-								<div class="button-new">GOLD</div>
-
-							</div>
-				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-
-				  <div ppt-border1="" class="p-1">
-
-					<div class="search-gradient"> </div>
-
-					<div class="bg-light position-relative overflow-hidden" style="height:360px;">
-					  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-						<div class="text-white fs-4 text-600">
-						 {{ ucfirst($ad['user']['username']) }}
-									<span class="text-online">•</span>
-								  </div>
-						<div class="fs-sm text-white opacity-5 text-400">
-						  {{ truncate($ad['title'],30) }}  
-						</div>
-					  </div>
-					  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
-						 
-					  </div>
-
-				<div ppt-search-badges="" style="z-index:1" class="right">
-
-
-					<div class="badge" style="color:#000000;background-color:#FFC300;">
-					<span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ad['town']['town_name']) }}   </div>
-
-				</div>
-
-
-					</div>
-
-
-				  </div>
-				</a>
-
-
-				</figure>
-
-				</div>
-
-
-
-
-
-				<div class="show-mobile">
-				  <div class="position-relative mb-3">
-					<a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
-					<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-					  <div class="h-100 position-relative">
-						<figure>
-
-
-							<div class="buttons-wrap">
-
-								<div class="button-new"
-								style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
-
-							</div>
-							<div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-										<div class="fs-sm text-white  text-600">
-										 {{ ucfirst($ad['town']['town_name']) }}  
-										</div>
-							</div>
-							<div class="bg-image z-0"
-							data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
-							</div>
-							<div ppt-search-badges="" style="z-index:1" class="right">
-								<div class="badge" style="color:#000000;background-color:#FFC300;">
-								<span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-							</div>
-							</figure>
-						</div>
-					</div>
-					</a>
-					<div class="lh-20 " style="margin-top:20px;">
-							<span class="text-online">•</span>
-							<a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-								class="text-dark">{{ truncate($ad['title'],15) }}</span></a>
-					</div>
-
-				  </div>
-				</div>
-
-
-
-			</div>
-
-			@empty
-			@endforelse
-
-		</div>
-			  </div>
-			</div>
-		  </div>
-		</section>
-    </div>
 
     @if(count($goldAds) > 4)
-    @for($i=count($goldAds); $i > 4; $i=$i-4)
-    <div class="carousel-item">
+    @for($i=0; $i <=count($goldAds)-1; $i=$i+4)
+    <div class="carousel-item @if($i===0)
+    active
+    @endif">
         <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
       <div class="container">
         <div class="row">
@@ -567,7 +445,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="button-new">GOLD</div>
 
                         </div>
-                          <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}">
+                          <a href="{{ route('ads.details', ['id' => $goldAds[$i]['id']]) }}">
 
                           <div ppt-border1="" class="p-1">
 
@@ -576,14 +454,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($ads[$i]['user']['username']) }}
+                                 {{ ucfirst($goldAds[$i]['user']['username']) }}
                                             <span class="text-online">•</span>
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($ads[$i]['title'],30) }}  
+                                  {{ truncate($goldAds[$i]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['path']] )}}">
                                  
                               </div>
 
@@ -591,7 +469,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
                             <div class="badge" style="color:#000000;background-color:#FFC300;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i]['town']['town_name']) }}   </div>
+                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i]['town']['town_name']) }}   </div>
 
                         </div>
 
@@ -611,7 +489,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                         <div class="show-mobile">
                           <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}">
+                            <a href="{{ route('ads.details', ['id' => $goldAds[$i]['id']]) }}">
                             <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
                               <div class="h-100 position-relative">
                                 <figure>
@@ -626,11 +504,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
                                                 <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($ads[$i]['town']['town_name']) }}  
+                                                 {{ ucfirst($goldAds[$i]['town']['town_name']) }}  
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$ads[$i]['id'], 'path'=>$ads[$i]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['path']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -643,15 +521,15 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             </a>
                             <div class="lh-20 " style="margin-top:20px;">
                                     <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['id' => $ads[$i]['id']]) }}"
-                                        class="text-dark">{{ truncate($ads[$i]['title'],15) }}</span></a>
+                                    <a href="{{ route('ads.details', ['id' => $goldAds[$i]['id']]) }}"
+                                        class="text-dark">{{ truncate($goldAds[$i]['title'],15) }}</span></a>
                             </div>
 
                           </div>
                         </div>
 
                 </div>
-
+                @if($i+1<=count($goldAds))
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
 
                     <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
@@ -664,7 +542,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="button-new">GOLD</div>
 
                         </div>
-                          <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}">
+                          <a href="{{ route('ads.details', ['id' => $goldAds[$i+1]['id']]) }}">
 
                           <div ppt-border1="" class="p-1">
 
@@ -673,14 +551,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($ads[$i+1]['user']['username']) }}
+                                 {{ ucfirst($goldAds[$i+1]['user']['username']) }}
                                             <span class="text-online">•</span>
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($ads[$i+1]['title'],30) }}  
+                                  {{ truncate($goldAds[$i+1]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i+1]['id'], 'path'=>$ads[$i+1]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['path']] )}}">
                                  
                               </div>
 
@@ -688,7 +566,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
                             <div class="badge" style="color:#000000;background-color:#FFC300;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i+1]['town']['town_name']) }}   </div>
+                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+1]['town']['town_name']) }}   </div>
 
                         </div>
 
@@ -708,7 +586,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                         <div class="show-mobile">
                           <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}">
+                            <a href="{{ route('ads.details', ['id' => $goldAds[$i+1]['id']]) }}">
 
                             <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
                               <div class="h-100 position-relative">
@@ -718,17 +596,17 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="buttons-wrap">
 
                                         <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+1]['age'] }} Ans</div>
+                                        style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i+1]['age'] }} Ans</div>
 
                                     </div>
                                     <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
                                                 <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($ads[$i+1]['town']['town_name']) }}  
+                                                 {{ ucfirst($goldAds[$i+1]['town']['town_name']) }}  
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$ads[$i+1]['id'], 'path'=>$ads[$i+1]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['path']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -742,15 +620,118 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             </a>
                             <div class="lh-20 " style="margin-top:20px;">
                                     <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['id' => $ads[$i+1]['id']]) }}"
-                                        class="text-dark">{{ truncate($ads[$i+1]['title'],15) }}</span></a>
+                                    <a href="{{ route('ads.details', ['id' => $goldAds[$i+1]['id']]) }}"
+                                        class="text-dark">{{ truncate($goldAds[$i+1]['title'],15) }}</span></a>
                             </div>
 
                           </div>
                         </div>
 
                 </div>
+                @endif
 
+                @if($i+2<count($goldAds))
+                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+
+                        <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
+                        data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
+
+                            <figure>
+
+                            <div class="buttons-wrap">
+
+                                <div class="button-new">GOLD</div>
+
+                            </div>
+                            <a href="{{ route('ads.details', ['id' => $goldAds[$i+3]['id']]) }}">
+
+                            <div ppt-border1="" class="p-1">
+
+                                <div class="search-gradient"> </div>
+
+                                <div class="bg-light position-relative overflow-hidden" style="height:360px;">
+                                <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+                                    <div class="text-white fs-4 text-600">
+                                    {{ ucfirst($goldAds[$i+3]['user']['username']) }}
+                                                <span class="text-online">•</span>
+                                            </div>
+                                    <div class="fs-sm text-white opacity-5 text-400">
+                                    {{ truncate($goldAds[$i+3]['title'],30) }}  
+                                    </div>
+                                </div>
+                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['path']] )}}">
+                                     
+                                </div>
+
+                            <div ppt-search-badges="" style="z-index:1" class="right">
+
+
+                                <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+3]['town']['town_name']) }}   </div>
+
+                            </div>
+
+
+                                </div>
+
+
+                            </div>
+                            </a>
+
+
+                            </figure>
+
+                            </div>
+
+
+
+                            <div class="show-mobile">
+                            <div class="position-relative mb-3">
+                                <a href="{{ route('ads.details', ['id' => $goldAds[$i+3]['id']]) }}">
+
+                                <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
+                                <div class="h-100 position-relative">
+                                    <figure>
+
+
+                                        <div class="buttons-wrap">
+
+                                            <div class="button-new"
+                                            style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i+3]['age'] }} Ans</div>
+
+                                        </div>
+                                        <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
+
+                                                    <div class="fs-sm text-white  text-600">
+                                                    {{ ucfirst($goldAds[$i+3]['town']['town_name']) }}  
+                                                    </div>
+                                        </div>
+                                        <div class="bg-image z-0"
+                                        data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['path']] )}}"> 
+                                        </div>
+                                        <div ppt-search-badges="" style="z-index:1" class="right">
+                                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                            <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
+
+                                        </div>
+                                        </figure>
+
+                                    </div>
+                                </div>
+                                </a>
+                                <div class="lh-20 " style="margin-top:20px;">
+                                        <span class="text-online">•</span>
+                                        <a href="{{ route('ads.details', ['id' => $goldAds[$i+3]['id']]) }}"
+                                            class="text-dark">{{ truncate($goldAds[$i+3]['title'],15) }}</span></a>
+                                </div>
+
+                            </div>
+                            </div>
+
+                    </div>
+                @endif
+
+                @if($i+3<count($goldAds))
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
 
                     <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
@@ -763,7 +744,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="button-new">GOLD</div>
 
                         </div>
-                          <a href="{{ route('ads.details', ['id' => $ads[$i+2]['id']]) }}">
+                          <a href="{{ route('ads.details', ['id' => $goldAds[$i+4]['id']]) }}">
 
                           <div ppt-border1="" class="p-1">
 
@@ -772,14 +753,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($ads[$i+2]['user']['username']) }}
+                                 {{ ucfirst($ads[$i+4]['user']['username']) }}
                                             <span class="text-online">•</span>
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($ads[$i+2]['title'],30) }}  
+                                  {{ truncate($ads[$i+4]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i+2]['id'], 'path'=>$ads[$i+2]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i+4]['id'], 'path'=>$ads[$i+4]['images'][0]['path']] )}}">
                                  
                               </div>
 
@@ -787,7 +768,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
                             <div class="badge" style="color:#000000;background-color:#FFC300;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i+2]['town']['town_name']) }}   </div>
+                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i+4]['town']['town_name']) }}   </div>
 
                         </div>
 
@@ -807,7 +788,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                         <div class="show-mobile">
                           <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['id' => $ads[$i+2]['id']]) }}">
+                            <a href="{{ route('ads.details', ['id' => $ads[$i+4]['id']]) }}">
 
                             <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
                               <div class="h-100 position-relative">
@@ -817,17 +798,17 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="buttons-wrap">
 
                                         <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+2]['age'] }} Ans</div>
+                                        style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+4]['age'] }} Ans</div>
 
                                     </div>
                                     <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
                                                 <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($ads[$i+2]['town']['town_name']) }}  
+                                                 {{ ucfirst($ads[$i+4]['town']['town_name']) }}  
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$ads[$i+2]['id'], 'path'=>$ads[$i+2]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$ads[$i+4]['id'], 'path'=>$ads[$i+4]['images'][0]['path']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -841,114 +822,15 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             </a>
                             <div class="lh-20 " style="margin-top:20px;">
                                     <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['id' => $ads[$i+2]['id']]) }}"
-                                        class="text-dark">{{ truncate($ads[$i+2]['title'],15) }}</span></a>
+                                    <a href="{{ route('ads.details', ['id' => $ads[$i+4]['id']]) }}"
+                                        class="text-dark">{{ truncate($ads[$i+4]['title'],15) }}</span></a>
                             </div>
 
                           </div>
                         </div>
 
                 </div>
-
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                    <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                    data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                          <figure>
-
-                        <div class="buttons-wrap">
-
-                            <div class="button-new">GOLD</div>
-
-                        </div>
-                          <a href="{{ route('ads.details', ['id' => $ads[$i+3]['id']]) }}">
-
-                          <div ppt-border1="" class="p-1">
-
-                            <div class="search-gradient"> </div>
-
-                            <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($ads[$i+3]['user']['username']) }}
-                                            <span class="text-online">•</span>
-                                          </div>
-                                <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($ads[$i+3]['title'],30) }}  
-                                </div>
-                              </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ads[$i+3]['id'], 'path'=>$ads[$i+3]['images'][0]['path']] )}}">
-                                 
-                              </div>
-
-                        <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($ads[$i+3]['town']['town_name']) }}   </div>
-
-                        </div>
-
-
-                            </div>
-
-
-                          </div>
-                        </a>
-
-
-                        </figure>
-
-                        </div>
-
-
-
-                        <div class="show-mobile">
-                          <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['id' => $ads[$i+3]['id']]) }}">
-
-                            <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                              <div class="h-100 position-relative">
-                                <figure>
-
-
-                                    <div class="buttons-wrap">
-
-                                        <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i+3]['age'] }} Ans</div>
-
-                                    </div>
-                                    <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($ads[$i+3]['town']['town_name']) }}  
-                                                </div>
-                                    </div>
-                                    <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$ads[$i+3]['id'], 'path'=>$ads[$i+3]['images'][0]['path']] )}}"> 
-                                    </div>
-                                    <div ppt-search-badges="" style="z-index:1" class="right">
-                                        <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                        <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-                                    </div>
-                                    </figure>
-
-                                </div>
-                            </div>
-                            </a>
-                            <div class="lh-20 " style="margin-top:20px;">
-                                    <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['id' => $ads[$i+3]['id']]) }}"
-                                        class="text-dark">{{ truncate($ads[$i+3]['title'],15) }}</span></a>
-                            </div>
-
-                          </div>
-                        </div>
-
-                </div>
-
+                @endif
 
 
             </div>
