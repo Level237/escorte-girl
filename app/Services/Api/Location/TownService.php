@@ -35,4 +35,24 @@ class TownService{
             }
 
     }
+
+    public function create($town){
+
+        //dd($town);
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::post($url."/api/towns", [
+                'town_name' => $town['town_name'],
+                'code' => $town['code'],
+                'country_id' => $town['country_id'],
+            ]);
+
+            return $response;
+
+        }
+        catch(\Exception $e){
+            return $e;
+        }
+    }
 }

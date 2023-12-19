@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\Membership\ListMemberShipController;
 use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\EditMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
-
+use App\Http\Controllers\Admin\Town\CreateTownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -195,8 +195,6 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
-
-
     });
 
 
@@ -222,6 +220,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('memberships/edit/{id}',[EditMemberShipController::class,'edit'])->name('memberships.edit');
    Route::post('memberships/update',[EditMemberShipController::class,'update'])->name('memberships.update');
    Route::post('memberships/delete/{id}',[DeleteMemberShipController::class,'delete'])->name('memberships.delete');
+
+   Route::get('towns/create',[CreateTownController::class,'addView'])->name('towns.create');
+   Route::post('towns/create',[CreateTownController::class,'store'])->name('towns.create');
 });
 
 
