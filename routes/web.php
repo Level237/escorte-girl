@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\EditMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 use App\Http\Controllers\Admin\Town\CreateTownController;
+use App\Http\Controllers\Admin\Town\EditTownController;
+use App\Http\Controllers\Admin\Town\ListTownController;
+use App\Http\Controllers\Admin\Town\DeleteTownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -221,8 +224,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::post('memberships/update',[EditMemberShipController::class,'update'])->name('memberships.update');
    Route::post('memberships/delete/{id}',[DeleteMemberShipController::class,'delete'])->name('memberships.delete');
 
+   Route::get('towns',[ListTownController::class,'index'])->name('towns');
    Route::get('towns/create',[CreateTownController::class,'addView'])->name('towns.create');
    Route::post('towns/create',[CreateTownController::class,'store'])->name('towns.create');
+     Route::get('towns/edit/{id}',[EditTownController::class,'edit'])->name('towns.edit');
+   Route::post('towns/update',[EditTownController::class,'update'])->name('towns.update');
+   Route::post('towns/delete/{id}',[DeleteTownController::class,'delete'])->name('towns.delete');
 });
 
 

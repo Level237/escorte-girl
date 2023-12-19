@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Membership;
+namespace App\Http\Controllers\Admin\Town;
 use App\Http\Controllers\Controller;
-use App\Services\Api\MemberShip\MemberShipService;
+use App\Services\Api\Location\TownService;
 use Illuminate\Http\Request;
 
-class ListMemberShipController extends Controller
+class ListTownController extends Controller
 {
     // public function display(){
     //     $memberships = (new MemberShipService)->MemberShip();
@@ -14,7 +14,8 @@ class ListMemberShipController extends Controller
 
      public function index(){
 
-        $memberships = (new MemberShipService)->MemberShip();
-        return view('backend.memberships.list', compact('memberships'));
+        $towns = (new TownService)->getTowns();
+        //dd($towns);
+        return view('backend.towns.list', compact('towns'));
     }
 }

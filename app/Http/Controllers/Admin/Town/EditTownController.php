@@ -1,30 +1,36 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Membership;
+namespace App\Http\Controllers\Admin\Town;
 use App\Http\Controllers\Controller;
-use App\Services\Api\MemberShip\MemberShipService;
+use App\Services\Api\Location\TownService;
+use App\Services\Api\Location\CountryService;
 use Illuminate\Http\Request;
-use App\Http\Requests\MemberShipRequest;
+use App\Http\Requests\TownRequest;
 use Redirect;
 
-class EditMemberShipController extends Controller
+class EditTownController extends Controller
 {
 
      public function edit($id){
 
-         $membership = (new MemberShipService)->getMemberShip($id);
-         //dd($membership);
+         $town = (new TownService)->getTown($id);
+         //dd($town);
 
-         if($membership){
+         if($town){
 
-            if($membership->status() == 200){
-                //dd('hello');
-                $membership = json_decode((string) $membership->getBody(), true)['data'];
-                //dd($membership);
-                return view('backend.memberships.edit', compact('membership'));
+            if($town->status() == 200){
+                
+                $town = json_decode((string) $town->getBody(), true)['data'];
+                //dd($town);
+                //Fetching all countries
+                $countries = (new CountryService())->getCountries();
+                if($countries)
+                    return view('backend.towns.edit', compact('town','countries'));
+                else
+                    return view('error');
 
             }
-            elseif($membership->status() == 404){
+            elseif($town->status() == 404){
                 return view('error');
             }
          }
@@ -35,30 +41,29 @@ class EditMemberShipController extends Controller
         
     }
 
-    public function update(MemberShipRequest $request){
+    public function update(TownRequest $request){
     
-        $validatedData=$request->validated();
-        $membership['id'] = $request->id;
-         $membership['membership_name'] = $request->membership_name;
-         $membership['period'] = $request->period;
-         $membership['price'] = $request->price;
+         $validatedData=$request->validated();
+         $town['id'] = $request->id;
+         $town['town_name'] = $request->town_name;
+         $town['code'] = $request->code;
+         $town['country_id'] = $request->country_id;
 
-         $membership = (new MemberShipService)->update($membership);
-         //dd($membership);
+         $town = (new TownService)->update($town);
+         //dd($town);
 
-         if($membership){
+         if($town){
 
-            if($membership->status() == 200){
-                //dd('hello');
-                return Redirect::back()->with('success',"Votre abonnement a été bien mise à jour");
+            if($town->status() == 200){
+                return Redirect::back()->with('success',"Ville mise à jour");
 
             }
-            elseif($membership->status() == 400){
-                return Redirect::back()->withInput()->withErrors(['msg' => json_decode((string) $membership->getBody(), true)]);
+            elseif($town->status() == 400){
+                return Redirect::back()->withInput()->withErrors(['msg' => json_decode((string) $town->getBody(), true)]);
             }
          }
          else{
-            return Redirect::back()->withInput()->withErrors(['msg' => "Une erreur s'est produite lors de la création"]);
+            return Redirect::back()->withInput()->withErrors(['msg' => "Une erreur s'est produite lors de la mise à jour"]);
          }
     }
 }

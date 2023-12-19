@@ -55,4 +55,51 @@ class TownService{
             return $e;
         }
     }
+
+    public function delete($id){
+
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::delete($url."/api/towns/".$id);
+            return $response;
+
+        }
+        catch(\Exception $e){
+            return $e;
+        }
+    }
+
+    public function update($town){
+
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::put($url."/api/towns/".$town['id'], [
+                'town_name' => $town['town_name'],
+                'code' => $town['code'],
+                'country_id' => $town['country_id'],
+            ]);
+
+            return $response;
+
+        }
+        catch(\Exception $e){
+            return $e;
+        }
+    }
+
+    public function getTown($id){
+
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $response = Http::get($url."/api/towns/".$id);
+            return $response;
+
+        }
+        catch(\Exception $e){
+            return $e;
+        }
+    }
 }

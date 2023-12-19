@@ -1,30 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Membership;
+namespace App\Http\Controllers\Admin\Town;
 use App\Http\Controllers\Controller;
-use App\Services\Api\MemberShip\MemberShipService;
+use App\Services\Api\Location\TownService;
 use Illuminate\Http\Request;
 use Redirect;
-class DeleteMemberShipController extends Controller
+class DeleteTownController extends Controller
 {
-    // public function display(){
-    //     $memberships = (new MemberShipService)->MemberShip();
-    //     return view('membership.index', compact('memberships'));
-    // }
+    
 
      public function delete($id){
 
-        $membership = (new MemberShipService)->delete($id);
-        //  dd(json_decode((string) $membership, true));
+        $town = (new TownService)->delete($id);
+        //dd($town->status());
 
-         if($membership){
+         if($town){
 
-            if($membership->status() == 204){
+            if($town->status() == 204){
                
-               return Redirect::back()->with(['success' => "Abonnement supprimé avec succès"]);
+               return Redirect::back()->with(['success' => "Ville supprimé avec succès"]);
 
             }
-            elseif($membership->status() == 404){
+
+            elseif($town->status() == 400){
+                return Redirect::back()->with(['failure' => "Impossible de supprimer, cette ville contient des quartiers et/ou des annonces"]);
+            }
+            elseif($town->status() == 404){
                 return view('error');
             }
          }
