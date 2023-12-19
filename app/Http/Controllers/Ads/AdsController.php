@@ -348,6 +348,7 @@ class AdsController extends Controller
             $ad = json_decode((string) $response->getBody(), true)['data'];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
             $reviews=(new ListReviewsServices())->listReviews($request->id);
+            //dd($ad);
             $announceId=$request->id;
         }catch(\Exception $e){
              $ad = null;
