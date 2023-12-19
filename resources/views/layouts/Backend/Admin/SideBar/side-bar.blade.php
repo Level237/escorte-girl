@@ -170,31 +170,15 @@
                 <div class="collapse" id="sidebarLayouts">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="layouts-vertical.html" target="_blank">Listes</a>
+                            <a href="#" >Listes</a>
                         </li>
                         <li>
-                            <a href="layouts-detached.html" target="_blank">Ajouter une ville</a>
+                            <a href="{{ route('towns.create') }}" >Ajouter une ville</a>
                         </li>
                     </ul>
                 </div>
             </li>
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarquarter" aria-expanded="false" aria-controls="sidebarquarter" class="side-nav-link">
-                    <i class="uil-window"></i>
-                    <span> Quartier </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarquarter">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="" target="_blank">Listes</a>
-                        </li>
-                        <li>
-                            <a href="" target="_blank">Ajouter un quartier</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
 
             <li class="side-nav-title">Abonnements</li>
 
