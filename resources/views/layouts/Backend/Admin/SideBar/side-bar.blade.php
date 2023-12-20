@@ -145,7 +145,7 @@
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                    <i class="uil-copy-alt"></i>
+                    <i class="uil-map-marker"></i>
                     <span> Pays </span>
                     <span class="menu-arrow"></span>
                 </a>
@@ -163,17 +163,35 @@
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
-                    <i class="uil-window"></i>
+                    <i class="uil-map-marker"></i>
                     <span> Villes </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarLayouts">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="#" >Listes</a>
+                            <a href="{{ route('towns') }}" >Listes</a>
                         </li>
                         <li>
                             <a href="{{ route('towns.create') }}" >Ajouter une ville</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+             <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts1" aria-expanded="false" aria-controls="sidebarLayouts1" class="side-nav-link">
+                    <i class="uil-map-marker"></i>
+                    <span> Quartiers </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarLayouts1">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('quarters') }}" >Listes</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('quarters.create') }}" >Ajouter un quartier</a>
                         </li>
                     </ul>
                 </div>

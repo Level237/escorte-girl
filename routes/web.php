@@ -5,14 +5,22 @@ use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\Admin\User\ListUserController;
 use App\Http\Controllers\Admin\User\SuspendUserController;
+
 use App\Http\Controllers\Admin\Membership\ListMemberShipController;
 use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\EditMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
+
 use App\Http\Controllers\Admin\Town\CreateTownController;
 use App\Http\Controllers\Admin\Town\EditTownController;
 use App\Http\Controllers\Admin\Town\ListTownController;
 use App\Http\Controllers\Admin\Town\DeleteTownController;
+
+use App\Http\Controllers\Admin\Quarter\CreateQuarterController;
+use App\Http\Controllers\Admin\Quarter\EditQuarterController;
+use App\Http\Controllers\Admin\Quarter\ListQuarterController;
+use App\Http\Controllers\Admin\Quarter\DeleteQuarterController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -67,9 +75,7 @@ use App\Http\Controllers\User\ReviewUserController;
 
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
-Route::get('checkAge',[HomepageController::class,'checkAge'])->name('check-age');
 
-Route::middleware(['checkAge'])->group(function () {
 
     //SEARCH GROUP URL
 Route::get('search',[SearchController::class,'search'])->name('search');
@@ -201,7 +207,7 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
     });
 
 
-});
+
 
 //middleware admin
 
@@ -227,9 +233,17 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('towns',[ListTownController::class,'index'])->name('towns');
    Route::get('towns/create',[CreateTownController::class,'addView'])->name('towns.create');
    Route::post('towns/create',[CreateTownController::class,'store'])->name('towns.create');
-     Route::get('towns/edit/{id}',[EditTownController::class,'edit'])->name('towns.edit');
+   Route::get('towns/edit/{id}',[EditTownController::class,'edit'])->name('towns.edit');
    Route::post('towns/update',[EditTownController::class,'update'])->name('towns.update');
    Route::post('towns/delete/{id}',[DeleteTownController::class,'delete'])->name('towns.delete');
+
+   
+   Route::get('quarters',[ListQuarterController::class,'index'])->name('quarters');
+   Route::get('quarters/create',[CreateQuarterController::class,'addView'])->name('quarters.create');
+   Route::post('quarters/create',[CreateQuarterController::class,'store'])->name('quarters.create');
+   Route::get('quarters/edit/{id}',[EditQuarterController::class,'edit'])->name('quarters.edit');
+   Route::post('quarters/update',[EditQuarterController::class,'update'])->name('quarters.update');
+   Route::post('quarters/delete/{id}',[DeleteQuarterController::class,'delete'])->name('quarters.delete');
 });
 
 

@@ -338,7 +338,7 @@ opacity: 0.4
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
+								<input type="text" readonly="" id="copylink" value="">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
@@ -806,7 +806,7 @@ opacity: 0.4
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-								<input type="text" readonly="" id="copylink" value="{{ $hostURL }}">
+								<input type="text" readonly="" id="copylink" value="">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier

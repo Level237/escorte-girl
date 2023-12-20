@@ -354,10 +354,10 @@ class AdsController extends Controller
              $ad = null;
         }
 
-        $hostURL = request()->getHttpHost()."/ads/".$ad['id'];
+        //$hostURL = request()->getHttpHost()."/ads/".$ad['id'];
         //dd($hostURL);
 
-        return  view('ads.detail', compact('ad', 'ads','reviews','announceId', 'hostURL'));
+        return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
    }
 
    public function edit($id){

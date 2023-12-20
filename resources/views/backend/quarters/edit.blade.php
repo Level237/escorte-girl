@@ -1,7 +1,7 @@
 @extends('layouts.Backend.Admin.app')
 
 @section('title')
-Éditer abonnement
+Éditer ville
 @endsection
 
 @section('content')
@@ -23,11 +23,11 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('memberships') }}">Abonnements</a></li>
-                                <li class="breadcrumb-item active">Édition abonnement</li>
+                                <li class="breadcrumb-item"><a href="{{ route('towns') }}">villes</a></li>
+                                <li class="breadcrumb-item active">Édition ville</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Édition Abonnement</h4>
+                        <h4 class="page-title">Édition ville</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                 <div id="" >
                                     <div class="container">
                                         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre abonnement a été bien modifiée.
+                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre ville a été bien modifiée.
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,9 @@
                                 <div id="ppt-invalid-fields1" >
                                     <div class="container ">
                                         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
+                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  
+                                                Erreur : </strong> 
+                                                <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -61,37 +63,44 @@
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('memberships.update') }}">
+                                            <form method="POST" action="{{ route('towns.update') }}">
                                                 @csrf
-                                                 <input type="hidden" name="id"  value="{{ $membership['id'] }}">
+                                                <input type="hidden" name="id"  value="{{ $town['id'] }}">
                                                 <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label for="simpleinput" class="form-label">Nom de l'abonnement</label>
-                                                        <input type="text" name="membership_name"  
-                                                        placeholder="Entrez le nom de l'abonnement"  class="form-control" 
-                                                        value="{{ $membership['membership_name'] }}" required>
+                                                        <label for="simpleinput" class="form-label">Nom de la ville</label>
+                                                        <input type="text" name="town_name"  
+                                                        placeholder="Entrez le nom de la ville"  class="form-control" 
+                                                        value="{{ $town['town_name'] }}" required>
                                                     </div>
                                                 </div>
 
                                             </div>
                                                 <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Durée</label>
-                                                    <input type="number" id="period" min="0" name="period" 
-                                                    value="{{ $membership['period'] }}" class="form-control" 
-                                                    placeholder="Durée en jours avant l'expiration de l'abonnement" required>
+                                                    <label for="example-email" class="form-label">Code ville</label>
+                                                    <input type="text" id="code" name="code" value="{{ $town['code'] }}" class="form-control" 
+                                                    placeholder="Code " required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Coût</label>
-                                                    <input type="number" id="price" min="0" name="price" 
-                                                    value="{{ $membership['price'] }}" class="form-control" 
-                                                    placeholder="Entrez le montant à payer pour cette abonnement" required>
+                                                    <label for="example-email" class="form-label">Pays</label>
+                                                      <select name="country_id" id="country_id" class="form-control" required>
+                                                            
+                                                            @foreach ($countries as $country)
+                                                                <option value="{{ $country['id'] }}" @if ($town['country']['id'] == $country['id'])
+                                                                    
+                                                                  selected
+                                                                    
+                                                                @endif>
+                                                                    {{ $country['country_name'] }}
+                                                                </option>
+                                                            @endforeach
+                                                      </select>
                                                 </div>
                                                
 
                                                     <div class="col-auto">
-                                                        <button type="submit" class="btn btn-primary mb-2">
-                                                            Enregistrer</button>
+                                                        <button type="submit" class="btn btn-primary mb-2">Enregistrer</button>
                                                     </div>
                                             </form>
 

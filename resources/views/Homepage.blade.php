@@ -31,7 +31,7 @@
 </div>
 
 
-@if (Session::has('checkAge'))
+{{-- @if (Session::has('checkAge'))
   <input type="hidden" id="checkAge" value="true">
 @else
 <input type="hidden" id="checkAge" value="false">
@@ -65,7 +65,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
     </div>
   </div>
 </div>
-@endif
+@endif --}}
 
 
 
@@ -1146,13 +1146,13 @@ function cleanCats(){
 
 jQuery(document).ready(function(){
 
-  console.log(jQuery('#checkAge').val());
-  if(jQuery('#checkAge').val() == 'false'){
+  // console.log(jQuery('#checkAge').val());
+  // if(jQuery('#checkAge').val() == 'false'){
 
-      jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
-      jQuery('#CheckAgeModal').modal('show');
+  //     jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
+  //     jQuery('#CheckAgeModal').modal('show');
 
-  }
+  // }
 
 cleanCats();
 

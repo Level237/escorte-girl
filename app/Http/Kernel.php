@@ -74,7 +74,7 @@ class Kernel extends HttpKernel
         'escort'=>Escort::class,
         'customer'=>Customer::class,
         'user'=>User::class,
-        'checkAge'=>\App\Http\Middleware\CheckAge::class,
+        // 'checkAge'=>\App\Http\Middleware\CheckAge::class,
         'preventBack'=>PreventBackHistory::class,
         "profileCompleted"=>ProfileCompleted::class
     ];

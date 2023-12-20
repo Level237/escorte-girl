@@ -1,7 +1,7 @@
 @extends('layouts.Backend.Admin.app')
 
 @section('title')
-Nouvel abonnement
+Nouveau Quartier
 @endsection
 
 @section('content')
@@ -23,11 +23,11 @@ Nouvel abonnement
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('memberships') }}">Abonnements</a></li>
-                                <li class="breadcrumb-item active">Nouvel abonnement</li>
+                                <li class="breadcrumb-item"><a href="{{ route('quarters') }}">Quartiers</a></li>
+                                <li class="breadcrumb-item active">Nouveau Quartier</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Nouvel Abonnement</h4>
+                        <h4 class="page-title">Nouveau Quartier</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ Nouvel abonnement
                                 <div id="" >
                                     <div class="container">
                                         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre abonnement a été bien créée.
+                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre quartier a été bien créé.
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,8 @@ Nouvel abonnement
                                 <div id="ppt-invalid-fields1" >
                                     <div class="container ">
                                         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
+                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> 
+                                            <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -61,27 +62,28 @@ Nouvel abonnement
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('memberships.create') }}">
+                                            <form method="POST" action="{{ route('quarters.create') }}">
                                                 @csrf
                                                 <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label for="simpleinput" class="form-label">Nom de l'abonnement</label>
-                                                        <input type="text" name="membership_name"  
-                                                        placeholder="Entrez le nom de l'abonnement"  class="form-control" value="{{ old('membership_name') }}" required>
+                                                        <label for="simpleinput" class="form-label">Nom du quartier</label>
+                                                        <input type="text" name="quarter_name"  
+                                                        placeholder="Entrez le nom du quartier"  class="form-control" 
+                                                        value="{{ old('quarter_name') }}" required>
                                                     </div>
                                                 </div>
 
                                             </div>
+                                               
                                                 <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Durée</label>
-                                                    <input type="number" id="period" min="0" name="period" value="{{ old('period') }}" class="form-control" 
-                                                    placeholder="Durée en jours avant l'expiration de l'abonnement" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Coût</label>
-                                                    <input type="number" id="price" min="0" name="price" value="{{ old('price') }}" class="form-control" 
-                                                    placeholder="Entrez le montant à payer pour cette abonnement" required>
+                                                    <label for="example-email" class="form-label">Ville</label>
+                                                      <select name="town_id" id="town_id" class="form-control" required>
+                                                            
+                                                            @foreach ($towns as $town)
+                                                                <option value="{{ $town['id'] }}">{{ $town['town_name'] }}</option>
+                                                            @endforeach
+                                                      </select>
                                                 </div>
                                                
 
