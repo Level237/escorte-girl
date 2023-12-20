@@ -1,31 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Town;
+namespace App\Http\Controllers\Admin\Quarter;
 use App\Http\Controllers\Controller;
-use App\Services\Api\Location\TownService;
+use App\Services\Api\Location\QuarterService;
 use Illuminate\Http\Request;
 use Redirect;
-class DeleteTownController extends Controller
+
+class DeleteQuarterController extends Controller
 {
     
 
      public function delete($id){
 
-        $town = (new TownService)->delete($id);
-        //dd($town->status());
+       
+        $quarter = (new QuarterService)->delete($id);
+        //dd($quarter->status());
 
-         if($town){
+         if($quarter){
 
-            if($town->status() == 204){
+            if($quarter->status() == 204){
                
-               return Redirect::back()->with(['success' => "Ville supprimé avec succès"]);
+               return Redirect::back()->with(['success' => "Quartier supprimé avec succès"]);
 
             }
 
-            elseif($town->status() == 400){
-                return Redirect::back()->with(['failure' => "Impossible de supprimer, cette ville contient des quartiers et/ou des annonces"]);
+            elseif($quarter->status() == 400){
+                return Redirect::back()->with(['failure' => "Impossible de supprimer, ce quartier contient des annonces"]);
             }
-            elseif($town->status() == 404){
+            elseif($quarter->status() == 404){
                 return view('error');
             }
          }

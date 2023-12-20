@@ -76,8 +76,7 @@ class QuarterService{
         try{
             $response = Http::put($url."/api/quarters/".$quarter['id'], [
                 'quarter_name' => $quarter['quarter_name'],
-                'code' => $quarter['code'],
-                'country_id' => $quarter['country_id'],
+                'town_id' => $quarter['town_id'],
             ]);
 
             return $response;

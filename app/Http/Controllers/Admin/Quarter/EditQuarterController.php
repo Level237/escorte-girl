@@ -1,36 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Town;
+namespace App\Http\Controllers\Admin\Quarter;
 use App\Http\Controllers\Controller;
+use App\Services\Api\Location\QuarterService;
 use App\Services\Api\Location\TownService;
-use App\Services\Api\Location\CountryService;
 use Illuminate\Http\Request;
-use App\Http\Requests\TownRequest;
+use App\Http\Requests\QuarterRequest;
 use Redirect;
 
-class EditTownController extends Controller
+class EditQuarterController extends Controller
 {
 
      public function edit($id){
 
-         $town = (new TownService)->getTown($id);
-         //dd($town);
+         $quarter = (new QuarterService)->getQuarter($id);
+         //dd($quarter);
 
-         if($town){
+         if($quarter){
 
-            if($town->status() == 200){
+            if($quarter->status() == 200){
                 
-                $town = json_decode((string) $town->getBody(), true)['data'];
-                //dd($town);
-                //Fetching all countries
-                $countries = (new CountryService())->getCountries();
-                if($countries)
-                    return view('backend.towns.edit', compact('town','countries'));
+                $quarter = json_decode((string) $quarter->getBody(), true)['data'];
+                //dd($Quarter);
+                //Fetching all towns
+
+                $towns = (new TownService())->getTowns();
+                if($towns)
+                    return view('backend.quarters.edit', compact('quarter','towns'));
                 else
                     return view('error');
 
             }
-            elseif($town->status() == 404){
+            elseif($quarter->status() == 404){
                 return view('error');
             }
          }
@@ -41,25 +42,24 @@ class EditTownController extends Controller
         
     }
 
-    public function update(TownRequest $request){
+    public function update(QuarterRequest $request){
     
          $validatedData=$request->validated();
-         $town['id'] = $request->id;
-         $town['town_name'] = $request->town_name;
-         $town['code'] = $request->code;
-         $town['country_id'] = $request->country_id;
+         $quarter['id'] = $request->id;
+         $quarter['quarter_name'] = $request->quarter_name;
+         $quarter['town_id'] = $request->town_id;
 
-         $town = (new TownService)->update($town);
-         //dd($town);
+         $quarter = (new QuarterService)->update($quarter);
+         //dd($Quarter);
 
-         if($town){
+         if($quarter){
 
-            if($town->status() == 200){
-                return Redirect::back()->with('success',"Ville mise à jour");
+            if($quarter->status() == 200){
+                return Redirect::back()->with('success',"Quartier mise à jour");
 
             }
-            elseif($town->status() == 400){
-                return Redirect::back()->withInput()->withErrors(['msg' => json_decode((string) $town->getBody(), true)]);
+            elseif($quarter->status() == 400){
+                return Redirect::back()->withInput()->withErrors(['msg' => json_decode((string) $quarter->getBody(), true)]);
             }
          }
          else{

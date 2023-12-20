@@ -1,7 +1,7 @@
 @extends('layouts.Backend.Admin.app')
 
 @section('title')
-Éditer ville
+Éditer un quartier
 @endsection
 
 @section('content')
@@ -23,11 +23,11 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('towns') }}">villes</a></li>
-                                <li class="breadcrumb-item active">Édition ville</li>
+                                <li class="breadcrumb-item"><a href="{{ route('quarters') }}">Quartiers</a></li>
+                                <li class="breadcrumb-item active">Éditer un quartier</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Édition ville</h4>
+                        <h4 class="page-title">Éditer un quartier</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                 <div id="" >
                                     <div class="container">
                                         <div class="alert alert-success p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - Votre ville a été bien modifiée.
+                                            <strong><i class="fa fa-check mr-3"></i>  Super</strong> - le quartier a été bien modifiée.
                                         </div>
                                     </div>
                                 </div>
@@ -63,36 +63,32 @@
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('towns.update') }}">
+                                            <form method="POST" action="{{ route('quarters.update') }}">
                                                 @csrf
-                                                <input type="hidden" name="id"  value="{{ $town['id'] }}">
+                                                <input type="hidden" name="id"  value="{{ $quarter['id'] }}">
                                                 <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label for="simpleinput" class="form-label">Nom de la ville</label>
-                                                        <input type="text" name="town_name"  
-                                                        placeholder="Entrez le nom de la ville"  class="form-control" 
-                                                        value="{{ $town['town_name'] }}" required>
+                                                        <label for="simpleinput" class="form-label">Nom du quartier</label>
+                                                        <input type="text" name="quarter_name"  
+                                                        placeholder="Entrez le nom du quartier"  class="form-control" 
+                                                        value="{{ $quarter['quarter_name'] }}" required>
                                                     </div>
                                                 </div>
 
                                             </div>
+                                              
                                                 <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Code ville</label>
-                                                    <input type="text" id="code" name="code" value="{{ $town['code'] }}" class="form-control" 
-                                                    placeholder="Code " required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="example-email" class="form-label">Pays</label>
-                                                      <select name="country_id" id="country_id" class="form-control" required>
+                                                    <label for="example-email" class="form-label">Ville</label>
+                                                      <select name="town_id" id="town_id" class="form-control" required>
                                                             
-                                                            @foreach ($countries as $country)
-                                                                <option value="{{ $country['id'] }}" @if ($town['country']['id'] == $country['id'])
+                                                            @foreach ($towns as $town)
+                                                                <option value="{{ $town['id'] }}" @if ($quarter['town']['id'] == $town['id'])
                                                                     
                                                                   selected
                                                                     
                                                                 @endif>
-                                                                    {{ $country['country_name'] }}
+                                                                    {{ $town['town_name'] }}
                                                                 </option>
                                                             @endforeach
                                                       </select>
