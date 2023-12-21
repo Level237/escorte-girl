@@ -198,6 +198,38 @@
             </li>
 
 
+			<li class="side-nav-title">Messages</li>
+			
+			  <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts4" aria-expanded="false" aria-controls="sidebarLayouts4" class="side-nav-link">
+                    <i class="uil-map-marker"></i>
+                    <span> Contacts </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarLayouts4">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('contacts') }}" >Listes</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+             <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarLayouts3" aria-expanded="false" aria-controls="sidebarLayouts3" class="side-nav-link">
+                    <i class="uil-map-marker"></i>
+                    <span> Dénonciations </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarLayouts3">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('quarters') }}" >Listes</a>
+                        </li>
+                    
+                    </ul>
+                </div>
+            </li>
             <li class="side-nav-title">Abonnements</li>
 
             <li class="side-nav-item">

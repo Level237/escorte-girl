@@ -21,6 +21,11 @@ use App\Http\Controllers\Admin\Quarter\EditQuarterController;
 use App\Http\Controllers\Admin\Quarter\ListQuarterController;
 use App\Http\Controllers\Admin\Quarter\DeleteQuarterController;
 
+
+use App\Http\Controllers\Admin\Contact\ListContactController;
+use App\Http\Controllers\Admin\Contact\EditContactController;
+use App\Http\Controllers\Admin\Contact\DeleteContactController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -244,6 +249,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('quarters/edit/{id}',[EditQuarterController::class,'edit'])->name('quarters.edit');
    Route::post('quarters/update',[EditQuarterController::class,'update'])->name('quarters.update');
    Route::post('quarters/delete/{id}',[DeleteQuarterController::class,'delete'])->name('quarters.delete');
+
+
+   Route::get('contacts',[ListContactController::class,'index'])->name('contacts');
+   Route::get('contacts/edit/{id}',[EditContactController::class,'edit'])->name('contacts.edit');
+   Route::post('contacts/update',[EditContactController::class,'update'])->name('contacts.update');
+   Route::post('contacts/delete/{id}',[DeleteContactController::class,'delete'])->name('contacts.delete');
 });
 
 
