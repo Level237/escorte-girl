@@ -209,6 +209,10 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
+        Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
+        Route::post('purchase/credit',[PurchaseController::class,'purchaseInitCredit'])->name('purchase.init.credit');
+        Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');
+        Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
     });
 
 
@@ -242,7 +246,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::post('towns/update',[EditTownController::class,'update'])->name('towns.update');
    Route::post('towns/delete/{id}',[DeleteTownController::class,'delete'])->name('towns.delete');
 
-   
+
    Route::get('quarters',[ListQuarterController::class,'index'])->name('quarters');
    Route::get('quarters/create',[CreateQuarterController::class,'addView'])->name('quarters.create');
    Route::post('quarters/create',[CreateQuarterController::class,'store'])->name('quarters.create');
