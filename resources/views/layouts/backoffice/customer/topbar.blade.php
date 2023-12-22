@@ -47,7 +47,23 @@
 </a>
 </li>
 
+<li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
+    <a href=""   style="color:#FBFBFB;background-color:#2BA346;" data-ppt-btn>
+    <div class="d-flex">
 
+
+        <div class="badge_tooltip text-center" data-direction="top">
+            <div class="badge_tooltip__initiator">
+                <i class="fal fa fa-user" style="color:#FBFBFB"></i>
+                    &nbsp;
+                    Balance : {{ $userBalance }}
+            </div>
+        <div class="badge_tooltip__item">Profil Verifie </div>
+      </div>
+
+    </div>
+    </a>
+    </li>
 
 <li class=" ml-auto ml-lg-2 ml-xl-2" ppt-flex-middle>
 <a href="" class="btn-system" data-ppt-btn>

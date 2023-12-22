@@ -235,7 +235,7 @@ nav .fa{
           </a>
         </div>
         <div class="col" ppt-flex-end="">
-          <div class="d-flex ">
+          <div  class="d-flex align-items-center justify-center">
 
             <nav ppt-nav="" ppt-flex-end="" class="seperator spacing hide-mobile hide-ipad text-600">         <ul>
 
@@ -247,7 +247,13 @@ nav .fa{
         <li><a href="{{ route('db.escort.index') }}" >
           Mon Tableau Bord</a>
         </li>
+        @if(isset($user))
 
+            @if($user->role_id==3)
+            <li><a style="color:white;padding-top:12px;padding-bottom:12px" class="badge btn-danger" href="{{ route('db.escort.index') }}"> Upgrade plan </a></li>
+            @endif
+
+        @endif
 
 
         {{-- <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li> --}}

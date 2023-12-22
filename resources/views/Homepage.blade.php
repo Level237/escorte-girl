@@ -498,7 +498,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="buttons-wrap">
 
                                         <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $ads[$i]['age'] }} Ans</div>
+                                        style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i]['age'] }} Ans</div>
 
                                     </div>
                                     <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
