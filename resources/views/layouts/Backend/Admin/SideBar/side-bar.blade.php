@@ -224,7 +224,7 @@
                 <div class="collapse" id="sidebarLayouts3">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ route('quarters') }}" >Listes</a>
+                            <a href="{{ route('reports') }}" >Listes</a>
                         </li>
                     
                     </ul>

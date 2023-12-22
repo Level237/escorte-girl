@@ -1,32 +1,30 @@
 <?php
 
-namespace App\Services\Api\Location;
+namespace App\Services\Api\Messages;
 
 use Exception;
 use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class QuarterService{
+class ReportService{
 
-    public function getQuarters(){
+    public function getReports(){
         
         $url=(new UrlApiService())->getUrl();
-         //Retrieving all towns
-            $towns = null;
             
             try{
 
-                $response = Http::asForm()->get($url."/api/quarters");
+                $response = Http::asForm()->get($url."/api/reports");
                 
-                $towns = json_decode((string) $response->getBody(), true);
+                $reports = json_decode((string) $response->getBody(), true);
 
-                //dd($towns);
-                if($towns['data'] === null){
+                //dd($reports);
+                if($reports['data'] === null){
                     return null;
                 }
                 else{
-                    return $towns['data'];
+                    return $reports['data'];
                 }
 
             }catch(\Exception $e){
@@ -36,15 +34,15 @@ class QuarterService{
 
     }
 
-    public function create($quarter){
+    public function create($Report){
 
-        //dd($quarter);
+        //dd($Report);
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::post($url."/api/quarters", [
-                'quarter_name' => $quarter['quarter_name'],
-                'town_id' => $quarter['town_id'],
+            $response = Http::post($url."/api/Reports", [
+                'Report_name' => $Report['Report_name'],
+                'town_id' => $Report['town_id'],
             ]);
 
             return $response;
@@ -60,7 +58,7 @@ class QuarterService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::delete($url."/api/quarters/".$id);
+            $response = Http::delete($url."/api/reports/".$id);
             return $response;
 
         }
@@ -69,16 +67,15 @@ class QuarterService{
         }
     }
 
-    public function update($quarter){
+    public function update($report){
 
         $url=(new UrlApiService())->getUrl();
-
         try{
-            $response = Http::put($url."/api/quarters/".$quarter['id'], [
-                'quarter_name' => $quarter['quarter_name'],
-                'town_id' => $quarter['town_id'],
+            $response = Http::put($url."/api/reports/".$report['id'], [
+                  'status' => $report['status'],
             ]);
 
+            //dd($response);
             return $response;
 
         }
@@ -87,12 +84,12 @@ class QuarterService{
         }
     }
 
-    public function getquarter($id){
+    public function getReport($id){
 
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/quarters/".$id);
+            $response = Http::get($url."/api/reports/".$id);
             return $response;
 
         }
