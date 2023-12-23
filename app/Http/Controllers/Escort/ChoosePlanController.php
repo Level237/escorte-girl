@@ -17,4 +17,12 @@ class ChoosePlanController extends Controller
 
         return back()->with('membership',$membership);
     }
+
+    public function PlanPremium(){
+        $membership=(new MemberShipService())->showPremium();
+
+
+
+        return back()->with('membership',$membership);
+    }
 }
