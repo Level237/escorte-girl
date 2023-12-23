@@ -201,8 +201,10 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
 Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('review.user')->middleware('customer');
 
 //Customer group route
+Route::get('/upgrade-plan',[MemberShipController::class,'showPremium'])->name('upgrade-plan')->middleware('customer');
 Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('index', [DashboardCustomerController::class, 'index'])->name('db.customer.index');
+
         Route::get('profil', [DashboardCustomerController::class, 'profil'])->name('db.customer.profil');
         Route::get('ads', [DashboardCustomerController::class, 'ads'])->name('db.customer.ads');
         Route::get('messages', [DashboardCustomerController::class, 'messages'])->name('db.customer.messages');
