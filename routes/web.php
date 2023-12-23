@@ -207,6 +207,7 @@ Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('
 //Customer group route
 Route::get('/upgrade-plan',[MemberShipController::class,'showPremium'])->name('upgrade-plan')->middleware('customer');
 Route::middleware(['customer'])->prefix('customer')->group(function () {
+    Route::post('/payment-mobile-money',[PurchaseMomoController::class,'subscribePremium'])->name('subscribe-premium');
         Route::get('index', [DashboardCustomerController::class, 'index'])->name('db.customer.index');
         Route::get('plan/premium',[ChoosePlanController::class,'PlanPremium'])->name('plan.premium');
         Route::get('profil', [DashboardCustomerController::class, 'profil'])->name('db.customer.profil');

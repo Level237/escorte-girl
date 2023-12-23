@@ -20,9 +20,8 @@ class ChoosePlanController extends Controller
 
     public function PlanPremium(){
         $membership=(new MemberShipService())->showPremium();
-
-
-
+        Session::put('price',$membership[0]['price']);
+        Session::save();
         return back()->with('membership',$membership);
     }
 }
