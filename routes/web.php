@@ -26,6 +26,10 @@ use App\Http\Controllers\Admin\Contact\ListContactController;
 use App\Http\Controllers\Admin\Contact\EditContactController;
 use App\Http\Controllers\Admin\Contact\DeleteContactController;
 
+use App\Http\Controllers\Admin\Report\ListReportController;
+use App\Http\Controllers\Admin\Report\EditReportController;
+use App\Http\Controllers\Admin\Report\DeleteReportController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ads\AdsController;
 use App\Http\Controllers\HomepageController;
@@ -261,6 +265,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('contacts/edit/{id}',[EditContactController::class,'edit'])->name('contacts.edit');
    Route::post('contacts/update',[EditContactController::class,'update'])->name('contacts.update');
    Route::post('contacts/delete/{id}',[DeleteContactController::class,'delete'])->name('contacts.delete');
+
+   Route::get('reports',[ListReportController::class,'index'])->name('reports');
+   Route::get('reports/edit/{id}',[EditReportController::class,'edit'])->name('reports.edit');
+   Route::post('reports/update',[EditReportController::class,'update'])->name('reports.update');
+   Route::post('reports/delete/{id}',[DeleteReportController::class,'delete'])->name('reports.delete');
+   Route::get('displayreportimage/{id}/{path}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
 });
 
 
