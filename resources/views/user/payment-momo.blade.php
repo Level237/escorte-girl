@@ -34,7 +34,7 @@
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: ``,
+                notify_url: `http://127.0.0.1:8000/customer/congratulations/`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
@@ -47,10 +47,9 @@
             CinetPay.waitResponse(function(data) {
                 if (data.status == "REFUSED") {
                     window.location.assign(`http://127.0.0.1:8000/payment/fail`);
-
-
+                    console.log("level")
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(``);
+                    window.location.assign(`http://127.0.0.1:8000/customer/congratulations/`);
                 }
             });
             CinetPay.onError(function(data) {

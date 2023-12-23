@@ -113,7 +113,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" style="margin:0px !important;" action="{{route('subscribe-premium')}}" name="checkout_paypal1">
+        <form method="get" style="margin:0px !important;" action="{{route('subscribe-premium')}}" name="checkout_paypal1">
             @csrf
             <input type="hidden" name="price" value="{{ Session::get('membership')[0]['price'] }}">
             <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')[0]['id'] }}">

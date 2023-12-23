@@ -249,8 +249,8 @@ nav .fa{
         </li>
         @if(isset($user))
 
-            @if($user->role_id==3)
-            <li><a style="color:white;padding-top:12px;padding-bottom:12px" class="badge btn-danger" href="{{ route('db.escort.index') }}"> Upgrade plan </a></li>
+            @if($user->role_id==3 && $user->isSubscribe==0)
+            <li><a style="color:white;padding-top:12px;padding-bottom:12px" class="badge btn-danger" href="{{ route('upgrade-plan') }}"> Upgrade plan </a></li>
             @endif
 
         @endif

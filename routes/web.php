@@ -110,7 +110,7 @@ Route::post('/report',[ReportController::class,'store'])->name('report.store');
 //middleware user
 
 Route::middleware(['user'])->group(function () {
-
+    Route::get('payment/fail',[PurchaseController::class,'purchaseFail'])->name('congrats-fail');
     Route::get("/secure-account/confirm",[SecureAccountController::class,'confirm'])->name('confirm');
     Route::post("/answer",[SecureAccountController::class,'answer'])->name('answer');
     Route::post("/answerStore",[SecureAccountController::class,'answerStore'])->name('answer-store');
@@ -194,7 +194,7 @@ Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->nam
     Route::get('/step-final',[StepFinalController::class,'stepFinal'])->name('step.final');
     Route::post('/purchaseWithCredit',[PurchaseController::class,'purchaseWithCredit'])->name('purchase-with-credit');
     Route::get('/congratulation/{membership}/{announce}',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
-    Route::get('payment/fail',[PurchaseController::class,'purchaseFail'])->name('congrats-fail');
+
     //Route::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
     Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::post('purchase/credit',[PurchaseController::class,'purchaseInitCredit'])->name('purchase.init.credit');
@@ -207,7 +207,8 @@ Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('
 //Customer group route
 Route::get('/upgrade-plan',[MemberShipController::class,'showPremium'])->name('upgrade-plan')->middleware('customer');
 Route::middleware(['customer'])->prefix('customer')->group(function () {
-    Route::post('/payment-mobile-money',[PurchaseMomoController::class,'subscribePremium'])->name('subscribe-premium');
+    Route::get('/congratulations',[PurchaseController::class,'purchaseUserMomo'])->name('congratulations');
+    Route::get('/payment-mobile-money',[PurchaseMomoController::class,'subscribePremium'])->name('subscribe-premium');
         Route::get('index', [DashboardCustomerController::class, 'index'])->name('db.customer.index');
         Route::get('plan/premium',[ChoosePlanController::class,'PlanPremium'])->name('plan.premium');
         Route::get('profil', [DashboardCustomerController::class, 'profil'])->name('db.customer.profil');
