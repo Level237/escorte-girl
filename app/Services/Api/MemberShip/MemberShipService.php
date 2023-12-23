@@ -26,6 +26,22 @@ class MemberShipService{
         }
     }
 
+    public function showPremium(){
+        //Get all memberships
+        $url=(new UrlApiService())->getUrl();
+
+        try{
+            $token=Session::get('tokenUser');
+            $response = Http::withToken($token)->get($url."/api/v1/get/premium");
+            $responseData = json_decode($response);
+            //dd($memberships);
+            return $response['data'];
+
+        }
+        catch(\Exception $e){
+            return null;
+        }
+    }
     public function create($membership){
 
         $url=(new UrlApiService())->getUrl();
