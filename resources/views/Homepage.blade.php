@@ -384,7 +384,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="d-flex justify-content-between">
           <h2 class="mb-1" data-ppt-title="">Annonces GOLD</h2>
           <div>
-                        <a href="index-13.htm?s=" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Tout Voir</a>
+                        <a href="{{ route('ads.list', ['membership' => 2]) }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">Tout Voir</a>
                       </div>
         </div>
       </div>
@@ -1049,10 +1049,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
         <h2 data-ppt-title="">Nous vous mettons en contact avec des filles et des gars à proximité !</h2>
 
-        <p class="my-3" data-ppt-subtitle="">Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque
-          nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique
-          neque consequat.</p>
+        <p class="my-3" data-ppt-subtitle="">Que vous recherchiez un compagnon de soirée captivant, 
+          un rendez-vous charmant pour un événement spécial, une masseuse qualifiée, ou si vous 
+          souhaitez passez des moments très excitants et agréables notre annuaires d'escorte vous 
+          propose une multitude d'options pour répondre à vos envies.  
+          Votre prochaine expérience mémorable n'est qu'à quelques clics.</p>
 
 
                 <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt="">Annonces</a>

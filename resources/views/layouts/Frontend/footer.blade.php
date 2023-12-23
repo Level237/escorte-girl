@@ -49,8 +49,9 @@
 
         </div>
 
-        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Praesent tempus eleifend risus ut congue.</div>
+        <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">
+          En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles 
+          reponsabilités quelque soit la nature. </div>
 
       </div>
 
@@ -58,9 +59,9 @@
 
         <div class="fs-5 mb-2 text-600" data-ppt-footer-menutitle1="">Liens Utiles</div>
         <div class="lh-30">        <ul>
-                <li><a href="#">CGU</a></li>
-                <li><a href="{{ route('ads.list') }}">Aide</a></li>
-                <li><a href="{{ route('ads.create') }}">Vie Privée</a></li>
+                <li><a href="{{ route('cgu') }}">CGU</a></li>
+                <li><a href="{{ route('help') }}">Aide</a></li>
+                <li><a href="{{ route('privacy') }}">Vie Privée</a></li>
                 <li><a href="{{ route('contact') }}">Nous Ecrire</a></li>
 
 

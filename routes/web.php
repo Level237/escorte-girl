@@ -70,6 +70,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\User\ReviewUserController;
 
+use App\Http\Controllers\PagesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,6 +86,10 @@ use App\Http\Controllers\User\ReviewUserController;
 
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
+
+Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
+Route::get('/cgu',[PagesController::class,'cgu'])->name('cgu');
+Route::get('/help',[PagesController::class,'help'])->name('help');
 
 
     //SEARCH GROUP URL
@@ -133,7 +139,7 @@ Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort
 Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
 Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
-Route::get('ads/list/{id?}',[AdsController::class, 'list'])->name('ads.list');
+Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 

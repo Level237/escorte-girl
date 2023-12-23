@@ -3951,7 +3951,8 @@ function updatecommentfilter(g){
 								</div>
 
 										<div>
-								<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" data-ppt-btn="" style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
+								<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" data-ppt-btn="" 
+                  style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
 								</div>
 
 
