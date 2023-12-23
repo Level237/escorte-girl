@@ -188,6 +188,7 @@ class AdsController extends Controller
 
     public function list(Request $request){
 
+        //dd($request->membership);
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
 
@@ -199,6 +200,18 @@ class AdsController extends Controller
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
+        }
+
+        if($request->membership){
+            $adsByMembership = [];
+            $i = 0;
+            foreach($allAds as $ad){
+                if($ad['subscribe_id'] == $request->membership){
+                    $adsByMembership[$i] = $ad;
+                    $i++;
+                }
+            }
+           $allAds =  $adsByMembership;
         }
 
         $total = count($allAds);
