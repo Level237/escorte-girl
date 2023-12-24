@@ -29,12 +29,13 @@
     <script>
         const price=document.querySelector('#price').innerHTML;
         const membership=document.querySelector('#membership').innerHTML;
+        const url=window.location.origin;
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: `http://127.0.0.1:8000/customer/congratulations/`,
+                notify_url: `${url}/customer/congratulations/`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
@@ -46,10 +47,10 @@
             });
             CinetPay.waitResponse(function(data) {
                 if (data.status == "REFUSED") {
-                    window.location.assign(`http://127.0.0.1:8000/payment/fail`);
+                    window.location.assign(`${url}/payment/fail`);
                     console.log("level")
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`http://127.0.0.1:8000/customer/congratulations/`);
+                    window.location.assign(`${url}/customer/congratulations/`);
                 }
             });
             CinetPay.onError(function(data) {
