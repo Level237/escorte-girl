@@ -65,9 +65,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" action="{{ route('purchase-with-credit') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
+        <form method="get" action="{{ route('congratulations-credits') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
         @csrf
-            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')[0]['id'] }}">
+
 
 
         @if($user->balance >= Session::get('membership')[0]['price'])

@@ -80,5 +80,13 @@ class PurchaseController extends Controller
         return view('membership.congrats-premium');
     }
 
+    public function purchaseUserCredit(){
+        $verifyPaymentResponse=(new PurchaseMembershipService())->verifyUserPaymentWithCredit();
+        $membership = (new MemberShipService)->getMemberShip(4);
+
+
+        return view('membership.congrats-premium');
+    }
+
 
 }
