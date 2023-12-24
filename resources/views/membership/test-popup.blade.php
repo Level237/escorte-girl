@@ -43,7 +43,7 @@
             });
             CinetPay.getCheckout({
                 transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
-                amount: 10000,
+                amount: 100,
                 currency: 'XAF',
                 channels: 'MOBILE_MONEY',
                 description: 'Paiement Abonnement',
