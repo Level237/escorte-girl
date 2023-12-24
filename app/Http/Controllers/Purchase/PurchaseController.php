@@ -68,5 +68,25 @@ class PurchaseController extends Controller
         return view('purchase.congrats-credit');
     }
 
+    public function purchaseUserMomo(){
+        $verifyPaymentResponse=(new PurchaseMembershipService())->verifyUserPayment();
+        $membership = (new MemberShipService)->getMemberShip(4);
+
+              Mail::to('delanofofe@gmail.com')
+                ->send(new SuccessfulMembershipPayment($membership));
+
+                 Mail::to('temerprodesign@yahoo.fr')
+                ->send(new SuccessfulMembershipPayment($membership));
+        return view('membership.congrats-premium');
+    }
+
+    public function purchaseUserCredit(){
+        $verifyPaymentResponse=(new PurchaseMembershipService())->verifyUserPaymentWithCredit();
+        $membership = (new MemberShipService)->getMemberShip(4);
+
+
+        return view('membership.congrats-premium');
+    }
+
 
 }

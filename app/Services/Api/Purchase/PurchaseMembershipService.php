@@ -37,6 +37,22 @@ class PurchaseMembershipService{
 
         return $data;
     }
+    public function verifyUserPayment(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/subscribe/member/momo");
+        $data=json_decode($response);
+
+        return $data;
+    }
+    public function verifyUserPaymentWithCredit(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/subscribe/member");
+        $data=json_decode($response);
+
+        return $data;
+    }
 
 
 }

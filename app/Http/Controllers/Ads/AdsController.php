@@ -363,6 +363,7 @@ class AdsController extends Controller
             $reviews=(new ListReviewsServices())->listReviews($request->id);
             //dd($ad);
             $announceId=$request->id;
+            return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
         }catch(\Exception $e){
              $ad = null;
         }
@@ -370,7 +371,7 @@ class AdsController extends Controller
         //$hostURL = request()->getHttpHost()."/ads/".$ad['id'];
         //dd($hostURL);
 
-        return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
+
    }
 
    public function edit($id){

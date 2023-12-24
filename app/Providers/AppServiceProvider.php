@@ -28,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
             $check=(new CheckSubscribeService())->check();
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
+            $subscribeOrNot=$userBalance->isSubscribe ?? null;
             $view->with('user', Session::get('currentUser') );
             $view->with('userBalance', $balance );
+            $view->with('subscribeOrNot', $subscribeOrNot );
             $data = (new AdsService())->index();
             if($data){
                 $numberAdsByTowns = $data[0];

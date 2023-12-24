@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <title> Souscrire à un Abonnement escort</title>
+    <title> Abonnement au compte vip</title>
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
@@ -42,11 +42,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <div class="ppt-modal-wrap show modal-payment modal-bottom-rightxxx"><div class="ppt-modal-wrap-overlay"></div><div class="ppt-modal-item ppt-animate-bouncein bg-white w-500 ppt-modal-shadow"><div class="ppt-modal-container"><div class="card-popup large">
         <div class="bg-primary pt-3">
             <div class="card-popup-content">
-            <div class="text-white mt-3">
-                <strong class="h1 ppt-price ppt-price-set">XAF{{ Session::get('membership')->price }}</strong>
-                <div class="text-truncate mt-2 opacity-8 text-600">Abonnement:{{ Session::get('membership')->membership_name }}</div>
 
-            </div>
+                <h3 style="color:white;font-size:20px">{{ Session::get('membership')[0]['price'] }} XAF</h3>
+                <div class="text-truncate mt-2 opacity-8 text-600">Abonnement: {{ Session::get('membership')[0]['membership_name'] }}</div>
+
+
             </div>
         </div>
 
@@ -65,12 +65,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" action="{{ route('purchase-with-credit') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
+        <form method="get" action="{{ route('congratulations-credits') }}" name="checkout_usercredit1" style="cursor:pointer;" onclick="togglePay();jQuery(this).submit();" onsubmit="jQuery(this).find(\'button\').attr(\'disabled\', true);">
         @csrf
-            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')->id }}">
-        <input type="hidden" name="announcement_id" value="{{ $id }}" class="paymentcustomfield">
 
-        @if($user->balance >= Session::get('membership')->price)
+
+
+        @if($user->balance >= Session::get('membership')[0]['price'])
             <div class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
                 <div class="d-flex payment-%name%">
                     <div style="width:120px; height:40px; font-size: 30px;" class="mr-4 rounded overflow-hidden position-relative">
@@ -113,11 +113,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-        <form method="post" style="margin:0px !important;" action="{{route('initPayment')}}" name="checkout_paypal1">
+        <form method="get" style="margin:0px !important;" action="{{route('subscribe-premium')}}" name="checkout_paypal1">
             @csrf
-            <input type="hidden" name="price" value="{{ Session::get('membership')->price }}">
-            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')->id }}">
-            <input type="hidden" name="announcement_id" value="{{ $id }}" class="paymentcustomfield">
+            <input type="hidden" name="price" value="{{ Session::get('membership')[0]['price'] }}">
+            <input type="hidden" name="membership_id" id="credit_total" value="{{ Session::get('membership')[0]['id'] }}">
 
 
 
@@ -209,15 +208,40 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
   <div class="">
 
-
     <div class="clearfix mb-3">
 
 
      <h2 class="text-600 mb-3">
-        <span class="smilecode float-right" style="font-size: 40px;">&#x1F600;</span> Souscrire à un abonnement</h2>
+        <span class="smilecode float-right" style="font-size: 40px;">&#x1F600;</span> Abonnement au compte vip</h2>
 
-     <p>Boostez vos annonces et obtenez plus de clients.</p>
+     <p>Souscrivez a la version premium du site web et entrez en contact avec des escortes ultra vip</p>
+     <div class="card card-pricing-membership shadow-sm mb-3">
 
+
+
+
+<div class="card-body text-center">
+
+  <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
+      1 Mois                </div>
+
+  <div class="memprice">
+    <span class="text-700 text-center" style="">1500 XAF </span>
+  </div>
+
+</div>
+
+</div>
+     <div style="display: flex;align-items:center;justify-content:space-around">
+        <a href="{{ route('homepage') }}" class="text-decoration-none text-dark" >
+            <div class="btn-light text-center text-600 p-3 mt-4">
+              Pas Maintenant!   </div>
+            </a>
+            <a href="{{ route('plan.premium') }}" class="text-decoration-none text-dark" >
+                <div class="btn-primary text-center text-600 p-3 mt-4">
+                  Passez en mode Premium  </div>
+                </a>
+     </div>
 
 
     </div>
@@ -225,40 +249,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 <div class="row ">
-    @if ($memberships)
 
-
-    @forelse ($memberships as $membership)
-
-
-    <div class="col-lg-4 mb-4">
-        <div class="card card-pricing-membership shadow-sm mb-3">
-
-                    <a class="text-dark text-decoration-none" style="cursor: pointer" href="{{ route('show.plan',$membership['id']) }}">
-
-
-          <div class="card-body text-center">
-
-              <div class="bg-primary memtxt position-absolute small text-600 btn btn-sm btn-rounded-25 text-light" style="top:-10px; right:10px;">
-                  1 Mois                </div>
-
-              <div class="memprice">
-                <span class="text-700 " style="padding:12px;display:flex">{{ $membership['price'] }} XAF </span>
-              </div>
-
-          </div>
-          </a>
-        </div>
-        <div class="d-flex justify-content-between align-items-baseline">
-          <div class="small opacity-8 text-500 ">
-            ABONNEMENT {{ $membership['membership_name'] }}        </div>
-
-        </div>
-      </div>
-       @empty
-
-    @endforelse
-    @endif
 
 
       </div>
@@ -272,12 +263,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-<div class="card p-3">
 
-<div>&#x1F55B; Pas d'abonnement: Votre annonce sera supprimé d'ici <span class="text-600">14 jours</span> </div>
-
-
-</div>
 
 <script>
    function ajax_cancel_membership(){
@@ -305,467 +291,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
    }
    }
 </script>
-    <div id="dislpay_features" >
-      <div class="mt-4">
 
 
-<div id="membership_table_compare">
-<div class="card card-body shadow-sm card-mobile-transparent">
-<div class="_header hide-mobile">
-<div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">&nbsp;</div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-                <span class="">Aucun</span>
-
-
-                </div>
-                            <div class="_value">
-                <span class="">Premium</span>
-
-
-                </div>
-                            <div class="_value">
-                <span class="">Gold</span>
-
-
-                </div>
-                            <div class="_value">
-                <span class="">Ultra VIP</span>
-
-
-                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-<div class="_block small text-600">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">&nbsp;</div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                <div class="_value" style="min-width:20px;">
-                              XAF 0
-                <div>
-                </div>
-
-                </div>
-                            <div class="_value" style="min-width:50px;">
-
-
-                <div>
-                XAF 3k                </div>
-
-                </div>
-                            <div class="_value" style="min-width:50px;">
-
-
-                <div>
-                XAF 5k               </div>
-
-                </div>
-                            <div class="_value" style="min-width:50px;">
-
-
-                <div>
-                XAF 10k                </div>
-
-                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-<div class="_block odd block-view_photos">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Photos
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Gérer ses photos</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-<div class="_block  block-liked">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Voir les visiteurs
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Voir quels utilisateurs ont aimé votre profil</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-<div class="_block  block-view_photos">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Vidéos
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Gérer des vidéos.</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-<div class="_block  block-msg_send">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Top recherche
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Send messages to other users.</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-
-
-
-<div class="_block  block-msg_read">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Page d'accueil
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Profil en page d'accueil</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-
-<div class="_block odd block-view_music">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-		  Contacts Privé
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                <div class="_num"> </div>
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-<div class="_block  block-adfree">
-<div class="d-flex justify-content-between">
-
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
-
-
-          Bannières
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Votre Annonce en page d'accueil.</div>
-  </div>
-
-    </div>
-    <div class="w-100">
-        <div class="d-flex  justify-content-between">
-
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-times text-danger"></i>
-
-                                </div>
-                            <div class="_value">
-
-
-                <i class="fa fa-check text-success"></i>
-
-                                </div>
-                    </div>
-    </div>
-    </div>
-</div>
-
-</div>
-</div>
-      </div>
-    </div>
-
-    <a href="{{ route('db.escort.ads') }}" class="text-decoration-none text-dark" >
-    <div class="btn-light text-center text-600 p-3 mt-4">
-      Pas Maintenant!   </div>
-    </a>
 
 
   </div>

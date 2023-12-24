@@ -49,4 +49,9 @@ class PurchaseMomoController extends Controller
         $membership=Session::get('membership_id');
         return view('membership.test-popup',compact('price','membership','announcement'));
     }
+    public function subscribePremium(Request $request){
+        $price=$request->price;
+        $membership=Session::get('membership_id');
+        return view('user.payment-momo',compact('price','membership'));
+    }
 }

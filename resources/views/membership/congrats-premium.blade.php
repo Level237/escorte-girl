@@ -34,7 +34,7 @@ Félicitations
 
 
 
-                                                <div><a href="{{ route('my-purchase') }}" data-ppt-btn class="btn-primary btn-lg my-3">Voir mes Abonnements</a></div>
+                                                <div><a href="{{ route('db.customer.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Dashboard</a></div>
 
 
 
