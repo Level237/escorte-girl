@@ -298,12 +298,6 @@ opacity: 0.4
                                 <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Bonjour {{ $ad['title']}} je suis intéressé par ta publication sur viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
                                     <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
-                             
-
-							  @else
-							  <a href="#" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
-							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
-							  </a>
 
 							   @endif
 						</div>
@@ -470,6 +464,12 @@ opacity: 0.4
 
 												</span>
 											</div>
+											&nbsp;&nbsp;&nbsp;
+											  <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
+													<div class="badge_tooltip__initiator">
+												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
+													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
+												</div>
 
 											&nbsp;&nbsp;&nbsp;
 											<div class=" d-inline-flex cursor">
@@ -581,18 +581,6 @@ opacity: 0.4
 
 						</div>
 
-                        <div class="_badge " style="color:#000000;background-color:gray;">
-
-
-
-                            <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
-                                <div class="badge_tooltip__initiator">
-                               <i class="fal fa fa-eye" style="color:#000000"></i> {{ $ad['visits'] }} vues	    </div>
-                                <div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
-                              </div>
-
-
-                            </div>
 
 						<div class="_badge " style="color:#FEFEFE;background-color:#2266C6;">
 
@@ -750,11 +738,60 @@ opacity: 0.4
 						<div class="ppt-single-button-box">
 
 
+							@if($ad['subscribe_id']===3)
 
-							  <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
-							  <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-							  <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
-							  </a>
+                                @if(isset($user) && $subscribeOrNot===1)
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                        <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                        </a>
+                                @endif
+                                @if(isset($user) && $subscribeOrNot!==1)
+                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                        <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                        </a>
+                                @endif
+
+                                @if(empty($user))
+                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                    <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                    </a>
+                                @endif
+
+                            @endif
+
+                            @if($ad['subscribe_id']===3)
+
+                            @if(isset($user) && $subscribeOrNot===1)
+                            <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+                                </a>
+                                @endif
+
+                                @if(isset($user) && $subscribeOrNot!==1)
+                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                        <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                        </a>
+                                @endif
+
+                                @if(empty($user))
+                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                    <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                    </a>
+                                @endif
+                            @endif
+
+                            @if($ad['subscribe_id']!==3)
+                                <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                    <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                    <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                    </a>
+                            @endif
+
 
 							  <script>
 							  function showPhone(){
@@ -767,11 +804,12 @@ opacity: 0.4
 
 
 
+                              @if($ad['subscribe_id']!==3)
+                                <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Bonjour {{ $ad['title']}} je suis intéressé par ta publication sur viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                    <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+                                    </a>
 
-
-							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
-							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
-							  </a>
+							   @endif
 
 
 						</div>

@@ -104,7 +104,15 @@ nav .fa{
                   <li><a href="{{ route('login') }}"> CONNEXION </a></li>
                   <li><a href="/register"> INSCRIPTION </a></li>
                   @else
-                  <li><a href="{{ route('db.escort.index') }}"> MON TABLEAU DE BORD </a></li>
+                   @if($user->role_id==2)
+                        <li> <a href="{{ route('db.escort.index') }}">MON TABLEAU DE BORD</a> </li>
+                    @endif
+                    @if($user->role_id==1)
+                        <li> <a href="{{ route('admin.dashboard') }}">MON TABLEAU DE BORD</a> </li>
+                    @endif
+                    @if($user->role_id==3)
+                        <li> <a href="{{ route('db.customer.index') }}">MON TABLEAU DE BORD</a> </li>
+                    @endif
 
                   <li onclick="event.preventDefault(); document.getElementById('logout').submit();"><a href="#"> DÉCONNEXION </a></li>
                   @endif
@@ -244,9 +252,16 @@ nav .fa{
           Annonces</a>
         </li>
 
-        <li><a href="{{ route('db.escort.index') }}" >
-          Mon Tableau Bord</a>
-        </li>
+      
+        @if($user->role_id==2)
+                        <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
+                    @endif
+                    @if($user->role_id==1)
+                        <li> <a href="{{ route('admin.dashboard') }}">Mon Tableau de bord</a> </li>
+                    @endif
+                    @if($user->role_id==3)
+                        <li> <a href="{{ route('db.customer.index') }}">Mon Tableau de bord</a> </li>
+                    @endif
         @if(isset($user))
 
             @if($user->role_id==3 && $subscribeOrNot===0)

@@ -273,8 +273,21 @@ function ajax_newsletter_signup58945(){
 	<li><a href="/" class="">
         <i class="fal fa-house"></i> Accueil</a></li>
 
-  	<li><a href="{{ route('db.escort.index') }}" class="">
-        <i  class="fal fa-user"></i> Mon Compte</a></li>
+
+
+    @if($user->role_id==2)
+                        <li> <a href="{{ route('db.escort.index') }}">
+                           <i  class="fal fa-user"></i>
+                          Mon Compte</a> </li>
+                    @endif
+                    @if($user->role_id==1)
+                        <li> <a href="{{ route('admin.dashboard') }}">
+                           <i  class="fal fa-user"></i> Mon Compte</a> </li>
+                    @endif
+                    @if($user->role_id==3)
+                        <li> <a href="{{ route('db.customer.index') }}">
+                           <i  class="fal fa-user"></i>Mon Compte</a> </li>
+                    @endif
 
 
 
