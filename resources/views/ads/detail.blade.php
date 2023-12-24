@@ -27,7 +27,28 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </style>
 <script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
 
+<style>
 
+    .popup-card{
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.589);
+        z-index: 99;
+        position: fixed;
+        top: 0;
+
+        visibility: hidden;
+      }
+      .card-2{
+        top:-400px;
+        position: absolute;
+        width: 50%;
+        height: 50%;
+       z-index: 999;
+        background: white;
+
+      }
+</style>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
@@ -208,17 +229,50 @@ opacity: 0.4
 
 
                             @if($ad['subscribe_id']===3)
-                            <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
 
-                                <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
-                                </a>
+                                @if(isset($user) && $subscribeOrNot===1)
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                        <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                        </a>
+                                @endif
+                                @if(isset($user) && $subscribeOrNot!==1)
+                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                        <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                        </a>
+                                @endif
+
+                                @if(empty($user))
+                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                    <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                    </a>
+                                @endif
+
                             @endif
 
                             @if($ad['subscribe_id']===3)
-                            <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
 
-                                <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                            @if(isset($user) && $subscribeOrNot===1)
+                            <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                 </a>
+                                @endif
+
+                                @if(isset($user) && $subscribeOrNot!==1)
+                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                        <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                        </a>
+                                @endif
+
+                                @if(empty($user))
+                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+
+                                    <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                    </a>
+                                @endif
                             @endif
 
                             @if($ad['subscribe_id']!==3)
@@ -1150,5 +1204,56 @@ opacity: 0.4
     </div>
   </div>
 </div>
+<div class="popup-card">
+    <div class="card-2">
+        <div class="card-header">
+
+        <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
+            <div style="position: absolute;right:5px;top:-6px">
+                <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
+            </div>
+        </div>
+
+        <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
+            <span>Pour entrez en possession d'un contact d'une annonce ultra vip vous devrez souscrire à un abonnement.</span>
+
+        </div>
+        <div class="card-footer">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <button class="btn btn-danger">Pas maintenant</button>
+                </div>
+                <div>
+                    <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire maintenant</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const btn=document.getElementById("popup-premium");
+    const popup=document.querySelector('.popup-card');
+    const card=document.querySelector('.card-2');
+    const closeBtn=document.getElementById('close');
+
+    closeBtn.addEventListener('click',()=>{
+
+        card.style.top='-500px'
+        card.style.transition="top 1s";
+        popup.style.visibility="hidden";
+        popup.style.transition="visibility 1s";
+    })
+    btn.addEventListener('click',()=>{
+        popup.style.visibility="visible";
+
+        popup.style.display='flex';
+        popup.style.alignItems='center';
+        popup.style.justifyContent='center';
+        card.style.top='0'
+        card.style.transition="top 1s";
+        popup.style.transition="all 1s ease-out;";
+    })
+</script>
 </body>
 </html>
