@@ -226,7 +226,7 @@ opacity: 0.4
 
 
 
-							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Hello je viens du site viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+							  <a href="https://api.whatsapp.com/send?phone=237{{ $ad['whatsapp'] }}&text=Bonjour {{ $ad['title']}} je suis intéressé par ta publication sur viens-yamo.com" target="_blank" rel="nofollow" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 							  <i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
 							  </a>
 

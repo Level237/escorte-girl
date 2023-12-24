@@ -3,6 +3,9 @@
 @section('content')
 
 <style>
+
+
+
   .cardbox {
     padding: 30px;
 }
@@ -352,11 +355,19 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     </div>
                                     @if(count($vipAds) >2)
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <div class="carousel-nav-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+                                          <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM11.289,4.3,12.711,5.7l-4.3,4.344L12.7,14.289,11.3,15.711,5.586,10.063Z"/>
+                                        </svg>
+                                      </div>
                                         <span class="sr-only">Previous</span>
                                     </a>
                                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                       <div class="carousel-nav-icon">
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+                                          <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"/>
+                                        </svg>
+                                      </div>
                                         <span class="sr-only">Next</span>
                                     </a>
                                     @endif
@@ -843,14 +854,22 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
     @endif
 
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+   <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+      <div class="carousel-nav-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+              <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM11.289,4.3,12.711,5.7l-4.3,4.344L12.7,14.289,11.3,15.711,5.586,10.063Z"/>
+          </svg>
+      </div>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+        <div class="carousel-nav-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+              <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"/>
+            </svg>
+        </div>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 

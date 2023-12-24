@@ -380,7 +380,7 @@ class AdsController extends Controller
      $towns = (new TownService())->getTowns();
      //dd($ad['town']['id']);
      if($ad)
-      $quarters = (new QuarterService())->list($ad['town']['id']);
+      $quarters = (new QuarterService())->getQuarters($ad['town']['id']);
         //dd($quarters);
      if($adsCategories && $ad && $quarters){
         return view('dashboard.escort.ads.edit', compact('adsCategories','ad', 'towns', 'quarters'));
@@ -404,11 +404,11 @@ class AdsController extends Controller
 
             }else{
 
-                dd((string) $response->getBody());
+                //dd((string) $response->getBody());
               return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
             }
         }catch(\Exception $e){
-            dd($e);
+            //dd($e);
            return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
         }
    }
