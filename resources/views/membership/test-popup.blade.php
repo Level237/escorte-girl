@@ -31,7 +31,8 @@
         const price=document.querySelector('#price').innerHTML;
         const membership=document.querySelector('#membership').innerHTML;
         const announce=document.querySelector('#announce').innerHTML;
-        const url=window.location.host;
+        const url=window.location.origin;
+        console.log(url)
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
@@ -42,7 +43,7 @@
             });
             CinetPay.getCheckout({
                 transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
-                amount: 100,
+                amount: 10000,
                 currency: 'XAF',
                 channels: 'MOBILE_MONEY',
                 description: 'Paiement Abonnement',
@@ -58,6 +59,7 @@
             });
             CinetPay.onError(function(data) {
                 console.log(data);
+                console.log("err")
             });
             console.log('e')
 

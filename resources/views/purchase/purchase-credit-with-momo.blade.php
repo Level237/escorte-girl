@@ -27,7 +27,7 @@
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
-        const url=window.location.host;
+        const url=window.location.origin;
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
