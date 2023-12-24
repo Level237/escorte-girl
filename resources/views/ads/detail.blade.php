@@ -1236,7 +1236,8 @@ opacity: 0.4
     const popup=document.querySelector('.popup-card');
     const card=document.querySelector('.card-2');
     const closeBtn=document.getElementById('close');
-
+    const url=window.location.hostname;
+    console.log(url);
     closeBtn.addEventListener('click',()=>{
 
         card.style.top='-500px'

@@ -27,39 +27,31 @@
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
+        const url=window.location.host;
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: 'http://mondomaine.com/notify/',
+                notify_url: `${url}/purchase/credit/successfully/${price}`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
                 transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
                 amount: price,
                 currency: 'XAF',
-                channels: 'ALL',
+                channels: 'MOBILE_MONEY',
                 description: 'Paiement Abonnement',
-                 //Fournir ces variables pour le paiements par carte bancaire
-                customer_name:"Joe",//Le nom du client
-                customer_surname:"Down",//Le prenom du client
-                customer_email: "down@test.com",//l'email du client
-                customer_phone_number: "088767611",//l'email du client
-                customer_address : "BP 0024",//addresse du client
-                customer_city: "Douala",// La ville du client
-                customer_country : "CM",// le code ISO du pays
-                customer_state : "CM",// le code ISO l'état
-                customer_zip_code : "06510", // code postal
+
 
             });
             CinetPay.waitResponse(function(data) {
                 if (data.status == "REFUSED") {
-                    window.location.assign(`http://127.0.0.1:8000/payment/fail`);
+                    window.location.assign(`${url}/payment/fail`);
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`http://127.0.0.1:8000/purchase/credit/successfully/${price}`);
+                    window.location.assign(`${url}/purchase/credit/successfully/${price}`);
                 }
             });
             CinetPay.onError(function(data) {
