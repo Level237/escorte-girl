@@ -50,7 +50,7 @@
         </div>
 
         <div class="lh-30 mobile-mb-2" data-ppt-footerdesc="">
-          En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles 
+          En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles
           reponsabilités quelque soit la nature. </div>
 
       </div>
@@ -275,19 +275,22 @@ function ajax_newsletter_signup58945(){
 
 
 
-    @if($user->role_id==2)
-                        <li> <a href="{{ route('db.escort.index') }}">
-                           <i  class="fal fa-user"></i>
-                          Mon Compte</a> </li>
-                    @endif
-                    @if($user->role_id==1)
-                        <li> <a href="{{ route('admin.dashboard') }}">
-                           <i  class="fal fa-user"></i> Mon Compte</a> </li>
-                    @endif
-                    @if($user->role_id==3)
-                        <li> <a href="{{ route('db.customer.index') }}">
-                           <i  class="fal fa-user"></i>Mon Compte</a> </li>
-                    @endif
+        @if (isset($user))
+        @if($user->role_id==2)
+        <li> <a href="{{ route('db.escort.index') }}">
+           <i  class="fal fa-user"></i>
+          Mon Compte</a> </li>
+    @endif
+    @if($user->role_id==1)
+        <li> <a href="{{ route('admin.dashboard') }}">
+           <i  class="fal fa-user"></i> Mon Compte</a> </li>
+    @endif
+    @if($user->role_id==3)
+        <li> <a href="{{ route('db.customer.index') }}">
+           <i  class="fal fa-user"></i>Mon Compte</a> </li>
+    @endif
+        @endif
+
 
 
 
