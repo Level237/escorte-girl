@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Session;
 class ListReviewsServices{
 
 
-    public function listReviews($announceId){
+    public function listReviews($slug){
 
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::asForm()->get($url."/api/list/reviews/".$announceId);
+            $response = Http::asForm()->get($url."/api/list/reviews/".$slug);
             $reviews = json_decode((string) $response->getBody(), true);
             $reviewsData = $reviews['data'];
             return $reviewsData;

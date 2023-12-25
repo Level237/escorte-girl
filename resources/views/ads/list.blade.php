@@ -3881,7 +3881,7 @@ function updatecommentfilter(g){
 
 
 							<div style="min-width:220px;">
-							  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+							  <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
 							  <div class="p-2 bg-white" ppt-border1="">
 								<div class="bg-light position-relative overflow-hidden" style="height:220px;">
 								 <figure>
@@ -3927,8 +3927,7 @@ function updatecommentfilter(g){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-								  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                  class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
+                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
 
@@ -3951,7 +3950,7 @@ function updatecommentfilter(g){
 								</div>
 
 										<div>
-								<a href="{{ route('ads.details', ['id' => $ad['id']]) }}" data-ppt-btn="" 
+								<a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
                   style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
 								</div>
 
@@ -3968,7 +3967,7 @@ function updatecommentfilter(g){
 
             <div class="show-mobile">
           <div class="position-relative mb-3">
-          <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+          <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
           <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
             <div class="h-100 position-relative">
             <figure>
@@ -4011,11 +4010,11 @@ function updatecommentfilter(g){
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
-                class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+                <span class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
                 class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
           </div>
           </div>

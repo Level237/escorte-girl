@@ -347,7 +347,7 @@ class AdsController extends Controller
 
 
 
-   public function show(Request $request){
+   public function show($name,$slug,Request $request){
 
 
      $ad = null;
@@ -356,11 +356,11 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announces/".$request->id);
+            $response = Http::asForm()->get($url."/api/announce/".$name.'/'.$slug);
             $response1 = Http::asForm()->get($url."/api/announces/");
-            $ad = json_decode((string) $response->getBody(), true)['data'];
+            $ad = json_decode((string) $response->getBody(), true)['data'][0];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
-            $reviews=(new ListReviewsServices())->listReviews($request->id);
+            $reviews=(new ListReviewsServices())->listReviews($slug);
             //dd($ad);
             $announceId=$request->id;
             return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));

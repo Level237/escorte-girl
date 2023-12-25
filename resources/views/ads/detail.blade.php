@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> {{ ucfirst($ad['title']) }}</title>
 
-<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
-<meta property="og:type"               content="article" />
-<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
-<meta property="og:description"        content="How much does culture influence creative thinking?" />
+<meta property="og:url"                content="{{ url()->current() }}" />
+<meta property="og:type"               content="site web" />
+<meta property="og:title"              content="{{ $ad['title'] }}" />
+<meta property="og:description"        content="{{$ad['description']}}" />
 <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
@@ -396,18 +396,18 @@ opacity: 0.4
 
 
 						 <ul class="icons">
-								<a href="https://facebook.com/sharer.php?u=http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
-								<a href="https://twitter.com/share?url=http://escort.test/listing/adrianna/&text=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
+								<a href="https://facebook.com/sharer.php?u={{ url()->current() }}" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://twitter.com/share?url={{ url()->current() }}" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a>
 								<a href="https://www.instagram.com/" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a>
-								<a href="https://pinterest.com/pin/create/button/?url=http://escort.test/listing/adrianna/&description=Adrianna" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
-								<a href="https://www.linkedin.com/sharing/share-offsite/?url=http://escort.test/listing/adrianna/" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
+								<a href="https://pinterest.com/pin/create/button/?url={{ url()->current() }}" target="_blank" rel="nofollow"><i class="fab fa-pinterest"></i></a>
+								<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url()->current() }}" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a>
 
 						</ul>
 
 							  <p class="small opacity-8">Ou copier le lien</p>
 							  <div class="field">
 								<i class="fa fa-link"></i>
-								<input type="text" readonly="" id="copylink" value="">
+								<input type="text" readonly="" id="copylink" value="{{ url()->current() }}">
 								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
@@ -668,7 +668,7 @@ opacity: 0.4
                                     <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
                                     <div style="flex: 1" class="comment-box ml-2">
                                         <h4>Ajouter votre commentaire</h4>
-                                        <form action="{{ route('review.user',$announceId) }}" method="post">
+                                        <form action="{{ route('review.user',$ad['id']) }}" method="post">
                                             @csrf
                                             <div class="rating"> <input type="radio" required name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
                                             <div class="comment-area"> <textarea required name="comment" class="form-control" rows="4"></textarea> </div>
@@ -993,7 +993,7 @@ opacity: 0.4
 		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
 
 		</div>
-		  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+		  <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
 
 		  <div ppt-border1="" class="p-1">
 
@@ -1036,7 +1036,7 @@ opacity: 0.4
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
 
-				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}" class="text-dark _adtitle">
+				  <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">
             {{ truncate($ad['title'],40) }}
 
 					</a>
@@ -1081,7 +1081,7 @@ opacity: 0.4
 
 	<div class="show-mobile">
 		  <div class="position-relative mb-3">
-          <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+          <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
           <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
             <div class="h-100 position-relative">
             <figure>
@@ -1124,11 +1124,11 @@ opacity: 0.4
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
                 class="text-dark">{{ truncate($ad['title'],40) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
                 class="text-dark lh-20 text-300">{{ truncate($ad['description'],65) }}</span></a>
           </div>
           </div>

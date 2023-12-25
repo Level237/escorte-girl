@@ -140,7 +140,7 @@ Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'
 Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
 Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
 Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
-Route::get('ads/{id}',[AdsController::class, 'show'])->name('ads.details');
+Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
