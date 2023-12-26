@@ -253,6 +253,10 @@ nav .fa{
           Annonces</a>
         </li>
 
+         @if(!isset($user))
+            <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
+         @endif
+
     @if(isset($user))
     @if($user->role_id==2)
     <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>

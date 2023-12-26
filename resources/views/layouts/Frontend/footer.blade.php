@@ -273,8 +273,11 @@ function ajax_newsletter_signup58945(){
 	<li><a href="/" class="">
         <i class="fal fa-house"></i> Accueil</a></li>
 
-
-
+      @if (!isset($user))
+         <li> <a href="{{ route('db.escort.index') }}">
+           <i  class="fal fa-user"></i>
+          Mon Compte</a> </li>
+      @endif
         @if (isset($user))
         @if($user->role_id==2)
         <li> <a href="{{ route('db.escort.index') }}">

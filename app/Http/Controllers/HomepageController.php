@@ -32,16 +32,21 @@ class HomepageController extends Controller
         $homeAds=(new AdsService())->homeAds();
         $vipAds=(new AdsService())->vipAds();
         $goldAds=(new AdsService())->goldAds();
-        $announcements = $data[0];
-        $emptyTowns = $data[1];
+        
         $ads = (new AdsController())->getAds();
+        
+        //dd($locations);
+       
+        if($data && $homeAds && $vipAds && $goldAds && $ads && false){
+            
+            $announcements = $data[0];
+            $emptyTowns = $data[1];
+            return view('Homepage', compact('announcements','emptyTowns','homeAds', 'ads','vipAds','goldAds'));
+        }
 
-
-        //return $homeAds;
-        //return count($goldAds);
-        //dd($homeAds);
-        //return $vipAds;
-        return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'ads','vipAds','goldAds'));
+        else
+         return view('error');
+               
 
     }
 
