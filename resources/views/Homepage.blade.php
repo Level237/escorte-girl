@@ -331,8 +331,8 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                               </a>
                                                                                               <div class="lh-20 " style="margin-top:20px;">
                                                                                                       <span class="text-online">•</span>
-                                                                                                      <a href="{{ route('ads.details', ['username' => $vipAds[$i+1]['user']['username'],'slug'=>$vipAds[$i+1]['slug']]) }}">
-                                                                                                          class="text-white">{{ truncate($vipAds[$i+1]['title'],15) }}</span></a>
+                                                                                                      <a href="{{ route('ads.details', ['username' => $vipAds[$i+1]['user']['username'],'slug'=>$vipAds[$i+1]['slug']]) }}" class="text-white">
+                                                                                                          {{ truncate($vipAds[$i+1]['title'],15) }}</span></a>
                                                                                               </div>
 
                                                                                           </div>
