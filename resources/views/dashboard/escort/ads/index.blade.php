@@ -38,7 +38,7 @@
                   <tr class="row-14889" >
                     <td><span class="font-weight-bold">
 
-                    <a href="{{ route('ads.details', ['id'=>$ad['id']])}}" target="_blank">{{truncate($ad['title'], 20) }}</a>
+                    <a href="{{ route('ads.details', ['username'=>$ad['user']['username'],'slug'=>$ad['slug']])}}" target="_blank">{{truncate($ad['title'], 20) }}</a>
 
 
                     </span> </td>
@@ -74,7 +74,7 @@
                           <span class="tooltiptext1">Booster</span>
                             <i class="fa fa-plane font-danger"></i>
                         </a>
-                        
+
                       @else
                         <a href="{{ route('membership.display',['adsId' => $ad['id']])  }}" class="tooltip1">
                             <span class="tooltiptext1">Boostée</span>
