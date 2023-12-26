@@ -107,7 +107,7 @@
 
 																			</div>
 																		@endif
-																			  <a href="{{ route('ads.details', ['id' => $result['searchable']['id']]) }}">
+																			  <a href="{{ route('ads.details', ['username' => $result['searchable']['user']['username'], 'slug' => $result['searchable']['slug']]) }}">
 
 																			  <div ppt-border1="" class="p-1">
 
@@ -154,7 +154,7 @@
 
 																			<div class="show-mobile">
 																			  <div class="position-relative mb-3">
-																			  <a href="{{ route('ads.details', ['id' => $result['searchable']['id']]) }}">
+																			  <a href="{{ route('ads.details', ['username' => $result['searchable']['user']['username'], 'slug' => $result['searchable']['slug']]) }}">
 																			  <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 																				<div class="h-100 position-relative">
 																				<figure>
@@ -201,7 +201,7 @@
 																			  </a>
 																			  <div class="lh-20 " style="margin-top:20px;">
 																				  <span class="text-online">•</span>
-																				  <a href="{{ route('ads.details', ['id' => $result['searchable']['id']]) }}"
+																				  <a href="{{ route('ads.details', ['username' => $result['searchable']['user']['username'], 'slug' => $result['searchable']['slug']]) }}"
 																					class="text-dark">{{ truncate($result['searchable']['title'],40) }}</span></a>
 																			  </div>
 
@@ -258,7 +258,7 @@
 
 																			</div>
 																		@endif
-																			  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+																			  <a href="{{ route('ads.details', ['username' => $result['searchable']['username'], 'slug' => $ad['slug']]) }}">
 
 																			  <div ppt-border1="" class="p-1">
 
@@ -306,7 +306,7 @@
 
 																			<div class="show-mobile">
 																			  <div class="position-relative mb-3">
-																			  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}">
+																			  <a href="{{ route('ads.details', ['username' => $result['searchable']['username'], 'slug' => $ad['slug']]) }}">
 																			  <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
 																				<div class="h-100 position-relative">
 																				<figure>
@@ -354,7 +354,7 @@
 																			  </a>
 																			  <div class="lh-20 " style="margin-top:20px;">
 																				  <span class="text-online">•</span>
-																				  <a href="{{ route('ads.details', ['id' => $ad['id']]) }}"
+																				  <a href="{{ route('ads.details', ['username' => $result['searchable']['username'], 'slug' => $ad['slug']]) }}"
 																					class="text-dark">{{ truncate($ad['title'],40) }}</span></a>
 																			  </div>
 

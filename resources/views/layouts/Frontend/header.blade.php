@@ -210,7 +210,8 @@ nav .fa{
                   <input type="text" class="form-control  customfilter typeahead shadow-sm"
                    required name="s" data-type="text"
                   data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
-                  placeholder="Rechercher.." value="" style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
+                  placeholder="Rechercher.." value="" 
+                  style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
 
 
                   <button class="btn iconbit"  type="submit"
@@ -373,10 +374,10 @@ nav .fa{
 
    <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
 
-		<form method="get" action="{{ route('search') }}" >
+	 <form method="get" action="{{ route('search') }}" >
                   @csrf
-			<input type="text" class="form-control customfilter typeahead shadow-sm"
-			name="keyword" id="keyword" data-type="text" onchange="_filter_update()"
+			<input type="text" class="form-control shadow-sm"
+			required name="s" data-type="text" data-type="text" 
 			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
 			placeholder="Rechercher.." value="" style="height:50px;">
 
