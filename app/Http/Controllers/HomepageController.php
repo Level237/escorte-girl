@@ -40,6 +40,7 @@ class HomepageController extends Controller
         //return $homeAds;
         //return count($goldAds);
         //dd($homeAds);
+        //return $vipAds;
         return view('Homepage', compact('locations', 'announcements','emptyTowns','homeAds', 'ads','vipAds','goldAds'));
 
     }
