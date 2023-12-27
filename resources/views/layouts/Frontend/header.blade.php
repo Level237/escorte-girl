@@ -319,18 +319,22 @@ nav .fa{
 
         <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
 
+      @if(isset($numberAdsByTowns))
+        
+      
         @forelse ( $numberAdsByTowns as $numberAdsByTown )
 
-		@if($loop->index < 3)
+          @if($loop->index < 3)
 
 
-			<li><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
-        {{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})</a></li>
+            <li><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
+              {{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})</a></li>
 
-		@endif
-		@empty
+          @endif
+          @empty
 
-	@endforelse
+        @endforelse
+      @endif
 
 
 
@@ -423,6 +427,9 @@ nav .fa{
 
         <a href="#">Le Nº1 des annonces Yamo.  </a>
 
+    @if(isset($numberAdsByTowns))
+      
+    
 		<div class="row">
 			@forelse ( $numberAdsByTowns as $numberAdsByTown )
 
@@ -441,6 +448,7 @@ nav .fa{
 					@empty
 
 			@endforelse
+      @endif
 			<div class="col-6" style="margin-top:10px">
 					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
 						Autres Villes

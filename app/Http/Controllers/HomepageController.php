@@ -37,7 +37,7 @@ class HomepageController extends Controller
         
         //dd($locations);
        
-        if($data && $homeAds && $vipAds && $goldAds && $ads && false){
+        if($data && $homeAds && $vipAds && $goldAds && $ads){
             
             $announcements = $data[0];
             $emptyTowns = $data[1];

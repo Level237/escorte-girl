@@ -171,7 +171,7 @@ class AdsController extends Controller
     public function getAds(){
 
         $url=(new UrlApiService())->getUrl();
-        $ads = [];
+        $ads = null;
 
         try{
 
@@ -180,7 +180,7 @@ class AdsController extends Controller
             $ads = $ads['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $ads = [];
+             $ads = null;
         }
 
         return  $ads;
@@ -190,7 +190,7 @@ class AdsController extends Controller
 
         //dd($request->membership);
         $url=(new UrlApiService())->getUrl();
-        $allAds = [];
+        $allAds = null;
 
         try{
 
@@ -199,7 +199,7 @@ class AdsController extends Controller
             $allAds = $allAds['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $allAds = [];
+             $allAds = null;
         }
 
         if($request->membership){
@@ -214,6 +214,7 @@ class AdsController extends Controller
            $allAds =  $adsByMembership;
         }
 
+        $allAds = [];
         $total = count($allAds);
         $per_page = 6;
         $nb_pages = ceil($total/$per_page);
@@ -339,10 +340,15 @@ class AdsController extends Controller
     }
 
     public function adsTown(){
-         $data = (new AnnouncementController())->index();
-        $announcements = $data[0];
-        $allTowns = $data[1];
-        return view('ads.ads-town', compact('announcements', 'allTowns'));
+        $data = (new AnnouncementController())->index();
+        if($data){
+             $announcements = $data[0];
+             $allTowns = $data[1];
+             return view('ads.ads-town', compact('announcements', 'allTowns'));
+        }
+        else
+          return view('error');
+       
     }
 
 
