@@ -22,7 +22,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
+<script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
 
 
 </head>
@@ -597,7 +597,7 @@ function filterToggle(val){
 
 <div class="card card-filter filter-tax_listing">
 
-<div class="card-title" onclick="jQuery('.filter-toggle-tax_listing').toggle();">Category</div>
+<div class="card-title" onclick="jQuery('.filter-toggle-tax_listing').toggle();">Ville</div>
 
 
 <div class="filter-content filter-toggle-tax_listing" style="">
@@ -3950,7 +3950,7 @@ function updatecommentfilter(g){
 								</div>
 
 										<div>
-								<a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
+								<a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
                   style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
 								</div>
 
@@ -4130,7 +4130,7 @@ function updatecommentfilter(g){
 
                <script>
 				var ajax_img_url = "https://ppt1080.b-cdn.net/";
-				var ajax_site_url = "https://es10.premiummod.com/index.php";
+				var ajax_site_url = "http://127.0.0.1:8000";
 				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "AIzaSyBhXeBRfGfmKU0s9kpCqBtkKFj33HWWZRI";
 				 </script>
