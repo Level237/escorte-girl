@@ -129,65 +129,52 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="filterboxWrap " >
 <ul>
+        <li class="" id="container-towns">
+
+
+        <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            <option >Ville</option>
+            @foreach ($towns as $town)
+                <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
+            @endforeach
+
+            </select>
+
+        </li>
+
         <li class="">
 
-        <div data-tag="listing" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_listing taxonomy"
-        onclick="processFilterbox('tax_listing','');">
 
-       <div class="text-600 filtertxt">Catégorie</div>
+            <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <option >Type Abonnement</option>
+                <option value="3">Ultra vip</option>
+                <option value="2">Gold</option>
+                <option value="1">Premium</option>
+                <option value="4">Sans Abonnement</option>
+                </select>
 
+            </li>
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+            <li class="" id="container-quarters">
 
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="keyword" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-keyword taxonomy"
-        onclick="processFilterbox('keyword','');">
-
-       <div class="text-600 filtertxt">Mot-clé</div>
+                <select id="quarter" data-key="quarter"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    <option> Choisissez un Quartier</option>
+                    </select>
 
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
+                </li>
 
                 <li class="">
 
-        <div data-tag="distance" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-distance taxonomy"
-        onclick="processFilterbox('distance','');">
 
-       <div class="text-600 filtertxt">À proximité</div>
+                    <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        <option >Age</option>
+                        <option value="3">23</option>
+                        <option value="2">24</option>
+                        <option value="1">12</option>
+                        </select>
 
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="country" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_country taxonomy"
-        onclick="processFilterbox('tax_country','');">
-
-       <div class="text-600 filtertxt">Location</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
+                    </li>
 
                 <li class="">
 
@@ -4141,8 +4128,8 @@ function updatecommentfilter(g){
 				<input type="hidden" id="ppt-current-position" value="left" />
                 <input type="hidden" id="ppt-map-provider" value="google" />
 
-                                  <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
-                                  <script async src="https://ppt1080.b-cdn.net/js/js.search.js?v=10.9.3" id="premiumpress-search"></script>
+                                  <script async src="{{ asset('assets/js/js.custom.js') }}" id="premiumpress-js"></script>
+                                  <script async src="{{ asset('assets/js/js.search.js') }}" id="premiumpress-search"></script>
 
 				<noscript id="deferred-styles">
 
@@ -4179,7 +4166,73 @@ function updatecommentfilter(g){
 				</script>
                 <!----------------- -->
 
+<script>
+    function fetchQuarters(town){
 
+
+        // FETCH QUARTERS
+            jQuery.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+                timeout: 15000,
+
+                success: function(response, statusCode) {
+
+                    $quarters = response.data;
+                    var textToPrint = "";
+                    $quarters.forEach((e)=>{
+                        textToPrint = textToPrint + `<option value="${e.id}">${e.quarter_name}</option>`
+                    })
+                    jQuery('#quarterList').show();
+
+                    jQuery("#quarter").html(textToPrint);
+
+                },
+                error: function(response, statusCode) {
+
+                    jQuery('#ppt-add-listing-form').show();
+                    jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+                    scrollTop();
+                },
+
+
+            });
+    }
+    let container=document.querySelector("#container-quarters");
+    const select=document.getElementById("towns");
+
+   async function val(){
+        const val=select.value;
+        const response=await fetch(`http://127.0.0.1:8001/api/list/quarterByTown/${val}`)
+        const quarters=await response.json();
+        let selectedQuarters=document.getElementById('quarters');
+        for(let i=1;i<selectedQuarters.length;i++){
+
+            selectedQuarters.removeChild(selectedQuarters.options[i])
+
+            console.log(selectedQuarters.options[i])
+        }
+        addSelector(quarters.data);
+
+    }
+
+    function addSelector(node){
+        let selectedQuarters=document.getElementById('quarters')
+        let option=document.createElement('option');
+        option.text="test";
+
+        node.forEach((value)=>{
+            let option=document.createElement('option')
+            option.text=value.quarter_name;
+            option.value=value.id;
+            selectedQuarters.add(option)
+        })
+
+        container.appendChild(selectedQuarters);
+
+    }
+</script>
 
 
 

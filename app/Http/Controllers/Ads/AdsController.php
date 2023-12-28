@@ -19,6 +19,7 @@ use App\Services\Api\Location\TownService;
 use App\Services\Api\Location\QuarterService;
 use App\Http\Controllers\Listing\AnnouncementController;
 use App\Services\Api\Escort\ListReviewsServices;
+use App\Services\Api\List\ListTownService;
 use App\Services\User\ReviewService;
 
 class AdsController extends Controller
@@ -197,6 +198,7 @@ class AdsController extends Controller
             $response = Http::asForm()->get($url."/api/announces");
             $allAds = json_decode((string) $response->getBody(), true);
             $allAds = $allAds['data'];
+            $towns=(new ListTownService())->list()->data;
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -230,7 +232,7 @@ class AdsController extends Controller
 
         //dd($allAds);
 
-        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
+        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages','towns'));
     }
 
 
