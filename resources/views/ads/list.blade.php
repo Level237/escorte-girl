@@ -22,7 +22,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<script src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0" id="jquery-core-js"></script>
+<script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
 
 
 </head>
@@ -129,195 +129,82 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="filterboxWrap " >
 <ul>
+        <li class="" id="container-towns">
+
+
+        <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            <option >Ville</option>
+            @foreach ($towns as $town)
+                <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
+            @endforeach
+
+            </select>
+
+        </li>
+
         <li class="">
 
-        <div data-tag="listing" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_listing taxonomy"
-        onclick="processFilterbox('tax_listing','');">
 
-       <div class="text-600 filtertxt">Catégorie</div>
+            <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <option >Type Abonnement</option>
+                <option value="3">Ultra vip</option>
+                <option value="2">Gold</option>
+                <option value="1">Premium</option>
+                <option value="4">Sans Abonnement</option>
+                </select>
 
+            </li>
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+            <li class="" id="container-quarters">
 
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="keyword" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-keyword taxonomy"
-        onclick="processFilterbox('keyword','');">
-
-       <div class="text-600 filtertxt">Mot-clé</div>
+                <select id="quarter" data-key="quarter"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    <option> Choisissez un Quartier</option>
+                    </select>
 
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
+                </li>
 
                 <li class="">
 
-        <div data-tag="distance" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-distance taxonomy"
-        onclick="processFilterbox('distance','');">
 
-       <div class="text-600 filtertxt">À proximité</div>
+                    <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        <option >Age</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        </select>
 
+                    </li>
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
 
 
 
-        </div>
-        </li>
 
-                <li class="">
 
-        <div data-tag="country" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_country taxonomy"
-        onclick="processFilterbox('tax_country','');">
 
-       <div class="text-600 filtertxt">Location</div>
 
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
 
 
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="store" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_store taxonomy"
-        onclick="processFilterbox('tax_store','tax');">
-
-       <div class="text-600 filtertxt">Agence</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="dagender" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dagender taxonomy"
-        onclick="processFilterbox('tax_dagender','tax');">
-
-       <div class="text-600 filtertxt">Genre</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="dasexuality" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dasexuality taxonomy"
-        onclick="processFilterbox('tax_dasexuality','tax');">
-
-       <div class="text-600 filtertxt">Sexualité</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="dathnicity" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dathnicity taxonomy"
-        onclick="processFilterbox('tax_dathnicity','tax');">
-
-       <div class="text-600 filtertxt">Ethnie</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="_closed">
-
-        <div data-tag="daeyes" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_daeyes taxonomy"
-        onclick="processFilterbox('tax_daeyes','tax');">
-
-       <div class="text-600 filtertxt">Teint</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-
-
-                <li class="_closed">
-
-        <div data-tag="dabody" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dabody taxonomy"
-        onclick="processFilterbox('tax_dabody','tax');">
-
-       <div class="text-600 filtertxt">Corps</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-
-
-
-
-                <li class="_closed">
-
-        <div data-tag="features" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_features taxonomy"
-        onclick="processFilterbox('tax_features','tax');">
-
-       <div class="text-600 filtertxt">Services</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="_closed">
-
-        <div data-tag="age" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_age taxonomy"
-        onclick="processFilterbox('tax_age','tax');">
-
-       <div class="text-600 filtertxt">Age</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
 
 
 
         </ul>
+        <button class="btn btn-primary">Filtrer</button>
 <div class="clearfix"></div>
 </div>
 </div>
@@ -597,7 +484,7 @@ function filterToggle(val){
 
 <div class="card card-filter filter-tax_listing">
 
-<div class="card-title" onclick="jQuery('.filter-toggle-tax_listing').toggle();">Category</div>
+<div class="card-title" onclick="jQuery('.filter-toggle-tax_listing').toggle();">Ville</div>
 
 
 <div class="filter-content filter-toggle-tax_listing" style="">
@@ -3950,7 +3837,7 @@ function updatecommentfilter(g){
 								</div>
 
 										<div>
-								<a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
+								<a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
                   style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
 								</div>
 
@@ -4144,7 +4031,7 @@ function updatecommentfilter(g){
 
                <script>
 				var ajax_img_url = "https://ppt1080.b-cdn.net/";
-				var ajax_site_url = "https://es10.premiummod.com/index.php";
+				var ajax_site_url = "http://127.0.0.1:8000";
 				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "AIzaSyBhXeBRfGfmKU0s9kpCqBtkKFj33HWWZRI";
 				 </script>
@@ -4155,8 +4042,8 @@ function updatecommentfilter(g){
 				<input type="hidden" id="ppt-current-position" value="left" />
                 <input type="hidden" id="ppt-map-provider" value="google" />
 
-                                  <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
-                                  <script async src="https://ppt1080.b-cdn.net/js/js.search.js?v=10.9.3" id="premiumpress-search"></script>
+                                  <script async src="{{ asset('assets/js/js.custom.js') }}" id="premiumpress-js"></script>
+                                  <script async src="{{ asset('assets/js/js.search.js') }}" id="premiumpress-search"></script>
 
 				<noscript id="deferred-styles">
 
@@ -4193,7 +4080,73 @@ function updatecommentfilter(g){
 				</script>
                 <!----------------- -->
 
+<script>
+    function fetchQuarters(town){
 
+
+        // FETCH QUARTERS
+            jQuery.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+                timeout: 15000,
+
+                success: function(response, statusCode) {
+
+                    $quarters = response.data;
+                    var textToPrint = "";
+                    $quarters.forEach((e)=>{
+                        textToPrint = textToPrint + `<option value="${e.id}">${e.quarter_name}</option>`
+                    })
+                    jQuery('#quarterList').show();
+
+                    jQuery("#quarter").html(textToPrint);
+
+                },
+                error: function(response, statusCode) {
+
+                    jQuery('#ppt-add-listing-form').show();
+                    jQuery(".ppt-add-listing-error").html("<div>Request timeout, Serveur indisponible</div>");
+                    scrollTop();
+                },
+
+
+            });
+    }
+    let container=document.querySelector("#container-quarters");
+    const select=document.getElementById("towns");
+
+   async function val(){
+        const val=select.value;
+        const response=await fetch(`http://127.0.0.1:8001/api/list/quarterByTown/${val}`)
+        const quarters=await response.json();
+        let selectedQuarters=document.getElementById('quarters');
+        for(let i=1;i<selectedQuarters.length;i++){
+
+            selectedQuarters.removeChild(selectedQuarters.options[i])
+
+            console.log(selectedQuarters.options[i])
+        }
+        addSelector(quarters.data);
+
+    }
+
+    function addSelector(node){
+        let selectedQuarters=document.getElementById('quarters')
+        let option=document.createElement('option');
+        option.text="test";
+
+        node.forEach((value)=>{
+            let option=document.createElement('option')
+            option.text=value.quarter_name;
+            option.value=value.id;
+            selectedQuarters.add(option)
+        })
+
+        container.appendChild(selectedQuarters);
+
+    }
+</script>
 
 
 

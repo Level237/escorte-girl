@@ -128,22 +128,22 @@ function ajax_newsletter_signup58945(){
 	<p class="small">Only once you've confirmed your email will you be subscribed to our newsletter.</p>
 </div>
 
-<form id="mailinglist-form58945" name="mailinglist-form58945" method="post" onsubmit="return IsEmailMailinglist58945();" class="footer-newsletter">
-
-
-<div class="input-group">
-<input type="text" name="ppt_newsletter_mailme58945" id="ppt_newsletter_mailme58945" value="" placeholder="Adresse e-mail ici.." style="height:46px;" class="form-control  rounded-0">
-<div class="input-group-append">
-<button type="submit" class="btn btn-primary px-3">S'abonner</button>
-</div>
-
-
-</div>
 
 
 
 
- </form>
+
+
+<button type="submit" class="btn btn-primary">S'abonner</button>
+
+
+
+
+
+
+
+
+
  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
