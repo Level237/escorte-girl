@@ -132,7 +132,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <li class="" id="container-towns">
 
 
-        <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             <option >Ville</option>
             @foreach ($towns as $town)
                 <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
@@ -169,142 +169,42 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
                     <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         <option >Age</option>
-                        <option value="3">23</option>
-                        <option value="2">24</option>
-                        <option value="1">12</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
                         </select>
 
                     </li>
 
-                <li class="">
 
-        <div data-tag="store" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_store taxonomy"
-        onclick="processFilterbox('tax_store','tax');">
 
-       <div class="text-600 filtertxt">Agence</div>
 
 
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
 
 
 
-        </div>
-        </li>
 
-                <li class="">
 
-        <div data-tag="dagender" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dagender taxonomy"
-        onclick="processFilterbox('tax_dagender','tax');">
 
-       <div class="text-600 filtertxt">Genre</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="dasexuality" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dasexuality taxonomy"
-        onclick="processFilterbox('tax_dasexuality','tax');">
-
-       <div class="text-600 filtertxt">Sexualité</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="">
-
-        <div data-tag="dathnicity" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dathnicity taxonomy"
-        onclick="processFilterbox('tax_dathnicity','tax');">
-
-       <div class="text-600 filtertxt">Ethnie</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="_closed">
-
-        <div data-tag="daeyes" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_daeyes taxonomy"
-        onclick="processFilterbox('tax_daeyes','tax');">
-
-       <div class="text-600 filtertxt">Teint</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-
-
-                <li class="_closed">
-
-        <div data-tag="dabody" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_dabody taxonomy"
-        onclick="processFilterbox('tax_dabody','tax');">
-
-       <div class="text-600 filtertxt">Corps</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-
-
-
-
-                <li class="_closed">
-
-        <div data-tag="features" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_features taxonomy"
-        onclick="processFilterbox('tax_features','tax');">
-
-       <div class="text-600 filtertxt">Services</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
-
-                <li class="_closed">
-
-        <div data-tag="age" ppt-border1  ppt-flex-between class="p-3 text-dark  filterbox-tax_age taxonomy"
-        onclick="processFilterbox('tax_age','tax');">
-
-       <div class="text-600 filtertxt">Age</div>
-
-
-       <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-
-
-
-        </div>
-        </li>
 
 
 
         </ul>
+        <button class="btn btn-primary">Filtrer</button>
 <div class="clearfix"></div>
 </div>
 </div>
