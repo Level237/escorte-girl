@@ -349,7 +349,7 @@ class AdsController extends Controller
         }
         else
           return view('error');
-       
+
     }
 
 

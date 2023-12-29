@@ -129,7 +129,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="filterboxWrap " >
 <ul>
-        <li class="" id="container-towns">
+
+  <form action="{{ route('ads.filter') }}" method="get">
+    @csrf
+    <li class="" id="container-towns">
 
 
         <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
@@ -145,7 +148,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
         <li class="">
 
 
-            <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            <select  style="width: 100%" name="subscribe_id" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                 <option >Type Abonnement</option>
                 <option value="3">Ultra vip</option>
                 <option value="2">Gold</option>
@@ -157,7 +160,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
             <li class="" id="container-quarters">
 
-                <select id="quarter" data-key="quarter"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <select id="quarter" data-key="quarter" name="quarter"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     <option> Choisissez un Quartier</option>
                     </select>
 
@@ -167,7 +170,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 <li class="">
 
 
-                    <select  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    <select  style="width: 100%" name="age" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         <option >Age</option>
                         <option value="18">18</option>
                         <option value="19">19</option>
@@ -189,6 +192,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                         </select>
 
                     </li>
+                    <button class="btn btn-primary">Filtrer</button>
+  </form>
+
 
 
 
@@ -204,7 +210,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
         </ul>
-        <button class="btn btn-primary">Filtrer</button>
+
 <div class="clearfix"></div>
 </div>
 </div>
@@ -3966,19 +3972,19 @@ function updatecommentfilter(g){
 
     <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_list_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                   @endif
               @endforeach
 
           @endif
-          
-                                   
+
+
       </div>
 
 
