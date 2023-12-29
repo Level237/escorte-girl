@@ -390,6 +390,22 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 </section>
 @endif
+<div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'home_top' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                  @endif
+              @endforeach
+
+          @endif
+          
+                                   
+      </div>
 <div class="container mt-5">
     <div class="row">
           <div class="col-lg-12">
@@ -1207,6 +1223,22 @@ cleanCats();
   </div>
 </section>
 
+ <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'home_bottom' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                  @endif
+              @endforeach
+
+          @endif
+          
+                                   
+      </div>
 
 
 @endsection

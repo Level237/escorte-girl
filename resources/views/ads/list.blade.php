@@ -3964,8 +3964,22 @@ function updatecommentfilter(g){
 
 
 
-                                        <div class="my-3 text-center">
-                            <a href='javascript:void(0)' class='samplebanneronly'><img src='https://premiummod.com/demoimages/img.php?bannerid=search_bottom&t=es&ct=chocolate1' class='img-fluid' alt='sample banner'></a>                            </div>
+    <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'ads_list_bottom' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                  @endif
+              @endforeach
+
+          @endif
+          
+                                   
+      </div>
 
 
           </div>

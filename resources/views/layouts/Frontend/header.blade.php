@@ -210,7 +210,8 @@ nav .fa{
                   <input type="text" class="form-control  customfilter typeahead shadow-sm"
                    required name="s" data-type="text"
                   data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
-                  placeholder="Rechercher.." value="" style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
+                  placeholder="Rechercher.." value="" 
+                  style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
 
 
                   <button class="btn iconbit"  type="submit"
@@ -251,6 +252,10 @@ nav .fa{
         <li><a href="{{ route('ads.list') }}" >
           Annonces</a>
         </li>
+
+         @if(!isset($user))
+            <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
+         @endif
 
     @if(isset($user))
     @if($user->role_id==2)
@@ -306,6 +311,24 @@ nav .fa{
       </div>
     </div>
 <hr>
+ <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                      <hr>
+                  @endif
+              @endforeach
+                  
+          @endif
+          
+                                   
+      </div>
+      
     <div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
   <div class="container ">
     <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>
@@ -314,18 +337,22 @@ nav .fa{
 
         <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
 
+      @if(isset($numberAdsByTowns))
+        
+      
         @forelse ( $numberAdsByTowns as $numberAdsByTown )
 
-		@if($loop->index < 3)
+          @if($loop->index < 3)
 
 
-			<li><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
-        {{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})</a></li>
+            <li><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
+              {{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})</a></li>
 
-		@endif
-		@empty
+          @endif
+          @empty
 
-	@endforelse
+        @endforelse
+      @endif
 
 
 
@@ -373,10 +400,10 @@ nav .fa{
 
    <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
 
-		<form method="get" action="{{ route('search') }}" >
+	 <form method="get" action="{{ route('search') }}" >
                   @csrf
-			<input type="text" class="form-control customfilter typeahead shadow-sm"
-			name="keyword" id="keyword" data-type="text" onchange="_filter_update()"
+			<input type="text" class="form-control shadow-sm"
+			required name="s" data-type="text" data-type="text" 
 			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
 			placeholder="Rechercher.." value="" style="height:50px;">
 
@@ -418,6 +445,9 @@ nav .fa{
 
         <a href="#">Le Nº1 des annonces Yamo.  </a>
 
+    @if(isset($numberAdsByTowns))
+      
+    
 		<div class="row">
 			@forelse ( $numberAdsByTowns as $numberAdsByTown )
 
@@ -436,6 +466,7 @@ nav .fa{
 					@empty
 
 			@endforelse
+      @endif
 			<div class="col-6" style="margin-top:10px">
 					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
 						Autres Villes

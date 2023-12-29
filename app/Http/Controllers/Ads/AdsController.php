@@ -125,7 +125,7 @@ class AdsController extends Controller
 
     public function update(Request $request){
 
-         //Retrieve URL API
+        //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
         //Check if we have at least 2 images
         $ad = (new AdsService)->getAdsById($request->ads_id);
@@ -166,13 +166,12 @@ class AdsController extends Controller
            return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour"]);
         }
 
-
     }
 
     public function getAds(){
 
         $url=(new UrlApiService())->getUrl();
-        $ads = [];
+        $ads = null;
 
         try{
 
@@ -181,7 +180,7 @@ class AdsController extends Controller
             $ads = $ads['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $ads = [];
+             $ads = null;
         }
 
         return  $ads;
@@ -215,6 +214,7 @@ class AdsController extends Controller
             }
            $allAds =  $adsByMembership;
         }
+
 
         $total = count($allAds);
         $per_page = 6;
@@ -341,10 +341,15 @@ class AdsController extends Controller
     }
 
     public function adsTown(){
-         $data = (new AnnouncementController())->index();
-        $announcements = $data[0];
-        $allTowns = $data[1];
-        return view('ads.ads-town', compact('announcements', 'allTowns'));
+        $data = (new AnnouncementController())->index();
+        if($data){
+             $announcements = $data[0];
+             $allTowns = $data[1];
+             return view('ads.ads-town', compact('announcements', 'allTowns'));
+        }
+        else
+          return view('error');
+       
     }
 
 
