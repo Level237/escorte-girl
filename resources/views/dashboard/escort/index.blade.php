@@ -26,7 +26,7 @@
          <a href="/dashboard//?tab=details&sub=username" class="text-black text-decoration-none">
         <span>
             <div class="text-600">Noms</div>
-            <div class="small opacity-8" style="max-width:150px;">{{ $user->username }}</div>
+            <div class="small opacity-8" style="max-width:150px;">{{ ucfirst($user->username) }}</div>
         </span>
         </a>
     </div>
