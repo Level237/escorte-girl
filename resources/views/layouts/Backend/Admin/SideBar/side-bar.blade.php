@@ -230,6 +230,16 @@
                     </ul>
                 </div>
             </li>
+
+            <li class="side-nav-title">Publicité</li>
+            <li class="side-nav-item">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('banners') }}">
+                    <i class="uil-box"></i>
+                    <span> Bannières </span>
+
+                </a>
+            </li>
+
             <li class="side-nav-title">Abonnements</li>
 
             <li class="side-nav-item">
@@ -246,6 +256,7 @@
 
                 </a>
             </li>
+
 
 
 

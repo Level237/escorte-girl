@@ -3,6 +3,7 @@
 namespace App\Providers;
 use App\Weather;
 use App\Services\Api\Ads\AdsService;
+use App\Services\Api\Banners\BannerService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Api\CurrentUserService;
@@ -32,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('user', Session::get('currentUser') );
             $view->with('userBalance', $balance );
             $view->with('subscribeOrNot', $subscribeOrNot );
+            //Retrieving banners
+            $banners = (new BannerService())->banners();
+            $view->with('banners', $banners );
             $data = (new AdsService())->index();
             if($data){
                 $numberAdsByTowns = $data[0];

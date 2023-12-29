@@ -124,7 +124,7 @@ class AdsController extends Controller
 
     public function update(Request $request){
 
-         //Retrieve URL API
+        //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
         //Check if we have at least 2 images
         $ad = (new AdsService)->getAdsById($request->ads_id);
@@ -165,7 +165,6 @@ class AdsController extends Controller
            return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la mise a jour"]);
         }
 
-
     }
 
     public function getAds(){
@@ -190,7 +189,7 @@ class AdsController extends Controller
 
         //dd($request->membership);
         $url=(new UrlApiService())->getUrl();
-        $allAds = null;
+        $allAds = [];
 
         try{
 
@@ -199,7 +198,7 @@ class AdsController extends Controller
             $allAds = $allAds['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $allAds = null;
+             $allAds = [];
         }
 
         if($request->membership){
@@ -214,7 +213,7 @@ class AdsController extends Controller
            $allAds =  $adsByMembership;
         }
 
-        $allAds = [];
+
         $total = count($allAds);
         $per_page = 6;
         $nb_pages = ceil($total/$per_page);

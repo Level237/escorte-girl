@@ -72,6 +72,8 @@ use App\Http\Controllers\User\ReviewUserController;
 
 use App\Http\Controllers\PagesController;
 
+use App\Http\Controllers\BannerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -142,6 +144,8 @@ Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuat
 Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
 Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
 Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
+
+Route::get('/displaybanner/{id}/{path}',[BannerController::class,'displayBanner'])->name('display.banner');
 
 Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
@@ -280,6 +284,10 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::post('reports/update',[EditReportController::class,'update'])->name('reports.update');
    Route::post('reports/delete/{id}',[DeleteReportController::class,'delete'])->name('reports.delete');
    Route::get('displayreportimage/{id}/{path}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
+
+   Route::get('banners',[BannerController::class,'index'])->name('banners');
+   Route::get('banners/edit/{id}',[BannerController::class,'edit'])->name('banners.edit');
+   Route::post('banners/update',[BannerController::class,'update'])->name('banners.update');
 });
 
 

@@ -49,6 +49,23 @@
           </div>
         </div>
         <div class="container my-auto py-5">
+
+				    <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'search_result' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                  @endif
+              @endforeach
+
+          @endif
+          
+                                   
+      </div>
 				  <div class="row g-0">
 						<div class="col-12 col-xl-10 mx-auto">
 

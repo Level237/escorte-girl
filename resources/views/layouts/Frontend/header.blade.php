@@ -311,6 +311,24 @@ nav .fa{
       </div>
     </div>
 <hr>
+ <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                      <hr>
+                  @endif
+              @endforeach
+                  
+          @endif
+          
+                                   
+      </div>
+      
     <div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
   <div class="container ">
     <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>

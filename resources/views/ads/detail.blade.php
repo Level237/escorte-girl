@@ -959,7 +959,22 @@ opacity: 0.4
 			  </div>
 </div>
 
+  <div class="my-3 text-center">
+          @if (isset($banners))
+            
+              @foreach ($banners as $banner)
+                  @if($banner['position'] == 'ads_detail_bottom' && $banner['status'] == 1)
+                      <a href='javascript:void(0)' class='samplebanneronly'>
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        class='img-fluid' alt='sample banner'>
+                      </a>   
+                  @endif
+              @endforeach
 
+          @endif
+          
+                                   
+      </div>
 <div id="recommended" class="section-60 border-top pb-4 pb-sm-0 mb-4 mb-sm-0 mobile-mb-6">
 <div class="container">
   <div class="row">
