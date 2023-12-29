@@ -1,78 +1,79 @@
 <?php
 
 //Importing admin
-use App\Http\Controllers\Admin\User\ActivateUserController;
-use App\Http\Controllers\Admin\User\AddUserController;
-use App\Http\Controllers\Admin\User\ListUserController;
-use App\Http\Controllers\Admin\User\SuspendUserController;
-
-use App\Http\Controllers\Admin\Membership\ListMemberShipController;
-use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
-use App\Http\Controllers\Admin\Membership\EditMemberShipController;
-use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
-
-use App\Http\Controllers\Admin\Town\CreateTownController;
-use App\Http\Controllers\Admin\Town\EditTownController;
-use App\Http\Controllers\Admin\Town\ListTownController;
-use App\Http\Controllers\Admin\Town\DeleteTownController;
-
-use App\Http\Controllers\Admin\Quarter\CreateQuarterController;
-use App\Http\Controllers\Admin\Quarter\EditQuarterController;
-use App\Http\Controllers\Admin\Quarter\ListQuarterController;
-use App\Http\Controllers\Admin\Quarter\DeleteQuarterController;
-
-
-use App\Http\Controllers\Admin\Contact\ListContactController;
-use App\Http\Controllers\Admin\Contact\EditContactController;
-use App\Http\Controllers\Admin\Contact\DeleteContactController;
-
-use App\Http\Controllers\Admin\Report\ListReportController;
-use App\Http\Controllers\Admin\Report\EditReportController;
-use App\Http\Controllers\Admin\Report\DeleteReportController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ReportController;
+
 use App\Http\Controllers\Ads\AdsController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginViewController;
+
+use App\Http\Controllers\Ads\FilterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\User\LogoutController;
+
 use App\Http\Controllers\Ads\AdsImageController;
 use App\Http\Controllers\Escort\EscortController;
+use App\Http\Controllers\Search\SearchController;
+use App\Http\Controllers\User\ReviewUserController;
+
+
 use App\Http\Controllers\Listing\LocationController;
+use App\Http\Controllers\Escort\ChoosePlanController;
+use App\Http\Controllers\Purchase\PurchaseController;
+
 use App\Http\Controllers\ServerUnavailableController;
+use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\User\SecureAccountController;
+
+use App\Http\Controllers\Admin\Town\EditTownController;
+use App\Http\Controllers\Admin\Town\ListTownController;
+use App\Http\Controllers\Admin\User\ListUserController;
 use App\Http\Controllers\Auth\AutomaticLoginController;
 use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\User\ChangePasswordController;
+use App\Http\Controllers\Admin\Town\CreateTownController;
+use App\Http\Controllers\Admin\Town\DeleteTownController;
+use App\Http\Controllers\Purchase\PurchaseMomoController;
+use App\Http\Controllers\Admin\User\SuspendUserController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
+use App\Http\Controllers\Memberships\MemberShipController;
+use App\Http\Controllers\Admin\Report\EditReportController;
+use App\Http\Controllers\Admin\Report\ListReportController;
+use App\Http\Controllers\Admin\User\ActivateUserController;
 use App\Http\Controllers\Dashboard\DashboardAdminController;
 use App\Http\Controllers\Escort\Profile\StepFinalController;
 use App\Http\Controllers\Escort\Profile\StepThreeController;
-use App\Http\Controllers\Dashboard\DashboardEscortController;
-use App\Http\Controllers\Dashboard\DashboardCustomerController;
-use App\Http\Controllers\Escort\ChoosePlanController;
+use App\Http\Controllers\Admin\Contact\EditContactController;
+use App\Http\Controllers\Admin\Contact\ListContactController;
+use App\Http\Controllers\Admin\Quarter\EditQuarterController;
+use App\Http\Controllers\Admin\Quarter\ListQuarterController;
 
 //Importing search route
-use App\Http\Controllers\Search\SearchController;
+use App\Http\Controllers\Admin\Report\DeleteReportController;
 
 //Importing Controllers for Membership
-use App\Http\Controllers\Memberships\MemberShipController;
-use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
-use App\Http\Controllers\Purchase\PurchaseController;
-use App\Http\Controllers\Purchase\PurchaseMomoController;
+use App\Http\Controllers\Dashboard\DashboardEscortController;
+use App\Http\Controllers\Admin\Contact\DeleteContactController;
+use App\Http\Controllers\Admin\Quarter\CreateQuarterController;
+use App\Http\Controllers\Admin\Quarter\DeleteQuarterController;
 
 //Importing Contact Controller
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Dashboard\DashboardCustomerController;
 
 //Importing Denounce Controller
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\User\ReviewUserController;
+use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
+use App\Http\Controllers\Admin\Membership\EditMemberShipController;
 
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Admin\Membership\ListMemberShipController;
 
-use App\Http\Controllers\BannerController;
+use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
+use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,7 +131,7 @@ Route::middleware(['user'])->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
     });
 });
-
+Route::get('ads/list/filter',[FilterController::class,'filter'])->name('ads.filter');
 Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/list',[LocationController::class,'index'])->name('list');
 Route::get('/adstown',[AdsController::class, 'adsTown'])->name('adstown');
