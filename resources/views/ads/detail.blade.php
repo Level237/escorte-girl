@@ -238,8 +238,8 @@ opacity: 0.4
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
                                     <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 
-                                        <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
                                         </a>
                                 @endif
 
@@ -961,19 +961,19 @@ opacity: 0.4
 
   <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_detail_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                   @endif
               @endforeach
 
           @endif
-          
-                                   
+
+
       </div>
 <div id="recommended" class="section-60 border-top pb-4 pb-sm-0 mb-4 mb-sm-0 mobile-mb-6">
 <div class="container">
