@@ -75,6 +75,8 @@ use App\Http\Controllers\Admin\Membership\ListMemberShipController;
 use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 
+
+use App\Http\Controllers\User\UpdateUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -170,31 +172,31 @@ Route::middleware(['escort'])->group(function () {
 
     Route::post('init/payment',[PurchaseMomoController::class,'initPayment'])->name('initPayment');
 
-//ESCORT GROUP URL
+    Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
 
-Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
-
-
-//Memberships GROUP URL
-Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
-Route::get('/memberships',[MemberShipController::class, 'index'])->name('membership.index');
-
-//Annoucements GROUP URL
-Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
-Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
-
-Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
-Route::post('/ads/update',[AdsController::class, 'update'])->name('ads.update');
-
-Route::post('ads/delete/{id}',[AdsController::class, 'delete'])->name('ads.delete');
+    Route::post('update/user/{id}',[UpdateUserController::class,'update'])->name('user.update');
 
 
-
-Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
-
-Route::get('/mes-abonnements',[CurrentUserPurchaseController::class,'currentPurchase'])->name('my-purchase');
     //Memberships GROUP URL
-Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
+    Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
+    Route::get('/memberships',[MemberShipController::class, 'index'])->name('membership.index');
+
+    //Annoucements GROUP URL
+    Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
+    Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
+
+    Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');
+    Route::post('/ads/update',[AdsController::class, 'update'])->name('ads.update');
+
+    Route::post('ads/delete/{id}',[AdsController::class, 'delete'])->name('ads.delete');
+
+
+
+    Route::post('ads/updateimage',[AdsImageController::class, 'updateImage'])->name('update.image');
+
+    Route::get('/mes-abonnements',[CurrentUserPurchaseController::class,'currentPurchase'])->name('my-purchase');
+        //Memberships GROUP URL
+    Route::get('/memberships/{adsId}',[MemberShipController::class, 'display'])->name('membership.display');
     Route::get('/step-one',[StepOneController::class,'stepOne'])->name('step-one');
     Route::post('/step-one-store',[StepOneController::class,'stepOneStore'])->name('step-one-store');
     Route::get('/step-two',[StepTwoController::class,'stepTwo'])->name('step-two');

@@ -104,31 +104,7 @@
       </div>
     </div>
     </a>
-<a href="{{ route('db.escort.messages')}}"  ppt-list-item class="hover-bg-light  page-link-messages">
-<div class="d-flex flex-row p-md-2 py-3">
 
-  <div class="mr-3">
-
-    <div ppt-icon-24 ppt-icon-size="24">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>    </div>
-
-  </div>
-
-  <div class="w-100" ppt-flex-between>
-    <div>
-
-      <div class="text-600 mb-2">
-        Messages
-
-      </div>
-
-      <div class="opacity-5 text-400 small">
-        Ici, vous pouvez discuter avec d'autres utilisateurs en utilisant notre système de messagerie privée.      </div>
-    </div>
-
-  </div>
-</div>
-</a>
 
 <a href="{{ route('db.escort.finance')}}"  ppt-list-item class="hover-bg-light  page-link-orders">
 <div class="d-flex flex-row p-md-2 py-3">

@@ -12,6 +12,7 @@ use App\Services\Api\Escort\GetEscortService;
 use App\Services\Api\Purchase\PurchaseMembershipService;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 use App\Services\Api\Purchase\CurrentPurchaseService;
+use App\Services\Api\Location\TownService;
 
 class DashboardEscortController extends Controller
 {
@@ -41,14 +42,16 @@ class DashboardEscortController extends Controller
     }
 
     public function profil (){
+        
+        //Retrieving user
         $user = Session::get('currentUser');
+        //dd($user);
+        //Fetching list towns
+        $towns = (new TownService())->getTowns();
+                 if($towns == null)
+                return view('error');
 
-
-
-            //Retrieve the escort
-            $escort = (new GetEscortService)->getEscort();
-            return view('dashboard.escort.profil', compact('user','escort'));
-
+        return view('dashboard.escort.profil', compact('user','towns'));
 
     }
 

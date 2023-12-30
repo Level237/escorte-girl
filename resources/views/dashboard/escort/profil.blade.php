@@ -7,158 +7,65 @@
 
 <p class="mb-4">Ici, vous pouvez afficher, modifier et gérer les détails de votre profil.</p>
 
+@if ($errors->any())
+<div id="ppt-invalid-fields" >
+    <div class="container py-5 my-5">
+        <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
+            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text">
+				{{ implode('', $errors->all('<div>:message</div>')) }}
+			</span>
+        </div>
+    </div>
+</div>
+@endif
 
-<label class="text-600">Photo Profil  </label>
+<form method="post" action="{{ route('user.update', ['id' =>$user->id]) }}"  class="save_store_form" id="global-form">
 
+ @csrf
 
-<form method="post" action="" onsubmit="return ValidateStore();" class="save_store_form" >
-
-<input type="hidden" class="form-control" name="store[image]" value="" id="storeimg" />
-
+ <input type="hidden" name="id" value="{{ $user->id }}">
 <div class="row mb-4">
 
     <div class="col-md-3 mb-4 storeimage">
-
-
-<input type="hidden"
-               id="storeimage_735_aid"
-               name="admin_values[storeimage_735_aid]"
-               value=""  />
-<input
-               name="admin_values[storeimage_735]"
-               type="hidden"
-               id="storeimage_735_src"
-               value="https://es10.premiummod.com/wp-content/uploads/sites/5/2022/11/9-1-1.jpeg" />
-
-
-<div id="storeimage_735_upload" class="shadow-sm border " data-aid=""></div>
-
-
-<script>
-
-jQuery(document).ready(function(){
-setTimeout(function() {
-
-_meidaUploadFormstoreimage_735("https://es10.premiummod.com/wp-content/uploads/sites/5/2022/11/9-1-1.jpeg", );
-
-},5000);
-
-
-});
-
-
-
-function _meidaUploadFormstoreimage_735(src, aid){
-
-
-	divid = "storeimage_735_upload";
-
-	var cropper = new Slim(document.getElementById(divid), {
-
-				service: 'https://es10.premiummod.com/index.php',
-				download: false,
-				//instantEdit: true,
-				push: true,
-
-				willRemove: function(data, ready) {
-
-					// GET ATTACHMENT ID
-					thisaid  = jQuery("#"+divid).attr("data-aid");
-
-					// AJAX
-										 jQuery.ajax({
-						   type: "POST",
-						   url: 'https://es10.premiummod.com/',
-						data: {
-							slim: "delete",
-							eid: 0,
-							aid: thisaid,
-							custom:1,
-
-						   }
-					   });
-
-					    jQuery("#storeimage_735_aid").val('');
-						jQuery("#storeimage_735_src").val('');
-
-						if(jQuery('#admin_save_form').length > 0){
-						document.admin_save_form.submit();
-						}
-
-
-					   ready(data);
-				},
-
-								didUpload: function(data,t, t2) {
-
-						jQuery("#storeimage_735_aid").val(t2.aid);
-						jQuery("#storeimage_735_src").val(t2.src);
-
-				},
-
-
-				label: "<i class='fal fa-3x btn-block fa-image-polaroid opacity-5 mb-3'></i> <span class='small font-weight-bold opacity-5'>Select Photo " + "</span>",
-				buttonConfirmLabel: 'Ok',
-				meta: {
-					eid:'0',
-					aid: aid,
-
-										type: "custom",
-
-				}
-
-
-			});
-
-
-			// load in image
-			if(src != ""){
-				cropper.load(src, { blockPush:true }, function(error, data) {
-					// image load done!
-				});
-
-			}
-}
-
-
-</script>
-
     </div>
     <div class="col-md-9"></div>
 
 
     <div class="col-md-6 mb-3">
     <label class="text-600">Nom d'utilisateur <span class="text-danger">*</span></label>
-    <input type="text" class="form-control" name="store[name]" data-required="1" value="{{ ucfirst($user->username) }}" />
+    <input type="text" class="form-control" name="username" 
+	data-key="username" id="username" data-required="1" 
+	value="{{ ucfirst($user->username) }}" />
     </div>
 
     <div class="col-md-6 mb-3">
-    <label class="text-600">Email <span class="text-danger">*</span></label>
-    <input type="text" class="form-control" name="store[email]" data-type="email" data-required="1" value="{{ $user->email }}" />
+    <label class="text-600">Email <span class="text-danger"></span></label>
+    <input type="text" class="form-control" name="email" data-key="email" 
+	id="email" data-type="email"  value="{{ $user->email }}" />
     </div>
 
     <div class="col-md-6 mb-3">
-    <label class="text-600">Phone</label>
-    <input type="text" class="form-control" name="store[phone]" value="{{ $user->phone_number }}" />
+    <label class="text-600">Téléphone</label>
+    <input type="text" class="form-control" name="phone" data-key="phone" id="phone"
+	 value="{{ $user->phone_number }}" />
     </div>
 
     <div class="col-md-6 mb-3">
-    <label class="text-600">Facebook</label>
-    <input type="text" class="form-control" name="store[link]" value="#" />
+    <label class="text-600">Ville</label>
+    <select name="town" id="town" data-key="town" class="form-control">
+		@foreach ($towns as $town)
+			<option value="{{ $town['id'] }}" @if ($town['id'] == $user->town->id) selected @endif>
+				 {{ $town['town_name'] }}</option>
+		@endforeach
+	</select>
     </div>
 
 
 <div class="col-12">
 
-<label class="text-600">Description <span class="text-danger">*</span> </label>
-
-<textarea class="form-control" style="height:150px!important;" data-required="1" name="store[desc]">slot maxwin anti rungkad
-slot garansi kekalahan tanpa to</textarea>
-
 <div ppt-flex-between>
-<button type="submit" data-ppt-btn class="btn-primary mt-4">Enregistrer</button>
+<button type="button" data-ppt-btn class="btn-primary mt-4" onclick="processSubmitForm()">Enregistrer</button>
 
-<a href="#" target="_blank" class="btn-system" data-ppt-btn>Voir le Profil</a>
 </div>
 
 </div>
@@ -168,33 +75,92 @@ slot garansi kekalahan tanpa to</textarea>
 
 <script>
 
+function processSubmitForm(){
 
-function ValidateStore(){
+	canContinue = true;
 
-	result = ppt_form_validation('.save_store_form');
-	if(result == 0){
+	jQuery('#ppt-invalid-fields').hide();
 
-		return false;
-
-	}else{
+	jQuery(".form-control").removeClass('required-active');
+	jQuery(".ppt-add-listing-error").html('');
 
 
-		storimg = jQuery("#storeimage_735_src").val();
 
-		if(storimg.length > 0){
+	if(!canContinue){
+	return;
+	}
 
-			jQuery("#storeimg").val(storimg );
 
+	//Validating username
+
+	if(jQuery('#username').val() === "" || jQuery('#username').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="username"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné le nom d'utilisateur");
+			scrollTop();
+			return false;
+	}
+
+	//Validating phone number
+	//console.log("in process "+jQuery('#valide-phone-number').val());
+	if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="phone"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est incorrect");
+			scrollTop();
+			return false;
+	}
+
+
+	if(jQuery('#town').val() === "" || jQuery('#town').val() === undefined){
+			// steps('5','this');
+			jQuery('[data-key="town"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la ville");
+			scrollTop();
+			return false;
+	}
+
+
+	 // GOOGLE RECAPTURE
+
+	// MOVE ALL FORM DATA INTO PLACE
+	jQuery('#SUBMISSION_FORM').html('');
+	jQuery('.form-control').each(function(){
+
+		var attr = jQuery(this).attr('name');
+		if (typeof attr !== 'undefined' && attr !== false) {
+
+			var type = jQuery(this).attr('type');
+
+			if(  ( type == "checkbox" || type == "radio"  ) && !jQuery(this).prop("checked") ){
+
+			 //console.log(type+' skipped '+attr);
+
+			}else{
+
+			jQuery('#SUBMISSION_FORM').append('<textarea type="text" name="'+jQuery(this).attr('name')+'">'+jQuery(this).val()+'</textarea>');
+
+			}
 		}
 
-		jQuery(".storeimage").html('');
+		//jQuery(this).html().clone().appendTo(jQuery('#SUBMISSION_FORM'));
 
+	});
 
-		return true;
+	// SHOW SPINNER
+	if(canContinue){
+
+		jQuery('#ppt-add-listing-form').hide();
+		jQuery('#ppt-add-listing-save').show();
+
+		document.getElementById('global-form').submit()
 
 	}
-}
 
+}
 
 </script>
 
