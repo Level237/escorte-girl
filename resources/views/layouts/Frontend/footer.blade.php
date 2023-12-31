@@ -86,7 +86,7 @@
 
       <div class="col-md-4">
 
-        <div class="fs-5 mb-2 text-600">Rejoignez notre newsletter</div>
+        <div class="fs-5 mb-2 text-600">Rejoignez notre Communauté</div>
         <p class="opacity-8 mb-3">Nous écrivons rarement, mais seulement le meilleur contenu.</p>
 
 
@@ -133,8 +133,11 @@ function ajax_newsletter_signup58945(){
 
 
 
+<a href="https://api.whatsapp.com/send?phone=237621212343&text=Hello je viens du site viens-yamo.com" target="_blank">
 
-<button type="submit" class="btn btn-primary">S'abonner</button>
+
+
+<button type="submit" class="btn btn-primary">Rejoindre</button></a>
 
 
 

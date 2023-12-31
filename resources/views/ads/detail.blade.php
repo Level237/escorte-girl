@@ -237,16 +237,16 @@ opacity: 0.4
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                    <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium" data-ppt-btn="">
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 
-                                        <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
                                         </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium" data-ppt-btn="">
 
-                                    <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                    <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
                                 @endif
 
@@ -261,16 +261,16 @@ opacity: 0.4
                                 @endif
 
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
-                                        <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                        <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                         </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a  class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger popup-premium" data-ppt-btn="">
 
-                                    <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                    <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
                                 @endif
                             @endif
@@ -747,16 +747,16 @@ opacity: 0.4
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
 
-                                        <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
-                                        </a>
+                                    <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                    </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a  data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
 
-                                    <span><i class="fal fa-phone-alt mr-2"></i>Disponible en premium</span>
+                                    <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
                                 @endif
 
@@ -771,16 +771,16 @@ opacity: 0.4
                                 @endif
 
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
-                                        <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
-                                        </a>
+                                    <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
+                                    </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-danger btn-lg " data-ppt-btn="">
+                                <a data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
-                                    <span><i class="fab fa-whatsapp mr-2"></i>Disponible en premium</span>
+                                    <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
                                 @endif
                             @endif
@@ -961,19 +961,19 @@ opacity: 0.4
 
   <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_detail_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                   @endif
               @endforeach
 
           @endif
-          
-                                   
+
+
       </div>
 <div id="recommended" class="section-60 border-top pb-4 pb-sm-0 mb-4 mb-sm-0 mobile-mb-6">
 <div class="container">
@@ -1265,10 +1265,10 @@ opacity: 0.4
     <div class="card-2">
         <div class="card-header">
 
-        <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
-            <div style="position: absolute;right:5px;top:-6px">
-                <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
-            </div>
+            <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
+                <div style="position: absolute;right:5px;top:-6px">
+                    <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
+                </div>
         </div>
 
         <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
@@ -1288,8 +1288,41 @@ opacity: 0.4
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+            <div class="card-header">
+
+                <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
+                    <div style="position: absolute;right:5px;top:-6px">
+                        <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
+                    </div>
+            </div>
+
+            <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
+                <span>Pour entrez en possession d'un contact d'une annonce ultra vip vous devrez souscrire à un abonnement.</span>
+
+            </div>
+            <div class="card-footer">
+                <div class="d-flex align-items-center" style="justify-content:space-between">
+                    <div>
+                        <button class="btn btn-danger">Pas maintenant</button>
+                    </div>
+                    <div>
+                        <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire maintenant</button></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 <script>
-    const btn=document.getElementById("popup-premium");
+    const btn=document.querySelectorAll(".popup-premium");
     const popup=document.querySelector('.popup-card');
     const card=document.querySelector('.card-2');
     const closeBtn=document.getElementById('close');
@@ -1297,21 +1330,24 @@ opacity: 0.4
     console.log(url);
     closeBtn.addEventListener('click',()=>{
 
-        card.style.top='-500px'
+        card.style.top='-500px';
         card.style.transition="top 1s";
         popup.style.visibility="hidden";
         popup.style.transition="visibility 1s";
     })
-    btn.addEventListener('click',()=>{
-        popup.style.visibility="visible";
+    btn.forEach((b)=>{
+        b.addEventListener('click',()=>{
+            popup.style.visibility="visible";
 
-        popup.style.display='flex';
-        popup.style.alignItems='center';
-        popup.style.justifyContent='center';
-        card.style.top='0'
-        card.style.transition="top 1s";
-        popup.style.transition="all 1s ease-out;";
+            popup.style.display='flex';
+            popup.style.alignItems='center';
+            popup.style.justifyContent='center';
+            card.style.top='0'
+            card.style.transition="top 1s";
+            popup.style.transition="all 1s ease-out;";
+        })
     })
+
 </script>
 </body>
 </html>
