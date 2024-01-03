@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use App\services\Api\CurrentUserService;
 use App\Services\Api\Purchase\PurchaseMembershipService;
 use App\Services\Api\Purchase\CurrentPurchaseService;
+use App\Services\Api\Location\TownService;
 
 class DashboardCustomerController extends Controller
 {
@@ -30,8 +31,13 @@ class DashboardCustomerController extends Controller
 
     public function profil (){
 
+        //Retrieving user
         $user = Session::get('currentUser');
-        return view('dashboard.customer.profil', compact('user'));
+        //Fetching list towns
+        $towns = (new TownService())->getTowns();
+                 if($towns == null)
+                return view('error');
+        return view('dashboard.customer.profil', compact('user', 'towns'));
 
     }
 

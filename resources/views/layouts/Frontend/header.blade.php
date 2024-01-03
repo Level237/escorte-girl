@@ -253,31 +253,31 @@ nav .fa{
           Annonces</a>
         </li>
 
-         @if(!isset($user))
-            <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
-         @endif
-
     @if(isset($user))
-    @if($user->role_id==2)
-    <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
-@endif
-@if($user->role_id==1)
-    <li> <a href="{{ route('admin.dashboard') }}">Mon Tableau de bord</a> </li>
-@endif
-@if($user->role_id==3)
-    <li> <a href="{{ route('db.customer.index') }}">Mon Tableau de bord</a> </li>
-@endif
-@if(isset($user))
+            @if($user->role_id==2)
+              <li> <a href="{{ route('db.escort.index') }}">Mon Tableau de bord</a> </li>
+            @endif
+            @if($user->role_id==1)
+                <li> <a href="{{ route('admin.dashboard') }}">Mon Tableau de bord</a> </li>
+            @endif
+            @if($user->role_id==3)
+                <li> <a href="{{ route('db.customer.index') }}">Mon Tableau de bord</a> </li>
+            @endif
+        @if(isset($user))
 
-@if($user->role_id==3 && $subscribeOrNot===0)
-<li><a style="color:white;padding-top:12px;padding-bottom:12px" class="badge btn-danger" href="{{ route('upgrade-plan') }}"> Upgrade plan </a></li>
-@endif
+        @if($user->role_id==3 && $subscribeOrNot===0)
+        <li><a style="color:white;padding-top:12px;padding-bottom:12px" class="badge btn-danger" href="{{ route('upgrade-plan') }}"> Upgrade plan </a></li>
+        @endif
 
-@endif
+    @endif
     @endif
 
+     @if(!isset($user))
 
-
+      <li><a target="_blank" href="https://api.whatsapp.com/send?phone=237621212343&text=Hello j'ai besoin d'aide pour m'inscrire" >
+            Besoin d'aide pour s'inscrire?</a>
+          </li>
+      @endif
         {{-- <li><i id="popup-search" style="cursor: pointer" id="search" class="fa fa-search"></i></li> --}}
        </ul>
 
@@ -427,8 +427,9 @@ nav .fa{
             <div class=>
 
             <div class>
-                <a href="{{ route('register') }}" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
-                 class="btn-system">Besoin d'aide pour s'inscrire? cliquez ici</a>
+      <a href="https://api.whatsapp.com/send?phone=237621212343&text=Hello j'ai besoin d'aide pour m'inscrire" target="_blank" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
+                 class="btn-system">Besoin d'aide pour s'inscrire?cliquez ici </a>
+
             </div>
             <div>
 

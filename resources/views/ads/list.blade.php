@@ -3858,9 +3858,9 @@ function updatecommentfilter(g){
 
 
 
-            <div class="show-mobile">
+        <div class="show-mobile">
           <div class="position-relative mb-3">
-          <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+          <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
           <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
             <div class="h-100 position-relative">
             <figure>
@@ -3869,7 +3869,7 @@ function updatecommentfilter(g){
               <div class="buttons-wrap">
 
                 <div class="button-new"
-                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} oAns</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -3903,11 +3903,11 @@ function updatecommentfilter(g){
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+              <a href={{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
                 <span class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
+              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
                 class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
           </div>
           </div>
@@ -3928,28 +3928,63 @@ function updatecommentfilter(g){
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
         @php
-          $i = 1;
+          $i = $current_page - 1;
+          $j = $current_page + 1;
+          $k = $current_page + 1;
         @endphp
+       
          @if ($current_page != 1)
-            <li class="page-item"><a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
+            <li class="page-item">
+              <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
             <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
-        @while ($i <= $nb_pages)
-         @if ($current_page == $i)
-            <li class ="page-item active"><a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">{{ $i }}</a></li>
-         @else
-            <li class="page-item"><a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link" rel="nofollow">{{ $i }}</a></li>
-         @endif
+        
+        @while ($i  <=  $current_page)
+      
+         @if ($i > 0)
+            @if ($current_page == $i)
+              <li class ="page-item active">
+                <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">
+                  {{ $i }}</a></li>
+            @else
+                <li class="page-item">
+                  <a href="{{ route('ads.list', ['current_page' => $i]) }}"  
+                    class="page-link" rel="nofollow">{{ $i }}</a></li>
+            @endif
 
-           @php
-          $i++;
-        @endphp
+           
+         @endif
+          @php
+              $i++;
+            @endphp
+
+        @endwhile
+
+        @while ($k  <=  $j)
+      
+          @if ($k <= $nb_pages)
+              @if ($current_page == $k)
+                <li class ="page-item active">
+                  <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link bg-primary">
+                    {{ $k }}</a></li>
+              @else
+                  <li class="page-item">
+                    <a href="{{ route('ads.list', ['current_page' => $k]) }}"  
+                      class="page-link" rel="nofollow">{{ $k }}</a></li>
+              @endif
+
+            
+          @endif
+            @php
+                $k++;
+              @endphp
 
         @endwhile
 
         @if ($current_page != $nb_pages)
-            <li class="page-item"><a href="{{ route('ads.list', ['id' => $current_page+1]) }}"  class="page-link">
+            <li class="page-item">
+              <a href="{{ route('ads.list', ['current_page' => $current_page+1]) }}"  class="page-link">
             <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
@@ -4154,14 +4189,7 @@ function updatecommentfilter(g){
     }
 </script>
 
-
-
 </div>
-
-
-
-
-
 
 </div>
 

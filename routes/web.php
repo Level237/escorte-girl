@@ -91,32 +91,67 @@ use App\Http\Controllers\User\UpdateUserController;
 
 
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
-
+Route::get('/check-age',[HomepageController::class,'checkAge'])->name('check-age');
 Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
 Route::get('/cgu',[PagesController::class,'cgu'])->name('cgu');
 Route::get('/help',[PagesController::class,'help'])->name('help');
 
 
-    //SEARCH GROUP URL
-Route::get('search',[SearchController::class,'search'])->name('search');
+//Middleware check age
+Route::middleware(['checkAge'])->group(function () {
 
-Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
-Route::get('/answer/verify/change-password',[ChangePasswordController::class,'passwordView'])->name('password-view');
-Route::post('/answer/verify/change-password',[ChangePasswordController::class,'change'])->name('password-change');
-Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
-Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
-Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
+     //SEARCH GROUP URL
+    Route::get('search',[SearchController::class,'search'])->name('search');
+
+    Route::post('/answer/verify',[ChangePasswordController::class,'answerVerify'])->name('answer-verify');
+    Route::get('/answer/verify/change-password',[ChangePasswordController::class,'passwordView'])->name('password-view');
+    Route::post('/answer/verify/change-password',[ChangePasswordController::class,'change'])->name('password-change');
+    Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
+    Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
+    Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
+    
+
+    Route::post('/login',[LoginController::class,'login'])->name('login');
+    Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
+    Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable'])->name('unavailable');
+
+    //REPORT GROUP URL
+    Route::get('/report/{id}/{type}',[ReportController::class,'create'])->name('report');
+    Route::post('/report',[ReportController::class,'store'])->name('report.store');
+
+    Route::get('ads/list/filter',[FilterController::class,'filter'])->name('ads.filter');
+    Route::get('/list',[LocationController::class,'index'])->name('list');
+    Route::get('/list',[LocationController::class,'index'])->name('list');
+    Route::get('/adstown',[AdsController::class, 'adsTown'])->name('adstown');
+    Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
+    Route::get('/adsquarter/{id}',[AdsController::class, 'adsByQuarter'])->name('ads.quarter');
+    Route::get('/adscategory/{id}',[AdsController::class, 'adsByCategory'])->name('ads.category');
+    Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
+    Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
+    Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
+    Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
+    Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
+    Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
+    
+
+    Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
+
+    Route::get('/contact',[ContactController::class,'create'])->name('contact');
+    Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
+
+
+    Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('review.user')->middleware('customer');
+
+
+});
+   
+
+    Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
+    Route::get('/displaybanner/{id}/{path}',[BannerController::class,'displayBanner'])->name('display.banner');
+
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
-Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
-Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
-
-Route::post('/login',[LoginController::class,'login'])->name('login');
-Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
-Route::get('/server-notFound',[ServerUnavailableController::class,'unavailable'])->name('unavailable');
-
-//REPORT GROUP URL
-Route::get('/report/{id}/{type}',[ReportController::class,'create'])->name('report');
-Route::post('/report',[ReportController::class,'store'])->name('report.store');
+    Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
+    Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 //middleware user
 
@@ -133,27 +168,6 @@ Route::middleware(['user'])->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
     });
 });
-Route::get('ads/list/filter',[FilterController::class,'filter'])->name('ads.filter');
-Route::get('/list',[LocationController::class,'index'])->name('list');
-Route::get('/list',[LocationController::class,'index'])->name('list');
-Route::get('/adstown',[AdsController::class, 'adsTown'])->name('adstown');
-Route::get('/adstown/{id}',[AdsController::class, 'adsByTown'])->name('ads.town');
-Route::get('/adsquarter/{id}',[AdsController::class, 'adsByQuarter'])->name('ads.quarter');
-Route::get('/adscategory/{id}',[AdsController::class, 'adsByCategory'])->name('ads.category');
-Route::get('escorts/{id}',[DetailEscortController::class, 'show'])->name('escort.details');
-Route::get('displayProfil/{id}/{path}',[EscortController::class, 'displayProfil'])->name('display.profil');
-Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
-Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
-Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
-Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
-Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
-
-Route::get('/displaybanner/{id}/{path}',[BannerController::class,'displayBanner'])->name('display.banner');
-
-Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
-
-Route::get('/contact',[ContactController::class,'create'])->name('contact');
-Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 
 
 
@@ -215,11 +229,12 @@ Route::middleware(['escort'])->group(function () {
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
 });
 
-Route::post('/review/{escortId}',[ReviewUserController::class,'review'])->name('review.user')->middleware('customer');
+
 
 //Customer group route
 Route::get('/upgrade-plan',[MemberShipController::class,'showPremium'])->name('upgrade-plan')->middleware('customer');
 Route::middleware(['customer'])->prefix('customer')->group(function () {
+    Route::post('update/user/{id}',[UpdateUserController::class,'update'])->name('user.update');
     Route::get('/congratulations',[PurchaseController::class,'purchaseUserMomo'])->name('congratulations');
     Route::get('/felicitations',[PurchaseController::class,'purchaseUserCredit'])->name('congratulations-credits');
     Route::get('/payment-mobile-money',[PurchaseMomoController::class,'subscribePremium'])->name('subscribe-premium');
