@@ -101,7 +101,7 @@ class BannerService{
                              'status' => $status,
                         ]);
 
-                // dd($response->body());
+                dd($response->body());
 
                 return $response;
 

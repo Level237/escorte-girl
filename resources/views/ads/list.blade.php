@@ -3858,9 +3858,9 @@ function updatecommentfilter(g){
 
 
 
-            <div class="show-mobile">
+        <div class="show-mobile">
           <div class="position-relative mb-3">
-          <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+          <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
           <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
             <div class="h-100 position-relative">
             <figure>
@@ -3869,7 +3869,7 @@ function updatecommentfilter(g){
               <div class="buttons-wrap">
 
                 <div class="button-new"
-                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} oAns</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -3903,11 +3903,11 @@ function updatecommentfilter(g){
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+              <a href={{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
                 <span class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
+              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
                 class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
           </div>
           </div>
@@ -3928,8 +3928,8 @@ function updatecommentfilter(g){
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
         @php
-          $i = $current_page - 2;
-          $j = $current_page + 2;
+          $i = $current_page - 1;
+          $j = $current_page + 1;
           $k = $current_page + 1;
         @endphp
        
