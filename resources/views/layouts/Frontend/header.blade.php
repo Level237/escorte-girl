@@ -210,7 +210,7 @@ nav .fa{
                   <input type="text" class="form-control  customfilter typeahead shadow-sm"
                    required name="s" data-type="text"
                   data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
-                  placeholder="Rechercher.." value="" 
+                  placeholder="Rechercher.." value=""
                   style="height:36px;  padding-left: 10px; font-size: 16px;border: 1px solid rgb(204, 204, 204); border-radius: 18px; box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);">
 
 
@@ -313,22 +313,22 @@ nav .fa{
 <hr>
  <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                       <hr>
                   @endif
               @endforeach
-                  
+
           @endif
-          
-                                   
+
+
       </div>
-      
+
     <div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
   <div class="container ">
     <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>
@@ -338,8 +338,8 @@ nav .fa{
         <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
 
       @if(isset($numberAdsByTowns))
-        
-      
+
+
         @forelse ( $numberAdsByTowns as $numberAdsByTown )
 
           @if($loop->index < 3)
@@ -403,7 +403,7 @@ nav .fa{
 	 <form method="get" action="{{ route('search') }}" >
                   @csrf
 			<input type="text" class="form-control shadow-sm"
-			required name="s" data-type="text" data-type="text" 
+			required name="s" data-type="text" data-type="text"
 			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
 			placeholder="Rechercher.." value="" style="height:50px;">
 
@@ -427,8 +427,8 @@ nav .fa{
             <div class=>
 
             <div class>
-                <a href="#" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
-                 class="btn-system">Besoin d'aide pour s'inscrire? </a>
+                <a href="{{ route('register') }}" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
+                 class="btn-system">Besoin d'aide pour s'inscrire? cliquez ici</a>
             </div>
             <div>
 
@@ -443,11 +443,11 @@ nav .fa{
  <div class="show-mobile mb-3 mt-2">
   <div class="container ">
 
-        <a href="#">Le Nº1 des annonces Yamo.  </a>
+        <a href="#">Viens-Yamo le géant de l'escorte girl et boys </a>
 
     @if(isset($numberAdsByTowns))
-      
-    
+
+
 		<div class="row">
 			@forelse ( $numberAdsByTowns as $numberAdsByTown )
 
