@@ -335,7 +335,7 @@ nav .fa{
 
 
 
-        <li><a href="#">Le Nº1 des annonces Yamo.  </a></li>
+        <li><a href="#">Viens-Yamo Le géant de l'escorte girls et boys  </a></li>
 
       @if(isset($numberAdsByTowns))
 
@@ -444,7 +444,7 @@ nav .fa{
  <div class="show-mobile mb-3 mt-2">
   <div class="container ">
 
-        <a href="#">Viens-Yamo le géant de l'escorte girl et boys </a>
+        <a href="#">Viens-Yamo Le géant de l'escorte girls et boys  </a>
 
     @if(isset($numberAdsByTowns))
 
