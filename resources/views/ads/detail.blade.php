@@ -244,7 +244,7 @@ opacity: 0.4
                                 @endif
 
                                 @if(empty($user))
-                                <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium" data-ppt-btn="">
+                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
@@ -268,7 +268,7 @@ opacity: 0.4
                                 @endif
 
                                 @if(empty($user))
-                                <a  class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger popup-premium" data-ppt-btn="">
+                                <a href="{{ route('upgrade-plan') }}" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
                                     <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
@@ -724,32 +724,32 @@ opacity: 0.4
 					</div>
 
 					    <section data-ppt-blockid="text136" data-ppt-blocktype="text" data-ppt-section="" class="section-40">
-    
+
         <div class="container py-5 text-center bg-danger rounded-lg text-light">
-        
+
           <div class="row">
-          
+
             <div class="col-md-11 col-lg-11 col-xl-11 mx-auto text-center">
-              
+
               <h2 class="fs-lg mb-3" data-ppt-title="" underline_color="#000"><span class="ppt-headline">
-                Avertissement<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none"> 
+                Avertissement<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
                   <path style="stroke:#000" d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"/></svg>
-          
+
       </span></h2>
-              
+
               <p class="lead" data-ppt-subtitle="">
                 Les publications sur ce site sont faites de façon décentralisée, et automatique par toutes personnes voulant vendre ses services pour adultes.
-                En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles reponsabilités 
+                En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles reponsabilités
                 quelque soit la nature. Si vous n'êtes pas  d'accord avec certains contenus de ce site veuillez le quitter en urgence</p>
-              
+
                       <a href="http://google.com" data-ppt-btn="" class="btn-system rounded">Quitter</a>
-                      
+
             </div>
-        
+
           </div>
-      
+
         </div>
-      
+
       </section>
 					<br>
 					<div class="col-lg-5 col-xl-4 mb-4 show-mobile">
