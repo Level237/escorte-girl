@@ -54,7 +54,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
    
     <div class="col-lg-9">
     
-    	<div class="card-page card-mobile-transparent mobile-negative-margin-x">
+    	<div class="card-page card-mobile-transparent ">
     
     		<div class="card-body">
     
@@ -62,33 +62,47 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
  
              
 				                
-                <h2>Part 1</h2>
-				<p>To edit this text, simply enter your own text into the content area when editing this page.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h4 class="mt-4">Part 1.a</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h4 class="mt-4">Part 1.b</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>                
+                <h2>Bienvenue sur Viens-Yamo!</h2>
+				<p>Chez nous, la confidentialité de vos informations personnelles est une priorité.</p>
+				<p> Nous comprenons l'importance de protéger vos données et nous nous engageons à garantir
+           la sécurité et la confidentialité de toutes les informations que vous partagez avec nous.</p>
                 
 
-<hr class="mt-5">
+              <hr class="mt-5">
 
-                <h3>Part 2</h3>
-				<p>To edit this text, simply enter your own text into the content area when editing this page.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h3 class="mt-4">Part 2.a</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h3 class="mt-4">Part 2.b</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>  
-                
+                <h3>1. Collecte d'Informations</h3>
+				<p>Nous collectons des informations nécessaires pour améliorer votre expérience 
+          sur notre plateforme d’escorte. Cela inclut des données telles que votre nom, 
+          votre adresse e-mail, votre âge, vos préférences personnelles, 
+          et d'autres informations pertinentes pour vous fournir des services adaptés.</p>
+
+                <h3>2. Sécurité des Données</h3>
+				<p>Nous mettons en place des mesures de sécurité avancées pour 
+          protéger vos informations contre tout accès non autorisé, perte, modification ou divulgation. 
+          Notre équipe technique travaille constamment pour maintenir des normes élevées de 
+          sécurité informatique.</p>
+
+                <h3>3. Contrôle sur Vos Données</h3>
+				<p>Vous avez le contrôle total sur vos informations personnelles. 
+          À tout moment, vous pouvez accéder, modifier ou supprimer vos données depuis votre compte utilisateur.
+           Nous respectons votre droit à la vie privée et nous vous donnons les moyens de gérer vos préférences.
+          </p>
+                <h3>4. Communication</h3>
+				<p>Nous pouvons vous contacter par e-mail pour des informations importantes liées à votre compte ou 
+          pour vous tenir informé des mises à jour de notre service. Vous avez la possibilité de vous 
+          désinscrire de ces communications non essentielles à tout moment.</p>
+
+                <h3>5. Cookies</h3>
+				<p>Nous utilisons des cookies pour améliorer la navigation sur notre site et personnaliser votre 
+          expérience. Vous avez le choix d'accepter ou de refuser les cookies, mais veuillez noter que 
+          certaines fonctionnalités du site pourraient être limitées si vous choisissez de les désactiver.
+          En choisissant d'utiliser Viens-Yamo, vous acceptez notre politique de confidentialité. 
+          Nous nous engageons à maintenir la transparence et à respecter votre vie privée tout au 
+          long de votre parcours sur notre plateforme.
+          Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, 
+          n'hésitez pas à nous contacter. <br> 
+          Merci de faire partie de notre communauté !</p>
 				
-
 				</div>
                 
        
