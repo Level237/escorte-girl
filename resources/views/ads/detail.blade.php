@@ -682,7 +682,7 @@ opacity: 0.4
                                         <h4>Ajouter votre commentaire</h4>
                                         <form action="{{ route('review.user',$ad['id']) }}" method="post">
                                             @csrf
-                                            <div class="rating"> <input type="radio" required name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
+                                            <div class="rating"> <input type="radio"  name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
                                             <div class="comment-area"> <textarea required name="comment" class="form-control" rows="4"></textarea> </div>
                                             <div class="comment-btns mt-2">
                                             <div class="row">
