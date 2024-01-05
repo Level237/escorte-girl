@@ -33,6 +33,7 @@ use App\Http\Controllers\User\SecureAccountController;
 use App\Http\Controllers\Admin\Town\EditTownController;
 use App\Http\Controllers\Admin\Town\ListTownController;
 use App\Http\Controllers\Admin\User\ListUserController;
+use App\Http\Controllers\Admin\Escort\ListEscortController;
 use App\Http\Controllers\Auth\AutomaticLoginController;
 use App\Http\Controllers\Escort\DetailEscortController;
 use App\Http\Controllers\User\ChangePasswordController;
@@ -260,6 +261,8 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
 Route::middleware(['admin'])->prefix('admin')->group(function () {
 
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
+
+   Route::get('escorts',[ListEscortController::class,'listEscort'])->name('escorts');
    Route::get('users',[ListUserController::class,'listUser'])->name('users');
    Route::get('users/create',[AddUserController::class,'addView'])->name('users.create');
    Route::post('users/create',[AddUserController::class,'storeUser'])->name('users.create');

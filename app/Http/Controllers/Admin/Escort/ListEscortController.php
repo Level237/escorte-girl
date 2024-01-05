@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
-
+namespace App\Http\Controllers\Admin\Escort;
+use App\Services\Api\Admin\AllUserService;
 use App\Http\Controllers\Controller;
-App\Services\Api\Escort\EscortService;
 use Illuminate\Http\Request;
 
 class ListEscortController extends Controller
 {
     public function listEscort(){
 
-        $escorts = (new EscortService())->list();
-
-        return view('backend.escorts.list',compact('escorts'));
+        $escorts=(new AllUserService())->escortList();
+        if($escorts){
+             $escorts = $escorts->data;
+             return view('backend.escorts.list',compact('escorts'));
+        }
+        else
+            return view('error');
+       
     }
 
     public function userByRole(Request $request){
