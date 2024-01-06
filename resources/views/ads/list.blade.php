@@ -3786,8 +3786,7 @@ function updatecommentfilter(g){
 								  </div>
 
 						<div ppt-search-badges="" style="z-index:1" class="right">
-							<div class="badge" style="color:#FFFF;background-color:#ED5858;">
-							<span class="fal fa fa-star" style="color:#000000">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}  </div>
+							
 							@if($ad['subscribe_id'] ===1)
                             <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
 
@@ -3806,6 +3805,11 @@ function updatecommentfilter(g){
                                     <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>ULTRA VIP</div>
 
                                     @endif
+								@if($ad['user']['isVerify']== 1)
+												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+												</div>
+										@endif
 
 						</div>            </figure>
 								</div>
@@ -3820,7 +3824,7 @@ function updatecommentfilter(g){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ truncate($ad['title'],40) }}
+                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ ucfirst($ad['user']['username']) }} . {{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
 
@@ -3869,7 +3873,7 @@ function updatecommentfilter(g){
               <div class="buttons-wrap">
 
                 <div class="button-new"
-                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} oAns</div>
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
@@ -3896,6 +3900,11 @@ function updatecommentfilter(g){
                             <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
                         @endif
 
+					@if($ad['user']['isVerify']== 1)
+												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+												</div>
+										@endif
                   </div>
               </figure>
               </div>

@@ -465,11 +465,21 @@ opacity: 0.4
 												</span>
 											</div>
 											&nbsp;&nbsp;&nbsp;
+											
 											  <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
 													<div class="badge_tooltip__initiator">
 												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
 													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
 												</div>
+												&nbsp;&nbsp;&nbsp;
+												
+												@if($ad['user']['isVerify']== 1)
+											
+														<div class="badge" style="color:#FBFBFB;background-color:#2BA346; padding:10px">
+																<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+														</div>
+														
+												@endif
 
 											&nbsp;&nbsp;&nbsp;
 											<div class=" d-inline-flex cursor">
@@ -568,6 +578,8 @@ opacity: 0.4
 							<div class="flex" style="display: flex">
 
 
+
+						
 						<div class="_badge " style="color:#000000;background-color:#FFC300;">
 
 

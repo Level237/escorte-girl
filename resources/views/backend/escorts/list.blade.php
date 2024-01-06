@@ -38,7 +38,7 @@ Listes des escorts
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-xl-8">
-                                    <form method="get" action="{{ route('user-by-role') }}" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                                    <form method="get" action="#" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                                         <div class="col-auto">
                                             <label for="inputPassword2" class="visually-hidden">Search</label>
 
@@ -49,13 +49,8 @@ Listes des escorts
 
 
                                                 <select name="role_id" class="form-select" id="status-select">
-                                                    <option selected>Filtrer par role...</option>
-                                                    @foreach ($roles as $role)
-                                                    @foreach ($role as $r)
-                                                    <option value="{{ $r->id }}">{{ $r->role_name }}</option>
-                                                    @endforeach
-
-                                                    @endforeach
+                                                    <option selected>Rechercher par username...</option>
+                                                  
 
 
 
@@ -85,16 +80,16 @@ Listes des escorts
                                             </th>
                                             <th>ID</th>
                                             <th>Username</th>
-                                            <th>Email</th>
+                                            <th>Ville</th>
                                             <th>Numéro de Téléphone</th>
-                                            <th>Role</th>
+                                            <th>Vérifié</th>
                                             <th style="width: 125px;">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $user)
+                                        @foreach ($escorts as $escort)
 
-                                        @forelse ($user as $u)
+                                        
                                         <tr>
                                             <td>
                                                 <div class="form-check">
@@ -102,30 +97,31 @@ Listes des escorts
                                                     <label class="form-check-label" for="customCheck2">&nbsp;</label>
                                                 </div>
                                             </td>
-                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">{{ $u->id }}</a> </td>
+                                            <td><a href="apps-ecommerce-orders-details.html" class="text-body fw-bold">{{ $escort->id }}</a> </td>
                                             <td>
-                                                {{ $u->username }}</small>
+                                                {{ ucfirst($escort->username) }}</small>
                                             </td>
                                             <td>
-                                                <h5>{{ $u->email ?? "Aucun" }} </h5>
+                                                <h5>{{ $escort->town->town_name }} </h5>
                                             </td>
                                             <td>
-                                               {{ $u->phone_number }}
+                                               {{ $escort->phone_number }}
                                             </td>
                                             <td>
-                                                {{ $u->role->role_name }}
+                                            
+                                                 <input type="checkbox" id="isVerify" name="isVerify" @if($escort->isVerify) checked @endif data-switch="success"/>
+                                                 <label for="status" data-on-label="Oui" data-off-label="Non"></label></div>
                                             </td>
 
                                             <td>
 
-                                                <a href="{{ route('suspend-user',$u->id) }}" style="cursor: pointer" class="action-icon"> <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Suspendre le compte" class="ri-user-unfollow-fill"></i></a>
+                                                <a href="{{ route('suspend-user',$escort->id) }}" style="cursor: pointer" class="action-icon"> <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Suspendre le compte" class="ri-escort-unfollow-fill"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
                                                 <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                                             </td>
                                         </tr>
-                                        @empty
 
-                                        @endforelse
+                                        
 
                                         @endforeach
 
