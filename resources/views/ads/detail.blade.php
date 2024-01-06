@@ -677,13 +677,24 @@ opacity: 0.4
                             <div class="card ">
 
                                 <div class="flex justify-center align-items-center" style="display: flex;flex-direction:row;justify-content:space-between">
-                                    <div style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
+                                    <div class="hide-mobile" style="width: 100px;"><img src="{{ asset('assets/images/user (1).png') }}" width="50" class="rounded-circle mt-2"> </div>
                                     <div style="flex: 1" class="comment-box ml-2">
-                                        <h4>Ajouter votre commentaire</h4>
+                                        <h4>Noter cette annonce</h4> <br>
                                         <form action="{{ route('review.user',$ad['id']) }}" method="post">
                                             @csrf
-                                            <div class="rating"> <input type="radio"  name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> </div>
-                                            <div class="comment-area"> <textarea required name="comment" class="form-control" rows="4"></textarea> </div>
+											 <label for="stars">Choississez le nombre d'etoile</label>  <br>
+                                            <div class="rating"> 
+												<input type="radio"  name="rating" value="5" id="5"><label for="5">☆</label> 
+												<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
+												<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
+												<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
+												<input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> 
+												
+											</div>
+											<br>
+										
+											
+                                            <div class="comment-area"> <textarea placeholder="Ajouter un commentaire" required name="comment" class="form-control" rows="4"></textarea> </div>
                                             <div class="comment-btns mt-2">
                                             <div class="row">
                                             <div class="col-6">
