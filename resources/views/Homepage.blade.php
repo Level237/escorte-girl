@@ -585,7 +585,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                         </div>
 
                 </div>
-                @if($i+1<=count($goldAds))
+                @if($i+1<count($goldAds))
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
 
                     <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
