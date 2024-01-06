@@ -233,18 +233,18 @@ opacity: 0.4
                                 @if(isset($user) && $subscribeOrNot===1)
                                     <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-                                        <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                        <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium" data-ppt-btn="">
+                                    <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 
                                         </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
+                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
@@ -261,7 +261,7 @@ opacity: 0.4
                                 @endif
 
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a id="popup-premium" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                    <a data-toggle="modal" data-target="#staticBackdrop" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
                                         <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                         </a>
@@ -278,7 +278,7 @@ opacity: 0.4
                             @if($ad['subscribe_id']!==3)
                                 <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-                                    <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                    <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                     </a>
                             @endif
 
@@ -778,24 +778,23 @@ opacity: 0.4
 								</div>
 						<div class="ppt-single-button-box">
 
-
 							@if($ad['subscribe_id']===3)
 
                                 @if(isset($user) && $subscribeOrNot===1)
                                     <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-                                        <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                        <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
+                                <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a  data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-ppt-btn="">
+                                <a class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
@@ -812,14 +811,14 @@ opacity: 0.4
                                 @endif
 
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                <a data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                <a data-toggle="modal" data-target="#staticBackdrop" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
                                     <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a data-toggle="modal" data-target="#exampleModal1" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
+                                <a data-toggle="modal" data-target="#staticBackdrop" class=" btn-block btn-lg list mb-3 btn-whatsapp mobile-buynow-trigger" data-ppt-btn="">
 
                                     <span><i class="fab fa-whatsapp mr-2"></i> <span>WhatsApp Moi !</span>
                                     </a>
@@ -829,7 +828,7 @@ opacity: 0.4
                             @if($ad['subscribe_id']!==3)
                                 <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-                                    <span class="_number" style="display:none;">+237 {{ $ad['user']['phone_number'] }} </span>
+                                    <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                     </a>
                             @endif
 
@@ -1302,33 +1301,73 @@ opacity: 0.4
     </div>
   </div>
 </div>
+
 <div class="popup-card">
     <div class="card-2">
         <div class="card-header">
 
-            <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
+            <h4 class="text-center">Fonctionnalité disponible pour membre VIP</h4>
                 <div style="position: absolute;right:5px;top:-6px">
                     <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
                 </div>
         </div>
 
         <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
-            <span>Pour entrez en possession d'un contact d'une annonce ultra vip vous devrez souscrire à un abonnement.</span>
+            <span>Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
 
         </div>
         <div class="card-footer">
             <div class="d-flex align-items-center justify-content-between">
                 <div>
-                    <button class="btn btn-danger">Pas maintenant</button>
+                    <button class="btn btn-danger">Aller aux escortes Gold et Premium</button>
                 </div>
                 <div>
-                    <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire maintenant</button></a>
+                    <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire Maintenant</button></a>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Fonctionnalité VIP</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium
+      </div>
+      <div class="modal-footer">
+	    <a href="{{ route('upgrade-plan') }}"> <button type="button" class="btn btn-primary">Souscrire Maintenant</button></a>
+        <a href="{{ route('ads.list') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="memberOnly" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="memberOnlyLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="memberOnlyLabel">Membre seulement</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Cette fonctionnalité est disponible uniquement pour les membres.Vous êtes escort.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -1336,23 +1375,23 @@ opacity: 0.4
         <div class="modal-body">
             <div class="card-header">
 
-                <h4 class="text-center">Cette Fonctionnalité est disponible en version premium</h4>
+                <h4 class="text-center">Fonctionnalité disponible pour membre VIP</h4>
                     <div style="position: absolute;right:5px;top:-6px">
                         <i id="close" style="width: 12px;cursor: pointer;" class="fa fa-window-close"></i>
                     </div>
             </div>
 
             <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
-                <span>Pour entrez en possession d'un contact d'une annonce ultra vip vous devrez souscrire à un abonnement.</span>
+                <span>Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
 
             </div>
             <div class="card-footer">
                 <div class="d-flex align-items-center" style="justify-content:space-between">
                     <div>
-                        <button class="btn btn-danger">Pas maintenant</button>
+                        <button class="btn btn-danger">Aller aux escortes Gold et Premium</button>
                     </div>
                     <div>
-                        <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire maintenant</button></a>
+                        <a href="{{ route('upgrade-plan') }}"> <button class="btn btn-primary">Souscrire Maintenant</button></a>
 
                     </div>
                 </div>
@@ -1363,31 +1402,31 @@ opacity: 0.4
     </div>
   </div>
 <script>
-    const btn=document.querySelectorAll(".popup-premium");
-    const popup=document.querySelector('.popup-card');
-    const card=document.querySelector('.card-2');
-    const closeBtn=document.getElementById('close');
-    const url=window.location.hostname;
-    console.log(url);
-    closeBtn.addEventListener('click',()=>{
+    // const btn=document.querySelectorAll(".popup-premium");
+    // const popup=document.querySelector('.popup-card');
+    // const card=document.querySelector('.card-2');
+    // const closeBtn=document.getElementById('close');
+    // const url=window.location.hostname;
+    // console.log(url);
+    // closeBtn.addEventListener('click',()=>{
 
-        card.style.top='-500px';
-        card.style.transition="top 1s";
-        popup.style.visibility="hidden";
-        popup.style.transition="visibility 1s";
-    })
-    btn.forEach((b)=>{
-        b.addEventListener('click',()=>{
-            popup.style.visibility="visible";
+    //     card.style.top='-500px';
+    //     card.style.transition="top 1s";
+    //     popup.style.visibility="hidden";
+    //     popup.style.transition="visibility 1s";
+    // })
+    // btn.forEach((b)=>{
+    //     b.addEventListener('click',()=>{
+    //         popup.style.visibility="visible";
 
-            popup.style.display='flex';
-            popup.style.alignItems='center';
-            popup.style.justifyContent='center';
-            card.style.top='0'
-            card.style.transition="top 1s";
-            popup.style.transition="all 1s ease-out;";
-        })
-    })
+    //         popup.style.display='flex';
+    //         popup.style.alignItems='center';
+    //         popup.style.justifyContent='center';
+    //         card.style.top='0'
+    //         card.style.transition="top 1s";
+    //         popup.style.transition="all 1s ease-out;";
+    //     })
+    // })
 
 </script>
 </body>
