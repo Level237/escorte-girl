@@ -76,7 +76,7 @@ use App\Http\Controllers\Admin\Membership\ListMemberShipController;
 use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 
-
+use App\Http\Controllers\Admin\Escort\VerifyEscortController;
 use App\Http\Controllers\User\UpdateUserController;
 /*
 |--------------------------------------------------------------------------
@@ -309,6 +309,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('banners',[BannerController::class,'index'])->name('banners');
    Route::get('banners/edit/{id}',[BannerController::class,'edit'])->name('banners.edit');
    Route::post('banners/update',[BannerController::class,'update'])->name('banners.update');
+
+   //Verify Escort
+   Route::post('escort/verify/{id}',[VerifyEscortController::class,'verify'])->name('verify');
 });
 
 

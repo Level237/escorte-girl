@@ -109,8 +109,15 @@ Listes des escorts
                                             </td>
                                             <td>
                                             
-                                                 <input type="checkbox" id="isVerify" name="isVerify" @if($escort->isVerify) checked @endif data-switch="success"/>
-                                                 <label for="status" data-on-label="Oui" data-off-label="Non"></label></div>
+                                                 <form method="POST" action="{{ route('verify', ['id' => $escort->id ]) }}" 
+                                                    id="verify{{ $escort->id }}">
+                                                       
+                                                        @csrf
+                                                 
+                                                 <input type="checkbox" id="isVerify{{ $escort->id }}" name="isVerify{{ $escort->id }}" @if($escort->isVerify) checked @endif data-switch="success"
+                                                 onclick="event.preventDefault(); document.getElementById('verify{{ $escort->id }}').submit();"/>
+                                                 <label for="isVerify{{ $escort->id }}" data-on-label="Oui" data-off-label="Non"></label></div>
+                                                 </form>
                                             </td>
 
                                             <td>
