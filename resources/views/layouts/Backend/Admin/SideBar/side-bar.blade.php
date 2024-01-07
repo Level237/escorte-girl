@@ -101,11 +101,9 @@
                 <div class="collapse" id="sidebarEmail">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="apps-email-inbox.html">Listes</a>
+                            <a href="{{ route('escorts') }}">Listes</a>
                         </li>
-                        <li>
-                            <a href="apps-email-read.html">Ajouter une escorte</a>
-                        </li>
+                      
                     </ul>
                 </div>
             </li>

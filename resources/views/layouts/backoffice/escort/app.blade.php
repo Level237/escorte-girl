@@ -249,7 +249,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script>
 
 
-
+    jQuery(document).ready(function(){
+						 jQuery('#_account_menuitems').("show");
+						});
 
 function AccountMenuToggle(){
 
