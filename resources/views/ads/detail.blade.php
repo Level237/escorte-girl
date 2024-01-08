@@ -8,7 +8,7 @@
     <title> {{ ucfirst($ad['title']) }}</title>
 
 <meta property="og:url"                content="{{ url()->current() }}" />
-<meta property="og:type"               content="site web" />
+
 <meta property="og:title"              content="{{ $ad['title'] }}" />
 <meta property="og:description"        content="{{$ad['description']}}" />
 <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
@@ -465,20 +465,20 @@ opacity: 0.4
 												</span>
 											</div>
 											&nbsp;&nbsp;&nbsp;
-											
+
 											  <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
 													<div class="badge_tooltip__initiator">
 												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
 													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
 												</div>
 												&nbsp;&nbsp;&nbsp;
-												
+
 												@if($ad['user']['isVerify']== 1)
-											
+
 														<div class="badge" style="color:#FBFBFB;background-color:#2BA346; padding:10px">
-																<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+																<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 														</div>
-														
+
 												@endif
 
 											&nbsp;&nbsp;&nbsp;
@@ -579,7 +579,7 @@ opacity: 0.4
 
 
 
-						
+
 						<div class="_badge " style="color:#000000;background-color:#FFC300;">
 
 
@@ -683,17 +683,17 @@ opacity: 0.4
                                         <form action="{{ route('review.user',$ad['id']) }}" method="post">
                                             @csrf
 											 <label for="stars">Choississez le nombre d'etoile</label>  <br>
-                                            <div class="rating"> 
-												<input type="radio"  name="rating" value="5" id="5"><label for="5">☆</label> 
-												<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> 
-												<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> 
-												<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> 
-												<input type="radio" name="rating" value="1" id="1"><label for="1">☆</label> 
-												
+                                            <div class="rating">
+												<input type="radio"  name="rating" value="5" id="5"><label for="5">☆</label>
+												<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+												<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+												<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+												<input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+
 											</div>
 											<br>
-										
-											
+
+
                                             <div class="comment-area"> <textarea placeholder="Ajouter un commentaire" required name="comment" class="form-control" rows="4"></textarea> </div>
                                             <div class="comment-btns mt-2">
                                             <div class="row">
@@ -1355,7 +1355,7 @@ opacity: 0.4
       <div class="modal-footer">
 	    <a href="{{ route('upgrade-plan') }}"> <button type="button" class="btn btn-primary">Souscrire Maintenant</button></a>
         <a href="{{ route('ads.list') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
-        
+
       </div>
     </div>
   </div>

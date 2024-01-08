@@ -41,7 +41,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   top: -5px;
   right: 105%;
   border-radius: 6px;
- 
+
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
@@ -65,7 +65,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       cursor: pointer;
       opacity: 0.8;
       position: fixed;
-      bottom: 23px;
+      bottom: 80px;
       right: 28px;
       width: 280px;
       z-index: 99;
