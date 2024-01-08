@@ -135,7 +135,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     <li class="" id="container-towns">
 
 
-        <select id='towns' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        <select id='town' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             <option >Ville</option>
             @foreach ($towns as $town)
                 <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
@@ -160,9 +160,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
             <li class="" id="container-quarters">
 
-                <select id="quarter" data-key="quarter" name="quarter"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    <option> Choisissez un Quartier</option>
-                    </select>
+                <div class="col-md-12 mobile-mb-2" style="display: none" id='quarterList'>
+                    <label>Quartier <span class="text-danger">*</span> </label>
+
+                    <div class="form-group position-relative" id='selectList'>
+                        <select class="form-control" name="quarter" id="quarter" data-key="quarter">
+                            <option value="">Sélectionner le quartier</option>
+
+
+                        </select>
+
+                      </div>
+
+                    </div>
 
 
                 </li>
@@ -3786,7 +3796,7 @@ function updatecommentfilter(g){
 								  </div>
 
 						<div ppt-search-badges="" style="z-index:1" class="right">
-							
+
 							@if($ad['subscribe_id'] ===1)
                             <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
 
@@ -3807,7 +3817,7 @@ function updatecommentfilter(g){
                                     @endif
 								@if($ad['user']['isVerify']== 1)
 												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 												</div>
 										@endif
 
@@ -3902,7 +3912,7 @@ function updatecommentfilter(g){
 
 					@if($ad['user']['isVerify']== 1)
 												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
-														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  
+														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 												</div>
 										@endif
                   </div>
@@ -3941,16 +3951,16 @@ function updatecommentfilter(g){
           $j = $current_page + 1;
           $k = $current_page + 1;
         @endphp
-       
+
          @if ($current_page != 1)
             <li class="page-item">
               <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
             <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
-        
+
         @while ($i  <=  $current_page)
-      
+
          @if ($i > 0)
             @if ($current_page == $i)
               <li class ="page-item active">
@@ -3958,11 +3968,11 @@ function updatecommentfilter(g){
                   {{ $i }}</a></li>
             @else
                 <li class="page-item">
-                  <a href="{{ route('ads.list', ['current_page' => $i]) }}"  
+                  <a href="{{ route('ads.list', ['current_page' => $i]) }}"
                     class="page-link" rel="nofollow">{{ $i }}</a></li>
             @endif
 
-           
+
          @endif
           @php
               $i++;
@@ -3971,7 +3981,7 @@ function updatecommentfilter(g){
         @endwhile
 
         @while ($k  <=  $j)
-      
+
           @if ($k <= $nb_pages)
               @if ($current_page == $k)
                 <li class ="page-item active">
@@ -3979,11 +3989,11 @@ function updatecommentfilter(g){
                     {{ $k }}</a></li>
               @else
                   <li class="page-item">
-                    <a href="{{ route('ads.list', ['current_page' => $k]) }}"  
+                    <a href="{{ route('ads.list', ['current_page' => $k]) }}"
                       class="page-link" rel="nofollow">{{ $k }}</a></li>
               @endif
 
-            
+
           @endif
             @php
                 $k++;
