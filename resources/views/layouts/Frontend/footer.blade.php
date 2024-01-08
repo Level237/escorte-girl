@@ -90,62 +90,11 @@
         <p class="opacity-8 mb-3">Nous écrivons rarement, mais seulement le meilleur contenu.</p>
 
 
-
-
-<script>
-
-function ajax_newsletter_signup58945(){
-
-    jQuery.ajax({
-        type: "POST",
-        url: 'http://escort.test/',
-		dataType: 'json',
-		data: {
-            action: "newsletter_join",
-			email: jQuery('#ppt_newsletter_mailme58945').val(),
-        },
-        success: function(r) {
-
-			if(r.status == "ok"){
-				jQuery('#newsletterthankyou58945').show();
-				jQuery('#mailinglist-form58945').html('');
-			}else{
-				jQuery('#mailinglist-form58945').html("Invalid Email Address");
-			}
-
-        },
-        error: function(e) {
-            //console.log(e)
-        }
-    });
-
-}
-</script>
-
-<div id="newsletterthankyou58945" style="display:none" class="newsletter-confirmation txt">
-	<div class="h4">Email confirmation sent.</div>
-	<p>Please check your email for a confirmation email.</p>
-	<p class="small">Only once you've confirmed your email will you be subscribed to our newsletter.</p>
-</div>
-
-
-
-
-
-
 <a href="https://api.whatsapp.com/send?phone=237621212343&text=Hello je viens du site viens-yamo.com" target="_blank">
 
 
 
 <button type="submit" class="btn btn-primary">Rejoindre</button></a>
-
-
-
-
-
-
-
-
 
  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -176,32 +125,6 @@ function ajax_newsletter_signup58945(){
     </div>
   </div>
 </div>
-<script>
-		function IsEmailMailinglist58945(){
-		var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-			var de4 	= document.getElementById("ppt_newsletter_mailme58945");
-
-			if(de4.value == ''){
-			alert("Please enter your email.");
-			de4.style.border = 'thin solid red';
-			de4.focus();
-			return false;
-			}
-			if( !pattern.test( de4.value ) ) {
-			alert("Invalid Email Address");
-			de4.style.border = 'thin solid blue';
-			de4.focus();
-			return false;
-			}
-			ajax_newsletter_signup58945();
-
-		  	return false;
-		}
- </script>
-
-
-
-
         <div class="small opacity-8 mt-4">
           Nous ne partagerons jamais vos coordonnées. <a class="opacity-8" href="#"></a>
         </div>
