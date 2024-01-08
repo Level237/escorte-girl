@@ -11,19 +11,12 @@ use Illuminate\Http\Request;
 
 class UpdateUserController extends Controller
 {
-    public function update(UpdateUserRequest $request){
-        
-        $request->validated();
-        $user['username'] = $request->username;
-        $user['town'] = $request->town;
-        $user['phone'] = $request->phone;
-        $user = (new UpdateUserService)->update($user);
+    public function update(Request $request){
+
+
+        $user = (new UpdateUserService)->update($request);
         //dd(json_decode($user));
-        if(Session::has('currentUser')){
-            Session::forget('currentUser');
-        }
-        Session::put('currentUser', json_decode($user));
-        Session::save();
+
        return back();
     }
 }

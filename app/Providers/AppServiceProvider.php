@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
             $subscribeOrNot=$userBalance->isSubscribe ?? null;
-            $view->with('user', Session::get('currentUser') );
+            $view->with('user', $userBalance );
             $view->with('userBalance', $balance );
             $view->with('subscribeOrNot', $subscribeOrNot );
             //Retrieving banners

@@ -110,7 +110,7 @@ Route::middleware(['checkAge'])->group(function () {
     Route::get('/check-number/answer-question',[ChangePasswordController::class,'answerView'])->name('answerView')->middleware('preventBack');
     Route::get('/check-number',[ChangePasswordController::class,'checkNumber'])->name('check-number')->middleware('preventBack');
     Route::post('/check-number',[ChangePasswordController::class,'verify'])->name('number-verify')->middleware('preventBack');
-    
+
 
     Route::post('/login',[LoginController::class,'login'])->name('login');
     Route::get('/loginAuto',[AutomaticLoginController::class,'login'])->name('loginAuto');
@@ -133,7 +133,7 @@ Route::middleware(['checkAge'])->group(function () {
     Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
     Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
     Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
-    
+
 
     Route::post('ads/image',[AdsImageController::class, 'images'])->name('ads.image');
 
@@ -145,7 +145,7 @@ Route::middleware(['checkAge'])->group(function () {
 
 
 });
-   
+
 
     Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
     Route::get('/displaybanner/{id}/{path}',[BannerController::class,'displayBanner'])->name('display.banner');
@@ -157,6 +157,7 @@ Route::middleware(['checkAge'])->group(function () {
 //middleware user
 
 Route::middleware(['user'])->group(function () {
+    Route::post('update/user/{id}',[UpdateUserController::class,'update'])->name('user.update');
     Route::get('payment/fail',[PurchaseController::class,'purchaseFail'])->name('congrats-fail');
     Route::get("/secure-account/confirm",[SecureAccountController::class,'confirm'])->name('confirm');
     Route::post("/answer",[SecureAccountController::class,'answer'])->name('answer');
@@ -189,7 +190,7 @@ Route::middleware(['escort'])->group(function () {
 
     Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
 
-    Route::post('update/user/{id}',[UpdateUserController::class,'update'])->name('user.update');
+
 
 
     //Memberships GROUP URL
@@ -235,7 +236,7 @@ Route::middleware(['escort'])->group(function () {
 //Customer group route
 Route::get('/upgrade-plan',[MemberShipController::class,'showPremium'])->name('upgrade-plan')->middleware('customer');
 Route::middleware(['customer'])->prefix('customer')->group(function () {
-    Route::post('update/user/{id}',[UpdateUserController::class,'update'])->name('user.update');
+
     Route::get('/congratulations',[PurchaseController::class,'purchaseUserMomo'])->name('congratulations');
     Route::get('/felicitations',[PurchaseController::class,'purchaseUserCredit'])->name('congratulations-credits');
     Route::get('/payment-mobile-money',[PurchaseMomoController::class,'subscribePremium'])->name('subscribe-premium');
