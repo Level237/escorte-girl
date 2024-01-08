@@ -62,7 +62,7 @@
                 <li><a href="{{ route('cgu') }}">CGU</a></li>
                 <li><a href="{{ route('help') }}">Aide</a></li>
                 <li><a href="{{ route('privacy') }}">Vie Privée</a></li>
-                <li><a href="{{ route('contact') }}">Nous Ecrire</a></li>
+                <li><a href="{{ route('contact') }}">Contactez-nous</a></li>
 
 
                 </ul>
