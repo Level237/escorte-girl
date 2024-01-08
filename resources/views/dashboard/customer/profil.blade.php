@@ -19,59 +19,59 @@
 </div>
 @endif
 
-<form method="post" action="{{ route('user.update', ['id' =>$user->id]) }}"  class="save_store_form" id="global-form">
+<form method="post" action="{{ route('user.update',$user->id) }}"  class="save_store_form" id="global-form">
 
- @csrf
+    @csrf
 
- <input type="hidden" name="id" value="{{ $user->id }}">
-<div class="row mb-4">
+    <input type="hidden" name="id" value="{{ $user->id }}">
+   <div class="row mb-4">
 
-    <div class="col-md-3 mb-4 storeimage">
-    </div>
-    <div class="col-md-9"></div>
-
-
-    <div class="col-md-6 mb-3">
-    <label class="text-600">Nom d'utilisateur <span class="text-danger">*</span></label>
-    <input type="text" class="form-control" name="username" 
-	data-key="username" id="username" data-required="1" 
-	value="{{ ucfirst($user->username) }}" />
-    </div>
-
-    <div class="col-md-6 mb-3">
-    <label class="text-600">Email <span class="text-danger"></span></label>
-    <input type="text" class="form-control" name="email" data-key="email" 
-	id="email" data-type="email"  value="{{ $user->email }}" />
-    </div>
-
-    <div class="col-md-6 mb-3">
-    <label class="text-600">Téléphone</label>
-    <input type="text" class="form-control" name="phone" data-key="phone" id="phone"
-	 value="{{ $user->phone_number }}" />
-    </div>
-
-    <div class="col-md-6 mb-3">
-    <label class="text-600">Ville</label>
-    <select name="town" id="town" data-key="town" class="form-control">
-		@foreach ($towns as $town)
-			<option value="{{ $town['id'] }}" @if ($town['id'] == $user->town->id) selected @endif>
-				 {{ $town['town_name'] }}</option>
-		@endforeach
-	</select>
-    </div>
+       <div class="col-md-3 mb-4 storeimage">
+       </div>
+       <div class="col-md-9"></div>
 
 
-<div class="col-12">
+       <div class="col-md-6 mb-3">
+       <label class="text-600">Nom d'utilisateur <span class="text-danger">*</span></label>
+       <input type="text" class="form-control" name="username"
+       data-key="username" id="username" data-required="1"
+       value="{{ ucfirst($user->username) }}" />
+       </div>
 
-<div ppt-flex-between>
-<button type="button" data-ppt-btn class="btn-primary mt-4" onclick="processSubmitForm()">Enregistrer</button>
+       <div class="col-md-6 mb-3">
+       <label class="text-600">Email <span class="text-danger"></span></label>
+       <input type="text" class="form-control" name="email" data-key="email"
+       id="email" data-type="email"  value="{{ $user->email }}" />
+       </div>
 
-</div>
+       <div class="col-md-6 mb-3">
+       <label class="text-600">Téléphone</label>
+       <input type="text" class="form-control" name="phone_number" data-key="phone" id="phone"
+        value="{{ $user->phone_number }}" />
+       </div>
 
-</div>
+       <div class="col-md-6 mb-3">
+       <label class="text-600">Ville</label>
+       <select name="town_id" id="town" data-key="town" class="form-control">
+           @foreach ($towns as $town)
+               <option value="{{ $town['id'] }}" @if ($town['id'] == $user->town->id) selected @endif>
+                    {{ $town['town_name'] }}</option>
+           @endforeach
+       </select>
+       </div>
 
-</div>
-</form>
+
+   <div class="col-12">
+
+   <div ppt-flex-between>
+   <button type="button" data-ppt-btn class="btn-primary mt-4" onclick="processSubmitForm()">Enregistrer</button>
+
+   </div>
+
+   </div>
+
+   </div>
+   </form>
 
 <script>
 
