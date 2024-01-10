@@ -32,4 +32,27 @@ class FaqService{
 
         return $response;
     }
+
+    public function show($id){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->get($url."/api/v1/faqs/".$id);
+        $data=json_decode($response);
+
+        return $data;
+    }
+
+    public function update($id,$question,$answer){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->put($url."/api/v1/faqs/".$id,[
+            'questions'=>$question,
+            'answer'=>$answer
+        ]);
+        $data=json_decode($response);
+
+        return $response;
+    }
 }

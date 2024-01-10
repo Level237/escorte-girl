@@ -49,7 +49,9 @@ class FaqController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $faq=(new FaqService())->show($id);
+
+        return view('backend.faq.edit',compact('faq'));
     }
 
     /**
@@ -57,7 +59,10 @@ class FaqController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $faq=(new FaqService())->update($id,$request->questions,$request->answer);
+
+        //return $faq;
+        return to_route('faqs.index')->with('success'," Faq mise a jour avec success");
     }
 
     /**
