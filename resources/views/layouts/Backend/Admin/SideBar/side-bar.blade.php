@@ -103,7 +103,7 @@
                         <li>
                             <a href="{{ route('escorts') }}">Listes</a>
                         </li>
-                      
+
                     </ul>
                 </div>
             </li>
@@ -197,7 +197,7 @@
 
 
 			<li class="side-nav-title">Messages</li>
-			
+
 			  <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts4" aria-expanded="false" aria-controls="sidebarLayouts4" class="side-nav-link">
                     <i class="uil-map-marker"></i>
@@ -224,7 +224,7 @@
                         <li>
                             <a href="{{ route('reports') }}" >Listes</a>
                         </li>
-                    
+
                     </ul>
                 </div>
             </li>
@@ -255,20 +255,22 @@
                 </a>
             </li>
 
+            <li class="side-nav-title">Faq</li>
+            <li class="side-nav-item">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships') }}">
+                    <i class="uil-box"></i>
+                    <span> Sections Faq </span>
 
-
-
-            <!-- Help Box -->
-            <div class="help-box text-white text-center">
-                <a href="javascript: void(0);" class="float-end close-btn text-white">
-                    <i class="mdi mdi-close"></i>
                 </a>
-                <img src="assets/images/svg/help-icon.svg" height="90" alt="Helper Icon Image" />
-                <h5 class="mt-3">Unlimited Access</h5>
-                <p class="mb-3">Upgrade to plan to get access to unlimited reports</p>
-                <a href="javascript: void(0);" class="btn btn-secondary btn-sm">Upgrade</a>
-            </div>
-            <!-- end Help Box -->
+            </li>
+            <li class="side-nav-item">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships.create') }}" >
+                    <i class="uil-box"></i>
+                    <span>Creer une Faq</span>
+
+                </a>
+            </li>
+
 
 
         </ul>
