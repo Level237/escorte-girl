@@ -122,18 +122,7 @@
 
   <form action="{{ route('ads.filter') }}" method="get">
     @csrf
-    <li class="" id="container-towns">
 
-
-        <select id='town' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-            <option >Ville</option>
-            @foreach ($towns as $town)
-                <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
-            @endforeach
-
-            </select>
-
-        </li>
 
         <li class="">
 
@@ -148,24 +137,7 @@
 
             </li>
 
-            <li class="" id="container-quarters">
 
-                <div class="col-md-12 mobile-mb-2" style="display: none" id='quarterList'>
-                    <label>Quartier <span class="text-danger">*</span> </label>
-
-                    <div class="form-group position-relative" id='selectList'>
-                        <select class="form-control" name="quarter" id="quarter" data-key="quarter">
-                            <option value="">Sélectionner le quartier</option>
-
-
-                        </select>
-
-                      </div>
-
-                    </div>
-
-
-                </li>
 
                 <li class="">
 
@@ -192,6 +164,36 @@
                         </select>
 
                     </li>
+                    <li class="" id="container-towns">
+
+
+                        <select id='town' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            <option >Ville</option>
+                            @foreach ($towns as $town)
+                                <option value="{{ $town->id }}" @selected($town->id==$town->id)>{{ $town->town_name }}</option>
+                            @endforeach
+
+                            </select>
+
+                        </li>
+                        <li class="" id="container-quarters">
+
+                            <div class="col-md-12 mobile-mb-2" style="display: none" id='quarterList'>
+                                <label>Quartier <span class="text-danger">*</span> </label>
+
+                                <div class="form-group position-relative" id='selectList'>
+                                    <select class="form-control" name="quarter" id="quarter" data-key="quarter">
+                                        <option value="">Sélectionner le quartier</option>
+
+
+                                    </select>
+
+                                  </div>
+
+                                </div>
+
+
+                            </li>
                     <button class="btn btn-primary">Filtrer</button>
   </form>
 
