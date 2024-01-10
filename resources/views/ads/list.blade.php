@@ -209,113 +209,6 @@
 <div id="search-toggle-bar">
 <div class="mb-4 d-md-flex justify-content-md-between  mt-4">
 
-
-<div class="d-flex hide-mobile hide-ipad filterToggle">
-<div class="d-flex mr-4">
-
-<span class="toggle-me toggle-featured-wrap " onclick="filterToggle('featured');">
-
-
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
-        <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
-        <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
-        </svg></span>
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" data-icon="toggle-on" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-on">
-        <path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zm0 320c-70.8 0-128-57.3-128-128 0-70.8 57.3-128 128-128 70.8 0 128 57.3 128 128 0 70.8-57.3 128-128 128z" class="text-success"></path>
-        </svg></span>
-
-
-
-
-
-      <span>VIP</span>
-      </div>
-
-
-     <input type="hidden" class="toggle-featured" data-type="text" data-key="featured" value="1" >
-
-    <div class="d-flex mr-4">
-
-<span class="toggle-me toggle-verified-wrap " onclick="filterToggle('verified');">
-
-
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
-        <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
-        <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
-        </svg></span>
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" data-icon="toggle-on" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-on">
-        <path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zm0 320c-70.8 0-128-57.3-128-128 0-70.8 57.3-128 128-128 70.8 0 128 57.3 128 128 0 70.8-57.3 128-128 128z" class="text-success"></path>
-        </svg></span>
-
-
-
-
-
-      <span>Verifié</span>
-      </div>
-
-
-     <input type="hidden" class="toggle-verified" data-type="text" data-key="verified" value="1" >
-
-    <div class="d-flex mr-4">
-
-<span class="toggle-me toggle-hasvideo-wrap " onclick="filterToggle('hasvideo');">
-
-
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-off">
-        <g class="fa-group"><path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zM192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class=""></path>
-        <path fill="currentColor" d="M192 384a128 128 0 1 1 128-128 127.93 127.93 0 0 1-128 128z" class="text-light"></path></g>
-        </svg></span>
-<span ppt-icon-24 data-ppt-icon-size="24"><svg aria-hidden="true" data-icon="toggle-on" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="toggle-on">
-        <path fill="currentColor" d="M384 64H192C86 64 0 150 0 256s86 192 192 192h192c106 0 192-86 192-192S490 64 384 64zm0 320c-70.8 0-128-57.3-128-128 0-70.8 57.3-128 128-128 70.8 0 128 57.3 128 128 0 70.8-57.3 128-128 128z" class="text-success"></path>
-        </svg></span>
-
-
-
-
-
-      <span>Video</span>
-      </div>
-
-
-     <input type="hidden" class="toggle-hasvideo" data-type="text" data-key="hasvideo" value="1" >
-
-    <div class="d-flex mr-4">
-
-<span class="toggle-me toggle-favs-wrap " onclick="filterToggle('favs');">
-
-
-
-<span ppt-icon-24 data-ppt-icon-size="24" class="mr-2 mt-n1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg></span>
-
-
-
-
-      <span>Favoris</span>
-      </div>
-
-
-     <input type="hidden" class="toggle-favs" data-type="text" data-key="favs" value="1" >
-
-    <div class="d-flex mr-4">
-
-<span class="toggle-me toggle-morefilters-wrap " onclick="filterToggle('morefilters');">
-
-
-
-<span ppt-icon-24 data-ppt-icon-size="24"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" /></svg></span>
-
-
-
-
-      <span>Autres Filtres</span>
-      </div>
-
-
-
-
-
-</div>
 <script>
 function filterToggle(val){
 
@@ -423,21 +316,9 @@ function filterToggle(val){
 
 
       <div class="col-md-12 col-lg-3">
-<aside class="sidebar-search hide-mobile hide-ipad">
 
-                            <div class="mb-4 d-none d-md-block">
-                            <a href="javascript:void(0)" class="samplebanneronly">
-                              <img src="https://premiummod.com/demoimages/img.php?bannerid=search_sidebar_top&amp;t=es&amp;ct=chocolate1" class="img-fluid" alt="sample banner"></a>                            </div>
-							<div ppt-box="" class="rounded ppt-forms style3 card-sidebar-filters">
-
-<div class="_content pt-2">
-
-
-</div>
-
-</aside>
  </div>
- <div class="col-md-12 col-lg-9">
+ <div class="col-md-12 col-lg-12">
 @if ($ads)
 <section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
   <div class="container">
@@ -526,9 +407,8 @@ function filterToggle(val){
 
 
 								<div style="min-height:60px;">
-								  <span class="shortcode_excerpt">{{ truncate($ad['description'],226) }} </span>
+								  <span class="shortcode_excerpt">{{ truncate($ad['description'],400) }} </span>
 								</div>
-
 										<div>
 								<a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
                   style="background-color: #DA9DDC;" class="btn-secondary">Voir l'annonce</a>
