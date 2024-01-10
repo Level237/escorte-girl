@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Api\Admin\FaqService;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -12,7 +13,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        return view('backend.faq.index');
+        $faqs=(new FaqService())->index();
+        return view('backend.faq.index',compact('faqs'));
     }
 
     /**
@@ -28,7 +30,10 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $faq=(new FaqService())->store($request->questions,$request->answer);
+
+        //return $faq;
+        return to_route('faqs.index')->with('success',"nouveau Faq créer avec success");
     }
 
     /**

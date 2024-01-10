@@ -20,13 +20,16 @@ class FaqService{
         return $data;
     }
 
-    public function store(){
+    public function store($question,$answer){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->post($url."/api/v1/faqs");
+        $response=Http::withToken($token)->post($url."/api/v1/faqs",[
+            'questions'=>$question,
+            'answer'=>$answer
+        ]);
         $data=json_decode($response);
 
-        return $data;
+        return $response;
     }
 }

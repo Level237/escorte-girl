@@ -257,14 +257,14 @@
 
             <li class="side-nav-title">Faq</li>
             <li class="side-nav-item">
-                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships') }}">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('faqs.index') }}">
                     <i class="uil-box"></i>
                     <span> Sections Faq </span>
 
                 </a>
             </li>
             <li class="side-nav-item">
-                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('memberships.create') }}" >
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route("faqs.create") }}" >
                     <i class="uil-box"></i>
                     <span>Creer une Faq</span>
 
