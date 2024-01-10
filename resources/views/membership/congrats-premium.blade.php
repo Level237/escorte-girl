@@ -33,8 +33,7 @@ Félicitations
                   <p class="margin-top3">Si vous avez des questions, contactez nous.</p>
 
 
-
-                                                <div><a href="{{ route('db.customer.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Dashboard</a></div>
+              <div><a href="{{ route('db.customer.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Dashboard</a></div>
 
 
 
