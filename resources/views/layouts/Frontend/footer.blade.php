@@ -1,4 +1,4 @@
-<section data-ppt-blockid="footer1" data-ppt-blocktype="footer" data-ppt-section="">
+<section data-ppt-blockid="footer1" style="background:#000000!important;" data-ppt-blocktype="footer" data-ppt-section="">
 <div class="bg-primary footer-txt-light">
 <div class="container">
 
@@ -34,8 +34,8 @@
 
 </div>
 </div>
-
-<div class="footer-txt-dark" style="background:!important;">
+En utilisant le site vous acceptez que le propriétaire du site soit décliné de toutes éventuelles reponsabilités quelque soit la nature.
+<div class="footer-txt-light" style="background:#000000!important;">
 
 
 
@@ -136,7 +136,7 @@
 
 </div>
 
-<div class=" py-3 footer-txt-dark">
+<div class=" py-3 footer-txt-light"  style="background:#000000!important;">
 <div class="container">
 
 
@@ -146,7 +146,7 @@
 </div>
   <div class="col-md-6">
     <div class="copyright opacity-8 lh-30" data-ppt-copyright="">
-      &copy; 2023  All rights reserved.
+      &copy; 2024  All rights reserved.
     </div>
   </div>
   <div class="col-md-6 text-right d-none d-md-block">
