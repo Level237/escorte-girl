@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Services\Api\Admin;
+
+use Exception;
+use App\Services\Api\UrlApiService;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
+
+
+class FaqService{
+
+    public function index(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->get($url."/api/v1/faqs");
+        $data=json_decode($response);
+
+        return $data;
+    }
+
+    public function store(){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->post($url."/api/v1/faqs");
+        $data=json_decode($response);
+
+        return $data;
+    }
+}
