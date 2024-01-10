@@ -34,6 +34,12 @@ Faqs
                         {{ Session::get('success') }}
                     </div>
                     @endif
+
+                    @if(Session::has('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ Session::get('error') }}
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
@@ -75,7 +81,17 @@ Faqs
 
 
                                                 <a href="{{ route('faqs.edit',$faq->id) }}" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+
+                                                <form method="POST" action="{{ route('faqs.destroy',$faq->id) }}" onsubmit="return confirm('Are you sure?')">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="" class="action-icon"> </a>
+                                                    <a href="javascript:void(0);"> </a>
+                                                    <button type="submit" style="background:transparent;
+                                                    border:transparent; display:flex; align-items:center;justify-content: space-between;" class="action-icon"><i class="mdi mdi-delete"></i></button>
+
+                                                </form>
+
                                             </td>
                                         </tr>
                                         @empty

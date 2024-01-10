@@ -70,6 +70,8 @@ class FaqController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $faq=(new FaqService())->delete($id);
+
+        return back()->with('error',"faq suprimé avec success");
     }
 }

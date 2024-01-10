@@ -55,4 +55,14 @@ class FaqService{
 
         return $response;
     }
+
+    public function delete($id){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+
+        $response=Http::withToken($token)->delete($url."/api/v1/faqs/".$id);
+        $data=json_decode($response);
+
+        return $response;
+    }
 }
