@@ -65,4 +65,14 @@ class FaqService{
 
         return $response;
     }
+
+    public function list(){
+        $url=(new UrlApiService())->getUrl();
+
+
+        $response=Http::get($url."/api/faqs");
+        $data=json_decode($response);
+
+        return $data;
+    }
 }

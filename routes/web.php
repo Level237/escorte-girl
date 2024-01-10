@@ -97,7 +97,7 @@ Route::get('/check-age',[HomepageController::class,'checkAge'])->name('check-age
 Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
 Route::get('/cgu',[PagesController::class,'cgu'])->name('cgu');
 Route::get('/help',[PagesController::class,'help'])->name('help');
-
+Route::get('/faq',[PagesController::class,'faq'])->name('faq');
 
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
