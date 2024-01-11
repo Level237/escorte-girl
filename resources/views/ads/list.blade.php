@@ -40,57 +40,90 @@
  <section class="section-40 bg-light mt-1">
 
   <div class="container main-container">
+	
+	 <div class="my-3" id="search-tax-top">
+				<div class="row">
 
+					<div class="col-md-6 text-600">
+					
+						  
+					 Annonces sponsorisées
+					 
+						 
+					<em class="text-500 ajax-search-found-wrap" style=""> 
+					
+					
+					<span class="ajax-search-found">{{ count($allAds) }}</span> results 
+					
+				  
+					
+					</em>
+				 
+						 
+					</div>
+					
+				</div>
+			</div>
+
+  @if (count($allAds))
+    
+
+	<div class="card-sponsored p-3 mb-4 rounded  overflow-hidden" style="overflow-x: visible; display:none;" ppt-border1>
+
+
+		<div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
+          
+      @foreach ($allAds as $allAd)
+        @if ($allAd['subscribe_id'] == 0)
+          @continue
+        @endif
+        <div class="item">
+
+
+          <div class="badge_tooltip" data-direction="top">
+            <div class="badge_tooltip__initiator"> 
+            <a href="{{ route('ads.details', ['username' => $allAd['user']['username'],'slug'=>$allAd['slug']]) }}" class="text-dark">
+            
+          <div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
+            <div class="bg-image" 
+            data-bg="{{ route('display.ads.image',['id'=>$allAd['id'], 'path'=>$allAd['images'][0]['path']] )}}">
+            
+            </div>
+          </div>
+            
+            </a>
+            </div>
+            <div class="badge_tooltip__item text-center">
+              {{ ucfirst($allAd['user']['username']) }}
+           <div class='small opacity-5'>{{ $allAd['age'] }} - {{ ucfirst($allAd['town']['town_name']) }}</div>    </div>
+            </div>
+
+          </div>
+        @endforeach
+		
+		
+
+		</div>
+	</div>
+
+    @endif
+
+
+	
     <div class="row">
 
 
       <div class="col">
 
         <div class="row px-0">
+		
+		   <div class="col-12">
 
+            <div class="my-3" id="search-tax-top">
+			
           <div class="col-12">
 
-            <div class="my-3 hide-mobile" id="search-tax-top">
-<div class="row">
-
-    <div class="col-md-6 text-600">
-
-
-
-
-
-    <em class="text-500 ajax-search-found-wrap" style="display:none;">
-
-
-    <span class="ajax-search-found"></span> Résultats
-
-
-
-    </em>
-
-
-	</div>
-	<div class="col-md-6 text-right text-600">
-
-
-    <div class="sponsored-text cursor text-right" style="display:none" onclick="processSponsored(0);">
-
-        <span>
-		<div class="d-inline-flex">
-		<span class="mr-2">Profils Sponsorisés</span>
-
-        <div ppt-icon-16 data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
-        </div>
-         </span>
-
-
-    </div>
-
-
-    </div>
-
-</div>
-</div>
+          
 
 
 
@@ -198,7 +231,7 @@
 </div>
 <div id="currentFilters" style="cursor:pointer;"></div>
 
-
+ 
 
 <div id="search-toggle-bar">
 <div class="mb-4 d-md-flex justify-content-md-between  mt-4">
@@ -314,6 +347,7 @@ function filterToggle(val){
 
  </div>
  <div class="col-md-12 col-lg-12">
+
 @if ($ads)
 <section data-ppt-blockid="listings100" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
   <div class="container">
@@ -323,8 +357,33 @@ function filterToggle(val){
 		</div>
 		<div class="col-12">
 			<div class='row'>
+			 <div class="my-3" id="search-tax-top">
+				
 
-				@forelse ($ads as $ad)
+					<div class="col-md-12 text-600">
+					
+						  
+					 Explorer <span class="ajax-search-found">{{ count($allAds) }}</span> annonces
+					 
+						 
+					<em class="text-500 ajax-search-found-wrap" style=""> 
+					
+					
+					<span class="ajax-search-found">{{ count($allAds) }}</span> results 
+					
+				  
+					
+					</em>
+				 
+						 
+					</div>
+					
+				
+				</div>
+        @if (count($ads))
+          
+				
+				@foreach ($ads as $ad)
 
 					 <div class="col-6 col-sm-12 col-lg-12 listview">
 						  <div class="hide-mobile mb-4" data-pid="165">
@@ -482,15 +541,15 @@ function filterToggle(val){
 
 						</div>
 
-				@empty
-					<div  id="noresults" style="">
-						<div class="p-4 py-5 text-center font-weight-bold">
-						 <i class="fal fa-frown fa-8x mb-4 text-light"></i>
-							   <div class="py-2">No Results Found</div>
-						  <a href="#" class="btn btn-primary btn-md text-light mx-auto" style="max-width:200px;">Reset Filters</a>
-							  </div>
-					</div>
-				@endforelse
+			
+				@endforeach
+          
+					
+        @endif
+  
+  @if (count($ads))
+  
+  
   <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3">
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
@@ -502,7 +561,14 @@ function filterToggle(val){
 
          @if ($current_page != 1)
             <li class="page-item">
-              <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
+              @if (isset($townAds))
+                 <a href="{{ route('ads.town', ['id' => $townAds, 'current_page' => $current_page-1]) }}"  class="page-link">
+              @elseif (isset($quarter))
+                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link">
+              @else
+                 <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
+              @endif
+             
             <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
@@ -512,12 +578,30 @@ function filterToggle(val){
          @if ($i > 0)
             @if ($current_page == $i)
               <li class ="page-item active">
-                <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">
-                  {{ $i }}</a></li>
+                @if (isset($townAds))
+                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"  class="page-link bg-primary">
+                  {{ $i }}</a>
+               @elseif (isset($quarter))
+                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link">
+              @else
+                   <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">
+                  {{ $i }}</a>
+                 @endif
+                </li>
             @else
                 <li class="page-item">
-                  <a href="{{ route('ads.list', ['current_page' => $i]) }}"
-                    class="page-link" rel="nofollow">{{ $i }}</a></li>
+                    @if (isset($townAds))
+                            <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"
+                        class="page-link" rel="nofollow">{{ $i }}</a>
+                    @elseif (isset($quarter))
+                             <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $i]) }}"
+                        class="page-link" rel="nofollow">{{ $i }}</a>
+                    @else
+                      <a href="{{ route('ads.list', ['current_page' => $i]) }}"
+                        class="page-link" rel="nofollow">{{ $i }}</a>
+                       @endif
+                  
+                  </li>
             @endif
 
 
@@ -533,12 +617,30 @@ function filterToggle(val){
           @if ($k <= $nb_pages)
               @if ($current_page == $k)
                 <li class ="page-item active">
-                  <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link bg-primary">
-                    {{ $k }}</a></li>
+                   @if (isset($townAds))
+                     <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $k]) }}"  class="page-link bg-primary">
+                    {{ $k }}</a>
+                   @elseif (isset($quarter))
+                     <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $k]) }}"  class="page-link bg-primary">
+                    {{ $k }}</a>
+                  @else
+                     <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link bg-primary">
+                    {{ $k }}</a>
+                   @endif
+                 </li>
               @else
                   <li class="page-item">
-                    <a href="{{ route('ads.list', ['current_page' => $k]) }}"
-                      class="page-link" rel="nofollow">{{ $k }}</a></li>
+                     @if (isset($townAds))
+                       <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $k]) }}"
+                      class="page-link" rel="nofollow">{{ $k }}</a>
+                     @elseif (isset($quarter))
+                         <a href="{{ route('ads.quarter', ['id' => $quarter, 'current_page' => $k]) }}"
+                      class="page-link" rel="nofollow">{{ $k }}</a>
+                    @else
+                           <a href="{{ route('ads.list', ['current_page' => $k]) }}"
+                      class="page-link" rel="nofollow">{{ $k }}</a>
+                     @endif
+                    </li>
               @endif
 
 
@@ -551,14 +653,28 @@ function filterToggle(val){
 
         @if ($current_page != $nb_pages)
             <li class="page-item">
-              <a href="{{ route('ads.list', ['current_page' => $current_page+1]) }}"  class="page-link">
-            <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
-		        </a></li>
+               @if (isset($townAds))
+                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $current_page+1]) }}"  class="page-link">
+                  <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+		            </a>
+               @elseif (isset($quarter))
+                  <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page+1]) }}"  class="page-link">
+                  <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+                  </a>
+                @else
+
+                  <a href="{{ route('ads.list', ['current_page' => $current_page+1]) }}"  class="page-link">
+                  <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+                  </a>
+               @endif
+              
+          </li>
         @endif
 
 
     </ul></div>
   </div>
+   @endif
 			</div>
 				  </div>
 </div>

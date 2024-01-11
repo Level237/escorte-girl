@@ -241,6 +241,7 @@ class AdsController extends Controller
 
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
+        $towns=(new ListTownService())->list()->data;
 
         try{
             $id=$request->id;
@@ -267,13 +268,15 @@ class AdsController extends Controller
         ]);
 
         //dd($allAds);
-
-        return  view('ads.by-town', compact('ads','id', 'allAds', 'current_page', 'nb_pages'));
+        $townAds = $request->id;
+        //dd($town);
+        return  view('ads.list', compact('ads','id', 'allAds', 'current_page', 'nb_pages','towns', 'townAds'));
     }
 
     public function adsByQuarter(Request $request){
 
         $url=(new UrlApiService())->getUrl();
+        $towns=(new ListTownService())->list()->data;
         $allAds = [];
 
         try{
@@ -302,8 +305,9 @@ class AdsController extends Controller
         ]);
 
         //dd($allAds);
-
-        return  view('ads.by-town', compact('ads','id', 'allAds', 'current_page', 'nb_pages'));
+         $quarter = $request->id;
+            //dd($quarter);
+        return  view('ads.list', compact('ads','id', 'allAds', 'current_page', 'nb_pages','towns','quarter'));
     }
 
     public function adsByCategory(Request $request){
