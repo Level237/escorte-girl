@@ -77,6 +77,7 @@ use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
 use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 
 use App\Http\Controllers\Admin\Escort\VerifyEscortController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\User\UpdateUserController;
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +97,7 @@ Route::get('/check-age',[HomepageController::class,'checkAge'])->name('check-age
 Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
 Route::get('/cgu',[PagesController::class,'cgu'])->name('cgu');
 Route::get('/help',[PagesController::class,'help'])->name('help');
-
+Route::get('/faq',[PagesController::class,'faq'])->name('faq');
 
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
@@ -262,7 +263,7 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
 Route::middleware(['admin'])->prefix('admin')->group(function () {
 
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
-
+    Route::resource('faqs',FaqController::class);
    Route::get('escorts',[ListEscortController::class,'listEscort'])->name('escorts');
    Route::get('users',[ListUserController::class,'listUser'])->name('users');
    Route::get('users/create',[AddUserController::class,'addView'])->name('users.create');

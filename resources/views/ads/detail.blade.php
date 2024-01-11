@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> {{ ucfirst($ad['title']) }}</title>
 
-<meta property="og:url" content="{{ url()->current() }}" />
-
-<meta property="og:title" content="{{ $ad['title'] }}" />
-<meta property="og:description"  content="{{$ad['description']}}" />
-<meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    <meta property="og:url" content="http://escort.test/listing/adrianna/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Adrianna">
+    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. P">
+    <meta property="og:image" content="https://premiummod.com/demoimages/img.php?imgid=10&t=es">
+    <meta property="og:image:width" content="700">
+    <meta property="og:image:height" content="700">
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 	<style id='classic-theme-styles-inline-css' type='text/css'>

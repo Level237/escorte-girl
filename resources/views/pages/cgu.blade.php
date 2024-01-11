@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> CGU</title>
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -22,8 +22,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
 <script src="{{ asset('assets/wp-includes/js/jquery/jquery.min.js?ver=3.7.0') }}" id="jquery-core-js"></script>
- 
-    
+
+
 </head>
 <body class="page-template page-template-templates page-template-tpl-page-privacy page-template-templatestpl-page-privacy-php page page-id-15 body-hide-footer theme-es tall-images innerpage">
 
@@ -37,31 +37,31 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 @include('layouts.Frontend.header')
 
  <nav class="page-breadcrumbs border-bottom">
- 
+
 <div class="container py-4">
- 
+
 <h1 class="text-center text-sm-left h3 mb-0 pb-0">Conditions Générales D'Utilisations</h1>
- 
+
 </div>
- 
+
 </nav>
 <div class="bg-light ppt-page-body">
 
 <div class="container pt-4 ">
 
 <div class="row d-md-flex flex-row">
-	
-   
+
+
     <div class="col-lg-9">
-    
+
     	<div class="card-page card-mobile-transparent mobile-negative-margin-x">
-    
+
     		<div class="card-body">
-    
- 
- 
-             
-				                
+
+
+
+
+
                 <h2>Part 1</h2>
 				<p>To edit this text, simply enter your own text into the content area when editing this page.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
@@ -71,8 +71,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
                 <h4 class="mt-4">Part 1.b</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>                
-                
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+
 
 <hr class="mt-5">
 
@@ -85,54 +85,54 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
                 <h3 class="mt-4">Part 2.b</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>  
-                
-				
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+
+
 
 				</div>
-                
-       
-                
-                
+
+
+
+
 			</div>
     	</div>
-        
-  
-        
-        
+
+
+
+
 	</div>
 
 
 </div>
 </div></main>
-</div> 
+</div>
 
 @include('layouts.Frontend.footer')
- 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;"> </div>
 
 <!-- PREMIUMPRESS THEMES V.10.8.9 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "http://escort.test/index.php";  
-				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "http://escort.test/index.php";
+				var ajax_framework_url = "http://escort.test/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value=",">
 				<input type="hidden" id="ppt-current-dec" value=".">
 				<input type="hidden" id="ppt-current-symbol" value="<i class='fab fa-bitcoin'>&nbsp;</i>">
 				<input type="hidden" id="ppt-current-position" value="left">
-                <input type="hidden" id="ppt-map-provider" value="mapbox"> 
-               
+                <input type="hidden" id="ppt-map-provider" value="mapbox">
+
                                   <script async="" src="{{ asset('assets/js/js.custom.js?v=10.8.9') }}" id="premiumpress-js"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="{{ asset('assets/css/_bootstrap.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="{{ asset('assets/css/css.theme-fonts.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="{{ asset('assets/css/css.theme-elementor.css?v=10.8.9') }}">
@@ -141,15 +141,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="{{ asset('assets/css/css.premiumpress.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                
-     
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
+
+
 				<script>
 				var loadDeferredStyles = function() {
 						var addStylesNode = document.getElementById("deferred-styles");
@@ -162,7 +162,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
              jQuery(document).ready(function() {
              jQuery('body,html').animate({
               scrollTop: 0
@@ -191,7 +191,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
     </div>
   </div>
 </div>
- 
+
 </div>
 
 <div id="ppt-notice-new-notifications" style="display:none;">
@@ -222,12 +222,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
       </div>
     </div>
   </div>
-</div>  
+</div>
 </div>
 
 <div id="ppt-notice-new-message" style="display:none;">
 
- 
+
 <div class="bg-white p-3 rounded shadow" style="max-width:400px;">
           <div class="d-flex">
             <div>
@@ -237,14 +237,14 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             </div>
             <div class="fs-5">
               <strong class="_username">Mark</strong> Has sent you a message, take a look!            </div>
-          </div> 
-        
-        <div class="d-flex w-100 mt-4"> 
+          </div>
+
+        <div class="d-flex w-100 mt-4">
           <button class="_ok w-100 btn-primary btn-close" data-ppt-btn="">Read</button>
-          <button class="_cancel w-100 btn-system btn-close" data-ppt-btn="">Cancel</button> 
+          <button class="_cancel w-100 btn-system btn-close" data-ppt-btn="">Cancel</button>
         </div>
       </div>
-</div> 
+</div>
 
 
 <div id="ppt-notice-new-login" style="display:none;">
@@ -260,12 +260,12 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <div class="_msg_login"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged in. Say hello!</a></div>
             <div class="_msg_logout"><a href="#" class="_link"><strong class="_username">Mark</strong> Has just logged of. Say Goodbye.</a></div>
            <div class="_msg_upgrade"><a href="#" class="_link"><strong class="_username">Mark</strong> Has has just upgraded their account.</a></div>
-           
-            
+
+
           </div>
-        </div> 
+        </div>
 </div>
- 
+
 
 
 

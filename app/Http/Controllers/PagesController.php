@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Api\Admin\FaqService;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -16,5 +17,10 @@ class PagesController extends Controller
 
     public function help(){
         return view('pages.help');
+    }
+
+    public function faq(){
+        $faqs=(new FaqService())->list();
+        return view('pages.faq',compact('faqs'));
     }
 }
