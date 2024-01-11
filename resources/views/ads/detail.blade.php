@@ -450,7 +450,8 @@ opacity: 0.4
 
 											<div class=" d-inline-flex cursor">
 												<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>
-												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+												data-button="0">
 
 													<span>{{ $ad['age'] }} Ans</span>
 
@@ -459,33 +460,55 @@ opacity: 0.4
 												</span>
 											</div>
 											&nbsp;&nbsp;&nbsp;
-
-											  <div class="badge_tooltip text-center" data-direction="top" style="display: flex;align-items:center">
-													<div class="badge_tooltip__initiator">
-												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
-													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
-												</div>
-												&nbsp;&nbsp;&nbsp;
-
-												@if($ad['user']['isVerify']== 1)
-
-														<div class="badge" style="color:#FBFBFB;background-color:#2BA346; padding:10px">
-																<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
-														</div>
-
-												@endif
-
-											&nbsp;&nbsp;&nbsp;
 											<div class=" d-inline-flex cursor">
+												@if($ad['subscribe_id'] != 0)
+													<div class="mr-2"><i class="fal fa-shield mr-2 text-primary"></i></div> 
+												@endif
+												<span>
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+												data-button="0">
 
-												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" data-button="0">
+													<span>
 
-
+														@if($ad['subscribe_id'] ===1)
+																PREMIUM
+														@endif
+														@if($ad['subscribe_id'] ===2)
+																GOLD
+														@endif
+														@if($ad['subscribe_id'] ===3)
+															ULTRA VIP
+														@endif
+													</span>
 
 												</div>
 
 												</span>
 											</div>
+											&nbsp;&nbsp;&nbsp;
+											@if($ad['user']['isVerify']== 1)
+												<div class=" d-inline-flex cursor">
+													<div class="mr-2"><i class="fal fa-check-circle mr-2 text-primary"></i></div> <span>
+													<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+													data-button="0">
+
+														<span>Vérifié</span>
+
+													</div>
+
+													</span>
+												</div>
+											@endif
+											
+											&nbsp;&nbsp;&nbsp;
+											  <div 
+											  style="display: flex;align-items:center">
+													<div class="badge_tooltip__initiator">
+												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
+													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
+												</div>
+												&nbsp;&nbsp;&nbsp;
+											
 
 							    </div>
 							  <br>
@@ -1026,7 +1049,7 @@ opacity: 0.4
 
     <div class="col-12">
 
-<div class="mb-5 text-700">Autres Annonces</div>
+<div class="mb-5 text-700">Annonces Similaires</div>
 
 
 <div class='row'>
@@ -1034,13 +1057,18 @@ opacity: 0.4
   @php
 	shuffle($ads);
 				@endphp
-	@forelse($ads as $ad)
-	  	@if ($loop->index == 6)
+	@forelse($ads as $ad1)
+	  	@if ($loop->index == 12)
 						@break
 					@endif
+	    @if ($ad['id'] == $ad1['id'])
+			@continue;
+		@endif
+
   <div class="col-6 col-sm-6 col-md-4 col-lg-4">
 
-    	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
+    	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" 
+		data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
 		  <figure>
 
@@ -1050,10 +1078,10 @@ opacity: 0.4
 
 
 
-		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} Ans</div>
+		<div class="button-new" style="background-color: #DA9DDC">{{ $ad1['age'] }} Ans</div>
 
 		</div>
-		  <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+		  <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}">
 
 		  <div ppt-border1="" class="p-1">
 
@@ -1062,27 +1090,27 @@ opacity: 0.4
 			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
 			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 				<div class="text-white fs-4 text-600">
-				 {{ ucfirst($ad['user']['username']) }}
+				 {{ ucfirst($ad1['user']['username']) }}
 							<span class="text-online">•</span>
 						  </div>
 				<div class="fs-sm text-white opacity-5 text-400">
-				  {{ ucfirst($ad['town']['town_name']) }}  
+				  {{ ucfirst($ad1['town']['town_name']) }}  
 				</div>
 			  </div>
-			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['path']] )}}">
 				 
 			  </div>
 
 		<div ppt-search-badges="" style="z-index:1" class="right">
-			@if($ad['subscribe_id'] ===1)
+			@if($ad1['subscribe_id'] ===1)
 								<div class="badge" style="color:#000000;background-color:#FFC300;">
 								<span class="fal fa fa-star" style="color:#000000"> </span> PREMIUM </div>
                             @endif
-			@if($ad['subscribe_id'] ===2)
+			@if($ad1['subscribe_id'] ===2)
 								<div class="badge" style="color:#000000;background-color:#FFC300;">
 								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
                             @endif
-                            @if($ad['subscribe_id'] ===3)
+                            @if($ad1['subscribe_id'] ===3)
                             <div class="badge" style="color:#000000;background-color:#FFC300;">
                             <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
                         @endif
@@ -1096,8 +1124,9 @@ opacity: 0.4
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
 
-				  <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">
-            {{ truncate($ad['title'],40) }}
+				  <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}" 
+					class="text-dark _adtitle">
+            {{ truncate($ad1['title'],40) }}
 
 					</a>
 
@@ -1108,17 +1137,17 @@ opacity: 0.4
 					<ul class="list-unstyled">
 
 						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
-              &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
+              &nbsp; {{ ucfirst($ad1['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad1['town']['town_name']) }}
               </li>
 
 					</ul>
-					<span style="font-weight:bold">Client accepté :</span> {{ $ad['accepted'] }} <br>
-					<span style="font-weight:bold">Lieu :</span> {{ $ad['location'] }}
+					<span style="font-weight:bold">Client accepté :</span> {{ $ad1['accepted'] }} <br>
+					<span style="font-weight:bold">Lieu :</span> {{ $ad1['location'] }}
 
 				</nav>
 
 				<div style="min-height:60px;">
-				  <span class="shortcode_excerpt"> {{ truncate($ad['description'],100) }}</span>
+				  <span class="shortcode_excerpt"> {{ truncate($ad1['description'],100) }}</span>
 				</div>
 
 
@@ -1141,7 +1170,7 @@ opacity: 0.4
 
 	<div class="show-mobile">
 		  <div class="position-relative mb-3">
-          <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
+          <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}">
           <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
             <div class="h-100 position-relative">
             <figure>
@@ -1150,29 +1179,29 @@ opacity: 0.4
               <div class="buttons-wrap">
 
                 <div class="button-new"
-                style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} Ans</div>
+                style="background-color: #DA9DDC; font-size:10px;">{{ $ad1['age'] }} Ans</div>
 
               </div>
               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
                     <div class="fs-sm text-white  text-600">
-                    {{ ucfirst($ad['town']['town_name']) }}  
+                    {{ ucfirst($ad1['town']['town_name']) }}  
                     </div>
               </div>
               <div class="bg-image z-0"
-              data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+              data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['path']] )}}"> 
                 </div>
               <div ppt-search-badges="" style="z-index:1" class="right">
 
-                   @if($ad['subscribe_id'] ===1)
+                   @if($ad1['subscribe_id'] ===1)
 								<div class="badge" style="color:#000000;background-color:#FFC300;">
 								<span class="fal fa fa-star" style="color:#000000"> </span> PREMIUM </div>
                             @endif
-			@if($ad['subscribe_id'] ===2)
+			@if($ad1['subscribe_id'] ===2)
 								<div class="badge" style="color:#000000;background-color:#FFC300;">
 								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
                             @endif
-                            @if($ad['subscribe_id'] ===3)
+                            @if($ad1['subscribe_id'] ===3)
                             <div class="badge" style="color:#000000;background-color:#FFC300;">
                             <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
                         @endif
@@ -1184,12 +1213,12 @@ opacity: 0.4
           </a>
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
-              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
-                class="text-dark">{{ truncate($ad['title'],40) }}</span></a>
+              <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}"
+                class="text-dark">{{ truncate($ad1['title'],40) }}</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
-              <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
-                class="text-dark lh-20 text-300">{{ truncate($ad['description'],65) }}</span></a>
+              <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}"
+                class="text-dark lh-20 text-300">{{ truncate($ad1['description'],65) }}</span></a>
           </div>
           </div>
 	</div>
