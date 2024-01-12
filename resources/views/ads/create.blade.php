@@ -170,7 +170,7 @@
 
 
 <div class="col-md-6 mobile-mb-2">
-<label>Numéro de téléphone <span class="text-danger">*</span></label>
+<label>Numéro WhatsApp et Appel <span class="text-danger">*</span></label>
 
 <div class="form-group position-relative">
     	<input  type="tel" class="form-control required" 
