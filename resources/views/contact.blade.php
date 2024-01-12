@@ -194,7 +194,18 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   <div class="ppt-icons-social  _style5 size-md rounded">
                 <ul>
 
-                                 <li class="facebook">
+                  
+
+                 <li class="whatsapp">
+                 <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello%20je%20viens%20du%20site%20viens-yamo.com"
+                  title="whatsapp" class="icon-whatsapp" rel="nofollow" target="_blank">
+
+                 <i class="fab fa-whatsapp"></i>
+
+
+                 </a></li>
+
+                <li class="facebook">
                  <a href="#" title="facebook" class="icon-facebook" rel="nofollow" target="_blank">
 
                  <i class="fab fa-facebook"></i>
@@ -208,21 +219,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
                  </a></li>
-                                 <li class="instagram">
-                 <a href="#" title="instagram" class="icon-instagram" rel="nofollow" target="_blank">
-
-                 <i class="fab fa-instagram"></i>
-
-
-                 </a></li>
-                                 <li class="youtube">
-                 <a href="#" title="youtube" class="icon-youtube" rel="nofollow" target="_blank">
-
-                 <i class="fab fa-youtube"></i>
-
-
-                 </a></li>
-                                </ul>
+              </ul>
                 </div>
 
   </div>
@@ -278,7 +275,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div> 
 
  
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> <img src="https://ppt1080.b-cdn.net/images/loading.svg" alt="loading page" style="max-width:150px;" /> </div>
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+  <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;" /> </div>
 
  
 

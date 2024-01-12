@@ -274,7 +274,7 @@ nav .fa{
 
      @if(!isset($user))
 
-      <li><a target="_blank" href="https://api.whatsapp.com/send?phone=237621212343&text=Hello j'ai besoin d'aide pour m'inscrire" >
+      <li><a target="_blank" href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire" >
             Besoin d'aide pour s'inscrire?</a>
           </li>
       @endif
@@ -427,7 +427,8 @@ nav .fa{
             <div class=>
 
             <div class>
-      <a href="https://api.whatsapp.com/send?phone=237621212343&text=Hello j'ai besoin d'aide pour m'inscrire" target="_blank" class="btn-md   mt-2" data-ppt-btn="" data-ppt-btn-link=""
+      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire" 
+      target="_blank" class="btn-md  mt-2" data-ppt-btn="" style="background-color: #F44336; color:white" data-ppt-btn-link=""
                  class="btn-system">Besoin d'aide pour s'inscrire?cliquez ici </a>
 
             </div>
