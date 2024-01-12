@@ -7,6 +7,7 @@ use App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Services\Api\List\ListTownService;
+use App\Services\Api\Location\QuarterService;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class FilterController extends Controller
@@ -28,6 +29,7 @@ class FilterController extends Controller
             $allAds = json_decode((string) $response->getBody(), true);
             $allAds = $allAds['data'];
             $towns=(new ListTownService())->list()->data;
+            $quarters=(new QuarterService())->getQuarters();
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -62,7 +64,7 @@ class FilterController extends Controller
 
         //dd($allAds);
 
-        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages','towns'));
+        return  view('ads.list', compact('ads','quarters', 'allAds', 'current_page', 'nb_pages','towns'));
         $ads=json_decode($response);
         return view();
     }
