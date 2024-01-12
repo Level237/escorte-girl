@@ -40,39 +40,39 @@
  <section class="section-40 bg-light mt-1">
 
   <div class="container main-container">
-	
+
 	 <div class="my-3" id="search-tax-top">
 				<div class="row">
 
 					<div class="col-md-6 text-600">
-					
-						  
+
+
 					 Annonces sponsorisées
-					 
-						 
-					<em class="text-500 ajax-search-found-wrap" style=""> 
-					
-					
-					<span class="ajax-search-found">{{ count($allAds) }}</span> results 
-					
-				  
-					
+
+
+					<em class="text-500 ajax-search-found-wrap" style="">
+
+
+					<span class="ajax-search-found">{{ count($allAds) }}</span> results
+
+
+
 					</em>
-				 
-						 
+
+
 					</div>
-					
+
 				</div>
 			</div>
 
   @if (count($allAds))
-    
+
 
 	<div class="card-sponsored p-3 mb-4 rounded  overflow-hidden" style="overflow-x: visible; display:none;" ppt-border1>
 
 
 		<div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
-          
+
       @foreach ($allAds as $allAd)
         @if ($allAd['subscribe_id'] == 0)
           @continue
@@ -81,16 +81,16 @@
 
 
           <div class="badge_tooltip" data-direction="top">
-            <div class="badge_tooltip__initiator"> 
+            <div class="badge_tooltip__initiator">
             <a href="{{ route('ads.details', ['username' => $allAd['user']['username'],'slug'=>$allAd['slug']]) }}" class="text-dark">
-            
+
           <div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
-            <div class="bg-image" 
+            <div class="bg-image"
             data-bg="{{ route('display.ads.image',['id'=>$allAd['id'], 'path'=>$allAd['images'][0]['path']] )}}">
-            
+
             </div>
           </div>
-            
+
             </a>
             </div>
             <div class="badge_tooltip__item text-center">
@@ -100,8 +100,8 @@
 
           </div>
         @endforeach
-		
-		
+
+
 
 		</div>
 	</div>
@@ -109,21 +109,21 @@
     @endif
 
 
-	
+
     <div class="row">
 
 
       <div class="col">
 
         <div class="row px-0">
-		
+
 		   <div class="col-12">
 
             <div class="my-3" id="search-tax-top">
-			
+
           <div class="col-12">
 
-          
+
 
 
 
@@ -172,55 +172,22 @@
 
 
 
-                <li class="">
 
 
-                    <select  style="width: 100%" name="age" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        <option >Age</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                        <option value="32">32</option>
-                        <option value="33">33</option>
-                        </select>
-
-                    </li>
-                    <li class="" id="container-towns">
-
-
-                        <select id='town' onchange="fetchQuarters(this)"  style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                            <option >Sélectionner une Ville</option>
-                            @foreach ($towns as $town)
-                                <option value="{{ $town->id }}">{{ $town->town_name }}</option>
-                            @endforeach
-
-                            </select>
-
-                    </li>
 
                     <li class="" id="container-quarters">
 
 
                         <select name="quarter" id="quarter" data-key="quarter" style="width: 100%" class="form-select p-3 text-dark  filterbox-tax_listing taxonomy" name="town" id=""><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             <option >Sélectionner un quartier</option>
-                           
+                            @for($i=0;$i<count($quarters);$i++)
+                            <option value="{{ $quarters[$i]['id']}}">{{ $quarters[$i]['quarter_name']}}</option>
+                            @endfor
 
                             </select>
 
                       </li>
-                      
+
                     <button class="btn btn-primary">Filtrer</button>
   </form>
 
@@ -231,7 +198,7 @@
 </div>
 <div id="currentFilters" style="cursor:pointer;"></div>
 
- 
+
 
 <div id="search-toggle-bar">
 <div class="mb-4 d-md-flex justify-content-md-between  mt-4">
@@ -358,31 +325,31 @@ function filterToggle(val){
 		<div class="col-12">
 			<div class='row'>
 			 <div class="my-3" id="search-tax-top">
-				
+
 
 					<div class="col-md-12 text-600">
-					
-						  
+
+
 					 Explorer <span class="ajax-search-found">{{ count($allAds) }}</span> annonces
-					 
-						 
-					<em class="text-500 ajax-search-found-wrap" style=""> 
-					
-					
-					<span class="ajax-search-found">{{ count($allAds) }}</span> results 
-					
-				  
-					
+
+
+					<em class="text-500 ajax-search-found-wrap" style="">
+
+
+					<span class="ajax-search-found">{{ count($allAds) }}</span> results
+
+
+
 					</em>
-				 
-						 
+
+
 					</div>
-					
-				
+
+
 				</div>
         @if (count($ads))
-          
-				
+
+
 				@foreach ($ads as $ad)
 
 					 <div class="col-6 col-sm-12 col-lg-12 listview">
@@ -541,15 +508,15 @@ function filterToggle(val){
 
 						</div>
 
-			
+
 				@endforeach
-          
-					
+
+
         @endif
-  
+
   @if (count($ads))
-  
-  
+
+
   <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3">
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
@@ -568,7 +535,7 @@ function filterToggle(val){
               @else
                  <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
               @endif
-             
+
             <i class="fa fa-angle-left nomargin" aria-hidden="true"></i>
 		        </a></li>
         @endif
@@ -600,7 +567,7 @@ function filterToggle(val){
                       <a href="{{ route('ads.list', ['current_page' => $i]) }}"
                         class="page-link" rel="nofollow">{{ $i }}</a>
                        @endif
-                  
+
                   </li>
             @endif
 
@@ -667,7 +634,7 @@ function filterToggle(val){
                   <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
                   </a>
                @endif
-              
+
           </li>
         @endif
 

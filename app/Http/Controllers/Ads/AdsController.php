@@ -198,6 +198,7 @@ class AdsController extends Controller
             $allAds = json_decode((string) $response->getBody(), true);
             $allAds = $allAds['data'];
             $towns=(new ListTownService())->list()->data;
+            $quarters=(new QuarterService())->getQuarters();
             if($request->membership){
                 $adsByMembership = [];
                 $i = 0;
@@ -227,7 +228,7 @@ class AdsController extends Controller
 
             //dd($allAds);
 
-            return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages','towns'));
+            return  view('ads.list', compact('ads','quarters', 'allAds', 'current_page', 'nb_pages','towns'));
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -370,7 +371,7 @@ class AdsController extends Controller
 
             $response = Http::asForm()->get($url."/api/announce/".$name.'/'.$slug);
             $response1 = Http::asForm()->get($url."/api/announce/similar/".$name.'/'.$slug);
-           
+
             $ad = json_decode((string) $response->getBody(), true)['data'][0];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
             $reviews=(new ListReviewsServices())->listReviews($slug);
