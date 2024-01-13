@@ -42,7 +42,7 @@ class DashboardEscortController extends Controller
     }
 
     public function profil (){
-        
+
         //Retrieving user
         $user = Session::get('currentUser');
         //dd($user);
@@ -100,14 +100,12 @@ class DashboardEscortController extends Controller
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        if($completed==0){
-            return to_route('step-one');
-        }else{
+
             $payments=(new CurrentPurchaseService())->currentPayment();
             $escort = (new GetEscortService)->getEscort();
             //return $payments;
             return view('dashboard.escort.finance', compact('user','escort','payments'));
-        }
+
 
     }
 

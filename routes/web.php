@@ -167,6 +167,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('/secure-account',[SecureAccountController::class,'selectQuestion'])->name('selectQuestion');
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
+    Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
     });
@@ -226,7 +227,7 @@ Route::middleware(['escort'])->group(function () {
     Route::get('/congratulation/{membership}/{announce}',[PurchaseController::class,'purchaseFinal'])->name('congrats-purchase');
 
     //Route::get('congratulations/momo',[PurchaseController::class,'purchaseFinalMomo'])->name('congrats-purchase-momo');
-    Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
+
     Route::post('purchase/credit',[PurchaseController::class,'purchaseInitCredit'])->name('purchase.init.credit');
     Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
@@ -249,8 +250,6 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
-        Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
-        Route::post('purchase/credit',[PurchaseController::class,'purchaseInitCredit'])->name('purchase.init.credit');
         Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');
         Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
     });
