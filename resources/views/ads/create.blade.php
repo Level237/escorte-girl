@@ -742,6 +742,12 @@ function fetchQuarters(town){
 		});
 }
 
+
+
+function bytesToMB(bytes) {
+    return (bytes / (1024 * 1024)).toFixed(2);
+}
+
 function processSubmitForm(){
 
 	canContinue = true;
@@ -829,6 +835,25 @@ function processSubmitForm(){
 			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné une video");
 			scrollTop();
 			return false;
+	}
+
+	//Validating video
+
+	if(jQuery('#video').val() !== ''){
+		
+		console.log("hello world");
+		const fileInput = document.getElementById('video');
+		const file = fileInput.files[0];
+		const fileSize = file.size;
+		const fileSizeMB = bytesToMB(fileSize);
+		if(fileSizeMB > 25){
+			jQuery('[data-key="video"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("La taille de la vidéo doit être inférieur à 25 MB");
+			scrollTop();
+			return false;
+		}	
+			
 	}
 
 
