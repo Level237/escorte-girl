@@ -319,7 +319,7 @@
   <div  class="text-muted small float-right">
     <span></span>
   </div>
-    <label class="w-100">Chargez une courte vidéo  <span class="text-danger">*</span> </label>
+    <label class="w-100">Chargez une courte vidéo (Optionnel)   </label>
     <input type="file" name="video" id="video" accept="video/*">
   </div>
 
@@ -826,16 +826,6 @@ function processSubmitForm(){
 			return false;
 	}
 
-	//Validating video
-
-	if(jQuery('#video').val() === "" || jQuery('#video').val() === undefined){
-		
-			jQuery('[data-key="video"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné une video");
-			scrollTop();
-			return false;
-	}
 
 	//Validating video
 

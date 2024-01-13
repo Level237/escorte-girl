@@ -149,6 +149,7 @@ Route::middleware(['checkAge'])->group(function () {
 
 
     Route::get('displayadsimage/{id}/{path}',[AdsImageController::class, 'displayAdsImage'])->name('display.ads.image');
+    Route::get('/displayVideo/{id}/{path}',[AdsController::class,'displayAdsVideo'])->name('displayVideo');
     Route::get('/displaybanner/{id}/{path}',[BannerController::class,'displayBanner'])->name('display.banner');
 
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté

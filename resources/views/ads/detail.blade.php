@@ -297,8 +297,37 @@ opacity: 0.4
 						</div>
 
 
+						@if ($ad['video'] != null)
+						<div ppt-box class="rounded">
+								<div class="_content p-3">
+								
+
+								<div class="addeditmenu" data-key="video" style="margin-right:100px;"></div>
+								<div class="row">
+								
+								<div class="col-12">
+
+								<div class="single-video rounded-lg overflow-hidden">
+								<figure>
+								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal"> 
+								
+								<video width="100%" height="240" controls>
+									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
+									Your browser does not support the video tag.
+								</video>
+
+								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
+								</a>
+										
+								</figure>
+										
+								</div></div>
+								</div>
 
 
+								</div>
+						</div>
+						@endif
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -353,6 +382,7 @@ opacity: 0.4
 								Dénoncer cette annonce
 							  </button></a>
 						</div>
+						
 
 						<div class="p-4 hide-mobile rounded" ppt-box="">
 
@@ -581,6 +611,40 @@ opacity: 0.4
 						</style>
 
 
+						@if ($ad['video'] != null)
+							
+						
+						<div ppt-box class="rounded show-mobile" style="margin-top:-40px">
+								<div class="_content p-3">
+								
+
+								<div class="addeditmenu" data-key="video" style="margin-right:100px;"></div>
+								<div class="row">
+								
+								<div class="col-12">
+
+								<div class="single-video rounded-lg overflow-hidden">
+								<figure>
+								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal"> 
+								
+								<video width="100%" height="240" controls>
+									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
+									Your browser does not support the video tag.
+								</video>
+
+								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
+								</a>
+										
+								</figure>
+										
+								</div></div>
+								</div>
+
+
+								</div>
+						</div>
+						@endif
+						 
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -881,10 +945,7 @@ opacity: 0.4
 
 
 						</div>
-
-
-
-
+						
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -1324,6 +1385,24 @@ opacity: 0.4
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal to display video -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    
+      <div class="modal-body">
+        <video width="100%" height="240" controls>
+				<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
+				Your browser does not support the video tag.
+		</video>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal -->
