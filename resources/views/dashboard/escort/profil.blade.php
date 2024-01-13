@@ -58,7 +58,7 @@
 				 {{ $town['town_name'] }}</option>
 		@endforeach
 	</select>
-    </div>
+</div>
 
 
 <div class="col-12">

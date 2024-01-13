@@ -63,6 +63,13 @@ class AdsController extends Controller
 
         //Saving Ads
         $token=Session::get('tokenUser');
+
+        $video = $request->file('video');
+        //dd($video);
+        //Storing file in disk
+        $fileName = time().'_'.$video->getClientOriginalName().'.'.$video->getClientOriginalExtension();
+        $video->storeAs('ads/'.$request->user_id, $fileName);
+
         try{
             $response = Http::asForm()->withToken($token)->post($url."/api/v1/ads", [
                 'town_id' => $request->town,
@@ -95,7 +102,7 @@ class AdsController extends Controller
 
                 }
                  //Delete directory
-                \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
+                // \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
 
 
                 $ad['location'] = $request->location;
