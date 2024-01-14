@@ -121,7 +121,7 @@
 
     <div class="_title"><span class="title-number bg-secondary"><i class="fa fa-file"></i></span> Créer une annonce</div>
 
-<form  action="{{ route('ads.save') }}" id="global-form"  method="post">
+<form  action="{{ route('ads.save') }}" id="global-form" enctype="multipart/form-data" method="post">
 @csrf
  <input type="hidden" name="user_id" id="token" value="{{$user->id}}">
 <div class="row">
@@ -311,7 +311,21 @@
 </div>
 
 </div>
-@csrf
+
+<div class="row">
+<div class="col-md-12 mobile-mb-2">
+
+  <div class="form-group">
+  <div  class="text-muted small float-right">
+    <span></span>
+  </div>
+    <label class="w-100">Chargez une courte vidéo (Optionnel)   </label>
+    <input type="file" name="video" id="video" accept="video/*">
+  </div>
+
+</div>
+
+</div>
 
 
 </form>
@@ -335,6 +349,9 @@
 
 </div>
 </div>
+
+
+
 
  <script>
   Dropzone.options.adsDropzone = { // camelized version of the `id`
@@ -725,6 +742,12 @@ function fetchQuarters(town){
 		});
 }
 
+
+
+function bytesToMB(bytes) {
+    return (bytes / (1024 * 1024)).toFixed(2);
+}
+
 function processSubmitForm(){
 
 	canContinue = true;
@@ -801,6 +824,26 @@ function processSubmitForm(){
 			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné vos services");
 			scrollTop();
 			return false;
+	}
+
+
+	//Validating video
+
+	if(jQuery('#video').val() !== ''){
+		
+		console.log("hello world");
+		const fileInput = document.getElementById('video');
+		const file = fileInput.files[0];
+		const fileSize = file.size;
+		const fileSizeMB = bytesToMB(fileSize);
+		if(fileSizeMB > 25){
+			jQuery('[data-key="video"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("La taille de la vidéo doit être inférieur à 25 MB");
+			scrollTop();
+			return false;
+		}	
+			
 	}
 
 

@@ -63,63 +63,93 @@ class AdsController extends Controller
 
         //Saving Ads
         $token=Session::get('tokenUser');
-        try{
-            $response = Http::asForm()->withToken($token)->post($url."/api/v1/ads", [
-                'town_id' => $request->town,
-                'user_id' => $request->user_id,
-                'quarter_id' => $request->quarter,
-                'gender' => $request->gender,
-                'age' => $request->age,
-                'phone' => $request->phone,
-                'services' => $request->services,
-                'category_id' => $request->category,
-                'accepted' => $request->accepted,
-                'title' => $request->title,
-                'location' => $request->location,
-                'description' => $request->form['post_content'],
-            ]);
 
-            //dd($response);
-            //dd(json_decode((string) $response->getBody(), true));
-            if($response->status() === 200){
+        $isVideo = false;
+        if($request->file('video') != null){
+            $isVideo = true;
+            $video = $request->file('video');
 
-                //Now uploading ads's images
-                $id = json_decode((string) $response->getBody(), true)['id'];
-                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
-                    $photo = \Illuminate\Support\Facades\Storage::get($filename);
-                    $responseImage = Http::attach(
-                        'file', $photo, $filename
-                    )->post($url."/api/ads/image", [
-                        'ads_id' => $id,
-                    ]);
+            //dd($video);
+            //Storing file in disk
+            $fileName = time().'_'.$video->getClientOriginalName().'.'.$video->getClientOriginalExtension();
+            $video->storeAs('ads/'.$request->user_id.'/videos', $fileName);
+        }
+
+
+
+        if($isVideo){
+
+            try{
+
+                foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id.'/videos') as $filename) {
+                        $video = \Illuminate\Support\Facades\Storage::get($filename);
+                        $response = Http::attach(
+                            'video', $video, $filename
+                        )->withToken($token)->post($url."/api/v1/ads", [
+                             'town_id' => $request->town,
+                             'user_id' => $request->user_id,
+                             'quarter_id' => $request->quarter,
+                             'gender' => $request->gender,
+                             'age' => $request->age,
+                             'phone' => $request->phone,
+                             'services' => $request->services,
+                             'category_id' => $request->category,
+                             'accepted' => $request->accepted,
+                             'title' => $request->title,
+                             'location' => $request->location,
+                             'description' => $request->form['post_content'],
+                        ]);
 
                 }
-                 //Delete directory
-                \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
+
+                //dd($response);
+                //dd(json_decode((string) $response->getBody(), true));
+                if($response->status() === 200){
+
+                    //Now uploading ads's images
+                    $id = json_decode((string) $response->getBody(), true)['id'];
+                    foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
+                        $photo = \Illuminate\Support\Facades\Storage::get($filename);
+                        $responseImage = Http::attach(
+                            'file', $photo, $filename
+                        )->post($url."/api/ads/image", [
+                            'ads_id' => $id,
+                        ]);
+
+                    }
+                    //Delete directory
+                    // \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
 
 
-                $ad['location'] = $request->location;
-                $ad['accepted'] = $request->accepted;
-                $ad['title'] = $request->title;
-                $ad['description'] = $request->form['post_content'];
-                //Send mail
-                 Mail::to('delanofofe@gmail.com')
-                ->send(new Ad($ad));
+                    $ad['location'] = $request->location;
+                    $ad['accepted'] = $request->accepted;
+                    $ad['title'] = $request->title;
+                    $ad['description'] = $request->form['post_content'];
+                    //Send mail
+                    Mail::to('delanofofe@gmail.com')
+                    ->send(new Ad($ad));
 
-                 Mail::to('temerprodesign@yahoo.fr')
-                ->send(new Ad($ad));
-                return to_route('membership.display', ['adsId'=>$id]);
+                    Mail::to('temerprodesign@yahoo.fr')
+                    ->send(new Ad($ad));
+                    return to_route('membership.display', ['adsId'=>$id]);
 
 
-            }else{
+                }else{
 
-               //dd(json_decode((string) $response->getBody(), true));
-               return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
+                //dd(json_decode((string) $response->getBody(), true));
+                return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
+                }
+            }catch(\Exception $e){
+                //dd($e);
+                return back()->with('error',$e);
             }
-        }catch(\Exception $e){
-            //dd($e);
-            return back()->with('error',$e);
         }
+
+        else{
+
+
+        }
+
 
     }
 
@@ -375,9 +405,11 @@ class AdsController extends Controller
             $ad = json_decode((string) $response->getBody(), true)['data'][0];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
             $reviews=(new ListReviewsServices())->listReviews($slug);
-            //dd("Hello");
 
-            return $response1;
+            //dd($ad);
+            $announceId=$request->id;
+            return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
+
         }catch(\Exception $e){
              return $e;
         }
@@ -427,6 +459,15 @@ class AdsController extends Controller
            return Redirect::back()->withErrors(['msg' => "Une erreur s'est produite lors de la suppression"]);
         }
    }
+
+    public function displayAdsVideo($id, $path)
+    {
+
+        $url=(new UrlApiService())->getUrl();
+        $response = Http::asForm()->get($url.'/api/displayVideo/'.$id.'/'.$path);
+        return $response;
+
+    }
 
 
 }
