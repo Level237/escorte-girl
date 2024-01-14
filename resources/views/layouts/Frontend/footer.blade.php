@@ -61,7 +61,7 @@ En utilisant le site vous acceptez que le propriétaire du site soit décliné d
         <div class="lh-30">        <ul>
                 <li><a href="{{ route('cgu') }}">CGU</a></li>
                 <li><a href="{{ route('help') }}">Aide</a></li>
-                <li><a href="{{ route('privacy') }}">Vie Privée</a></li>
+                <li><a href="{{ route('faq') }}">Faqs</a></li>
                 <li><a href="{{ route('contact') }}">Contactez-nous</a></li>
 
 
