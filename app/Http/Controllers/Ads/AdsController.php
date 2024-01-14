@@ -376,10 +376,10 @@ class AdsController extends Controller
             $ads = json_decode((string) $response1->getBody(), true)['data'];
             $reviews=(new ListReviewsServices())->listReviews($slug);
             //dd("Hello");
-            $announceId=$request->id;
-            return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
+
+            return $response1;
         }catch(\Exception $e){
-             $ad = null;
+             return $e;
         }
 
         //$hostURL = request()->getHttpHost()."/ads/".$ad['id'];
