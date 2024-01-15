@@ -480,7 +480,7 @@ opacity: 0.4
 
 											<div class=" d-inline-flex cursor">
 												<div class="mr-2"><i class="fal fa-star mr-2 text-primary"></i></div> <span>
-												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1"
 												data-button="0">
 
 													<span>{{ $ad['age'] }} Ans</span>
@@ -492,10 +492,10 @@ opacity: 0.4
 											&nbsp;&nbsp;&nbsp;
 											<div class=" d-inline-flex cursor">
 												@if($ad['subscribe_id'] != 0)
-													<div class="mr-2"><i class="fal fa-shield mr-2 text-primary"></i></div> 
+													<div class="mr-2"><i class="fal fa-shield mr-2 text-primary"></i></div>
 												@endif
 												<span>
-												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1"
 												data-button="0">
 
 													<span>
@@ -519,7 +519,7 @@ opacity: 0.4
 											@if($ad['user']['isVerify']== 1)
 												<div class=" d-inline-flex cursor">
 													<div class="mr-2"><i class="fal fa-check-circle mr-2 text-primary"></i></div> <span>
-													<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1" 
+													<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1"
 													data-button="0">
 
 														<span>Vérifié</span>
@@ -529,16 +529,16 @@ opacity: 0.4
 													</span>
 												</div>
 											@endif
-											
+
 											&nbsp;&nbsp;&nbsp;
-											  <div 
+											  <div
 											  style="display: flex;align-items:center">
 													<div class="badge_tooltip__initiator">
 												<i class="fal fa fa-eye" style="color:#000000"></i>&nbsp;&nbsp;&nbsp; {{ $ad['visits'] }}  vues	    </div>
 													<div class="badge_tooltip__item">{{ $ad['visits'] }}	vues </div>
 												</div>
 												&nbsp;&nbsp;&nbsp;
-											
+
 
 							    </div>
 							  <br>
@@ -1128,7 +1128,7 @@ opacity: 0.4
 
   <div class="col-6 col-sm-6 col-md-4 col-lg-4">
 
-    	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow" 
+    	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
 		data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
 
 		  <figure>
@@ -1185,7 +1185,7 @@ opacity: 0.4
 			  <div class="d-sm-flex flex-sm-column">
 				<div class="fs-6  mb-2">
 
-				  <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}" 
+				  <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}"
 					class="text-dark _adtitle">
             {{ truncate($ad1['title'],40) }}
 

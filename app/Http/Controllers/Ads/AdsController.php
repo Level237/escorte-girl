@@ -74,8 +74,8 @@ class AdsController extends Controller
             $fileName = time().'_'.$video->getClientOriginalName().'.'.$video->getClientOriginalExtension();
             $video->storeAs('ads/'.$request->user_id.'/videos', $fileName);
         }
-            
-        
+
+
 
         if($isVideo){
 
@@ -147,9 +147,9 @@ class AdsController extends Controller
 
         else{
 
-          
+
         }
-        
+
 
     }
 
@@ -405,11 +405,13 @@ class AdsController extends Controller
             $ad = json_decode((string) $response->getBody(), true)['data'][0];
             $ads = json_decode((string) $response1->getBody(), true)['data'];
             $reviews=(new ListReviewsServices())->listReviews($slug);
+
             //dd($ad);
             $announceId=$request->id;
             return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
+
         }catch(\Exception $e){
-             $ad = null;
+             return $e;
         }
 
         //$hostURL = request()->getHttpHost()."/ads/".$ad['id'];
@@ -460,11 +462,11 @@ class AdsController extends Controller
 
     public function displayAdsVideo($id, $path)
     {
-     
+
         $url=(new UrlApiService())->getUrl();
         $response = Http::asForm()->get($url.'/api/displayVideo/'.$id.'/'.$path);
         return $response;
-   
+
     }
 
 
