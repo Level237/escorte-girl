@@ -166,17 +166,17 @@ Dashboard
                             <div class="chart-content-bg">
                                 <div class="row text-center">
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0 mt-3">Current Week</p>
+                                        <p class="text-muted mb-0 mt-3">Semaine courante</p>
                                         <h2 class="fw-normal mb-3">
                                             <small class="mdi mdi-checkbox-blank-circle text-primary align-middle me-1"></small>
                                             <span>{{ $statCurrentWeek }} Fcfa</span>
                                         </h2>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="text-muted mb-0 mt-3">Previous Week</p>
+                                        <p class="text-muted mb-0 mt-3">Semaine précedente</p>
                                         <h2 class="fw-normal mb-3">
                                             <small class="mdi mdi-checkbox-blank-circle text-success align-middle me-1"></small>
-                                            <span>$69,524</span>
+                                            <span>{{ $statPreviousWeek }} Fcfa</span>
                                         </h2>
                                     </div>
                                 </div>

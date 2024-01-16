@@ -48,6 +48,12 @@ class StatService{
 
         return $data;
     }
+    public function statPreviousWeek(){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::get($url."/api/stats/PreviousWeek");
+        $data=json_decode($response);
 
+        return $data;
+    }
 
 }
