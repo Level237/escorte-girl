@@ -1275,11 +1275,15 @@ opacity: 0.4
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
               <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}"
-                class="text-dark">{{ truncate($ad1['title'],40) }}</span></a>
+                class="text-dark">
+				{{ truncate($ad1['title'],40) }}
+			</span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
               <a href="{{ route('ads.details', ['username' => $ad1['user']['username'],'slug'=>$ad1['slug']]) }}"
-                class="text-dark lh-20 text-300">{{ truncate($ad1['description'],65) }}</span></a>
+                class="text-dark lh-20 text-300">
+				{{ truncate($ad1['description'],65) }}
+			</span></a>
           </div>
           </div>
 	</div>
@@ -1387,6 +1391,9 @@ opacity: 0.4
     </div>
 </div>
 
+@if ($ad['video'] != null)
+	
+
 <!-- Modal to display video -->
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -1404,6 +1411,7 @@ opacity: 0.4
     </div>
   </div>
 </div>
+@endif
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
