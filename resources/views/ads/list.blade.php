@@ -170,11 +170,6 @@
 
             </li>
 
-
-
-
-
-
                     <li class="" id="container-quarters">
 
 
@@ -409,7 +404,8 @@ function filterToggle(val){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ ucfirst($ad['user']['username']) }} . {{ truncate($ad['title'],40) }}
+                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ ucfirst($ad['user']['username']) }} . 
+                                      {{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
 
@@ -428,7 +424,9 @@ function filterToggle(val){
 
 
 								<div style="min-height:60px;">
-								  <span class="shortcode_excerpt">{{ truncate($ad['description'],400) }} </span>
+								  <span class="shortcode_excerpt">
+                    {{ truncate($ad['description'],400) }} 
+                  </span>
 								</div>
 										<div>
 								<a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" data-ppt-btn=""
@@ -497,11 +495,15 @@ function filterToggle(val){
           <div class="lh-20 text-700" style="margin-top:20px;">
               <span class="text-online">•</span>
               <a href={{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
-                <span class="text-dark">{{ truncate($ad['title'],10) }}</span></a>
+                <span class="text-dark">
+                  {{ truncate($ad['title'],10) }}
+                </span></a>
           </div>
           <div class="lh-20" style="margin-top:0px;">
               <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}"
-                class="text-dark lh-20 text-300">{{ truncate($ad['description'],40) }}</span></a>
+                class="text-dark lh-20 text-300">
+                {{ truncate($ad['description'],40) }}
+              </span></a>
           </div>
           </div>
 		</div>

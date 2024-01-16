@@ -341,12 +341,17 @@ class AdsController extends Controller
         $url=(new UrlApiService())->getUrl();
         $allAds = [];
         $towns=(new ListTownService())->list()->data;
+        $quarters=(new QuarterService())->getQuarters();
 
         try{
             $id=$request->id;
             $response = Http::asForm()->get($url."/api/adstown/".$request->id);
             $allAds = json_decode((string) $response->getBody(), true);
-            $allAds = $allAds['data'];
+           
+            if($allAds['data'] != null)
+             $allAds = $allAds['data'];
+            else
+              $allAds = [];
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -369,13 +374,14 @@ class AdsController extends Controller
         //dd($allAds);
         $townAds = $request->id;
         //dd($town);
-        return  view('ads.list', compact('ads','id', 'allAds', 'current_page', 'nb_pages','towns', 'townAds'));
+        return  view('ads.list', compact('quarters', 'ads','id', 'allAds', 'current_page', 'nb_pages','towns', 'townAds'));
     }
 
     public function adsByQuarter(Request $request){
 
         $url=(new UrlApiService())->getUrl();
         $towns=(new ListTownService())->list()->data;
+        $quarters=(new QuarterService())->getQuarters();
         $allAds = [];
 
         try{
@@ -383,7 +389,13 @@ class AdsController extends Controller
             $response = Http::asForm()->get($url."/api/adsquarter/".$request->id);
             //dd(json_decode((string) $response->getBody(), true));
             $allAds = json_decode((string) $response->getBody(), true);
-            $allAds = $allAds['data'];
+            if($allAds['data'] != null)
+             $allAds = $allAds['data'];
+            else
+              $allAds = [];
+
+            //dd($allAds);
+          
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -406,7 +418,7 @@ class AdsController extends Controller
         //dd($allAds);
          $quarter = $request->id;
             //dd($quarter);
-        return  view('ads.list', compact('ads','id', 'allAds', 'current_page', 'nb_pages','towns','quarter'));
+        return  view('ads.list', compact('quarters','ads','id', 'allAds', 'current_page', 'nb_pages','towns','quarter'));
     }
 
     public function adsByCategory(Request $request){
