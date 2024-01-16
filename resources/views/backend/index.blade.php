@@ -47,10 +47,10 @@ Dashboard
                                         <i class="mdi mdi-account-multiple widget-icon bg-success-lighten text-success"></i>
                                     </div>
                                     <h5 class="text-muted fw-normal mt-0" title="Number of User">Utilisateurs</h5>
-                                    <h3 class="mt-3 mb-3">36,254</h3>
+                                    <h3 class="mt-3 mb-3">{{ $statUser }}</h3>
                                     <p class="mb-0 text-muted">
                                         <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <span class="text-nowrap">depuis la création du site</span>
                                     </p>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -63,10 +63,10 @@ Dashboard
                                         <i class="mdi mdi-cart-plus widget-icon bg-danger-lighten text-danger"></i>
                                     </div>
                                     <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Escortes</h5>
-                                    <h3 class="mt-3 mb-3">5,543</h3>
+                                    <h3 class="mt-3 mb-3">{{ $statEscort->monthly }}</h3>
                                     <p class="mb-0 text-muted">
-                                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 1.08%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i>{{ $statEscort->percent }}%</span>
+                                        <span class="text-nowrap">Depuis ce mois</span>
                                     </p>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
