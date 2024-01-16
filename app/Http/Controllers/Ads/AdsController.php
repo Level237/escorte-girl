@@ -75,7 +75,7 @@ class AdsController extends Controller
             $video->storeAs('ads/'.$request->user_id.'/videos', $fileName);
         }
 
-
+        
 
         if($isVideo){
 
@@ -147,7 +147,66 @@ class AdsController extends Controller
 
         else{
 
+            try{
 
+                        $response = Http::withToken($token)->post($url."/api/v1/ads", [
+                             'town_id' => $request->town,
+                             'user_id' => $request->user_id,
+                             'quarter_id' => $request->quarter,
+                             'gender' => $request->gender,
+                             'age' => $request->age,
+                             'phone' => $request->phone,
+                             'services' => $request->services,
+                             'category_id' => $request->category,
+                             'accepted' => $request->accepted,
+                             'title' => $request->title,
+                             'location' => $request->location,
+                             'description' => $request->form['post_content'],
+                        ]);
+
+                
+
+                //dd($response);
+                //dd(json_decode((string) $response->getBody(), true));
+                if($response->status() === 200){
+
+                    //Now uploading ads's images
+                    $id = json_decode((string) $response->getBody(), true)['id'];
+                    foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
+                        $photo = \Illuminate\Support\Facades\Storage::get($filename);
+                        $responseImage = Http::attach(
+                            'file', $photo, $filename
+                        )->post($url."/api/ads/image", [
+                            'ads_id' => $id,
+                        ]);
+
+                    }
+                    //Delete directory
+                    // \Illuminate\Support\Facades\Storage::deleteDirectory('ads/'.$request->user_id);
+
+
+                    $ad['location'] = $request->location;
+                    $ad['accepted'] = $request->accepted;
+                    $ad['title'] = $request->title;
+                    $ad['description'] = $request->form['post_content'];
+                    //Send mail
+                    Mail::to('delanofofe@gmail.com')
+                    ->send(new Ad($ad));
+
+                    Mail::to('temerprodesign@yahoo.fr')
+                    ->send(new Ad($ad));
+                    return to_route('membership.display', ['adsId'=>$id]);
+
+
+                }else{
+
+                //dd(json_decode((string) $response->getBody(), true));
+                return back()->with('error', implode(" ", json_decode((string) $response->getBody(), true)));
+                }
+            }catch(\Exception $e){
+                //dd($e);
+                return back()->with('error',$e);
+            }
         }
 
 
@@ -468,6 +527,8 @@ class AdsController extends Controller
         return $response;
 
     }
+
+    
 
 
 }

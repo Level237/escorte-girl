@@ -364,16 +364,16 @@
                 
         // DELETING IMAGE
 		jQuery.ajax({
-			type: "POST",
+			type: "GET",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8000/deleteImage',
+			url: 'http://127.0.0.1:8000/ads/deleteImage',
 			timeout: 15000,
 			data: {
 				name: name,
 				request: 2,
 			},
-			success: function(data) {
-				console.log('success: ' + data);
+			success: function(response, statusCode) {
+				console.log('success: ' + response);
 				//console.log(response.);
 
 			},
@@ -388,7 +388,7 @@
 		});
                 var _ref;
                 return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
-            },
+    },
     acceptedFiles: ".jpeg,.jpg,.png",
 	Name: "Chargez vos fichiers ici",
     init: function() {

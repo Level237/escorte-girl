@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Services\Api\Ads\AdsService;
+use Storage;
 
 
 class AdsImageController extends Controller
@@ -30,7 +31,7 @@ class AdsImageController extends Controller
             else{
 
                 //Storing file in disk
-                $fileName = time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+                $fileName = $image->getClientOriginalName();
                 $image->storeAs('ads/'.$request->user_id, $fileName);
                 
                 return response('Image ajoutée avec succès', 200);
@@ -88,5 +89,13 @@ class AdsImageController extends Controller
         $response = Http::asForm()->get($url.'/api/displayadsimage/'.$id.'/'.$path);
         return $response;
    
+    }
+
+    public function deleteImage(Request $request){
+
+         \Illuminate\Support\Facades\Storage::delete('ads/21/'.$request->name);
+       
+          return response($request->name, 200)
+                  ->header('Content-Type', 'application/json');
     }
 }
