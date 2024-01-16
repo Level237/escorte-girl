@@ -73,7 +73,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
 
-@if($vipAds)
+@if(count ($vipAds))
 <section data-ppt-blockid="hero3" data-ppt-blocktype="hero" data-ppt-section=""
     class="position-relative " data-overlay="gradient-left">
 
@@ -115,7 +115,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
 
-                                                        @if(count($vipAds) > 2)
+                                                        @if(count($vipAds) > 0)
                                                             @for($i=0; $i <=count($vipAds)-1 ; $i=$i+2)
                                                                 <div class="carousel-item @if($i===0)
                                                                 active
@@ -422,6 +422,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
       </div>
+
+@if (count($goldAds))
+  
+
 <div class="container mt-5">
     <div class="row">
           <div class="col-lg-12">
@@ -435,8 +439,9 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 	  </div>
 </div>
+@endif
 
-
+@if (count($goldAds))
 <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="10000">
   <ol class="carousel-indicators">
     @php
@@ -464,7 +469,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
 
-    @if(count($goldAds) > 4)
+    @if(count($goldAds) > 0)
     @for($i=0; $i <=count($goldAds)-1; $i=$i+4)
     <div class="carousel-item @if($i===0)
     active
@@ -954,7 +959,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
         <span class="sr-only">Next</span>
     </a>
 </div>
-
+@endif
 
 
     <section data-ppt-blockid="text136" data-ppt-blocktype="text" data-ppt-section="" class="section-40">

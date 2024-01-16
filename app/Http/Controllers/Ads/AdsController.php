@@ -145,6 +145,8 @@ class AdsController extends Controller
             }
         }
 
+
+
         else{
 
             try{
@@ -260,16 +262,17 @@ class AdsController extends Controller
     public function getAds(){
 
         $url=(new UrlApiService())->getUrl();
-        $ads = null;
+        $ads = [];
 
         try{
 
             $response = Http::asForm()->get($url."/api/announces");
             $ads = json_decode((string) $response->getBody(), true);
-            $ads = $ads['data'];
+            if($ads['data'] != null)
+              $ads = $ads['data'];
             //error_log($ads);
         }catch(\Exception $e){
-             $ads = null;
+             $ads = [];
         }
 
         return  $ads;
@@ -285,7 +288,13 @@ class AdsController extends Controller
 
             $response = Http::asForm()->get($url."/api/announces");
             $allAds = json_decode((string) $response->getBody(), true);
-            $allAds = $allAds['data'];
+            //dd($allAds['data']);
+            if($allAds['data'] != null)
+             $allAds = $allAds['data'];
+            else
+              $allAds = [];
+            //dd($allAds);
+
             $towns=(new ListTownService())->list()->data;
             $quarters=(new QuarterService())->getQuarters();
             if($request->membership){
@@ -315,7 +324,7 @@ class AdsController extends Controller
                 'query' => $request->query(),
             ]);
 
-            //dd($allAds);
+            //dd($ads);
 
             return  view('ads.list', compact('ads','quarters', 'allAds', 'current_page', 'nb_pages','towns'));
             //error_log($ads);
