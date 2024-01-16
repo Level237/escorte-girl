@@ -169,7 +169,7 @@ Dashboard
                                         <p class="text-muted mb-0 mt-3">Current Week</p>
                                         <h2 class="fw-normal mb-3">
                                             <small class="mdi mdi-checkbox-blank-circle text-primary align-middle me-1"></small>
-                                            <span>$58,254</span>
+                                            <span>{{ $statCurrentWeek }} Fcfa</span>
                                         </h2>
                                     </div>
                                     <div class="col-sm-6">

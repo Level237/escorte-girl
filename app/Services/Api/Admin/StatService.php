@@ -41,5 +41,13 @@ class StatService{
 
         return $data;
     }
+    public function statCurrentWeek(){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::get($url."/api/stats/currentWeek");
+        $data=json_decode($response);
+
+        return $data;
+    }
+
 
 }
