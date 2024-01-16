@@ -13,7 +13,9 @@ class DashboardAdminController extends Controller
         $statEscort=(new StatService())->statEscort();
         $statIncome=(new StatService())->statIncome();
         $statAnnounce=(new StatService())->statAnnounce();
-        //return $statIncome;
-        return view('backend.index',compact('statUser',"statEscort",'statIncome','statAnnounce'));
+        $statCurrentWeek=(new StatService())->statCurrentWeek();
+        $statPreviousWeek=(new StatService())->statPreviousWeek();
+        //return $statPreviousWeek;
+        return view('backend.index',compact('statUser',"statEscort",'statIncome','statAnnounce','statCurrentWeek','statPreviousWeek'));
     }
 }
