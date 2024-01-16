@@ -27,4 +27,12 @@ class StatService{
         return $data;
     }
 
+    public function statIncome(){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::get($url."/api/stats/incomes");
+        $data=json_decode($response);
+
+        return $data;
+    }
+
 }
