@@ -12,7 +12,8 @@ class DashboardAdminController extends Controller
         $statUser=(new StatService())->statUser();
         $statEscort=(new StatService())->statEscort();
         $statIncome=(new StatService())->statIncome();
-        return $statIncome;
-        //return view('backend.index',compact('statUser',"statEscort"));
+        $statAnnounce=(new StatService())->statAnnounce();
+        //return $statIncome;
+        return view('backend.index',compact('statUser',"statEscort",'statIncome','statAnnounce'));
     }
 }

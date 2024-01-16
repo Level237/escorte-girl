@@ -34,5 +34,12 @@ class StatService{
 
         return $data;
     }
+    public function statAnnounce(){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::get($url."/api/stats/announces");
+        $data=json_decode($response);
+
+        return $data;
+    }
 
 }

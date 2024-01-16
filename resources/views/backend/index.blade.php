@@ -81,10 +81,10 @@ Dashboard
                                         <i class="mdi mdi-currency-usd widget-icon bg-info-lighten text-info"></i>
                                     </div>
                                     <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Revenue</h5>
-                                    <h3 class="mt-3 mb-3">$6,254</h3>
+                                    <h3 class="mt-3 mb-3">{{ $statIncome->total }} Fcfa</h3>
                                     <p class="mb-0 text-muted">
-                                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> {{ $statIncome->percent }} %</span>
+                                        <span class="text-nowrap">depuis le dernier mois</span>
                                     </p>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
@@ -96,11 +96,11 @@ Dashboard
                                     <div class="float-end">
                                         <i class="mdi mdi-pulse widget-icon bg-warning-lighten text-warning"></i>
                                     </div>
-                                    <h5 class="text-muted fw-normal mt-0" title="Growth">Subscription</h5>
-                                    <h3 class="mt-3 mb-3">+ 30.56%</h3>
+                                    <h5 class="text-muted fw-normal mt-0" title="Growth">Annonces</h5>
+                                    <h3 class="mt-3 mb-3">{{ $statAnnounce->monthly }}</h3>
                                     <p class="mb-0 text-muted">
-                                        <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 4.87%</span>
-                                        <span class="text-nowrap">Since last month</span>
+                                        <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> {{ $statAnnounce->percent }}%</span>
+                                        <span class="text-nowrap">depuis le mois dernier</span>
                                     </p>
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
