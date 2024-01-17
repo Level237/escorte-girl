@@ -181,17 +181,28 @@ Dashboard
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td class="table-user">
-											<img src="assets/images/users/avatar-2.jpg" alt="table-user" class="me-2 rounded-circle" />
-											Risa D. Pearson
-										</td>
-										<td>AC336 508 2157</td>
-										<td>July 24, 1950</td>
-										<td class="table-action">
-											<a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-										</td>
-									</tr>
+                                    @if (count($popularsAds))
+                                        
+                                        @foreach ($popularsAds as $popularAd)
+                                            @if ($popularAd['visits'] == 0)
+                                                @break
+                                            @endif
+                                            <tr>
+                                                <td class="table-user">
+                                                    <img src="{{ route('display.ads.image',['id'=>$popularAd['id'], 'path'=>$popularAd['images'][0]['path']] )}}" alt="table-user" class="me-2 rounded-circle" />
+                                                    {{  ucfirst($popularAd['user']['username'])  }}
+                                                </td>
+                                                <td> {{  ucfirst($popularAd['title'])  }}</td>
+                                                <td> {{  ucfirst($popularAd['visits'])  }}</td>
+                                                <td class="table-action">
+                                                    <a href="{{ route('ads.details', ['username' => $popularAd['user']['username'],'slug'=>$popularAd['slug']]) }}" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        Aucune Annonce à Afficher
+                                    @endif
+									
 									
 								</tbody>
 							</table>

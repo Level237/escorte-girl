@@ -94,4 +94,22 @@ class AdsService{
             return [];
         }
     }
+
+    public function popularsAds(){
+
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/populars");
+            $ads = json_decode((string) $response->getBody(), true);
+           
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        return  $ads;
+    }
 }
