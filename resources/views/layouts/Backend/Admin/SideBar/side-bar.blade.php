@@ -43,33 +43,12 @@
         <!--- Sidemenu -->
         <ul class="side-nav">
 
-            <li class="side-nav-title">Navigation</li>
-
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="{{ route('admin.dashboard') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                     <i class="uil-home-alt"></i>
-                    <span class="badge bg-success float-end">5</span>
                     <span> Dashboards </span>
                 </a>
-                <div class="collapse" id="sidebarDashboards">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="dashboard-analytics.html">Analytics</a>
-                        </li>
-                        <li>
-                            <a href="index.html">Ecommerce</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-projects.html">Projects</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-crm.html">CRM</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-wallet.html">E-Wallet</a>
-                        </li>
-                    </ul>
-                </div>
+               
             </li>
 
             <li class="side-nav-title">Profil</li>
@@ -255,18 +234,18 @@
                 </a>
             </li>
 
-            <li class="side-nav-title">Faq</li>
+            <li class="side-nav-title">FAQ</li>
             <li class="side-nav-item">
                 <a style="cursor: pointer"  class="side-nav-link" href="{{ route('faqs.index') }}">
                     <i class="uil-box"></i>
-                    <span> Sections Faq </span>
+                    <span> Sections FAQ </span>
 
                 </a>
             </li>
             <li class="side-nav-item">
                 <a style="cursor: pointer"  class="side-nav-link" href="{{ route("faqs.create") }}" >
                     <i class="uil-box"></i>
-                    <span>Creer une Faq</span>
+                    <span>Creer une FAQ</span>
 
                 </a>
             </li>
