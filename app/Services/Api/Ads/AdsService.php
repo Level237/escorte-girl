@@ -112,4 +112,22 @@ class AdsService{
 
         return  $ads;
     }
+
+    public function recentAds(){
+
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/recents");
+            $ads = json_decode((string) $response->getBody(), true);
+           
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        return  $ads;
+    }
 }

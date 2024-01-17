@@ -17,9 +17,10 @@ class DashboardAdminController extends Controller
         $statCurrentWeek=(new StatService())->statCurrentWeek();
         $statPreviousWeek=(new StatService())->statPreviousWeek();
         $popularsAds = (new AdsService())->popularsAds();
+        $recentAds = (new AdsService())->recentAds();
 
         //dd($popularsAds);
         //return $statPreviousWeek;
-        return view('backend.index',compact('popularsAds','statUser',"statEscort",'statIncome','statAnnounce','statCurrentWeek','statPreviousWeek'));
+        return view('backend.index',compact('recentAds','popularsAds','statUser',"statEscort",'statIncome','statAnnounce','statCurrentWeek','statPreviousWeek'));
     }
 }
