@@ -123,30 +123,21 @@ Dashboard
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>ASOS Ridley High Waist</td>
-											<td>$79.49</td>
-											<td><span class="badge bg-primary">82 Pcs</span></td>
-											<td>$6,518.18</td>
-										</tr>
-										<tr>
-											<td>Marco Lightweight Shirt</td>
-											<td>$128.50</td>
-											<td><span class="badge bg-primary">37 Pcs</span></td>
-											<td>$4,754.50</td>
-										</tr>
-										<tr>
-											<td>Half Sleeve Shirt</td>
-											<td>$39.99</td>
-											<td><span class="badge bg-primary">64 Pcs</span></td>
-											<td>$2,559.36</td>
-										</tr>
-										<tr>
-											<td>Lightweight Jacket</td>
-											<td>$20.00</td>
-											<td><span class="badge bg-primary">184 Pcs</span></td>
-											<td>$3,680.00</td>
-										</tr>
+                                        @if (count($statTowns))
+                                            @foreach ($statTowns as $statTown)
+                                                <tr>
+                                                    <td>{{ ucfirst($statTown['town_name']) }}</td>
+                                                    <td>{{ $statTown['users'] }}</td>
+                                                    <td><span class="badge bg-primary">{{ $statTown['ads'] }} </span></td>
+                                                    <td>{{ $statTown['escorts'] }}</td>
+                                                </tr>
+                                            @endforeach
+                                            
+                                        @else
+                                            Aucune donnée
+                                        @endif
+										
+										
 									</tbody>
 								</table>
 

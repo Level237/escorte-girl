@@ -56,4 +56,11 @@ class StatService{
         return $data;
     }
 
+    public function statTown(){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::get($url."/api/stats/statTown");
+        $data = json_decode((string) $response->getBody(), true);
+        return $data;
+    }
+
 }
