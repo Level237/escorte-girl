@@ -1374,7 +1374,7 @@ opacity: 0.4
         </div>
 
         <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
-            <span>Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
+            <span>Cette fonctionnalité est disponible uniquement pour les membres. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte 'membre', ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
 
         </div>
         <div class="card-footer">
@@ -1422,7 +1422,7 @@ opacity: 0.4
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium
+        Cette fonctionnalité est disponible uniquement pour les membres. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte 'membre', ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium
       </div>
       <div class="modal-footer">
 	    <a href="{{ route('upgrade-plan') }}"> <button type="button" class="btn btn-primary">Souscrire Maintenant</button></a>
@@ -1465,7 +1465,7 @@ opacity: 0.4
             </div>
 
             <div class="card-body flex justify-content-center" style="display: flex;align-items:center;justify-content:center">
-                <span>Cette fonctionnalité est disponible uniquement pour les membres VIP. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte membre, ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
+                <span>Cette fonctionnalité est disponible uniquement pour les membres. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte 'membre', ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium</span>
 
             </div>
             <div class="card-footer">

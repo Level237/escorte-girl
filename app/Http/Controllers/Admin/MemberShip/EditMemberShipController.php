@@ -19,7 +19,7 @@ class EditMemberShipController extends Controller
 
             if($membership->status() == 200){
                 //dd('hello');
-                $membership = json_decode((string) $membership->getBody(), true)['data'];
+                $membership = json_decode((string) $membership->getBody(), true);
                 //dd($membership);
                 return view('backend.memberships.edit', compact('membership'));
 

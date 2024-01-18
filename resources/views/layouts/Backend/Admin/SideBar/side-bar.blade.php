@@ -3,20 +3,20 @@
     <!-- Brand Logo Light -->
     <a href="index.html" class="logo logo-light">
         <span class="logo-lg">
-            <img  src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo">
+            <img  src="{{ asset('backend/assets/images/logo-vy.png') }}" alt="logo">
         </span>
         <span class="logo-sm">
-            <img  src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo">
+            <img  src="{{ asset('backend/assets/images/logo-vy.png') }}" alt="logo">
         </span>
     </a>
 
     <!-- Brand Logo Dark -->
     <a href="index.html" class="logo logo-dark">
         <span class="logo-lg">
-            <img src="assets/images/logo-dark.png" alt="dark logo">
+           <img  src="{{ asset('backend/assets/images/logo-vy.png') }}" alt="logo">
         </span>
         <span class="logo-sm">
-            <img src="assets/images/logo-dark-sm.png" alt="small logo">
+            <img  src="{{ asset('backend/assets/images/logo-vy.png') }}" alt="logo">
         </span>
     </a>
 
@@ -43,33 +43,12 @@
         <!--- Sidemenu -->
         <ul class="side-nav">
 
-            <li class="side-nav-title">Navigation</li>
-
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="{{ route('admin.dashboard') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                     <i class="uil-home-alt"></i>
-                    <span class="badge bg-success float-end">5</span>
                     <span> Dashboards </span>
                 </a>
-                <div class="collapse" id="sidebarDashboards">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="dashboard-analytics.html">Analytics</a>
-                        </li>
-                        <li>
-                            <a href="index.html">Ecommerce</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-projects.html">Projects</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-crm.html">CRM</a>
-                        </li>
-                        <li>
-                            <a href="dashboard-wallet.html">E-Wallet</a>
-                        </li>
-                    </ul>
-                </div>
+               
             </li>
 
             <li class="side-nav-title">Profil</li>
@@ -141,23 +120,7 @@
 
         <li class="side-nav-title">Localisation</li>
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                    <i class="uil-map-marker"></i>
-                    <span> Pays </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarPages">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="pages-profile.html">Listes</a>
-                        </li>
-                        <li>
-                            <a href="pages-profile-2.html">Ajouter un pays</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+         
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
@@ -255,18 +218,18 @@
                 </a>
             </li>
 
-            <li class="side-nav-title">Faq</li>
+            <li class="side-nav-title">FAQ</li>
             <li class="side-nav-item">
                 <a style="cursor: pointer"  class="side-nav-link" href="{{ route('faqs.index') }}">
                     <i class="uil-box"></i>
-                    <span> Sections Faq </span>
+                    <span> Sections FAQ </span>
 
                 </a>
             </li>
             <li class="side-nav-item">
                 <a style="cursor: pointer"  class="side-nav-link" href="{{ route("faqs.create") }}" >
                     <i class="uil-box"></i>
-                    <span>Creer une Faq</span>
+                    <span>Creer une FAQ</span>
 
                 </a>
             </li>
