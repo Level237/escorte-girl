@@ -120,23 +120,7 @@
 
         <li class="side-nav-title">Localisation</li>
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                    <i class="uil-map-marker"></i>
-                    <span> Pays </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarPages">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="pages-profile.html">Listes</a>
-                        </li>
-                        <li>
-                            <a href="pages-profile-2.html">Ajouter un pays</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+         
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">

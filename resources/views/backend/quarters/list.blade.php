@@ -64,7 +64,7 @@ Liste des quartiers
                                 <div class="col-xl-4">
                                     <div class="text-xl-end mt-xl-0 mt-2">
                                         <a href="{{ route('quarters.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> 
-                                            Nouvelle Ville</button></a>
+                                            Nouveau Quartier</button></a>
                                     </div>
                                 </div><!-- end col-->
                             </div>
