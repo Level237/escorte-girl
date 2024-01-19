@@ -98,24 +98,7 @@
             </li>
 
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
-                    <i class="uil-clipboard-alt"></i>
-                    <span> Droits </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarTasks">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="apps-tasks.html">Listes</a>
-                        </li>
-                        <li>
-                            <a href="apps-tasks-details.html">Ajouter un droit</a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
 
 
         <li class="side-nav-title">Localisation</li>

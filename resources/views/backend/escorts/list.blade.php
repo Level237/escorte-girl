@@ -17,7 +17,7 @@ Listes des escorts
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#">Ajouter un(e) escort</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('users.create') }}">Ajouter un(e) escort</a></li>
                                 <li class="breadcrumb-item active">Escorts</li>
                             </ol>
                         </div>
@@ -50,12 +50,12 @@ Listes des escorts
 
                                                 <select name="role_id" class="form-select" id="status-select">
                                                     <option selected>Rechercher par username...</option>
-                                                  
+
 
 
 
                                                 </select>
-                                                <button type="submit" class="btn btn-primary"> Fitrer</button>
+                                                <button type="submit" class="btn" style="background-color: #ED5858;color:white"> Filtrer</button>
                                             </div>
                                         </div>
                                     </form>
@@ -89,7 +89,7 @@ Listes des escorts
                                     <tbody>
                                         @foreach ($escorts as $escort)
 
-                                        
+
                                         <tr>
                                             <td>
                                                 <div class="form-check">
@@ -108,12 +108,12 @@ Listes des escorts
                                                {{ $escort->phone_number }}
                                             </td>
                                             <td>
-                                            
-                                                 <form method="POST" action="{{ route('verify', ['id' => $escort->id ]) }}" 
+
+                                                 <form method="POST" action="{{ route('verify', ['id' => $escort->id ]) }}"
                                                     id="verify{{ $escort->id }}">
-                                                       
+
                                                         @csrf
-                                                 
+
                                                  <input type="checkbox" id="isVerify{{ $escort->id }}" name="isVerify{{ $escort->id }}" @if($escort->isVerify) checked @endif data-switch="success"
                                                  onclick="event.preventDefault(); document.getElementById('verify{{ $escort->id }}').submit();"/>
                                                  <label for="isVerify{{ $escort->id }}" data-on-label="Oui" data-off-label="Non"></label></div>
@@ -128,7 +128,7 @@ Listes des escorts
                                             </td>
                                         </tr>
 
-                                        
+
 
                                         @endforeach
 

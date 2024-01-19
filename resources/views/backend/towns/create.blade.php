@@ -51,7 +51,7 @@ Nouvelle Ville
                                 <div id="ppt-invalid-fields1" >
                                     <div class="container ">
                                         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
-                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> 
+                                            <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong>
                                             <span id="ppt-invalid-fields-text">{{$errors->first()}}</span>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@ Nouvelle Ville
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="simpleinput" class="form-label">Nom de la ville</label>
-                                                        <input type="text" name="town_name"  
+                                                        <input type="text" name="town_name"
                                                         placeholder="Entrez le nom de la ville"  class="form-control" value="{{ old('town_name') }}" required>
                                                     </div>
                                                 </div>
@@ -76,22 +76,22 @@ Nouvelle Ville
                                             </div>
                                                 <div class="mb-3">
                                                     <label for="example-email" class="form-label">Code ville</label>
-                                                    <input type="text" id="code" name="code" value="{{ old('code') }}" class="form-control" 
+                                                    <input type="text" id="code" name="code" value="{{ old('code') }}" class="form-control"
                                                     placeholder="Code " required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="example-email" class="form-label">Pays</label>
                                                       <select name="country_id" id="country_id" class="form-control" required>
-                                                            
+
                                                             @foreach ($countries as $country)
                                                                 <option value="{{ $country['id'] }}">{{ $country['country_name'] }}</option>
                                                             @endforeach
                                                       </select>
                                                 </div>
-                                               
+
 
                                                     <div class="col-auto">
-                                                        <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+                                                        <button type="submit" class="btn mb-2" style="background-color: #ED5858;color:white">Ajouter</button>
                                                     </div>
                                             </form>
 
