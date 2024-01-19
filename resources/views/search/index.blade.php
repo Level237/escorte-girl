@@ -52,19 +52,19 @@
 
 				    <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'search_result' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                   @endif
               @endforeach
 
           @endif
-          
-                                   
+
+
       </div>
 				  <div class="row g-0">
 						<div class="col-12 col-xl-10 mx-auto">
@@ -83,19 +83,19 @@
 
 									</div>
 
-								
+
 										@if(count($results))
 										@foreach($types as $key=>$value)
 											<h2>{{ $value }}</h2> <br>
 											<div class="row">
 											@foreach($results as $result)
-											    
+
 												@if ($result['type'] == $key)
-													
+
 													@switch($result['type'])
-												  
+
 															@case('announcements')
-																	
+
 																		<div class="col-md-6 col-sm-6  col-lg-6 col-6">
 
 																		  <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
@@ -107,20 +107,27 @@
 																		@if($result['searchable']['subscribe_id'])
 																			<div class="buttons-wrap">
 
-																					<div class="button-new">
-																					 
+
+
 																					@if($result['searchable']['subscribe_id'] === 1)
+                                                                                    <div class="button-new" style="background-color: green;">
 																						PREMIUM
+                                                                                    </div>
 																					 @endif
-																					 
+
 																					 @if($result['searchable']['subscribe_id'] === 2)
+                                                                                     <div class="button-new" style="background-color: #FFC300;">
 																						GOLD
+                                                                                    </div>
+
 																					 @endif
 																					 @if($result['searchable']['subscribe_id'] === 3)
-																							 ULTRA VIP
+                                                                                     <div class="button-new" style="background-color: red;">
+																						ULTRA VIP
+                                                                                    </div>
 																					@endif
-																					
-																					</div>
+
+
 
 																			</div>
 																		@endif
@@ -140,7 +147,7 @@
 																				  {{ truncate($result['searchable']['title'],40) }}  
 																				</div>
 																				</div>
-																				<div class="bg-image" 
+																				<div class="bg-image"
 																				data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['path']] )}}">
 																				 
 																				</div>
@@ -148,7 +155,7 @@
 																			<div ppt-search-badges="" style="z-index:1" class="right">
 
 
-																			  <div class="badge" style="color:#000000;background-color:#FFC300;">
+																			  <div class="badge" style="color:white;background-color:black;">
 																			  <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($result['searchable']['town']['town_name']) }}   </div>
 
 																			</div>
@@ -193,15 +200,15 @@
 																				  data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['path']] )}}"> 
 																				  </div>
                                           @if ($result['searchable']['subscribe_id'])
-                                            
-                                          
+
+
 																				  <div ppt-search-badges="" style="z-index:1" class="right">
 																					<div class="badge" style="color:#000000;background-color:#FFC300;">
-																					<span class="fal fa fa-star" style="color:#000000"> </span> 
+																					<span class="fal fa fa-star" style="color:#000000"> </span>
                                               	@if($result['searchable']['subscribe_id'] === 1)
                                                     PREMIUM
                                                   @endif
-                                                  
+
                                                   @if($result['searchable']['subscribe_id'] === 2)
                                                     GOLD
                                                   @endif
@@ -228,7 +235,7 @@
 
 
 																	  </div>
-																
+
 																 <br>
 																@break
 
@@ -243,10 +250,10 @@
 																@break
 
 															@case('users')
-																
+
 																@forelse ($result['searchable']['ads'] as $ad)
-                                  
-                               
+
+
 																<div class="col-md-6 col-sm-6  col-lg-6 col-6">
 
 																		  <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
@@ -259,18 +266,18 @@
 																			<div class="buttons-wrap">
 
 																					<div class="button-new">
-																					 
+
 																					@if($ad['subscribe_id'] === 1)
 																						PREMIUM
 																					 @endif
-																					 
+
 																					 @if($ad['subscribe_id'] === 2)
 																						GOLD
 																					 @endif
 																					 @if($ad['subscribe_id'] === 3)
 																							 ULTRA VIP
 																					@endif
-																					
+
 																					</div>
 
 																			</div>
@@ -291,7 +298,7 @@
 																				  {{ truncate($ad['title'],40) }}  
 																				</div>
 																				</div>
-																				<div class="bg-image" 
+																				<div class="bg-image"
 																				data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
 																				 
 																				</div>
@@ -300,7 +307,7 @@
 
 
 																			  <div class="badge" style="color:#000000;background-color:#FFC300;">
-																			  <span class="fal fa fa-star" style="color:#000000"> </span> 
+																			  <span class="fal fa fa-star" style="color:#000000"> </span>
                                         {{ ucfirst($ad['town']['town_name']) }}   </div>
 
 																			</div>
@@ -338,23 +345,23 @@
 																				  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 
 																						<div class="fs-sm text-white  text-600">
-																						
+
 																						</div>
 																				  </div>
 																				  <div class="bg-image z-0"
 																				  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
 																				  </div>
                                           @if ($ad['subscribe_id'])
-                                            
-                                          
+
+
 																				  <div ppt-search-badges="" style="z-index:1" class="right">
 																					<div class="badge" style="color:#000000;background-color:#FFC300;">
-																					<span class="fal fa fa-star" style="color:#000000"> </span> 
+																					<span class="fal fa fa-star" style="color:#000000"> </span>
 
                                             	@if($ad['subscribe_id'] === 1)
 																						PREMIUM
 																					 @endif
-																					 
+
 																					 @if($ad['subscribe_id'] === 2)
 																						GOLD
 																					 @endif
@@ -382,29 +389,29 @@
 
 															    </div>
 																 @empty
-                                                                  
+
 																@endforelse
 															@break
-														
+
 															@default
-																
+
 														@endswitch
 												@endif
-													
-														
+
+
 
 											@endforeach
 											</div>
 											<hr />
 										@endforeach
-								   
 
-									
+
+
 									@endif
 
-								  
-								
-										  
+
+
+
 							</div>
 					  </div>
 			</div>
