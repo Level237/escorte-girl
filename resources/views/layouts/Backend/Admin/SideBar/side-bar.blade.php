@@ -48,7 +48,7 @@
                     <i class="uil-home-alt"></i>
                     <span> Dashboards </span>
                 </a>
-               
+
             </li>
 
             <li class="side-nav-title">Profil</li>
@@ -120,7 +120,7 @@
 
         <li class="side-nav-title">Localisation</li>
 
-         
+
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
