@@ -62,7 +62,7 @@ Edition Faq {{ $faq->questions }}
                                                 </div>
 
                                                     <div class="col-auto">
-                                                        <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+                                                        <button type="submit" class="btn  mb-2" style="background-color: #ED5858;color:white">Ajouter</button>
                                                     </div>
                                             </form>
 
