@@ -183,7 +183,7 @@
 
                       </li>
 
-                    <button class="btn btn-primary">Filtrer</button>
+                    <button class="btn" style="background-color:#ED5858;color:wheat">Filtrer</button>
   </form>
 
         </ul>

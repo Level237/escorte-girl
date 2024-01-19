@@ -362,7 +362,7 @@ nav .fa{
 
 	<div class="hide-ipad ml-auto ms-auto">
         <a href="{{ route('adstown') }}" data-ppt-btn=""
-		class="btn-primary btn-rounded-25 text-600" data-ppt-btn2-txt="">Autres Villes</a>
+		class=" btn-rounded-25 text-600" data-ppt-btn2-txt="" style="background-color: #ED5858;color:white">Autres Villes</a>
                       </div>
     </nav>
   </div>
@@ -427,7 +427,7 @@ nav .fa{
             <div class=>
 
             <div class>
-      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire" 
+      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire"
       target="_blank" class="btn-md  mt-2" data-ppt-btn="" style="background-color: #F44336; color:white" data-ppt-btn-link=""
                  class="btn-system">Besoin d'aide pour s'inscrire?cliquez ici </a>
 
@@ -470,7 +470,7 @@ nav .fa{
 			@endforelse
       @endif
 			<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
+					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" style="color: #ED5858;" >
 						Autres Villes
 				    </a>
 				</div>
