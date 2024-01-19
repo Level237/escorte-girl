@@ -1,5 +1,5 @@
 <section data-ppt-blockid="footer1" style="background:#000000!important;" data-ppt-blocktype="footer" data-ppt-section="">
-<div class="bg-primary footer-txt-light">
+<div class=" footer-txt-light" style="background-color: #ED5858">
 <div class="container">
 
   <style>
@@ -45,7 +45,7 @@ En utilisant le site vous acceptez que le propriétaire du site soit décliné d
       <div class="col-md-4 text-center text-md-left logo-lg">
 
         <div class="mb-4">
-         <div class='textlogo navbar-brand-light'>Viens <span class='text-primary'>Yamo <i class="fa fa-heart"></i></span></div>
+         <div class='textlogo navbar-brand-light'>Viens <span class='' style="color: #ED5858;">Yamo <i class="fa fa-heart"></i></span></div>
 
         </div>
 
@@ -94,7 +94,7 @@ En utilisant le site vous acceptez que le propriétaire du site soit décliné d
 
 
 
-<button type="submit" class="btn btn-primary">Rejoindre</button></a>
+<button type="submit" class="btn" style="background-color: #ED5858;color:white">Rejoindre</button></a>
 
  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

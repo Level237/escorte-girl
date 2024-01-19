@@ -3896,7 +3896,7 @@ function updatecommentfilter(g){
 							<div class="badge" style="color:#FFFF;background-color:#ED5858;">
 							<span class="fal fa fa-star" style="color:#000000">&nbsp;</span> {{ ucfirst($ad['user']['username']) }}  </div>
 							@if($ad['subscribe_id'] ===1)
-                            <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+                            <div class="badge" style="color:#FBFBFB;background-color:green;">
 
                                 <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>PREMIUM</div>
 
@@ -3908,7 +3908,7 @@ function updatecommentfilter(g){
 
                                 @endif
                                 @if($ad['subscribe_id'] ===3)
-                                <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+                                <div class="badge" style="color:#FBFBFB;background-color:red;">
 
                                     <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>ULTRA VIP</div>
 
