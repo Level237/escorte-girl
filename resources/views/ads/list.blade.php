@@ -839,6 +839,15 @@ function filterToggle(val){
         container.appendChild(selectedQuarters);
 
     }
+
+    function scrollTop(){
+							jQuery('body,html').animate({
+										scrollTop: 0
+									}, 100);
+						}
+    jQuery(document).ready(function(){
+						  scrollTop();
+    });
 </script>
 
 </div>
