@@ -100,7 +100,7 @@
 
     <div class="row no-gutters">
 
-    <div class="col-lg-4 bg-primary hide-mobile position-relative overflow-hidden tipsidebar">
+    <div class="col-lg-4 hide-mobile position-relative overflow-hidden tipsidebar" style="background-color: #ED5858;">
 
     <div class="bg-image" data-bg="{{ asset('assets/images/register-banner.jpg') }}"></div>
 
