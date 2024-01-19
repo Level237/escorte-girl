@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
     <title> &raquo; Contact</title>
-    
+
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large' />
 <style id='classic-theme-styles-inline-css' type='text/css'>
 /*! This file is auto-generated */
@@ -23,8 +23,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
 <script type="text/javascript" src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
- 
-    
+
+
 </head>
 <body class="page-template page-template-templates page-template-tpl-page-contact page-template-templatestpl-page-contact-php page page-id-7 logged-in body-hide-footer demomode theme-es tall-images innerpage" >
 
@@ -38,23 +38,23 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 @include('layouts.Frontend.header')
 
  <nav class="page-breadcrumbs border-bottom">
- 
+
 <div class="container py-4">
- 
+
 <h1 class="text-center text-sm-left h3 mb-0 pb-0">Contact</h1>
- 
+
 </div>
- 
+
 </nav>
 <div class="bg-light ppt-page-body">
 <style>
 
- 
-</style>
-    
 
-  
-    
+</style>
+
+
+
+
 <section data-ppt-blockid='text107'  data-ppt-blocktype='text'  data-ppt-section  class="border-top section-100 ppt-block-text">
 
    <div id="ppt-add-listing-save" style="display:none">
@@ -89,8 +89,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <strong><i class="fas fa-exclamation-triangle mr-2"></i>  Erreur : </strong> <span id="ppt-invalid-fields-text"></span>
         </div>
     </div>
-    
-   
+
+
     <div id="ppt-invalid-fields" style="display:none;">
     <div class="container ">
         <div class="alert alert-danger p-3  alert-dismissible fade show" role="alert">
@@ -102,16 +102,16 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
   <div class="" ppt-border1 id="ppt-add-listing-form">
   <div class="card-body">
     <div class="row y-middle">
-    
+
       <div class="col-lg-6 px-xl-5">
-                    
+
         <span class="fal fa-envelope mb-3 fa-3x text-primary">&nbsp;</span>
-        
+
 		<h2 class="mb-3" data-ppt-title>Remplissez le formulaire suivant pour nous faire part de vos preoccupations</h2>
-        
+
         <p class="lead mb-4" data-ppt-subtitle>
          Vous pouvez nous écrire via les réseaux sociaux.</p>
-   
+
           </div>
       <div class="col-lg-6 text-center"><div class="_content py-3 ppt-forms style3">
 
@@ -121,11 +121,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <div class="formfields data-form-fields">
               <div class="row">
                 <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
-                  <input type="text" class="form-control contact-required" tabindex="1" 
+                  <input type="text" class="form-control contact-required" tabindex="1"
                   data-key="name" name='name' id="name" placeholder="Nom Complet">
                 </div>
                 <div class="col-md-6 mobile-mb-2 mb-3 mb-lg-0">
-                  <input placeholder="Téléphone" data-key="phone" id="phone" name='phone' type="tel" class="form-control contact-required" 
+                  <input placeholder="Téléphone" data-key="phone" id="phone" name='phone' type="tel" class="form-control contact-required"
                   tabindex="2">
                 </div>
               <div class="col-12 my-md-4 mobile-mb-2 mb-3">
@@ -136,65 +136,65 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 <div class="col-12 my-md-4 mobile-mb-2 mb-3">
                   <textarea placeholder="Votre Message..." name='message' data-key="message" id="message" class="form-control contact-required"  data-name="message" tabindex="3" style="min-height:150px;"></textarea>
                 </div>
-                
+
             </div>
             </div>
             </div>
             <div class="_footer border-top pt-3 data-form-fields">
 
             <div class="row">
-            
+
 
             <div class="col-md-12">
-                
+
                   <!-- Google Recaptcha -->
                     <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 
             </div>
 
             <div class="col-md-12 text-md-right">
-            <button type="button" onclick="processSubmitForm();" data-btn-submit data-ppt-btn class=" btn-primary ">Envoyer</button>
+            <button type="button" onclick="processSubmitForm();" data-btn-submit data-ppt-btn class=" "  style="background-color: #ED5858;color:white">Envoyer</button>
           </form>
             </div>
-        
-      
-      
+
+
+
 </div>
 
- 
+
 </div></div>
     </div>
 </div>
-</div>    
+</div>
   </div>
 </section>
 
 <section data-ppt-blockid='text106'  data-ppt-blocktype='text'  data-ppt-section  class="border-top section-60 ppt-block-text">
   <div class="container">
-  
+
     <div class="row d-flex align-items-center">
-    
-    
+
+
         <div class="col-md-7 pr-lg-5 pe-lg-5 text-center mobile-mb-2">
-            <img data-src="https://premiummod.com/demoimages/img.php?fw=text106&t=es" class="img-fluid lazy"  alt="image"  data-ppt-image> 
-            
+            <img data-src="https://premiummod.com/demoimages/img.php?fw=text106&t=es" class="img-fluid lazy"  alt="image"  data-ppt-image>
+
       </div>
-    
+
       <div class="col-md-5 pl-xl-5 ps-xl-5">
-                    
-       
-			
+
+
+
             <h6 class="mb-3 text-uppercase text-primary" data-ppt-desc>Parlons</h6>
-            
+
 		<h2 class="mb-3" data-ppt-title>Vous avez des questions ? N'hésitez pas à nous contacter.</h2>
-        
+
         <p class="lead mb-4" data-ppt-subtitle>Vous pouvez nous écrire via les réseaux sociaux. ou remplir le formulaire de contact ci-dessus.</p>
-        
+
           <div class="col-md-6 text-right d-none d-md-block">
   <div class="ppt-icons-social  _style5 size-md rounded">
                 <ul>
 
-                  
+
 
                  <li class="whatsapp">
                  <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello%20je%20viens%20du%20site%20viens-yamo.com"
@@ -223,7 +223,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                 </div>
 
   </div>
-          
+
     {{-- <div class="d-flex flex-row">
           <div>
             <span class="fa fa-map-marker text-primary mr-4 me-4"></span>
@@ -233,9 +233,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <p data-ppt-f1b>Boulangerie Malangue, Douala.</p>
           </div>
         </div>
-        
-        
-        
+
+
+
             <div class="d-flex flex-row">
           <div>
             <span class="fa fa-phone-alt text-primary mr-4 me-4"></span>
@@ -245,9 +245,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <p data-ppt-f2b>+237 698 829 217</p>
           </div>
         </div>
-        
-        
-          
+
+
+
     <div class="d-flex flex-row">
           <div>
             <span class="fa fa-envelope text-primary mr-4 me-4"></span>
@@ -257,51 +257,51 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
             <p data-ppt-f3b>contact@viens-yamo.com</p>
           </div>
         </div> --}}
-        
-            
-            
-			
-		 
+
+
+
+
+
           </div>
-  
+
     </div>
   </div>
 </section>
-  
-</div>
-  
-   @include('layouts.Frontend.footer') 
-</main>
-</div> 
 
- 
-<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;"> 
+</div>
+
+   @include('layouts.Frontend.footer')
+</main>
+</div>
+
+
+<div id="page-loading" style="height:400px; text-align:center; padding-top:300px;">
   <img src="{{ asset('assets/images/loading.svg') }}" alt="loading page" style="max-width:150px;" /> </div>
 
- 
+
 
 
 <!-- PREMIUMPRESS THEMES V.10.9.3 -->
-               
-                              
-               
+
+
+
                <script>
-				var ajax_img_url = "https://ppt1080.b-cdn.net/";  
-				var ajax_site_url = "https://es10.premiummod.com/index.php";  
-				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/"; 
+				var ajax_img_url = "https://ppt1080.b-cdn.net/";
+				var ajax_site_url = "https://es10.premiummod.com/index.php";
+				var ajax_framework_url = "https://es10.premiummod.com/wp-content/themes/ES10/";
 				var ajax_googlemaps_key = "AIzaSyBhXeBRfGfmKU0s9kpCqBtkKFj33HWWZRI";
 				 </script>
-				
+
 				<input type="hidden" id="ppt-current-tho" value="" />
 				<input type="hidden" id="ppt-current-dec" value="" />
 				<input type="hidden" id="ppt-current-symbol" value="$" />
 				<input type="hidden" id="ppt-current-position" value="left" />
-                <input type="hidden" id="ppt-map-provider" value="google" /> 
-               
+                <input type="hidden" id="ppt-map-provider" value="google" />
+
                                   <script async src="https://ppt1080.b-cdn.net/js/js.custom.js?v=10.9.3" id="premiumpress-js"></script>
-                                  
+
 				<noscript id="deferred-styles">
-                
+
 								<link rel="stylesheet" type="text/css" id="boostrap-css" href="https://ppt1080.b-cdn.net/css/_bootstrap.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-fonts" href="https://ppt1080.b-cdn.net/css/css.theme-fonts.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="theme-elementor" href="https://ppt1080.b-cdn.net/css/css.theme-elementor.css?v=10.9.3"/>
@@ -310,13 +310,13 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<link rel="stylesheet" type="text/css" id="premiumpress-css" href="https://ppt1080.b-cdn.net/css/css.premiumpress.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="https://ppt1080.b-cdn.net/css/_chat.css?v=10.9.3"/>
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="https://ppt1080.b-cdn.net/css/_theme_es.css?v=10.9.3"/>
-				                
+
                 				<style>
-				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style> 
-                 
-				</noscript> 
-                
-                 
+				.bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#FFC300 !important; } .btn-primary, .btn-primary:hover { color: #fff; background-color: #FFC300 !important; border-color: #FFC300 !important; } .text-primary, .filters_col .distance span { color: #FFC300 !important; } .btn-outline-primary { color: #FFC300 !important; border-color: #FFC300 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #FFC300 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #FFC300!important; }				</style>
+
+				</noscript>
+
+
 				<script>
 
           function scrollTop(){
@@ -334,15 +334,15 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               jQuery(".form-control").removeClass('required-active');
               jQuery(".ppt-add-listing-error").html('');
 
-             
+
 
               if(!canContinue){
               return;
               }
 
-         
+
               if(jQuery('#name').val() === "" || jQuery('#name').val() === undefined){
-                  
+
                   jQuery('[data-key="name"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le nom  est requis");
@@ -351,7 +351,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               }
 
               if(jQuery('#phone').val() === "" || jQuery('#phone').val() === undefined){
-                
+
                   jQuery('[data-key="phone"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le numéro de téléphone est requis");
@@ -360,7 +360,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               }
 
               if(jQuery('#subject').val() === "" || jQuery('#subject').val() === undefined){
-                
+
                   jQuery('[data-key="subject"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le sujet est requis");
@@ -369,7 +369,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               }
 
               if(jQuery('#message').val() === "" || jQuery('#message').val() === undefined){
-                
+
                   jQuery('[data-key="message"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Le message est requis");
@@ -378,7 +378,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
               }
 
               if(jQuery('#g-recaptcha-response').val() === "" || jQuery('#g-recaptcha-response').val() === undefined){
-                
+
                   jQuery('[data-key="g-recaptcha-response"]').addClass('required-active');
                   jQuery('#ppt-invalid-fields').show();
                   jQuery('#ppt-invalid-fields-text').html("Veuillez compléter le captcha");
@@ -435,22 +435,22 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 						  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 					  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 					  else window.addEventListener('load', loadDeferredStyles);
-				   
+
 				</script>
                 <!----------------- -->
 
 
 
 
- 
+
 </div>
 
 
- 
 
- 
 
-</div> 
+
+
+</div>
 <script async src="https://www.google.com/recaptcha/api.js"></script>
 </body>
 </html>

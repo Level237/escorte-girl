@@ -183,7 +183,7 @@
 
                       </li>
 
-                    <button class="btn btn-primary">Filtrer</button>
+                    <button class="btn" style="background-color:#ED5858;color:wheat">Filtrer</button>
   </form>
 
         </ul>
@@ -368,7 +368,7 @@ function filterToggle(val){
 						<div ppt-search-badges="" style="z-index:1" class="right">
 
 							@if($ad['subscribe_id'] ===1)
-                            <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+                            <div class="badge" style="color:#FBFBFB;background-color:green;">
 
                                 <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>PREMIUM</div>
 
@@ -380,13 +380,13 @@ function filterToggle(val){
 
                                 @endif
                                 @if($ad['subscribe_id'] ===3)
-                                <div class="badge" style="color:#FBFBFB;background-color:#ffc107;">
+                                <div class="badge" style="color:#FBFBFB;background-color:red;">
 
                                     <span class="fal fa fa-check" style="color:#FBFBFB">&nbsp;</span>ULTRA VIP</div>
 
                                     @endif
 								@if($ad['user']['isVerify']== 1)
-												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+												<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 												</div>
 										@endif
@@ -404,7 +404,7 @@ function filterToggle(val){
 							  <div class="d-sm-flex flex-sm-column">
 								<div class="fs-4 text-600 mb-2">
 
-                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ ucfirst($ad['user']['username']) }} . 
+                                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">{{ ucfirst($ad['user']['username']) }} .
                                       {{ truncate($ad['title'],40) }}
 											<span class="text-online">•</span>
 											</a>
@@ -425,7 +425,7 @@ function filterToggle(val){
 
 								<div style="min-height:60px;">
 								  <span class="shortcode_excerpt">
-                    {{ truncate($ad['description'],400) }} 
+                    {{ truncate($ad['description'],400) }}
                   </span>
 								</div>
 										<div>
@@ -548,10 +548,10 @@ function filterToggle(val){
             @if ($current_page == $i)
               <li class ="page-item active">
                 @if (isset($townAds))
-                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"  class="page-link bg-primary">
+                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"  class="page-link"style="background-color: #ED5858;color:white">
                   {{ $i }}</a>
                @elseif (isset($quarter))
-                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link">
+                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link" *style="background-color: #ED5858;color:white">
               @else
                    <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">
                   {{ $i }}</a>
@@ -561,13 +561,13 @@ function filterToggle(val){
                 <li class="page-item">
                     @if (isset($townAds))
                             <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"
-                        class="page-link" rel="nofollow">{{ $i }}</a>
+                        class="page-link"style="background-color: #ED5858;color:white" rel="nofollow">{{ $i }}</a>
                     @elseif (isset($quarter))
                              <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $i]) }}"
-                        class="page-link" rel="nofollow">{{ $i }}</a>
+                        class="page-link"style="background-color: #ED5858;color:white" rel="nofollow">{{ $i }}</a>
                     @else
                       <a href="{{ route('ads.list', ['current_page' => $i]) }}"
-                        class="page-link" rel="nofollow">{{ $i }}</a>
+                        class="page-link" style="background-color: #ED5858;color:white"rel="nofollow">{{ $i }}</a>
                        @endif
 
                   </li>
@@ -587,13 +587,13 @@ function filterToggle(val){
               @if ($current_page == $k)
                 <li class ="page-item active">
                    @if (isset($townAds))
-                     <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $k]) }}"  class="page-link bg-primary">
+                     <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $k]) }}"  class="page-link " style="background-color: #ED5858;color:white">
                     {{ $k }}</a>
                    @elseif (isset($quarter))
-                     <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $k]) }}"  class="page-link bg-primary">
+                     <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $k]) }}"  class="page-link" style="background-color: #ED5858;color:white">
                     {{ $k }}</a>
                   @else
-                     <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link bg-primary">
+                     <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link">
                     {{ $k }}</a>
                    @endif
                  </li>

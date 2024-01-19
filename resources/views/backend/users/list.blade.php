@@ -17,7 +17,7 @@ Listes des utilisateurs
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#">Ajouter un utilisateur</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('users.create') }}">Ajouter un utilisateur</a></li>
                                 <li class="breadcrumb-item active">utilisateurs</li>
                             </ol>
                         </div>
@@ -60,7 +60,7 @@ Listes des utilisateurs
 
 
                                                 </select>
-                                                <button type="submit" class="btn btn-primary"> Fitrer</button>
+                                                <button type="submit" class="btn" style="background-color: #ED5858;color:white"> Filtrer</button>
                                             </div>
                                         </div>
                                     </form>

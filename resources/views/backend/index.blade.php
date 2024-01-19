@@ -19,12 +19,12 @@ Dashboard
                             <form class="d-flex">
                                 <div class="input-group">
                                     <input type="text" class="form-control form-control-light" id="dash-daterange">
-                                    <span class="input-group-text bg-primary border-primary text-white">
+                                    <span class="input-group-text border-primary text-white" style="background-color: #ED5858">
                                         <i class="mdi mdi-calendar-range font-13"></i>
                                     </span>
                                 </div>
-                              
-                              
+
+
                             </form>
                         </div>
                         <h4 class="page-title">Backoffice D'Administration</h4>
@@ -109,7 +109,7 @@ Dashboard
                     <div class="card card-h-100">
                         <div class="d-flex card-header justify-content-between align-items-center">
                             <h4 class="header-title">Stats Villes</h4>
-                           
+
                         </div>
                         <div class="card-body pt-0">
                             <div dir="ltr">
@@ -128,20 +128,20 @@ Dashboard
                                                 <tr>
                                                     <td>{{ ucfirst($statTown['town_name']) }}</td>
                                                     <td>{{ $statTown['users'] }}</td>
-                                                    <td><span class="badge bg-primary">{{ $statTown['ads'] }} </span></td>
+                                                    <td><span class="badge " style="background-color: #ED5858">{{ $statTown['ads'] }} </span></td>
                                                     <td>{{ $statTown['escorts'] }}</td>
                                                 </tr>
                                             @endforeach
-                                            
+
                                         @else
                                             Aucune donnée
                                         @endif
-										
-										
+
+
 									</tbody>
 								</table>
 
-                      
+
                             </div>
 
                         </div> <!-- end card-body-->
@@ -157,11 +157,11 @@ Dashboard
                     <div class="card">
                         <div class="d-flex card-header justify-content-between align-items-center">
                             <h4 class="header-title">Annonces Populaires</h4>
-                            
+
                         </div>
 
                         <div class="card-body pt-0">
-                            
+
                               <table class="table table-striped table-centered mb-0">
 								<thead>
 									<tr>
@@ -173,7 +173,7 @@ Dashboard
 								</thead>
 								<tbody>
                                     @if (count($popularsAds))
-                                        
+
                                         @foreach ($popularsAds as $popularAd)
                                             @if ($popularAd['visits'] == 0)
                                                 @break
@@ -193,34 +193,34 @@ Dashboard
                                     @else
                                         Aucune Annonce à Afficher
                                     @endif
-									
-									
+
+
 								</tbody>
 							</table>
 
-					
+
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-           
 
-              
+
+
                 <!-- end col -->
 
             </div>
             <!-- end row -->
-			
+
 			        <div class="row">
                 <div class="col-xl-12 col-lg-12 order-lg-2 order-xl-1">
                     <div class="card">
                         <div class="d-flex card-header justify-content-between align-items-center">
                             <h4 class="header-title">Annonces Récentes</h4>
-                            
+
                         </div>
 
                         <div class="card-body pt-0">
-                            
+
                               <table class="table table-striped table-centered mb-0">
 								<thead>
 									<tr>
@@ -232,7 +232,7 @@ Dashboard
 								</thead>
 								<tbody>
                                     @if (count($recentAds))
-                                        
+
                                         @foreach ($recentAds as $recentAd)
                                             <tr>
                                                 <td class="table-user">
@@ -249,19 +249,19 @@ Dashboard
                                     @else
                                         Aucune Annonce
                                     @endif
-									
-									
+
+
 								</tbody>
 							</table>
 
-					
+
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
 
-           
 
-              
+
+
                 <!-- end col -->
 
             </div>
@@ -281,7 +281,7 @@ Dashboard
                     <script>document.write(new Date().getFullYear())</script> © Viens - Yamo
                 </div>
                 <div class="col-md-6">
-                   
+
                 </div>
             </div>
         </div>

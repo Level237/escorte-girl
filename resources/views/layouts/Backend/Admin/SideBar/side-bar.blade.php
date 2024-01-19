@@ -48,7 +48,7 @@
                     <i class="uil-home-alt"></i>
                     <span> Dashboards </span>
                 </a>
-               
+
             </li>
 
             <li class="side-nav-title">Profil</li>
@@ -98,29 +98,12 @@
             </li>
 
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
-                    <i class="uil-clipboard-alt"></i>
-                    <span> Droits </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarTasks">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="apps-tasks.html">Listes</a>
-                        </li>
-                        <li>
-                            <a href="apps-tasks-details.html">Ajouter un droit</a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
 
 
         <li class="side-nav-title">Localisation</li>
 
-         
+
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">

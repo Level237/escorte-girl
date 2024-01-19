@@ -60,7 +60,7 @@ Listes des utilisateurs
 
 
                                                 </select>
-                                                <button type="submit" class="btn btn-primary"> Fitrer</button>
+                                                <button type="submit" class="btn" style="background-color: #ED5858;color:white"> Filtrer</button>
                                             </div>
                                         </div>
                                     </form>

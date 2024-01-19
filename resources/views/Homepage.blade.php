@@ -168,10 +168,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                             <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                                                                                                <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                                                                                <div class="badge" style="color:white;background-color:black;">
                                                                                                 <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i]['town']['town_name']) }}   </div>
 																								@if($vipAds[$i]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  </div>
 																								@endif
 
@@ -219,7 +219,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                         <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
 
 																										@if($vipAds[$i]['user']['isVerify']== 1)
-																										<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+																										<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 																										<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  </div>
 																										@endif
 
@@ -284,10 +284,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                           <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                                                                                              <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                                                                              <div class="badge" style="color:white;background-color:black;">
                                                                                               <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i+1]['town']['town_name']) }}   </div>
 																							  @if($vipAds[$i+1]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  </div>
 																								@endif
 
@@ -335,7 +335,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                       <div class="badge" style="color:#fff;background-color:red;">
                                                                                                       <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
 																								@if($vipAds[$i+1]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  </div>
 																								@endif
 
@@ -424,7 +424,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
       </div>
 
 @if (count($goldAds))
-  
+
 
 <div class="container mt-5">
     <div class="row">
@@ -517,11 +517,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <div class="badge" style="color:white;background-color:black">
                             <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i]['town']['town_name']) }}   </div>
 
 							@if($goldAds[$i]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
@@ -570,7 +570,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 										@if($goldAds[$i]['user']['isVerify']== 1)
-											<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+											<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 												<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié  </div>
 										@endif
 
@@ -626,11 +626,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <div class="badge" style="color:white;background-color:black;">
                             <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+1]['town']['town_name']) }}   </div>
 
 							@if($goldAds[$i+1]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
@@ -680,7 +680,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 										@if($goldAds[$i+1]['user']['isVerify']== 1)
-											<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+											<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 													<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 											</div>
 									    @endif
@@ -739,11 +739,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                                <div class="badge" style="color:#000000;background-color:#FFC300;">
+                                <div class="badge" style="color:white;background-color:black;">
                                 <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+2]['town']['town_name']) }}   </div>
 
 								@if($goldAds[$i+2]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
@@ -794,7 +794,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 											@if($goldAds[$i+2]['user']['isVerify']== 1)
-													<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+													<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 															<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 													</div>
 											@endif
@@ -854,11 +854,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div ppt-search-badges="" style="z-index:1" class="right">
 
 
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <div class="badge" style="color:white;background-color:black;">
                             <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+3]['town']['town_name']) }}   </div>
 
 							@if($goldAds[$i+3]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
@@ -908,7 +908,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
 
 										@if($goldAds[$i+3]['user']['isVerify']== 1)
-												<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+												<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 												</div>
 										@endif
@@ -962,9 +962,9 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 @endif
 
 
-    <section data-ppt-blockid="text136" data-ppt-blocktype="text" data-ppt-section="" class="section-40">
+    <section data-ppt-blockid="text136"  data-ppt-blocktype="text" data-ppt-section="" class="section-40">
 
-        <div class="container py-5 text-center bg-danger rounded-lg text-light">
+        <div class="container py-5 text-center rounded-lg text-light" style="background-color: #ED5858;">
 
           <div class="row">
 
@@ -1054,11 +1054,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
                             @endif
                             @if($ad['subscribe_id'] ===3)
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <div class="badge" style="color:#000000;background-color:red;color:white">
                             <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
                         @endif
 			@if($ad['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
@@ -1144,12 +1144,12 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
                             @endif
                             @if($ad['subscribe_id'] ===3)
-                            <div class="badge" style="color:#000000;background-color:#FFC300;">
+                            <div class="badge" style="color:#000000;background-color:red;">
                             <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
                         @endif
 
 						@if($ad['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#2BA346;">
+									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
 											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> Vérifié
 									</div>
 							@endif
