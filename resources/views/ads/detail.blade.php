@@ -316,7 +316,7 @@ opacity: 0.4
 									Your browser does not support the video tag.
 								</video>
 
-								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
+								<i class="fa fa-play-circle opacity-8 hide-mobile" style="font-size:80px; left:45%;"></i>     
 								</a>
 										
 								</figure>
@@ -625,15 +625,15 @@ opacity: 0.4
 
 								<div class="single-video rounded-lg overflow-hidden">
 								<figure>
-								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal"> 
+							 
 								
 								<video width="100%" height="240" controls>
 									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
 									Your browser does not support the video tag.
 								</video>
 
-								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
-								</a>
+								<i class="fa fa-play-circle opacity-8 hide-mobile" style="font-size:80px; left:45%;"></i>     
+								
 										
 								</figure>
 										
@@ -1400,13 +1400,13 @@ opacity: 0.4
     <div class="modal-content">
     
       <div class="modal-body">
-        <video width="100%" height="240" controls>
+        <video width="100%" height="240" controls id="myVideoPlayer">
 				<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
 				Your browser does not support the video tag.
 		</video>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" id="stop" onclick="stopVideo();" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
@@ -1511,6 +1511,18 @@ opacity: 0.4
     //     })
     // })
 
+</script>
+<script>
+     var video = document.getElementById("myVideoPlayer");
+     function stopVideo(){
+		console.log(video);
+		 console.log('Hello');
+          video.pause();
+          video.currentTime = 0;
+     }
+	 $("#stop").on('click', function(){
+    stopVideo();
+});
 </script>
 </body>
 </html>
