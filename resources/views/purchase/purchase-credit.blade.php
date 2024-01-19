@@ -12,7 +12,7 @@ Achat de credit
          <div class="col-md-6 offset-md-3">
 
 <div class="card-popup rounded overflow-hidden" ppt-border1>
-<div class="bg-primary pt-3">
+<div class="bg-primary pt-3"  style="background-color: #ED5858;color:white">
 
       <div class="card-popup-content">
 

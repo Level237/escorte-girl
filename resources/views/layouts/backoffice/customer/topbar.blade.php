@@ -31,7 +31,7 @@
 
 
 <li class=" ppt-badges ml-auto hide-mobile hide-ipad" ppt-flex-middle >
-<a href="{{ route('purchase.credit') }}"  class="btn-primary" data-ppt-btn>
+    <a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn>
 
 <div class="d-flex">
 

@@ -12,7 +12,7 @@ Félicitations
          <div class="col-md-6 offset-md-3">
 
 <div class="card-popup rounded overflow-hidden" ppt-border1>
-<div class="bg-primary pt-3">
+<div class="bg-primary pt-3"  style="background-color: #ED5858;color:white">
 
       <div class="card-popup-content">
       <div class="">
@@ -48,8 +48,8 @@ Félicitations
 </div>
 
 
-<div id="page-loading" style="height:800px; text-align:center; padding-top:200px;"> 
-  <img src=" {{ asset('assets/images/loading.svg') }}" alt="loading page" 
+<div id="page-loading" style="height:800px; text-align:center; padding-top:200px;">
+  <img src=" {{ asset('assets/images/loading.svg') }}" alt="loading page"
   style="max-width:150px;" /> </div>
 
 				<input type="hidden" id="ppt-current-tho" value="" />
@@ -71,7 +71,7 @@ Félicitations
 				<link rel="stylesheet" type="text/css" id="premiumpress-chat" href="{{ asset('assets/css/_chat.css?v=10.8.9') }}">
 				<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 
-                			
+
 
 				</noscript>
 

@@ -127,12 +127,10 @@ class DashboardEscortController extends Controller
         $profileIsCompletedOrNot=(new ProfileIsCompletedOrNotService())->isCompletedOrNot();
         $completed=$profileIsCompletedOrNot->completed ?? null;
 
-        if($completed==0){
-            return to_route('step-one');
-        }else{
+
             $escort = (new GetEscortService)->getEscort();
             return view('dashboard.escort.settings', compact('user','escort'));
-        }
+
 
     }
 
