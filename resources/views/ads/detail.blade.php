@@ -336,7 +336,7 @@ opacity: 0.4
 							<a href="javascript:void(0);" onclick="processLogin();" class="text-dark">
 						  <div class="_content py-4 h-100" ppt-flex-middle="">
 							<div class="text-center my-4">
-							  <div ppt-icon-64="" data-ppt-icon-size="64" class="text-primary">
+							  <div ppt-icon-64="" data-ppt-icon-size="64" style="color: #ED5858">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path></svg>      </div>
 							  <div class="fs-5 text-600 mt-3">
 								N'oubliez pas de mentionner VIENS YAMO lors de votre appel!    </div>
@@ -377,8 +377,8 @@ opacity: 0.4
 						  </div>
 
 						<div class="p-4 rounded" ppt-box="">
-						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class="btn-primary text-600  text-center" data-ppt-btn=""
-									style="min-width:60px; background-color: red;">
+						   <a href="{{ route('report', ['id'=>$ad['id'], 'type'=>'ads']) }}"><button class=" text-600  text-center" data-ppt-btn=""
+									style="min-width:60px; background-color: #ED5858;color:white">
 								Dénoncer cette annonce
 							  </button></a>
 						</div>
@@ -661,13 +661,13 @@ opacity: 0.4
 
 
 
-						<div class="_badge " style="color:#000000;background-color:#FFC300;">
+						<div class="_badge " style="color:white;background-color:#ED5858;">
 
 
 
 						<div class="badge_tooltip text-center" data-direction="top">
 							<div class="badge_tooltip__initiator">
-						   <i class="fal fa fa-users" style="color:#000000"></i> {{ $ad['accepted'] }}	    </div>
+						   <i class="fal fa fa-users" style="color:white"></i> {{ $ad['accepted'] }}	    </div>
 							<div class="badge_tooltip__item">{{ $ad['accepted'] }}	 </div>
 						  </div>
 
