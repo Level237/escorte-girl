@@ -1234,77 +1234,25 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 </style>
 
 <script>
-function filterLetters(l){
 
-	jQuery(".tab").removeClass('active');
-	jQuery(".tab-"+l).addClass('active');
-
-
-
-	if(l == "all"){
-
-		jQuery(".wrap").show();
-		cleanCats();
-
-	}else{
-		jQuery(".wrap").hide();
-		jQuery(".wrap-"+l).show();
-	}
-
-}
-function filterCategory(l){
-
-	if(l == "all"){
-
-		jQuery(".wrap").show();
-		cleanCats();
-
-	}else{
-		jQuery(".wrap").hide();
-		jQuery(".hascat-"+l).show();
-
-	}
-
+function scrollTop(){
+	jQuery('body,html').animate({
+				scrollTop: 0
+			}, 100);
 }
 
-function cleanCats(){
-
-	var a = jQuery(".wrap");
-    a.each(function (a) {
-        wrapid = jQuery(this).attr('id').toString();
 
 
-		var a = jQuery(".wrap-"+wrapid+" .category-wrap");
-		a.each(function (a) {
-			topid = jQuery(this).attr('data-topcatid');
-
-			jQuery('.wrap-'+wrapid+'').addClass(" hascat-"+topid)
-
-		});
-
-
-		links = jQuery('.wrap-'+wrapid+' a').length;
-		if(links == 0){
-			jQuery(this).hide();
-			jQuery('.tablist').removeClass('justify-content-between');
-			jQuery(".tab-"+wrapid).hide();
-
-		}
-    });
-
-}
 
 jQuery(document).ready(function(){
 
-  console.log(jQuery('#checkAge').val());
+scrollTop();
   if(jQuery('#checkAge').val() == 'false'){
 
       jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
       jQuery('#CheckAgeModal').modal('show');
 
   }
-
-cleanCats();
 
 });
 

@@ -226,25 +226,7 @@ Achat de credit
 
 
 
-<div class="notify-footer hide-mobile">
-  <div class="chat-handle text-white p-2">
-    <div class="d-md-flex justify-content-between">
-      <div class="m_count  btn-block" onClick="jQuery('#userListBox').slideToggle(); ProcessUserMsgList(10); ">
-       <strong>&nbsp;</strong>  <span><div class="fa fa-circle"></div> <small class="text-truncate preload-hide">demo</small>  </span>
-      </div>
-      <div class="position-relative">
-        <div class="n_count">
-          <div class="single-page-edit-button" style="display:none; top: -17px; left: -29px;">
-            <i class="fa fa-bell text-white"></i> <span class="ripple"></span><span class="ripple"></span><span class="ripple"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="userListBox" class="bg-white" style="display: none;">
-    <div style="min-height:150px;" id="ajax_msg_list" data-link="https://es10.premiummod.com/my-account//?showtab=messages" data-title="No Messages"></div>
-  </div>
-</div>
+
 </div>
 
 

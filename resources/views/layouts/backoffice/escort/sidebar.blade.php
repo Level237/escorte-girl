@@ -29,6 +29,36 @@
 </div>
 </a>
 
+<a href="{{ route('purchase.credit')}}"  ppt-list-item class="hover-bg-light  page-link-orders">
+    <div class="d-flex flex-row p-md-2 py-3">
+
+      <div class="mr-3">
+
+        <div ppt-icon-24 ppt-icon-size="24">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z" /></svg>    </div>
+
+      </div>
+
+      <div class="w-100" ppt-flex-between>
+        <div>
+
+          <div class="text-600 mb-2">
+            Achat du Crédit
+
+
+
+          </div>
+
+         
+         <div class="opacity-5 text-400 small">
+        Achetez du crédit pour booster vos annonces.
+           </div>
+        </div>
+
+      </div>
+    </div>
+    </a>
+
 <a href="{{ route('db.escort.profil')}}"  ppt-list-item class="hover-bg-light  page-link-listings">
 <div class="d-flex flex-row p-md-2 py-3">
 
@@ -135,24 +165,10 @@
 </div>
 </a>
 
-<a href="{{ route('purchase.credit')}}"  ppt-list-item class="hover-bg-light  page-link-orders">
-    <div class="d-flex flex-row p-md-2 py-3">
-
-      <div class="mr-3">
-
-        <div ppt-icon-24 ppt-icon-size="24">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z" /></svg>    </div>
-
-      </div>
-
-      <div class="w-100" ppt-flex-between>
-        <div>
-
-          <div class="text-600 mb-2">
-            Achat du Crédit
 
 
 
+<<<<<<< HEAD
           </div>
 
           <div class="opacity-5 text-400 small">
@@ -164,6 +180,8 @@
     </a>
 
 
+=======
+>>>>>>> refs/remotes/origin/main
         </div>
       </div>
     </div>
