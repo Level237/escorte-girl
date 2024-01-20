@@ -232,13 +232,13 @@ opacity: 0.4
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
                                     <a  class=" btn-block btn-lg list mb-3  btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"data-ppt-btn="" <a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn>>
-                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>********************************
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 *
                                         </a>
                                 @endif
 
                                 @if(empty($user))
-                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
+                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-lg" style="background-color :#ED5858" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
@@ -270,7 +270,7 @@ opacity: 0.4
                             @endif
 
                             @if($ad['subscribe_id']!==3)
-                                <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg " style="background-color: #ED5858;color:white" data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                     </a>
@@ -432,7 +432,7 @@ opacity: 0.4
 							  <div class="field">
 								<i class="fa fa-link"></i>
 								<input type="text" readonly="" id="copylink" value="{{ url()->current() }}">
-								<button class="btn-primary btn-sm text-600 js-copy-link text-center" data-ppt-btn=""
+								<button class=" btn-sm text-600 js-copy-link text-center" style="background-color :#ED5858;color:white" data-ppt-btn=""
 									data-clipboard-target="#copylink" style="min-width:60px;">
 								Copier
 							  </button>
@@ -498,18 +498,26 @@ opacity: 0.4
 												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1"
 												data-button="0">
 
-													<span>
+
 
 														@if($ad['subscribe_id'] ===1)
+                                                        <span style="background-color:green;color:white ">
 																PREMIUM
+                                                            </span>
 														@endif
 														@if($ad['subscribe_id'] ===2)
-																GOLD
+                                                        <span style="background-color:#FFC300;color:white ">
+                                                            GOLD
+                                                        </span>
+
 														@endif
 														@if($ad['subscribe_id'] ===3)
-															ULTRA VIP
+                                                        <span style="background-color:#ED5858;;color:white ">
+                                                            ULTRA VIP
+                                                        </span>
+
 														@endif
-													</span>
+
 
 												</div>
 
@@ -873,7 +881,7 @@ opacity: 0.4
 							@if($ad['subscribe_id']===3)
 
                                 @if(isset($user) && $subscribeOrNot===1)
-                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg " style="background-color :#ED5858" data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                         <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                         </a>
@@ -886,7 +894,7 @@ opacity: 0.4
                                 @endif
 
                                 @if(empty($user))
-                                <a class=" btn-block btn-lg list mb-3 btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
+                                <a class=" btn-block btn-lg list mb-3  btn-lg" style="background-color :#ED5858" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
 
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     </a>
@@ -918,7 +926,7 @@ opacity: 0.4
                             @endif
 
                             @if($ad['subscribe_id']!==3)
-                                <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg " style="background-color:#ED5858" data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                     <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                     </a>
