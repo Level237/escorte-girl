@@ -498,26 +498,18 @@ opacity: 0.4
 												<div data-type="favs" data-pid="0" data-uid="0" class="button_user_add " data-text="1"
 												data-button="0">
 
-
+													<span>
 
 														@if($ad['subscribe_id'] ===1)
-                                                        <span style="background-color:green;color:white ">
 																PREMIUM
-                                                            </span>
 														@endif
 														@if($ad['subscribe_id'] ===2)
-                                                        <span style="background-color:#FFC300;color:white ">
-                                                            GOLD
-                                                        </span>
-
+																GOLD
 														@endif
 														@if($ad['subscribe_id'] ===3)
-                                                        <span style="background-color:#ED5858;;color:white ">
-                                                            ULTRA VIP
-                                                        </span>
-
+															ULTRA VIP
 														@endif
-
+													</span>
 
 												</div>
 
