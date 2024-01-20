@@ -225,15 +225,15 @@ opacity: 0.4
                             @if($ad['subscribe_id']===3)
 
                                 @if(isset($user) && $subscribeOrNot===1)
-                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3 btn-primary btn-lg " data-ppt-btn="">
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg "<a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn> data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                         <span class="_number" style="display:none;">+237 {{ $ad['whatsapp'] }} </span>
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a  class=" btn-block btn-lg list mb-3 btn-primary btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"data-ppt-btn="">
-                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
-
+                                    <a  class=" btn-block btn-lg list mb-3  btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"data-ppt-btn="" <a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn>>
+                                        <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>********************************
+*
                                         </a>
                                 @endif
 
@@ -300,27 +300,27 @@ opacity: 0.4
 						@if ($ad['video'] != null)
 						<div ppt-box class="rounded">
 								<div class="_content p-3">
-								
+
 
 								<div class="addeditmenu" data-key="video" style="margin-right:100px;"></div>
 								<div class="row">
-								
+
 								<div class="col-12">
 
 								<div class="single-video rounded-lg overflow-hidden">
 								<figure>
-								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal"> 
-								
+								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal">
+
 								<video width="100%" height="240" controls>
 									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
 									Your browser does not support the video tag.
 								</video>
 
-								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
+								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>
 								</a>
-										
+
 								</figure>
-										
+
 								</div></div>
 								</div>
 
@@ -382,7 +382,7 @@ opacity: 0.4
 								Dénoncer cette annonce
 							  </button></a>
 						</div>
-						
+
 
 						<div class="p-4 hide-mobile rounded" ppt-box="">
 
@@ -612,31 +612,31 @@ opacity: 0.4
 
 
 						@if ($ad['video'] != null)
-							
-						
+
+
 						<div ppt-box class="rounded show-mobile" style="margin-top:-40px">
 								<div class="_content p-3">
-								
+
 
 								<div class="addeditmenu" data-key="video" style="margin-right:100px;"></div>
 								<div class="row">
-								
+
 								<div class="col-12">
 
 								<div class="single-video rounded-lg overflow-hidden">
 								<figure>
-								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal"> 
-								
+								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal">
+
 								<video width="100%" height="240" controls>
 									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
 									Your browser does not support the video tag.
 								</video>
 
-								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>     
+								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>
 								</a>
-										
+
 								</figure>
-										
+
 								</div></div>
 								</div>
 
@@ -644,7 +644,7 @@ opacity: 0.4
 								</div>
 						</div>
 						@endif
-						 
+
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -945,7 +945,7 @@ opacity: 0.4
 
 
 						</div>
-						
+
 						<div ppt-box="" class="rounded">
 						  <div class="_header d-md-flex align-items-center">
 							<div class="_title w-100">
@@ -1392,13 +1392,13 @@ opacity: 0.4
 </div>
 
 @if ($ad['video'] != null)
-	
+
 
 <!-- Modal to display video -->
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-    
+
       <div class="modal-body">
         <video width="100%" height="240" controls>
 				<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
