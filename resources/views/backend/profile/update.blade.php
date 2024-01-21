@@ -19,6 +19,11 @@ Edition de votre profil
                         {{ Session::get('error') }}
                     </div>
                     @endif
+                    @if(Session::has('success'))
+                    <div class="alert alert-primary" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -44,7 +49,7 @@ Edition de votre profil
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('faqs.store') }}">
+                                            <form method="POST" action="{{ route('admin.update.profile') }}">
                                                 @csrf
                                                 <div class="row">
                                                 <div class="col-lg-12">

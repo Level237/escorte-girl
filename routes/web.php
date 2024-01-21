@@ -263,7 +263,7 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
 //middleware admin
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
-
+    Route::post('update/profile',[ProfilController::class,'updateProfile'])->name('admin.update.profile');
     Route::get('/profil',[ProfilController::class,'profile'])->name('admin.profile');
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
     Route::resource('faqs',FaqController::class);
