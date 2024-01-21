@@ -122,7 +122,7 @@ nav .fa{
 
         </div>
 
-<header class=" bg-white navbar-light border-bottom" data-block-id="header">
+<header class=" bg-white navbar-light border-bottom" data-block-id="header" >
 
     <nav class="py-2 elementor_topmenu bg-white border-bottom text-dark hide-mobile hide-ipad small text-500">
         <div class="container">
@@ -315,26 +315,10 @@ nav .fa{
         </div>
       </div>
     </div>
-<hr>
- <div class="my-3 text-center">
-          @if (isset($banners))
-
-              @foreach ($banners as $banner)
-                  @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
-                      <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
-                        class='img-fluid' alt='sample banner'>
-                      </a>
-                      <hr>
-                  @endif
-              @endforeach
-
-          @endif
 
 
-      </div>
 
-    <div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
+<div class="hide-mobile elementor_submenu py-2 bg-white navbar-light shadow-sm">
   <div class="container ">
     <nav ppt-nav="" class="seperator spacing text-600 d-flex pl-0">         <ul>
 
@@ -385,105 +369,7 @@ nav .fa{
       }
   </script>
 
-  <div class="container h-100 px-0 show-mobile">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-          <li><a href="{{ route('db.escort.index') }}" class="">
-                <i class="fa fa-user" style="color: #ED5858;"></i>Mon Compte</a></li>
-
-          <li><a href="{{ route('ads.create') }}" class="">
-                <i class="fal fa-plus-circle" style="color: #ED5858;"></i> Créer une annonce</a></li>
-          <li><a href="{{ route('ads.list') }}" class="">
-                <i class="fal fa-sparkles" style="color: #ED5858;"></i> Annonces</a></li>
-
-
-
-          </ul>
-        </div>
-   </div>
-
-   <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
-
-	 <form method="get" action="{{ route('search') }}" >
-                  @csrf
-			<input type="text" class="form-control shadow-sm"
-			required name="s" data-type="text" data-type="text"
-			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
-			placeholder="Rechercher.." value="" style="height:50px;">
-
-
-			  <button class="btn iconbit" type="submit"
-			style="position:absolute; top:5px; right:5px;" >
-
-				  <span ppt-icon-24 data-ppt-icon-size="24">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-				stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round"
-				stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-			  </span>
-
-			  </button>
-		</form>
-
-	</div>
-
-       <div class="container show-mobile">
-         <div class="d-flex justify-content-center">
-            <div class=>
-
-            <div class>
-      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire"
-      target="_blank" class="btn-md  mt-2" data-ppt-btn="" style="background-color: #F44336; color:white" data-ppt-btn-link=""
-                 class="btn-system">Besoin d'aide pour s'inscrire?cliquez ici </a>
-
-            </div>
-            <div>
-
-            </div>
-         </div>
-
-      </div>
-      </div>
-
-
-      <br>
- <div class="show-mobile mb-3 mt-2">
-  <div class="container ">
-
-        <a href="#">Viens-Yamo Le géant de l'escorte girls et boys  </a>
-
-    @if(isset($numberAdsByTowns))
-
-
-		<div class="row">
-			@forelse ( $numberAdsByTowns as $numberAdsByTown )
-
-		      @if($loop->index < 3)
-
-
-				<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
-						{{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})
-				    </a>
-				</div>
-
-
-
-			@endif
-					@empty
-
-			@endforelse
-      @endif
-			<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" style="color: #ED5858;" >
-						Autres Villes
-				    </a>
-				</div>
-
-		</div>
-  </div>
-
-
-
-
   </header>
+  <div style="margin-bottom:-60px" class="show-mobile">
+
+  </div>
