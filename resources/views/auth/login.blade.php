@@ -68,7 +68,12 @@
                 <a href="/">
 
 
-                    <div class='textlogo navbar-brand-dark'>Viens <span style="color:#DA9DDC;">Yamo <i class="fa fa-heart"></i></span></div>
+                    {{-- <div class='textlogo navbar-brand-dark'>
+                      Viens <span style="color:#DA9DDC;">Yamo <i class="fa fa-heart"></i></span>
+                    </div> --}}
+                       <div class='textlogo navbar-brand-dark'>
+                          <img src="{{ asset('assets/images/logo-vy.png') }}" alt="">
+                      </div>
                   </a>
               </div>
             </div>

@@ -45,7 +45,11 @@ En utilisant le site vous acceptez que le propriétaire du site soit décliné d
       <div class="col-md-4 text-center text-md-left logo-lg">
 
         <div class="mb-4">
-         <div class='textlogo navbar-brand-light'>Viens <span class='' style="color: #ED5858;">Yamo <i class="fa fa-heart"></i></span></div>
+         <div class='textlogo navbar-brand-light'>
+            <img src="{{ asset('assets/images/logo-vy.png') }}" alt="">
+        </div>
+
+        
 
         </div>
 

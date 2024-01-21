@@ -168,20 +168,9 @@
 
 
 
-<<<<<<< HEAD
-          </div>
-
-          <div class="opacity-5 text-400 small">
-         </div>
-        </div>
-
-      </div>
-    </div>
-    </a>
+        
 
 
-=======
->>>>>>> refs/remotes/origin/main
         </div>
       </div>
     </div>
