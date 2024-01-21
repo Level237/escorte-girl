@@ -44,7 +44,7 @@ Ajouter un nombre de pièces
                                 <div class="tab-pane show active" id="input-types-preview">
 
 
-                                            <form method="POST" action="{{ route('faqs.store') }}">
+                                            <form method="POST" action="{{ route('give.credit',$id) }}">
                                                 @csrf
 
                                                 <div class="mb-3">

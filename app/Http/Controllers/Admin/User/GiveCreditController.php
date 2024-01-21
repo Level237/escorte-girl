@@ -22,6 +22,6 @@ class GiveCreditController extends Controller
         ]);
         $data=json_decode($response);
             //return $response;
-            return to_route('users');
+            return to_route('users')->with('success','credit added successfully');
     }
 }
