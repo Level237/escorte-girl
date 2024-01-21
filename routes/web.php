@@ -79,6 +79,7 @@ use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
 use App\Http\Controllers\Admin\Escort\VerifyEscortController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\User\GiveCreditController;
 use App\Http\Controllers\User\UpdateUserController;
 /*
 |--------------------------------------------------------------------------
@@ -263,6 +264,8 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
 //middleware admin
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
+    Route::get('give/credit/{id}',[GiveCreditController::class,'creditView'])->name('credit.view');
+    Route::post('give/credit/{id}',[GiveCreditController::class,'giveCredit'])->name('give.credit');
     Route::post('update/profile',[ProfilController::class,'updateProfile'])->name('admin.update.profile');
     Route::get('/profil',[ProfilController::class,'profile'])->name('admin.profile');
    Route::get('dashboard',[DashboardAdminController::class,'index'])->name('admin.dashboard');
