@@ -39,7 +39,7 @@
                 </div>
             </button>
 
-           
+
         </div>
 
         <ul class="topbar-menu d-flex align-items-center gap-3">
@@ -64,7 +64,7 @@
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
                         <h5 class="my-0">{{ $user->username }}</h5>
-                      
+
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
@@ -74,9 +74,9 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="{{ route('admin.profile') }}" class="dropdown-item">
                         <i class="mdi mdi-account-circle me-1"></i>
-                        <span>Mon Compte</span>
+                        <span>Editer mon Profil</span>
                     </a>
 
                     <!-- item-->
