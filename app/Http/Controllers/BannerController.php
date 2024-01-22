@@ -80,10 +80,10 @@ class BannerController extends Controller
          }
     }
 
-    public function displayBanner($id, $path){
+    public function displayBanner($id){
 
         $url=(new UrlApiService())->getUrl();
-        $response = Http::get($url.'/api/displaybanner/'.$id.'/'.$path);
+        $response = Http::get($url.'/api/displaybanner/'.$id);
         return $response;
     }
 }

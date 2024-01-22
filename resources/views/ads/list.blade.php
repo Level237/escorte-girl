@@ -86,7 +86,7 @@
 
           <div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
             <div class="bg-image"
-            data-bg="{{ route('display.ads.image',['id'=>$allAd['id'], 'path'=>$allAd['images'][0]['path']] )}}">
+            data-bg="{{ route('display.ads.image',['id'=>$allAd['id'], 'path'=>$allAd['images'][0]['id']] )}}">
 
             </div>
           </div>
@@ -360,8 +360,8 @@ function filterToggle(val){
 								 <figure>
 								  <div class="bg-image js-image-trigger-set ppt-lazy-img-8888 js-image-preload-set"
                   data-ppt-image-bg=""
-                  style="background-image:url('{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}');"
-                  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
+                  style="background-image:url('{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}');"
+                  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}">
 									&nbsp;
 								  </div>
 
@@ -465,7 +465,7 @@ function filterToggle(val){
                     </div>
               </div>
               <div class="bg-image z-0"
-              data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+              data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}"> 
                 </div>
               <div ppt-search-badges="" style="z-index:1" class="right">
 
@@ -663,7 +663,7 @@ function filterToggle(val){
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_list_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif

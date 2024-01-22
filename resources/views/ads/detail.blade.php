@@ -552,10 +552,10 @@ opacity: 0.4
 								@endif
 
 							<div class="col-6">
-								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
 								<div class="m-sm-1">
 							  <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
-								<div class="bg-image" style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
+								<div class="bg-image" style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}});">
 								  &nbsp;
 								</div>
 									  </div>
@@ -570,11 +570,11 @@ opacity: 0.4
 									@continue
 								@endif
 							<div class="col-6">
-								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
+								<a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image">
 								<div class="m-sm-1">
 							  <div class="position-relative rounded overflow-hidden img-wrap border-0" ppt-border1="">
 								<div class="bg-image"
-								style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}});">
+								style="background-image:url({{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}});">
 								  &nbsp;
 								</div>
 										<div class="allphotos z-10 h-100 position-absolute w-100 y-middle text-light text-700">
@@ -593,7 +593,7 @@ opacity: 0.4
 								@if ($loop->index <= 3)
 									@continue
 								@endif
-						  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
+						  <a href="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}}" data-toggle="lightbox" data-gallery="ppt-full-gallery" data-type="image"></a>
 						   @empty
 							@endforelse
 
@@ -625,14 +625,14 @@ opacity: 0.4
 
 								<div class="single-video rounded-lg overflow-hidden">
 								<figure>
-								<a href="javascript:void(0);" data-toggle="modal" data-target="#videoModal">
+								<a href="javascript:void(0);" >
 
 								<video width="100%" height="240" controls>
 									<source src="{{ route('displayVideo', ['id'=>$ad['id'], 'path'=>$ad['video']]) }}" >
 									Your browser does not support the video tag.
 								</video>
 
-								<i class="fa fa-play-circle opacity-8" style="font-size:80px; left:45%;"></i>
+							
 								</a>
 
 								</figure>
@@ -1094,7 +1094,7 @@ opacity: 0.4
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_detail_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif
@@ -1158,7 +1158,7 @@ opacity: 0.4
 				  {{ ucfirst($ad1['town']['town_name']) }}  
 				</div>
 			  </div>
-			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['path']] )}}">
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['id']] )}}">
 				 
 			  </div>
 
@@ -1250,7 +1250,7 @@ opacity: 0.4
                     </div>
               </div>
               <div class="bg-image z-0"
-              data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['path']] )}}"> 
+              data-bg="{{ route('display.ads.image',['id'=>$ad1['id'], 'path'=>$ad1['images'][0]['id']] )}}"> 
                 </div>
               <div ppt-search-badges="" style="z-index:1" class="right">
 

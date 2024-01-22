@@ -38,7 +38,7 @@
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif
@@ -283,7 +283,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                     {{ truncate($vipAds[$i]['title'],30) }}  
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['path']] )}}">
+                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['id']] )}}">
                                                                                                      
                                                                                                 </div>
 
@@ -334,7 +334,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                                     </div>
                                                                                                         </div>
                                                                                                         <div class="bg-image z-0"
-                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['path']] )}}"> 
+                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['id']] )}}"> 
                                                                                                         </div>
                                                                                                         <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
                                                                                                         <div class="badge" style="color:#fff;background-color:red;">
@@ -399,7 +399,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                   {{ truncate($vipAds[$i+1]['title'],30) }}  
                                                                                                   </div>
                                                                                               </div>
-                                                                                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['path']] )}}">
+                                                                                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['id']] )}}">
                                                                                                    
                                                                                               </div>
 
@@ -451,7 +451,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                                   </div>
                                                                                                       </div>
                                                                                                       <div class="bg-image z-0"
-                                                                                                      data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['path']] )}}"> 
+                                                                                                      data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['id']] )}}"> 
                                                                                                       </div>
                                                                                                       <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
                                                                                                       <div class="badge" style="color:#fff;background-color:red;">
@@ -534,7 +534,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'home_top' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif
@@ -632,7 +632,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   {{ truncate($goldAds[$i]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['id']] )}}">
                                  
                               </div>
 
@@ -685,7 +685,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['id']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -741,7 +741,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   {{ truncate($goldAds[$i+1]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['id']] )}}">
                                  
                               </div>
 
@@ -795,7 +795,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['id']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -854,7 +854,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     {{ truncate($goldAds[$i+2]['title'],30) }}  
                                     </div>
                                 </div>
-                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['path']] )}}">
+                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['id']] )}}">
                                      
                                 </div>
 
@@ -909,7 +909,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     </div>
                                         </div>
                                         <div class="bg-image z-0"
-                                        data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['path']] )}}"> 
+                                        data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['id']] )}}"> 
                                         </div>
                                         <div ppt-search-badges="" style="z-index:1" class="right">
                                             <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -969,7 +969,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   {{ truncate($goldAds[$i+3]['title'],30) }}  
                                 </div>
                               </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['path']] )}}">
+                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['id']] )}}">
                                  
                               </div>
 
@@ -1023,7 +1023,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 </div>
                                     </div>
                                     <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['path']] )}}"> 
+                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['id']] )}}"> 
                                     </div>
                                     <div ppt-search-badges="" style="z-index:1" class="right">
                                         <div class="badge" style="color:#000000;background-color:#FFC300;">
@@ -1164,7 +1164,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  {{ ucfirst($ad['town']['town_name']) }}  
 				</div>
 			  </div>
-			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
+			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}">
 				 
 			  </div>
 
@@ -1258,7 +1258,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 								</div>
 					</div>
 					<div class="bg-image z-0"
-					data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+					data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}"> 
 				    </div>
 					<div ppt-search-badges="" style="z-index:1" class="right">
 								@if($ad['subscribe_id'] ===2)
@@ -1409,7 +1409,7 @@ scrollTop();
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'home_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif

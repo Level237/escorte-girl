@@ -56,7 +56,7 @@
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'search_result' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
+                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
                         class='img-fluid' alt='sample banner'>
                       </a>
                   @endif
@@ -148,7 +148,7 @@
 																				</div>
 																				</div>
 																				<div class="bg-image"
-																				data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['path']] )}}">
+																				data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['id']] )}}">
 																				 
 																				</div>
 
@@ -197,7 +197,7 @@
 																						</div>
 																				  </div>
 																				  <div class="bg-image z-0"
-																				  data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['path']] )}}"> 
+																				  data-bg="{{ route('display.ads.image',['id'=>$result['searchable']['id'], 'path'=>$result['searchable']['images'][0]['id']] )}}"> 
 																				  </div>
                                           @if ($result['searchable']['subscribe_id'])
 
@@ -299,7 +299,7 @@
 																				</div>
 																				</div>
 																				<div class="bg-image"
-																				data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}">
+																				data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}">
 																				 
 																				</div>
 
@@ -349,7 +349,7 @@
 																						</div>
 																				  </div>
 																				  <div class="bg-image z-0"
-																				  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['path']] )}}"> 
+																				  data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}"> 
 																				  </div>
                                           @if ($ad['subscribe_id'])
 

@@ -370,6 +370,4 @@ nav .fa{
   </script>
 
   </header>
-  <div style="margin-bottom:-60px" class="show-mobile">
-
-  </div>
+ 
