@@ -419,5 +419,21 @@
 </div>
 
 </main>
+<script>
+
+						function scrollTop(){
+							jQuery('body,html').animate({
+										scrollTop: 0
+									}, 100);
+						}
+
+						scrollTop();
+
+
+						jQuery(document).ready(function(){
+						  scrollTop();
+							
+						});
+						</script>
 </div>
 @endsection
