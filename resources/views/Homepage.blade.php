@@ -1,5 +1,8 @@
 @extends('layouts.Frontend.master')
 @section('title', __('Viens Yamo'))
+@section("meta_title","Viens Yamo")
+@section('meta_description',"Viens-Yamo Le géant de l'escorte girls et boys")
+@section("meta_image",asset('assets/meta/home.png'))
 @section('content')
 
 <style>
@@ -95,7 +98,7 @@
             <div class=>
 
             <div class>
-      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire" 
+      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire"
       target="_blank" class="btn-md  mt-2" data-ppt-btn="" style="background-color: #F44336; color:white" data-ppt-btn-link=""
                  class="btn-system">Besoin d'aide pour s'inscrire?cliquez ici </a>
 
@@ -150,7 +153,7 @@
 
 
 </div>
-      
+
 </div>
 
 

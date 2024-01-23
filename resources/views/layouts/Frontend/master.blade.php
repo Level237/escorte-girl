@@ -5,7 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <Meta name=" robots " content="index, follow" />
+    <meta name="twitter:card" content="@yield('meta_title')" />
+    <meta name="twitter:site" content="viens-yamo.com" />
+    <meta name="twitter:title" content="@yield('meta_title')" />
+    <meta name="twitter:description" content="@yield('meta_description')" />
+    <meta name="twitter:image" content="@yield('meta_image')" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
@@ -21,7 +27,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <title>@yield('title')</title>
 
     <style>
@@ -50,7 +56,7 @@
     <style>
     .preload-hide { display:none; }
     </style>
-    
+
     <meta name='robots' content='max-image-preview:large'>
     <style id='classic-theme-styles-inline-css' type='text/css'>
       .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
@@ -63,7 +69,7 @@
       :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
       .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
     </style>
-    
+
     <script src="{{ asset('assets/js/jquery.min.js') }}" id="jquery-core-js"></script>
 
 
@@ -149,7 +155,7 @@
 								<link rel="stylesheet" type="text/css" id="premiumpress-theme-es" href="{{ asset('assets/css/_theme_es.css?v=10.8.9') }}">
 
                 <style>
-				          .bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover, 
+				          .bg-primary, .bg-primary:hover,.bg-primary:focus, a.bg-primary:focus, a.bg-primary:hover,
                   button.bg-primary:focus, button.bg-primary:hover, .badge-primary { background:#ED5858 !important; }
                    .btn-primary, .btn-primary:hover { color: #fff; background-color: #ED5858 !important; border-color: #ED5858 !important; } .text-primary, .filters_col .distance span { color: #ED5858 !important; } .btn-outline-primary { color: #ED5858 !important; border-color: #ED5858 !important; } .btn-outline-primary:hover { background:none !important; } .text-primary a { color: #ED5858 !important; } [ppt-nav].active-underline > ul > li.active > a { border-bottom: 2px solid #ED5858!important; }				</style>
 
