@@ -534,6 +534,8 @@ function filterToggle(val){
                  <a href="{{ route('ads.town', ['id' => $townAds, 'current_page' => $current_page-1]) }}"  class="page-link">
               @elseif (isset($quarter))
                  <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link">
+              @elseif (isset($category))
+                 <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $current_page-1]) }}"  class="page-link">
               @else
                  <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
               @endif
@@ -548,12 +550,19 @@ function filterToggle(val){
             @if ($current_page == $i)
               <li class ="page-item active">
                 @if (isset($townAds))
-                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"  class="page-link"style="background-color: #ED5858;color:white">
+                <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"  class="page-link" 
+                  style="background-color: #ED5858;color:white">
                   {{ $i }}</a>
                @elseif (isset($quarter))
-                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link" *style="background-color: #ED5858;color:white">
+                 <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link" 
+                  style="background-color: #ED5858;color:white" >{{ $i }} </a>
+              @elseif (isset($category))
+                 <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $i]) }}"  class="page-link"
+                  style="background-color: #ED5858;color:white">
+                  {{ $i }} </a>
               @else
-                   <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link bg-primary">
+                   <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link" 
+                    style="background-color: #ED5858;color:white">
                   {{ $i }}</a>
                  @endif
                 </li>
@@ -561,13 +570,16 @@ function filterToggle(val){
                 <li class="page-item">
                     @if (isset($townAds))
                             <a href="{{ route('ads.town', ['id' => $townAds,'current_page' => $i]) }}"
-                        class="page-link"style="background-color: #ED5858;color:white" rel="nofollow">{{ $i }}</a>
+                        class="page-link"  rel="nofollow">{{ $i }}</a>
                     @elseif (isset($quarter))
                              <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $i]) }}"
-                        class="page-link"style="background-color: #ED5858;color:white" rel="nofollow">{{ $i }}</a>
+                        class="page-link"  rel="nofollow">{{ $i }}</a>
+                    @elseif (isset($category))
+                               <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $i]) }}"
+                        class="page-link" rel="nofollow">{{ $i }}</a>
                     @else
                       <a href="{{ route('ads.list', ['current_page' => $i]) }}"
-                        class="page-link" style="background-color: #ED5858;color:white"rel="nofollow">{{ $i }}</a>
+                        class="page-link" rel="nofollow">{{ $i }}</a>
                        @endif
 
                   </li>
@@ -592,6 +604,9 @@ function filterToggle(val){
                    @elseif (isset($quarter))
                      <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $k]) }}"  class="page-link" style="background-color: #ED5858;color:white">
                     {{ $k }}</a>
+                  @elseif (isset($category))
+                      <a href="{{ route('ads.category', ['id' => $category,'current_page' => $k]) }}"  class="page-link">
+                    {{ $k }}</a>
                   @else
                      <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link">
                     {{ $k }}</a>
@@ -604,6 +619,9 @@ function filterToggle(val){
                       class="page-link" rel="nofollow">{{ $k }}</a>
                      @elseif (isset($quarter))
                          <a href="{{ route('ads.quarter', ['id' => $quarter, 'current_page' => $k]) }}"
+                      class="page-link" rel="nofollow">{{ $k }}</a>
+                     @elseif (isset($category))
+                      <a href="{{ route('ads.category', ['id' => $category,'current_page' => $k]) }}"
                       class="page-link" rel="nofollow">{{ $k }}</a>
                     @else
                            <a href="{{ route('ads.list', ['current_page' => $k]) }}"
@@ -630,6 +648,11 @@ function filterToggle(val){
                   <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page+1]) }}"  class="page-link">
                   <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
                   </a>
+               @elseif (isset($category))
+                  <a href="{{ route('ads.category', ['id' => $category,'current_page' => $current_page+1]) }}"  class="page-link">
+                  <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+                  </a>
+
                 @else
 
                   <a href="{{ route('ads.list', ['current_page' => $current_page+1]) }}"  class="page-link">

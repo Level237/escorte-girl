@@ -424,19 +424,25 @@ class AdsController extends Controller
     public function adsByCategory(Request $request){
 
         $url=(new UrlApiService())->getUrl();
+        $quarters=(new QuarterService())->getQuarters();
+        $category = $request->id;
         $allAds = [];
 
         try{
 
             $response = Http::asForm()->get($url."/api/adscategory/".$request->id);
+            //dd($response->body());
             $allAds = json_decode((string) $response->getBody(), true);
-            $allAds = $allAds['data'];
-            //error_log($ads);
+            if($allAds){
+                 $allAds = $allAds['data'];
+            }
+            else 
+                $allAds = [];
+           
         }catch(\Exception $e){
              $allAds = [];
         }
 
-        //dd($allAds);
         $total = count($allAds);
         $per_page = 5;
         $nb_pages = ceil($total/$per_page);
@@ -453,7 +459,7 @@ class AdsController extends Controller
 
         //dd($allAds);
 
-        return  view('ads.list', compact('ads', 'allAds', 'current_page', 'nb_pages'));
+        return  view('ads.list', compact('category','quarters','ads', 'allAds', 'current_page', 'nb_pages'));
     }
 
     public function adsTown(){
