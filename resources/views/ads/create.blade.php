@@ -361,7 +361,8 @@
 	addRemoveLinks: true,
 	removedfile: function(file) {
         var name = file.name;    
-                
+        var user_id = document.getElementById('token').value;
+		// console.log(user_id);
         // DELETING IMAGE
 		jQuery.ajax({
 			type: "GET",
@@ -369,8 +370,8 @@
 			url: 'http://127.0.0.1:8000/ads/deleteImage',
 			timeout: 15000,
 			data: {
-				name: name,
-				request: 2,
+				filename: name,
+				user_id: user_id,
 			},
 			success: function(response, statusCode) {
 				console.log('success: ' + response);
@@ -379,7 +380,7 @@
 			},
 			error: function(response, statusCode) {
 
-				console.log(statusCode);
+				//console.log(statusCode);
 				console.log(response);
 
 			},

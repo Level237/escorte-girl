@@ -224,7 +224,8 @@ opacity: 0.4
                             @if($ad['subscribe_id']===3)
 
                                 @if(isset($user) && $subscribeOrNot===1)
-                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg "<a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn> data-ppt-btn="">
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg ">
+									<a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn> data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                         <span class="_number" style="display:none;">+ {{ $ad['whatsapp'] }} </span>
                                         </a>
