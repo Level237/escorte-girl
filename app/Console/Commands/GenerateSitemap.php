@@ -2,9 +2,11 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
+use Illuminate\Console\Command;
+use App\Services\Api\UrlApiService;
+use Illuminate\Support\Facades\Http;
+use Spatie\Sitemap\SitemapGenerator;
 
 
 class GenerateSitemap extends Command
@@ -28,8 +30,17 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
+        $url=(new UrlApiService())->getUrl();
+        $response = Http::asForm()->get($url."/api/announces");
+        $allAds = json_decode((string) $response->getBody(), true)['data'];
+
+
         $sitemapGenerator=SitemapGenerator::create('https://viens-yamo.com')->getSitemap();
         $sitemapGenerator->add(Url::create('/')->setPriority(1));
+        foreach($allAds as $ads){
+            $sitemapGenerator->add(Url::create("/ads/{$ads['user']['username']}/{$ads['slug']}")->setPriority(0.9)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY));
+        }
         $sitemapGenerator->writeToFile(public_path('sitemap.xml'));
         return 'Sitemap generated';
     }
