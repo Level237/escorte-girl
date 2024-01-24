@@ -481,9 +481,33 @@ class AdsController extends Controller
 
             $response = Http::asForm()->get($url."/api/announce/".$name.'/'.$slug);
             $response1 = Http::asForm()->get($url."/api/announce/similar/".$name.'/'.$slug);
+            $ad = json_decode((string) $response->getBody(), true);
+            $ads = json_decode((string) $response1->getBody(), true);
+            //dd($response1->body());
+            if($ad){
+                if($ad['data']){
+                    $ad = $ad['data'][0];
+                }
+                else
+                    return view('error');
+            }
+            else
+                return view('error');
 
-            $ad = json_decode((string) $response->getBody(), true)['data'][0];
-            $ads = json_decode((string) $response1->getBody(), true)['data'];
+            if($ads){
+
+                 if($ads['data']){
+                    $ads = $ads['data'];
+                }
+
+                else 
+                  return view('error');
+
+            }
+            else
+                return view('error');
+
+           
             $reviews=(new ListReviewsServices())->listReviews($slug);
 
             //dd($ad);
@@ -491,7 +515,7 @@ class AdsController extends Controller
             return  view('ads.detail', compact('ad', 'ads','reviews','announceId'));
 
         }catch(\Exception $e){
-             return $e;
+             return view('error');
         }
 
         //$hostURL = request()->getHttpHost()."/ads/".$ad['id'];
