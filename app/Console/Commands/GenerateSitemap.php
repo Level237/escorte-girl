@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Tags\Url;
+
 
 class GenerateSitemap extends Command
 {
@@ -25,6 +28,9 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        //
+        $sitemapGenerator=SitemapGenerator::create('https://viens-yamo.com')->getSitemap();
+        $sitemapGenerator->add(Url::create('/')->setPriority(1));
+        $sitemapGenerator->writeToFile(public_path('sitemap.xml'));
+        return 'Sitemap generated';
     }
 }
