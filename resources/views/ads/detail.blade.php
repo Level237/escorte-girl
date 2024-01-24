@@ -1418,7 +1418,9 @@ opacity: 0.4
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Fonctionnalité VIP</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			 <h5 class="modal-title" style="color: red">Fermer</h5>
+		</button>
       </div>
       <div class="modal-body">
         Cette fonctionnalité est disponible uniquement pour les membres. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte 'membre', ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium
