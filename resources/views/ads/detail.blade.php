@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> {{ ucfirst($ad['title']) }}</title>
+    <Meta name=" robots " content="index, follow" />
+    <meta name="twitter:card" content="{{ ucfirst($ad['title']) }}" />
+    <meta name="twitter:site" content="{{ url()->current() }}" />
+    <meta name="twitter:title" content="{{ ucfirst($ad['title']) }}" />
+    <meta name="twitter:description" content="{{ ucfirst($ad['description']) }}" />
+    <meta name="twitter:image" content="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=> $ad['images'][0]['path']] )}}" />
 
-    <meta property="og:url" content="http://escort.test/listing/adrianna/">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Adrianna">
-    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. P">
-    <meta property="og:image" content="https://premiummod.com/demoimages/img.php?imgid=10&t=es">
-    <meta property="og:image:width" content="700">
-    <meta property="og:image:height" content="700">
 
     <style>.preload-hide { display:none; }</style><meta name='robots' content='max-image-preview:large'>
 	<style id='classic-theme-styles-inline-css' type='text/css'>
@@ -632,7 +631,7 @@ opacity: 0.4
 									Your browser does not support the video tag.
 								</video>
 
-							
+
 								</a>
 
 								</figure>

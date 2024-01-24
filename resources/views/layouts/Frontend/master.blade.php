@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <Meta name=" robots " content="index, follow" />
     <meta name="twitter:card" content="@yield('meta_title')" />
     <meta name="twitter:site" content="viens-yamo.com" />

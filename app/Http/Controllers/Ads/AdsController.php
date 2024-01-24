@@ -75,7 +75,7 @@ class AdsController extends Controller
             $video->storeAs('ads/'.$request->user_id.'/videos', $fileName);
         }
 
-        
+
 
         if($isVideo){
 
@@ -166,7 +166,7 @@ class AdsController extends Controller
                              'description' => $request->form['post_content'],
                         ]);
 
-                
+
 
                 //dd($response);
                 //dd(json_decode((string) $response->getBody(), true));
@@ -347,7 +347,7 @@ class AdsController extends Controller
             $id=$request->id;
             $response = Http::asForm()->get($url."/api/adstown/".$request->id);
             $allAds = json_decode((string) $response->getBody(), true);
-           
+
             if($allAds['data'] != null)
              $allAds = $allAds['data'];
             else
@@ -395,7 +395,7 @@ class AdsController extends Controller
               $allAds = [];
 
             //dd($allAds);
-          
+
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -549,7 +549,7 @@ class AdsController extends Controller
 
     }
 
-    
+
 
 
 }
