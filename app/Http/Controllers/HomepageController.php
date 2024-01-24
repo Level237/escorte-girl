@@ -20,7 +20,8 @@ class HomepageController extends Controller
 
     public function homepage(Request $request){
 
-
+        
+         //dd(Session::has('checkAge'));
         $check=(new CheckSubscribeService())->check();
 
 
@@ -54,6 +55,6 @@ class HomepageController extends Controller
     public function checkAge(){
         //Registering checkAge in session
          Session::put('checkAge', true);
-         return redirect()->route('homepage');
+         return "Session set successfully";
     }
 }

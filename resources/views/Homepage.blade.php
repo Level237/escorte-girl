@@ -181,11 +181,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
           <hr>
           <div class="row justify-content-center" >
              <a href="http://www.google.com">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <button type="button" class="btn btn-secondary">
                 <i class="fa fa-arrow-left"></i>&nbsp; QUITTER</button>
              </a> &nbsp;
-        <a href="{{ route('check-age') }}"> <button type="button" class="btn btn-primary">
-          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 18 ANS</button></a>
+        <a href="#"> 
+          <button type="button" class="btn btn-primary" id="button-session" data-bs-dismiss="modal">
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 18 ANS</button>
+          
+        </a>
           </div>
 
       </div>
@@ -1360,11 +1363,50 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 <script>
 
+document.getElementById("button-session").addEventListener("click", function(){
+   console.log('Session');
+    
+    // SETTING checkAge
+		jQuery.ajax({
+			type: "GET",
+			dataType: 'json',
+			url: 'http://127.0.0.1:8000/check-age',
+			timeout: 15000,
+			data: {
+				name: name,
+				request: 2,
+			},
+			success: function(response, statusCode) {
+				console.log('success: ' + response);
+				//console.log(response.);
+
+			},
+			error: function(response, statusCode) {
+
+				console.log(statusCode);
+				console.log(response);
+
+			},
+
+
+		});
+});
+
+
 function scrollTop(){
 	jQuery('body,html').animate({
 				scrollTop: 0
 			}, 100);
 }
+
+// function setSession(){
+//   console.log('Session');
+//   @php
+//     session(['checkAge' => 'true']);
+//   @endphp
+
+
+// }
 
 
 
