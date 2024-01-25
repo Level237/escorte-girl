@@ -832,7 +832,7 @@ function processSubmitForm(){
 			// steps('5','this');
 			jQuery('[data-key="quarter"]').addClass('required-active');
 			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné la quartier");
+			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné le quartier");
 			scrollTop();
 			return false;
 	}
