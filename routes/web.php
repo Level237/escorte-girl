@@ -69,12 +69,12 @@ use App\Http\Controllers\Dashboard\DashboardCustomerController;
 
 //Importing Denounce Controller
 use App\Http\Controllers\Purchase\CurrentUserPurchaseController;
-use App\Http\Controllers\Admin\Membership\EditMemberShipController;
+use App\Http\Controllers\Admin\MemberShip\EditMemberShipController;
 
-use App\Http\Controllers\Admin\Membership\ListMemberShipController;
+use App\Http\Controllers\Admin\MemberShip\ListMemberShipController;
 
-use App\Http\Controllers\Admin\Membership\CreateMemberShipController;
-use App\Http\Controllers\Admin\Membership\DeleteMemberShipController;
+use App\Http\Controllers\Admin\MemberShip\CreateMemberShipController;
+use App\Http\Controllers\Admin\MemberShip\DeleteMemberShipController;
 
 use App\Http\Controllers\Admin\Escort\VerifyEscortController;
 use App\Http\Controllers\Admin\FaqController;
