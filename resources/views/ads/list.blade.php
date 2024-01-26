@@ -536,6 +536,9 @@ function filterToggle(val){
                  <a href="{{ route('ads.quarter', ['id' => $quarter,'current_page' => $current_page-1]) }}"  class="page-link">
               @elseif (isset($category))
                  <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $current_page-1]) }}"  class="page-link">
+              
+              @elseif (isset($nonvip))
+                 <a href="{{ route('ads.nonvip', ['current_page' => $current_page-1]) }}"  class="page-link">
               @else
                  <a href="{{ route('ads.list', ['current_page' => $current_page-1]) }}"  class="page-link">
               @endif
@@ -560,6 +563,11 @@ function filterToggle(val){
                  <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $i]) }}"  class="page-link"
                   style="background-color: #ED5858;color:white">
                   {{ $i }} </a>
+
+              @elseif (isset($nonvip))
+                <a href="{{ route('ads.nonvip', ['current_page' => $i]) }}"  class="page-link" 
+                    style="background-color: #ED5858;color:white">
+                  {{ $i }}</a>
               @else
                    <a href="{{ route('ads.list', ['current_page' => $i]) }}"  class="page-link" 
                     style="background-color: #ED5858;color:white">
@@ -576,6 +584,9 @@ function filterToggle(val){
                         class="page-link"  rel="nofollow">{{ $i }}</a>
                     @elseif (isset($category))
                                <a href="{{ route('ads.category', ['id' => $category, 'current_page' => $i]) }}"
+                        class="page-link" rel="nofollow">{{ $i }}</a>
+                    @elseif (isset($nonvip))
+                      <a href="{{ route('ads.nonvip', ['current_page' => $i]) }}"
                         class="page-link" rel="nofollow">{{ $i }}</a>
                     @else
                       <a href="{{ route('ads.list', ['current_page' => $i]) }}"
@@ -607,6 +618,9 @@ function filterToggle(val){
                   @elseif (isset($category))
                       <a href="{{ route('ads.category', ['id' => $category,'current_page' => $k]) }}"  class="page-link">
                     {{ $k }}</a>
+                  @elseif (isset($nonvip))
+                  <a href="{{ route('ads.nonvip', ['current_page' => $k]) }}"  class="page-link">
+                    {{ $k }}</a>
                   @else
                      <a href="{{ route('ads.list', ['current_page' => $k]) }}"  class="page-link">
                     {{ $k }}</a>
@@ -622,6 +636,9 @@ function filterToggle(val){
                       class="page-link" rel="nofollow">{{ $k }}</a>
                      @elseif (isset($category))
                       <a href="{{ route('ads.category', ['id' => $category,'current_page' => $k]) }}"
+                      class="page-link" rel="nofollow">{{ $k }}</a>
+                     @elseif (isset($nonvip))
+                        <a href="{{ route('ads.nonvip', ['current_page' => $k]) }}"
                       class="page-link" rel="nofollow">{{ $k }}</a>
                     @else
                            <a href="{{ route('ads.list', ['current_page' => $k]) }}"
@@ -652,7 +669,10 @@ function filterToggle(val){
                   <a href="{{ route('ads.category', ['id' => $category,'current_page' => $current_page+1]) }}"  class="page-link">
                   <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
                   </a>
-
+                @elseif (isset($nonvip))
+                   <a href="{{ route('ads.nonvip', ['current_page' => $current_page+1]) }}"  class="page-link">
+                  <i class="fa fa-angle-right nomargin" aria-hidden="true"></i>
+                  </a>
                 @else
 
                   <a href="{{ route('ads.list', ['current_page' => $current_page+1]) }}"  class="page-link">

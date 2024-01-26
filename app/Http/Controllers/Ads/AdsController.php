@@ -335,6 +335,63 @@ class AdsController extends Controller
 
     }
 
+    public function nonvip(Request $request){
+
+        $nonvip = true;
+        $url=(new UrlApiService())->getUrl();
+        $allAds = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/announces");
+            $allAds = json_decode((string) $response->getBody(), true);
+            //dd($allAds['data']);
+            if($allAds['data'] != null)
+             $allAds = $allAds['data'];
+            else
+              $allAds = [];
+            //dd($allAds);
+
+            $towns=(new ListTownService())->list()->data;
+            $quarters=(new QuarterService())->getQuarters();
+            if($request->membership){
+                $adsByMembership = [];
+                $i = 0;
+                foreach($allAds as $ad){
+                    if($ad['subscribe_id'] == $request->membership){
+                        $adsByMembership[$i] = $ad;
+                        $i++;
+                    }
+                }
+               $allAds =  $adsByMembership;
+            }
+
+
+            $total = count($allAds);
+            $per_page = 6;
+            $nb_pages = ceil($total/$per_page);
+            $current_page = $request->current_page ?? 1;
+
+            $starting_point = ($current_page * $per_page) - $per_page;
+
+            $ads = array_slice($allAds, $starting_point, $per_page, true);
+
+            $ads = new Paginator($ads, $total, $per_page, $current_page, [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]);
+
+            //dd($ads);
+
+            return  view('ads.list', compact('nonvip', 'ads','quarters', 'allAds', 'current_page', 'nb_pages','towns'));
+            //error_log($ads);
+        }catch(\Exception $e){
+             $allAds = [];
+        }
+
+
+    }
+
 
     public function adsByTown(Request $request){
 

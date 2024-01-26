@@ -1428,7 +1428,7 @@ opacity: 0.4
       </div>
       <div class="modal-footer">
 	    <a href="{{ route('upgrade-plan') }}"> <button type="button" class="btn btn-primary">Souscrire Maintenant</button></a>
-        <a href="{{ route('ads.list') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
+        <a href="{{ route('ads.nonvip') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
 
       </div>
     </div>

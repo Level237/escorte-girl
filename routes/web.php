@@ -135,6 +135,7 @@ Route::middleware(['checkAge'])->group(function () {
     Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
     Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
     Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
+    Route::get('ads/nonvip',[AdsController::class, 'nonvip'])->name('ads.nonvip');
     Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
 
 
