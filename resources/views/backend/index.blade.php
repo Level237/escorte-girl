@@ -178,9 +178,10 @@ Dashboard
                                             @if ($popularAd['visits'] == 0)
                                                 @break
                                             @endif
+
                                             <tr>
                                                 <td class="table-user">
-                                                    <img src="{{ route('display.ads.image',['id'=>$popularAd['id'], 'path'=>$popularAd['images'][0]['path']] )}}" alt="table-user" class="me-2 rounded-circle" />
+                                                    <img src="{{ route('display.ads.image',['id'=>$popularAd['id'], 'path'=>$popularAd['images'][0]['id']] )}}" alt="table-user" class="me-2 rounded-circle" />
                                                     {{  ucfirst($popularAd['user']['username'])  }}
                                                 </td>
                                                 <td> {{  ucfirst($popularAd['title'])  }}</td>
@@ -236,7 +237,7 @@ Dashboard
                                         @foreach ($recentAds as $recentAd)
                                             <tr>
                                                 <td class="table-user">
-                                                    <img src="{{ route('display.ads.image',['id'=>$recentAd['id'], 'path'=>$recentAd['images'][0]['path']] )}}" alt="table-user" class="me-2 rounded-circle" />
+                                                    <img src="{{ route('display.ads.image',['id'=>$recentAd['id'], 'path'=>$recentAd['images'][0]['id']] )}}" alt="table-user" class="me-2 rounded-circle" />
                                                      {{  ucfirst($recentAd['user']['username'])  }}
                                                 </td>
                                                 <td> {{  ucfirst($recentAd['title'])  }}</td>

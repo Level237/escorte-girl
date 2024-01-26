@@ -224,7 +224,8 @@ opacity: 0.4
                             @if($ad['subscribe_id']===3)
 
                                 @if(isset($user) && $subscribeOrNot===1)
-                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg "<a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn> data-ppt-btn="">
+                                    <a href="javascript:void(0);" onclick="showPhone()" class=" btn-block btn-lg list mb-3  btn-lg ">
+									<a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn> data-ppt-btn="">
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
                                         <span class="_number" style="display:none;">+ {{ $ad['whatsapp'] }} </span>
                                         </a>
@@ -1418,14 +1419,16 @@ opacity: 0.4
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Fonctionnalité VIP</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			 <h5 class="modal-title" style="color: red">Fermer</h5>
+		</button>
       </div>
       <div class="modal-body">
         Cette fonctionnalité est disponible uniquement pour les membres. Pour contacter une escorte ULTRA VIP,  vous devez tout d'abord créer votre compte 'membre', ensuite prendre un abonnement. Au cas contraire contactez plutôt les escortes Gold et Premium
       </div>
       <div class="modal-footer">
 	    <a href="{{ route('upgrade-plan') }}"> <button type="button" class="btn btn-primary">Souscrire Maintenant</button></a>
-        <a href="{{ route('ads.list') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
+        <a href="{{ route('ads.nonvip') }}"> <button type="button" class="btn btn-secondary">Voir Non VIP</button> </a>
 
       </div>
     </div>

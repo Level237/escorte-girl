@@ -93,9 +93,9 @@ class AdsImageController extends Controller
 
     public function deleteImage(Request $request){
 
-         \Illuminate\Support\Facades\Storage::delete('ads/21/'.$request->name);
+         \Illuminate\Support\Facades\Storage::delete('ads/'.$request->user_id.'/'.$request->filename);
        
-          return response($request->name, 200)
+          return response($request->filename." deleted successfully", 200)
                   ->header('Content-Type', 'application/json');
     }
 }

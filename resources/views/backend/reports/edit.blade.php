@@ -92,9 +92,10 @@
                                                         value="{{ $report['message'] }}" required>
                                                     </div>
                                               
+
                                                     <div class="mb-3">
                                                         <label for="simpleinput" class="form-label">Preuve</label> <br>
-                                                        <img src="{{ route('display.report.image',['id'=>$report['ads'][0]['id'] , 'path'=>$report['path']] )}}" alt="" srcset="">
+                                                        <img src="{{ route('display.report.image',['id'=>$report['id'] , 'adsId'=>$report['ads'][0]['id']] )}}" alt="" srcset="">
                                                     </div>
 												
 												

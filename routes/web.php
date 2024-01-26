@@ -135,6 +135,7 @@ Route::middleware(['checkAge'])->group(function () {
     Route::get('escort/list/{id?}',[EscortController::class, 'list'])->name('escort.list');
     Route::get('escortbyquarter/{quarterID}',[EscortController::class, 'escortByQuater'])->name('escort.quarter');
     Route::get('ads/list/{membership?}',[AdsController::class, 'list'])->name('ads.list');
+    Route::get('ads/nonvip',[AdsController::class, 'nonvip'])->name('ads.nonvip');
     Route::get('ads/{username}/{slug}',[AdsController::class, 'show'])->name('ads.details');
 
 
@@ -312,7 +313,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('reports/edit/{id}',[EditReportController::class,'edit'])->name('reports.edit');
    Route::post('reports/update',[EditReportController::class,'update'])->name('reports.update');
    Route::post('reports/delete/{id}',[DeleteReportController::class,'delete'])->name('reports.delete');
-   Route::get('displayreportimage/{id}/{path}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
+   Route::get('displayreportimage/{id}/{adsId}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
 
    Route::get('banners',[BannerController::class,'index'])->name('banners');
    Route::get('banners/edit/{id}',[BannerController::class,'edit'])->name('banners.edit');

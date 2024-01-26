@@ -91,8 +91,6 @@ class BannerService{
         }
         else{
 
-            
-        
             try{
 
                 $response = Http::put($url."/api/banners/".$banner['id'], [
@@ -101,7 +99,7 @@ class BannerService{
                              'status' => $status,
                         ]);
 
-                dd($response->body());
+                //dd($response->body());
 
                 return $response;
 

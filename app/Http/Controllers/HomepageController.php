@@ -35,7 +35,7 @@ class HomepageController extends Controller
         $goldAds=(new AdsService())->goldAds();
         $ads = (new AdsController())->getAds();
 
-        //dd($ads);
+        //dd($homeAds);
 
         if($data != []){
             $announcements = $data[0];
