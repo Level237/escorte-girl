@@ -62,11 +62,11 @@ class EditReportController extends Controller
          }
     }
 
-    public function displayReportImage($id)
+    public function displayReportImage($id, $adsId)
     {
      
         $url=(new UrlApiService())->getUrl();
-        $response = Http::asForm()->get($url.'/api/displayreportimage/'.$id);
+        $response = Http::asForm()->get($url.'/api/displayreportimage/'.$id.'/'.$adsId);
         return $response;
    
     }

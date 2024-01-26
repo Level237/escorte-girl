@@ -312,7 +312,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('reports/edit/{id}',[EditReportController::class,'edit'])->name('reports.edit');
    Route::post('reports/update',[EditReportController::class,'update'])->name('reports.update');
    Route::post('reports/delete/{id}',[DeleteReportController::class,'delete'])->name('reports.delete');
-   Route::get('displayreportimage/{id}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
+   Route::get('displayreportimage/{id}/{adsId}',[EditReportController::class, 'displayReportImage'])->name('display.report.image');
 
    Route::get('banners',[BannerController::class,'index'])->name('banners');
    Route::get('banners/edit/{id}',[BannerController::class,'edit'])->name('banners.edit');
