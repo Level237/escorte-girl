@@ -343,7 +343,7 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announces");
+            $response = Http::asForm()->get($url."/api/nonvip-ads");
             $allAds = json_decode((string) $response->getBody(), true);
             //dd($allAds['data']);
             if($allAds['data'] != null)
