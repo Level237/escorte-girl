@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Membership;
+namespace App\Http\Controllers\Admin\MemberShip;
 use App\Http\Controllers\Controller;
 use App\Services\Api\MemberShip\MemberShipService;
 use Illuminate\Http\Request;
