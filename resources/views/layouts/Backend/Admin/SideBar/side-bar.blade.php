@@ -101,7 +101,13 @@
 
 
 
-
+       <li class="side-nav-item">
+                <a  href="{{ route('admin.ads') }}" 
+                aria-controls="sidebarAds" class="side-nav-link">
+                    <i class="uil-file"></i>
+                    <span> Annonces </span>
+                </a>
+        </li>
 
         <li class="side-nav-title">Localisation</li>
 

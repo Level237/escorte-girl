@@ -81,6 +81,8 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\User\GiveCreditController;
 use App\Http\Controllers\User\UpdateUserController;
+
+use App\Http\Controllers\Admin\Ads\AdController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -318,6 +320,11 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('banners',[BannerController::class,'index'])->name('banners');
    Route::get('banners/edit/{id}',[BannerController::class,'edit'])->name('banners.edit');
    Route::post('banners/update',[BannerController::class,'update'])->name('banners.update');
+
+   Route::get('ads',[AdController::class,'index'])->name('admin.ads');
+   Route::get('ads/edit/{id}',[AdController::class,'edit'])->name('admin.ads.edit');
+   Route::post('ads/update',[AdController::class,'update'])->name('admin.ads.update');
+   Route::get('ads/delete/{id}',[AdController::class,'edit'])->name('admin.ads.delete');
 
    //Verify Escort
    Route::post('escort/verify/{id}',[VerifyEscortController::class,'verify'])->name('verify');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ListEscortController extends Controller
 {
+    
     public function listEscort(){
 
         $escorts=(new AllUserService())->escortList();

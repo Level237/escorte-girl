@@ -231,7 +231,9 @@ opacity: 0.4
                                         </a>
                                 @endif
                                 @if(isset($user) && $subscribeOrNot!==1)
-                                    <a  class=" btn-block btn-lg list mb-3  btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"data-ppt-btn="" <a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn>>
+                                    <a  class=" btn-block btn-lg list mb-3  btn-lg popup-premium"  data-toggle="modal" data-target="#staticBackdrop"
+									data-ppt-btn="">
+									 <a href="{{ route('purchase.credit') }}"    style="background-color: #ED5858;color:white" data-ppt-btn>>
                                         <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
 *
                                         </a>

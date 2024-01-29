@@ -25,6 +25,25 @@ class AdsService{
         }
     }
 
+     public function getAds(){
+
+        $url=(new UrlApiService())->getUrl();
+        $ads = [];
+
+        try{
+
+            $response = Http::asForm()->get($url."/api/announces");
+            $ads = json_decode((string) $response->getBody(), true);
+            if($ads['data'] != null)
+              $ads = $ads['data'];
+            //error_log($ads);
+        }catch(\Exception $e){
+             $ads = [];
+        }
+
+        return  $ads;
+    }
+
      public function getAdsById($id){
 
         $url=(new UrlApiService())->getUrl();
