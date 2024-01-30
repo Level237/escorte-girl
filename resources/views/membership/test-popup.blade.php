@@ -59,7 +59,7 @@
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`${url}/mes-abonnements`);
+                    window.location.assign(`${url}/success/payment`);
                 }
             });
             CinetPay.onError(function(data) {
