@@ -24,12 +24,14 @@
             <h2>Prix:</h2>
             <p id="price" value="5000">{{ $price }}</p>
             <p id="membership">{{ $membership }}</p>
+            <p id="user_id">{{ $user->id }}</p>
         </div>
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
         const membership=document.querySelector('#membership').innerHTML;
         const url=window.location.origin;
+        const transaction_id=Math.floor(Math.random() * 100000000).toString();
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
@@ -39,7 +41,7 @@
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
-                transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
+                transaction_id: transaction_id, // YOUR TRANSACTION ID
                 amount: 100,
                 currency: 'XAF',
                 channels: 'MOBILE_MONEY',
