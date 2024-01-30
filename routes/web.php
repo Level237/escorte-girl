@@ -95,7 +95,7 @@ use App\Http\Controllers\Admin\Ads\AdController;
 */
 
 
-
+Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 Route::get('/check-age',[HomepageController::class,'checkAge'])->name('check-age');
 Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
@@ -174,7 +174,7 @@ Route::middleware(['user'])->group(function () {
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
-    Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
+
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
     });
