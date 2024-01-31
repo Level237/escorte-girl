@@ -34,26 +34,25 @@ Listes des escorts
                         {{ Session::get('success') }}
                     </div>
                     @endif
+                     @if(Session::has('msg'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('msg') }}
+                            </div>
+                            @endif
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-2">
                                 <div class="col-xl-8">
-                                    <form method="get" action="#" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
-                                        <div class="col-auto">
-                                            <label for="inputPassword2" class="visually-hidden">Search</label>
-
-                                        </div>
-                                        <div class="col-auto">
-                                           
-                                        </div>
-                                    </form>
+                                  
                                 </div>
                                 <div class="col-xl-4">
                                     <div class="text-xl-end mt-xl-0 mt-2">
                                         <a href="{{ route('users.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> Nouvel utilisateur</button></a>
-                                        <button type="button" class="btn btn-light mb-2">Export</button>
                                     </div>
                                 </div><!-- end col-->
+                             
+
+                           
                             </div>
 
                             

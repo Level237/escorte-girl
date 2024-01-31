@@ -57,7 +57,7 @@
 
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
-                    <i class="uil-briefcase"></i>
+                    <i class="uil-users-alt"></i>
                     <span> Utilisateurs </span>
                     <span class="menu-arrow"></span>
                 </a>
@@ -74,19 +74,11 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
-                    <i class="uil-envelope"></i>
+                <a  href="{{ route('escorts') }}" 
+                aria-controls="sidebarEscorts" class="side-nav-link">
+                    <i class="uil-user"></i>
                     <span> Escortes </span>
-                    <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarEmail">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="{{ route('escorts') }}">Listes</a>
-                        </li>
-
-                    </ul>
-                </div>
             </li>
 
 

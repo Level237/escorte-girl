@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Admin\User;
 use  App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class DeleteUserController extends Controller
 {
     public function delete($id){
-        
-        dd('Hello world');
 
         $url = (new UrlApiService())->getUrl();
     
@@ -20,7 +19,7 @@ class DeleteUserController extends Controller
           
             if($response->status() === 200){
 
-                return back()->with('success',"Annonce supprimée");
+                return back()->with('success',"Utilisateur supprimé avec succes");
 
             }else{
 
