@@ -324,7 +324,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::get('ads',[AdController::class,'index'])->name('admin.ads');
    Route::get('ads/edit/{id}',[AdController::class,'edit'])->name('admin.ads.edit');
    Route::post('ads/update',[AdController::class,'update'])->name('admin.ads.update');
-   Route::get('ads/delete/{id}',[AdController::class,'edit'])->name('admin.ads.delete');
+   Route::get('ads/delete/{id}',[AdController::class,'delete'])->name('admin.ads.delete');
 
    //Verify Escort
    Route::post('escort/verify/{id}',[VerifyEscortController::class,'verify'])->name('verify');

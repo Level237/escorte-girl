@@ -212,7 +212,7 @@ Dashboard
             </div>
             <!-- end row -->
 
-			        <div class="row">
+			<div class="row">
                 <div class="col-xl-12 col-lg-12 order-lg-2 order-xl-1">
                     <div class="card">
                         <div class="d-flex card-header justify-content-between align-items-center">

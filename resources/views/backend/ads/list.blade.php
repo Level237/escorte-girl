@@ -1,9 +1,10 @@
 @extends('layouts.Backend.Admin.app')
 @section('title')
-Listes des escorts
+Listes des ads
 @endsection
 
-@section("content") vccv
+@section("content") 
+@include('utils.utils')
 <div class="content-page">
     <div class="content">
 
@@ -17,155 +18,124 @@ Listes des escorts
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('users.create') }}">Ajouter un(e) escort</a></li>
-                                <li class="breadcrumb-item active">Escorts</li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.ads') }}">Annonces</a></li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Ajouter un(e) escort</h4>
                     </div>
                 </div>
             </div>
             <!-- end page title -->
 
             <div class="row">
-                <div class="col-12">
-                    @if(Session::has('success'))
-                    <div class="alert alert-primary" role="alert">
-                        {{ Session::get('success') }}
-                    </div>
-                    @endif
+                <div class="col-xl-12 col-lg-12 order-lg-2 order-xl-1">
                     <div class="card">
-                        <div class="card-body">
-                            <div class="row mb-2">
-                                <div class="col-xl-8">
-                                    <form method="get" action="#" class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
-                                        <div class="col-auto">
-                                            <label for="inputPassword2" class="visually-hidden">Search</label>
+                        <div class="d-flex card-header justify-content-between align-items-center">
+                            <h4 class="header-title">Annonces</h4>
 
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="d-flex align-items-center">
+                        </div>
 
-
-
-                                                <select name="role_id" class="form-select" id="status-select">
-                                                    <option selected>Rechercher par username...</option>
-
-
-
-
-                                                </select>
-                                                <button type="submit" class="btn" style="background-color: #ED5858;color:white"> Filtrer</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-xl-4">
-                                    <div class="text-xl-end mt-xl-0 mt-2">
-                                        <a href="{{ route('users.create') }}"><button type="button" class="btn btn-danger mb-2 me-2"> Nouvel utilisateur</button></a>
-                                        <button type="button" class="btn btn-light mb-2">Export</button>
-                                    </div>
-                                </div><!-- end col-->
+                       
+                            @if(Session::has('success'))
+                            <div class="alert alert-primary" role="alert">
+                                {{ Session::get('success') }}
                             </div>
+                            @endif
 
-                            
-                            <div class="table-responsive">
-                                <table class="table table-centered table-nowrap mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th style="width: 20px;">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck1">
-                                                    <label class="form-check-label" for="customCheck1">&nbsp;</label>
-                                                </div>
-                                            </th>
-                                            <th>Username</th>
-                                            <th>Ville</th>
-                                            <th>Numéro de Téléphone</th>
-                                             <th>Balance</th>
-                                            <th>Vérifié</th>
-                                            <th style="width: 125px;">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($escorts as $escort)
+                            @if(Session::has('msg'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('msg') }}
+                            </div>
+                            @endif
 
+                        <div class="card-body pt-0">
 
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                    <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                                </div>
-                                            </td>
-                                           
-                                            <td>
-                                                {{ ucfirst($escort->username) }}</small>
-                                            </td>
-                                            <td>
-                                                <h5>{{ $escort->town->town_name }} </h5>
-                                            </td>
-                                            <td>
-                                               {{ $escort->phone_number }}
-                                            </td>
-                                             <td>
-                                               {{ $escort->balance }}
-                                            </td>
-                                            <td>
+                              <table class="table table-striped table-centered mb-0">
+								<thead>
+									<tr>
+										<th>Utilisateur</th>
+										<th>Titre</th>
+										<th>Ville</th>
+                                        <th>Statut</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    @if (count($ads))
 
-                                                 <form method="POST" action="{{ route('verify', ['id' => $escort->id ]) }}"
-                                                    id="verify{{ $escort->id }}">
-
-                                                        @csrf
-
-                                                 <input type="checkbox" id="isVerify{{ $escort->id }}" name="isVerify{{ $escort->id }}" @if($escort->isVerify) checked @endif data-switch="success"
-                                                 onclick="event.preventDefault(); document.getElementById('verify{{ $escort->id }}').submit();"/>
-                                                 <label for="isVerify{{ $escort->id }}" data-on-label="Oui" data-off-label="Non"></label></div>
-                                                 </form>
-                                            </td>
-
-                                            <td>
-                                            
-                                                <a href="#" class="action-icon"
-                                                data-toggle="modal" data-target="#deleteModal{{ $escort->id }}"> 
+                                        @foreach ($ads as $ad)
+                                            <tr>
+                                                <td class="table-user" nowrap>
+                                                    <img src="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}" alt="table-user" class="me-2 rounded-circle" />
+                                                     {{  ucfirst($ad['user']['username'])  }}
+                                                </td>
+                                                <td> {{  ucfirst($ad['title'])  }}</td>
+                                                <td> {{ truncate(ucfirst($ad['town']['town_name'])) }}</td>
+                                                <td> 
+                                                    @if ($ad['isSubscribe'])
+                                                        @if ($ad['subscribe_id'] == 3)
+                                                            ULTRA VIP
+                                                        @elseif ($ad['subscribe_id'] == 2)
+                                                             GOLD
+                                                        @else
+                                                            PREMIUM
+                                                        @endif
+                                                    @else
+                                                        Aucun
+                                                    @endif
+                                                </td>
+                                                <td class="table-action">
+                                                    <a target="_blank" href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                     <a href="#" class="action-icon"
+                                                data-toggle="modal" data-target="#deleteModal{{ $ad['id'] }}"> 
                                                     <i class="mdi mdi-delete"></i></a>
-                                            </td>
-                                            
-                                             <div class="modal fade" id="deleteModal{{ $escort->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
+                                                   
+                                                </td>
+                                                
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="deleteModal{{ $ad['id'] }}" tabindex="-1" 
+                                                    role="dialog" aria-labelledby="exampleModalLabel{{ $ad['id'] }}" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
-                                                            <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="POST" action="{{ route('ads.delete',['id' => $escort->id]) }}" 
-                                                                id="delete-form{{$escort->id}}">
+                                                            <form method="get" action="{{ route('admin.ads.delete',['id' => $ad['id']]) }}" id="delete-form{{$ad['id']}}">
                                                             @csrf
-                                                            <p>{{ __('Voulez vous supprimer cet utilisateur avec ses annonces?') }}</p>
+                                                            <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
 
                                                         </div>
                                                         <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
                                                             <button type="submit" class="btn btn-primary">Oui</button>
-                                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
                                                         </div>
                                                         </form>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </tr>
-
-
-
+                                                    </div>
+                                            </tr>
                                         @endforeach
+                                    @else
+                                        Aucune Annonce
+                                    @endif
 
 
-                                    </tbody>
-                                </table>
-                            </div>
+								</tbody>
+							</table>
+
+
                         </div> <!-- end card-body-->
                     </div> <!-- end card-->
-                </div> <!-- end col -->
+                </div> <!-- end col-->
+
+
+
+
+                <!-- end col -->
+
             </div>
             <!-- end row -->
 

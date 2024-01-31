@@ -21,6 +21,8 @@ class DashboardAdminController extends Controller
         $statTowns = (new StatService())->statTown();
         //dd(count($statTowns));
 
+        //dd($statUser);
+
         //dd($popularsAds);
         //return $statPreviousWeek;
         return view('backend.index',compact('statTowns','recentAds','popularsAds','statUser',"statEscort",'statIncome','statAnnounce','statCurrentWeek','statPreviousWeek'));
