@@ -23,21 +23,24 @@
         <div id="sdk" style="visibility: hidden">
             <h2>Prix:</h2>
             <p id="price" >{{ $price }}</p>
+            <p id="user_id">{{ $user->id }}</p>
         </div>
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
         const url=window.location.origin;
+        const transaction_id=Math.floor(Math.random() * 100000000).toString();
+        const user_id=document.querySelector('#user_id').innerHTML;
         console.log(price)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: `${url}/purchase/credit/successfully/${price}`,
+                notify_url: `http://127.0.0.1:8001/api/purchaseCredit/${price}/${user_id}/${transaction_id}`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
-                transaction_id: Math.floor(Math.random() * 100000000).toString(), // YOUR TRANSACTION ID
+                transaction_id: transaction_id, // YOUR TRANSACTION ID
                 amount: price,
                 currency: 'XAF',
                 channels: 'MOBILE_MONEY',
@@ -51,7 +54,7 @@
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`${url}/purchase/credit/successfully/${price}`);
+                    window.location.assign(`${url}/success/payment`);
                 }
             });
             CinetPay.onError(function(data) {
