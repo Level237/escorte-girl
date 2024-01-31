@@ -41,6 +41,7 @@ use App\Http\Controllers\Admin\Town\CreateTownController;
 use App\Http\Controllers\Admin\Town\DeleteTownController;
 use App\Http\Controllers\Purchase\PurchaseMomoController;
 use App\Http\Controllers\Admin\User\SuspendUserController;
+use App\Http\Controllers\Admin\User\DeleteUserController;
 use App\Http\Controllers\Escort\Profile\StepOneController;
 use App\Http\Controllers\Escort\Profile\StepTwoController;
 use App\Http\Controllers\Memberships\MemberShipController;
@@ -280,6 +281,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
    Route::post('users/create',[AddUserController::class,'storeUser'])->name('users.create');
    Route::get('users/suspend',[ListUserController::class,'listUserBan'])->name('users.suspend');
    Route::get('users/role/',[ListUserController::class,'userByRole'])->name('user-by-role');
+   Route::get('users/delete/{id}',[DeleteUserController::class,'delete'])->name('user-delete');
    Route::get('suspend/user/{id}',[SuspendUserController::class,'ban'])->name('suspend-user');
    Route::get('activate/user/{id}',[ActivateUserController::class,'activate'])->name('activate-user');
 

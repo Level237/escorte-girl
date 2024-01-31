@@ -44,19 +44,7 @@ Listes des escorts
 
                                         </div>
                                         <div class="col-auto">
-                                            <div class="d-flex align-items-center">
-
-
-
-                                                <select name="role_id" class="form-select" id="status-select">
-                                                    <option selected>Rechercher par username...</option>
-
-
-
-
-                                                </select>
-                                                <button type="submit" class="btn" style="background-color: #ED5858;color:white"> Filtrer</button>
-                                            </div>
+                                           
                                         </div>
                                     </form>
                                 </div>
@@ -139,7 +127,7 @@ Listes des escorts
                                                             <button class="btn-close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="POST" action="{{ route('ads.delete',['id' => $escort->id]) }}" 
+                                                            <form method="GET" action="{{ route('user-delete',['id' => $escort->id]) }}" 
                                                                 id="delete-form{{$escort->id}}">
                                                             @csrf
                                                             <p>{{ __('Voulez vous supprimer cet utilisateur avec ses annonces?') }}</p>

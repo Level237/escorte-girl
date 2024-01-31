@@ -1,31 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Ads;
-use App\Http\Controllers\Controller;
-use App\Services\Api\Ads\AdsService;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin\User;
 use  App\Services\Api\UrlApiService;
-use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class AdController extends Controller
+class DeleteUserController extends Controller
 {
-    
+    public function delete($id){
+        
+        dd('Hello world');
 
-     public function index(){
-
-        $ads = (new AdsService)->getAds();
-        //dd($ads[0]);
-        return view('backend.ads.list', compact('ads'));
-    }
-
-      public function delete($id){
-
-        $url=(new UrlApiService())->getUrl();
+        $url = (new UrlApiService())->getUrl();
     
        //Deleting ad
          try{
             
-            $response = Http::asForm()->delete($url."/api/ads/".$id);
+            $response = Http::asForm()->delete($url."/api/users/".$id);
           
             if($response->status() === 200){
 
@@ -39,5 +30,6 @@ class AdController extends Controller
             //dd($e);
            return back()->with('msg', "Une erreur s'est produite lors de la suppression");
         }
-   }
+
+    }
 }
