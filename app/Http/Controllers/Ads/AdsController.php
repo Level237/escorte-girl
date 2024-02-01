@@ -274,7 +274,6 @@ class AdsController extends Controller
         }catch(\Exception $e){
              $ads = [];
         }
-
         return  $ads;
     }
 
@@ -308,7 +307,6 @@ class AdsController extends Controller
                 }
                $allAds =  $adsByMembership;
             }
-
 
             $total = count($allAds);
             $per_page = 6;
@@ -365,7 +363,6 @@ class AdsController extends Controller
                 }
                $allAds =  $adsByMembership;
             }
-
 
             $total = count($allAds);
             $per_page = 6;

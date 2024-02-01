@@ -517,8 +517,8 @@ function filterToggle(val){
         @endif
 
   @if (count($ads))
-
-
+            
+         
   <div class="d-flex justify-content-center align-items-center py-2 small text-muted letter-spacing-1  my-4 pt-3">
     <div class="ajax-search-pagenav pagination-md">
       <ul class="pagination">
