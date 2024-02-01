@@ -17,7 +17,7 @@ Félicitations
       <div class="card-popup-content">
       <div class="">
       <span class="smilecode" style="font-size: 40px;">&#x1F600;</span>
-       <h5 class="text-white">Achat credit avec succès</h5>
+       <h5 class="text-white">Achat validé avec succès</h5>
        </div>
       </div>
 </div>
@@ -30,11 +30,16 @@ Félicitations
                   <p class="text-600">Merci, votre Achat a été Validé avec succès.
 
                     </p>
-                  <p class="margin-top3">Si vous avez des questions, contactez nous.</p>
+                  <p class="margin-top3">Si vous avez des questions,<a href="{{ route('contact') }}"> contactez nous.</a></p>
 
 
+                                                @if($user->role_id===2)
+                                                    <div><a href="{{ route('db.escort.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Tableau de bord</a></div>
+                                                @endif
 
-                                                <div><a href="{{ route('db.escort.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Tableau de bord</a></div>
+                                                @if($user->role_id===3)
+                                                    <div><a href="{{ route('db.customer.index') }}" data-ppt-btn class="btn-primary btn-lg my-3">Mon Tableau de bord</a></div>
+                                                @endif
 
 
 

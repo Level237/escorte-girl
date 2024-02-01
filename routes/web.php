@@ -96,7 +96,7 @@ use App\Http\Controllers\Admin\Ads\AdController;
 */
 
 
-Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
+
 Route::get('/',[HomepageController::class,'homepage'])->name('homepage');
 Route::get('/check-age',[HomepageController::class,'checkAge'])->name('check-age');
 Route::get('/privacy',[PagesController::class,'privacy'])->name('privacy');
@@ -172,6 +172,7 @@ Route::middleware(['user'])->group(function () {
     Route::post("/answerStore",[SecureAccountController::class,'answerStore'])->name('answer-store');
     Route::get("/secure-account/questions",[SecureAccountController::class,'answerView'])->name('give-answer');
     Route::get('/secure-account',[SecureAccountController::class,'selectQuestion'])->name('selectQuestion');
+    Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
@@ -260,7 +261,7 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
         Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');
-        Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
+
     });
 
 
