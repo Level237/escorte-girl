@@ -47,7 +47,8 @@ class PurchaseMomoController extends Controller
         $price=Session::get('price');
         $announcement=Session::get('announcement_id');
         $membership=Session::get('membership_id');
-        return view('membership.test-popup',compact('price','membership','announcement'));
+        $transaction_id="REFID".rand(123456789, 100000000);
+        return view('membership.test-popup',compact('price','transaction_id','membership','announcement'));
     }
     public function subscribePremium(Request $request){
         $price=$request->price;

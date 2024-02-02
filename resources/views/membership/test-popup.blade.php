@@ -43,7 +43,9 @@
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: `http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`,
+                notify_url: `http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce},{
+
+                }`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
