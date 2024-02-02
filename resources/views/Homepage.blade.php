@@ -282,8 +282,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                 <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                                                                                 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                                                                                     <div class="text-white fs-4 text-600">
-                                                                                                    {{ ucfirst($vipAds[$i]['user']['username']) }}
-                                                                                                                <span class="text-online">•</span>
+                                                                                                 
                                                                                                             </div>
                                                                                                     <div class="fs-sm text-white opacity-5 text-400">
                                                                                                     {{ truncate($vipAds[$i]['title'],30) }}  
@@ -398,8 +397,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                               <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                                                                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                                                                                   <div class="text-white fs-4 text-600">
-                                                                                                  {{ ucfirst($vipAds[$i+1]['user']['username']) }}
-                                                                                                              <span class="text-online">•</span>
+                                                                                                
                                                                                                           </div>
                                                                                                   <div class="fs-sm text-white opacity-5 text-400">
                                                                                                   {{ truncate($vipAds[$i+1]['title'],30) }}  
@@ -631,8 +629,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($goldAds[$i]['user']['username']) }}
-                                            <span class="text-online">•</span>
+                               
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i]['title'],30) }}  
@@ -740,8 +737,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($goldAds[$i+1]['user']['username']) }}
-                                            <span class="text-online">•</span>
+                            
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i+1]['title'],30) }}  
@@ -853,8 +849,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                     <div class="text-white fs-4 text-600">
-                                    {{ ucfirst($goldAds[$i+2]['user']['username']) }}
-                                                <span class="text-online">•</span>
+                                   
                                             </div>
                                     <div class="fs-sm text-white opacity-5 text-400">
                                     {{ truncate($goldAds[$i+2]['title'],30) }}  
@@ -968,8 +963,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                 {{ ucfirst($goldAds[$i+3]['user']['username']) }}
-                                            <span class="text-online">•</span>
+                                
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i+3]['title'],30) }}  
@@ -1163,8 +1157,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
 			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 				<div class="text-white fs-4 text-600">
-				 {{ ucfirst($ad['user']['username']) }}
-							<span class="text-online">•</span>
+			
 						  </div>
 				<div class="fs-sm text-white opacity-5 text-400">
 				  {{ ucfirst($ad['town']['town_name']) }}  
