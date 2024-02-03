@@ -62,6 +62,9 @@ class PurchaseMomoController extends Controller
     public function subscribePremium(Request $request){
         $price=$request->price;
         $membership=Session::get('membership_id');
+        $user=(new CurrentUserService())->currentUser();
+        $transaction_id="REFPRE".rand(123456789, 100000000);
+        $check=(new CheckPurchaseService())->checkPlan($user->id,$transaction_id);
         return view('user.payment-momo',compact('price','membership'));
     }
 }
