@@ -78,8 +78,14 @@
 
 
 
+                       @if($payment->status=="2")
                         <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
                         <span>Payé</span> </span>
+                        @endif
+                         @if($payment->status=="1")
+                        <span class="inline-flex items-center font-weight-bold order-status-icon status-5"> <span class="dot mr-2"></span>
+                        <span>Echoué</span> </span>
+                        @endif
 
 
 

@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('*', function ($view)
-        {
+        { 
             $check=(new CheckSubscribeService())->check();
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
@@ -63,10 +63,12 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.escort.finance', function ($view)
         {
             $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
         });
         view()->composer('dashboard.escort.index', function ($view)
         {
             $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
         });
         view()->composer('dashboard.customer.finance', function ($view)
         {
