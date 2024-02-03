@@ -38,7 +38,7 @@
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: `http://127.0.0.1:8001/api/purchaseCredit/api/subscribe/member/momo/${user_id}/${transaction_id}`,
+                notify_url: `http://127.0.0.1:8001/api/subscribe/member/momo/${user_id}/${transaction_id}`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({

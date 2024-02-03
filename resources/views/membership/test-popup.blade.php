@@ -26,7 +26,7 @@
             <p id="announce">{{ $announcement }}</p>
             <p id="membership">{{ $membership }}</p>
             <p id="user_id">{{ $user->id }}</p>
-            <p id="transaction_id">{{ $transaction_id }}</p>
+            <p id="transaction_id1">{{ $transaction_id }}</p>
         </div>
     </body>
     <script>
@@ -36,7 +36,7 @@
         const user_id=document.querySelector('#user_id').innerHTML;
         const url=window.location.origin;
         const url_api="http://127.0.0.1:8000"
-        const transaction_id=Math.floor(Math.random() * 100000000).toString();
+        const transaction_id=document.querySelector('#transaction_id1').innerHTML;
         console.log(url)
         console.log(price)
         console.log(`http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`)

@@ -50,10 +50,11 @@ class PurchaseMomoController extends Controller
         $price=Session::get('price');
         $announcement=Session::get('announcement_id');
         $membership=Session::get('membership_id');
-        $transaction_id="REFID".rand(123456789, 100000000);
+
 
 
         $user=(new CurrentUserService())->currentUser();
+        $transaction_id="REFADS".$announcement.rand(123456789, 100000000);
         $check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
 
         return view('membership.test-popup',compact('price','transaction_id','membership','announcement'));
