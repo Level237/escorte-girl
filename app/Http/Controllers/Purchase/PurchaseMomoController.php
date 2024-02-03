@@ -6,7 +6,9 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
+use App\Services\CheckPurchaseService;
 use Illuminate\Support\Facades\Session;
+use App\Services\Api\CurrentUserService;
 use Illuminate\Support\Facades\Redirect;
 use App\Services\Api\Purchase\PurchaseMembershipService;
 
@@ -44,10 +46,16 @@ class PurchaseMomoController extends Controller
     }
 
     public function openPopup(){
+
         $price=Session::get('price');
         $announcement=Session::get('announcement_id');
         $membership=Session::get('membership_id');
         $transaction_id="REFID".rand(123456789, 100000000);
+
+
+        $user=(new CurrentUserService())->currentUser();
+        $check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
+
         return view('membership.test-popup',compact('price','transaction_id','membership','announcement'));
     }
     public function subscribePremium(Request $request){
