@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
         {
             $check=(new CheckSubscribeService())->checkAds();
         });
-        view()->composer('purchase.congrats-credit', function ($view)
+        view()->composer('purchase.congrats-ads', function ($view)
         {
             $check=(new CheckSubscribeService())->checkAds();
         });

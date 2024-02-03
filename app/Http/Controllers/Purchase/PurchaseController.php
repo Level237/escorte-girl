@@ -69,7 +69,7 @@ class PurchaseController extends Controller
 
     public function purchaseSuccess(){
 
-        return view('purchase.congrats-credit');
+        return view('purchase.congrats-ads');
     }
 
 
@@ -93,6 +93,9 @@ class PurchaseController extends Controller
 
         return view('membership.congrats-premium');
     }
+    public function purchaseSuccessCredit(){
 
+        return view('purchase.congrats-credit');
+    }
 
 }

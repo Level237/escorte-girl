@@ -55,7 +55,7 @@
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`${url}/success/payment`);
+                    window.location.assign(`${url}/success/payment/credit`);
                 }
             });
             CinetPay.onError(function(data) {

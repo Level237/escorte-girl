@@ -176,7 +176,7 @@ Route::middleware(['user'])->group(function () {
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
-
+    Route::get('success/payment/credit',[PurchaseController::class,'purchaseSuccessCredit']);
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardEscortController::class, 'index'])->name('db.escort.index');
     });
