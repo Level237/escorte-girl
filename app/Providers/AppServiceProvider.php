@@ -52,6 +52,14 @@ class AppServiceProvider extends ServiceProvider
         {
             $check=(new CheckSubscribeService())->checkAds();
         });
+        view()->composer('purchase.congrats-credit', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+        });
+        view()->composer('purchase.congrats-plan', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
         view()->composer('dashboard.escort.finance', function ($view)
         {
             $check=(new CheckSubscribeService())->checkPayCredit();
@@ -68,6 +76,12 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.customer.index', function ($view)
         {
             $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
+        view()->composer('backend.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
             $check=(new CheckSubscribeService())->checkPayPlan();
         });
     }

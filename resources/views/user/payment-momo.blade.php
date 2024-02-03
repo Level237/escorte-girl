@@ -53,7 +53,7 @@
                     window.location.assign(`${url}/payment/fail`);
                     console.log("level")
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`${url}/success/payment`);
+                    window.location.assign(`${url}/success/payment/plan`);
                 }
             });
             CinetPay.onError(function(data) {

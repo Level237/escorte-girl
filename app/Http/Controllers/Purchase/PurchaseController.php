@@ -98,4 +98,8 @@ class PurchaseController extends Controller
         return view('purchase.congrats-credit');
     }
 
+    public function purchaseSuccessPlan(){
+        return view('purchase.congrats-plan');
+    }
+
 }
