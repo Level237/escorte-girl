@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Purchase;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
-use App\Services\Api\Purchase\PurchaseMembershipService;
-use  App\Services\Api\MemberShip\MemberShipService;
 use Illuminate\Support\Facades\Mail;
+use App\Services\CheckPurchaseService;
+use Illuminate\Support\Facades\Session;
+use App\Services\Api\CurrentUserService;
 use App\Mail\SuccessfulMembershipPayment;
+use  App\Services\Api\MemberShip\MemberShipService;
 use App\Services\Api\Purchase\PurchaseCreditService;
+use App\Services\Api\Purchase\PurchaseMembershipService;
 
 class PurchaseController extends Controller
 {
@@ -53,8 +55,10 @@ class PurchaseController extends Controller
 
     public function purchaseInitCredit(Request $request){
         $price=$request->price;
-
-        return view('purchase.purchase-credit-with-momo',compact('price'));
+        $user=(new CurrentUserService())->currentUser();
+        $transaction_id="REFCRE".rand(123456789, 100000000);
+        $check=(new CheckPurchaseService())->checkCredit($price,$user->id,$transaction_id);
+        return view('purchase.purchase-credit-with-momo',compact('price','transaction_id'));
     }
 
     public function purchaseStoreCredit($price){
@@ -65,8 +69,10 @@ class PurchaseController extends Controller
 
     public function purchaseSuccess(){
 
-        return view('purchase.congrats-credit');
+        return view('purchase.congrats-ads');
     }
+
+
 
     public function purchaseUserMomo(){
         $verifyPaymentResponse=(new PurchaseMembershipService())->verifyUserPayment();
@@ -87,6 +93,13 @@ class PurchaseController extends Controller
 
         return view('membership.congrats-premium');
     }
+    public function purchaseSuccessCredit(){
 
+        return view('purchase.congrats-credit');
+    }
+
+    public function purchaseSuccessPlan(){
+        return view('purchase.congrats-plan');
+    }
 
 }

@@ -23,13 +23,14 @@
         <div id="sdk" style="visibility: hidden">
             <h2>Prix:</h2>
             <p id="price" >{{ $price }}</p>
+            <p id="transaction_id2" >{{ $transaction_id }}</p>
             <p id="user_id">{{ $user->id }}</p>
         </div>
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
         const url=window.location.origin;
-        const transaction_id=Math.floor(Math.random() * 100000000).toString();
+        const transaction_id=document.querySelector('#transaction_id2').innerHTML;
         const user_id=document.querySelector('#user_id').innerHTML;
         console.log(price)
         document.getElementById('sdk').value=
@@ -54,7 +55,7 @@
 
 
                 } else if (data.status == "ACCEPTED") {
-                    window.location.assign(`${url}/success/payment`);
+                    window.location.assign(`${url}/success/payment/credit`);
                 }
             });
             CinetPay.onError(function(data) {

@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         view()->composer('*', function ($view)
-        {
+        { 
             $check=(new CheckSubscribeService())->check();
             $userBalance=(new CurrentUserService())->currentUser();
             $balance=$userBalance->balance ?? null;
@@ -42,6 +42,49 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('numberAdsByTowns', $numberAdsByTowns );
             }
 
+        });
+
+        view()->composer('dashboard.escort.purchase.list', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('purchase.congrats-ads', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('purchase.congrats-credit', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+        });
+        view()->composer('purchase.congrats-plan', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
+        view()->composer('dashboard.escort.finance', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('dashboard.escort.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('dashboard.customer.finance', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
+        view()->composer('dashboard.customer.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
+        view()->composer('backend.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkAds();
+            $check=(new CheckSubscribeService())->checkPayPlan();
         });
     }
 }
