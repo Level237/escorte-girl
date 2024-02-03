@@ -24,7 +24,7 @@ class HomepageController extends Controller
          //dd(Session::has('checkAge'));
         $check=(new CheckSubscribeService())->check();
 
-
+        
 
         // $locationController = new LocationController();
         // $locations = $locationController->index();

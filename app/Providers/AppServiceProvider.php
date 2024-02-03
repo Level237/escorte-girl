@@ -43,5 +43,32 @@ class AppServiceProvider extends ServiceProvider
             }
 
         });
+
+        view()->composer('dashboard.escort.purchase.list', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('purchase.congrats-credit', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkAds();
+        });
+        view()->composer('dashboard.escort.finance', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+        });
+        view()->composer('dashboard.escort.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+        });
+        view()->composer('dashboard.customer.finance', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
+        view()->composer('dashboard.customer.index', function ($view)
+        {
+            $check=(new CheckSubscribeService())->checkPayCredit();
+            $check=(new CheckSubscribeService())->checkPayPlan();
+        });
     }
 }

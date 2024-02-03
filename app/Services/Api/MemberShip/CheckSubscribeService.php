@@ -12,15 +12,34 @@ class CheckSubscribeService{
 public function check(){
     $url=(new UrlApiService())->getUrl();
 
-        try{
+       
             $response = Http::asForm()->get($url."/api/check-subscribe");
             $checkResponse = json_decode((string) $response->getBody(), true);
             //dd($memberships);
-            return $checkResponse;
+            return $response;
 
-        }
-        catch(\Exception $e){
-            return null;
-        }
+       
+}
+
+public function checkAds(){
+     $url=(new UrlApiService())->getUrl();
+     $response = Http::asForm()->get($url."/api/check/pay/ads");
+            $checkResponse = json_decode((string) $response->getBody(), true);
+            //dd($memberships);
+            return $response;
+}
+public function checkPayCredit(){
+     $url=(new UrlApiService())->getUrl();
+     $response = Http::asForm()->get($url."/api/check/pay/credits");
+            $checkResponse = json_decode((string) $response->getBody(), true);
+            //dd($memberships);
+            return $response;
+}
+public function checkPayPlan(){
+    $url=(new UrlApiService())->getUrl();
+    $response = Http::asForm()->get($url."/api/check/pay/plan");
+           $checkResponse = json_decode((string) $response->getBody(), true);
+           //dd($memberships);
+           return $response;
 }
 }
