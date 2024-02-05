@@ -20,11 +20,11 @@ class HomepageController extends Controller
 
     public function homepage(Request $request){
 
-        
+
          //dd(Session::has('checkAge'));
         $check=(new CheckSubscribeService())->check();
 
-        
+
 
         // $locationController = new LocationController();
         // $locations = $locationController->index();
