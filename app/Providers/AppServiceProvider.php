@@ -26,8 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function ($view)
         {
-            $check=(new CheckSubscribeService())->check();
+
             $userBalance=(new CurrentUserService())->currentUser();
+            $check=(new CheckSubscribeService())->check();
+            $check=(new CheckSubscribeService())->checkAds();
             $balance=$userBalance->balance ?? null;
             $subscribeOrNot=$userBalance->isSubscribe ?? null;
             $view->with('user', $userBalance );
