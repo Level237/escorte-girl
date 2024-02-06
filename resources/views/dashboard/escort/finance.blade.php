@@ -50,7 +50,7 @@
             <table class="table small table-orders">
                 <thead>
                   <tr>
-                    <th>Order ID</th>
+                    <th> ID</th>
                     <th class="text-center">Date</th>
                     <th class="text-center">Montant</th>
 
@@ -65,7 +65,7 @@
                    <tr class="row-2989" >
                     <td><span class="font-weight-bold">
 
-                        <a href="https://es10.premiummod.com/?invoiceid=2989" target="_blank">#{{ $payment->id }}</a>
+                       {{ $payment->id }}
 
 
                         </span>
