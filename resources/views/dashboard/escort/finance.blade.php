@@ -56,6 +56,7 @@
 
                     <th class="text-center">Status</th>
                     <th class="text-center dashhideme">Type</th>
+                     <th class="text-center dashhideme">Type</th>
                   </tr>
                 </thead>
                 <tbody>
