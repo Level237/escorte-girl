@@ -192,7 +192,7 @@ Route::middleware(['escort'])->group(function () {
         Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
         Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
         Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
-        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
+        Route::get('mes-paiements', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });
@@ -258,7 +258,7 @@ Route::middleware(['customer'])->prefix('customer')->group(function () {
         Route::get('profil', [DashboardCustomerController::class, 'profil'])->name('db.customer.profil');
         Route::get('ads', [DashboardCustomerController::class, 'ads'])->name('db.customer.ads');
         Route::get('messages', [DashboardCustomerController::class, 'messages'])->name('db.customer.messages');
-        Route::get('finance', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
+        Route::get('user/payments', [DashboardCustomerController::class, 'finance'])->name('db.customer.finance');
         Route::get('advertise', [DashboardCustomerController::class, 'advertise'])->name('db.customer.advertise');
         Route::get('settings', [DashboardCustomerController::class, 'settings'])->name('db.customer.settings');
         Route::get('purchase/credit/successfully/{price}',[PurchaseController::class,'purchaseStoreCredit'])->name('purchase.store.credit');

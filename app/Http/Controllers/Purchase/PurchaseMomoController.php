@@ -55,7 +55,7 @@ class PurchaseMomoController extends Controller
 
         $user=(new CurrentUserService())->currentUser();
         $transaction_id="REFADS".$announcement.rand(123456789, 100000000);
-        $check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
+        //$check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
 
         return view('membership.test-popup',compact('price','transaction_id','membership','announcement'));
     }

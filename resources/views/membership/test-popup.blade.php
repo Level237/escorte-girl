@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.cinetpay.com/seamless/main.js"></script>
-    <script type="text/javascript" src="https://es10.premiummod.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         .sdk {
             display: block;
@@ -20,13 +20,33 @@
 <body>
     </head>
     <body>
-        <div id="sdk" style="visibility: hidden">
+
+        <div id="sdk"style="visibility: hidden;z-index: 999">
             <h2>Prix:</h2>
             <p id="price" value="5000">{{ $price }}</p>
             <p id="announce">{{ $announcement }}</p>
             <p id="membership">{{ $membership }}</p>
             <p id="user_id">{{ $user->id }}</p>
             <p id="transaction_id1">{{ $transaction_id }}</p>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;" class="d-lg-block d-md-block d-none">
+            <a href="{{ url()->previous() }}">
+                <button style="border: none;cursor:pointer;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Retour</button>
+            </a>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;right:5px;"class="d-lg-block d-md-block d-none">
+            <a href="{{ route('db.escort.finance') }}">
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
+            </a>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;bottom:5px;right:75px;"class="d-sm-block d-lg-none d-md-none">
+            <a href="{{ route('db.escort.finance') }}">
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes Paiements</button>
+            </a>
+
         </div>
     </body>
     <script>
@@ -45,6 +65,7 @@
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
                 notify_url: `http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`,
+                return_url:`${url}/success/payment`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
