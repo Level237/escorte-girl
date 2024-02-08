@@ -20,7 +20,7 @@
 <body>
     </head>
     <body>
-        <div id="sdk" style="visibility: hidden">
+        <div id="sdk" style="visibility: hidden;z-index: 999">
             <h2>Prix:</h2>
             <p id="price" >{{ $price }}</p>
             <p id="transaction_id2" >{{ $transaction_id }}</p>
