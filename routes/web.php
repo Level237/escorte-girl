@@ -192,7 +192,7 @@ Route::middleware(['escort'])->group(function () {
         Route::get('profil', [DashboardEscortController::class, 'profil'])->name('db.escort.profil');
         Route::get('ads', [DashboardEscortController::class, 'ads'])->name('db.escort.ads');
         Route::get('messages', [DashboardEscortController::class, 'messages'])->name('db.escort.messages');
-        Route::get('finance', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
+        Route::get('mes-paiements', [DashboardEscortController::class, 'finance'])->name('db.escort.finance');
         Route::get('advertise', [DashboardEscortController::class, 'advertise'])->name('db.escort.advertise');
         Route::get('settings', [DashboardEscortController::class, 'settings'])->name('db.escort.settings');
     });

@@ -20,13 +20,27 @@
 <body>
     </head>
     <body>
-        <div id="sdk" style="visibility: hidden">
+
+        <div id="sdk"style="visibility: hidden;z-index: 999">
             <h2>Prix:</h2>
             <p id="price" value="5000">{{ $price }}</p>
             <p id="announce">{{ $announcement }}</p>
             <p id="membership">{{ $membership }}</p>
             <p id="user_id">{{ $user->id }}</p>
             <p id="transaction_id1">{{ $transaction_id }}</p>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;">
+            <a href="{{ url()->previous() }}">
+                <button style="border: none;cursor:pointer;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Retour</button>
+            </a>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;right:5px">
+            <a href="{{ route('db.escort.finance') }}">
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
+            </a>
+
         </div>
     </body>
     <script>
@@ -45,7 +59,7 @@
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
                 notify_url: `http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`,
-                return_url:`${url}/`,
+                return_url:`${url}/success/payment`,
                 mode: 'PRODUCTION'
             });
             CinetPay.getCheckout({
