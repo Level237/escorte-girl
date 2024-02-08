@@ -26,6 +26,27 @@
             <p id="transaction_id2" >{{ $transaction_id }}</p>
             <p id="user_id">{{ $user->id }}</p>
         </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;">
+            <a href="{{ url()->previous() }}">
+                <button style="border: none;cursor:pointer;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Retour</button>
+            </a>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;right:5px">
+            @if ($user->role_id===3)
+            <a href="{{ route('db.escort.finance') }}">
+
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
+            </a>
+            @endif
+            @if ($user->role_id===2)
+            <a href="{{ route('db.customer.finance') }}">
+
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
+            </a>
+            @endif
+
+        </div>
     </body>
     <script>
         const price=document.querySelector('#price').innerHTML;
