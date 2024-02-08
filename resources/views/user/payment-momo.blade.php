@@ -26,14 +26,20 @@
             <p id="membership">{{ $membership }}</p>
             <p id="user_id">{{ $user->id }}</p>
         </div>
-        <div style="position:fixed;z-index: 99999999;top:250px;">
+        <div style="position:fixed;z-index: 99999999;top:250px;" class="d-lg-block d-md-block d-none">
             <a href="{{ url()->previous() }}">
                 <button style="border: none;cursor:pointer;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Retour</button>
             </a>
 
         </div>
 
-        <div style="position:fixed;z-index: 99999999;top:250px;right:5px">
+        <div style="position:fixed;z-index: 99999999;top:250px;right:5px" class="d-lg-block d-md-block d-none">
+            <a href="{{ route('db.customer.finance') }}">
+                <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
+            </a>
+
+        </div>
+        <div style="position:fixed;z-index: 99999999;top:250px;right:5px" class="d-sm-block d-lg-none d-md-none">
             <a href="{{ route('db.customer.finance') }}">
                 <button style="border: none;background:#ED5858 ;color:white;padding-top:10px;padding-bottom:10px;padding-left:50px;padding-right:50px">Mes paiements</button>
             </a>
