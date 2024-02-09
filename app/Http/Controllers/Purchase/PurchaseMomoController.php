@@ -69,9 +69,13 @@ class PurchaseMomoController extends Controller
     }
 
     public function initPayWithCoolPay(Request $request){
+            $announcement=Session::get('announcement_id');
+        $membership=Session::get('membership_id');
             $transaction_id="COLADS".rand(123456789, 100000000);
+            $user=(new CurrentUserService())->currentUser();
             $purchase=(new PurchaseMembershipService())->initPayCoolPay($request->price,$transaction_id);
+            //$check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
             $url=$purchase->payment_url ?? null;
-            return Redirect::intended($url);
+            return redirect()->intended($url);
     }
 }
