@@ -54,5 +54,16 @@ class PurchaseMembershipService{
         return $data;
     }
 
+    public function initPayCoolPay($price){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay",[
+            'price'=>$price
+        ]);
+        $data=json_decode($response);
+
+        return $data;
+    }
+
 
 }

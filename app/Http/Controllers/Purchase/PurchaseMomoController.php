@@ -67,4 +67,11 @@ class PurchaseMomoController extends Controller
         $check=(new CheckPurchaseService())->checkPlan($user->id,$transaction_id);
         return view('user.payment-momo',compact('price','membership'));
     }
+
+    public function initPayWithCoolPay(Request $request){
+            $transaction_id="COLADS".rand(123456789, 100000000);
+            $purchase=(new PurchaseMembershipService())->initPayCoolPay($request->price,$transaction_id);
+            $url=$purchase->payment_url ?? null;
+            return Redirect::intended($url);
+    }
 }

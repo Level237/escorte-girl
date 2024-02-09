@@ -199,7 +199,7 @@ Route::middleware(['escort'])->group(function () {
     Route::get('/payment',[PurchaseMomoController::class,'openPopup'])->name('init-payment');
 
     Route::post('init/payment',[PurchaseMomoController::class,'initPayment'])->name('initPayment');
-
+    Route::post('init/pay/with-coolpay',[PurchaseMomoController::class,'initPayWithCoolPay'])->name('init-cool-pay');
     Route::get('choosePlan/{id}',[ChoosePlanController::class,'PlanShow'])->name('show.plan');
 
 
