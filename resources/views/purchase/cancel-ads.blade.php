@@ -1,7 +1,7 @@
 @extends("layouts.Frontend.master")
 
 @section('title')
-Paiement effectué avec success
+Paiement annulé
 @endsection
 
 @section("content")
@@ -17,7 +17,7 @@ Paiement effectué avec success
       <div class="card-popup-content">
       <div class="">
       <span class="smilecode" style="font-size: 40px;">&#x1F600;</span>
-       <h5 class="text-white">Abonnement validé avec succès</h5>
+       <h5 class="text-white">La Souscription de votre abonnement à été annulé</h5>
        </div>
       </div>
 </div>
@@ -27,7 +27,7 @@ Paiement effectué avec success
 
 
 
-                  <p class="text-600">Merci, votre Abonnement a été Validé avec succès.
+                  <p class="text-600">votre Abonnement a été annulé.
 
                     </p>
                   <p class="margin-top3">Si vous avez des questions,<a href="{{ route('contact') }}"> contactez nous.</a></p>

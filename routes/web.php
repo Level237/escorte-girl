@@ -104,6 +104,20 @@ Route::get('/cgu',[PagesController::class,'cgu'])->name('cgu');
 Route::get('/help',[PagesController::class,'help'])->name('help');
 Route::get('/faq',[PagesController::class,'faq'])->name('faq');
 
+
+//url ads cool pay
+
+Route::get('/success/payment/ads',function(){
+    return view('purchase.congrats-ads');
+});
+
+Route::get('/fail/payment/ads',function(){
+    return view('purchase.fail-ads');
+});
+
+Route::get('/cancel/payment/ads',function(){
+    return view('purchase.cancel-ads');
+});
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
 
