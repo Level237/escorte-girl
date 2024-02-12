@@ -74,7 +74,7 @@ class PurchaseMomoController extends Controller
             $transaction_id="COLADS".rand(123456789, 100000000);
             $user=(new CurrentUserService())->currentUser();
             $purchase=(new PurchaseMembershipService())->initPayCoolPay($request->price,$transaction_id);
-            //$check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
+            $check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
             $url=$purchase->payment_url ?? null;
             return redirect()->intended($url);
     }
