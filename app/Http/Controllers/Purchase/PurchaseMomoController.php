@@ -73,9 +73,10 @@ class PurchaseMomoController extends Controller
         $membership=Session::get('membership_id');
             $transaction_id="COLADS".rand(123456789, 100000000);
             $user=(new CurrentUserService())->currentUser();
-            $purchase=(new PurchaseMembershipService())->initPayCoolPay($request->price,$transaction_id);
-            $check=(new CheckPurchaseService())->checkEscortAds($user->id,$transaction_id,$membership,$announcement);
+            $purchase=(new PurchaseMembershipService())->initPayCoolPay(100,$transaction_id);
+            $transaction_ref=$purchase->transaction_ref ?? null;
             $url=$purchase->payment_url ?? null;
+            $check=(new CheckPurchaseService())->initCoolpay($user->id,$transaction_id,$membership,$announcement);
             return redirect()->intended($url);
     }
 }
