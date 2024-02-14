@@ -189,6 +189,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
+    Route::get('choice/payment/type',[PurchaseController::class,'choicePaymentType'])->name('choice.type.payment');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
     Route::get('success/payment/credit',[PurchaseController::class,'purchaseSuccessCredit']);
     Route::get('success/payment/plan',[PurchaseController::class,'purchaseSuccessPlan']);

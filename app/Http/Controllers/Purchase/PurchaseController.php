@@ -61,6 +61,11 @@ class PurchaseController extends Controller
         return view('purchase.purchase-credit-with-momo',compact('price','transaction_id'));
     }
 
+    public function choicePaymentType(Request $request){
+
+        return back()->with('price',$request->price);
+    }
+
     public function purchaseStoreCredit($price){
         $purchaseResponse=(new PurchaseCreditService())->purchaseCredit($price);
 

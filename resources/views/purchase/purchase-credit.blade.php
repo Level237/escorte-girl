@@ -5,7 +5,148 @@ Achat de credit
 @endsection
 
 @section("content")
-@csrf
+
+
+@if(session('price'))
+<div class="ppt-modal-wrap show modal-payment modal-bottom-rightxxx"><div class="ppt-modal-wrap-overlay"></div><div class="ppt-modal-item ppt-animate-bouncein bg-white w-500 ppt-modal-shadow"><div class="ppt-modal-container"><div class="card-popup large">
+    <div class="bg-primary pt-3">
+        <div class="card-popup-content">
+        <div class="text-white mt-3">
+            <strong class="">XAF{{ Session::get('price') }}</strong>
+            <div class="text-truncate mt-2 opacity-8 text-600">Achat de Credit</div>
+
+        </div>
+        </div>
+    </div>
+
+    <div class="card-body pop-animate fadeIn delay-200 text-center col-lg-10 mx-auto mb-4">
+
+    <div class="text-center" id="spinner" style="display:none;">
+        <div class="mb-5"><span class="fa fa-spin fa-3x fa-sync"></span></div>
+        <div class="opacity-5">Redirecting to a secure payment page...</div>
+    </div>
+
+
+    <div id="pay_wrap">
+
+
+
+
+
+
+
+    <hr>
+
+
+    <div onclick="javascript:void(0);" class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+    <div class="d-flex payment-gateway_paypal">
+        <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
+        <div class="bg-image js-image-trigger-set" style="background-image:url('{{ asset('assets/images/logo-cinetpay.webp') }}'); background-size: contain;"></div>
+        </div>
+        <div class="w-100">
+        <div class="d-flex justify-content-between">
+            <div class="text-700 mt-2">
+
+
+
+    <form method="post" style="margin:0px !important;" action="{{route('purchase.init.credit')}}" name="checkout_paypal1">
+        @csrf
+        <input type="hidden" name="price" value="{{ Session::get('price') }}">
+
+
+
+    <button class="btn mt-n2  btn mt-n2-block font-weight-bold text-uppercase " style="cursor:pointer">Mobile Money avec Cinetpay</button><input type="hidden" name="bn" value="PREMIUMPRESSLIMITED_SP">
+    <input type="hidden" name="charset" value="utf-8">
+    <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
+    <input type="hidden" name="rm" value="2">
+    <input type="hidden" name="lc" value="">
+    <input type="hidden" name="return" value="https://es10.premiummod.com/callback/?auth=1&amp;cid=SUBS-mem1-10-1835253144">
+    <input type="hidden" name="cancel_return" value="https://es10.premiummod.com/callback/?cancel=1">
+    <input type="hidden" name="notify_url" value="https://es10.premiummod.com/callback/">
+    </form>
+
+
+    </div>
+
+    <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+    <div onclick="javascript:void(0);" class="text-decoration-none text-dark link-dark btn-block border shadow-sm p-3 rounded mb-4">
+        <div class="d-flex payment-gateway_paypal">
+            <div style="width:120px; height:40px;" class="mr-4 rounded overflow-hidden position-relative">
+            <div class="bg-image js-image-trigger-set" style="background-image:url('{{ asset('assets/images/coolpay.png') }}'); background-size: contain;"></div>
+            </div>
+            <div class="w-100">
+            <div class="d-flex justify-content-between">
+                <div class="text-700 mt-2">
+
+
+
+                    <form method="post" style="margin:0px !important;" action="{{route('init-cool-pay')}}" name="checkout_paypal1">
+                        @csrf
+                        <input type="hidden" name="price" value="{{ Session::get('price') }}">
+
+
+
+                    <button class="btn mt-n2  btn mt-n2-block font-weight-bold text-uppercase " style="cursor:pointer">Mobile money avec Cool Pay</button><input type="hidden" name="bn" value="PREMIUMPRESSLIMITED_SP">
+                    <input type="hidden" name="charset" value="utf-8">
+                    <input type="hidden" name="custom" value="SUBS-mem1-10-1835253144" class="paymentcustomfield">
+                    <input type="hidden" name="rm" value="2">
+                    <input type="hidden" name="lc" value="">
+                    <input type="hidden" name="return" value="https://es10.premiummod.com/callback/?auth=1&amp;cid=SUBS-mem1-10-1835253144">
+                    <input type="hidden" name="cancel_return" value="https://es10.premiummod.com/callback/?cancel=1">
+                    <input type="hidden" name="notify_url" value="https://es10.premiummod.com/callback/">
+                    </form>
+
+
+        </div>
+
+        <i class="fa fa-chevron-right fa-2x mr-2 mt-1"></i>
+        </div>
+
+        </div>
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+     </div>
+    <div class="mt-4 opacity-5 small">
+    <div class=" d-inline-flex mx-auto">
+        <div ppt-icon-16="" data-ppt-icon-size="16"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+        <div class="ml-2">
+        All payment pages are secured using SSL.</div>
+        </div>
+    </div>
+
+
+    <script>
+
+    function togglePay(){
+
+    jQuery('#spinner').show();
+    jQuery('#pay_wrap').hide();
+
+    }
+
+
+    jQuery( "form button, form .btn:not(.btn-sm)" ).click(function() {
+      togglePay();
+    });
+    </script>
+    </div>
+    </div></div><div class="show-mobile ppt-modal-mobile-close p-3 w-100"><a href="#" class="btn-system btn-close w-100 shadow-sm" data-ppt-btn="">X</a></div></div></div>
+
+@endif
 <section class="section-60">
       <div class="container">
       <div class="row">
@@ -24,7 +165,7 @@ Achat de credit
 <div class="card-body bg-white text-center">
 
 
-            <form action="{{ route('purchase.init.credit') }}" method="post">
+            <form action="{{ route('choice.type.payment') }}" method="get">
                 @csrf
                 <div class="form-group mt-4">
 
