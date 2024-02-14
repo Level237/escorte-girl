@@ -76,7 +76,7 @@ class PurchaseMomoController extends Controller
             $purchase=(new PurchaseMembershipService())->initPayCoolPay(100,$transaction_id);
             $transaction_ref=$purchase->transaction_ref ?? null;
             $url=$purchase->payment_url ?? null;
-            $check=(new CheckPurchaseService())->initCoolpay($user->id,$transaction_id,$membership,$announcement);
+            $check=(new CheckPurchaseService())->initCoolpay($user->id,$transaction_ref,$membership,$announcement);
             return redirect()->intended($url);
     }
 }
