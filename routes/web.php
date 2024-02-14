@@ -118,6 +118,19 @@ Route::get('/fail/payment/ads',function(){
 Route::get('/cancel/payment/ads',function(){
     return view('purchase.cancel-ads');
 });
+
+//url credit cool pay
+
+Route::get('/success/payment/credits',function(){
+    return view('purchase.congrats-credit');
+});
+
+Route::get('/fail/payment/credits',function(){
+    return view('purchase.fail-credit');
+});
+Route::get('/cancel/payment/credits',function(){
+    return view('purchase.cancel-credit');
+});
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
 
