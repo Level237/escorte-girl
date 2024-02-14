@@ -62,7 +62,7 @@ class PurchaseMembershipService{
         ]);
         $data=json_decode($response);
 
-        return $data;
+        return $response;
     }
 
 
