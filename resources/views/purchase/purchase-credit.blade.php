@@ -86,7 +86,7 @@ Achat de credit
 
 
 
-                    <form method="post" style="margin:0px !important;" action="{{route('init-cool-pay')}}" name="checkout_paypal1">
+                    <form method="post" style="margin:0px !important;" action="{{route('init-cool-pay.credit')}}" name="checkout_paypal1">
                         @csrf
                         <input type="hidden" name="price" value="{{ Session::get('price') }}">
 
