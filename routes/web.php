@@ -202,6 +202,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('purchase/credit',[PurchaseController::class,'purchaseCredit'])->name('purchase.credit');
     Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
+    Route::post('init/pay/with-coolpay/credits',[PurchaseMomoController::class,'initPayWithCoolPayCredit'])->name('init-cool-pay.credit');
     Route::get('choice/payment/type',[PurchaseController::class,'choicePaymentType'])->name('choice.type.payment');
     Route::get('success/payment',[PurchaseController::class,'purchaseSuccess'])->name('purchase-credit-success');
     Route::get('success/payment/credit',[PurchaseController::class,'purchaseSuccessCredit']);
