@@ -21,6 +21,13 @@ class CheckPurchaseService{
 
         return $response;
     }
+    public function initCoolpayPlan($user_id,$transaction_ref){
+        $url=(new UrlApiService())->getUrl();
+        $response=Http::post($url."/api/init/payment/coolpay/plan/".$user_id."/".$transaction_ref);
+        $data=json_decode($response);
+
+        return $response;
+    }
     public function initCoolpayCredit($user_id,$price,$transaction_ref){
         $url=(new UrlApiService())->getUrl();
         $response=Http::post($url."/api/init/payment/credit/".$user_id."/".$price."/".$transaction_ref);

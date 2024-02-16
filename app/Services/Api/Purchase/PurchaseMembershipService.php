@@ -54,27 +54,39 @@ class PurchaseMembershipService{
         return $data;
     }
 
-    public function initPayCoolPay($price){
+    public function initPayCoolPay($price,$transaction_id){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
         $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay",[
-            'price'=>$price
+            'price'=>$price,
+            'transaction_id'=>$transaction_id
         ]);
         $data=json_decode($response);
 
         return $data;
     }
 
-    public function initPayCoolPayCredit($price){
+    public function initPayCoolPayCredit($price,$transaction_id){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
         $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay/credit",[
-            'price'=>$price
+            'price'=>$price,
+            'transaction_id'=>$transaction_id
         ]);
         $data=json_decode($response);
 
         return $data;
     }
 
+    public function initPayCoolPayPlan($price,$transaction_id){
+        $url=(new UrlApiService())->getUrl();
+        $token=Session::get('tokenUser');
+        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay/plan",[
+            'price'=>$price,
+            'transaction_id'=>$transaction_id
+        ]);
+        $data=json_decode($response);
 
+        return $data;
+    }
 }
