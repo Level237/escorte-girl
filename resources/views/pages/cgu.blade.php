@@ -62,34 +62,84 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 
-                <h2>Part 1</h2>
-				<p>To edit this text, simply enter your own text into the content area when editing this page.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h4 class="mt-4">Part 1.a</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h4 class="mt-4">Part 1.b</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+                <h2>Terme d’utilisation</h2>
+				<p>Ces conditions d'utilisation peuvent être modifiées tout au long de votre utilisation de ce site, sans préavis.</p>
+				<p>
+                    Toute utilisation continue de <a href="https://viens-yamo.com/">viens-yamo.com</a> vérifie que vous avez accepté de respecter les nouvelles conditions d'utilisation. Gardez à l'esprit que tous les termes et conditions de tout accord supplémentaire utilisant <a href="https://viens-yamo.com/">viens-yamo.com</a> doivent être honorées en plus des conditions de service suivantes.
+                </p>
+
 
 
 <hr class="mt-5">
 
-                <h3>Part 2</h3>
-				<p>To edit this text, simply enter your own text into the content area when editing this page.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h3 class="mt-4">Part 2.a</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-                <h3 class="mt-4">Part 2.b</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus eleifend risus ut congue. Pellentesque nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat. Mauris ornare tempor nulla, vel sagittis diam convallis eget.</p>
+                <h3>Responsabilité</h3>
+				<p>Ce site Web contient des images et du contenu à caractère érotique.</p>
+				<p>
+                    Si cela trouble votre éthique ou votre morale, il vous est demandé de partir. En poursuivant votre navigation, vous déclarez que vous êtes majeur au sens de la loi camerounaise et que vous acceptez le contenu du site.
+                </p>
 
+                <p>En naviguant sur ce site Web et en cliquant sur les liens de ce site Web, vous confirmez avoir lu, compris et accepté les termes et conditions de celui-ci. En aucun cas, les administrateurs de ce site Web ne seront responsables des services offerts dans les publicités ou du contenu ajouté par un accompagnateur à leur page Web.</p>
+                <p>Les annonceurs (hommes et femmes) sont seuls responsables des services proposés dans leurs annonces et répondront personnellement devant la loi en vigueur au Cameroun en cas de violations et/ou de commission de tout délit. La Direction du site se réserve le droit incontestable de bloquer, supprimer et masquer les publicités et photos) les annonceurs (hommes et femmes) lorsqu'une violation de termes d’utilisation de ce site.
+                    En accédant à www.viens-yamot.com, vous certifiez les informations suivantes et comprenez que nous nous appuyons sur cette certification et cet accord sur ces conditions de service pour autoriser l'accès au site. Vous certifiez par la présente, sous déclaration de parjure sans serment, ce qui suit :</p>
+				<ul>
+                    <li>
+                        • Que vous avez 21 ans ou plus
+                    </li>
+                    <li>
+                        • Que vous ne partagerez jamais ces documents avec un mineur ou de AUCUNE MANIÈRE.
+                    </li>
+                    <li>
+                        • Que vous ne pratiquerez pas la prostitution sur ce site
+                    </li>
+                    <li>
+                        • Que vous n’utiliserez pas la photo d’autrui sur le site <a href="https://viens-yamo.com/">viens-yamo.com</a>
+                    </li>
+                    <li>
+                        • Que vous ne publierez pas les photos de vos parties intimes (Nude)
+                    </li>
+                </ul>
 
+                <p class="mt-3">Nous ne sommes pas des employeurs
+                    Nous ne sommes pas des employeurs des escortes (masculines et féminines) placées sur nos pages Web. Il s'agit d'agences de massage ou d'escortes indépendantes (hommes et femmes) qui ont veillé à ce que tous les services proposés soient pleinement conformes à nos règles. En outre, le personnel qui travaille à la gestion et au développement de ce site ne fournit aucun type de service supplémentaire (services photographiques, mise en page et préparation de l'annonce, traduction et/ou correction de celle-ci), se limitant à fournir des informations techniques/ Support Informatique.</p>
+                <p>Vous êtes un adulte et, étant âgé d'au moins 21 ans, vous ne pouvez pas être considéré comme offensé par le contenu réservé aux adultes de ce site.
+                </p>
+                <hr class="mt-5">
+                <h3>Non-infraction</h3>
 
-				</div>
+                <p>Ce site ne doit pas être évalué pour extraire du matériel de ce site qui doit être utilisé contre toute personne, réelle ou non, de quelque manière imaginable. Votre intérêt pour toutes les données est purement privé et le contenu de ce site est uniquement destiné à un usage personnel.</p>
+
+                <hr class="mt-5">
+                <h3>Suppression de contenu et plaintes</h3>
+
+                <p>Toute personne a le droit de faire appel pour supprimer les photos du site si elles sont présentées comme non consensuelles ou illégales. Lorsque vous nous envoyez un e-mail, vous pouvez inclure les informations de votre profil (afficher votre nom et votre adresse e-mail) afin que nous puissions vérifier que vous êtes le titulaire du compte autorisé à modifier le compte. Vous pouvez également nous fournir d'autres informations pertinentes nécessaires pour identifier le contenu pertinent jugé illégal/non consensuel.</p>
+                <p>Si vous avez connaissance d'un contenu illégal ou non consensuel sur ce site Web, vous pouvez contacter immédiatement le service client par e-mail, soit via le formulaire de contact du site Web. Nous enquêterons rapidement et si un contenu illégal/non consensuel est découvert, il sera supprimé dans les 60 jours.</p>
+                <p>Toutes les plaintes seront enregistrées à des fins de tenue de dossiers et de reporting.
+                </p>
+                <hr class="mt-5">
+                <h3>Politique de remboursement</h3>
+                <p>Un annonceur ne peut pas clôturer une campagne publicitaire</p>
+
+                <hr class="mt-5">
+                <h3>Politique de Confidentialité</h3>
+
+                <p>Bienvenue sur Viens-Yamo!
+                    Chez nous, la confidentialité de vos informations personnelles est une priorité. Nous comprenons l'importance de protéger vos données et nous nous engageons à garantir la sécurité et la confidentialité de toutes les informations que vous partagez avec nous.</p>
+
+               <h5>1. Collecte d'Informations</h5>
+               <p>Nous collectons des informations nécessaires pour améliorer votre expérience sur notre plateforme d’escorte. Cela inclut des données telles que votre nom, votre adresse e-mail, votre âge, vos préférences personnelles, et d'autres informations pertinentes pour vous fournir des services adaptés.</p>
+               <h5>2. Sécurité des Données</h5>
+                <p>Nous mettons en place des mesures de sécurité avancées pour protéger vos informations contre tout accès non autorisé, perte, modification ou divulgation. Notre équipe technique travaille constamment pour maintenir des normes élevées de sécurité informatique.</p>
+                <h5>3. Contrôle sur Vos Données</h5>
+                <p>Vous avez le contrôle total sur vos informations personnelles. À tout moment, vous pouvez accéder, modifier ou supprimer vos données depuis votre compte utilisateur. Nous respectons votre droit à la vie privée et nous vous donnons les moyens de gérer vos préférences.</p>
+                <h5>4. Communication</h5>
+                <p>Nous pouvons vous contacter par e-mail pour des informations importantes liées à votre compte ou pour vous tenir informé des mises à jour de notre service. Vous avez la possibilité de vous désinscrire de ces communications non essentielles à tout moment.</p>
+                <h5>5.  Cookies</h5>
+                <p>Nous utilisons des cookies pour améliorer la navigation sur notre site et personnaliser votre expérience. Vous avez le choix d'accepter ou de refuser les cookies, mais veuillez noter que certaines fonctionnalités du site pourraient être limitées si vous choisissez de les désactiver.</p>
+                <p>En choisissant d'utiliser Viens-Yamo, vous acceptez notre politique de confidentialité et terme d’utilisation. Nous nous engageons à maintenir la transparence et à respecter votre vie privée tout au long de votre parcours sur notre plateforme.
+                    Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, n'hésitez pas à nous contacter
+                    Merci de faire partie de notre communauté !</p>
+
+            </div>
 
 
 

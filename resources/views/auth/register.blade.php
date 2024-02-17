@@ -253,7 +253,12 @@
   </div>
 
 </div>
-
+<div class="form-check mt-3">
+    <input class="form-check-input" name="cgu" type="checkbox" value="" id="cgu">
+    <label class="form-check-label" for="cgu">
+      J'accepte les <a target="_blank" href="{{ route('cgu') }}">termes et conditions de confidentialités</a>
+    </label>
+  </div>
 </div>
 
 <!-- Google Recaptcha -->
@@ -604,6 +609,8 @@ function processSubmitForm(){
 		const email = jQuery("#email").val();
 		var phoneNumber = jQuery("#phone").val();
 		var password = jQuery("#mypass").val();
+        var cgu=jQuery("#cgu").val();
+        console.log(cgu)
 		const recaptcha = jQuery('#g-recaptcha-response').val();
 
 		// SAVE THE DATA
@@ -615,6 +622,7 @@ function processSubmitForm(){
 			data: {
 				username: username,
 				role_id: role,
+                cgu:cgu,
 				town_id: town,
 				email: email,
 				phone_number: phoneNumber,
