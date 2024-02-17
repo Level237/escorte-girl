@@ -351,7 +351,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_header hide-mobile">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">&nbsp;</div>
+
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -383,7 +383,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block small text-600">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">&nbsp;</div>
+
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -423,47 +423,83 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block odd block-view_photos">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Photos
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Gérer ses photos</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Photos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer ses photos</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Photos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer ses photos</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Photos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer ses photos</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Photos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer ses photos</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -476,47 +512,83 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block  block-liked">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Voir les visiteurs
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Voir quels utilisateurs ont aimé votre profil</div>
-  </div>
-
-    </div>
     <div class="w-100">
-        <div class="d-flex  justify-content-between">
+        <div class="d-flex  justify-content-end">
 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Profil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Voir le nombre de visite de votre annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Profil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Voir le nombre de visite de votre annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Profil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Voir le nombre de visite de votre annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Profil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Voir le nombre de visite de votre annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -528,19 +600,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block  block-view_photos">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Vidéos
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Gérer des vidéos.</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -554,21 +614,57 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Vidéos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer des vidéos.</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Vidéos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer des vidéos.</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Vidéos
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Gérer des vidéos.</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -588,19 +684,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block  block-msg_send">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Top recherche
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Send messages to other users.</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -614,21 +698,57 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Mise en avant
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Mise en avant de l'annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Mise en avant
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Mise en avant de l'annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Mise en avant
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Mise en avant de l'annonce</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -644,19 +764,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block  block-msg_read">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Page d'accueil
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Profil en page d'accueil</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -677,14 +785,38 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Page d'accueil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Profil en page d'accueil</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Page d'accueil
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Profil en page d'accueil</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -697,19 +829,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block odd block-view_music">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-		  Contacts Privé
-
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -737,7 +857,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+                                    Contacts Privé
+
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Vos coordonnées sont affichées seulement aux membres.</div>
+                            </div>
+
+                              </div>
 
                 <div class="_num"> </div>
                                 </div>
@@ -749,19 +881,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="_block  block-adfree">
 <div class="d-flex justify-content-between">
 
-    <div class="_name align-self-center">
-          <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
 
-
-          Bannières
-
-   <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
-    <div class="badge_tooltip__initiator">
-   <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
-    <div class="badge_tooltip__item">Votre Annonce en page d'accueil.</div>
-  </div>
-
-    </div>
     <div class="w-100">
         <div class="d-flex  justify-content-between">
 
@@ -786,7 +906,19 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
                             <div class="_value">
 
 
-                <i class="fa fa-check text-success"></i>
+                                <div class="_name align-self-center">
+                                    <!--<i class="fal text-warning fa-cog" data-toggle="tooltip" data-placement="top" title=""></i> -->
+
+
+                                    Bannières
+
+                             <div class="badge_tooltip text-center float-right mr-3" data-direction="top">
+                              <div class="badge_tooltip__initiator">
+                             <i class="fal fa fa-info-circle" style="color:#000000"></i></div>
+                              <div class="badge_tooltip__item">Votre Annonce en page d'accueil.</div>
+                            </div>
+
+                              </div>
 
                                 </div>
                     </div>
@@ -797,6 +929,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 </div>
       </div>
+
     </div>
 
     <a href="{{ route('db.escort.ads') }}" class="text-decoration-none text-dark" >
