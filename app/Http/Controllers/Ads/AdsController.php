@@ -92,7 +92,6 @@ class AdsController extends Controller
                              'gender' => $request->gender,
                              'age' => $request->age,
                              'phone' => $request->phone,
-                             'services' => $request->services,
                              'category_id' => $request->category,
                              'accepted' => $request->accepted,
                              'title' => $request->title,
@@ -490,9 +489,9 @@ class AdsController extends Controller
             if($allAds){
                  $allAds = $allAds['data'];
             }
-            else 
+            else
                 $allAds = [];
-           
+
         }catch(\Exception $e){
              $allAds = [];
         }
@@ -560,14 +559,14 @@ class AdsController extends Controller
                     $ads = $ads['data'];
                 }
 
-                else 
+                else
                   return view('error');
 
             }
             else
                 return view('error');
 
-           
+
             $reviews=(new ListReviewsServices())->listReviews($slug);
 
             //dd($ad);

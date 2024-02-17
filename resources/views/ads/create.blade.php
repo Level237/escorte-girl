@@ -21,7 +21,7 @@
 	<link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
 	<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-    
+
     <title>Créer une annonce</title>
 	<link rel="stylesheet" href="{{ asset('assets/intl-tel-input-master/build/css/intlTelInput.css') }}">
 
@@ -173,7 +173,7 @@
 <label>Numéro WhatsApp et Appel <span class="text-danger">*</span></label>
 
 <div class="form-group position-relative">
-    	<input  type="tel" class="form-control required" 
+    	<input  type="tel" class="form-control required"
 		data-key="phone" name="phone" id="phone" value="" required>
 		<span id="valid-msg" style="display:none">✓ Valid</span>
 		<span id="error-msg" class="hide"></span>
@@ -296,21 +296,7 @@
 
 </div>
 
-<div class="row">
-<div class="col-md-12 mobile-mb-2">
 
-  <div class="form-group">
-  <div  class="text-muted small float-right">
-    <span></span>
-  </div>
-    <label class="w-100">Vos Services  <span class="text-danger">*</span> </label>
-    <textarea name="services"  rows='5' class="form-control rounded-0 required-field" tabindex="2"
-	data-key="services" id="services"></textarea>
-  </div>
-
-</div>
-
-</div>
 
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
@@ -360,7 +346,7 @@
 	maxFiles : 4,
 	addRemoveLinks: true,
 	removedfile: function(file) {
-        var name = file.name;    
+        var name = file.name;
         var user_id = document.getElementById('token').value;
 		// console.log(user_id);
         // DELETING IMAGE
@@ -508,7 +494,7 @@ jQuery(document).ready(function() {
 </div>
 
     <div>
-    <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600" 
+    <button data-ppt-btn="" class=" btn-system btn-forward btn-lg scroll-top-quick text-600"
 	type="button" id="register-btn"
 	onclick="processSubmitForm()">Créer l'annonce</button>
 
@@ -534,19 +520,19 @@ jQuery(document).ready(function() {
 </section>
   <div class="my-3 text-center">
           @if (isset($banners))
-            
+
               @foreach ($banners as $banner)
                   @if($banner['position'] == 'ads_creation_bottom' && $banner['status'] == 1)
                       <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}' 
+                        <img src='{{ route('display.banner',['id'=>$banner['id'] , 'path'=>$banner['path']] )}}'
                         class='img-fluid' alt='sample banner'>
-                      </a>   
+                      </a>
                   @endif
               @endforeach
 
           @endif
-          
-                                   
+
+
       </div>
  </div>
 
@@ -849,20 +835,12 @@ function processSubmitForm(){
 			return false;
 	}
 
-	if(jQuery('#services').val() === "" || jQuery('#services').val() === undefined){
-			// steps('5','this');
-			jQuery('[data-key="services"]').addClass('required-active');
-			jQuery('#ppt-invalid-fields').show();
-			jQuery('#ppt-invalid-fields-text').html("Veuillez renseigné vos services");
-			scrollTop();
-			return false;
-	}
 
 
 	//Validating video
 
 	if(jQuery('#video').val() !== ''){
-		
+
 		console.log("hello world");
 		const fileInput = document.getElementById('video');
 		const file = fileInput.files[0];
@@ -874,8 +852,8 @@ function processSubmitForm(){
 			jQuery('#ppt-invalid-fields-text').html("La taille de la vidéo doit être inférieur à 25 MB");
 			scrollTop();
 			return false;
-		}	
-			
+		}
+
 	}
 
 
