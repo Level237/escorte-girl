@@ -723,23 +723,9 @@ opacity: 0.4
 
 
 
-						<div class="addeditmenu" data-key="features"></div>
-						<div class="my-3 fs-7 text-600">Services</div>
-
-						<div class="row lh-30 fs-sm">
 
 
-						<div class="col-md-4">
 
-						<div class="d-flex">
-
-
-							<div class="ml-2 ftxt">{{ $ad['services'] }}</div>
-						</div>
-
-						</div>
-
-						</div>
 
 
 

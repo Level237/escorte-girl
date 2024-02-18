@@ -131,6 +131,20 @@ Route::get('/fail/payment/credits',function(){
 Route::get('/cancel/payment/credits',function(){
     return view('purchase.cancel-credit');
 });
+
+//url Cool Pay plan
+
+Route::get('/success/payment/plan',function(){
+    return view('purchase.congrats-plan');
+});
+
+Route::get('/fail/payment/plan',function(){
+    return view('purchase.fail-plan');
+});
+
+Route::get('/cancel/payment/plan',function(){
+    return view('purchase.cancel-plan');
+});
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
 

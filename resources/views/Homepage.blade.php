@@ -172,10 +172,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-body text-center">
 
          <div class="row justify-content-center" style="color: red; font-size:50px; font-weight:bold">
-            18+
+            21+
           </div>
           <div class="row justify-content-center" style="padding-left: 20px; padding-right:20px">
-               <span class="text-white"> Veuillez confirmer que vous avez plus de 18 ans ou quitter le site Web. <br>
+               <span class="text-white"> Veuillez confirmer que vous avez plus de 21 ans ou quitter le site Web. <br>
             Ce site utilise des cookies uniquement pour analyser le trafic</span>
           </div>
           <hr>
@@ -184,10 +184,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
               <button type="button" class="btn btn-secondary">
                 <i class="fa fa-arrow-left"></i>&nbsp; QUITTER</button>
              </a> &nbsp;
-        <a href="#"> 
+        <a href="#">
           <button type="button" class="btn btn-primary" id="button-session" data-bs-dismiss="modal">
-          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 18 ANS</button>
-          
+          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; J'AI AU MOINS 21 ANS</button>
+
         </a>
           </div>
 
@@ -282,7 +282,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                                 <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                                                                                 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                                                                                     <div class="text-white fs-4 text-600">
-                                                                                                 
+
                                                                                                             </div>
                                                                                                     <div class="fs-sm text-white opacity-5 text-400">
                                                                                                     {{ truncate($vipAds[$i]['title'],30) }}  
@@ -397,7 +397,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                                               <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                                                                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                                                                                   <div class="text-white fs-4 text-600">
-                                                                                                
+
                                                                                                           </div>
                                                                                                   <div class="fs-sm text-white opacity-5 text-400">
                                                                                                   {{ truncate($vipAds[$i+1]['title'],30) }}  
@@ -629,7 +629,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                               
+
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i]['title'],30) }}  
@@ -737,7 +737,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                            
+
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i+1]['title'],30) }}  
@@ -849,7 +849,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                                 <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                     <div class="text-white fs-4 text-600">
-                                   
+
                                             </div>
                                     <div class="fs-sm text-white opacity-5 text-400">
                                     {{ truncate($goldAds[$i+2]['title'],30) }}  
@@ -963,7 +963,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="bg-light position-relative overflow-hidden" style="height:360px;">
                               <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
                                 <div class="text-white fs-4 text-600">
-                                
+
                                           </div>
                                 <div class="fs-sm text-white opacity-5 text-400">
                                   {{ truncate($goldAds[$i+3]['title'],30) }}  
@@ -1157,7 +1157,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
 			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
 				<div class="text-white fs-4 text-600">
-			
+
 						  </div>
 				<div class="fs-sm text-white opacity-5 text-400">
 				  {{ ucfirst($ad['town']['town_name']) }}  
@@ -1358,7 +1358,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 document.getElementById("button-session").addEventListener("click", function(){
    console.log('Session');
-    
+
     // SETTING checkAge
 		jQuery.ajax({
 			type: "GET",
