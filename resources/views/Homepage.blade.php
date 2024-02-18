@@ -1,6 +1,6 @@
 @extends('layouts.Frontend.master')
 @section('title', __('Viens Yamo'))
-@section("meta_title","Viens Yamo")
+@section("meta_title","Annonces d'escortes girls au cameroun")
 @section('meta_description',"Viens-Yamo Le géant de l'escorte girls et boys")
 @section("meta_image",asset('assets/meta/home.png'))
 @section('content')

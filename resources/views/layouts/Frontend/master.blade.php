@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <Meta name=" robots " content="index, follow" />
     <meta name="twitter:card" content="@yield('meta_title')" />
+    <meta name="keywords" content="escortes girl,annonces,cameroon,plaisir">
     <meta name="twitter:site" content="viens-yamo.com" />
     <meta name="twitter:title" content="@yield('meta_title')" />
     <meta name="twitter:description" content="@yield('meta_description')" />

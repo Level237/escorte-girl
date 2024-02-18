@@ -74,7 +74,7 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a  href="{{ route('escorts') }}" 
+                <a  href="{{ route('escorts') }}"
                 aria-controls="sidebarEscorts" class="side-nav-link">
                     <i class="uil-user"></i>
                     <span> Escortes </span>
@@ -94,7 +94,7 @@
 
 
        <li class="side-nav-item">
-                <a  href="{{ route('admin.ads') }}" 
+                <a  href="{{ route('admin.ads') }}"
                 aria-controls="sidebarAds" class="side-nav-link">
                     <i class="uil-file"></i>
                     <span> Annonces </span>
@@ -200,7 +200,15 @@
 
                 </a>
             </li>
+            <li class="side-nav-title">Mon Profil</li>
 
+            <li class="side-nav-item">
+                <a style="cursor: pointer"  class="side-nav-link" href="{{ route('admin.profile') }}">
+                    <i class="uil-box"></i>
+                    <span> editer mon profil </span>
+
+                </a>
+            </li>
             <li class="side-nav-title">FAQ</li>
             <li class="side-nav-item">
                 <a style="cursor: pointer"  class="side-nav-link" href="{{ route('faqs.index') }}">
@@ -217,7 +225,16 @@
                 </a>
             </li>
 
+            <li class="side-nav-item">
+                <form method="POST" action="{{ route('logout') }}" id="logout">
+                    @csrf
+                </form>
 
+                <a style="cursor: pointer" class="side-nav-link" onclick="event.preventDefault(); document.getElementById('logout').submit();"class="dropdown-item">
+                    <i class="mdi mdi-logout me-1"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
 
         </ul>
         <!--- End Sidemenu -->
