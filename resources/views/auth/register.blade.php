@@ -254,7 +254,7 @@
 
 </div>
 <div class="form-check mt-3">
-    <input class="form-check-input" name="cgu" type="checkbox" value="" id="cgu">
+    <input class="form-check-input" name="cgu" type="checkbox"  required id="cgu">
     <label class="form-check-label" for="cgu">
       J'accepte les <a target="_blank" href="{{ route('cgu') }}">termes et conditions de confidentialités</a>
     </label>
@@ -523,6 +523,13 @@ function processSubmitForm(){
 			return false;
 	}
 
+	if(!document.querySelector('#cgu').checked){
+		jQuery('[data-key="cgu"]').addClass('required-active');
+			jQuery('#ppt-invalid-fields').show();
+			jQuery('#ppt-invalid-fields-text').html("vous n'aviez pas accepté la politique de confidentialité.");
+			scrollTop();
+			return false;
+	}
  	if(jQuery('#username').val() === "" || jQuery('#username').val() === undefined){
 			// steps('5','this');
 			jQuery('[data-key="username"]').addClass('required-active');
@@ -609,7 +616,7 @@ function processSubmitForm(){
 		const email = jQuery("#email").val();
 		var phoneNumber = jQuery("#phone").val();
 		var password = jQuery("#mypass").val();
-        var cgu=jQuery("#cgu").val();
+        //var cgu=document.querySelector('.#cgu:checked').value;
         console.log(cgu)
 		const recaptcha = jQuery('#g-recaptcha-response').val();
 
@@ -622,7 +629,6 @@ function processSubmitForm(){
 			data: {
 				username: username,
 				role_id: role,
-                cgu:cgu,
 				town_id: town,
 				email: email,
 				phone_number: phoneNumber,
