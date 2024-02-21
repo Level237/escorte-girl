@@ -145,6 +145,7 @@ Route::get('/fail/payment/plan',function(){
 Route::get('/cancel/payment/plan',function(){
     return view('purchase.cancel-plan');
 });
+
 //Middleware check age
 Route::middleware(['checkAge'])->group(function () {
 

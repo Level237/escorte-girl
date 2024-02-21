@@ -270,7 +270,8 @@
 
 
 <input type="hidden" class="form-control" name="tax[dagender]" id="gender" value="2">
-
+<input type="hidden" id="api-escort" value="{{config('services.api-escort.key')}}">
+<input type="hidden" id="escort-url" value="{{config('services.escort-url.key')}}">
 
 <script>
 
@@ -619,12 +620,15 @@ function processSubmitForm(){
         //var cgu=document.querySelector('.#cgu:checked').value;
         console.log(cgu)
 		const recaptcha = jQuery('#g-recaptcha-response').val();
-
+		const apiURL = jQuery('#api-escort').val();
+		const siteURL = jQuery('#escort-url').val();
+		console.log("hello");
+		console.log(siteURL);
 		// SAVE THE DATA
 		jQuery.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8001/api/user',
+			url: 'http://'+apiURL+'/api/user',
 			timeout: 15000,
 			data: {
 				username: username,
@@ -647,7 +651,7 @@ function processSubmitForm(){
 					jQuery('#ppt-add-listing-form').hide();
 
 					setTimeout(()=>{
-						window.location.replace("http://127.0.0.1:8000/loginAuto?phone_number="+phoneNumber+"&password="+password);
+						window.location.replace("http://"+siteURL+"/loginAuto?phone_number="+phoneNumber+"&password="+password);
 					}, 3000)
 
 

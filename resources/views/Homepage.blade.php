@@ -157,8 +157,6 @@
 </div>
 
 
-
-
 @if (Session::has('checkAge'))
   <input type="hidden" id="checkAge" value="true">
 @else
@@ -1357,13 +1355,11 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <script>
 
 document.getElementById("button-session").addEventListener("click", function(){
-   console.log('Session');
-
     // SETTING checkAge
 		jQuery.ajax({
 			type: "GET",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8000/check-age',
+			url: '/check-age',
 			timeout: 15000,
 			data: {
 				name: name,
