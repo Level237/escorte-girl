@@ -47,7 +47,7 @@
 
                     <td class="text-center">
 
-                      @if($ad['status'])
+                      @if($ad['status']===1)
 
                          <span class="inline-flex items-center font-weight-bold order-status-icon status-1"> <span class="dot mr-2"></span>
                           <span>Publié </span> </span>
