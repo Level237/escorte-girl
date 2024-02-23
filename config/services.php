@@ -35,6 +35,14 @@ return [
     'recaptcha' => [
         'key' => env('RECAPTCHA_SITE_KEY'),
         'secret' => env('RECAPTCHA_SITE_SECRET'),
-    ]
+    ], 
+
+    'api-escort' => [
+		'key' => env('API_URL'),
+	],
+
+    'escort-url' => [
+		'key' => env('SITE_URL'),
+	],
 
 ];

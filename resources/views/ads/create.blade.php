@@ -124,6 +124,8 @@
 <form  action="{{ route('ads.save') }}" id="global-form" enctype="multipart/form-data" method="post">
 @csrf
  <input type="hidden" name="user_id" id="token" value="{{$user->id}}">
+ <input type="hidden" id="api-escort" value="{{config('services.api-escort.key')}}">
+<input type="hidden" id="escort-url" value="{{config('services.escort-url.key')}}">
 <div class="row">
 <input type="hidden" class="form-control" name="gender" id="gender" value="1">
 
@@ -348,12 +350,14 @@
 	removedfile: function(file) {
         var name = file.name;
         var user_id = document.getElementById('token').value;
+		const apiURL = jQuery('#api-escort').val();
+		const siteURL = jQuery('#escort-url').val();
 		// console.log(user_id);
         // DELETING IMAGE
 		jQuery.ajax({
 			type: "GET",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8000/ads/deleteImage',
+			url: 'http://'+siteURL+'/ads/deleteImage',
 			timeout: 15000,
 			data: {
 				filename: name,
@@ -729,12 +733,12 @@ function processEditData(btype){
 
 function fetchQuarters(town){
 
-
+		const apiURL = jQuery('#api-escort').val();
 	// FETCH QUARTERS
 		jQuery.ajax({
 			type: "GET",
 			dataType: 'json',
-			url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+			url: 'http://'+apiURL+'/api/list/quarterByTown/'+town.value,
 			timeout: 15000,
 
 			success: function(response, statusCode) {

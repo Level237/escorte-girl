@@ -61,9 +61,10 @@ class AdsController extends Controller
         //Retrieve URL API
         $url=(new UrlApiService())->getUrl();
 
+        
         //Saving Ads
         $token=Session::get('tokenUser');
-
+     
         $isVideo = false;
         if($request->file('video') != null){
             $isVideo = true;
@@ -148,6 +149,7 @@ class AdsController extends Controller
 
         else{
 
+               
             try{
 
                         $response = Http::withToken($token)->post($url."/api/v1/ads", [
@@ -166,7 +168,7 @@ class AdsController extends Controller
 
 
 
-                //dd($response);
+                //dd($response->body());
                 //dd(json_decode((string) $response->getBody(), true));
                 if($response->status() === 200){
 
