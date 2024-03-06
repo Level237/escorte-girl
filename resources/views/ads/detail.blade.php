@@ -237,9 +237,10 @@ opacity: 0.4
                                 @endif
 
                                 @if(empty($user))
-                                <a href="{{ route('upgrade-plan') }}"  class=" btn-block btn-lg list mb-3 btn-lg" style="background-color :#ED5858" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn=""></a>
-								<a>
+							
+								  <a  data-toggle="modal" data-target="#staticBackdrop" class=" btn-block btn-lg list mb-3  btn-lg " style="background-color: #ED5858;color:white" data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                    <span class="_number" style="display:none;">+ {{ $ad['whatsapp'] }} </span>
                                     </a>
                                 @endif
 
@@ -872,9 +873,10 @@ opacity: 0.4
                                 @endif
 
                                 @if(empty($user))
-                                <a class=" btn-block btn-lg list mb-3  btn-lg" style="background-color :#ED5858" data-toggle="modal" data-target="#staticBackdrop" data-ppt-btn="">
-
+                              
+									 <a  data-toggle="modal" data-target="#staticBackdrop" class=" btn-block btn-lg list mb-3  btn-lg " style="background-color: #ED5858;color:white" data-ppt-btn="">
                                     <span class="_text text-light"><i class="fal fa-phone-alt mr-2"></i> <span>+237 6*** ***</span></span>
+                                    <span class="_number" style="display:none;">+ {{ $ad['whatsapp'] }} </span>
                                     </a>
                                 @endif
 
