@@ -49,7 +49,11 @@
     <input type="text" class="form-control" name="phone_number" data-key="phone" id="phone"
 	 value="{{ $user->phone_number }}" />
     </div>
-
+    <div class="col-md-6 mb-3">
+        <label class="text-600">Password</label>
+        <input type="password" class="form-control" name="password" data-key="phone" id="phone"
+          />
+        </div>
     <div class="col-md-6 mb-3">
     <label class="text-600">Ville</label>
     <select name="town_id" id="town" data-key="town" class="form-control">
