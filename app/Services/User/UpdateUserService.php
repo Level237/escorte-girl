@@ -18,7 +18,8 @@ class UpdateUserService{
                 'username' => $request->username,
                 'phone_number' => $request->phone_number,
                 'town_id'=>$request->town_id,
-                'email'=>$request->email
+                'email'=>$request->email,
+                'password'=>$request->password
             ]);
 
             return $response;

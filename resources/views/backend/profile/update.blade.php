@@ -69,6 +69,10 @@ Edition de votre profil
                                                     <input type="text" id="example-email" name="email" class="form-control" value="{{ $user->email }}">
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label for="example-email" class="form-label">Mot de passe</label>
+                                                    <input type="password" id="example-email" name="password" class="form-control">
+                                                </div>
+                                                <div class="mb-3">
                                                     <label class="text-600">Ville</label>
                                                     <select name="town_id" id="town" data-key="town" class="form-control">
                                                         @foreach ($towns as $town)
