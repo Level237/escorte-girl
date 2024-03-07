@@ -95,7 +95,7 @@
 
                                                     <div class="mb-3">
                                                         <label for="simpleinput" class="form-label">Preuve</label> <br>
-                                                        <img src="{{ route('display.report.image',['id'=>$report['id'] , 'adsId'=>$report['ads'][0]['id']] )}}" alt="" srcset="">
+                                                        <img src="{{ route('display.report.image',['id'=>$report['id'] , 'adsId'=>$report['ads'][0]['id']] )}}"  width="100%" alt="" srcset="">
                                                     </div>
 												
 												
