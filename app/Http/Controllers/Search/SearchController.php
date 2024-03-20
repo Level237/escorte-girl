@@ -10,6 +10,7 @@ class SearchController extends Controller
     public function search(Request $request){
 
         $results = (new SearchService)->search($request->s);
+      
         //dd($results);
         $term = $request->s;
         //dd($results);
