@@ -256,6 +256,7 @@ Route::middleware(['escort'])->group(function () {
     //Annoucements GROUP URL
     Route::get('/ads',[AdsController::class, 'create'])->name('ads.create');
     Route::get('/ads/deleteImage',[AdsImageController::class, 'deleteImage'])->name('deleteImage');
+    Route::get('/ads/deletePicture',[AdsImageController::class, 'deletePicture'])->name('deletePicture');
     Route::get('/editads/{id}',[AdsController::class, 'edit'])->name('ads.edit');
 
     Route::post('/ads',[AdsController::class, 'save'])->name('ads.save');

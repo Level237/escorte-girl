@@ -271,12 +271,14 @@
 					 
 						
 </form>
+
 <div class="row">
 <div class="col-md-12 mobile-mb-2">
 	
   <div class="card-sponsored p-3 mb-4 rounded overflow-hidden" style="overflow-x: visible; display:none;" ppt-border1>
 
 
+	
 <div class="owl-carousel owl-theme" data-1200="8" data-1000="6" data-600="4" 
 data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 
@@ -291,7 +293,7 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 		 
 		  
 		<div class="position-relative overflow-hidden rounded border" style="height:100px;max-width:120px;">
-			<div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['path']] )}}">
+			<div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$image['id']] )}}">
 			   
 			</div>
 		</div>
@@ -323,7 +325,7 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
                                                 <div class="modal-body">
                                                     <form method="POST" action="{{ route('ads.delete',['id' => $image['id']]) }}" id="delete-form{{$ad['id']}}">
                                                     @csrf
-                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                    <p>{{ __('Voulez vous supprimer cette image?') }}</p>
                                                    
                                                 </div>
                                                 <div class="modal-footer">
@@ -338,7 +340,7 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
       
     @endforelse            
 	<div >
-			<label class="w-100">Photos (4 maximum) ( vous pouvez encore ajouter {{ 4 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
+			<label class="w-100">Photos (4 maximum) ( vous pouvez encore ajouter {{ 2 - count($ad['images']) }} images) <span class="text-danger">*</span> (.png, .jpg, .jpeg) </label> 
 		   
 			<div class="cardbox closed" onclick="jQuery('#ratesbox, #ratesbit').toggle();">
 				  <i class="fa fa-cloud-upload" style="color:red"></i>
@@ -346,7 +348,7 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
 					 <form  class="dropzone" action="{{ route('update.image') }}" id="ads-dropzone" name="file" files="true" enctype="multipart/form-data">
 					  @csrf
 						 <input type="hidden" name="ads_id" id="ads_id" value="{{ $ad['id'] }}">
-						
+						 <input type="hidden" name="imagesLeft" id="imagesLeft" value="{{ 2 - count($ad['images']) }}">
 					 </form>     
 				  </div>
 				</div>
@@ -362,8 +364,8 @@ data-0="2" data-margin="20" data-autoplay="1" style="z-index:12">
  <script>
   Dropzone.options.adsDropzone = { // camelized version of the `id`
     paramName: "file", // The name that will be used to transfer the file
-    maxFilesize: 2, // MB
-	maxFiles : 5,
+    maxFilesize: 1, // MB
+	maxFiles : 2,
     acceptedFiles: ".jpeg,.jpg,.png",
 	Name: "Chargez vos fichiers ici",
     init: function() {
