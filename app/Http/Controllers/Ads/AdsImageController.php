@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Services\Api\Ads\AdsService;
 use Storage;
+use Image;
 
 
 class AdsImageController extends Controller
@@ -31,8 +32,16 @@ class AdsImageController extends Controller
             else{
 
                 //Storing file in disk
-                $fileName = $image->getClientOriginalName();
-                $image->storeAs('ads/'.$request->user_id, $fileName);
+                $image = Image::make($request->file('file'));
+                $imageName = $request->file('file')->getClientOriginalName();
+              
+                //Make directory on page refresh
+                \Illuminate\Support\Facades\Storage::makeDirectory('ads/'.$request->user_id);
+                if($extension === 'jpg')
+                    $image->save(storage_path('app\ads\\'.$request->user_id.'\\'.$imageName), 20);
+                else
+                     $image->save(storage_path('app\ads\\'.$request->user_id.'\\'.$imageName), 60, 'jpg');
+
                 
                 return response('Image ajoutée avec succès', 200);
             }

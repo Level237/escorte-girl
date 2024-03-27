@@ -98,6 +98,9 @@ Listes des utilisateurs
                                         @foreach ($users as $user)
 
                                         @forelse ($user as $u)
+                                         @if ($u->username == "system")
+                                             @continue
+                                         @endif
                                         <tr>
                                             <td>
                                                 <div class="form-check">
