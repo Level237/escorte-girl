@@ -1,0 +1,2275 @@
+openapi: 3.0.3
+info:
+  title: Viens Yamo API
+  version: 1.0.0
+  description: |
+    Contrat v1. Le métier actuel est conservé (annonces, profils escort,
+    crédits, forfaits, CoolPay, modération). Les routes historiques sous
+    `/api` restent servies tant que le frontend n’a pas migré.
+
+    Règles :
+    - Préfixe unique `/api/v1`.
+    - L’appelant authentifié est le token Passport. Jamais `user_id` dans l’URL.
+    - Le prix vient de `memberships.price` côté serveur. Le client envoie `membership_id`.
+    - JSON d’enveloppe unique, sauf fichiers binaires et le jeton OAuth.
+    - Les callbacks CoolPay sont des webhooks, hors auth utilisateur.
+
+servers:
+  - url: http://127.0.0.1:8001/api/v1
+
+tags:
+  - name: Auth
+  - name: Account
+  - name: Catalog
+  - name: Announcements
+  - name: Escorts
+  - name: Reviews
+  - name: Payments
+  - name: Messages
+  - name: Admin
+  - name: Webhooks
+
+security: []
+
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Créer un compte escort ou client
+      description: Remplace `POST /api/user`. `role_id` 2 = escort, 3 = client. Le rôle admin n’est pas ouvert ici.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Compte créé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEnvelope'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Connexion par numéro de téléphone
+      description: Remplace `POST /api/login`. Réponse brute Passport (pas d’enveloppe).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number, password]
+              properties:
+                phone_number: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: Jeton d’accès
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '403':
+          description: Compte suspendu
+
+  /auth/logout:
+    post:
+      tags: [Auth]
+      summary: Révoquer le jeton courant
+      security: [{ bearerAuth: [] }]
+      responses:
+        '204':
+          description: Déconnecté
+
+  /auth/password/questions:
+    post:
+      tags: [Auth]
+      summary: Questions de sécurité d’un numéro
+      description: Remplace `POST /api/verify/phone`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number]
+              properties:
+                phone_number: { type: string }
+      responses:
+        '200':
+          description: Questions liées au compte
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SecurityQuestion'
+        '404':
+          description: Compte introuvable
+
+  /auth/password/verify:
+    post:
+      tags: [Auth]
+      summary: Vérifier la réponse secrète
+      description: Remplace `POST /api/question/verify`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number, question_id, answer]
+              properties:
+                phone_number: { type: string }
+                question_id: { type: integer }
+                answer: { type: string }
+      responses:
+        '200':
+          description: Réponse correcte
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      reset_token: { type: string }
+        '422':
+          description: Réponse incorrecte
+
+  /auth/password:
+    post:
+      tags: [Auth]
+      summary: Nouveau mot de passe
+      description: Remplace `POST /api/change/password`. Exige le `reset_token` émis par la vérification.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number, password, reset_token]
+              properties:
+                phone_number: { type: string }
+                password: { type: string, minLength: 6, maxLength: 30 }
+                reset_token: { type: string }
+      responses:
+        '200':
+          description: Mot de passe mis à jour
+
+  /me:
+    get:
+      tags: [Account]
+      summary: Profil de l’utilisateur connecté
+      description: Remplace `GET /api/v1/currentUser`.
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200':
+          description: Utilisateur
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEnvelope'
+    patch:
+      tags: [Account]
+      summary: Mettre à jour le profil
+      description: Remplace `POST /api/v1/updateUser`.
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, phone_number]
+              properties:
+                username: { type: string }
+                phone_number: { type: string }
+                email: { type: string, format: email, nullable: true }
+                town_id: { type: integer }
+      responses:
+        '200':
+          description: Profil mis à jour
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEnvelope'
+
+  /me/security-question:
+    put:
+      tags: [Account]
+      summary: Enregistrer la question de sécurité
+      description: Remplace `POST /api/v1/choice/questions`.
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [question_id, answer]
+              properties:
+                question_id: { type: integer }
+                answer: { type: string }
+      responses:
+        '200':
+          description: Compte sécurisé
+
+  /me/purchases:
+    get:
+      tags: [Account]
+      summary: Achats de forfaits de l’utilisateur
+      description: Remplace `GET /api/v1/purchases/user`.
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseList'
+
+  /me/payments:
+    get:
+      tags: [Account]
+      summary: Paiements de l’utilisateur
+      description: Remplace `GET /api/v1/payment/user`.
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentList'
+
+  /me/announcements:
+    get:
+      tags: [Announcements]
+      summary: Annonces de l’escort connecté
+      description: Remplace `GET /api/userAds/{id}`.
+      security: [{ escort: [] }]
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementList'
+    post:
+      tags: [Announcements]
+      summary: Créer une annonce
+      description: Remplace `POST /api/v1/ads`. Vidéo optionnelle dans le même multipart.
+      security: [{ escort: [] }]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AnnouncementWrite'
+      responses:
+        '201':
+          description: Annonce créée
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementEnvelope'
+
+  /me/announcements/{announcement}:
+    patch:
+      tags: [Announcements]
+      summary: Modifier une annonce de l’escort connecté
+      description: Remplace `POST /api/ads/update`. L’annonce doit appartenir au token.
+      security: [{ escort: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnouncementWrite'
+      responses:
+        '200':
+          description: Annonce mise à jour
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementEnvelope'
+    delete:
+      tags: [Announcements]
+      summary: Supprimer une annonce de l’escort connecté
+      description: Remplace `DELETE /api/ads/{id}`.
+      security: [{ escort: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '204':
+          description: Supprimée
+
+  /me/announcements/{announcement}/images:
+    post:
+      tags: [Announcements]
+      summary: Ajouter des images
+      description: Remplace `POST /api/ads/image`.
+      security: [{ escort: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [images]
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '201':
+          description: Images enregistrées
+
+  /me/announcements/{announcement}/images/{image}:
+    delete:
+      tags: [Announcements]
+      summary: Retirer une image
+      description: Remplace `GET /api/deleteadsimage/{id}/{path}`.
+      security: [{ escort: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+        - name: image
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Image retirée
+
+  /me/announcements/{announcement}/subscription:
+    post:
+      tags: [Payments]
+      summary: Activer un forfait avec le solde de crédits
+      description: Remplace `POST /api/v1/subscribe/withCredit/{id}/{announcement_id}`. Le prix est débité depuis `memberships.price`.
+      security: [{ escort: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [membership_id]
+              properties:
+                membership_id: { type: integer }
+      responses:
+        '200':
+          description: Forfait activé
+        '402':
+          description: Solde insuffisant
+
+  /me/escort:
+    get:
+      tags: [Escorts]
+      summary: Profil escort du compte connecté
+      description: Remplace `GET /api/v1/getEscort`.
+      security: [{ escort: [] }]
+      responses:
+        '200':
+          description: Profil
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscortEnvelope'
+    put:
+      tags: [Escorts]
+      summary: Enregistrer ou compléter le profil
+      description: Remplace `POST /api/v1/addProfile`.
+      security: [{ escort: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscortWrite'
+      responses:
+        '200':
+          description: Profil enregistré
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscortEnvelope'
+
+  /me/escort/services:
+    put:
+      tags: [Escorts]
+      summary: Remplacer les services proposés
+      description: Remplace `POST /api/v1/attach/services`.
+      security: [{ escort: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [service_ids]
+              properties:
+                service_ids:
+                  type: array
+                  items: { type: integer }
+      responses:
+        '200':
+          description: Services attachés
+
+  /me/escort/images:
+    post:
+      tags: [Escorts]
+      summary: Ajouter des photos de profil
+      description: Remplace `POST /api/escort/image`.
+      security: [{ escort: [] }]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  items: { type: string, format: binary }
+      responses:
+        '201':
+          description: Photos enregistrées
+
+  /me/subscription:
+    post:
+      tags: [Payments]
+      summary: Passer le compte client au forfait premium avec des crédits
+      description: Remplace `POST /api/v1/subscribe/member`. Réservé au scope customer. Forfait historique `memberships.id = 4`.
+      security: [{ customer: [] }]
+      responses:
+        '200':
+          description: Abonnement activé
+        '402':
+          description: Solde insuffisant
+
+  /towns:
+    get:
+      tags: [Catalog]
+      summary: Villes
+      description: Remplace `GET /api/towns` et `GET /api/list/towns`.
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TownList'
+
+  /towns/{town}:
+    get:
+      tags: [Catalog]
+      summary: Une ville
+      parameters:
+        - $ref: '#/components/parameters/townId'
+      responses:
+        '200':
+          description: Ville
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TownEnvelope'
+
+  /towns/{town}/quarters:
+    get:
+      tags: [Catalog]
+      summary: Quartiers d’une ville
+      description: Remplace `GET /api/list/quarterByTown/{id}`.
+      parameters:
+        - $ref: '#/components/parameters/townId'
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuarterList'
+
+  /quarters:
+    get:
+      tags: [Catalog]
+      summary: Tous les quartiers
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuarterList'
+
+  /countries:
+    get:
+      tags: [Catalog]
+      summary: Pays
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Country'
+
+  /lookups/categories:
+    get:
+      tags: [Catalog]
+      summary: Catégories d’annonces
+      description: Remplace `GET /api/list/categories`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/ethnicities:
+    get:
+      tags: [Catalog]
+      summary: Ethnies
+      description: Remplace `GET /api/list/ethnics`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/skin-colors:
+    get:
+      tags: [Catalog]
+      summary: Teints
+      description: Remplace `GET /api/list/skinColor`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/shapes:
+    get:
+      tags: [Catalog]
+      summary: Silhouettes
+      description: Remplace `GET /api/list/shape`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/heights:
+    get:
+      tags: [Catalog]
+      summary: Tailles
+      description: Remplace `GET /api/list/height`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/weights:
+    get:
+      tags: [Catalog]
+      summary: Poids
+      description: Remplace `GET /api/list/weight`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/services:
+    get:
+      tags: [Catalog]
+      summary: Services proposés
+      description: Remplace `GET /api/list/services`.
+      responses:
+        '200':
+          $ref: '#/components/responses/LookupList'
+
+  /lookups/questions:
+    get:
+      tags: [Catalog]
+      summary: Questions de sécurité
+      description: Remplace `GET /api/list/questions`.
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SecurityQuestion'
+
+  /faqs:
+    get:
+      tags: [Catalog]
+      summary: FAQ publique
+      description: Remplace `GET /api/faqs`. L’écriture est sous `/admin/faqs`.
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqList'
+
+  /banners:
+    get:
+      tags: [Catalog]
+      summary: Bannières actives
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BannerList'
+
+  /memberships:
+    get:
+      tags: [Catalog]
+      summary: Forfaits d’annonce
+      description: Remplace `GET /api/memberships`. Exclut le forfait client premium (id 4).
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipList'
+
+  /memberships/premium:
+    get:
+      tags: [Catalog]
+      summary: Forfait premium client
+      description: Remplace `GET /api/v1/get/premium`. Historiquement `memberships.id = 4`.
+      responses:
+        '200':
+          description: Forfait
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipEnvelope'
+
+  /memberships/{membership}:
+    get:
+      tags: [Catalog]
+      summary: Un forfait
+      parameters:
+        - $ref: '#/components/parameters/membershipId'
+      responses:
+        '200':
+          description: Forfait
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipEnvelope'
+
+  /announcements:
+    get:
+      tags: [Announcements]
+      summary: Lister les annonces publiées
+      description: |
+        Remplace les listes séparées (`home/annonces`, `gold/annonces`, `vip/annonces`,
+        `premium/annonces`, `none/annonces`, `nonvip-ads`, `adstown`, `adsquarter`,
+        `adscategory`, `populars`, `recents`, `announces`).
+      parameters:
+        - name: tier
+          in: query
+          schema:
+            $ref: '#/components/schemas/Tier'
+          description: |
+            home = gold + vip, 9 au hasard (comportement actuel de la homepage).
+            free = subscribe_id 0. premium = 1. gold = 2. vip = 3.
+        - name: town_id
+          in: query
+          schema: { type: integer }
+        - name: quarter_id
+          in: query
+          schema: { type: integer }
+        - name: category_id
+          in: query
+          schema: { type: integer }
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [recent, popular, random]
+            default: random
+        - name: page
+          in: query
+          schema: { type: integer, default: 1 }
+        - name: per_page
+          in: query
+          schema: { type: integer, default: 20, maximum: 100 }
+      responses:
+        '200':
+          description: Page d’annonces
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementPage'
+
+  /announcements/by-town:
+    get:
+      tags: [Announcements]
+      summary: Compteurs d’annonces par ville
+      description: Remplace `GET /api/announcementsTown`.
+      responses:
+        '200':
+          description: Compteurs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        town_id: { type: integer }
+                        town_name: { type: string }
+                        count: { type: integer }
+
+  /announcements/{announcement}:
+    get:
+      tags: [Announcements]
+      summary: Fiche annonce
+      description: Remplace `GET /api/announce/{name}/{slug}` et `GET /api/announces/{id}`. Identifiant numérique stable.
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '200':
+          description: Annonce
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementEnvelope'
+
+  /announcements/{announcement}/similar:
+    get:
+      tags: [Announcements]
+      summary: Annonces proches
+      description: Remplace `GET /api/announce/similar/{name}/{slug}`.
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementList'
+
+  /announcements/{announcement}/visits:
+    post:
+      tags: [Announcements]
+      summary: Enregistrer une visite
+      description: Remplace `GET /api/visit/{id}`. Effet de bord en POST.
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '204':
+          description: Visite enregistrée
+
+  /announcements/{announcement}/reviews:
+    get:
+      tags: [Reviews]
+      summary: Avis d’une annonce
+      description: Remplace `GET /api/list/reviews/{escortId}` (la donnée est liée à `announcement_id`).
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '200':
+          description: Avis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+    post:
+      tags: [Reviews]
+      summary: Laisser un avis
+      description: Remplace `POST /api/v1/review/new/{escortId}`. Scope customer.
+      security: [{ customer: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [comment]
+              properties:
+                stars: { type: integer, minimum: 1, maximum: 5, default: 3 }
+                comment: { type: string }
+      responses:
+        '201':
+          description: Avis créé
+
+  /search:
+    get:
+      tags: [Announcements]
+      summary: Recherche
+      description: Remplace `GET /api/search/single/{term}`.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Résultats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementList'
+
+  /escorts/{escort}:
+    get:
+      tags: [Escorts]
+      summary: Profil public
+      description: Remplace `GET /api/escorts/{id}`.
+      parameters:
+        - name: escort
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Profil
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscortEnvelope'
+
+  /escorts:
+    get:
+      tags: [Escorts]
+      summary: Liste publique des profils
+      parameters:
+        - name: quarter_id
+          in: query
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Escort'
+
+  /media/announcements/{announcement}/images/{filename}:
+    get:
+      tags: [Announcements]
+      summary: Fichier image d’annonce
+      description: Remplace `GET /api/displayadsimage/{id}/{path}`. Réponse binaire.
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+        - name: filename
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Image
+          content:
+            image/*:
+              schema: { type: string, format: binary }
+
+  /media/announcements/{announcement}/video:
+    get:
+      tags: [Announcements]
+      summary: Vidéo d’annonce
+      description: Remplace `GET /api/displayVideo/{id}/{path}`.
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '200':
+          description: Vidéo
+          content:
+            video/*:
+              schema: { type: string, format: binary }
+
+  /media/banners/{banner}:
+    get:
+      tags: [Catalog]
+      summary: Image de bannière
+      description: Remplace `GET /api/displaybanner/{id}`.
+      parameters:
+        - name: banner
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Image
+          content:
+            image/*:
+              schema: { type: string, format: binary }
+
+  /media/escorts/{escort}/images/{filename}:
+    get:
+      tags: [Escorts]
+      summary: Photo de profil
+      description: Remplace `GET /api/displayprofil/{id}/{path}`.
+      parameters:
+        - name: escort
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: filename
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Image
+          content:
+            image/*:
+              schema: { type: string, format: binary }
+
+  /media/reports/{report}:
+    get:
+      tags: [Admin]
+      summary: Pièce jointe d’un signalement
+      description: Remplace `GET /api/displayreportimage/{id}/{adsId}`.
+      security: [{ admin: [] }]
+      parameters:
+        - name: report
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Image
+          content:
+            image/*:
+              schema: { type: string, format: binary }
+
+  /contacts:
+    post:
+      tags: [Messages]
+      summary: Envoyer un message de contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactWrite'
+      responses:
+        '201':
+          description: Message enregistré
+
+  /reports:
+    post:
+      tags: [Messages]
+      summary: Signaler une annonce
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReportWrite'
+      responses:
+        '201':
+          description: Signalement enregistré
+
+  /payments/boosts:
+    post:
+      tags: [Payments]
+      summary: Initier un paiement CoolPay pour booster une annonce
+      description: |
+        Remplace `POST /api/v1/init/cool-pay` et les variantes
+        `init/payment/coolpay/{user_id}/...`. Le montant est celui du forfait.
+      security: [{ escort: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [announcement_id, membership_id, transaction_ref]
+              properties:
+                announcement_id: { type: integer }
+                membership_id: { type: integer }
+                transaction_ref: { type: string }
+      responses:
+        '200':
+          description: Lien CoolPay
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkout'
+
+  /payments/credits:
+    post:
+      tags: [Payments]
+      summary: Initier un achat de crédits CoolPay
+      description: Remplace `POST /api/v1/init/cool-pay/credit`. Le montant est choisi par l’utilisateur (packs existants du frontend).
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, transaction_ref]
+              properties:
+                amount: { type: integer, description: Montant XAF }
+                transaction_ref: { type: string }
+      responses:
+        '200':
+          description: Lien CoolPay
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkout'
+
+  /payments/plans:
+    post:
+      tags: [Payments]
+      summary: Initier le paiement CoolPay du forfait premium client
+      description: Remplace `POST /api/v1/init/cool-pay/plan`.
+      security: [{ customer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transaction_ref]
+              properties:
+                transaction_ref: { type: string }
+                membership_id: { type: integer, description: Défaut historique 4 si omis }
+      responses:
+        '200':
+          description: Lien CoolPay
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checkout'
+
+  /payments/{transaction_ref}:
+    get:
+      tags: [Payments]
+      summary: Statut d’un paiement de l’utilisateur
+      description: Remplace `GET /api/v1/check/pay/ads`, `check/pay/credits`, `check/pay/plan`.
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - name: transaction_ref
+          in: path
+          required: true
+          schema: { type: string }
+        - name: purpose
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [ads, credits, plan]
+      responses:
+        '200':
+          description: Statut
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentEnvelope'
+
+  /webhooks/coolpay/boosts:
+    post:
+      tags: [Webhooks]
+      summary: Callback CoolPay boost d’annonce
+      description: Remplace `POST /api/callback/ads`. Pas de Bearer. À protéger par la signature CoolPay.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CoolPayCallback'
+      responses:
+        '200':
+          description: Pris en compte
+
+  /webhooks/coolpay/credits:
+    post:
+      tags: [Webhooks]
+      summary: Callback CoolPay crédits
+      description: Remplace `POST /api/callback/credits`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CoolPayCallback'
+      responses:
+        '200':
+          description: Pris en compte
+
+  /webhooks/coolpay/plans:
+    post:
+      tags: [Webhooks]
+      summary: Callback CoolPay forfait client
+      description: Remplace `POST /api/callback/plan`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CoolPayCallback'
+      responses:
+        '200':
+          description: Pris en compte
+
+  /admin/stats/users:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Statistiques utilisateurs
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/escorts:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Statistiques escorts
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/income:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Revenus
+      description: Remplace `GET /api/stats/incomes`.
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/announcements:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Statistiques annonces
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/weeks/current:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Semaine en cours
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/weeks/previous:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Semaine précédente
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/stats/towns:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Répartition par ville
+      responses:
+        '200':
+          description: Agrégats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsEnvelope'
+
+  /admin/users:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Lister les utilisateurs
+      parameters:
+        - name: role_id
+          in: query
+          schema: { type: integer, enum: [1, 2, 3] }
+        - name: suspended
+          in: query
+          schema: { type: boolean }
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer un utilisateur
+      description: Remplace `POST /api/v1/user/new`. Même corps que l’inscription, `role_id` 1 autorisé.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Utilisateur créé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEnvelope'
+
+  /admin/users/{user}:
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Supprimer un utilisateur
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '204':
+          description: Supprimé
+
+  /admin/users/{user}/suspension:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Suspendre
+      description: Remplace `POST /api/v1/suspend/user/{id}`.
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: Suspendu
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Réactiver
+      description: Remplace `POST /api/v1/activate/user/{id}`.
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: Réactivé
+
+  /admin/users/{user}/credits:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créditer un solde
+      description: Remplace `POST /api/v1/give/credit/{id}`.
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount]
+              properties:
+                amount: { type: integer, minimum: 1 }
+      responses:
+        '200':
+          description: Solde mis à jour
+
+  /admin/users/{user}/verification:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Vérifier un profil escort
+      description: Remplace `POST /api/v1/escort/verify`.
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: Profil vérifié
+
+  /admin/roles:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Rôles
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: integer }
+                        role_name: { type: string }
+
+  /admin/faqs:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: FAQ (admin)
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaqList'
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer une FAQ
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaqWrite'
+      responses:
+        '201':
+          description: Créée
+
+  /admin/faqs/{faq}:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: faq
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: FAQ
+    put:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: faq
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaqWrite'
+      responses:
+        '200':
+          description: Mise à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: faq
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Supprimée
+
+  /admin/towns:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer une ville
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [town_name, code, country_id]
+              properties:
+                town_name: { type: string }
+                code: { type: string }
+                country_id: { type: integer }
+      responses:
+        '201':
+          description: Ville créée
+
+  /admin/towns/{town}:
+    put:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - $ref: '#/components/parameters/townId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [town_name, code, country_id]
+              properties:
+                town_name: { type: string }
+                code: { type: string }
+                country_id: { type: integer }
+      responses:
+        '200':
+          description: Ville mise à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - $ref: '#/components/parameters/townId'
+      responses:
+        '204':
+          description: Ville supprimée
+
+  /admin/quarters:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer un quartier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [quarter_name, town_id]
+              properties:
+                quarter_name: { type: string }
+                town_id: { type: integer }
+      responses:
+        '201':
+          description: Quartier créé
+
+  /admin/quarters/{quarter}:
+    put:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: quarter
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [quarter_name, town_id]
+              properties:
+                quarter_name: { type: string }
+                town_id: { type: integer }
+      responses:
+        '200':
+          description: Quartier mis à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: quarter
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Quartier supprimé
+
+  /admin/memberships:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer un forfait
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipWrite'
+      responses:
+        '201':
+          description: Forfait créé
+
+  /admin/memberships/{membership}:
+    put:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Modifier un forfait, y compris le prix
+      description: Remplace `POST /api/v1/update/price` et `PUT /api/memberships/{id}`.
+      parameters:
+        - $ref: '#/components/parameters/membershipId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipWrite'
+      responses:
+        '200':
+          description: Forfait mis à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - $ref: '#/components/parameters/membershipId'
+      responses:
+        '204':
+          description: Forfait supprimé
+
+  /admin/banners:
+    post:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Créer une bannière
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [position, description, image]
+              properties:
+                position: { type: string }
+                description: { type: string }
+                status: { type: boolean }
+                image: { type: string, format: binary }
+      responses:
+        '201':
+          description: Bannière créée
+
+  /admin/banners/{banner}:
+    put:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: banner
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                position: { type: string }
+                description: { type: string }
+                status: { type: boolean }
+                image: { type: string, format: binary }
+      responses:
+        '200':
+          description: Bannière mise à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: banner
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Bannière supprimée
+
+  /admin/contacts:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Messages de contact
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Contact'
+
+  /admin/contacts/{contact}:
+    patch:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Changer le statut de traitement
+      parameters:
+        - name: contact
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { type: integer }
+      responses:
+        '200':
+          description: Mis à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: contact
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Supprimé
+
+  /admin/reports:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Signalements
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Report'
+
+  /admin/reports/{report}:
+    patch:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: report
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status: { type: integer }
+      responses:
+        '200':
+          description: Mis à jour
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - name: report
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '204':
+          description: Supprimé
+
+  /admin/announcements:
+    get:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Toutes les annonces, y compris inactives
+      description: Remplace `GET /api/ads/all` une fois l’admin branché.
+      parameters:
+        - name: status
+          in: query
+          schema: { type: integer, enum: [0, 1] }
+      responses:
+        '200':
+          description: Liste
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnouncementPage'
+
+  /admin/announcements/{announcement}:
+    patch:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      summary: Modérer une annonce
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status: { type: integer, enum: [0, 1] }
+                accepted: { type: string }
+      responses:
+        '200':
+          description: Annonce modérée
+    delete:
+      tags: [Admin]
+      security: [{ admin: [] }]
+      parameters:
+        - $ref: '#/components/parameters/announcementId'
+      responses:
+        '204':
+          description: Annonce supprimée
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Jeton Passport, n’importe quel scope.
+    escort:
+      type: http
+      scheme: bearer
+      description: Scope Passport `escort` (role_id 2).
+    customer:
+      type: http
+      scheme: bearer
+      description: Scope Passport `customer` (role_id 3).
+    admin:
+      type: http
+      scheme: bearer
+      description: Scope Passport `admin` (role_id 1).
+
+  parameters:
+    announcementId:
+      name: announcement
+      in: path
+      required: true
+      schema: { type: integer }
+    townId:
+      name: town
+      in: path
+      required: true
+      schema: { type: integer }
+    membershipId:
+      name: membership
+      in: path
+      required: true
+      schema: { type: integer }
+    userId:
+      name: user
+      in: path
+      required: true
+      schema: { type: integer }
+
+  responses:
+    ValidationError:
+      description: Champs invalides
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    LookupList:
+      description: Liste de référence
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lookup'
+
+  schemas:
+    Error:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string }
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items: { type: string }
+
+    Meta:
+      type: object
+      properties:
+        current_page: { type: integer }
+        last_page: { type: integer }
+        per_page: { type: integer }
+        total: { type: integer }
+
+    Token:
+      type: object
+      properties:
+        token_type: { type: string, example: Bearer }
+        expires_in: { type: integer }
+        access_token: { type: string }
+        refresh_token: { type: string }
+
+    Tier:
+      type: string
+      enum: [home, free, premium, gold, vip]
+      description: |
+        Correspondance `subscribe_id` actuelle : free 0, premium 1, gold 2, vip 3.
+        `home` agrège gold et vip.
+
+    RegisterRequest:
+      type: object
+      required: [username, phone_number, password, role_id, town_id, recaptcha]
+      properties:
+        username: { type: string, description: Sans espace }
+        phone_number: { type: string }
+        password: { type: string, minLength: 6, maxLength: 30 }
+        role_id: { type: integer, enum: [2, 3] }
+        town_id: { type: integer }
+        email: { type: string, format: email, nullable: true }
+        recaptcha: { type: string }
+
+    User:
+      type: object
+      properties:
+        id: { type: integer }
+        username: { type: string }
+        email: { type: string, nullable: true }
+        phone_number: { type: string }
+        role_id: { type: integer }
+        town_id: { type: integer }
+        balance: { type: integer }
+        is_secure: { type: boolean }
+        is_verified: { type: boolean }
+        is_subscribed: { type: boolean }
+        suspended_at: { type: string, format: date-time, nullable: true }
+
+    UserEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/User'
+
+    UserList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+
+    SecurityQuestion:
+      type: object
+      properties:
+        id: { type: integer }
+        question: { type: string }
+
+    Lookup:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+
+    Country:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+
+    Town:
+      type: object
+      properties:
+        id: { type: integer }
+        town_name: { type: string }
+        code: { type: string }
+        country_id: { type: integer }
+
+    TownEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Town'
+
+    TownList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Town'
+
+    Quarter:
+      type: object
+      properties:
+        id: { type: integer }
+        quarter_name: { type: string }
+        town_id: { type: integer }
+
+    QuarterList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quarter'
+
+    Faq:
+      type: object
+      properties:
+        id: { type: integer }
+        questions: { type: string }
+        answer: { type: string }
+
+    FaqWrite:
+      type: object
+      required: [questions, answer]
+      properties:
+        questions: { type: string }
+        answer: { type: string }
+
+    FaqList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Faq'
+
+    Banner:
+      type: object
+      properties:
+        id: { type: integer }
+        position: { type: string }
+        description: { type: string }
+        path: { type: string }
+        status: { type: boolean }
+
+    BannerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Banner'
+
+    Membership:
+      type: object
+      properties:
+        id: { type: integer }
+        membership_name: { type: string }
+        period: { type: string }
+        price: { type: string }
+
+    MembershipWrite:
+      type: object
+      required: [membership_name, period, price]
+      properties:
+        membership_name: { type: string }
+        period: { type: string }
+        price: { type: string }
+
+    MembershipEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Membership'
+
+    MembershipList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
+
+    Announcement:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        slug: { type: string }
+        description: { type: string }
+        age: { type: integer }
+        gender: { type: string }
+        whatsapp: { type: string }
+        location: { type: string }
+        accepted: { type: string }
+        status: { type: integer }
+        is_subscribed: { type: boolean }
+        tier:
+          $ref: '#/components/schemas/Tier'
+        subscribe_id: { type: integer, description: Valeur brute conservée pour la transition. }
+        town: { $ref: '#/components/schemas/Town' }
+        quarter: { $ref: '#/components/schemas/Quarter' }
+        category: { $ref: '#/components/schemas/Lookup' }
+        images:
+          type: array
+          items: { type: string }
+        video: { type: string, nullable: true }
+        visits: { type: integer }
+        expire: { type: string, format: date-time, nullable: true }
+        user:
+          type: object
+          properties:
+            id: { type: integer }
+            username: { type: string }
+
+    AnnouncementWrite:
+      type: object
+      required: [town_id, quarter_id, category_id, gender, age, phone, location, accepted, title, description]
+      properties:
+        town_id: { type: integer }
+        quarter_id: { type: integer }
+        category_id: { type: integer }
+        gender: { type: string }
+        age: { type: integer, minimum: 18 }
+        phone: { type: string }
+        location: { type: string }
+        accepted: { type: string }
+        title: { type: string }
+        description: { type: string, maxLength: 1500 }
+        video: { type: string, format: binary }
+
+    AnnouncementEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Announcement'
+
+    AnnouncementList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Announcement'
+
+    AnnouncementPage:
+      allOf:
+        - $ref: '#/components/schemas/AnnouncementList'
+        - type: object
+          properties:
+            meta:
+              $ref: '#/components/schemas/Meta'
+
+    Escort:
+      type: object
+      properties:
+        id: { type: integer }
+        escort_name: { type: string }
+        whatsapp_number: { type: string }
+        sexuality: { type: string }
+        genre: { type: string }
+        age: { type: integer }
+        description: { type: string }
+        quarter_id: { type: integer }
+        shape_id: { type: integer }
+        height_id: { type: integer }
+        weight_id: { type: integer }
+        skin_color_id: { type: integer }
+        services:
+          type: array
+          items: { $ref: '#/components/schemas/Lookup' }
+        images:
+          type: array
+          items: { type: string }
+        is_verified: { type: boolean }
+
+    EscortWrite:
+      type: object
+      required: [escort_name, whatsapp_number, sexuality, quarter_id, age, description, shape_id, height_id, weight_id, skin_color_id, genre]
+      properties:
+        escort_name: { type: string }
+        whatsapp_number: { type: string }
+        sexuality: { type: string }
+        quarter_id: { type: integer }
+        age: { type: integer, minimum: 18 }
+        description: { type: string }
+        shape_id: { type: integer }
+        height_id: { type: integer }
+        weight_id: { type: integer }
+        skin_color_id: { type: integer }
+        genre: { type: string }
+
+    EscortEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Escort'
+
+    Review:
+      type: object
+      properties:
+        id: { type: integer }
+        announcement_id: { type: integer }
+        user_id: { type: integer }
+        stars: { type: integer }
+        comment: { type: string }
+        state: { type: boolean }
+        created_at: { type: string, format: date-time }
+
+    ReviewList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+
+    ContactWrite:
+      type: object
+      required: [name, phone, subject, message]
+      properties:
+        name: { type: string }
+        phone: { type: string }
+        subject: { type: string }
+        message: { type: string }
+
+    Contact:
+      allOf:
+        - $ref: '#/components/schemas/ContactWrite'
+        - type: object
+          properties:
+            id: { type: integer }
+            status: { type: integer }
+
+    ReportWrite:
+      type: object
+      required: [announcement_id, name, phone, message, image]
+      properties:
+        announcement_id: { type: integer }
+        name: { type: string }
+        phone: { type: string }
+        message: { type: string }
+        image: { type: string, format: binary }
+
+    Report:
+      type: object
+      properties:
+        id: { type: integer }
+        announcement_id: { type: integer }
+        name: { type: string }
+        phone: { type: string }
+        message: { type: string }
+        status: { type: integer }
+
+    Payment:
+      type: object
+      properties:
+        id: { type: integer }
+        purpose: { type: string, enum: [ads, credits, plan] }
+        price: { type: string }
+        status: { type: string }
+        transaction_ref: { type: string }
+        membership_id: { type: integer, nullable: true }
+        announcement_id: { type: integer, nullable: true }
+        created_at: { type: string, format: date-time }
+
+    PaymentEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Payment'
+
+    PaymentList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payment'
+
+    Purchase:
+      type: object
+      properties:
+        id: { type: integer }
+        membership_id: { type: integer }
+        announcement_id: { type: integer, nullable: true }
+        status: { type: string }
+        expire_at: { type: string, format: date-time, nullable: true }
+
+    PurchaseList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Purchase'
+
+    Checkout:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            payment_url: { type: string }
+            transaction_ref: { type: string }
+            amount: { type: integer }
+
+    CoolPayCallback:
+      type: object
+      properties:
+        transaction_ref: { type: string }
+        transaction_status: { type: string, example: SUCCESS }
+        transaction_amount: { type: number }
+
+    StatsEnvelope:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
