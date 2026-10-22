@@ -9,7 +9,7 @@ class ListTownService{
 
     public function list(){
         $url=(new UrlApiService())->getUrl();
-        $response=Http::get($url."/api/list/towns");
+        $response=Http::acceptJson()->get(UrlApiService::endpoint('v1/towns'));
         $data=json_decode($response);
         return $data;
     }

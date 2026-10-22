@@ -21,6 +21,7 @@ use App\Services\Api\Location\TownService;
 use App\Services\Api\Location\QuarterService;
 use App\Http\Controllers\Listing\AnnouncementController;
 use App\Services\Api\Escort\ListReviewsServices;
+use App\Services\Api\LegacyShape;
 use App\Services\Api\List\ListTownService;
 use App\Services\User\ReviewService;
 
@@ -85,8 +86,8 @@ class AdsController extends Controller
                 foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id.'/videos') as $filename) {
                         $video = \Illuminate\Support\Facades\Storage::get($filename);
                         $response = Http::attach(
-                            'video', $video, $filename
-                        )->withToken($token)->post($url."/api/v1/ads", [
+                            'video', $video, basename($filename)
+                        )->withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/me/announcements'), [
                              'town_id' => $request->town,
                              'user_id' => $request->user_id,
                              'quarter_id' => $request->quarter,
@@ -104,17 +105,15 @@ class AdsController extends Controller
 
                 //dd($response);
                 //dd(json_decode((string) $response->getBody(), true));
-                if($response->status() === 200){
+                if($response->status() === 201){
 
                     //Now uploading ads's images
-                    $id = json_decode((string) $response->getBody(), true)['id'];
+                    $id = json_decode((string) $response->getBody(), true)['data']['id'];
                     foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
                         $photo = \Illuminate\Support\Facades\Storage::get($filename);
                         $responseImage = Http::attach(
-                            'file', $photo, $filename
-                        )->post($url."/api/ads/image", [
-                            'ads_id' => $id,
-                        ]);
+                            'images[]', $photo, basename($filename)
+                        )->withToken($token)->post(UrlApiService::endpoint('v1/me/announcements/'.$id.'/images'));
 
                     }
                     //Delete directory
@@ -154,7 +153,7 @@ class AdsController extends Controller
                
             try{
 
-                        $response = Http::withToken($token)->post($url."/api/v1/ads", [
+                        $response = Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/me/announcements'), [
                              'town_id' => $request->town,
                              'user_id' => $request->user_id,
                              'quarter_id' => $request->quarter,
@@ -172,17 +171,15 @@ class AdsController extends Controller
 
                 //dd($response->body());
                 //dd(json_decode((string) $response->getBody(), true));
-                if($response->status() === 200){
+                if($response->status() === 201){
 
                     //Now uploading ads's images
-                    $id = json_decode((string) $response->getBody(), true)['id'];
+                    $id = json_decode((string) $response->getBody(), true)['data']['id'];
                     foreach (\Illuminate\Support\Facades\Storage::files('ads/'.$request->user_id) as $filename) {
                         $photo = \Illuminate\Support\Facades\Storage::get($filename);
                         $responseImage = Http::attach(
-                            'file', $photo, $filename
-                        )->post($url."/api/ads/image", [
-                            'ads_id' => $id,
-                        ]);
+                            'images[]', $photo, basename($filename)
+                        )->withToken($token)->post(UrlApiService::endpoint('v1/me/announcements/'.$id.'/images'));
 
                     }
                     //Delete directory
@@ -231,8 +228,7 @@ class AdsController extends Controller
         //Updating ads
          try{
 
-            $response = Http::asForm()->post($url."/api/ads/update", [
-                'id' => $request->ads_id,
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->patch(UrlApiService::endpoint('v1/me/announcements/'.$request->ads_id), [
                 'town_id' => $request->town,
                 'quarter_id' => $request->quarter,
                 'gender' => $request->gender,
@@ -268,10 +264,7 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announces");
-            $ads = json_decode((string) $response->getBody(), true);
-            if($ads['data'] != null)
-              $ads = $ads['data'];
+            $ads = (new AdsService())->getAds();
             //error_log($ads);
         }catch(\Exception $e){
              $ads = [];
@@ -287,13 +280,7 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announces");
-            $allAds = json_decode((string) $response->getBody(), true);
-            //dd($allAds['data']);
-            if($allAds['data'] != null)
-             $allAds = $allAds['data'];
-            else
-              $allAds = [];
+            $allAds = (new AdsService())->getAds();
             //dd($allAds);
 
             $towns=(new ListTownService())->list()->data;
@@ -343,13 +330,9 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/nonvip-ads");
-            $allAds = json_decode((string) $response->getBody(), true);
-            //dd($allAds['data']);
-            if($allAds['data'] != null)
-             $allAds = $allAds['data'];
-            else
-              $allAds = [];
+            $allAds = array_values(array_filter((new AdsService())->getAds(), function ($ad) {
+                return (int) ($ad['subscribe_id'] ?? 0) !== 3;
+            }));
             //dd($allAds);
 
             $towns=(new ListTownService())->list()->data;
@@ -401,13 +384,10 @@ class AdsController extends Controller
 
         try{
             $id=$request->id;
-            $response = Http::asForm()->get($url."/api/adstown/".$request->id);
-            $allAds = json_decode((string) $response->getBody(), true);
-
-            if($allAds['data'] != null)
-             $allAds = $allAds['data'];
-            else
-              $allAds = [];
+            $allAds = (new AdsService())->collection('v1/announcements', [
+                'town_id' => $request->id,
+                'per_page' => 100,
+            ]);
             //error_log($ads);
         }catch(\Exception $e){
              $allAds = [];
@@ -442,13 +422,10 @@ class AdsController extends Controller
 
         try{
             $id=$request->id;
-            $response = Http::asForm()->get($url."/api/adsquarter/".$request->id);
-            //dd(json_decode((string) $response->getBody(), true));
-            $allAds = json_decode((string) $response->getBody(), true);
-            if($allAds['data'] != null)
-             $allAds = $allAds['data'];
-            else
-              $allAds = [];
+            $allAds = (new AdsService())->collection('v1/announcements', [
+                'quarter_id' => $request->id,
+                'per_page' => 100,
+            ]);
 
             //dd($allAds);
 
@@ -486,14 +463,10 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/adscategory/".$request->id);
-            //dd($response->body());
-            $allAds = json_decode((string) $response->getBody(), true);
-            if($allAds){
-                 $allAds = $allAds['data'];
-            }
-            else
-                $allAds = [];
+            $allAds = (new AdsService())->collection('v1/announcements', [
+                'category_id' => $request->id,
+                'per_page' => 100,
+            ]);
 
         }catch(\Exception $e){
              $allAds = [];
@@ -541,10 +514,22 @@ class AdsController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announce/".$name.'/'.$slug);
-            $response1 = Http::asForm()->get($url."/api/announce/similar/".$name.'/'.$slug);
-            $ad = json_decode((string) $response->getBody(), true);
-            $ads = json_decode((string) $response1->getBody(), true);
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/announcements/lookup'), [
+                'username' => $name,
+                'slug' => $slug,
+            ]);
+            $found = LegacyShape::announcements($response->json('data') ?? []);
+            $ad = ['data' => $found];
+            $similar = [];
+            if ($found) {
+                $similarResponse = Http::acceptJson()->get(UrlApiService::endpoint('v1/announcements/'.$found[0]['id'].'/similar'));
+                $similar = LegacyShape::announcements($similarResponse->json('data') ?? []);
+            }
+            $ads = ['data' => $similar];
+            $reviews = [];
+            if ($found) {
+                $reviews = Http::acceptJson()->get(UrlApiService::endpoint('v1/announcements/'.$found[0]['id'].'/reviews'))->json('data') ?? [];
+            }
             //dd($response1->body());
             if($ad){
                 if($ad['data']){
@@ -556,21 +541,13 @@ class AdsController extends Controller
             else
                 return view('error');
 
-            if($ads){
-
-                 if($ads['data']){
-                    $ads = $ads['data'];
-                }
-
-                else
-                  return view('error');
-
-            }
-            else
-                return view('error');
+            $ads = $ads['data'] ?? [];
 
 
-            $reviews=(new ListReviewsServices())->listReviews($slug);
+            $reviews = array_map(function ($review) {
+                $review['user'] = $review['user'] ?? '';
+                return $review;
+            }, $reviews ?? []);
 
             //dd($ad);
             $announceId=$request->id;
@@ -610,9 +587,9 @@ class AdsController extends Controller
         //dd('hrel');
        //Deleting ads
          try{
-            $response = Http::asForm()->delete($url."/api/ads/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/me/announcements/'.$id));
 
-            if($response->status() === 200){
+            if($response->successful()){
 
                 return back()->with('success',"Annonce supprimée");
 
@@ -631,7 +608,7 @@ class AdsController extends Controller
     {
 
         $url=(new UrlApiService())->getUrl();
-        $response = Http::asForm()->get($url.'/api/displayVideo/'.$id.'/'.$path);
+        $response = Http::get(UrlApiService::endpoint('v1/media/announcements/'.$id.'/video'));
         return $response;
 
     }

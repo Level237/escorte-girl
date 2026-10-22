@@ -11,7 +11,7 @@ class CurrentPurchaseService{
     public function currentPurchase(){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/purchases/user/");
+        $response=Http::withToken($token)->acceptJson()->get(UrlApiService::endpoint('v1/me/purchases'));
         $data = json_decode((string) $response->getBody(), true);
         if($data['data'] === null){
             return null;
@@ -24,9 +24,8 @@ class CurrentPurchaseService{
     public function currentPayment(){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->get($url."/api/v1/payment/user");
+        $rows = Http::withToken($token)->acceptJson()->get(UrlApiService::endpoint('v1/me/payments'))->json('data') ?? [];
 
-        $data = json_decode($response);
-        return $data;
+        return array_map(fn ($row) => (object) $row, $rows);
     }
 }

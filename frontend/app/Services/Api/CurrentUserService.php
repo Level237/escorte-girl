@@ -2,31 +2,29 @@
 
 namespace App\Services\Api;
 
-use App\Services\Api\UrlApiService;
-use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class CurrentUserService{
+class CurrentUserService
+{
+    public function currentUser()
+    {
+        try {
+            $token = Session::get('tokenUser');
+            $response = Http::retry(3, 400, throw: false)
+                ->withToken($token)
+                ->acceptJson()
+                ->get(UrlApiService::endpoint('v1/me'));
 
+            if (! $response->successful()) {
+                return null;
+            }
 
-    public  function currentUser(){
-        $url=(new UrlApiService())->getUrl();
+            $row = $response->json('data');
 
-        try{
-
-
-            $token=Session::get('tokenUser');
-            $response=Http::retry(3,400,throw: false)->withToken($token)->get($url.'/api/v1/currentUser');
-
-            $currentUser=json_decode($response);
-            //Session::put("currentUser",$currentUser);
-            //Session::save();
-            $responseData=json_decode($response);
-            return $responseData;
-        }catch(Exception $e){
-            //dd($e->getMessage());
+            return is_array($row) ? LegacyShape::user($row) : null;
+        } catch (\Exception $e) {
+            return null;
         }
-
     }
 }

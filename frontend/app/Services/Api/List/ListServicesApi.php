@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Http;
 class ListServicesApi{
 
     public function list(){
-        $url=(new UrlApiService())->getUrl();
-        $response=Http::get($url."/api/list/services");
-        $data=json_decode($response);
-        return $data;
+        return \App\Services\Api\LegacyShape::namedLookup('v1/lookups/services', 'service_name');
     }
 }

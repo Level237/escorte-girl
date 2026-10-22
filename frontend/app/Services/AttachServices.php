@@ -10,9 +10,9 @@ class AttachServices{
     public function attach($services,$dataEscort){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->post($url."/api/v1/attach/services",[
-            "service"=>$services,
-            "escort"=>$dataEscort
+        $ids = is_array($services) ? $services : [$services];
+        $response=Http::withToken($token)->acceptJson()->put(UrlApiService::endpoint('v1/me/escort/services'),[
+            "service_ids"=>array_values($ids),
         ]);
 
         return $response;

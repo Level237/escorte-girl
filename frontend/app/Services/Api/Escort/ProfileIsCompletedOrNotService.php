@@ -3,22 +3,17 @@
 namespace App\Services\Api\Escort;
 
 use App\Services\Api\UrlApiService;
-use Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class ProfileIsCompletedOrNotService{
+class ProfileIsCompletedOrNotService
+{
+    public function isCompletedOrNot()
+    {
+        $response = Http::withToken(Session::get('tokenUser'))
+            ->acceptJson()
+            ->get(UrlApiService::endpoint('v1/me/escort'));
 
-    public function isCompletedOrNot(){
-        $url=(new UrlApiService())->getUrl();
-        $token=Session::get('tokenUser');
-        try{
-            $response=Http::withToken($token)->get($url."/api/v1/CompleteOrNot");
-            $dataResponse=json_decode($response);
-
-            return $dataResponse;
-        }catch(Exception $e){
-            dd($e->getMessage());
-        }
+        return (object) ['completed' => $response->successful() ? 1 : 0];
     }
 }

@@ -31,8 +31,7 @@ class GenerateSitemap extends Command
     public function handle()
     {
         $url=(new UrlApiService())->getUrl();
-        $response = Http::asForm()->get($url."/api/announces");
-        $allAds = json_decode((string) $response->getBody(), true)['data'];
+        $allAds = Http::acceptJson()->get(UrlApiService::endpoint('v1/announcements'), ['per_page' => 100])->json('data') ?? [];
 
 
         $sitemapGenerator=SitemapGenerator::create('https://viens-yamo.com')->getSitemap();

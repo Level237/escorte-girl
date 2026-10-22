@@ -14,7 +14,7 @@ class AccountSuspendService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $banResponse=Http::withToken($token)->post($url."/api/v1/suspend/user/".$id);
+        $banResponse=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/admin/users/'.$id.'/suspension'));
 
         $dataResponse=json_decode($banResponse);
 

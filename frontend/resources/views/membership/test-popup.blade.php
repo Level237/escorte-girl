@@ -59,12 +59,12 @@
         const transaction_id=document.querySelector('#transaction_id1').innerHTML;
         console.log(url)
         console.log(price)
-        console.log(`http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`)
+        console.log(@json($apiUrl)+`/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`)
         document.getElementById('sdk').value=
             CinetPay.setConfig({
                 apikey: '108089145655d2b949d7a99.42080516',//   YOUR APIKEY
                 site_id: '5866009',//YOUR_SITE_ID
-                notify_url: `http://127.0.0.1:8001/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`,
+                notify_url: @json($apiUrl)+`/api/verify/payment/${user_id}/${transaction_id}/${membership}/${announce}`,
                 return_url:`${url}/success/payment`,
                 mode: 'PRODUCTION'
             });

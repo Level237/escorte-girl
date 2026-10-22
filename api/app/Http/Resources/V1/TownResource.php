@@ -14,6 +14,10 @@ class TownResource extends JsonResource
             'town_name' => $this->town_name,
             'code' => $this->code,
             'country_id' => $this->country_id,
+            'country' => $this->relationLoaded('country') && $this->country ? [
+                'id' => $this->country->id,
+                'country_name' => $this->country->country_name,
+            ] : null,
         ];
     }
 }

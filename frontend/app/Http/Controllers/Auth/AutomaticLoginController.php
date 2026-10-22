@@ -14,7 +14,7 @@ class AutomaticLoginController extends Controller
 {
     public function login(Request $request){
         $url=(new UrlApiService())->getUrl();
-        $u=$url."/api/login";
+        $u=UrlApiService::endpoint('v1/auth/login');
 
         try{
             $response = Http::asForm()->post($u, [

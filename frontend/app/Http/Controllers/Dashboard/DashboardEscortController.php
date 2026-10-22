@@ -13,6 +13,7 @@ use App\Services\Api\Purchase\PurchaseMembershipService;
 use App\Services\Api\Escort\ProfileIsCompletedOrNotService;
 use App\Services\Api\Purchase\CurrentPurchaseService;
 use App\Services\Api\Location\TownService;
+use App\Services\Api\Ads\AdsService;
 
 class DashboardEscortController extends Controller
 {
@@ -143,8 +144,7 @@ class DashboardEscortController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/userAds/".$id);
-            $ads = json_decode((string) $response->getBody(), true);
+            $ads = (new AdsService())->owned();
             //dd($ads['data']);
             return $ads;
 

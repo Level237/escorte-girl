@@ -824,7 +824,7 @@ function filterToggle(val){
             jQuery.ajax({
                 type: "GET",
                 dataType: 'json',
-                url: 'http://127.0.0.1:8001/api/list/quarterByTown/'+town.value,
+                url: @json($apiUrl).concat('/api/v1/towns/'+town.value+'/quarters'),
                 timeout: 15000,
 
                 success: function(response, statusCode) {
@@ -854,7 +854,7 @@ function filterToggle(val){
 
    async function val(){
         const val=select.value;
-        const response=await fetch(`http://127.0.0.1:8001/api/list/quarterByTown/${val}`)
+        const response=await fetch(@json($apiUrl)+`/api/v1/towns/${val}/quarters`)
         const quarters=await response.json();
         let selectedQuarters=document.getElementById('quarters');
         for(let i=1;i<selectedQuarters.length;i++){

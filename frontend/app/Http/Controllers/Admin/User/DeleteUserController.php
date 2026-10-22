@@ -5,6 +5,7 @@ use  App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class DeleteUserController extends Controller
 {
@@ -15,9 +16,9 @@ class DeleteUserController extends Controller
        //Deleting ad
          try{
             
-            $response = Http::asForm()->delete($url."/api/users/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/admin/users/'.$id));
           
-            if($response->status() === 200){
+            if($response->successful()){
 
                 return back()->with('success',"Utilisateur supprimé avec succes");
 

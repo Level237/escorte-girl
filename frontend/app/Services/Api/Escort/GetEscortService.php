@@ -15,9 +15,8 @@ class GetEscortService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::withToken(Session::get('tokenUser', null))->get($url."/api/v1/getEscort");
-            $escort = json_decode((string) $response->getBody(), true);
-            return $escort;
+            $response = Http::withToken(Session::get('tokenUser', null))->acceptJson()->get(UrlApiService::endpoint('v1/me/escort'));
+            return $response->json('data');
 
         }
         catch(\Exception $e){

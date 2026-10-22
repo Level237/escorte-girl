@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Http;
 class ListEthnicService{
 
     public function list(){
-        $url=(new UrlApiService())->getUrl();
-        $response=Http::get($url."/api/list/ethnics");
-        $data=json_decode($response);
-        return $data;
+        return \App\Services\Api\LegacyShape::namedLookup('v1/lookups/ethnicities', 'ethnic_name');
     }
 }

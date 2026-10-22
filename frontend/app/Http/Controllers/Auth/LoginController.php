@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function login(Request $request){
         $url=(new UrlApiService())->getUrl();
-        $u=$url."/api/login";
+        $u=UrlApiService::endpoint('v1/auth/login');
 
         try{
             $response = Http::asForm()->post($u, [
@@ -24,11 +24,10 @@ class LoginController extends Controller
             $dataResponse = json_decode($response);
             $code = $dataResponse->code ?? null;
             $message = $dataResponse->message ?? null;
-            if(isset($response['error'])){
-                //dd(json_decode((string) $response->getBody(), true));
+            if($response->status() === 403 || $code===203){
+                return back()->with('error',$message ?: 'Compte suspendu');
+            }else if(!$response->successful() || isset($response['error'])){
                 return back()->with('error',"Numero de telephone ou mot de passe invalide");
-            }else if($code===203){
-                return back()->with('error',$message);
             }else{
                 if($request->session()->has('tokenUser')){
                     $request->session()->forget('tokenUser');

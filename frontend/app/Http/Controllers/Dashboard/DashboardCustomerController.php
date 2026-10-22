@@ -11,6 +11,7 @@ use App\services\Api\CurrentUserService;
 use App\Services\Api\Purchase\PurchaseMembershipService;
 use App\Services\Api\Purchase\CurrentPurchaseService;
 use App\Services\Api\Location\TownService;
+use App\Services\Api\Ads\AdsService;
 
 class DashboardCustomerController extends Controller
 {
@@ -96,8 +97,7 @@ class DashboardCustomerController extends Controller
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/userAds/".$id);
-            $ads = json_decode((string) $response->getBody(), true);
+            $ads = (new AdsService())->owned();
             return $ads;
 
         }

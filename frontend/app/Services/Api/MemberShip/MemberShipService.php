@@ -15,7 +15,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::asForm()->get($url."/api/memberships");
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/memberships'));
             $memberships = json_decode((string) $response->getBody(), true);
             //dd($memberships);
             return $memberships['data'];
@@ -32,7 +32,7 @@ class MemberShipService{
 
         try{
             $token=Session::get('tokenUser');
-            $response = Http::withToken($token)->get($url."/api/v1/get/premium");
+            $response = Http::withToken($token)->acceptJson()->get(UrlApiService::endpoint('v1/memberships/premium'));
             $responseData = json_decode($response);
             //dd($memberships);
             return $response['data'];
@@ -47,7 +47,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::post($url."/api/memberships", [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->post(UrlApiService::endpoint('v1/admin/memberships'), [
                 'membership_name' => $membership['membership_name'],
                 'period' => $membership['period'],
                 'price' => $membership['price'],
@@ -66,7 +66,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::put($url."/api/memberships/".$membership['id'], [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->put(UrlApiService::endpoint('v1/admin/memberships/'.$membership['id']), [
                 'membership_name' => $membership['membership_name'],
                 'period' => $membership['period'],
                 'price' => $membership['price'],
@@ -85,7 +85,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::delete($url."/api/memberships/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/admin/memberships/'.$id));
             return $response;
 
         }
@@ -101,7 +101,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/memberships/".$id);
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/memberships/'.$id));
             return $response;
 
         }
@@ -116,7 +116,7 @@ class MemberShipService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::asForm()->get($url."/api/membership/".$id);
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/memberships/'.$id));
             $memberships = json_decode(($response));
             //dd($memberships);
             //return $memberships['data'];

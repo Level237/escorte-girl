@@ -79,6 +79,7 @@ class AccountController extends Controller
     public function purchases(): AnonymousResourceCollection
     {
         $rows = Memberships_user::query()
+            ->with(['membership', 'payment', 'announcement.User'])
             ->where('user_id', $this->user()->id)
             ->latest()
             ->get();

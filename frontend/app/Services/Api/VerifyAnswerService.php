@@ -2,23 +2,29 @@
 
 namespace App\Services\Api;
 
-use Exception;
-use App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
-class VerifyAnswerService{
-
-    public function verify($phone_number,$question_id,$answer){
-        $url=(new UrlApiService())->getUrl();
-        $response=Http::post($url."/api/question/verify",[
-            "phone_number"=>$phone_number,
-            "question_id"=>$question_id,
-            "answer"=>$answer
+class VerifyAnswerService
+{
+    public function verify($phone_number, $question_id, $answer)
+    {
+        $response = Http::acceptJson()->post(UrlApiService::endpoint('v1/auth/password/verify'), [
+            'phone_number' => $phone_number,
+            'question_id' => $question_id,
+            'answer' => $answer,
         ]);
 
-        $data=json_decode($response);
+        if (! $response->successful()) {
+            return (object) ['code' => 0];
+        }
 
-        return $data;
+        $token = $response->json('data.reset_token');
+        Session::put('passwordResetToken', $token);
+
+        return (object) [
+            'code' => 1,
+            'reset_token' => $token,
+        ];
     }
 }

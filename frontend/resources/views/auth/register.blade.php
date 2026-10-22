@@ -628,7 +628,7 @@ function processSubmitForm(){
 		jQuery.ajax({
 			type: "POST",
 			dataType: 'json',
-			url: 'http://'+apiURL+'/api/user',
+			url: apiURL+'/api/v1/auth/register',
 			timeout: 15000,
 			data: {
 				username: username,

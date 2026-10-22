@@ -37,12 +37,16 @@ return [
         'secret' => env('RECAPTCHA_SITE_SECRET'),
     ], 
 
+    'api' => [
+        'url' => env('API_URL', 'http://127.0.0.1:8001'),
+    ],
+
     'api-escort' => [
-		'key' => env('API_URL'),
+		'key' => env('API_URL', 'http://127.0.0.1:8001'),
 	],
 
     'escort-url' => [
-		'key' => env('SITE_URL'),
+		'key' => env('SITE_URL', 'localhost'),
 	],
 
 ];

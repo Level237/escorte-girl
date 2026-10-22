@@ -13,6 +13,7 @@ use App\Services\Api\Ads\AdsService;
 use Storage;
 use Image;
 use Redirect;
+use Illuminate\Support\Facades\Session;
 
 
 class AdsImageController extends Controller
@@ -90,12 +91,10 @@ class AdsImageController extends Controller
                 $photo = \Illuminate\Support\Facades\Storage::get('ads/'.$request->user_id.'/'.$imageName);
                 //Storing file to server
                  $url=(new UrlApiService())->getUrl();
-                 $response = Http::attach(
-                        'file', $photo, $imageName
-                    )->post($url."/api/ads/image", [
-                        'ads_id' => $request->ads_id,
-                    ]);
-                if($response->status() === 200){
+                 $response = Http::withToken(Session::get('tokenUser'))->attach(
+                        'images[]', $photo, $imageName
+                    )->post(UrlApiService::endpoint('v1/me/announcements/'.$request->ads_id.'/images'));
+                if($response->successful()){
                     return response('Succés image bien reçu', 200);
                 }
                 else
@@ -110,7 +109,7 @@ class AdsImageController extends Controller
     {
      
         $url=(new UrlApiService())->getUrl();
-        $response = Http::asForm()->get($url.'/api/displayadsimage/'.$id.'/'.$path);
+        $response = Http::get(UrlApiService::endpoint('v1/media/announcements/'.$id.'/images/'.rawurlencode($path)));
         return $response;
    
     }

@@ -738,7 +738,7 @@ function fetchQuarters(town){
 		jQuery.ajax({
 			type: "GET",
 			dataType: 'json',
-			url: 'http://'+apiURL+'/api/list/quarterByTown/'+town.value,
+			url: apiURL+'/api/v1/towns/'+town.value+'/quarters',
 			timeout: 15000,
 
 			success: function(response, statusCode) {

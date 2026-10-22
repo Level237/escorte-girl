@@ -12,7 +12,7 @@ class TownController extends Controller
 {
     public function index(): AnonymousResourceCollection
     {
-        return TownResource::collection(Town::query()->orderBy('town_name')->get());
+        return TownResource::collection(Town::query()->with('country')->orderBy('town_name')->get());
     }
 
     public function show(Town $town): TownResource

@@ -7,6 +7,7 @@ use App\Services\Api\Banners\BannerService;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use App\Services\Api\CurrentUserService;
+use App\Services\Api\UrlApiService;
 use App\Services\Api\MemberShip\CheckSubscribeService;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view)
         {
 
+            $view->with('apiUrl', UrlApiService::base());
             $userBalance=(new CurrentUserService())->currentUser();
             //$check=(new CheckSubscribeService())->check();
             //$check=(new CheckSubscribeService())->checkAds();

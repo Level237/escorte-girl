@@ -77,6 +77,7 @@ Route::prefix('v1')->name('v1.')->middleware('json')->group(function () {
 
     Route::get('announcements', [AnnouncementController::class, 'index'])->name('announcements.index');
     Route::get('announcements/by-town', [AnnouncementController::class, 'byTown'])->name('announcements.by-town');
+    Route::get('announcements/lookup', [AnnouncementController::class, 'lookup'])->name('announcements.lookup');
     Route::get('announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
     Route::get('announcements/{announcement}/similar', [AnnouncementController::class, 'similar'])->name('announcements.similar');
     Route::post('announcements/{announcement}/visits', [AnnouncementController::class, 'visit'])->name('announcements.visits');

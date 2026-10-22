@@ -17,7 +17,7 @@ class TownService{
             
             try{
 
-                $response = Http::asForm()->get($url."/api/towns");
+                $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/towns'));
                 
                 $towns = json_decode((string) $response->getBody(), true);
 
@@ -42,7 +42,7 @@ class TownService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::post($url."/api/towns", [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->post(UrlApiService::endpoint('v1/admin/towns'), [
                 'town_name' => $town['town_name'],
                 'code' => $town['code'],
                 'country_id' => $town['country_id'],
@@ -61,7 +61,7 @@ class TownService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::delete($url."/api/towns/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/admin/towns/'.$id));
             return $response;
 
         }
@@ -75,7 +75,7 @@ class TownService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::put($url."/api/towns/".$town['id'], [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->put(UrlApiService::endpoint('v1/admin/towns/'.$town['id']), [
                 'town_name' => $town['town_name'],
                 'code' => $town['code'],
                 'country_id' => $town['country_id'],
@@ -94,7 +94,7 @@ class TownService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/towns/".$id);
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/towns/'.$id));
             return $response;
 
         }

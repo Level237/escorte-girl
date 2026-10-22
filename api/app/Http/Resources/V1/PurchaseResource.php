@@ -14,7 +14,11 @@ class PurchaseResource extends JsonResource
             'membership_id' => $this->membership_id,
             'announcement_id' => $this->announcement_id,
             'status' => $this->status,
-            'expire_at' => $this->expire_at,
+            'expire_at' => $this->expire_at instanceof \DateTimeInterface ? $this->expire_at->format('d-m-Y') : $this->expire_at,
+            'announce_title' => $this->announcement?->User?->username,
+            'slug' => $this->announcement?->slug,
+            'membership_type' => $this->membership?->membership_name,
+            'payment_type' => $this->payment?->payment_type,
         ];
     }
 }

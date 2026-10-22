@@ -14,7 +14,7 @@ class FaqService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->get($url."/api/v1/faqs");
+        $response=Http::withToken($token)->get($url."/api/v1/admin/faqs");
         $data=json_decode($response);
 
         return $data;
@@ -24,7 +24,7 @@ class FaqService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->post($url."/api/v1/faqs",[
+        $response=Http::withToken($token)->post($url."/api/v1/admin/faqs",[
             'questions'=>$question,
             'answer'=>$answer
         ]);
@@ -37,7 +37,7 @@ class FaqService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->get($url."/api/v1/faqs/".$id);
+        $response=Http::withToken($token)->get($url."/api/v1/admin/faqs/".$id);
         $data=json_decode($response);
 
         return $data;
@@ -47,7 +47,7 @@ class FaqService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->put($url."/api/v1/faqs/".$id,[
+        $response=Http::withToken($token)->put($url."/api/v1/admin/faqs/".$id,[
             'questions'=>$question,
             'answer'=>$answer
         ]);
@@ -60,7 +60,7 @@ class FaqService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->delete($url."/api/v1/faqs/".$id);
+        $response=Http::withToken($token)->delete($url."/api/v1/admin/faqs/".$id);
         $data=json_decode($response);
 
         return $response;

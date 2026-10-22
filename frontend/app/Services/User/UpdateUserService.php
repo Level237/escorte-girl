@@ -14,12 +14,11 @@ class UpdateUserService{
          $url=(new UrlApiService())->getUrl();
          $hasToken=(new HasTokenService())->getToken();
         try{
-            $response = Http::withToken($hasToken)->post($url."/api/v1/updateUser", [
+            $response = Http::withToken($hasToken)->acceptJson()->patch(UrlApiService::endpoint('v1/me'), [
                 'username' => $request->username,
                 'phone_number' => $request->phone_number,
                 'town_id'=>$request->town_id,
                 'email'=>$request->email,
-                'password'=>$request->password
             ]);
 
             return $response;

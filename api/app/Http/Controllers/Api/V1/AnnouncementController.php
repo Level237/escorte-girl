@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\AnnouncementResource;
 use App\Http\Resources\V1\ReviewResource;
 use App\Models\Announcement;
+use App\Models\User;
 use App\Services\Api\V1\PublishedAnnouncementQuery;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -54,6 +55,28 @@ class AnnouncementController extends Controller
             ->get();
 
         return response()->json(['data' => $rows]);
+    }
+
+    public function lookup(Request $request): AnonymousResourceCollection
+    {
+        $data = $request->validate([
+            'username' => ['required', 'string'],
+            'slug' => ['required', 'string'],
+        ]);
+
+        $user = User::query()->where('username', $data['username'])->first();
+        abort_unless($user, 404);
+
+        $ads = $this->announcements->base()
+            ->where('user_id', $user->id)
+            ->where('slug', $data['slug'])
+            ->get();
+
+        if ($ads->isNotEmpty()) {
+            event(new AnnouncementVisitEvent($ads->first()));
+        }
+
+        return AnnouncementResource::collection($ads);
     }
 
     public function show(Announcement $announcement): AnnouncementResource

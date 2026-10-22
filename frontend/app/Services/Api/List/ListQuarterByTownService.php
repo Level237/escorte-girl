@@ -9,7 +9,7 @@ class ListQuarterByTownService{
 
     public function list($id){
         $url=(new UrlApiService())->getUrl();
-        $response=Http::get($url."/api/list/quarterByTown/".$id);
+        $response=Http::acceptJson()->get(UrlApiService::endpoint('v1/towns/'.$id.'/quarters'));
         $data=json_decode($response);
         return $data;
     }

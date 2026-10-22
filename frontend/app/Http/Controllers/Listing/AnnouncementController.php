@@ -16,9 +16,7 @@ class AnnouncementController extends Controller{
 
         try{
 
-            $response = Http::asForm()->get($url."/api/announcementsTown");
-            //dd(json_decode((string) $response->getBody(), true));
-            self::$announcements = json_decode((string) $response->getBody(), true);
+            self::$announcements = (new \App\Services\Api\Ads\AdsService())->index();
             //error_log($announcements);
         }catch(\Exception $e){
              self::$announcements = [];
@@ -30,9 +28,7 @@ class AnnouncementController extends Controller{
    public function filter(){
     $url=(new UrlApiService())->getUrl();
     try{
-        $response = Http::asForm()->get($url."/api/announcementsTown");
-            //dd(json_decode((string) $response->getBody(), true));
-            self::$announcements = json_decode((string) $response->getBody(), true);
+        self::$announcements = (new \App\Services\Api\Ads\AdsService())->index();
     }catch(\Exception $e){
 
     }

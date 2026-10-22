@@ -6,6 +6,7 @@ use App\Services\Api\Ads\AdsService;
 use Illuminate\Http\Request;
 use  App\Services\Api\UrlApiService;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class AdController extends Controller
 {
@@ -25,9 +26,9 @@ class AdController extends Controller
        //Deleting ad
          try{
             
-            $response = Http::asForm()->delete($url."/api/ads/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/admin/announcements/'.$id));
           
-            if($response->status() === 200){
+            if($response->successful()){
 
                 return back()->with('success',"Annonce supprimée");
 

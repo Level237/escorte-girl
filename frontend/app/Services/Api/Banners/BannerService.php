@@ -15,7 +15,7 @@ class BannerService{
             
             try{
 
-                $response = Http::asForm()->get($url."/api/banners");
+                $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/banners'));
                 $banners = json_decode((string) $response->getBody(), true);
 
                 if($banners['data'] === null){

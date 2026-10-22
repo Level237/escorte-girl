@@ -17,8 +17,8 @@ class GiveCreditController extends Controller
     public function giveCredit($id,Request $request){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->post($url.'/api/v1/give/credit/'.$id,[
-            'balance'=>$request->balance,
+        $response=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/admin/users/'.$id.'/credits'),[
+            'amount'=>$request->balance,
         ]);
         $data=json_decode($response);
             //return $response;

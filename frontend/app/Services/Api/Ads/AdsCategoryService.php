@@ -17,15 +17,15 @@ class AdsCategoryService{
             
             try{
 
-                $response = Http::asForm()->get($url."/api/list/categories");
-                $adsCategories = json_decode((string) $response->getBody(), true);
-            
-                if($adsCategories['data'] === null){
-                    return null;
-                }
-                else{
-                    return $adsCategories['data'];
-                }
+                $rows = Http::acceptJson()->get(UrlApiService::endpoint('v1/lookups/categories'))->json('data') ?? [];
+
+                return array_map(function ($row) {
+                    return [
+                        'id' => $row['id'] ?? null,
+                        'title' => $row['name'] ?? ($row['title'] ?? ''),
+                        'name' => $row['name'] ?? ($row['title'] ?? ''),
+                    ];
+                }, $rows);
 
             }catch(\Exception $e){
                 return null;

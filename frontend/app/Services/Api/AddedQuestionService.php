@@ -12,7 +12,7 @@ class AddedQuestionService{
     public function add($question_id,$answer){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->post($url."/api/v1/choice/questions",[
+        $response=Http::withToken($token)->acceptJson()->put(UrlApiService::endpoint('v1/me/security-question'),[
             "answer"=>$answer,
             "question_id"=>$question_id
         ]);

@@ -14,7 +14,7 @@ class AccountActivateService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $ActivateResponse=Http::withToken($token)->post($url."/api/v1/activate/user/".$id);
+        $ActivateResponse=Http::withToken($token)->acceptJson()->delete(UrlApiService::endpoint('v1/admin/users/'.$id.'/suspension'));
 
         $dataResponse=json_decode($ActivateResponse);
 

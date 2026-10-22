@@ -13,7 +13,7 @@ class LogoutUserService{
         $hasToken=(new HasTokenService())->getToken();
         $url=(new UrlApiService())->getUrl();
         try{
-            $response=Http::withToken($hasToken)->post($url.'/api/v1/logout');
+            $response=Http::withToken($hasToken)->post(UrlApiService::endpoint('v1/auth/logout'));
             return $response;
         }catch(Exception $e){
             dd($e->getMessage());

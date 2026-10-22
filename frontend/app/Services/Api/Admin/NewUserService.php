@@ -15,7 +15,7 @@ class NewUserService{
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
 
-        $response=Http::withToken($token)->post($url."/api/v1/user/new",[
+        $response=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/admin/users'),[
             'username'=>$request->username,
             'password'=>$request->password,
             'role_id'=>$request->role_id,

@@ -74,29 +74,23 @@ class PurchaseMomoController extends Controller
         $membership=$request->membership_id;
             $transaction_id="COLADS".rand(123456789, 100000000);
             $user=(new CurrentUserService())->currentUser();
-            $purchase=(new PurchaseMembershipService())->initPayCoolPay(100,$transaction_id);
-            $transaction_ref=$purchase->transaction_ref ?? null;
+            $purchase=(new PurchaseMembershipService())->initPayCoolPay($announcement,$membership,$transaction_id);
             $url=$purchase->payment_url ?? null;
-            $check=(new CheckPurchaseService())->initCoolpay($user->id,$transaction_ref,$membership,$announcement);
             return redirect()->intended($url);
     }
 
     public function initPayWithCoolPayCredit(Request $request){
         $transaction_id="COLCRE".rand(123456789, 100000000);
         $user=(new CurrentUserService())->currentUser();
-        $purchase=(new PurchaseMembershipService())->initPayCoolPayCredit(100,$transaction_id);
-        $transaction_ref=$purchase->transaction_ref ?? null;
+        $purchase=(new PurchaseMembershipService())->initPayCoolPayCredit($request->price,$transaction_id);
         $url=$purchase->payment_url ?? null;
-        $check=(new CheckPurchaseService())->initCoolpayCredit($user->id,$request->price,$transaction_ref);
         return redirect()->intended($url);
 }
 public function initPayWithCoolPayPlan(Request $request){
     $transaction_id="COLPl".rand(123456789, 100000000);
     $user=(new CurrentUserService())->currentUser();
-    $purchase=(new PurchaseMembershipService())->initPayCoolPayPlan(100,$transaction_id);
-    $transaction_ref=$purchase->transaction_ref ?? null;
+    $purchase=(new PurchaseMembershipService())->initPayCoolPayPlan($transaction_id);
     $url=$purchase->payment_url ?? null;
-    $check=(new CheckPurchaseService())->initCoolpayPlan($user->id,$transaction_ref);
-    return redirect()->intended($url);
+   return redirect()->intended($url);
 }
 }

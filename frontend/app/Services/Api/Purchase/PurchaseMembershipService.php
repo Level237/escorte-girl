@@ -12,7 +12,9 @@ class PurchaseMembershipService{
 
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/subscribe/withCredit/".$memberShip_id."/".$announcement_id);
+        $response=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/me/announcements/'.$announcement_id.'/subscription'), [
+            'membership_id' => $memberShip_id,
+        ]);
         $data=json_decode($response);
 
         return $data;
@@ -48,45 +50,46 @@ class PurchaseMembershipService{
     public function verifyUserPaymentWithCredit(){
         $url=(new UrlApiService())->getUrl();
         $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/subscribe/member");
+        $response=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/me/subscription'));
         $data=json_decode($response);
 
         return $data;
     }
 
-    public function initPayCoolPay($price,$transaction_id){
-        $url=(new UrlApiService())->getUrl();
-        $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay",[
-            'price'=>$price,
-            'transaction_id'=>$transaction_id
+    public function initPayCoolPay($announcementId, $membershipId, $transactionRef)
+    {
+        return $this->checkout('v1/payments/boosts', [
+            'announcement_id' => $announcementId,
+            'membership_id' => $membershipId,
+            'transaction_ref' => $transactionRef,
         ]);
-        $data=json_decode($response);
-
-        return $data;
     }
 
-    public function initPayCoolPayCredit($price,$transaction_id){
-        $url=(new UrlApiService())->getUrl();
-        $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay/credit",[
-            'price'=>$price,
-            'transaction_id'=>$transaction_id
+    public function initPayCoolPayCredit($price, $transactionRef)
+    {
+        return $this->checkout('v1/payments/credits', [
+            'amount' => $price,
+            'transaction_ref' => $transactionRef,
         ]);
-        $data=json_decode($response);
-
-        return $data;
     }
 
-    public function initPayCoolPayPlan($price,$transaction_id){
-        $url=(new UrlApiService())->getUrl();
-        $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post($url."/api/v1/init/cool-pay/plan",[
-            'price'=>$price,
-            'transaction_id'=>$transaction_id
+    public function initPayCoolPayPlan($transactionRef)
+    {
+        return $this->checkout('v1/payments/plans', [
+            'transaction_ref' => $transactionRef,
         ]);
-        $data=json_decode($response);
+    }
 
-        return $data;
+    private function checkout(string $path, array $body): object
+    {
+        $response = Http::withToken(Session::get('tokenUser'))
+            ->acceptJson()
+            ->post(UrlApiService::endpoint($path), $body);
+        $data = $response->json('data') ?? [];
+
+        return (object) [
+            'payment_url' => $data['payment_url'] ?? null,
+            'transaction_ref' => $data['transaction_ref'] ?? null,
+        ];
     }
 }

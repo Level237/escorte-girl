@@ -18,17 +18,10 @@ class VerifyEscortController extends Controller
         
 
         try{
-            $response = Http::withToken($token)->post($url."/api/v1/escort/verify", 
-            [
-              'id' => $id
-            ]);
+            $response = Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/admin/users/'.$id.'/verification'));
 
-            dd($response->status);
-            if($response){
-                 dd($response->status);
-                 $data = json_decode((string) $response->getBody(), true);
-                 dd($data);
-                 return to_route('escorts')->with('message', "statut de verification mis  a jour");;
+            if($response->successful()){
+                 return to_route('escorts')->with('message', "statut de verification mis  a jour");
             }
            
 

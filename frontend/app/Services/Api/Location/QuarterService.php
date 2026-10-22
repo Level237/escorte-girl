@@ -17,7 +17,7 @@ class QuarterService{
             
             try{
 
-                $response = Http::asForm()->get($url."/api/quarters");
+                $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/quarters'));
                 
                 $towns = json_decode((string) $response->getBody(), true);
 
@@ -42,7 +42,7 @@ class QuarterService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::post($url."/api/quarters", [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->post(UrlApiService::endpoint('v1/admin/quarters'), [
                 'quarter_name' => $quarter['quarter_name'],
                 'town_id' => $quarter['town_id'],
             ]);
@@ -60,7 +60,7 @@ class QuarterService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::delete($url."/api/quarters/".$id);
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->delete(UrlApiService::endpoint('v1/admin/quarters/'.$id));
             return $response;
 
         }
@@ -74,7 +74,7 @@ class QuarterService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::put($url."/api/quarters/".$quarter['id'], [
+            $response = Http::withToken(Session::get('tokenUser'))->acceptJson()->put(UrlApiService::endpoint('v1/admin/quarters/'.$quarter['id']), [
                 'quarter_name' => $quarter['quarter_name'],
                 'town_id' => $quarter['town_id'],
             ]);
@@ -92,7 +92,7 @@ class QuarterService{
         $url=(new UrlApiService())->getUrl();
 
         try{
-            $response = Http::get($url."/api/quarters/".$id);
+            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/quarters/'.$id));
             return $response;
 
         }

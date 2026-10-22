@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Http;
 class ListWeightService{
 
     public function list(){
-        $url=(new UrlApiService())->getUrl();
-        $response=Http::get($url."/api/list/weight");
-        $data=json_decode($response);
-        return $data;
+        return \App\Services\Api\LegacyShape::namedLookup('v1/lookups/weights', 'weight_name');
     }
 }

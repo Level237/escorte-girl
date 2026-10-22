@@ -20,14 +20,23 @@ class FilterController extends Controller
 
         try{
 
-            $response = Http::asForm()->get($url."/api/filter/ads",[
-                'age'=>$request->age,
-                'town'=>$request->town,
-                'quarter'=>$request->quarter,
-                'subscribe_id'=>$request->subscribe_id
-            ]);
-            $allAds = json_decode((string) $response->getBody(), true);
-            $allAds = $allAds['data'];
+            $query = ['per_page' => 100];
+            if ($request->filled('town')) {
+                $query['town_id'] = $request->town;
+            }
+            if ($request->filled('quarter')) {
+                $query['quarter_id'] = $request->quarter;
+            }
+            $tiers = [0 => 'free', 1 => 'premium', 2 => 'gold', 3 => 'vip'];
+            if ($request->filled('subscribe_id') && isset($tiers[(int) $request->subscribe_id])) {
+                $query['tier'] = $tiers[(int) $request->subscribe_id];
+            }
+            $allAds = (new \App\Services\Api\Ads\AdsService())->collection('v1/announcements', $query);
+            if ($request->filled('age')) {
+                $allAds = array_values(array_filter($allAds, function ($ad) use ($request) {
+                    return (string) ($ad['age'] ?? '') === (string) $request->age;
+                }));
+            }
             $towns=(new ListTownService())->list()->data;
             $quarters=(new QuarterService())->getQuarters();
             //error_log($ads);
