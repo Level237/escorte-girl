@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'coolpay' => [
+        'boosts' => env('COOLPAY_BOOSTS_PUBLIC_KEY', '058196db-98d7-4fc2-9988-82e2e14b2b8e'),
+        'credits' => env('COOLPAY_CREDITS_PUBLIC_KEY', '929cc610-94ba-40ff-9970-56e1f6e891ac'),
+        'plans' => env('COOLPAY_PLANS_PUBLIC_KEY', 'e2743f08-469a-4945-ae2b-d5a724ec75ae'),
+    ],
+
 ];

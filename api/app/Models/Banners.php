@@ -9,7 +9,9 @@ class Banners extends Model
 {
     use HasFactory;
       protected $fillable=[
-        "path",
+        'position',
+        'description',
+        'path',
         'status',
     ];
 }
