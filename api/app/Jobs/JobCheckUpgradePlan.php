@@ -2,11 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Events\EventCheckUpgradePlan;
-use App\Models\Member;
-use Carbon\Carbon;
+use App\Services\Api\V1\SubscriptionExpiration;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -16,26 +13,8 @@ class JobCheckUpgradePlan implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     */
-    public function __construct()
+    public function handle(SubscriptionExpiration $expiration): void
     {
-        //
-    }
-
-    /**
-     * Execute the job.
-     */
-    public function handle(): void
-    {
-        $today = Carbon::now();
-
-    $expiredSubscriptions = Member::where('expire_at', '<', $today)->get();
-
-    foreach ($expiredSubscriptions as $subscription) {
-
-        event(new EventCheckUpgradePlan($subscription));
-    }
+        $expiration->expireCustomerPlans();
     }
 }

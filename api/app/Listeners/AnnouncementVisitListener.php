@@ -3,27 +3,18 @@
 namespace App\Listeners;
 
 use App\Events\AnnouncementVisitEvent;
-use App\Models\Announcement_visit;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Services\Api\V1\VisitRecorder;
 
 class AnnouncementVisitListener
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(private VisitRecorder $visits) {}
 
-    /**
-     * Handle the event.
-     */
     public function handle(AnnouncementVisitEvent $event): void
     {
-        Announcement_visit::create([
-            'announcement_id'=>$event->announcement->id,
-        ]);
+        if (! $event->announcement) {
+            return;
+        }
+
+        $this->visits->record($event->announcement);
     }
 }

@@ -17,8 +17,20 @@ class PublishedAnnouncementQuery
 
     public function base(): Builder
     {
+        $now = now();
+
         return Announcement::query()
             ->where('status', 1)
+            ->where(function (Builder $query) use ($now) {
+                $query->where('isSubscribe', 0)
+                    ->orWhereHas('membershipsUsers', function (Builder $membership) use ($now) {
+                        $membership->where('status', 1)->where('expire_at', '>=', $now);
+                    })
+                    ->orWhere(function (Builder $legacy) {
+                        $legacy->where('isSubscribe', 1)
+                            ->whereDoesntHave('membershipsUsers');
+                    });
+            })
             ->with(['town', 'quarter', 'category', 'images', 'User'])
             ->withCount('visits');
     }

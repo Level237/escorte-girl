@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Image;
 use App\Models\Quarter;
 use App\Models\Announcement_visit;
+use App\Models\Memberships_user;
 use App\Models\Review;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
@@ -59,6 +60,11 @@ protected $fillable=[
     }
     public function visits():HasMany{
         return $this->hasMany(Announcement_visit::class);
+    }
+
+    public function membershipsUsers(): HasMany
+    {
+        return $this->hasMany(Memberships_user::class);
     }
 
     public function reviews():HasMany{

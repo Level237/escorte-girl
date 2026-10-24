@@ -3,10 +3,6 @@
 namespace App\Console;
 
 
-use App\Jobs\JobCheckSubscription;
-use App\Jobs\JobCheckUpgradePlan;
-use App\Jobs\JobCkeckExpire;
-use App\Jobs\JobDeleteAnnounceBanAccount;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,12 +13,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-
-        // $schedule->command('inspire')->hourly();
-         $schedule->job(new JobCheckSubscription)->dailyAt('20:00');
-        $schedule->job(new JobCheckUpgradePlan)->dailyAt('20:30');
-        $schedule->job(new JobCkeckExpire)->dailyAt('20:40');
-        $schedule->job(new JobDeleteAnnounceBanAccount)->dailyAt('21:00');
+        $schedule->command('subscriptions:expire')
+            ->dailyAt('20:00')
+            ->timezone('Africa/Douala')
+            ->withoutOverlapping();
     }
 
     /**

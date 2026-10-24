@@ -522,6 +522,7 @@ class AdsController extends Controller
             $ad = ['data' => $found];
             $similar = [];
             if ($found) {
+                $this->recordUniqueVisit($request, $found[0]);
                 $similarResponse = Http::acceptJson()->get(UrlApiService::endpoint('v1/announcements/'.$found[0]['id'].'/similar'));
                 $similar = LegacyShape::announcements($similarResponse->json('data') ?? []);
             }
@@ -613,7 +614,37 @@ class AdsController extends Controller
 
     }
 
+    private function recordUniqueVisit(Request $request, array $ad): void
+    {
+        $id = $ad['id'] ?? null;
+        if (! $id) {
+            return;
+        }
 
+        $sessionKey = 'ad_visit_'.$id;
+        if (Session::get($sessionKey)) {
+            return;
+        }
 
+        $current = Session::get('currentUser');
+        $ownerId = $ad['user']['id'] ?? null;
+        if ($current && $ownerId && (int) $current->id === (int) $ownerId) {
+            Session::put($sessionKey, true);
 
+            return;
+        }
+
+        try {
+            $visitor = hash('sha256', trim((string) $request->ip()).'|'.strtolower(trim((string) $request->userAgent())));
+            $response = Http::acceptJson()->post(UrlApiService::endpoint('v1/announcements/'.$id.'/visits'), [
+                'visitor' => $visitor,
+            ]);
+
+            if ($response->successful()) {
+                Session::put($sessionKey, true);
+            }
+        } catch (\Exception $e) {
+            // A failed visit must not block the profile page.
+        }
+    }
 }

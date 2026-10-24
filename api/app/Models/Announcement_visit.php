@@ -10,6 +10,7 @@ class Announcement_visit extends Model
     use HasFactory;
 
     protected $fillable=[
-        'announcement_id'
+        'announcement_id',
+        'visitor_hash',
     ];
 }

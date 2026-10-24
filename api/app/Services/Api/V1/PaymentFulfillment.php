@@ -32,7 +32,7 @@ class PaymentFulfillment
             $expires = $this->expiresAt($membership);
             $announcement->status = 1;
             $announcement->isSubscribe = 1;
-            $announcement->expire = null;
+            $announcement->expire = $expires;
             $announcement->subscribe_id = $membership->id;
             $announcement->save();
 

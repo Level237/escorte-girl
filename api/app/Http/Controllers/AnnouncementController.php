@@ -106,10 +106,7 @@ class AnnouncementController extends Controller
 
         $user=User::where('username',$name)->first();
 
-        $announce=AnnounceResource::collection(Announcement::where("user_id",$user->id)->where('slug',$slug)->get());
-        $a=Announcement::where("user_id",$user->id)->where('slug',$slug)->first();
-        $event=event(new AnnouncementVisitEvent($a));
-        return $announce;
+        return AnnounceResource::collection(Announcement::where("user_id",$user->id)->where('slug',$slug)->get());
     }
 
      public function getSimilarAds($name,$slug){

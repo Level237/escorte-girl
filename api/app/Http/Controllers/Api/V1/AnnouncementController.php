@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Events\AnnouncementVisitEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\AnnouncementResource;
 use App\Http\Resources\V1\ReviewResource;
 use App\Models\Announcement;
 use App\Models\User;
 use App\Services\Api\V1\PublishedAnnouncementQuery;
+use App\Services\Api\V1\VisitRecorder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\DB;
 
 class AnnouncementController extends Controller
 {
-    public function __construct(private PublishedAnnouncementQuery $announcements) {}
+    public function __construct(
+        private PublishedAnnouncementQuery $announcements,
+        private VisitRecorder $visits,
+    ) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {
@@ -72,10 +75,6 @@ class AnnouncementController extends Controller
             ->where('slug', $data['slug'])
             ->get();
 
-        if ($ads->isNotEmpty()) {
-            event(new AnnouncementVisitEvent($ads->first()));
-        }
-
         return AnnouncementResource::collection($ads);
     }
 
@@ -97,9 +96,13 @@ class AnnouncementController extends Controller
         return AnnouncementResource::collection($ads);
     }
 
-    public function visit(Announcement $announcement): Response
+    public function visit(Request $request, Announcement $announcement): Response
     {
-        event(new AnnouncementVisitEvent($announcement));
+        $data = $request->validate([
+            'visitor' => ['sometimes', 'nullable', 'string', 'max:128'],
+        ]);
+
+        $this->visits->record($announcement, $data['visitor'] ?? null, $request);
 
         return response()->noContent();
     }
