@@ -25,27 +25,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('*', function ($view)
-        {
+        view()->composer('*', function ($view) {
+            static $shared;
 
-            $view->with('apiUrl', UrlApiService::base());
-            $userBalance=(new CurrentUserService())->currentUser();
-            //$check=(new CheckSubscribeService())->check();
-            //$check=(new CheckSubscribeService())->checkAds();
-            $balance=$userBalance->balance ?? null;
-            $subscribeOrNot=$userBalance->isSubscribe ?? null;
-            $view->with('user', $userBalance );
-            $view->with('userBalance', $balance );
-            $view->with('subscribeOrNot', $subscribeOrNot );
-            //Retrieving banners
-            $banners = (new BannerService())->banners();
-            $view->with('banners', $banners );
-            $data = (new AdsService())->index();
-            if($data){
-                $numberAdsByTowns = $data[0];
-                $view->with('numberAdsByTowns', $numberAdsByTowns );
+            if ($shared === null) {
+                $user = (new CurrentUserService())->currentUser();
+                $towns = (new AdsService())->index();
+
+                $shared = [
+                    'apiUrl' => UrlApiService::base(),
+                    'user' => $user,
+                    'userBalance' => $user->balance ?? null,
+                    'subscribeOrNot' => $user->isSubscribe ?? null,
+                    'banners' => (new BannerService())->banners(),
+                    'numberAdsByTowns' => is_array($towns) && isset($towns[0]) ? $towns[0] : [],
+                ];
             }
 
+            $view->with($shared);
         });
     }
 }

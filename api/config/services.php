@@ -37,4 +37,9 @@ return [
         'plans' => env('COOLPAY_PLANS_PUBLIC_KEY', 'e2743f08-469a-4945-ae2b-d5a724ec75ae'),
     ],
 
+    'passport' => [
+        'password_client_id' => env('PASSPORT_PASSWORD_CLIENT_ID', 2),
+        'password_client_secret' => env('PASSPORT_PASSWORD_CLIENT_SECRET', 'JEqpOXFF3Bgt3ND2UzbnuBjuhgIOtGGFJwb377rl'),
+    ],
+
 ];

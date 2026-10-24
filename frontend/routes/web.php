@@ -205,6 +205,7 @@ Route::middleware(['checkAge'])->group(function () {
 
 // le middleware preventBack permet de proteger les routes de connexion et d'inscription lorsque un utilisateur est connecté
     Route::get('/register', [CreateUserController::class, 'create'])->name("register")->middleware('preventBack');
+    Route::post('/register', [CreateUserController::class, 'store'])->name('register.store')->middleware('preventBack');
     Route::get('/login',[LoginViewController::class,'getViewLogin'])->middleware('preventBack');
 
 //middleware user

@@ -82,8 +82,9 @@ class User extends Authenticatable implements Searchable
         return $this->hasOne(Role::class);
     }
 
-     public function town():HasOne{
-        return $this->hasOne(Town::class);
+     public function town(): BelongsTo
+    {
+        return $this->belongsTo(Town::class);
     }
 
     public function questions():BelongsToMany{

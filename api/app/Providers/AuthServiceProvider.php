@@ -20,6 +20,12 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
+    public function register(): void
+    {
+        Passport::$clientUuids = false;
+        Passport::enablePasswordGrant();
+    }
+
     public function boot(): void
     {
         $this->registerPolicies();

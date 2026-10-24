@@ -31,18 +31,28 @@ class LegacyShape
             $row['isSubscribe'] = $row['is_subscribed'] ? 1 : 0;
         }
 
+        if (isset($row['user']) && is_array($row['user']) && ! array_key_exists('isVerify', $row['user'])) {
+            $row['user']['isVerify'] = ! empty($row['user']['is_verified']) ? 1 : 0;
+        }
+
         return $row;
     }
 
     public static function user(array $row): object
     {
+        $town = $row['town'] ?? null;
+
         return (object) [
             'id' => $row['id'] ?? null,
             'username' => $row['username'] ?? null,
             'email' => $row['email'] ?? null,
             'phone_number' => $row['phone_number'] ?? null,
             'role_id' => $row['role_id'] ?? null,
-            'town_id' => $row['town_id'] ?? null,
+            'town_id' => $row['town_id'] ?? ($town['id'] ?? null),
+            'town' => (object) [
+                'id' => is_array($town) ? ($town['id'] ?? null) : ($row['town_id'] ?? null),
+                'town_name' => is_array($town) ? ($town['town_name'] ?? '') : '',
+            ],
             'balance' => $row['balance'] ?? null,
             'isSecure' => ! empty($row['is_secure']) ? 1 : 0,
             'isVerify' => ! empty($row['is_verified']) ? 1 : 0,

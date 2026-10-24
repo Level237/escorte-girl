@@ -27,7 +27,7 @@ class FilterController extends Controller
             if ($request->filled('quarter')) {
                 $query['quarter_id'] = $request->quarter;
             }
-            $tiers = [0 => 'free', 1 => 'premium', 2 => 'gold', 3 => 'vip'];
+            $tiers = [0 => 'free', 1 => 'premium', 2 => 'gold', 3 => 'vip', 4 => 'free'];
             if ($request->filled('subscribe_id') && isset($tiers[(int) $request->subscribe_id])) {
                 $query['tier'] = $tiers[(int) $request->subscribe_id];
             }

@@ -18,7 +18,7 @@ class AccountController extends Controller
 {
     public function show(): UserResource
     {
-        return new UserResource($this->user());
+        return new UserResource($this->user()->loadMissing('town'));
     }
 
     public function update(Request $request): UserResource
@@ -45,7 +45,7 @@ class AccountController extends Controller
 
         $user->save();
 
-        return new UserResource($user);
+        return new UserResource($user->loadMissing('town'));
     }
 
     public function securityQuestion(Request $request): JsonResponse

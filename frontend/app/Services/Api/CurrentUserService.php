@@ -11,7 +11,11 @@ class CurrentUserService
     {
         try {
             $token = Session::get('tokenUser');
-            $response = Http::retry(3, 400, throw: false)
+            if (! $token) {
+                return null;
+            }
+
+            $response = Http::retry(2, 200, throw: false)
                 ->withToken($token)
                 ->acceptJson()
                 ->get(UrlApiService::endpoint('v1/me'));

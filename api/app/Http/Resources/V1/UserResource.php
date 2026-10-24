@@ -16,6 +16,10 @@ class UserResource extends JsonResource
             'phone_number' => $this->phone_number,
             'role_id' => $this->role_id,
             'town_id' => $this->town_id,
+            'town' => $this->town ? [
+                'id' => $this->town->id,
+                'town_name' => $this->town->town_name,
+            ] : null,
             'balance' => $this->balance,
             'is_secure' => (bool) $this->isSecure,
             'is_verified' => (bool) $this->isVerify,

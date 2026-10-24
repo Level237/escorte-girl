@@ -19,6 +19,7 @@ class AdsService
             $towns = array_map(function ($row) {
                 return [
                     'id' => $row['town_id'] ?? $row['id'] ?? null,
+                    'town_id' => $row['town_id'] ?? $row['id'] ?? null,
                     'town_name' => $row['town_name'] ?? '',
                     'totalAnnounces' => $row['count'] ?? $row['totalAnnounces'] ?? 0,
                 ];
@@ -52,6 +53,38 @@ class AdsService
         }
     }
 
+    public function homeShelves(): array
+    {
+        $url = UrlApiService::endpoint('v1/announcements');
+
+        try {
+            $responses = Http::pool(fn ($pool) => [
+                $pool->as('vip')->acceptJson()->get($url, ['tier' => 'vip', 'per_page' => 100]),
+                $pool->as('gold')->acceptJson()->get($url, ['tier' => 'gold', 'per_page' => 100]),
+                $pool->as('home')->acceptJson()->get($url, ['tier' => 'home']),
+            ]);
+        } catch (\Exception $e) {
+            return ['vip' => [], 'gold' => [], 'home' => []];
+        }
+
+        return [
+            'vip' => $this->fromResponse($responses['vip'] ?? null),
+            'gold' => $this->fromResponse($responses['gold'] ?? null),
+            'home' => $this->fromResponse($responses['home'] ?? null),
+        ];
+    }
+
+    private function fromResponse($response): array
+    {
+        if (! is_object($response) || ! method_exists($response, 'successful') || ! $response->successful()) {
+            return [];
+        }
+
+        $rows = $response->json('data') ?? [];
+
+        return is_array($rows) ? LegacyShape::announcements($rows) : [];
+    }
+
     public function homeAds()
     {
         return $this->collection('v1/announcements', ['tier' => 'home']);
@@ -80,10 +113,21 @@ class AdsService
     public function owned()
     {
         try {
-            $rows = Http::withToken(Session::get('tokenUser'))
+            $response = Http::withToken(Session::get('tokenUser'))
                 ->acceptJson()
-                ->get(UrlApiService::endpoint('v1/me/announcements'))
-                ->json('data') ?? [];
+                ->get(UrlApiService::endpoint('v1/me/announcements'));
+
+            if (! $response->successful()) {
+                return null;
+            }
+
+            $rows = $response->json('data') ?? [];
+            if (! is_array($rows)) {
+                $rows = [];
+            }
+            if ($rows !== [] && array_is_list($rows) === false && isset($rows['id'])) {
+                $rows = [$rows];
+            }
 
             return ['data' => LegacyShape::announcements($rows)];
         } catch (\Exception $e) {

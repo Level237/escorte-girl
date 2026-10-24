@@ -55,14 +55,30 @@ class StatService
 
     private function object(string $path): object
     {
-        $data = $this->get($path)['data'] ?? [];
+        $data = $this->payload($path);
 
-        return (object) $data;
+        return (object) [
+            'monthly' => $data['monthly'] ?? 0,
+            'percent' => $data['percent'] ?? 0,
+            'total' => $data['total'] ?? 0,
+        ];
     }
 
     private function total(string $path)
     {
-        return $this->get($path)['data']['total'] ?? 0;
+        return $this->payload($path)['total'] ?? 0;
+    }
+
+    private function payload(string $path): array
+    {
+        $json = $this->get($path);
+        $data = $json['data'] ?? $json;
+
+        if (is_array($data) && isset($data['data']) && is_array($data['data']) && ! array_key_exists('monthly', $data) && ! array_key_exists('total', $data)) {
+            $data = $data['data'];
+        }
+
+        return is_array($data) ? $data : [];
     }
 
     private function get(string $path): array
@@ -71,6 +87,8 @@ class StatService
             ->acceptJson()
             ->get(UrlApiService::endpoint($path));
 
-        return $response->json() ?? [];
+        $json = $response->json();
+
+        return is_array($json) ? $json : [];
     }
 }

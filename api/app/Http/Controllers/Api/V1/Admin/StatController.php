@@ -69,7 +69,11 @@ class StatController extends Controller
     public function towns(): JsonResponse
     {
         $towns = Town::query()
-            ->withCount(['ads as count' => fn ($query) => $query->where('status', 1)])
+            ->withCount([
+                'ads as count' => fn ($query) => $query->where('status', 1),
+                'users',
+                'users as escorts_count' => fn ($query) => $query->where('role_id', 2),
+            ])
             ->orderByDesc('count')
             ->limit(5)
             ->get(['id', 'town_name'])
@@ -77,6 +81,9 @@ class StatController extends Controller
                 'id' => $town->id,
                 'town_name' => $town->town_name,
                 'count' => $town->count,
+                'ads' => $town->count,
+                'users' => $town->users_count,
+                'escorts' => $town->escorts_count,
             ]);
 
         return response()->json(['data' => $towns]);

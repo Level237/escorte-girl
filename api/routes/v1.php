@@ -52,13 +52,6 @@ Route::prefix('v1')->name('v1.')->middleware('json')->group(function () {
         Route::get('me/payments', [AccountController::class, 'payments'])->name('me.payments');
         Route::post('payments/credits', [PaymentController::class, 'credits'])->name('payments.credits');
         Route::get('payments/{transaction_ref}', [PaymentController::class, 'show'])->name('payments.show');
-    });
-
-    Route::middleware(['auth:api', 'ban', 'scopes:escort'])->group(function () {
-        Route::get('me/escort', [EscortProfileController::class, 'show'])->name('me.escort.show');
-        Route::put('me/escort', [EscortProfileController::class, 'update'])->name('me.escort.update');
-        Route::put('me/escort/services', [EscortProfileController::class, 'services'])->name('me.escort.services');
-        Route::post('me/escort/images', [EscortProfileController::class, 'images'])->name('me.escort.images');
 
         Route::get('me/announcements', [OwnedAnnouncementController::class, 'index'])->name('me.announcements.index');
         Route::post('me/announcements', [OwnedAnnouncementController::class, 'store'])->name('me.announcements.store');
@@ -66,8 +59,15 @@ Route::prefix('v1')->name('v1.')->middleware('json')->group(function () {
         Route::delete('me/announcements/{announcement}', [OwnedAnnouncementController::class, 'destroy'])->name('me.announcements.destroy');
         Route::post('me/announcements/{announcement}/images', [OwnedAnnouncementController::class, 'images'])->name('me.announcements.images');
         Route::delete('me/announcements/{announcement}/images/{image}', [OwnedAnnouncementController::class, 'destroyImage'])->name('me.announcements.images.destroy');
-        Route::post('payments/boosts', [PaymentController::class, 'boost'])->name('payments.boosts');
         Route::post('me/announcements/{announcement}/subscription', [CreditSubscriptionController::class, 'announcement'])->name('me.announcements.subscription');
+    });
+
+    Route::middleware(['auth:api', 'ban', 'scopes:escort'])->group(function () {
+        Route::get('me/escort', [EscortProfileController::class, 'show'])->name('me.escort.show');
+        Route::put('me/escort', [EscortProfileController::class, 'update'])->name('me.escort.update');
+        Route::put('me/escort/services', [EscortProfileController::class, 'services'])->name('me.escort.services');
+        Route::post('me/escort/images', [EscortProfileController::class, 'images'])->name('me.escort.images');
+        Route::post('payments/boosts', [PaymentController::class, 'boost'])->name('payments.boosts');
     });
 
     Route::middleware(['auth:api', 'ban', 'scopes:customer'])->group(function () {

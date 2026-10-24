@@ -1,1455 +1,223 @@
-@extends('layouts.Frontend.master')
+@extends('layouts.home')
 @section('title', 'Viens Yamo')
-@section("meta_title","Annonces d'escortes girls au cameroun")
-@section('meta_description',"Viens-Yamo Le géant de l'escorte girls et boys")
-@section("meta_image",asset('assets/meta/home.png'))
+@section('meta_title', "Annonces d'escortes girls au cameroun")
+@section('meta_description', "Viens-Yamo Le géant de l'escorte girls et boys")
+@section('meta_image', asset('assets/meta/home.png'))
+
 @section('content')
+    @if (isset($banners))
+        @foreach ($banners as $banner)
+            @if (($banner['position'] ?? '') === 'header_promo' && (int) ($banner['status'] ?? 0) === 1)
+                <div class="mx-auto max-w-6xl px-4 pt-6">
+                    <img src="{{ route('display.banner', ['id' => $banner['id']]) }}" alt="" class="w-full">
+                </div>
+            @endif
+        @endforeach
+    @endif
 
-<style>
+    <section class="mx-auto max-w-6xl px-4 pb-8 pt-6">
+        <form method="get" action="{{ route('search') }}" class="md:hidden">
+            <label class="relative block">
+                <span class="sr-only">{{ __('Search') }}</span>
+                <input type="text" name="s" required placeholder="{{ __('Search') }}" class="w-full rounded-full border border-line bg-white px-4 py-3 pr-12 outline-none focus:border-ink">
+                <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2" aria-label="{{ __('Search') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </button>
+            </label>
+        </form>
 
+        <p class="mt-6 text-lg font-semibold">{{ __('Viens-Yamo The giant of escort girls and boys') }}</p>
 
+        @if (isset($numberAdsByTowns) && count($numberAdsByTowns))
+            <ul class="mt-4 flex flex-wrap gap-2">
+                @foreach ($numberAdsByTowns as $town)
+                    @if ($loop->index < 3)
+                        <li>
+                            <a href="{{ route('ads.town', ['id' => $town['town_id'] ?? $town['id']]) }}" class="inline-block rounded-full border border-line bg-white px-3 py-1.5 text-sm">
+                                {{ $town['town_name'] }} ({{ $town['totalAnnounces'] }})
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
+                <li>
+                    <a href="{{ route('adstown') }}" class="inline-block rounded-full border border-ink px-3 py-1.5 text-sm font-semibold">Autres villes</a>
+                </li>
+            </ul>
+        @endif
 
-  .cardbox {
-    padding: 30px;
-}
-.cardbox {
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.035);
-    border: 1px solid #dee2e6;
-    text-align: center;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-
-.fa-map-marker:before {
-    content: "\f041";
-}
-</style>
-
-<html>
-  <body>
-@include('utils.utils')
-
-
-<div class=" bg-white navbar-light border-bottom" data-block-id="header">
-
-
-  <div class="my-3 text-center">
-          @if (isset($banners))
-
-              @foreach ($banners as $banner)
-                  @if($banner['position'] == 'header_promo' && $banner['status'] == 1)
-                      <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src="{{ route('display.banner',['id'=>$banner['id']] )}}"
-                        class='img-fluid' alt='sample banner'>
-                      </a>
-                  @endif
-              @endforeach
-
-          @endif
-
-
-      </div>
-  <div class="container h-100 px-0 show-mobile">
-        <div class="suha-footer-nav h-100">
-          <ul class="h-100 list-unstyled d-flex align-items-center justify-content-between pl-0">
-
-          <li><a href="{{ route('db.escort.index') }}" class="">
-                <i class="fa fa-user" style="color: #ED5858;"></i>{{ __("My Account")}}</a></li>
-
-          <li><a href="{{ route('ads.create') }}" class="">
-                <i class="fal fa-plus-circle" style="color: #ED5858;"></i> {{ __("Create ad")}}</a></li>
-          <li><a href="{{ route('ads.list') }}" class="">
-                <i class="fal fa-sparkles" style="color: #ED5858;"></i>{{ __("Ads")}} </a></li>
-
-       
-
-
-
-          </ul>
-        </div>
-   </div>
-
-   <div class="position-relative filter-keyword show-mobile" style="margin: 25px 25px;">
-
-	 <form method="get" action="{{ route('search') }}" >
-                  @csrf
-			<input type="text" class="form-control shadow-sm"
-			required name="s" data-type="text" data-type="text"
-			data-key="keyword" autocomplete="on"  data-formatted-text="Keyword"
-			placeholder="{{ __('Search')}}.." value="" style="height:50px;">
-
-
-			  <button class="btn iconbit" type="submit"
-			style="position:absolute; top:5px; right:5px;" >
-
-				  <span ppt-icon-24 data-ppt-icon-size="24">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-				stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round"
-				stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-			  </span>
-
-			  </button>
-		</form>
-
-	</div>
-
-       <div class="container show-mobile">
-         <div class="d-flex justify-content-center">
-            <div class=>
-
-            <div class>
-      <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire"
-      target="_blank" class="btn-md  mt-2" data-ppt-btn="" style="background-color: #F44336; color:white" data-ppt-btn-link=""
-                 class="btn-system">{{ __("Need help registering? click here")}} </a>
-
-            </div>
-            <div>
-
-            </div>
-         </div>
-
-      </div>
-      </div>
-
-
-      <br>
- <div class="show-mobile mb-3 mt-2">
-  <div class="container ">
-
-        <a href="#">{{ __("Viens-Yamo The giant of escort girls and boys")}}  </a>
-
-    @if(isset($numberAdsByTowns))
-
-
-		<div class="row">
-			@forelse ( $numberAdsByTowns as $numberAdsByTown )
-
-		      @if($loop->index < 3)
-
-
-				<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('ads.town', ['id'=>$numberAdsByTown['town_id'] ]) }}" >
-						{{ $numberAdsByTown['town_name'] }} ({{ $numberAdsByTown['totalAnnounces']  }})
-				    </a>
-				</div>
-
-
-
-			@endif
-					@empty
-
-			@endforelse
-      @endif
-			<div class="col-6" style="margin-top:10px">
-					<i class="fa fa-map-marker"></i><a href="{{ route('adstown') }}" >
-						Autres Villes
-				    </a>
-				</div>
-
-		</div>
-  </div>
-
-
-
-
-</div>
-
-</div>
-
-
-@if (Session::has('checkAge'))
-  <input type="hidden" id="checkAge" value="true">
-@else
-<input type="hidden" id="checkAge" value="false">
-  <!-- Modal -->
-<div class="modal fade" id="CheckAgeModal" tabindex="-1"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" >
-    <div class="modal-content" style="background-color: #1a1c1e">
-
-      <div class="modal-body text-center">
-
-         <div class="row justify-content-center" style="color: red; font-size:50px; font-weight:bold">
-            21+
-          </div>
-          <div class="row justify-content-center" style="padding-left: 20px; padding-right:20px">
-               <span class="text-white">{{ __("Viens-Yamo The giant of escort girls and boys")}}  <br>
-            {{ __("This site uses cookies only to analyze traffic")}}</span>
-          </div>
-          <hr>
-          <div class="row justify-content-center" >
-             <a href="http://www.google.com">
-              <button type="button" class="btn btn-secondary">
-                <i class="fa fa-arrow-left"></i>&nbsp; {{ __("LEAVE")}}</button>
-             </a> &nbsp;
-        <a href="#">
-          <button type="button" class="btn btn-primary" id="button-session" data-bs-dismiss="modal">
-          <i class="fa fa-check" aria-hidden="true"></i>&nbsp; {{ __("I AM AT LEAST 21 YEARS OLD")}}</button>
-
+        <a href="https://api.whatsapp.com/send?phone=18328820957&text=Hello j'ai besoin d'aide pour m'inscrire" target="_blank" rel="noopener" class="mt-5 inline-block rounded-full bg-coral px-4 py-2 text-sm font-semibold text-paper md:hidden">
+            {{ __('Need help registering? click here') }}
         </a>
-          </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-@endif
-
-
-
-
-@if(count ($vipAds))
-<section data-ppt-blockid="hero3" data-ppt-blocktype="hero" data-ppt-section=""
-    class="position-relative " data-overlay="gradient-left">
-
-
-    <div class="container position-relative z-10 py-0 py-sm-5 _contents">
-            <div class="row align-items-center">
-
-
-
-
-
-                            <div class="col-lg-12 text-light">
-                                <h1 data-ppt-title=""> {{ __("ULTRA VIP Ads")}} 
-                                </h1> <br/>
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                            <ol class="carousel-indicators">
-                                                @php
-                                                    $countVip=count($vipAds);
-                                                    $numberCaroussel=$countVip/2;
-
-                                                @endphp
-                                                @if($countVip%2===1)
-                                                @php
-                                                    $numberCaroussel=($numberCaroussel+1) - 0.5;
-                                                @endphp
-
-                                                @endif
-
-                                                @for($i = 1; $i < $numberCaroussel; $i++)
-                                                @if($i===1)
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="active"></li>
-                                                @endif
-
-                                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}"></li>
-                                                @endfor
-
-                                            </ol>
-                                            <div class="carousel-inner">
-
-
-
-                                                        @if(count($vipAds) > 0)
-                                                            @for($i=0; $i <=count($vipAds)-1 ; $i=$i+2)
-                                                                <div class="carousel-item @if($i===0)
-                                                                active
-                                                                @endif">
-                                                                    <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-                                                                        <div class="container">
-                                                                            <div class="row">
-
-                                                                            <div class="col-12">
-                                                                                <div class='row'>
-
-                                                                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                                                                                        <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                                                                                        data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                                                                                            <figure>
-
-                                                                                            <div class="button-featured-new-wrap es">
-                                                                                                <div class="button-featured-new">ULTRA VIP</div>
-                                                                                            </div>
-
-                                                                                            <div class="buttons-wrap">
-
-
-
-                                                                                            <div class="button-new" style="background-color: #DA9DDC">{{ $vipAds[$i]['age'] }} {{ __("Years")}}</div>
-
-                                                                                            </div>
-                                                                                            <a href="{{ route('ads.details', ['username' => $vipAds[$i]['user']['username'],'slug'=>$vipAds[$i]['slug']]) }}">
-
-                                                                                            <div ppt-border1="" class="p-1">
-
-                                                                                                <div class="search-gradient"> </div>
-
-                                                                                                <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                                                                                                <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                                                                                    <div class="text-white fs-4 text-600">
-
-                                                                                                            </div>
-                                                                                                    <div class="fs-sm text-white opacity-5 text-400">
-                                                                                                    {{ truncate($vipAds[$i]['title'],30) }}  
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['id']] )}}">
-                                                                                                     
-                                                                                                </div>
-
-                                                                                            <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                                                                                                <div class="badge" style="color:white;background-color:black;">
-                                                                                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i]['town']['town_name']) }}   </div>
-																								@if($vipAds[$i]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}   </div>
-																								@endif
-
-                                                                                            </div>
-
-
-                                                                                                </div>
-
-
-                                                                                            </div>
-                                                                                            </a>
-
-
-                                                                                            </figure>
-
-                                                                                            </div>
-
-
-
-                                                                                            <div class="show-mobile">
-                                                                                            <div class="position-relative mb-3">
-                                                                                                <a href="{{ route('ads.details', ['username' => $vipAds[$i]['user']['username'],'slug'=>$vipAds[$i]['slug']]) }}">
-                                                                                                <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                                                                                                <div class="h-100 position-relative">
-                                                                                                    <figure>
-
-
-                                                                                                        <div class="buttons-wrap">
-
-                                                                                                            <div class="button-new"
-                                                                                                            style="background-color: #DA9DDC; font-size:10px;">{{ $vipAds[$i]['age'] }} {{ __("Years")}} </div>
-
-                                                                                                        </div>
-                                                                                                        <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                                                                                    <div class="fs-sm text-white  text-600">
-                                                                                                                    {{ ucfirst($vipAds[$i]['town']['town_name']) }}  
-                                                                                                                    </div>
-                                                                                                        </div>
-                                                                                                        <div class="bg-image z-0"
-                                                                                                        data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i]['id'], 'path'=>$vipAds[$i]['images'][0]['id']] )}}"> 
-                                                                                                        </div>
-                                                                                                        <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
-                                                                                                        <div class="badge" style="color:#fff;background-color:red;">
-                                                                                                        <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
-
-																										@if($vipAds[$i]['user']['isVerify']== 1)
-																										<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-																										<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}   </div>
-																										@endif
-
-
-                                                                                                    </div>
-                                                                                                        </figure>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                </a>
-                                                                                                <div class="lh-20 " style="margin-top:20px;">
-                                                                                                        <span class="text-online">•</span>
-                                                                                                        <a href="{{ route('ads.details', ['username' => $vipAds[$i]['user']['username'],'slug'=>$vipAds[$i]['slug']]) }}" class="text-white">
-                                                                                                        {{ truncate($vipAds[$i]['title'],15) }}</span></a>
-                                                                                                </div>
-
-                                                                                            </div>
-                                                                                            </div>
-
-                                                                                    </div>
-                                                                                    @if($i<=count($vipAds)-2)
-                                                                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                                                                                      <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                                                                                      data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                                                                                          <figure>
-
-
-                                                                                          <div class="button-featured-new-wrap es">
-                                                                                              <div class="button-featured-new">ULTRA VIP</div>
-                                                                                          </div>
-
-
-                                                                                          <div class="buttons-wrap">
-
-
-
-                                                                                          <div class="button-new" style="background-color: #DA9DDC">{{ $vipAds[$i+1]['age'] }} {{ __("Years")}} </div>
-
-                                                                                          </div>
-                                                                                          <a href="{{ route('ads.details', ['username' => $vipAds[$i+1]['user']['username'],'slug'=>$vipAds[$i+1]['slug']]) }}">
-
-
-                                                                                          <div ppt-border1="" class="p-1">
-
-                                                                                              <div class="search-gradient"> </div>
-
-                                                                                              <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                                                                                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                                                                                  <div class="text-white fs-4 text-600">
-
-                                                                                                          </div>
-                                                                                                  <div class="fs-sm text-white opacity-5 text-400">
-                                                                                                  {{ truncate($vipAds[$i+1]['title'],30) }}  
-                                                                                                  </div>
-                                                                                              </div>
-                                                                                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['id']] )}}">
-                                                                                                   
-                                                                                              </div>
-
-                                                                                          <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                                                                                              <div class="badge" style="color:white;background-color:black;">
-                                                                                              <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($vipAds[$i+1]['town']['town_name']) }}   </div>
-																							  @if($vipAds[$i+1]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}   </div>
-																								@endif
-
-                                                                                          </div>
-
-
-                                                                                              </div>
-
-
-                                                                                          </div>
-                                                                                          </a>
-
-
-                                                                                          </figure>
-
-                                                                                          </div>
-
-
-
-                                                                                          <div class="show-mobile">
-                                                                                          <div class="position-relative mb-3">
-
-                                                                                                <a href="{{ route('ads.details', ['username' => $vipAds[$i+1]['user']['username'],'slug'=>$vipAds[$i+1]['slug']]) }}">
-                                                                                              <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                                                                                              <div class="h-100 position-relative">
-                                                                                                  <figure>
-
-
-                                                                                                      <div class="buttons-wrap">
-
-                                                                                                          <div class="button-new"
-                                                                                                          style="background-color: #DA9DDC; font-size:10px;">{{ $vipAds[$i+1]['age'] }} {{ __("Years")}}</div>
-
-                                                                                                      </div>
-                                                                                                      <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                                                                                  <div class="fs-sm text-white  text-600">
-                                                                                                                  {{ ucfirst($vipAds[$i+1]['town']['town_name']) }}  
-                                                                                                                  </div>
-                                                                                                      </div>
-                                                                                                      <div class="bg-image z-0"
-                                                                                                      data-bg="{{ route('display.ads.image',['id'=>$vipAds[$i+1]['id'], 'path'=>$vipAds[$i+1]['images'][0]['id']] )}}"> 
-                                                                                                      </div>
-                                                                                                      <div ppt-search-badges="" style="z-index:1, border-radius:80%" class="right">
-                                                                                                      <div class="badge" style="color:#fff;background-color:red;">
-                                                                                                      <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA </br> VIP  </div>
-																								@if($vipAds[$i+1]['user']['isVerify']== 1)
-																								<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-																								<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}  </div>
-																								@endif
-
-                                                                                                  </div>
-                                                                                                      </figure>
-
-                                                                                                  </div>
-                                                                                              </div>
-                                                                                              </a>
-                                                                                              <div class="lh-20 " style="margin-top:20px;">
-                                                                                                      <span class="text-online">•</span>
-                                                                                                      <a href="{{ route('ads.details', ['username' => $vipAds[$i+1]['user']['username'],'slug'=>$vipAds[$i+1]['slug']]) }}" class="text-white">
-                                                                                                          {{ truncate($vipAds[$i+1]['title'],15) }}</span></a>
-                                                                                              </div>
-
-                                                                                          </div>
-                                                                                          </div>
-
-                                                                                  </div>
-                                                                                    @endif
-
-
-
-
-                                                                                </div>
-                                                                            </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </section>
-                                                                </div>
-                                                            @endfor
-                                                        @endif
-
-                                    </div>
-                                    @if(count($vipAds) >2)
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                      <div class="carousel-nav-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
-                                          <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM11.289,4.3,12.711,5.7l-4.3,4.344L12.7,14.289,11.3,15.711,5.586,10.063Z"/>
-                                        </svg>
-                                      </div>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                       <div class="carousel-nav-icon">
-                                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
-                                          <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"/>
-                                        </svg>
-                                      </div>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                    @endif
-
-                            </div>
-
-
-
-
-
-
-
-            </div>
-            </div>
-    </div>
-
-        <div class="bg-image" style="background-image:url('{{ asset('assets/images/hero/hero4.png') }}');" data-ppt-image-bg=""
-        data-bg="{{ asset('assets/images/hero/hero4.png') }}"> </div>
-
-</section>
-@endif
-<div class="my-3 text-center">
-          @if (isset($banners))
-
-              @foreach ($banners as $banner)
-                  @if($banner['position'] == 'home_top' && $banner['status'] == 1)
-                      <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src='{{ route('display.banner',['id'=>$banner['id']] )}}'
-                        class='img-fluid' alt='sample banner'>
-                      </a>
-                  @endif
-              @endforeach
-
-          @endif
-
-
-      </div>
-
-@if (count($goldAds))
-
-
-<div class="container mt-5">
-    <div class="row">
-          <div class="col-lg-12">
-        <div class="d-flex justify-content-between">
-          <h2 class="mb-1" data-ppt-title="">{{ __("GOLD Ads")}}</h2>
-          <div>
-                        <a href="{{ route('ads.list', ['membership' => 2]) }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">{{ __("View All")}}</a>
-                      </div>
-        </div>
-      </div>
-
-	  </div>
-</div>
-@endif
-
-@if (count($goldAds))
-<div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="10000">
-  <ol class="carousel-indicators">
-    @php
-        $countgold=count($goldAds);
-        $numberCarousselGold=$countgold/2;
-
-    @endphp
-    @if($countgold%2===1)
-    @php
-        $numberCarousselGold=($numberCarousselGold+1) - 0.5;
-    @endphp
-
-    @endif
-
-    @for($i = 1; $i < $numberCarousselGold; $i++)
-    @if($i===1)
-        <li data-target="#carouselExampleIndicators1" data-slide-to="{{ $i }}" class="active"></li>
-    @endif
-
-        <li data-target="#carouselExampleIndicators1" data-slide-to="{{ $i }}"></li>
-    @endfor
-
-</ol>
-  <div class="carousel-inner">
-
-
-
-    @if(count($goldAds) > 0)
-    @for($i=0; $i <=count($goldAds)-1; $i=$i+4)
-    <div class="carousel-item @if($i===0)
-    active
-    @endif">
-        <section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-      <div class="container">
-        <div class="row">
-
-        <div class="col-12">
-            <div class='row'>
-
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                    <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                    data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                          <figure>
-
-
-                        <div class="buttons-wrap">
-
-                            <div class="button-new">GOLD</div>
-
-                        </div>
-                        <a href="{{ route('ads.details', ['username' => $goldAds[$i]['user']['username'],'slug'=>$goldAds[$i]['slug']]) }}">
-
-                          <div ppt-border1="" class="p-1">
-
-                            <div class="search-gradient"> </div>
-
-                            <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                <div class="text-white fs-4 text-600">
-
-                                          </div>
-                                <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($goldAds[$i]['title'],30) }}  
-                                </div>
-                              </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['id']] )}}">
-                                 
-                              </div>
-
-                        <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                            <div class="badge" style="color:white;background-color:black">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i]['town']['town_name']) }}   </div>
-
-							@if($goldAds[$i]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-                        </div>
-
-
-                            </div>
-
-
-                          </div>
-                        </a>
-
-
-                        </figure>
-
-                        </div>
-
-
-
-                        <div class="show-mobile">
-                          <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['username' => $goldAds[$i]['user']['username'],'slug'=>$goldAds[$i]['slug']]) }}">
-                            <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                              <div class="h-100 position-relative">
-                                <figure>
-
-
-                                    <div class="buttons-wrap">
-
-                                        <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i]['age'] }} {{ __("Years")}}</div>
-
-                                    </div>
-                                    <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($goldAds[$i]['town']['town_name']) }}  
-                                                </div>
-                                    </div>
-                                    <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i]['id'], 'path'=>$goldAds[$i]['images'][0]['id']] )}}"> 
-                                    </div>
-                                    <div ppt-search-badges="" style="z-index:1" class="right">
-                                        <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                        <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-										@if($goldAds[$i]['user']['isVerify']== 1)
-											<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-												<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}  </div>
-										@endif
-
-                                    </div>
-
-                                    </figure>
-                                </div>
-                            </div>
-                            </a>
-                            <div class="lh-20 " style="margin-top:20px;">
-                                    <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['username' => $goldAds[$i]['user']['username'],'slug'=>$goldAds[$i]['slug']]) }}" class="text-dark">
-                                    {{ truncate($goldAds[$i]['title'],15) }}</span></a>
-                            </div>
-
-                          </div>
-                        </div>
-
-                </div>
-                @if($i+1<count($goldAds))
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                    <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                    data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                          <figure>
-
-                        <div class="buttons-wrap">
-
-                            <div class="button-new">GOLD</div>
-
-                        </div>
-                        <a href="{{ route('ads.details', ['username' => $goldAds[$i+1]['user']['username'],'slug'=>$goldAds[$i+1]['slug']]) }}">
-
-                          <div ppt-border1="" class="p-1">
-
-                            <div class="search-gradient"> </div>
-
-                            <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                <div class="text-white fs-4 text-600">
-
-                                          </div>
-                                <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($goldAds[$i+1]['title'],30) }}  
-                                </div>
-                              </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['id']] )}}">
-                                 
-                              </div>
-
-                        <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                            <div class="badge" style="color:white;background-color:black;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+1]['town']['town_name']) }}   </div>
-
-							@if($goldAds[$i+1]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-                        </div>
-
-
-                            </div>
-
-
-                          </div>
-                        </a>
-
-
-                        </figure>
-
-                        </div>
-
-
-
-                        <div class="show-mobile">
-                          <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['username' => $goldAds[$i+1]['user']['username'],'slug'=>$goldAds[$i+1]['slug']]) }}">
-
-                            <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                              <div class="h-100 position-relative">
-                                <figure>
-
-
-                                    <div class="buttons-wrap">
-
-                                        <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i+1]['age'] }} {{ __("Years")}}</div>
-
-                                    </div>
-                                    <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($goldAds[$i+1]['town']['town_name']) }}  
-                                                </div>
-                                    </div>
-                                    <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+1]['id'], 'path'=>$goldAds[$i+1]['images'][0]['id']] )}}"> 
-                                    </div>
-                                    <div ppt-search-badges="" style="z-index:1" class="right">
-                                        <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                        <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-										@if($goldAds[$i+1]['user']['isVerify']== 1)
-											<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-													<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-											</div>
-									    @endif
-                                    </div>
-
-                                    </figure>
-
-                                </div>
-                            </div>
-                            </a>
-                            <div class="lh-20 " style="margin-top:20px;">
-                                    <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['username' => $goldAds[$i+1]['user']['username'],'slug'=>$goldAds[$i+1]['slug']]) }}" class="text-dark">
-                                   {{ truncate($goldAds[$i+1]['title'],15) }}</span></a>
-                            </div>
-
-                          </div>
-                        </div>
-
-                </div>
-                @endif
-
-                @if($i+2<count($goldAds))
-                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                        <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                        data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                            <figure>
-
-                            <div class="buttons-wrap">
-
-                                <div class="button-new">GOLD</div>
-
-                            </div>
-                            <a href="{{ route('ads.details', ['username' => $goldAds[$i+2]['user']['username'],'slug'=>$goldAds[$i+2]['slug']]) }}">
-
-                            <div ppt-border1="" class="p-1">
-
-                                <div class="search-gradient"> </div>
-
-                                <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                                <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                    <div class="text-white fs-4 text-600">
-
-                                            </div>
-                                    <div class="fs-sm text-white opacity-5 text-400">
-                                    {{ truncate($goldAds[$i+2]['title'],30) }}  
-                                    </div>
-                                </div>
-                                <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['id']] )}}">
-                                     
-                                </div>
-
-                            <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                                <div class="badge" style="color:white;background-color:black;">
-                                <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+2]['town']['town_name']) }}   </div>
-
-								@if($goldAds[$i+2]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-                            </div>
-
-
-                                </div>
-
-
-                            </div>
-                            </a>
-
-
-                            </figure>
-
-                            </div>
-
-
-
-                            <div class="show-mobile">
-                            <div class="position-relative mb-3">
-                                <a href="{{ route('ads.details', ['username' => $goldAds[$i+2]['user']['username'],'slug'=>$goldAds[$i+2]['slug']]) }}">
-
-
-                                <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                                <div class="h-100 position-relative">
-                                    <figure>
-
-
-                                        <div class="buttons-wrap">
-
-                                            <div class="button-new"
-                                            style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i+2]['age'] }} {{ __("Years")}}</div>
-
-                                        </div>
-                                        <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                    <div class="fs-sm text-white  text-600">
-                                                    {{ ucfirst($goldAds[$i+2]['town']['town_name']) }}  
-                                                    </div>
-                                        </div>
-                                        <div class="bg-image z-0"
-                                        data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+2]['id'], 'path'=>$goldAds[$i+2]['images'][0]['id']] )}}"> 
-                                        </div>
-                                        <div ppt-search-badges="" style="z-index:1" class="right">
-                                            <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                            <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-											@if($goldAds[$i+2]['user']['isVerify']== 1)
-													<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-															<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-													</div>
-											@endif
-                                        </div>
-
-                                        </figure>
-
-                                    </div>
-                                </div>
-                                </a>
-                                <div class="lh-20 " style="margin-top:20px;">
-                                        <span class="text-online">•</span>
-                                        <a href="{{ route('ads.details', ['username' => $goldAds[$i+2]['user']['username'],'slug'=>$goldAds[$i+2]['slug']]) }}" class="text-dark">
-                                        {{ truncate($goldAds[$i+2]['title'],15) }}</span></a>
-                                </div>
-
-                            </div>
-                            </div>
-
-                    </div>
-                @endif
-
-                @if($i+3<count($goldAds))
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-
-                    <div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-                    data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-                          <figure>
-
-                        <div class="buttons-wrap">
-
-                            <div class="button-new">GOLD</div>
-
-                        </div>
-                        <a href="{{ route('ads.details', ['username' => $goldAds[$i+3]['user']['username'],'slug'=>$goldAds[$i+3]['slug']]) }}">
-
-
-                          <div ppt-border1="" class="p-1">
-
-                            <div class="search-gradient"> </div>
-
-                            <div class="bg-light position-relative overflow-hidden" style="height:360px;">
-                              <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-                                <div class="text-white fs-4 text-600">
-
-                                          </div>
-                                <div class="fs-sm text-white opacity-5 text-400">
-                                  {{ truncate($goldAds[$i+3]['title'],30) }}  
-                                </div>
-                              </div>
-                              <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['id']] )}}">
-                                 
-                              </div>
-
-                        <div ppt-search-badges="" style="z-index:1" class="right">
-
-
-                            <div class="badge" style="color:white;background-color:black;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> {{ ucfirst($goldAds[$i+3]['town']['town_name']) }}   </div>
-
-							@if($goldAds[$i+3]['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-                        </div>
-
-
-                            </div>
-
-
-                          </div>
-                        </a>
-
-
-                        </figure>
-
-                        </div>
-
-
-
-                        <div class="show-mobile">
-                          <div class="position-relative mb-3">
-                            <a href="{{ route('ads.details', ['username' => $goldAds[$i+3]['user']['username'],'slug'=>$goldAds[$i+3]['slug']]) }}">
-
-                            <div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-                              <div class="h-100 position-relative">
-                                <figure>
-
-
-                                    <div class="buttons-wrap">
-
-                                        <div class="button-new"
-                                        style="background-color: #DA9DDC; font-size:10px;">{{ $goldAds[$i+3]['age'] }} {{ __("Years")}}</div>
-
-                                    </div>
-                                    <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-                                                <div class="fs-sm text-white  text-600">
-                                                 {{ ucfirst($goldAds[$i+3]['town']['town_name']) }}  
-                                                </div>
-                                    </div>
-                                    <div class="bg-image z-0"
-                                    data-bg="{{ route('display.ads.image',['id'=>$goldAds[$i+3]['id'], 'path'=>$goldAds[$i+3]['images'][0]['id']] )}}"> 
-                                    </div>
-                                    <div ppt-search-badges="" style="z-index:1" class="right">
-                                        <div class="badge" style="color:#000000;background-color:#FFC300;">
-                                        <span class="fal fa fa-star" style="color:#000000"> </span> Gold  </div>
-
-										@if($goldAds[$i+3]['user']['isVerify']== 1)
-												<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-														<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-												</div>
-										@endif
-
-                                    </div>
-                                    </figure>
-
-                                </div>
-                            </div>
-                            </a>
-                            <div class="lh-20 " style="margin-top:20px;">
-                                    <span class="text-online">•</span>
-                                    <a href="{{ route('ads.details', ['username' => $goldAds[$i+3]['user']['username'],'slug'=>$goldAds[$i+3]['slug']]) }}" class="text-dark">
-                                    {{ truncate($goldAds[$i+3]['title'],15) }}</span></a>
-                            </div>
-
-                          </div>
-                        </div>
-
-                </div>
-                @endif
-
-
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-    </div>
-@endfor
+
+    @if (! session()->has('checkAge'))
+        <div id="age-gate" class="fixed inset-0 z-50 flex items-center justify-center bg-[oklch(0.2_0.02_35/0.72)] px-4">
+            <div class="w-full max-w-md bg-ink px-6 py-8 text-center text-paper" role="dialog" aria-modal="true" aria-labelledby="age-title">
+                <p id="age-title" class="text-6xl font-bold text-coral">21+</p>
+                <p class="mt-4 text-sm leading-6">
+                    {{ __('Viens-Yamo The giant of escort girls and boys') }}<br>
+                    {{ __('This site uses cookies only to analyze traffic') }}
+                </p>
+                <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+                    <a href="https://www.google.com" class="rounded-full border border-paper px-4 py-2 text-sm">{{ __('LEAVE') }}</a>
+                    <button type="button" id="age-accept" class="rounded-full bg-coral px-4 py-2 text-sm font-semibold text-paper">{{ __('I AM AT LEAST 21 YEARS OLD') }}</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('age-accept').addEventListener('click', function () {
+                var gate = document.getElementById('age-gate');
+                if (gate) gate.remove();
+                fetch('/check-age', { headers: { 'Accept': 'text/plain' }, credentials: 'same-origin' });
+            });
+        </script>
     @endif
 
-  </div>
-   <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
-      <div class="carousel-nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
-              <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM11.289,4.3,12.711,5.7l-4.3,4.344L12.7,14.289,11.3,15.711,5.586,10.063Z"/>
-          </svg>
-      </div>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
-        <div class="carousel-nav-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
-              <path d="M10,20A10,10,0,1,0,0,10,10,10,0,0,0,10,20ZM8.711,4.3l5.7,5.766L8.7,15.711,7.3,14.289l4.289-4.242L7.289,5.7Z"/>
-            </svg>
-        </div>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-@endif
-
-
-    <section data-ppt-blockid="text136"  data-ppt-blocktype="text" data-ppt-section="" class="section-40">
-
-        <div class="container py-5 text-center rounded-lg text-light" style="background-color: #ED5858;">
-
-          <div class="row">
-
-            <div class="col-md-11 col-lg-11 col-xl-11 mx-auto text-center">
-
-              <h2 class="fs-lg mb-3" data-ppt-title="" underline_color="#000"><span class="ppt-headline">
-                 {{ __("Warning")}}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
-                  <path style="stroke:#000" d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"/></svg>
-
-      </span></h2>
-
-              <p class="lead" data-ppt-subtitle="">
-                {{ __("Publications on this site are made in a decentralized manner, and automatically by anyone wanting to sell their services for adults.By using the site you accept that the owner of the site is disclaimed from all possible responsibilities.whatever the nature. If you do not agree with certain contents of this site, please leave it urgently")}}
-                </p>
-
-                      <a href="http://google.com" data-ppt-btn="" class="btn-system rounded"> {{ __("Leave Now")}}</a>
-
+    @if (count($vipAds ?? []))
+        <section class="bg-ink py-12 text-paper">
+            <div class="mx-auto max-w-6xl px-4">
+                <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{{ __('ULTRA VIP Ads') }}</h1>
+                @include('home.carousel', [
+                    'items' => $vipAds,
+                    'perSlide' => 2,
+                    'interval' => 5000,
+                    'tier' => 'vip',
+                    'cols' => 'grid-cols-2',
+                    'wrap' => 'mx-auto max-w-xl',
+                    'frame' => 'h-[190px] md:h-[360px]',
+                ])
             </div>
+        </section>
+    @endif
 
-          </div>
+    @if (isset($banners))
+        @foreach ($banners as $banner)
+            @if (($banner['position'] ?? '') === 'home_top' && (int) ($banner['status'] ?? 0) === 1)
+                <div class="mx-auto max-w-6xl px-4 py-8">
+                    <img src="{{ route('display.banner', ['id' => $banner['id']]) }}" alt="" class="w-full">
+                </div>
+            @endif
+        @endforeach
+    @endif
 
+    @if (count($goldAds ?? []))
+        <section class="mx-auto max-w-6xl px-4 py-12">
+            <div class="flex items-end justify-between gap-4">
+                <h2 class="text-3xl font-bold tracking-tight">{{ __('GOLD Ads') }}</h2>
+                <a href="{{ route('ads.list', ['membership' => 2]) }}" class="text-sm font-semibold underline decoration-coral decoration-2 underline-offset-4">{{ __('See All') }}</a>
+            </div>
+            @include('home.carousel', ['items' => $goldAds, 'perSlide' => 4, 'interval' => 10000, 'tier' => 'gold'])
+        </section>
+    @endif
+
+    @if (! count($vipAds ?? []) && ! empty($ads))
+        <section class="bg-ink py-12 text-paper">
+            <div class="mx-auto max-w-6xl px-4">
+                <div class="flex items-end justify-between gap-4">
+                    <h2 class="text-4xl font-bold tracking-tight sm:text-5xl">{{ __('ULTRA VIP Ads') }}</h2>
+                    <a href="{{ route('ads.list') }}" class="text-sm font-semibold underline decoration-coral decoration-2 underline-offset-4">{{ __('See All') }}</a>
+                </div>
+                @include('home.carousel', [
+                    'items' => array_slice($ads, 0, 8),
+                    'perSlide' => 2,
+                    'interval' => 5000,
+                    'tier' => '',
+                    'cols' => 'grid-cols-2',
+                    'wrap' => 'mx-auto max-w-xl',
+                    'frame' => 'h-[190px] md:h-[360px]',
+                ])
+            </div>
+        </section>
+    @endif
+
+    <section class="mx-auto max-w-6xl px-4">
+        <div class="bg-coral px-6 py-10 text-center text-paper sm:px-12">
+            <h2 class="text-3xl font-bold">{{ __('Warning') }}</h2>
+            <p class="mx-auto mt-4 max-w-3xl text-base leading-7">
+                {{ __('Publications on this site are made in a decentralized manner, and automatically by anyone wanting to sell their services for adults.By using the site you accept that the owner of the site is disclaimed from all possible responsibilities.whatever the nature. If you do not agree with certain contents of this site, please leave it urgently') }}
+            </p>
+            <a href="https://www.google.com" class="mt-6 inline-block rounded-full bg-ink px-5 py-2 text-sm font-semibold">{{ __('Leave Now') }}</a>
         </div>
+    </section>
 
-      </section>
+    @if (! empty($homeAds))
+        <section class="mx-auto max-w-6xl px-4 py-14">
+            <div class="flex items-end justify-between gap-4">
+                <h2 class="text-3xl font-bold tracking-tight">{{ __('Featured Ads') }}</h2>
+                <a href="{{ route('ads.list') }}" class="text-sm font-semibold underline decoration-coral decoration-2 underline-offset-4">{{ __('See All') }}</a>
+            </div>
+            <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach ($homeAds as $ad)
+                    @include('home.ad-feature', ['ad' => $ad])
+                @endforeach
+            </div>
+        </section>
+    @endif
 
-
- @if($homeAds)
-<section data-ppt-blockid="listings99" data-ppt-blocktype="listings" data-ppt-section="" class="section-old-60 section-40">
-  <div class="container">
-    <div class="row">
-          <div class="col-lg-12">
-        <div class="d-flex justify-content-between">
-          <h2 class="mb-5" data-ppt-title="">{{ __("Featured Ads")}}</h2>
-          <div>
-                        <a href="{{ route('ads.list') }}" data-ppt-btn="" data-ppt-btn-link="" class="btn-system">{{ __("See All")}}</a>
-                      </div>
+    <section class="mx-auto hidden max-w-6xl px-4 py-10 md:block">
+        <div class="flex items-center justify-between gap-6 bg-ink px-8 py-8 text-paper">
+            <h2 class="text-2xl font-bold">{{ __('Create your free account today !') }}</h2>
+            <a href="/register" class="rounded-full bg-paper px-5 py-3 text-sm font-semibold text-ink">{{ __('Register') }}</a>
         </div>
-      </div>
-    <div class="col-12">
-        <div class='row'>
-
-	@forelse($homeAds as $ad)
-
-	<div class="col-6 col-sm-6 col-md-4 col-lg-4">
-
-	<div ppt-box="" class="list-info-pop-wrap hide-mobile search-zoom rounded-lg mb-4 border-0 shadow"
-	data-pid="46" data-lat="40.70155172662101" data-long="-73.81881898377685" data-address="">
-
-		  <figure>
-
-
-
-		<div class="buttons-wrap">
-
-
-
-		<div class="button-new" style="background-color: #DA9DDC">{{ $ad['age'] }} {{ __("Years")}}</div>
-
-		</div>
-        <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
-
-
-		  <div ppt-border1="" class="p-1">
-
-			<div class="search-gradient"> </div>
-
-			<div class="bg-light position-relative overflow-hidden" style="height:360px;">
-			  <div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-				<div class="text-white fs-4 text-600">
-
-						  </div>
-				<div class="fs-sm text-white opacity-5 text-400">
-				  {{ ucfirst($ad['town']['town_name']) }}  
-				</div>
-			  </div>
-			  <div class="bg-image" data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}">
-				 
-			  </div>
-
-		<div ppt-search-badges="" style="z-index:1" class="right">
-
-
-			@if($ad['subscribe_id'] ===2)
-								<div class="badge" style="color:#000000;background-color:#FFC300;">
-								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
-                            @endif
-                            @if($ad['subscribe_id'] ===3)
-                            <div class="badge" style="color:#000000;background-color:red;color:white">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
-                        @endif
-			@if($ad['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-		</div>
-
-
-			</div>
-
-			 <div class="p-4 bg-white"  style="min-height:220px;">
-			  <div class="d-sm-flex flex-sm-column">
-				<div class="fs-6  mb-2">
-                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark _adtitle">
-            {{ truncate($ad['title'],40) }}
-
-					</a>
-
-				</div>
-
-			   <nav ppt-nav="" class="seperator pl-0 text-muted mb-3">
-
-					<ul class="list-unstyled">
-
-						<li> <span style="font-weight:bold"><i class="fa fa-map-marker"></i> </span>
-              &nbsp; {{ ucfirst($ad['quarter']['quarter_name']) }}, &nbsp;{{ ucfirst($ad['town']['town_name']) }}
-              </li>
-
-					</ul>
-					<span style="font-weight:bold">{{ __("Accepted Customer")}} :</span> {{ $ad['accepted'] }} <br>
-					<span style="font-weight:bold">{{ __("Location")}} :</span> {{ $ad['location'] }}
-
-				</nav>
-
-				<div style="min-height:60px;">
-				  <span class="shortcode_excerpt"> {{ substr($ad['description'],0,100) }}...</span>
-				</div>
-
-
-
-
-			   </div>
-
-
-			  </div>
-		  </div>
-		</a>
-
-
-		</figure>
-
-		</div>
-
-
-
-
-
-		<div class="show-mobile">
-		  <div class="position-relative mb-3">
-            <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}">
-			<div style="height:190px; width:150px; min-width:65px;" class="position-relative" ppt-border1="">
-			  <div class="h-100 position-relative">
-				<figure>
-
-
-					<div class="buttons-wrap">
-
-						<div class="button-new"
-						style="background-color: #DA9DDC; font-size:10px;">{{ $ad['age'] }} {{ __("Years")}}</div>
-
-					</div>
-					<div style="z-index: 1; bottom:10px; position: absolute;left:10px;">
-
-								<div class="fs-sm text-white  text-600">
-								 {{ ucfirst($ad['town']['town_name']) }}  
-								</div>
-					</div>
-					<div class="bg-image z-0"
-					data-bg="{{ route('display.ads.image',['id'=>$ad['id'], 'path'=>$ad['images'][0]['id']] )}}"> 
-				    </div>
-					<div ppt-search-badges="" style="z-index:1" class="right">
-								@if($ad['subscribe_id'] ===2)
-								<div class="badge" style="color:#000000;background-color:#FFC300;">
-								<span class="fal fa fa-star" style="color:#000000"> </span> GOLD </div>
-                            @endif
-                            @if($ad['subscribe_id'] ===3)
-                            <div class="badge" style="color:#000000;background-color:red;">
-                            <span class="fal fa fa-star" style="color:#000000"> </span> ULTRA VIP  </div>
-                        @endif
-
-						@if($ad['user']['isVerify']== 1)
-									<div class="badge" style="color:#FBFBFB;background-color:#ED5858;">
-											<span class="fal fa fa-check" style="color:#FBFBFB"> </span> {{ __("Verified")}}
-									</div>
-							@endif
-
-							</div>
-					</figure>
-			    </div>
-			</div>
-			</a>
-			<div class="lh-20 text-700" style="margin-top:20px;">
-					<span class="text-online">•</span>
-                    <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark">
-					{{ truncate($ad['title'],10) }}</span></a>
-			</div>
-			<div class="lh-20" style="margin-top:0px;">
-                <a href="{{ route('ads.details', ['username' => $ad['user']['username'],'slug'=>$ad['slug']]) }}" class="text-dark lh-20 text-300">
-
-						{{ truncate($ad['description'],40) }}</span></a>
-			</div>
-		  </div>
-		</div>
-
-
-
-	</div>
-
-	@empty
-	@endforelse
-
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-@endif
-
-
-<section data-ppt-blockid="text102" data-ppt-blocktype="text" data-ppt-section="" class="section-60">
-  <div class="container">
-    <div class="row  y-middle">
-      <div class="col-md-6 pr-lg-5 pe-lg-5" style="overflow: hidden; max-height:400px">
-        <img data-src="{{ asset('assets/images/nake-girl.jpg') }}"
-		class="img-fluid lazy rounded shadow-sm  mobile-mb-2" alt="image" data-ppt-image="">
-      </div>
-      <div class="col-md-6 pl-xl-5 ps-xl-5">
-
-        <h2 data-ppt-title="">{{ __("We connect you with girls and guys nearby!")}}</h2>
-
-        <p class="my-3" data-ppt-subtitle="">{{ __("Whether you're looking for a captivating evening companion, a lovely date for a special event, a qualified masseuse, or if you want to spend very exciting and pleasant moments our escort directories you offers a multitude of options to meet your desires. Your next memorable experience is just a few clicks away.")}}</p>
-
-
-                <a href="{{ route('ads.list') }}" class="btn-lg btn-primary  mt-2" data-ppt-btn="" data-ppt-btn-txt=""> {{ __("Ads")}}</a>
-
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
- <div class="bg-light ppt-page-body">
-<div class="border-bottom">
-
-<style>
-.tablist .tab { padding: 5px 15px;  }
-.tablist .tab.active { background:#111; border-radius:4px; }
-.tablist .tab.active a { color:#fff; font-weight:bold; }
-.bg-image-wrap { height:130px; width:100%; border-radius:4px; position:relative; background: #fff; border: 1px solid #ddd; }
-.bg-image-wrap .bg-image { background-size: unset; background-repeat: no-repeat;  }
-
-@media (max-width: 575.98px) {
-.bg-image-wrap { height:100px; }
-.bg-image-wrap .bg-image {
-    background-size: contain;
-
-}
-}
-</style>
-
-<script>
-
-document.getElementById("button-session").addEventListener("click", function(){
-    // SETTING checkAge
-		jQuery.ajax({
-			type: "GET",
-			dataType: 'json',
-			url: '/check-age',
-			timeout: 15000,
-			data: {
-				name: name,
-				request: 2,
-			},
-			success: function(response, statusCode) {
-				console.log('success: ' + response);
-				//console.log(response.);
-
-			},
-			error: function(response, statusCode) {
-
-				console.log(statusCode);
-				console.log(response);
-
-			},
-
-
-		});
-});
-
-
-function scrollTop(){
-	jQuery('body,html').animate({
-				scrollTop: 0
-			}, 100);
-}
-
-// function setSession(){
-//   console.log('Session');
-//   @php
-//     session(['checkAge' => 'true']);
-//   @endphp
-
-
-// }
-
-
-
-
-jQuery(document).ready(function(){
-
-scrollTop();
-  if(jQuery('#checkAge').val() == 'false'){
-
-      jQuery('#CheckAgeModal').modal({backdrop: 'static', keyboard: false});
-      jQuery('#CheckAgeModal').modal('show');
-
-  }
-
-});
-
-</script>
-</div>
-
-  
-<section data-ppt-blockid='text122' data-ppt-blocktype='text' data-ppt-section="" class="bg-primary section-40 hide-mobile">
-  <div class="container">
-    <div class="row align-items-center  text-center text-md-right">
-      <div class="col-md-8 mobile-mb-2">
-
-        <div class="text-md-left">
-
-          <h2 class="text-light m-0" data-ppt-title="">{{ __("Create your free account today !")}}</h2>
-
-       </div>
-      </div>
-      <div class="col-10 mx-auto col-md-4 text-center text-md-right">
-
-        <a href="/register" class="btn-rounded-25  font- btn-xl btn-light  mt-0  btn-icon icon-after" data-ppt-btn="" data-ppt-btn-link="">
-          <span data-ppt-btn-txt="">{{ __("Register")}}</span> <i class="fa fa-long-arrow-alt-right">&nbsp;</i> </a>
-
-      </div>
-    </div>
-  </div>
-</section>
-
- <div class="my-3 text-center">
-          @if (isset($banners))
-
-              @foreach ($banners as $banner)
-                  @if($banner['position'] == 'home_bottom' && $banner['status'] == 1)
-                      <a href='javascript:void(0)' class='samplebanneronly'>
-                        <img src="{{ route('display.banner',['id'=>$banner['id']] )}}"
-                        class='img-fluid' alt='sample banner'>
-                      </a>
-                  @endif
-              @endforeach
-
-          @endif
-
-
-      </div>
-
-
+    </section>
+
+    @if (isset($banners))
+        @foreach ($banners as $banner)
+            @if (($banner['position'] ?? '') === 'home_bottom' && (int) ($banner['status'] ?? 0) === 1)
+                <div class="mx-auto max-w-6xl px-4 pb-8">
+                    <img src="{{ route('display.banner', ['id' => $banner['id']]) }}" alt="" class="w-full">
+                </div>
+            @endif
+        @endforeach
+    @endif
+
+    <section class="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-24 md:grid-cols-2">
+        <img src="{{ asset('assets/images/nake-girl.jpg') }}" alt="" class="max-h-[28rem] w-full object-cover">
+        <div>
+            <h2 class="text-3xl font-bold tracking-tight">{{ __('We connect you with girls and guys nearby!') }}</h2>
+            <p class="mt-4 max-w-prose text-base leading-7">
+                {{ __("Whether you're looking for a captivating evening companion, a lovely date for a special event, a qualified masseuse, or if you want to spend very exciting and pleasant moments our escort directories you offers a multitude of options to meet your desires. Your next memorable experience is just a few clicks away.") }}
+            </p>
+            <a href="{{ route('ads.list') }}" class="mt-6 inline-block rounded-full bg-coral px-5 py-3 text-sm font-semibold text-paper">{{ __('Ads') }}</a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('[data-home-carousel]').forEach(function (root) {
+            var track = root.querySelector('[data-track]');
+            var slides = track ? track.children : [];
+            if (slides.length < 2) return;
+            var index = 0;
+            var timer = null;
+            var interval = parseInt(root.getAttribute('data-interval') || '5000', 10);
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function go(next) {
+                index = (next + slides.length) % slides.length;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                root.querySelectorAll('[data-dot]').forEach(function (dot, dotIndex) {
+                    dot.classList.toggle('opacity-40', dotIndex !== index);
+                });
+            }
+
+            function start() {
+                stop();
+                if (reduced) return;
+                timer = setInterval(function () { go(index + 1); }, interval);
+            }
+
+            function stop() {
+                if (timer) clearInterval(timer);
+            }
+
+            root.querySelector('[data-next]').addEventListener('click', function () { go(index + 1); start(); });
+            root.querySelector('[data-prev]').addEventListener('click', function () { go(index - 1); start(); });
+            root.querySelectorAll('[data-dot]').forEach(function (dot, dotIndex) {
+                dot.addEventListener('click', function () { go(dotIndex); start(); });
+            });
+            root.addEventListener('mouseenter', stop);
+            root.addEventListener('mouseleave', start);
+            start();
+        });
+    </script>
 @endsection
