@@ -6,8 +6,8 @@
     $href = $username !== '' ? route('ads.details', ['username' => $username, 'slug' => $ad['slug']]) : '#';
     $frame = $frame ?? 'aspect-[3/4]';
 @endphp
-<a href="{{ $href }}" class="group relative block overflow-hidden bg-ink">
-    <span class="relative block overflow-hidden bg-ink {{ $frame }}">
+<a href="{{ $href }}" class="group relative block min-w-0 overflow-hidden bg-ink">
+    <span class="relative block h-[190px] overflow-hidden bg-ink {{ $frame }}">
     @if ($image)
         <img src="{{ route('display.ads.image', ['id' => $ad['id'], 'path' => $image]) }}" alt="{{ $ad['title'] ?? '' }}" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]">
     @endif

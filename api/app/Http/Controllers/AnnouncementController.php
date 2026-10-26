@@ -8,14 +8,10 @@ use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 use App\Events\EventCheckSubscription;
 use App\Http\Resources\AnnounceResource;
 use App\Models\User;
-use App\Models\Image;
 use App\Repositories\AnnouncementRepository;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
 
 class AnnouncementController extends Controller
 {
@@ -152,43 +148,8 @@ class AnnouncementController extends Controller
 
     public function displayAdsImage($id, $path)
     {
-        $manager = new ImageManager(new Driver());
-        $imageDisplay = Image::where('path', $path)->firstOrFail();
-    
-        // 1. Chemin absolu
-        $fullPath = storage_path('app/public/ads/'.$id.'/'. $imageDisplay->path);
-    
-        // 2. Vérification physique
-        if (!file_exists($fullPath)) {
-            return response("Fichier introuvable sur Hostinger", 404);
-        }
-    
-        try {
-            // SOLUTION MIRACLE : On lit les données BINAIRES du fichier
-            // file_get_contents est souvent moins restreint que la lecture directe par une librairie
-            $imageData = file_get_contents($fullPath);
-    
-            // On donne le binaire à Intervention Image
-            $image = $manager->read($imageData);
-    
-            // --- Tes traitements v3 ---
-            $image->scale(width: 800);
-            
-            // On insère le logo
-            $logoPath = storage_path("app/public/logo.png");
-            Log::info($logoPath);
-            if (file_exists($logoPath)) {
-                
-                $logo = $manager->read(file_get_contents($logoPath));
-                $logo->scale(width: 150);
-                $image->place($logo, 'center');
-            }
-    
-            return response($image->toJpeg())->header('Content-Type', 'image/jpeg');
-    
-        } catch (\Exception $e) {
-            return "Erreur technique : " . $e->getMessage();
-        }
+        return app(\App\Http\Controllers\Api\V1\MediaController::class)
+            ->announcementImage((int) $id, (string) $path);
     }
 
     /**

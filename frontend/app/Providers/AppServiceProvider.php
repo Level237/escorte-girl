@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $appUrl = rtrim((string) config('app.url'), '/');
+        if ($appUrl !== '') {
+            config(['app.url' => $appUrl]);
+        }
+
         view()->composer('*', function ($view) {
             static $shared;
 

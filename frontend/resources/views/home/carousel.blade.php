@@ -13,7 +13,7 @@
         <div class="overflow-hidden">
             <div class="flex transition-transform duration-700 ease-out" data-track>
                 @foreach ($slides as $slide)
-                    <div class="min-w-full shrink-0 basis-full">
+                    <div class="w-full min-w-full shrink-0">
                         <div class="grid gap-3 {{ $cols }} {{ $wrap }}">
                             @foreach ($slide as $ad)
                                 @include('home.ad-photo', ['ad' => $ad, 'tier' => $tier, 'frame' => $frame])

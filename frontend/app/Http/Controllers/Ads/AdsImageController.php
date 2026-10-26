@@ -107,11 +107,19 @@ class AdsImageController extends Controller
 
     public function displayAdsImage($id, $path)
     {
-     
-        $url=(new UrlApiService())->getUrl();
-        $response = Http::get(UrlApiService::endpoint('v1/media/announcements/'.$id.'/images/'.rawurlencode($path)));
-        return $response;
-   
+        $response = Http::timeout(30)
+            ->withHeaders(['Accept' => 'image/jpeg,image/*,*/*'])
+            ->get(UrlApiService::endpoint('v1/media/announcements/'.$id.'/images/'.rawurlencode($path)));
+
+        $type = strtolower((string) $response->header('Content-Type'));
+        if (! $response->successful() || $type === '' || ! str_starts_with($type, 'image/')) {
+            abort(404);
+        }
+
+        return response($response->body(), 200, [
+            'Content-Type' => explode(';', $type)[0],
+            'Cache-Control' => 'public, max-age=86400',
+        ]);
     }
 
     public function deleteImage(Request $request){

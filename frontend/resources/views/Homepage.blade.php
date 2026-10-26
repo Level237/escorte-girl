@@ -194,11 +194,13 @@
 
             function go(next) {
                 index = (next + slides.length) % slides.length;
-                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                var width = track.parentElement ? track.parentElement.clientWidth : 0;
+                track.style.transform = 'translateX(-' + (index * width) + 'px)';
                 root.querySelectorAll('[data-dot]').forEach(function (dot, dotIndex) {
                     dot.classList.toggle('opacity-40', dotIndex !== index);
                 });
             }
+            window.addEventListener('resize', function () { go(index); });
 
             function start() {
                 stop();
