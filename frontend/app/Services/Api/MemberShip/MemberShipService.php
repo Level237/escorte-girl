@@ -110,20 +110,15 @@ class MemberShipService{
         }
     }
 
-    public function show($id){
+    public function show($id)
+    {
+        try {
+            $row = Http::acceptJson()
+                ->get(UrlApiService::endpoint('v1/memberships/'.$id))
+                ->json('data');
 
-        //Get current memberships
-        $url=(new UrlApiService())->getUrl();
-
-        try{
-            $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/memberships/'.$id));
-            $memberships = json_decode(($response));
-            //dd($memberships);
-            //return $memberships['data'];
-            return $memberships;
-
-        }
-        catch(\Exception $e){
+            return is_array($row) ? $row : null;
+        } catch (\Exception $e) {
             return null;
         }
     }

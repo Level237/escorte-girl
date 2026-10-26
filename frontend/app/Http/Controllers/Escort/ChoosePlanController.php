@@ -7,25 +7,60 @@ use App\Services\Api\MemberShip\MemberShipService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-
 class ChoosePlanController extends Controller
 {
-    public function PlanShow($id, $adsId){
+    public function PlanShow($id, $adsId)
+    {
+        $membership = (new MemberShipService())->show($id);
+        $payload = $this->payload($membership);
 
-        //dd($id, $adsId);
-        $membership=(new MemberShipService())->show($id);
-        $membershipJson =  $membership->id.'.'.$membership->membership_name.'.'.$membership->price;
-        return redirect()->route('membership.display', ['adsId'=>$adsId, 'membership'=>$membershipJson]);
+        if ($payload === null) {
+            return redirect()
+                ->route('membership.display', ['adsId' => $adsId, 'membership' => 'null'])
+                ->withErrors(['msg' => 'Abonnement introuvable.']);
+        }
+
+        return redirect()->route('membership.display', [
+            'adsId' => $adsId,
+            'membership' => $payload,
+        ]);
     }
 
-    public function PlanPremium(){
-        $membership=(new MemberShipService())->showPremium()[0];
-        //dd($membership);
-        $membershipJson =  $membership['id'].'.'.$membership['membership_name'].'.'.$membership['price'];
-        //dd($membershipJson);
-        // Session::put('price',$membership[0]['price']);
-        // Session::save();
-        // return back()->with('membership',$membership);
-        return redirect()->route('upgrade-plan', ['membership'=>$membershipJson]);
+    public function PlanPremium()
+    {
+        $memberships = (new MemberShipService())->showPremium();
+        $membership = is_array($memberships) ? ($memberships[0] ?? $memberships) : null;
+        $payload = $this->payload($membership);
+
+        if ($payload === null) {
+            return back()->withErrors(['msg' => 'Abonnement introuvable.']);
+        }
+
+        return redirect()->route('upgrade-plan', ['membership' => $payload]);
+    }
+
+    private function payload(mixed $membership): ?string
+    {
+        if (is_object($membership) && isset($membership->data)) {
+            $membership = $membership->data;
+        }
+
+        if (is_object($membership)) {
+            $membership = (array) $membership;
+        }
+
+        if (! is_array($membership)) {
+            return null;
+        }
+
+        $id = $membership['id'] ?? null;
+        $name = $membership['membership_name'] ?? ($membership['name'] ?? null);
+        $price = $membership['price'] ?? null;
+
+        if ($id === null || $name === null || $price === null) {
+            return null;
+        }
+
+        return $id.'.'.$name.'.'.$price;
     }
 }
