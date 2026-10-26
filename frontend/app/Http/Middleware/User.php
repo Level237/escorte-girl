@@ -9,19 +9,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class User
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        $currentUser=(new CurrentUserService())->currentUser();
-        $role_id=$currentUser->role_id ?? null;
-        if($role_id !==2 && $role_id!==1 && $role_id!==3){
+        $currentUser = (new CurrentUserService())->currentUser();
+        $roleId = (int) ($currentUser->role_id ?? 0);
+
+        if (! in_array($roleId, [1, 2, 3], true)) {
             return to_route('login');
-        }else{
-            return $next($request);
         }
+
+        if (! $request->session()->has('currentUser')) {
+            $request->session()->put('currentUser', $currentUser);
+        }
+
+        return $next($request);
     }
 }

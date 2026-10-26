@@ -2,44 +2,43 @@
 
 namespace App\Http\Controllers\auth;
 
-use Illuminate\Http\Request;
-use App\Services\Api\UrlApiService;
 use App\Http\Controllers\Controller;
 use App\Services\Api\CurrentUserService;
+use App\Services\Api\UrlApiService;
 use App\Services\User\UserTypeService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 
 class AutomaticLoginController extends Controller
 {
-    public function login(Request $request){
-        $url=(new UrlApiService())->getUrl();
-        $u=UrlApiService::endpoint('v1/auth/login');
-
-        try{
-            $response = Http::asForm()->post($u, [
+    public function login(Request $request)
+    {
+        $response = Http::acceptJson()
+            ->timeout(20)
+            ->post(UrlApiService::endpoint('v1/auth/login'), [
                 'phone_number' => $request->phone_number,
                 'password' => $request->password,
             ]);
 
-            if($request->session()->has('tokenUser')){
-
-                    $request->session()->forget('tokenUser');
-                }
-
-                $access_token = json_decode((string) $response->getBody(), true)['access_token'];
-                Session::put('tokenUser', $access_token);
-                Session::save();
-
-                $currentUser=(new CurrentUserService())->currentUser();
-                Session::put('currentUser', $currentUser);
-                Session::save();
-                $userType=(new UserTypeService())->checkRole($currentUser->role_id);
-                return $userType;
-        }catch(\Exception $e){
-            dd($e);
+        $accessToken = $response->json('access_token');
+        if (! $response->successful() || ! is_string($accessToken) || $accessToken === '') {
+            return to_route('login');
         }
 
-        //dd($request->phone_number, $request->password);
+        Session::forget('tokenUser');
+        Session::forget('currentUser');
+        Session::put('tokenUser', $accessToken);
+        Session::save();
+
+        $currentUser = (new CurrentUserService())->currentUser();
+        if (! $currentUser) {
+            return to_route('login');
+        }
+
+        Session::put('currentUser', $currentUser);
+        Session::save();
+
+        return (new UserTypeService())->checkRole($currentUser->role_id);
     }
 }

@@ -19,27 +19,11 @@ class DashboardCustomerController extends Controller
     public function index(){
 
             $user = Session::get('currentUser');
-            //dd($user);
-
-            //Ensuring we are having a customer
-            if($user->role_id === 3){
-
-                //Checking if the user have a membership
-                if(!$user->isSubscribe && !Session::has('membershipCheck')){
-                     
-                    Session::put('membershipCheck', 1);
-                    Session::save();
-
-                    //return to_route('upgrade-plan');
-                    return redirect()->route('upgrade-plan', ['membership'=>'null']);
-                } 
-                    
-                //Rendering customer dashboard
+            if ($user && (int) ($user->role_id ?? 0) === 3) {
                 return view('dashboard.customer.index', compact('user'));
             }
-                
-            else
-                return to_route("homepage");
+
+            return to_route("homepage");
 
     }
 

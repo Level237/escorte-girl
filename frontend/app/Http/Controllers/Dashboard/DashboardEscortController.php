@@ -21,22 +21,11 @@ class DashboardEscortController extends Controller
     public function index(){
 
             $user = Session::get('currentUser');
-            //dd($user);
-            //Ensuring we are having an escort
-            if($user->role_id === 2){
-
-                //Retrieve the escort
-
-                if($user){
-                    return view('dashboard.escort.index', compact('user'));
-                }
-                else
-                  return view('error');
-
+            if ($user && (int) ($user->role_id ?? 0) === 2) {
+                return view('dashboard.escort.index', compact('user'));
             }
-            else{
-                return to_route("homepage");
-            }
+
+            return to_route("homepage");
 
 
             //return view('dashboard.escort.index');

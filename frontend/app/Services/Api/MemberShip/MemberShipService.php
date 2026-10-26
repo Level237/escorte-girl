@@ -16,9 +16,9 @@ class MemberShipService{
 
         try{
             $response = Http::acceptJson()->get(UrlApiService::endpoint('v1/memberships'));
-            $memberships = json_decode((string) $response->getBody(), true);
-            //dd($memberships);
-            return $memberships['data'];
+            $memberships = $response->json('data');
+
+            return is_array($memberships) ? $memberships : [];
 
         }
         catch(\Exception $e){

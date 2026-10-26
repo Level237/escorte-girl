@@ -67,7 +67,7 @@ class CreateUserController extends Controller
             return response()->json(['message' => __('An unknown error occurred')], $response->status() ?: 500);
         }
 
-        $login = Http::asForm()->post(UrlApiService::endpoint('v1/auth/login'), [
+        $login = Http::acceptJson()->timeout(20)->post(UrlApiService::endpoint('v1/auth/login'), [
             'phone_number' => $data['phone_number'],
             'password' => $data['password'],
         ]);
@@ -76,12 +76,14 @@ class CreateUserController extends Controller
             Session::put('tokenUser', $login->json('access_token'));
             Session::save();
             $currentUser = (new CurrentUserService())->currentUser();
-            Session::put('currentUser', $currentUser);
-            Session::save();
+            if ($currentUser) {
+                Session::put('currentUser', $currentUser);
+                Session::save();
+            }
 
             $role = (int) ($currentUser->role_id ?? $data['role_id']);
             $redirect = $role === 2
-                ? route('show.plan', ['id' => 1, 'adsId' => null])
+                ? route('db.escort.index')
                 : route('db.customer.index');
 
             return response()->json(['ok' => true, 'redirect' => $redirect]);

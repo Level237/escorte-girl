@@ -10,10 +10,15 @@ class ProfileIsCompletedOrNotService
 {
     public function isCompletedOrNot()
     {
-        $response = Http::withToken(Session::get('tokenUser'))
-            ->acceptJson()
-            ->get(UrlApiService::endpoint('v1/me/escort'));
+        try {
+            $response = Http::withToken(Session::get('tokenUser'))
+                ->acceptJson()
+                ->timeout(15)
+                ->get(UrlApiService::endpoint('v1/me/escort'));
 
-        return (object) ['completed' => $response->successful() ? 1 : 0];
+            return (object) ['completed' => $response->successful() ? 1 : 0];
+        } catch (\Throwable $e) {
+            return (object) ['completed' => 0];
+        }
     }
 }
