@@ -16,14 +16,22 @@ use App\Services\Api\Purchase\PurchaseMembershipService;
 class PurchaseController extends Controller
 {
     public function purchaseWithCredit(Request $request){
-        $purchaseService=(new PurchaseMembershipService())->purchaseWithCredit($request->membership_id,$request->announcement_id);
-        //dd($purchaseService);
-        if($purchaseService->code===200){
+        $purchase = (new PurchaseMembershipService())->purchaseWithCredit(
+            $request->membership_id,
+            $request->announcement_id
+        );
+
+        if ($purchase->ok) {
+            $currentUser = (new CurrentUserService())->currentUser();
+            if ($currentUser) {
+                Session::put('currentUser', $currentUser);
+                Session::save();
+            }
 
             return view('membership.congrats');
-
-
         }
+
+        return view('membership.fail');
     }
 
 

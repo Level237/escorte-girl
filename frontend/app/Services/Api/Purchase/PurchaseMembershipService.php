@@ -9,15 +9,45 @@ use Illuminate\Support\Facades\Session;
 class PurchaseMembershipService{
 
     public function purchaseWithCredit($memberShip_id,$announcement_id){
+        $membershipId = (int) $memberShip_id;
+        $announcementId = (int) $announcement_id;
 
-        $url=(new UrlApiService())->getUrl();
-        $token=Session::get('tokenUser');
-        $response=Http::withToken($token)->acceptJson()->post(UrlApiService::endpoint('v1/me/announcements/'.$announcement_id.'/subscription'), [
-            'membership_id' => $memberShip_id,
-        ]);
-        $data=json_decode($response);
+        if ($membershipId < 1 || $announcementId < 1) {
+            return (object) [
+                'ok' => false,
+                'status' => 422,
+                'message' => 'Annonce ou forfait manquant.',
+            ];
+        }
 
-        return $data;
+        try {
+            $response = Http::withToken(Session::get('tokenUser'))
+                ->acceptJson()
+                ->timeout(20)
+                ->post(UrlApiService::endpoint('v1/me/announcements/'.$announcementId.'/subscription'), [
+                    'membership_id' => $membershipId,
+                ]);
+        } catch (\Throwable $e) {
+            return (object) [
+                'ok' => false,
+                'status' => 503,
+                'message' => 'Service indisponible. Réessayez.',
+            ];
+        }
+
+        $message = $response->json('message');
+        if (! is_string($message) || $message === '') {
+            $message = $response->successful()
+                ? 'Souscription réussie.'
+                : 'Souscription impossible.';
+        }
+
+        return (object) [
+            'ok' => $response->successful(),
+            'status' => $response->status(),
+            'message' => $message,
+            'data' => $response->json('data'),
+        ];
     }
 
     public function initPayment($price){
